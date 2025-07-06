@@ -1,9 +1,0 @@
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<style>
-  main {
-  }
-</style>
-
-<main>
-  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/74e41169-1945-4947-a216-a791f5da17fc/dfj6d78-d815d09b-eb81-4f08-be9c-e9f34151c5d6.png/v1/fill/w_730,h_1095,q_70,strp/cyan_orange_dreams_dystopian_scifi_future_001_by_projectai_dfj6d78-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjE0NCIsInBhdGgiOiJcL2ZcLzc0ZTQxMTY5LTE5NDUtNDk0Ny1hMjE2LWE3OTFmNWRhMTdmY1wvZGZqNmQ3OC1kODE1ZDA5Yi1lYjgxLTRmMDgtYmU5Yy1lOWYzNDE1MWM1ZDYucG5nIiwid2lkdGgiOiI8PTQwOTYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.zzK13XQxcCOkLyMiWomlfYqOz3h3t4b2qFBa4kYVREk"><br>
-</main>
