@@ -3,12 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Backpack Battles - LetsTryGG</title>
+  <title>Backpack Battles - Let's Try GG</title>
   <style>
+    :root {
+      --bg: #1c1c1e;
+      --fg: #f0f0f0;
+      --table-bg: #2a2a2e;
+      --table-header-bg: #333;
+      --hover-bg: #292929;
+      --status-complete: #4caf50;
+      --status-ongoing: #ffc107;
+    }
+
     body {
       font-family: sans-serif;
-      background-color: #1c1c1e;
-      color: #f0f0f0;
+      background-color: var(--bg);
+      color: var(--fg);
       margin: 0;
       padding: 0;
       line-height: 1.6;
@@ -24,11 +34,28 @@
       margin: auto;
       padding: 1rem;
     }
+    .theme-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .theme-tabs button {
+      background: #444;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .theme-tabs button.active {
+      background: #fff;
+      color: #111;
+    }
     .game-overview {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      background: #2a2a2e;
+      background: var(--table-bg);
       padding: 1rem;
       border-radius: 10px;
       margin-bottom: 2rem;
@@ -40,9 +67,6 @@
     }
     .game-info {
       flex: 1;
-    }
-    .game-info h1 {
-      margin-top: 0;
     }
     .playlist-button {
       display: inline-block;
@@ -57,6 +81,8 @@
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 2rem;
+      background: var(--table-bg);
+      border-radius: 8px;
     }
     th, td {
       padding: 0.75rem;
@@ -64,20 +90,27 @@
       border-bottom: 1px solid #444;
     }
     th {
-      background: #333;
+      background: var(--table-header-bg);
     }
     tr:hover {
-      background-color: #292929;
+      background-color: var(--hover-bg);
     }
-    .status-complete { color: #4caf50; }
-    .status-ongoing { color: #ffc107; }
+    .status-complete { color: var(--status-complete); }
+    .status-ongoing { color: var(--status-ongoing); }
   </style>
 </head>
 <body>
   <header>
-    <h1>LetsTryGG - Backpack Battles</h1>
+    <h1>Let's Try GG - Backpack Battles</h1>
   </header>
   <div class="container">
+    <div class="theme-tabs">
+      <button onclick="setTheme('dark')" class="active">Dark</button>
+      <button onclick="setTheme('light')">Light</button>
+      <button onclick="setTheme('synth')">Synthwave</button>
+      <button onclick="setTheme('earth')">Earth</button>
+    </div>
+
     <section class="game-overview">
       <img src="images/backpack-battles-thumb.jpg" alt="Backpack Battles Thumbnail">
       <div class="game-info">
@@ -102,31 +135,31 @@
         </thead>
         <tbody>
           <tr>
-            <td><a href="#">Season 1</a></td>
+            <td>Season 1</td>
             <td>96</td>
             <td>68:08:14</td>
             <td class="status-complete">✅ Complete</td>
           </tr>
           <tr>
-            <td><a href="#">Season 2</a></td>
+            <td>Season 2</td>
             <td>252</td>
             <td>262:20:55</td>
             <td class="status-complete">✅ Complete</td>
           </tr>
           <tr>
-            <td><a href="#">Season 3</a></td>
+            <td>Season 3</td>
             <td>159</td>
             <td>154:51:39</td>
             <td class="status-complete">✅ Complete</td>
           </tr>
           <tr>
-            <td><a href="#">Season 4</a></td>
+            <td>Season 4</td>
             <td>180</td>
             <td>175:02:54</td>
             <td class="status-complete">✅ Complete</td>
           </tr>
           <tr>
-            <td><a href="#">Season 5</a></td>
+            <td>Season 5</td>
             <td>34</td>
             <td>45:27:28</td>
             <td class="status-ongoing">🔄 Ongoing</td>
@@ -134,18 +167,51 @@
         </tbody>
       </table>
     </section>
-
-    <section class="notes">
-      <h2>Highlights & Viewer Tips</h2>
-      <ul>
-        <li><strong>Placeholder:</strong> Work in Progress.</li>
-        <li><strong>Placeholder:</strong> Work in Progress.</li>
-        <li><strong>Placeholder:</strong> Work in Progress.</li>
-      </ul>
-    </section>
   </div>
+
   <footer>
     <p>&copy; 2025 Let's Try GG | <a href="/index.html" style="color:#fff">Back to Home</a></p>
   </footer>
+
+  <script>
+    function setTheme(name) {
+      document.querySelectorAll('.theme-tabs button').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      const root = document.documentElement;
+      if (name === 'light') {
+        root.style.setProperty('--bg', '#f9f9f9');
+        root.style.setProperty('--fg', '#111');
+        root.style.setProperty('--table-bg', '#ffffff');
+        root.style.setProperty('--table-header-bg', '#efefef');
+        root.style.setProperty('--hover-bg', '#f1f1f1');
+        root.style.setProperty('--status-complete', '#2e7d32');
+        root.style.setProperty('--status-ongoing', '#d84315');
+      } else if (name === 'synth') {
+        root.style.setProperty('--bg', '#121212');
+        root.style.setProperty('--fg', '#e0e0e0');
+        root.style.setProperty('--table-bg', '#1f1f2e');
+        root.style.setProperty('--table-header-bg', '#2a2a3d');
+        root.style.setProperty('--hover-bg', '#2c2c3c');
+        root.style.setProperty('--status-complete', '#50fa7b');
+        root.style.setProperty('--status-ongoing', '#f1fa8c');
+      } else if (name === 'earth') {
+        root.style.setProperty('--bg', '#f3f1e7');
+        root.style.setProperty('--fg', '#3a2e1f');
+        root.style.setProperty('--table-bg', '#fffaf3');
+        root.style.setProperty('--table-header-bg', '#e0d1b2');
+        root.style.setProperty('--hover-bg', '#f0e8d8');
+        root.style.setProperty('--status-complete', '#5c8a45');
+        root.style.setProperty('--status-ongoing', '#c76c2a');
+      } else {
+        root.style.setProperty('--bg', '#1c1c1e');
+        root.style.setProperty('--fg', '#f0f0f0');
+        root.style.setProperty('--table-bg', '#2a2a2e');
+        root.style.setProperty('--table-header-bg', '#333');
+        root.style.setProperty('--hover-bg', '#292929');
+        root.style.setProperty('--status-complete', '#4caf50');
+        root.style.setProperty('--status-ongoing', '#ffc107');
+      }
+    }
+  </script>
 </body>
 </html>
