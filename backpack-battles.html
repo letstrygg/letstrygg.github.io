@@ -86,15 +86,29 @@
       border-radius: 8px;
     }
 
+  :root {
+    --link: #1e90ff; /* default theme (dark) */
+  }
+
+  body.light {
+    --link: #0066cc;
+  }
+  body.synth {
+    --link: #8be9fd;
+  }
+  body.earth {
+    --link: #3a5f5f;
+  }
+
   table a {
-    color: var(--fg);
-    text-decoration: underline dotted;
+    color: var(--link);
+    text-decoration: underline;
     font-weight: bold;
     cursor: pointer;
   }
   table a:hover {
     text-decoration: underline;
-    color: var(--status-ongoing);
+    opacity: 0.85;
   }
 
     th, td {
