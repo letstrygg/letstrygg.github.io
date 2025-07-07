@@ -1,0 +1,285 @@
+body {
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+  color: #030404;
+  padding: 0px;
+  spacing: 0px;
+  margin: 0px;
+  height: 100%;
+}
+main {
+  min-height: calc(100vh - 262px); /* adjust 60px to the height of your footer */
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Define the diagonal gradient background for the header */
+header {
+  background: linear-gradient(to bottom right, #141516, #172326);
+  padding: 20px;
+  position: relative;
+  height: 120px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Style the logo to float to the left */
+header img {
+  float: left;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  vertical-align: center;
+  padding: 15px 15px 10px 10px;
+}
+
+/* Style the title to be all lowercase, bold and white */
+header h1 {
+  color: #ffffff;
+  font-size: 42px;
+  margin: 0;
+  text-transform: lowercase;
+  font-weight: 900;
+  font-family: Muli, sans-serif;
+}
+
+/* Style the subtitle to be all uppercase, thin and in green */
+header h2 {
+  color: #39e991;
+  font-size: 14px;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 1;
+  font-family: Quicksand, sans-serif;
+  letter-spacing: 10px;
+}
+h2 strong {
+  padding-left: 0.25em;
+  font-size: 18px;
+  display: block;
+  letter-spacing: 4px;
+  font-weight: 600;
+   line-height: 2em;
+  opacity: 0.4;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 40px;
+  font-weight: 300;
+}
+
+
+h3 strong {
+  display: block;
+  letter-spacing: 4px;
+  font-weight: 600;
+   line-height: 2em;
+  font-size: 90%;
+  opacity: 0.4;
+  text-transform: uppercase;
+}
+
+
+/* Style the menu bar with a sans-serif font and a different design */
+nav {
+  background: #030404;
+  padding: 10px 10px 10px 20px;
+  font-family: sans-serif;
+  position: sticky;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 40px;
+}
+
+nav a {
+  color: #fff;
+  position: relative;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+nav a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  -ms-transform: translateX(-50%); /* IE */
+  -webkit-transform: translateX(-50%); /* Chrome, Safari, Opera */
+  transform: translateX(-50%); /* Standard syntax */
+  width: 0%;
+  height: 4px;
+  background-color: #39e991;
+  transform-origin: center;
+  -ms-transition: width 0.3s ease-in-out; /* IE */
+  -webkit-transition: width 0.3s ease-in-out; /* Chrome, Safari, Opera */
+  transition: width 0.3s ease-in-out; /* Standard syntax */
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+footer {
+  background: linear-gradient(to bottom right, #172326, #141516);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  text-align: left;
+  padding: 1px 20px 1px 20px;
+  height: 60px;
+  width: calc(100% - 40px);
+}
+
+a {
+  color: #39e991;
+  text-decoration: none;
+    font-weight: bold;
+}
+
+.title a {
+  color: #fff;
+}
+
+/* Screenshot container styles */
+.screenshot-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.screenshot-container img {
+    width: calc(33.33% - 10px);
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.screenshot-container img:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  header {
+    background: linear-gradient(to bottom right, #141516, #172326);
+    position: relative;
+    height: 90px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  /* Style the logo to float to the left */
+  header img {
+    float: left;
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    vertical-align: center;
+    padding: 10px 10px 10px 0px;
+  }
+
+  /* Style the title to be all lowercase, bold and white */
+  header h1 {
+    color: #ffffff;
+    font-size: 28px;
+    margin: 0;
+    text-transform: lowercase;
+    font-weight: 900;
+    font-family: Muli, sans-serif;
+  }
+
+  /* Style the subtitle to be all uppercase, thin and in green */
+  header h2 {
+    color: #39e991;
+    font-size: 14px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 1;
+    font-family: Quicksand, sans-serif;
+    letter-spacing: 6px;
+  }
+
+}
+
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+.video-grid-item {
+  position: relative;
+  overflow: hidden;
+  width: calc(33.33% - 20px); /* Adjusted for a bit of spacing between items */
+  margin: 10px; /* Add spacing between items */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+.video-grid-item:hover .overlay {
+  opacity: 1;
+}
+
+/* ... rest of the CSS ... */
+
+
+.series-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.play-button {
+  /* Adjust size and styling for the play button container */
+}
+
+.youtube-logo {
+  width: 20px; /* Adjust the size of the YouTube logo */
+  height: auto;
+}
+
+.series-info {
+  padding: 10px;
+  /* Add styling for the series information as needed */
+}
+
+/* Add other styling for the link as needed */

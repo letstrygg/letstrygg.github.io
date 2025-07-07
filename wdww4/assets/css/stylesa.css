@@ -1,0 +1,88 @@
+/* stylesa.css */
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: #f0f4f7; /* Light teal background */
+    color: #333;
+}
+
+/* Header styles */
+header {
+    background-color: #512da8; /* Dark purple */
+    padding: 10px;
+    color: #fff;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 40px; /* Adjust the width of the logo */
+    margin-right: 10px;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+/* Section styles */
+section {
+    margin-bottom: 30px;
+    background-color: #fff; /* White background for sections */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+/* Link styles */
+a {
+    color: #00bcd4; /* Teal link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Screenshot container styles */
+.screenshot-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.screenshot-container img {
+    width: calc(33.33% - 10px);
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.screenshot-container img:hover {
+    transform: scale(1.02);
+}
+
+/* Footer styles */
+footer {
+    background-color: #512da8; /* Dark purple */
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}
