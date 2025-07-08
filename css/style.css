@@ -1,0 +1,137 @@
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #222;
+    }
+    h2 {
+      margin-top: 2.5rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.3rem;
+    }
+    ul {
+      padding-left: 1rem;
+    }
+    li {
+      margin-bottom: 0.4rem;
+    }
+    .sublist {
+      padding-left: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .series-title {
+      font-weight: bold;
+    }
+    a {
+      color: #4787b5;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+
+
+
+
+  table.series-clean {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    border-spacing: 0;
+  }
+
+  table.series-clean th,
+  table.series-clean td {
+    padding: 8px 14px;
+    border-bottom: 1px solid #ededed;
+    text-align: right; /* Default to right */
+  }
+
+  table.series-clean th:first-child,
+  table.series-clean td:first-child {
+    text-align: left; /* Series column left-aligned */
+  }
+
+  .table-labels th {
+    font-weight: 600;
+    background-color: transparent;
+    border-bottom: 1px solid #ddd;
+    cursor: default;
+  }
+
+  .game-header th {
+    font-weight: 600;
+    background-color: #dcf1ff;
+    font-size: 1em;
+    text-align: left;
+    padding: 4px 14px !important;
+  }
+
+  .game-header a {
+    color: #0068c1;
+  }
+
+  .status-ongoing-row {
+    background-color: #f4fff4;
+    font-weight: 600;
+  }
+
+  .status-ongoing-row a {
+    color: #0095ff;
+  }
+
+  .series-total-row {
+    font-weight: 600;
+    background-color: #f7f7f7;
+    color: 8f8f8f;
+  }
+
+  .series-total-row td {
+    padding: 4px 14px !important;
+  }
+
+  .spacer-row td {
+    background-color: transparent;
+    border: none;
+    height: 12px;
+    padding: 4px 0 !important;
+    cursor: default;
+  }
+
+  .status-label {
+    font-weight: 500;
+  }
+
+  .status-in-progress-text {
+    color: #42c558;
+  }
+
+  .status-ongoing-text {
+    color: #42c558;
+  }
+
+  .status-complete-text {
+    color: #41a6ff;
+  }
+
+  .status-paused-text {
+    color: #c49b00;
+  }
+
+  .status-abandoned-text {
+    color: #d32f2f;
+  }
+
+  .status-upcoming-text {
+    color: #8e24aa;
+  }
