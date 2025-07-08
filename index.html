@@ -47,52 +47,48 @@
     }
 
 
-  table.series-table {
+  table.series-clean {
     width: 100%;
     max-width: 800px;
     border-collapse: collapse;
     margin-bottom: 40px;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    border-spacing: 0;
   }
 
-  table.series-table th, table.series-table td {
-    border: 1px solid #ddd;
+  table.series-clean th, table.series-clean td {
     padding: 10px 14px;
     text-align: left;
+    border-bottom: 1px solid #e0e0e0;
   }
 
-  table.series-table thead th {
-    background-color: #f5f5f5;
-    color: #333;
-    font-size: 1.1em;
-    text-align: left;
-  }
-
-  table.series-table tfoot td {
-    font-weight: bold;
+  table.series-clean thead th {
+    font-weight: 600;
     background-color: #fafafa;
+    font-size: 1em;
   }
 
-  table.series-table tr:hover {
-    background-color: #f0f8ff;
+  table.series-clean tfoot td {
+    font-weight: 600;
+    background-color: #fcfcfc;
+  }
+
+  table.series-clean tr:hover {
+    background-color: #f9f9f9;
     cursor: pointer;
   }
 
   .status-label {
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 4px;
+    font-weight: 500;
   }
 
-  .status-in-progress,
-  .status-ongoing-row {
-    background-color: #e8fbe8 !important;
-  }
-
-  .status-in-progress-text,
-  .status-ongoing-text {
+  .status-in-progress-text {
     color: #2e7d32;
+  }
+
+  .status-ongoing-row {
+    background-color: #f4fff4;
   }
 
   .status-complete-text {
@@ -111,12 +107,12 @@
     color: #8e24aa;
   }
 
-  /* Make full row clickable */
   .clickable-row {
     text-decoration: none;
     color: inherit;
     display: table-row;
   }
+</style>
   </style>
 </head>
 <body>
@@ -137,7 +133,7 @@
 
   <h2>🎮 Long Playthroughs</h2>
 
-<table class="series-table">
+<table class="series-clean">
   <thead>
     <tr><th colspan="4"><a href="/backpack-battles">Backpack Battles</a></th></tr>
     <tr>
@@ -153,7 +149,7 @@
         <td>Season 5</td>
         <td>34</td>
         <td>45:27:28</td>
-        <td><span class="status-label status-in-progress-text">In Progress</span></td>
+        <td><span class="status-label status-in-progress-text">✅ In Progress</span></td>
       </tr>
     </a>
     <a class="clickable-row" href="https://www.youtube.com/watch?v=bgPvebk1WZs&list=PLkwYKQUqZEUWh0v_ENyaOuXEnctTRyIqu">
@@ -161,7 +157,7 @@
         <td>Season 4</td>
         <td>180</td>
         <td>175:02:54</td>
-        <td><span class="status-label status-complete-text">Complete</span></td>
+        <td><span class="status-label status-complete-text">✅ Complete</span></td>
       </tr>
     </a>
     <a class="clickable-row" href="https://www.youtube.com/watch?v=wKnlXjIzi8Q&list=PLkwYKQUqZEUV1kAyA-2YaoXlbtIFrv5VF">
@@ -169,7 +165,7 @@
         <td>Season 3</td>
         <td>159</td>
         <td>154:51:39</td>
-        <td><span class="status-label status-complete-text">Complete</span></td>
+        <td><span class="status-label status-complete-text">✅ Complete</span></td>
       </tr>
     </a>
     <a class="clickable-row" href="https://www.youtube.com/watch?v=43DjglP8I1U&list=PLkwYKQUqZEUWFCPYwrY7LKFC72vQpcPGa">
@@ -177,7 +173,7 @@
         <td>Season 2</td>
         <td>252</td>
         <td>262:20:55</td>
-        <td><span class="status-label status-complete-text">Complete</span></td>
+        <td><span class="status-label status-complete-text">✅ Complete</span></td>
       </tr>
     </a>
     <a class="clickable-row" href="https://www.youtube.com/watch?v=FXYapsbD85k&list=PLkwYKQUqZEUUfYYNHskSd_zYQZgGrER6i">
@@ -185,7 +181,7 @@
         <td>Season 1</td>
         <td>96</td>
         <td>68:08:14</td>
-        <td><span class="status-label status-complete-text">Complete</span></td>
+        <td><span class="status-label status-complete-text">✅ Complete</span></td>
       </tr>
     </a>
   </tbody>
@@ -194,14 +190,12 @@
       <td>Total</td>
       <td>721</td>
       <td>705hr 51m 10s</td>
-      <td><span class="status-label status-ongoing-text">Ongoing</span></td>
+      <td><span class="status-label status-in-progress-text">✅ Ongoing</span></td>
     </tr>
   </tfoot>
 </table>
 
-
-
-<table class="series-table">
+<table class="series-clean">
   <thead>
     <tr><th colspan="5"><a href="/creeper-world">Creeper World</a></th></tr>
     <tr>
@@ -219,7 +213,7 @@
         <td>98</td>
         <td>156:29:47</td>
         <td>Jul 4, 2025</td>
-        <td><span class="status-label status-in-progress-text">In Progress</span></td>
+        <td><span class="status-label status-in-progress-text">✅ In Progress</span></td>
       </tr>
     </a>
     <a class="clickable-row" href="#">
@@ -228,7 +222,7 @@
         <td>21</td>
         <td>31:00:27</td>
         <td>Jun 2, 2025</td>
-        <td><span class="status-label status-complete-text">Complete</span></td>
+        <td><span class="status-label status-complete-text">✅ Complete</span></td>
       </tr>
     </a>
   </tbody>
@@ -238,7 +232,7 @@
       <td>119</td>
       <td>187hrs 30m 14s</td>
       <td></td>
-      <td><span class="status-label status-ongoing-text">Ongoing</span></td>
+      <td><span class="status-label status-in-progress-text">✅ Ongoing</span></td>
     </tr>
   </tfoot>
 </table>
