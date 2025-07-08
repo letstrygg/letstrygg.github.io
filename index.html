@@ -60,47 +60,56 @@
     border-spacing: 0;
   }
 
-  table.series-clean th, table.series-clean td {
+  table.series-clean th,
+  table.series-clean td {
     padding: 10px 14px;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
   }
 
-  /* Column headers */
-  table.series-clean thead tr th {
+  /* 1. Table Labels (Series | Episodes | Duration | Status) */
+  .table-labels {
     font-weight: 600;
-    font-size: 1em;
+    background-color: transparent;
+    border-bottom: 2px solid #ddd;
+    cursor: default;
   }
 
-  /* Series title rows (simulated section headers) */
-  table.series-clean tr > th[colspan] {
+  /* 2. Game Header Row (e.g. Backpack Battles) */
+  .game-header th {
     font-weight: 600;
-    background-color: #a7bdc7;
+    background-color: #fafafa;
     font-size: 1em;
     text-align: left;
     transition: background-color 0.2s ease;
   }
 
-  /* Series totals (simulated footers) */
-  .series-total-row {
-    font-weight: 600;
-    background-color: #e5e5e5;
+  .game-header:hover th {
+    background-color: #f0f0f0;
+  }
+
+  /* 3. Ongoing series row */
+  .status-ongoing-row {
+    background-color: #f4fff4;
     transition: background-color 0.2s ease;
   }
 
-  /* Hover effects */
-  table.series-clean tr:hover {
+  .status-ongoing-row:hover {
+    background-color: #e3f6e3;
+    cursor: pointer;
+  }
+
+  /* 4. Playlist rows (default clickable rows) */
+  .series-clean tr:hover {
     background-color: #f9f9f9;
     cursor: pointer;
   }
 
-  table.series-clean tr.status-ongoing-row:hover {
-    background-color: #e3f6e3 !important;
-  }
-
-  table.series-clean tr > th[colspan]:hover {
-    background-color: #a1b7c1;
-    cursor: default;
+  /* 5. Total rows (for each game block) */
+  .series-total-row {
+    font-weight: 600;
+    background-color: #fcfcfc;
+    transition: background-color 0.2s ease;
   }
 
   .series-total-row:hover {
@@ -108,7 +117,16 @@
     cursor: default;
   }
 
-  /* Status colors */
+  /* 6. Spacer row */
+  .spacer-row td {
+    background-color: transparent;
+    border: none;
+    height: 20px;
+    padding: 0;
+    cursor: default;
+  }
+
+  /* Status Colors */
   .status-label {
     font-weight: 500;
   }
@@ -137,21 +155,43 @@
     color: #8e24aa;
   }
 
-  .status-ongoing-row {
-    background-color: #f4fff4;
-  }
-
+  /* Make full row a clickable link */
   .clickable-row {
     text-decoration: none;
     color: inherit;
     display: table-row;
   }
-</style>
   </style>
 </head>
 <body>
   <h1>Letstrygg</h1>
   <p>Longform, uncut YouTube gameplay series – for strategy lovers, background-watchers, and fans of flow-state content. Browse current and past playthroughs below.</p>
+<table>
+<thead>
+  <tr class="table-labels">
+    <th>Series</th>
+    <th>Episodes</th>
+    <th>Duration</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+  <tr class="game-header"><th colspan="4"><a href="/backpack-battles">Backpack Battles</a></th></tr>
+
+  <!-- Playlist rows -->
+  <a class="clickable-row" href="..."><tr class="status-ongoing-row">...</tr></a>
+  <a class="clickable-row" href="..."><tr>...</tr></a>
+
+  <!-- Total -->
+  <tr class="series-total-row">...</tr>
+
+  <!-- Spacer -->
+  <tr class="spacer-row"><td colspan="4"></td></tr>
+
+  <tr class="game-header"><th colspan="4"><a href="/creeper-world">Creeper World</a></th></tr>
+  <!-- ... -->
+</tbody>
+</table>
 
   <h2>Upcoming Playthroughs</h2>
   <ul>
