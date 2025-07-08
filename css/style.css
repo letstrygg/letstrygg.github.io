@@ -116,6 +116,14 @@
     cursor: default;
   }
 
+  .game-title {
+    font-weight: 500;
+  }
+
+  .game-title a {
+    color: #0095ff;
+  }
+
   .status-label {
     font-weight: 500;
   }
