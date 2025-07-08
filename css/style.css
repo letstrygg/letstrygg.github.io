@@ -89,6 +89,11 @@
     color: #0068c1;
   }
 
+  .status-paused-row {
+    background-color: #fff4f4;
+    font-weight: 600;
+  }
+
   .status-ongoing-row {
     background-color: #f4fff4;
     font-weight: 600;
