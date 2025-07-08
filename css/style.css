@@ -121,7 +121,7 @@
   }
 
   .game-title a {
-    color: #0095ff;
+    color: #0095ff !important;
   }
 
   .status-label {
