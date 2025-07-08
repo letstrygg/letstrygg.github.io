@@ -47,6 +47,9 @@
     }
 
 
+
+
+
   table.series-clean {
     width: 100%;
     max-width: 800px;
@@ -67,16 +70,27 @@
     font-weight: 600;
     background-color: #fafafa;
     font-size: 1em;
+    transition: background-color 0.2s ease;
   }
 
   table.series-clean tfoot td {
     font-weight: 600;
     background-color: #fcfcfc;
+    transition: background-color 0.2s ease;
+  }
+
+  table.series-clean thead tr:hover th,
+  table.series-clean tfoot tr:hover td {
+    background-color: #f0f0f0;
   }
 
   table.series-clean tr:hover {
     background-color: #f9f9f9;
     cursor: pointer;
+  }
+
+  table.series-clean .status-ongoing-row:hover {
+    background-color: #e3f6e3 !important;
   }
 
   .status-label {
@@ -87,8 +101,8 @@
     color: #2e7d32;
   }
 
-  .status-ongoing-row {
-    background-color: #f4fff4;
+  .status-ongoing-text {
+    color: #2e7d32;
   }
 
   .status-complete-text {
@@ -105,6 +119,10 @@
 
   .status-upcoming-text {
     color: #8e24aa;
+  }
+
+  .status-ongoing-row {
+    background-color: #f4fff4;
   }
 
   .clickable-row {
@@ -190,19 +208,18 @@
       <td>Total</td>
       <td>721</td>
       <td>705hr 51m 10s</td>
-      <td><span class="status-label status-in-progress-text">✅ Ongoing</span></td>
+      <td><span class="status-label status-ongoing-text">🟢 Ongoing</span></td>
     </tr>
   </tfoot>
 </table>
 
 <table class="series-clean">
   <thead>
-    <tr><th colspan="5"><a href="/creeper-world">Creeper World</a></th></tr>
+    <tr><th colspan="4"><a href="/creeper-world">Creeper World</a></th></tr>
     <tr>
       <th>Series</th>
       <th>Episodes</th>
       <th>Duration</th>
-      <th>Last Update</th>
       <th>Status</th>
     </tr>
   </thead>
@@ -212,7 +229,6 @@
         <td>Creeper World 3 CSM</td>
         <td>98</td>
         <td>156:29:47</td>
-        <td>Jul 4, 2025</td>
         <td><span class="status-label status-in-progress-text">✅ In Progress</span></td>
       </tr>
     </a>
@@ -221,7 +237,6 @@
         <td>Creeper World IXE</td>
         <td>21</td>
         <td>31:00:27</td>
-        <td>Jun 2, 2025</td>
         <td><span class="status-label status-complete-text">✅ Complete</span></td>
       </tr>
     </a>
@@ -231,8 +246,7 @@
       <td>Total</td>
       <td>119</td>
       <td>187hrs 30m 14s</td>
-      <td></td>
-      <td><span class="status-label status-in-progress-text">✅ Ongoing</span></td>
+      <td><span class="status-label status-ongoing-text">🟢 Ongoing</span></td>
     </tr>
   </tfoot>
 </table>
