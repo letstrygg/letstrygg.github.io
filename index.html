@@ -50,6 +50,7 @@
 
 
 
+<style>
   table.series-clean {
     width: 100%;
     max-width: 800px;
@@ -67,7 +68,7 @@
     border-bottom: 1px solid #e0e0e0;
   }
 
-  /* 1. Table Labels */
+  /* ===== 1. Label Row (top row) ===== */
   .table-labels {
     font-weight: 600;
     background-color: transparent;
@@ -76,16 +77,16 @@
   }
 
   .table-labels:hover {
-    background-color: transparent;
+    background-color: transparent !important;
   }
 
-  /* 2. Game Headers */
+  /* ===== 2. Game Header Row ===== */
   .game-header th {
     font-weight: 600;
     background-color: #fafafa;
     font-size: 1em;
     text-align: left;
-    padding: 6px 14px;
+    padding: 6px 14px; /* Reduced vertical padding */
     transition: background-color 0.2s ease;
   }
 
@@ -93,24 +94,24 @@
     background-color: #f0f0f0;
   }
 
-  /* 3. Ongoing Series Row */
+  /* ===== 3. Ongoing Row (highlight green on hover) ===== */
   .status-ongoing-row {
     background-color: #f4fff4;
     transition: background-color 0.2s ease;
   }
 
   .status-ongoing-row:hover {
-    background-color: #d9f2d9;
+    background-color: #d6f2d6 !important;
     cursor: pointer;
   }
 
-  /* 4. Playlist Rows */
-  table.series-clean tr:hover {
+  /* ===== 4. Regular Playlist Rows ===== */
+  .series-clean tr:hover:not(.table-labels):not(.game-header):not(.spacer-row):not(.status-ongoing-row):not(.series-total-row) {
     background-color: #f9f9f9;
     cursor: pointer;
   }
 
-  /* 5. Total Row */
+  /* ===== 5. Totals ===== */
   .series-total-row {
     font-weight: 600;
     background-color: #fcfcfc;
@@ -122,17 +123,17 @@
     cursor: default;
   }
 
-  /* 6. Spacer Row */
+  /* ===== 6. Spacer Row ===== */
   .spacer-row td {
-    background-color: transparent;
+    background-color: transparent !important;
     border: none;
     height: 12px;
     padding: 4px 0;
     cursor: default;
   }
 
-  .spacer-row:hover {
-    background-color: transparent;
+  .spacer-row:hover td {
+    background-color: transparent !important;
   }
 
   /* Status Text Colors */
@@ -164,12 +165,14 @@
     color: #8e24aa;
   }
 
-  /* Entire row clickable */
+  /* Entire row as a link */
   .clickable-row {
     text-decoration: none;
     color: inherit;
     display: table-row;
   }
+</style>
+
   </style>
 </head>
 <body>
