@@ -61,7 +61,7 @@
   table.series-clean th,
   table.series-clean td {
     padding: 8px 14px;
-    border-bottom: 1px solid #ededed;
+    border-bottom: 1px solid #f1f1f1;
     text-align: right; /* Default to right */
   }
 
