@@ -67,7 +67,7 @@
     border-bottom: 1px solid #e0e0e0;
   }
 
-  /* 1. Table Labels (Series | Episodes | Duration | Status) */
+  /* 1. Table Labels */
   .table-labels {
     font-weight: 600;
     background-color: transparent;
@@ -75,12 +75,17 @@
     cursor: default;
   }
 
-  /* 2. Game Header Row (e.g. Backpack Battles) */
+  .table-labels:hover {
+    background-color: transparent;
+  }
+
+  /* 2. Game Headers */
   .game-header th {
     font-weight: 600;
     background-color: #fafafa;
     font-size: 1em;
     text-align: left;
+    padding: 6px 14px;
     transition: background-color 0.2s ease;
   }
 
@@ -88,24 +93,24 @@
     background-color: #f0f0f0;
   }
 
-  /* 3. Ongoing series row */
+  /* 3. Ongoing Series Row */
   .status-ongoing-row {
     background-color: #f4fff4;
     transition: background-color 0.2s ease;
   }
 
   .status-ongoing-row:hover {
-    background-color: #e3f6e3;
+    background-color: #d9f2d9;
     cursor: pointer;
   }
 
-  /* 4. Playlist rows (default clickable rows) */
-  .series-clean tr:hover {
+  /* 4. Playlist Rows */
+  table.series-clean tr:hover {
     background-color: #f9f9f9;
     cursor: pointer;
   }
 
-  /* 5. Total rows (for each game block) */
+  /* 5. Total Row */
   .series-total-row {
     font-weight: 600;
     background-color: #fcfcfc;
@@ -117,16 +122,20 @@
     cursor: default;
   }
 
-  /* 6. Spacer row */
+  /* 6. Spacer Row */
   .spacer-row td {
     background-color: transparent;
     border: none;
-    height: 20px;
-    padding: 0;
+    height: 12px;
+    padding: 4px 0;
     cursor: default;
   }
 
-  /* Status Colors */
+  .spacer-row:hover {
+    background-color: transparent;
+  }
+
+  /* Status Text Colors */
   .status-label {
     font-weight: 500;
   }
@@ -155,7 +164,7 @@
     color: #8e24aa;
   }
 
-  /* Make full row a clickable link */
+  /* Entire row clickable */
   .clickable-row {
     text-decoration: none;
     color: inherit;
@@ -192,7 +201,7 @@
   </thead>
   <tbody>
 
-    <!-- Game Header: Backpack Battles -->
+    <!-- Game Header -->
     <tr class="game-header"><th colspan="4"><a href="/backpack-battles">Backpack Battles</a></th></tr>
 
     <!-- Series Rows -->
@@ -242,13 +251,13 @@
       <td>Total</td>
       <td>721</td>
       <td>705hr 51m 10s</td>
-      <td><span class="status-label status-ongoing-text">🟢 Ongoing</span></td>
+      <td></td>
     </tr>
 
     <!-- Spacer -->
     <tr class="spacer-row"><td colspan="4"></td></tr>
 
-    <!-- Game Header: Creeper World -->
+    <!-- Game Header -->
     <tr class="game-header"><th colspan="4"><a href="/creeper-world">Creeper World</a></th></tr>
 
     <!-- Series Rows -->
@@ -274,11 +283,12 @@
       <td>Total</td>
       <td>119</td>
       <td>187hrs 30m 14s</td>
-      <td><span class="status-label status-ongoing-text">🟢 Ongoing</span></td>
+      <td></td>
     </tr>
 
   </tbody>
 </table>
+
 
 
 
