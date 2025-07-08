@@ -13,7 +13,10 @@
   }
 }
 
-    h1, h2, h3 {
+    h1 {
+      color: #c6ffff;
+    }
+    h2, h3 {
       color: #222;
     }
     h2 {
