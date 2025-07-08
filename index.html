@@ -50,6 +50,7 @@
 
 
 
+<style>
   table.series-clean {
     width: 100%;
     max-width: 800px;
@@ -67,35 +68,38 @@
     border-bottom: 1px solid #e0e0e0;
   }
 
-  /* Table Labels (top row: Series | Episodes | Duration | Status) */
+  /* Right-align specific columns */
+  table.series-clean td:nth-child(2),
+  table.series-clean th:nth-child(2),
+  table.series-clean td:nth-child(3),
+  table.series-clean th:nth-child(3) {
+    text-align: right;
+  }
+
   .table-labels {
     font-weight: 600;
     background-color: transparent;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
     cursor: default;
   }
 
-  /* Game Header Row (e.g. Backpack Battles) */
   .game-header th {
     font-weight: 600;
     background-color: #fafafa;
     font-size: 1em;
     text-align: left;
-    padding: 6px 14px; /* Reduced vertical padding */
+    padding: 6px 14px;
   }
 
-  /* Ongoing Series Row */
   .status-ongoing-row {
     background-color: #f4fff4;
   }
 
-  /* Total Row */
   .series-total-row {
     font-weight: 600;
     background-color: #fcfcfc;
   }
 
-  /* Spacer Row */
   .spacer-row td {
     background-color: transparent;
     border: none;
@@ -104,7 +108,6 @@
     cursor: default;
   }
 
-  /* Status Label Colors */
   .status-label {
     font-weight: 500;
   }
@@ -133,12 +136,13 @@
     color: #8e24aa;
   }
 
-  /* Full-row link behavior */
   .clickable-row {
     text-decoration: none;
     color: inherit;
     display: table-row;
   }
+</style>
+
   </style>
 </head>
 <body>
@@ -173,7 +177,6 @@
     <!-- Game Header -->
     <tr class="game-header"><th colspan="4"><a href="/backpack-battles">Backpack Battles</a></th></tr>
 
-    <!-- Series Rows -->
     <a class="clickable-row" href="https://www.youtube.com/watch?v=OPeJuXBuL_U&list=PLkwYKQUqZEUULd6ugIhkS_s77D5XVgb7O">
       <tr class="status-ongoing-row">
         <td>Season 5</td>
@@ -215,7 +218,6 @@
       </tr>
     </a>
 
-    <!-- Total Row -->
     <tr class="series-total-row">
       <td>Total</td>
       <td>721</td>
@@ -223,13 +225,10 @@
       <td></td>
     </tr>
 
-    <!-- Spacer -->
     <tr class="spacer-row"><td colspan="4"></td></tr>
 
-    <!-- Game Header -->
     <tr class="game-header"><th colspan="4"><a href="/creeper-world">Creeper World</a></th></tr>
 
-    <!-- Series Rows -->
     <a class="clickable-row" href="https://letstrygg.com/creeper-world-3-csm">
       <tr class="status-ongoing-row">
         <td>Creeper World 3 CSM</td>
@@ -247,7 +246,6 @@
       </tr>
     </a>
 
-    <!-- Total Row -->
     <tr class="series-total-row">
       <td>Total</td>
       <td>119</td>
@@ -257,6 +255,7 @@
 
   </tbody>
 </table>
+
 
 
 
