@@ -45,6 +45,53 @@
     a:hover {
       text-decoration: underline;
     }
+
+
+  table.series-table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-family: Arial, sans-serif;
+  }
+
+  table.series-table th, table.series-table td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+  }
+
+  table.series-table thead th {
+    background-color: #333;
+    color: white;
+    font-size: 1.2em;
+  }
+
+  table.series-table tfoot td {
+    font-weight: bold;
+    background-color: #f0f0f0;
+  }
+
+  .status-in-progress, .status-ongoing {
+    background-color: #d4f7d4;
+    font-weight: bold;
+  }
+
+  .status-complete {
+    background-color: #d7eaff;
+  }
+
+  .status-paused {
+    background-color: #fffacc;
+  }
+
+  .status-abandoned {
+    background-color: #ffdada;
+  }
+
+  .status-upcoming {
+    background-color: #eedcff;
+  }
   </style>
 </head>
 <body>
@@ -65,7 +112,7 @@
 
   <h2>🎮 Long Playthroughs</h2>
 
-<table border="1" cellspacing="0" cellpadding="5">
+<table class="series-table">
   <thead>
     <tr><th colspan="4"><a href="/backpack-battles">Backpack Battles</a></th></tr>
     <tr>
@@ -76,50 +123,48 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><a href="https://www.youtube.com/watch?v=FXYapsbD85k&list=PLkwYKQUqZEUUfYYNHskSd_zYQZgGrER6i">Season 1</a></td>
-      <td>96</td>
-      <td>68:08:14</td>
-      <td>Complete</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.youtube.com/watch?v=43DjglP8I1U&list=PLkwYKQUqZEUWFCPYwrY7LKFC72vQpcPGa">Season 2</a></td>
-      <td>252</td>
-      <td>262:20:55</td>
-      <td>Complete</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.youtube.com/watch?v=wKnlXjIzi8Q&list=PLkwYKQUqZEUV1kAyA-2YaoXlbtIFrv5VF">Season 3</a></td>
-      <td>159</td>
-      <td>154:51:39</td>
-      <td>Complete</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.youtube.com/watch?v=bgPvebk1WZs&list=PLkwYKQUqZEUWh0v_ENyaOuXEnctTRyIqu">Season 4</a></td>
-      <td>180</td>
-      <td>175:02:54</td>
-      <td>Complete</td>
-    </tr>
-    <tr style="background-color: #d4f7d4;">
+    <tr class="status-in-progress">
       <td><a href="https://www.youtube.com/watch?v=OPeJuXBuL_U&list=PLkwYKQUqZEUULd6ugIhkS_s77D5XVgb7O">Season 5</a></td>
       <td>34</td>
       <td>45:27:28</td>
       <td>In Progress</td>
     </tr>
+    <tr class="status-complete">
+      <td><a href="https://www.youtube.com/watch?v=bgPvebk1WZs&list=PLkwYKQUqZEUWh0v_ENyaOuXEnctTRyIqu">Season 4</a></td>
+      <td>180</td>
+      <td>175:02:54</td>
+      <td>Complete</td>
+    </tr>
+    <tr class="status-complete">
+      <td><a href="https://www.youtube.com/watch?v=wKnlXjIzi8Q&list=PLkwYKQUqZEUV1kAyA-2YaoXlbtIFrv5VF">Season 3</a></td>
+      <td>159</td>
+      <td>154:51:39</td>
+      <td>Complete</td>
+    </tr>
+    <tr class="status-complete">
+      <td><a href="https://www.youtube.com/watch?v=43DjglP8I1U&list=PLkwYKQUqZEUWFCPYwrY7LKFC72vQpcPGa">Season 2</a></td>
+      <td>252</td>
+      <td>262:20:55</td>
+      <td>Complete</td>
+    </tr>
+    <tr class="status-complete">
+      <td><a href="https://www.youtube.com/watch?v=FXYapsbD85k&list=PLkwYKQUqZEUUfYYNHskSd_zYQZgGrER6i">Season 1</a></td>
+      <td>96</td>
+      <td>68:08:14</td>
+      <td>Complete</td>
+    </tr>
   </tbody>
   <tfoot>
     <tr>
-      <td><strong>Total</strong></td>
-      <td><strong>721</strong></td>
-      <td><strong>705hr 51m 10s</strong></td>
-      <td><strong>Ongoing</strong></td>
+      <td>Total</td>
+      <td>721</td>
+      <td>705hr 51m 10s</td>
+      <td class="status-ongoing">Ongoing</td>
     </tr>
   </tfoot>
 </table>
 
-<br>
-
-<table border="1" cellspacing="0" cellpadding="5">
+<table class="series-table">
   <thead>
     <tr><th colspan="5"><a href="/creeper-world">Creeper World</a></th></tr>
     <tr>
@@ -131,14 +176,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr style="background-color: #d4f7d4;">
+    <tr class="status-in-progress">
       <td><a href="https://letstrygg.com/creeper-world-3-csm">Creeper World 3 CSM</a></td>
       <td>98</td>
       <td>156:29:47</td>
       <td>Jul 4, 2025</td>
       <td>In Progress</td>
     </tr>
-    <tr>
+    <tr class="status-complete">
       <td><a href="#">Creeper World IXE</a></td>
       <td>21</td>
       <td>31:00:27</td>
@@ -148,11 +193,11 @@
   </tbody>
   <tfoot>
     <tr>
-      <td><strong>Total</strong></td>
-      <td><strong>119</strong></td>
-      <td><strong>187hrs 30m 14s</strong></td>
+      <td>Total</td>
+      <td>119</td>
+      <td>187hrs 30m 14s</td>
       <td></td>
-      <td><strong>Ongoing</strong></td>
+      <td class="status-ongoing">Ongoing</td>
     </tr>
   </tfoot>
 </table>
