@@ -9,7 +9,7 @@
 
 @media (min-width: 1000px) {
   body {
-    margin: 2rem 0 2rem 4rem; /* top, right, bottom, left */
+    margin: 2rem auto; /* top, right, bottom, left */
   }
 }
 
