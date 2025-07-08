@@ -67,7 +67,7 @@
     border-bottom: 1px solid #e0e0e0;
   }
 
-  /* 1. Table Labels */
+  /* Table Labels (top row: Series | Episodes | Duration | Status) */
   .table-labels {
     font-weight: 600;
     background-color: transparent;
@@ -75,54 +75,27 @@
     cursor: default;
   }
 
-  .table-labels:hover {
-    background-color: transparent;
-  }
-
-  /* 2. Game Headers */
+  /* Game Header Row (e.g. Backpack Battles) */
   .game-header th {
     font-weight: 600;
     background-color: #fafafa;
     font-size: 1em;
     text-align: left;
-    padding: 6px 14px;
-    transition: background-color 0.2s ease;
+    padding: 6px 14px; /* Reduced vertical padding */
   }
 
-  .game-header:hover th {
-    background-color: #f0f0f0;
-  }
-
-  /* 3. Ongoing Series Row */
+  /* Ongoing Series Row */
   .status-ongoing-row {
     background-color: #f4fff4;
-    transition: background-color 0.2s ease;
   }
 
-  .status-ongoing-row:hover {
-    background-color: #d9f2d9;
-    cursor: pointer;
-  }
-
-  /* 4. Playlist Rows */
-  table.series-clean tr:hover {
-    background-color: #f9f9f9;
-    cursor: pointer;
-  }
-
-  /* 5. Total Row */
+  /* Total Row */
   .series-total-row {
     font-weight: 600;
     background-color: #fcfcfc;
-    transition: background-color 0.2s ease;
   }
 
-  .series-total-row:hover {
-    background-color: #f0f0f0;
-    cursor: default;
-  }
-
-  /* 6. Spacer Row */
+  /* Spacer Row */
   .spacer-row td {
     background-color: transparent;
     border: none;
@@ -131,11 +104,7 @@
     cursor: default;
   }
 
-  .spacer-row:hover {
-    background-color: transparent;
-  }
-
-  /* Status Text Colors */
+  /* Status Label Colors */
   .status-label {
     font-weight: 500;
   }
@@ -164,7 +133,7 @@
     color: #8e24aa;
   }
 
-  /* Entire row clickable */
+  /* Full-row link behavior */
   .clickable-row {
     text-decoration: none;
     color: inherit;
