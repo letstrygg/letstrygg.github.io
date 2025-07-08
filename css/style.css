@@ -6,6 +6,13 @@
       line-height: 1.6;
       color: #333;
     }
+
+@media (min-width: 1000px) {
+  body {
+    margin: 2rem 0 2rem 4rem; /* top, right, bottom, left */
+  }
+}
+
     h1, h2, h3 {
       color: #222;
     }
