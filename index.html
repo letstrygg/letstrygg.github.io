@@ -63,24 +63,19 @@
   table.series-clean th,
   table.series-clean td {
     padding: 10px 14px;
-    text-align: left;
     border-bottom: 1px solid #e0e0e0;
+    text-align: right; /* Default to right */
   }
 
-  /* Right-align specific columns */
-  table.series-clean td:nth-child(2),
-  table.series-clean th:nth-child(2),
-  table.series-clean td:nth-child(3),
-  table.series-clean th:nth-child(3),
-  table.series-clean td:nth-child(4),
-  table.series-clean th:nth-child(4) {
-    text-align: right;
+  table.series-clean th:first-child,
+  table.series-clean td:first-child {
+    text-align: left; /* Series column left-aligned */
   }
 
   .table-labels {
     font-weight: 600;
     background-color: transparent;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
     cursor: default;
   }
 
@@ -142,7 +137,6 @@
     color: inherit;
     display: table-row;
   }
-
   </style>
 </head>
 <body>
