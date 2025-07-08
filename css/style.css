@@ -99,8 +99,9 @@
   }
 
   .series-total-row {
+    font-weight: 400;
     background-color: #f7f7f7;
-    color: 8f8f8f;
+    color: #8f8f8f;
   }
 
   .series-total-row td {
