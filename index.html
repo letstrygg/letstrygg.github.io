@@ -66,33 +66,50 @@
     border-bottom: 1px solid #e0e0e0;
   }
 
-  table.series-clean thead th {
+  /* Column headers */
+  table.series-clean thead tr th {
     font-weight: 600;
     background-color: #fafafa;
     font-size: 1em;
+  }
+
+  /* Series title rows (simulated section headers) */
+  table.series-clean tr > th[colspan] {
+    font-weight: 600;
+    background-color: #fafafa;
+    font-size: 1em;
+    text-align: left;
     transition: background-color 0.2s ease;
   }
 
-  table.series-clean tfoot td {
+  /* Series totals (simulated footers) */
+  .series-total-row {
     font-weight: 600;
     background-color: #fcfcfc;
     transition: background-color 0.2s ease;
   }
 
-  table.series-clean thead tr:hover th,
-  table.series-clean tfoot tr:hover td {
-    background-color: #f0f0f0;
-  }
-
+  /* Hover effects */
   table.series-clean tr:hover {
     background-color: #f9f9f9;
     cursor: pointer;
   }
 
-  table.series-clean .status-ongoing-row:hover {
+  table.series-clean tr.status-ongoing-row:hover {
     background-color: #e3f6e3 !important;
   }
 
+  table.series-clean tr > th[colspan]:hover {
+    background-color: #f0f0f0;
+    cursor: default;
+  }
+
+  .series-total-row:hover {
+    background-color: #f0f0f0;
+    cursor: default;
+  }
+
+  /* Status colors */
   .status-label {
     font-weight: 500;
   }
