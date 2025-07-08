@@ -166,32 +166,6 @@
 <body>
   <h1>Letstrygg</h1>
   <p>Longform, uncut YouTube gameplay series – for strategy lovers, background-watchers, and fans of flow-state content. Browse current and past playthroughs below.</p>
-<table>
-<thead>
-  <tr class="table-labels">
-    <th>Series</th>
-    <th>Episodes</th>
-    <th>Duration</th>
-    <th>Status</th>
-  </tr>
-</thead>
-<tbody>
-  <tr class="game-header"><th colspan="4"><a href="/backpack-battles">Backpack Battles</a></th></tr>
-
-  <!-- Playlist rows -->
-  <a class="clickable-row" href="..."><tr class="status-ongoing-row">...</tr></a>
-  <a class="clickable-row" href="..."><tr>...</tr></a>
-
-  <!-- Total -->
-  <tr class="series-total-row">...</tr>
-
-  <!-- Spacer -->
-  <tr class="spacer-row"><td colspan="4"></td></tr>
-
-  <tr class="game-header"><th colspan="4"><a href="/creeper-world">Creeper World</a></th></tr>
-  <!-- ... -->
-</tbody>
-</table>
 
   <h2>Upcoming Playthroughs</h2>
   <ul>
@@ -209,7 +183,7 @@
 
 <table class="series-clean">
   <thead>
-    <tr>
+    <tr class="table-labels">
       <th>Series</th>
       <th>Episodes</th>
       <th>Duration</th>
@@ -217,10 +191,11 @@
     </tr>
   </thead>
   <tbody>
-    <!-- Backpack Battles Header -->
-    <tr><th colspan="4"><a href="/backpack-battles">Backpack Battles</a></th></tr>
 
-    <!-- Backpack Battles Rows -->
+    <!-- Game Header: Backpack Battles -->
+    <tr class="game-header"><th colspan="4"><a href="/backpack-battles">Backpack Battles</a></th></tr>
+
+    <!-- Series Rows -->
     <a class="clickable-row" href="https://www.youtube.com/watch?v=OPeJuXBuL_U&list=PLkwYKQUqZEUULd6ugIhkS_s77D5XVgb7O">
       <tr class="status-ongoing-row">
         <td>Season 5</td>
@@ -262,21 +237,21 @@
       </tr>
     </a>
 
-    <!-- Backpack Battles Total -->
+    <!-- Total Row -->
     <tr class="series-total-row">
       <td>Total</td>
       <td>721</td>
       <td>705hr 51m 10s</td>
-      <td></td>
+      <td><span class="status-label status-ongoing-text">🟢 Ongoing</span></td>
     </tr>
 
-    <!-- Spacer Row -->
-    <tr><td colspan="4" style="background: transparent;"></td></tr>
+    <!-- Spacer -->
+    <tr class="spacer-row"><td colspan="4"></td></tr>
 
-    <!-- Creeper World Header -->
-    <tr><th colspan="4"><a href="/creeper-world">Creeper World</a></th></tr>
+    <!-- Game Header: Creeper World -->
+    <tr class="game-header"><th colspan="4"><a href="/creeper-world">Creeper World</a></th></tr>
 
-    <!-- Creeper World Rows -->
+    <!-- Series Rows -->
     <a class="clickable-row" href="https://letstrygg.com/creeper-world-3-csm">
       <tr class="status-ongoing-row">
         <td>Creeper World 3 CSM</td>
@@ -294,15 +269,17 @@
       </tr>
     </a>
 
-    <!-- Creeper World Total -->
+    <!-- Total Row -->
     <tr class="series-total-row">
       <td>Total</td>
       <td>119</td>
       <td>187hrs 30m 14s</td>
-      <td></td>
+      <td><span class="status-label status-ongoing-text">🟢 Ongoing</span></td>
     </tr>
+
   </tbody>
 </table>
+
 
 
   <ul>
