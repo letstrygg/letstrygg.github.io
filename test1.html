@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Group Log</title>
+  <style>
+    body {
+      background-color: #1a0f0f;
+      color: #fff;
+      font-family: "Segoe UI", sans-serif;
+      padding: 2rem;
+    }
+
+    .log-entry {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .arrow {
+      font-weight: bold;
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .added .arrow {
+      color: #00c853; /* green */
+    }
+
+    .removed .arrow {
+      color: #d50000; /* red */
+    }
+
+    .timestamp {
+      color: #aaa;
+      font-size: 0.85rem;
+      margin-left: 0.5rem;
+    }
+
+    b {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="log-entry added">
+    <span class="arrow">➜</span>
+    <span><b>Username123</b> added <b>NewMember</b> to the group.<span class="timestamp">5/22/2025 3:45 PM</span></span>
+  </div>
+
+  <div class="log-entry removed">
+    <span class="arrow">➜</span>
+    <span><b>Username123</b> removed <b>OldMember</b> from the group.<span class="timestamp">5/22/2025 3:45 PM</span></span>
+  </div>
+
+</body>
+</html>
