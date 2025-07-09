@@ -13,9 +13,10 @@
 
     .log-entry {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       margin-bottom: 0.5rem;
       font-size: 1rem;
+      line-height: 1.4;
     }
 
     .arrow {
@@ -32,14 +33,20 @@
       color: #d50000; /* red */
     }
 
-    .timestamp {
-      color: #aaa;
-      font-size: 0.85rem;
-      margin-left: 0.5rem;
+    .log-text {
+      color: #ccc;
+      font-weight: 400;
     }
 
-    b {
-      font-weight: bold;
+    .log-text b {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .timestamp {
+      color: #999;
+      font-size: 0.85rem;
+      margin-left: 0.25rem;
     }
   </style>
 </head>
@@ -47,12 +54,18 @@
 
   <div class="log-entry added">
     <span class="arrow">➜</span>
-    <span><b>Username123</b> added <b>NewMember</b> to the group.<span class="timestamp">5/22/2025 3:45 PM</span></span>
+    <span class="log-text">
+      <b>Username123</b> added <b>NewMember</b> to the group.
+      <span class="timestamp">5/22/2025 3:45 PM</span>
+    </span>
   </div>
 
   <div class="log-entry removed">
     <span class="arrow">➜</span>
-    <span><b>Username123</b> removed <b>OldMember</b> from the group.<span class="timestamp">5/22/2025 3:45 PM</span></span>
+    <span class="log-text">
+      <b>Username123</b> removed <b>OldMember</b> from the group.
+      <span class="timestamp">5/22/2025 3:45 PM</span>
+    </span>
   </div>
 
 </body>
