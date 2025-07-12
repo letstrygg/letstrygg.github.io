@@ -65,7 +65,7 @@ table.series-clean td {
   text-align: right;
 }
 
-.left {
+td.left {
   text-align: left;
 }
 
