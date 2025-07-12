@@ -58,26 +58,34 @@ table.series-clean {
   border: 1px solid #ccc; /* Darker outer border */
 }
 
-  table.series-clean th,
-  table.series-clean td {
-    padding: 8px 14px;
-    border-bottom: 1px solid #f1f1f1;
-    text-align: right; /* Default to right */
-  }
+table.series-clean th,
+table.series-clean td {
+  padding: 8px 14px;
+  border: 1px solid #f1f1f1; /* Light inner lines */
+  text-align: right;
+}
 
-  table.series-clean th:first-child,
-  table.series-clean td:first-child {
-    text-align: left; /* Series column left-aligned */
-  }
+/* Left-align first column */
+table.series-clean th:first-child,
+table.series-clean td:first-child {
+  text-align: left;
+}
 
-  .series-clean thead th {
-    border: 1px solid #f1f1f1;
-  }
-  .series-clean tbody td,
-  .series-clean tbody th {
-    border-left: 1px solid #f1f1f1;
-    border-right: 1px solid #f1f1f1;
-  }
+/* Remove inner border on outermost cells so table border is visible */
+table.series-clean tr:first-child th {
+  border-top: none;
+}
+table.series-clean tr:last-child td {
+  border-bottom: none;
+}
+table.series-clean tr td:first-child,
+table.series-clean tr th:first-child {
+  border-left: none;
+}
+table.series-clean tr td:last-child,
+table.series-clean tr th:last-child {
+  border-right: none;
+}
 
   .table-labels th {
     font-weight: 600;
