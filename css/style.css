@@ -82,6 +82,9 @@ table.series-clean tr td:first-child,
 table.series-clean tr th:first-child {
   border-left: none;
 }
+table.series-clean td[rowspan] {
+  border-left: none;
+}
 table.series-clean tr td:last-child,
 table.series-clean tr th:last-child {
   border-right: none;
