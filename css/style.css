@@ -65,9 +65,7 @@ table.series-clean td {
   text-align: right;
 }
 
-/* Left-align first column */
-table.series-clean th:first-child,
-table.series-clean td:first-child {
+.left {
   text-align: left;
 }
 
