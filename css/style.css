@@ -131,14 +131,6 @@ table.series-clean td[rowspan] {
     padding: 0px 14px !important;
   }
 
-  .spacer-row td {
-    background-color: transparent;
-    border: none;
-    height: 12px;
-    padding: 4px 0 !important;
-    cursor: default;
-  }
-
   .game-title {
     font-weight: 500;
   }
