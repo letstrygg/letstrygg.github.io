@@ -83,7 +83,7 @@ table.series-clean tr th:first-child {
   border-left: none;
 }
 table.series-clean td[rowspan] {
-  border-left: none;
+  border-bottom: none;
 }
 table.series-clean tr td:last-child,
 table.series-clean tr th:last-child {
