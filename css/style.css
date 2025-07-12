@@ -71,7 +71,7 @@ td.left, th.left {
 }
 
 /* Remove inner border on outermost cells so table border is visible */
-table.series-clean tr:first-child tr {
+table.series-clean tr:first-child td {
   border-top: none;
 }
 
