@@ -58,7 +58,7 @@ table.series-clean {
   font-size: 15px;
   border-top: 1px solid #292929; /* Darker outer border */
   border-bottom: 1px solid #292929; /* Darker outer border */
-  margin: 5px 0px 0px 0px;
+  margin: 10px 0px 0px 0px;
   background-color: #222222;
 }
 
@@ -114,8 +114,7 @@ table.series-clean td[rowspan] {
     font-weight: 600;
   }
   .status-ongoing {
-border-top: 5px solid #00ff00;
-    background-color: #113311;
+    border-top: 2px solid #8dff8d !important;
   }
 
   .status-ongoing-row a {
