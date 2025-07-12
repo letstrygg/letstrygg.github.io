@@ -59,6 +59,7 @@ table.series-clean {
   border-top: 1px solid #474747; /* Darker outer border */
   border-bottom: 1px solid #474747; /* Darker outer border */
   margin: 5px 0px 0px 0px;
+  background-color: #222222;
 }
 
 table.series-clean th,
