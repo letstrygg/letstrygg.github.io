@@ -88,8 +88,8 @@ table.series-clean td[rowspan] {
 
   .table-labels th {
     font-weight: 600;
-    background-color: transparent !important;
-    border-bottom: 1px solid #ddd;
+    background-color: #111111 !important;
+    border: 1px solid #111111 !important;
     cursor: default;
   }
 
