@@ -122,8 +122,8 @@ table.series-clean td[rowspan] {
 
   .series-total-row {
     font-weight: 400;
-    background-color: #f7f7f7;
-    color: #8f8f8f;
+    background-color: #1f1f35;
+    color: #818181;
   }
 
   .series-total-row td {
