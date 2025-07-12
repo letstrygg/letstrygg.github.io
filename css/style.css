@@ -112,7 +112,7 @@ table.series-clean td[rowspan] {
     font-weight: 600;
   }
   .status-ongoing {
-    background-color: #f4fff4;
+    background-color: #003500;
   }
 
   .status-ongoing-row a {
