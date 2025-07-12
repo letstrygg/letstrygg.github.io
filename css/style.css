@@ -64,7 +64,7 @@ table.series-clean {
 table.series-clean th,
 table.series-clean td {
   padding: 8px 14px;
-  border: 1px solid #f1f1f1; /* Light inner lines */
+  border: 1px solid #2b2b2b; /* Light inner lines */
   text-align: right;
 }
 
