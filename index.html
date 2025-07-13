@@ -13,7 +13,11 @@
   <h1 class="site-title">letstrygg.com</h1>
   <p class="site-tagline">Old School Let's Plays — Incremental & Idle Games — New Games & Demos</p>
 </header>
-<button id="theme-toggle" aria-label="Toggle light/dark theme">Toggle Theme</button>
+
+<button id="theme-toggle" aria-label="Toggle light/dark theme" class="theme-toggle" title="Toggle theme">
+  <span class="icon">🌙</span>
+</button>
+
 <!-- Dungeon Warfare 3-->
 <table class="series-clean"><colgroup><col class="col-game"><col class="col-playlist"><col class="col-episodes"><col class="col-duration"><col class="col-status"></colgroup>
   <tbody>
@@ -409,16 +413,21 @@
 
 <script>
   const toggleBtn = document.getElementById('theme-toggle');
+  const icon = toggleBtn.querySelector('.icon');
   const body = document.body;
 
-  // Apply saved theme on load
+  // Apply saved theme
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+  if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
     body.classList.add('light-theme');
+    icon.textContent = '🌞';
   }
 
   toggleBtn.addEventListener('click', () => {
     const isLight = body.classList.toggle('light-theme');
+    icon.textContent = isLight ? '🌞' : '🌙';
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
   });
 </script>
