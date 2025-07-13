@@ -129,6 +129,11 @@ table.series-clean td[rowspan] {
     color: #333333;
     padding: 2px 20px !important;
   }
+  .status-paused-title {
+    background-color: #5aff76;
+    color: #333333;
+    padding: 2px 20px !important;
+  }
 
   .status-ongoing-row a {
     color: #19a0ff;
