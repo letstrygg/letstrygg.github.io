@@ -142,7 +142,7 @@ table.series-clean td[rowspan] {
 }
 
 .status-in-progress-title:hover {
-  background-color: #4caf50; /* brighter green */
+  background-color: #42d347; /* brighter green */
 }
 
 .status-paused-title {
