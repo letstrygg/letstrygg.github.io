@@ -119,6 +119,9 @@ table.series-clean td[rowspan] {
   .status-upcoming {
     border-top: 2px solid #f1a6ff !important;
   }
+  .status-upcoming-title {
+    background-color: #431e40;
+  }
 
   .status-ongoing-row a {
     color: #19a0ff;
