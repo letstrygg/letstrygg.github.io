@@ -14,9 +14,7 @@
   <p class="site-tagline">Old School Let's Plays — Incremental & Idle Games — New Games & Demos</p>
 </header>
 
-<button id="theme-toggle" aria-label="Toggle light/dark theme" class="theme-toggle" title="Toggle theme">
-  <span class="icon">🌙</span>
-</button>
+<span id="theme-toggle" style="cursor: pointer;" title="Toggle theme">🌙</span>
 
 <!-- Dungeon Warfare 3-->
 <table class="series-clean"><colgroup><col class="col-game"><col class="col-playlist"><col class="col-episodes"><col class="col-duration"><col class="col-status"></colgroup>
@@ -412,23 +410,26 @@
 
 
 <script>
-  const toggleBtn = document.getElementById('theme-toggle');
-  const icon = toggleBtn.querySelector('.icon');
+  const toggle = document.getElementById('theme-toggle');
   const body = document.body;
 
-  // Apply saved theme
+  // Set icon based on saved or default theme
   const savedTheme = localStorage.getItem('theme');
   const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
+  const applyTheme = (isLight) => {
+    body.classList.toggle('light-theme', isLight);
+    toggle.textContent = isLight ? '🌞' : '🌙';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  };
+
   if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
-    body.classList.add('light-theme');
-    icon.textContent = '🌞';
+    applyTheme(true);
   }
 
-  toggleBtn.addEventListener('click', () => {
-    const isLight = body.classList.toggle('light-theme');
-    icon.textContent = isLight ? '🌞' : '🌙';
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  toggle.addEventListener('click', () => {
+    const isNowLight = !body.classList.contains('light-theme');
+    applyTheme(isNowLight);
   });
 </script>
 </body>
