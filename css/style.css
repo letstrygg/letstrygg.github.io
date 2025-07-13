@@ -123,6 +123,10 @@ table.series-clean td[rowspan] {
     background-color: #7f427a;
     color: #111111;
     padding: 2px 20px !important;
+    transition: background-color 0.2s ease;
+  }
+  .status-upcoming-title:hover {
+    background-color: #4caf50; /* brighter green */
   }
   .status-in-progress-title {
     background-color: #3f6946;
