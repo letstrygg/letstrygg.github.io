@@ -122,12 +122,12 @@ table.series-clean td[rowspan] {
   .status-upcoming-title {
     background-color: #ff5ff2;
     color: #333333;
-    padding: 2px 20px;
+    padding: 2px 20px !important;
   }
   .status-in-progress-title {
     background-color: #ff5ff2;
     color: #333333;
-    padding: 2px 20px;
+    padding: 2px 20px !important;
   }
 
   .status-ongoing-row a {
