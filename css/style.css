@@ -58,7 +58,6 @@ table.series-clean {
   font-size: 15px;
   border-top: 1px solid #292929; /* Darker outer border */
   border-bottom: 1px solid #292929; /* Darker outer border */
-  margin: 12px 0px 0px 0px;
   background-color: #222222;
 }
 
@@ -128,8 +127,8 @@ table.series-clean td[rowspan] {
 
   .series-total-row {
     font-weight: 400;
-    background-color: #0b9aff;
-    color: #111111;
+    background-color: #161616;
+    color: #6b6b6b;
   }
 
   .series-total-row td {
