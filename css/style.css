@@ -56,14 +56,14 @@ table.series-clean {
   margin-bottom: 0px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 15px;
-  border-bottom: 1px solid #292929; /* Darker outer border */
+  border-bottom: 1px solid #181818; /* Darker outer border */
   background-color: #222222;
 }
 
 table.series-clean th,
 table.series-clean td {
   padding: 8px 14px;
-  border: 1px solid #111111; /* Light inner lines */
+  border: 1px solid #181818; /* Light inner lines */
   text-align: right;
 }
 
