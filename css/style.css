@@ -119,25 +119,44 @@ table.series-clean td[rowspan] {
   .status-upcoming {
     border-top: 2px solid #f1a6ff !important;
   }
-  .status-upcoming-title {
-    background-color: #7f427a;
-    color: #111111;
-    padding: 2px 20px !important;
-    transition: background-color 0.2s ease;
-  }
-  .status-upcoming-title:hover {
-    background-color: #4caf50; /* brighter green */
-  }
-  .status-in-progress-title {
-    background-color: #3f6946;
-    color: #111111;
-    padding: 2px 20px !important;
-  }
-  .status-paused-title {
-    background-color: #85653e;
-    color: #111111;
-    padding: 2px 20px !important;
-  }
+
+
+
+
+.status-upcoming-title {
+  background-color: #7f427a; /* dim purple */
+  color: #111111;
+  padding: 2px 20px !important;
+  transition: background-color 0.2s ease;
+}
+
+.status-upcoming-title:hover {
+  background-color: #c158bc; /* brighter purple */
+}
+
+.status-in-progress-title {
+  background-color: #3f6946; /* dim green */
+  color: #111111;
+  padding: 2px 20px !important;
+  transition: background-color 0.2s ease;
+}
+
+.status-in-progress-title:hover {
+  background-color: #4caf50; /* brighter green */
+}
+
+.status-paused-title {
+  background-color: #85653e; /* dim orange */
+  color: #111111;
+  padding: 2px 20px !important;
+  transition: background-color 0.2s ease;
+}
+
+.status-paused-title:hover {
+  background-color: #f4a44c; /* brighter orange */
+}
+
+
 
   .status-ongoing-row a {
     color: #19a0ff;
