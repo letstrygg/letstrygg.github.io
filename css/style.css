@@ -90,7 +90,6 @@ table.series-clean td[rowspan] {
     font-weight: 600;
     background-color: #111111 !important;
     border: 1px solid #111111 !important;
-    cursor: default;
   }
 
   .game-header th {
