@@ -120,8 +120,8 @@ table.series-clean td[rowspan] {
     border-top: 2px solid #f1a6ff !important;
   }
   .status-upcoming-title {
-    background-color: #ff5ff2;
-    color: #333333;
+    background-color: #7f427a;
+    color: #111111;
     padding: 2px 20px !important;
   }
   .status-in-progress-title {
@@ -130,8 +130,8 @@ table.series-clean td[rowspan] {
     padding: 2px 20px !important;
   }
   .status-paused-title {
-    background-color: #ffbc68;
-    color: #333333;
+    background-color: #85653e;
+    color: #111111;
     padding: 2px 20px !important;
   }
 
