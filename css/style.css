@@ -115,6 +115,9 @@ table.series-clean td[rowspan] {
   .status-ongoing {
     border-top: 2px solid #8dff8d !important;
   }
+  .status-pause {
+    border-top: 2px solid #8dff8d !important;
+  }
 
   .status-ongoing-row a {
     color: #19a0ff;
