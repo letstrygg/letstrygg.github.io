@@ -116,7 +116,7 @@ table.series-clean td[rowspan] {
     border-top: 2px solid #8dff8d !important;
   }
   .status-pause {
-    border-top: 2px solid #8dff8d !important;
+    border-top: 2px solid #ffd78d !important;
   }
 
   .status-ongoing-row a {
