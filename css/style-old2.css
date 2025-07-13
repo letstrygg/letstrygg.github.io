@@ -1,0 +1,252 @@
+/* ============
+   Base Styles
+============= */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  line-height: 1.6;
+  color: #e3e3e3;
+  background-color: #111;
+}
+
+@media (min-width: 1000px) {
+  body {
+    margin: 2rem auto;
+  }
+}
+
+h1 {
+  color: #ddd;
+}
+
+h2, h3 {
+  color: #eee;
+}
+
+h2 {
+  margin-top: 2.5rem;
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+.sublist {
+  padding-left: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* ============
+   Header
+============= */
+.site-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.site-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  color: #ffffff;
+}
+
+.site-tagline {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #636363;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+/* ============
+   Links
+============= */
+a {
+  color: #0064ad;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ============
+   Table Layout
+============= */
+table.series-clean {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  margin-bottom: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  background-color: #222;
+  border-bottom: 1px solid #181818;
+}
+
+table.series-clean col.col-game { width: 35%; }
+table.series-clean col.col-playlist { width: 15%; }
+table.series-clean col.col-episodes { width: 15%; }
+table.series-clean col.col-duration { width: 20%; }
+table.series-clean col.col-status { width: 15%; }
+
+table.series-clean th,
+table.series-clean td {
+  padding: 8px 14px;
+  border: 1px solid #181818;
+  text-align: right;
+}
+
+td.left,
+th.left {
+  text-align: left !important;
+}
+
+table.series-clean tr:first-child th,
+table.series-clean tr:first-child td {
+  border-top: none;
+}
+
+table.series-clean tr:last-child td,
+table.series-clean td[rowspan] {
+  border-bottom: none;
+}
+
+/* ============
+   Table Headers
+============= */
+.table-labels th {
+  font-weight: 600;
+  background-color: #111 !important;
+  border: 1px solid #111 !important;
+}
+
+.game-header th {
+  font-weight: 600;
+  background-color: #dcf1ff;
+  font-size: 1em;
+  text-align: left;
+  padding: 4px 14px !important;
+}
+
+.game-header a {
+  color: #0068c1;
+}
+
+/* ============
+   Row Statuses
+============= */
+.status-ongoing-row {
+  font-weight: 600;
+}
+
+.status-ongoing-row a {
+  color: #19a0ff;
+}
+
+.series-total-row {
+  font-weight: 400;
+  background-color: #161616;
+  color: #6b6b6b;
+}
+
+.series-total-row td {
+  padding: 0 14px !important;
+}
+
+/* ============
+   Highlight Borders
+============= */
+.status-ongoing {
+  border-top: 2px solid #8dff8d !important;
+}
+
+.status-pause {
+  border-top: 2px solid #ffd78d !important;
+}
+
+.status-upcoming {
+  border-top: 2px solid #f1a6ff !important;
+}
+
+/* ============
+   Row Titles (Hover)
+============= */
+.status-upcoming-title {
+  background-color: #7f427a;
+  color: #111;
+  padding: 2px 20px !important;
+  transition: background-color 0.2s ease;
+}
+
+.status-upcoming-title:hover {
+  background-color: #e74ce0;
+}
+
+.status-ongoing-title {
+  background-color: #3f6946;
+  color: #111;
+  padding: 2px 20px !important;
+  transition: background-color 0.2s ease;
+}
+
+.status-ongoing-title:hover {
+  background-color: #42d347;
+}
+
+.status-paused-title {
+  background-color: #85653e;
+  color: #111;
+  padding: 2px 20px !important;
+  transition: background-color 0.2s ease;
+}
+
+.status-paused-title:hover {
+  background-color: #f4a44c;
+}
+
+/* ============
+   Status Text
+============= */
+.status-label {
+  font-weight: 500;
+}
+
+.status-ongoing-text {
+  color: #6fff6f;
+}
+
+.status-complete-text {
+  color: #666;
+}
+
+.status-paused-text {
+  color: #ffb678;
+}
+
+.status-abandoned-text {
+  color: #d32f2f;
+}
+
+.status-upcoming-text {
+  color: #df67ff;
+}
+
+/* ============
+   Game Title
+============= */
+.series-title,
+.game-title {
+  font-weight: 500;
+}
+
+.game-title a {
+  color: #0095ff !important;
+}

@@ -13,7 +13,7 @@
   <h1 class="site-title">letstrygg.com</h1>
   <p class="site-tagline">Old School Let's Plays — Incremental & Idle Games — New Games & Demos</p>
 </header>
-
+<button id="theme-toggle" aria-label="Toggle light/dark theme">Toggle Theme</button>
 <!-- Dungeon Warfare 3-->
 <table class="series-clean"><colgroup><col class="col-game"><col class="col-playlist"><col class="col-episodes"><col class="col-duration"><col class="col-status"></colgroup>
   <tbody>
@@ -406,5 +406,21 @@
     <li>Shroom and Gloom (2)</li>
   </ul>
 
+
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // Apply saved theme on load
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    body.classList.add('light-theme');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    const isLight = body.classList.toggle('light-theme');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+</script>
 </body>
 </html>
