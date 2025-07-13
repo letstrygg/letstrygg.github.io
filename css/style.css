@@ -123,6 +123,10 @@ table.series-clean td[rowspan] {
     background-color: #ff5ff2;
     color: #333333;
   }
+  .status-in-progress-title {
+    background-color: #ff5ff2;
+    color: #333333;
+  }
 
   .status-ongoing-row a {
     color: #19a0ff;
