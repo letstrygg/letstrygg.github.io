@@ -176,6 +176,17 @@ li {
   line-height: 1.4;
 }
 
+.site-title-link {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
 /* ============ Links ============ */
 a {
   color: var(--color-link);
