@@ -178,13 +178,10 @@ li {
 
 .site-title-link {
   text-decoration: none;
-  color: inherit;
-  font: inherit;
-  letter-spacing: inherit;
-  word-spacing: inherit;
-  font-weight: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  color: var(--color-site-title);
 }
 
 /* ============ Links ============ */
