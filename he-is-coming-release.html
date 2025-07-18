@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>He is Coming – Game Release | LetsTryGG</title>
+  <meta name="description" content="Explore He is Coming, a roguelite RPG autobattler. Release details, screenshots, and full Let's Play series by LetsTryGG." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="/" class="site-title-link">letstrygg.com</a></h1>
+    <p class="site-tagline">Old School Let's Plays — Incremental & Idle Games — New Games & Demos</p>
+  </header>
+
+  <span id="theme-toggle" title="Toggle theme">🌚</span>
+
+  <main class="content">
+    <h2>🎮 He is Coming – Official Release</h2>
+    <p><strong>Released:</strong> July 17, 2025<br>
+    <strong>Developer:</strong> Chronocle<br>
+    <strong>Publisher:</strong> Hooded Horse<br>
+    <strong>Steam:</strong> <a href="https://store.steampowered.com/app/2824490/He_is_Coming/" target="_blank">https://store.steampowered.com/app/2824490/He_is_Coming/</a><br>
+    <strong>Launch Sale:</strong> <span style="color:#c00; font-weight:bold;">35% Off – $9.74</span> (Ends July 31)</p>
+
+    <p>Deep in the forgotten corners of the world, a dark force stirs — the Demon King rises once more. <em>He is Coming</em> is a strategic roguelite RPG autobattler where you must stand firm against the apocalypse. Seek powerful artifacts, outmaneuver unique enemies, and adapt constantly to the threats that evolve with every day passed.</p>
+
+    <section>
+      <h3>🧭 Explore, Equip, Survive</h3>
+      <p>By day, you scour ruined lands for hidden weapons and rare magical items. By night, terrifying bosses begin their hunt. With over 350 items, 30+ rotating elite enemies, and deep synergies, each run demands planning and improvisation. How will you counter the Razorclaw Grizzly’s armor-piercing rage? Or the Black Knight’s ability to absorb your strength?</p>
+
+      <p>Carefully manage limited inventory space and long-term risk. Powerful loot can win today’s fight but doom you in the next. Each choice echoes through your journey toward the Demon King.</p>
+
+      <p><strong>Key Features:</strong></p>
+      <ul>
+        <li>Over 350 items and synergies</li>
+        <li>30+ unique bosses with special mechanics</li>
+        <li>Turn-based autobattler combat with roguelite progression</li>
+        <li>100+ unlockable challenges and permanent upgrades</li>
+        <li>Asynchronous PvP mode: <strong>Kingmaker</strong></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>🏆 Kingmaker Multiplayer</h3>
+      <p>Once unlocked, <em>Kingmaker</em> lets you face off against builds crafted by other players, testing your wits and endurance against unpredictable combinations. This async mode rewards strategy, adaptability, and tactical mastery.</p>
+    </section>
+
+    <section>
+      <h3>📺 Watch My Full Playthrough</h3>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=vp6KDfDSiX8&list=PLQ4IL4UVgQk4qoAJk5JxP91NXUPoZJYN2" target="_blank">Season 2 – Full Release Playlist (In Progress)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=41PuAR17Ff4&list=PLQ4IL4UVgQk4KQNkqtLN5CMDdLpp9HyEL" target="_blank">Season 1 – Early Access Playlist (Complete)</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>📸 Screenshots</h3>
+      <div class="gallery">
+        <img src="/game/he-is-coming/screenshots/He is Coming - Blackbriar King.png" alt="Blackbriar King" />
+        <img src="/game/he-is-coming/screenshots/He is Coming - Boss Battle Stage.png" alt="Boss Battle Stage" />
+        <img src="/game/he-is-coming/screenshots/He is Coming - Carnivorous Slime.png" alt="Carnivorous Slime" />
+        <img src="/game/he-is-coming/screenshots/He is Coming - Exploration.png" alt="Exploration" />
+        <img src="/game/he-is-coming/screenshots/He is Coming - Game Over.png" alt="Game Over" />
+        <img src="/game/he-is-coming/screenshots/He is Coming - Kingmaker Mode.png" alt="Kingmaker Mode" />
+        <img src="/game/he-is-coming/screenshots/He is Coming - Treasure Chest.png" alt="Treasure Chest" />
+        <img src="/game/he-is-coming/screenshots/He is Coming - Weapon Pile.png" alt="Weapon Pile" />
+        <img src="/game/he-is-coming/screenshots/He is Coming - Woodland Unlocked Items.png" alt="Unlocked Items" />
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    const applyTheme = (isLight) => {
+      body.classList.toggle('light-theme', isLight);
+      toggle.textContent = isLight ? '🌞' : '🌚';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    };
+
+    if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+      applyTheme(true);
+    }
+
+    toggle.addEventListener('click', () => {
+      const isNowLight = !body.classList.contains('light-theme');
+      applyTheme(isNowLight);
+    });
+  </script>
+</body>
+</html>
