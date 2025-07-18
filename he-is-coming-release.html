@@ -19,11 +19,41 @@
       gap: 12px;
       margin-top: 1em;
     }
+    .gallery figure {
+      margin: 0;
+      text-align: center;
+    }
     .gallery img {
       width: 100%;
       height: auto;
       border-radius: 4px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+    .gallery figcaption {
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      display: none;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .lightbox.active {
+      display: flex;
     }
   </style>
 </head>
@@ -44,52 +74,25 @@
     <strong>Launch Sale:</strong> <span style="color:#c00; font-weight:bold;">35% Off – $9.74</span> (Ends July 31)<br>
     <strong>Steam Reviews:</strong> Very Positive (124) – 93% of the 124 user reviews for this game are positive <em>(as of July 17, 2025)</em>.</p>
 
-    <p>Deep in the forgotten corners of the world, a dark force stirs — the Demon King rises once more. <em>He is Coming</em> is a strategic roguelite RPG autobattler where you must stand firm against the apocalypse. Seek powerful artifacts, outmaneuver unique enemies, and adapt constantly to the threats that evolve with every day passed.</p>
-
-    <section>
-      <h3>🧭 Explore, Equip, Survive</h3>
-      <p>By day, you scour ruined lands for hidden weapons and rare magical items. By night, terrifying bosses begin their hunt. With over 350 items, 30+ rotating elite enemies, and deep synergies, each run demands planning and improvisation. How will you counter the Razorclaw Grizzly’s armor-piercing rage? Or the Black Knight’s ability to absorb your strength?</p>
-
-      <p>Carefully manage limited inventory space and long-term risk. Powerful loot can win today’s fight but doom you in the next. Each choice echoes through your journey toward the Demon King.</p>
-
-      <p><strong>Key Features:</strong></p>
-      <ul>
-        <li>Over 350 items and synergies</li>
-        <li>30+ unique bosses with special mechanics</li>
-        <li>Turn-based autobattler combat with roguelite progression</li>
-        <li>100+ unlockable challenges and permanent upgrades</li>
-        <li>Asynchronous PvP mode: <strong>Kingmaker</strong></li>
-      </ul>
-    </section>
-
-    <section>
-      <h3>🏆 Kingmaker Multiplayer</h3>
-      <p>Once unlocked, <em>Kingmaker</em> lets you face off against builds crafted by other players, testing your wits and endurance against unpredictable combinations. This async mode rewards strategy, adaptability, and tactical mastery.</p>
-    </section>
-
-    <section>
-      <h3>📺 Watch My Full Playthrough</h3>
-      <ul>
-        <li><a href="https://www.youtube.com/watch?v=vp6KDfDSiX8&list=PLQ4IL4UVgQk4qoAJk5JxP91NXUPoZJYN2" target="_blank">Season 2 – Full Release Playlist (In Progress)</a></li>
-        <li><a href="https://www.youtube.com/watch?v=41PuAR17Ff4&list=PLQ4IL4UVgQk4KQNkqtLN5CMDdLpp9HyEL" target="_blank">Season 1 – Early Access Playlist (Complete)</a></li>
-      </ul>
-    </section>
-
     <section>
       <h3>📸 Screenshots</h3>
       <div class="gallery">
-        <img src="/game/he-is-coming/screenshots/He is Coming - Blackbriar King.png" alt="Blackbriar King" />
-        <img src="/game/he-is-coming/screenshots/He is Coming - Boss Battle Stage.png" alt="Boss Battle Stage" />
-        <img src="/game/he-is-coming/screenshots/He is Coming - Carnivorous Slime.png" alt="Carnivorous Slime" />
-        <img src="/game/he-is-coming/screenshots/He is Coming - Exploration.png" alt="Exploration" />
-        <img src="/game/he-is-coming/screenshots/He is Coming - Game Over.png" alt="Game Over" />
-        <img src="/game/he-is-coming/screenshots/He is Coming - Kingmaker Mode.png" alt="Kingmaker Mode" />
-        <img src="/game/he-is-coming/screenshots/He is Coming - Treasure Chest.png" alt="Treasure Chest" />
-        <img src="/game/he-is-coming/screenshots/He is Coming - Weapon Pile.png" alt="Weapon Pile" />
-        <img src="/game/he-is-coming/screenshots/He is Coming - Woodland Unlocked Items.png" alt="Unlocked Items" />
+        <figure><img src="/game/he-is-coming/screenshots/He is Coming - Blackbriar King.png" alt="Blackbriar King" loading="lazy"><figcaption>Blackbriar King</figcaption></figure>
+        <figure><img src="/game/he-is-coming/screenshots/He is Coming - Boss Battle Stage.png" alt="Boss Battle Stage" loading="lazy"><figcaption>Boss Battle Stage</figcaption></figure>
+        <figure><img src="/game/he-is-coming/screenshots/He is Coming - Carnivorous Slime.png" alt="Carnivorous Slime" loading="lazy"><figcaption>Carnivorous Slime</figcaption></figure>
+        <figure><img src="/game/he-is-coming/screenshots/He is Coming - Exploration.png" alt="Exploration" loading="lazy"><figcaption>Exploration</figcaption></figure>
+        <figure><img src="/game/he-is-coming/screenshots/He is Coming - Game Over.png" alt="Game Over" loading="lazy"><figcaption>Game Over</figcaption></figure>
+        <figure><img src="/game/he-is-coming/screenshots/He is Coming - Kingmaker Mode.png" alt="Kingmaker Mode" loading="lazy"><figcaption>Kingmaker Mode</figcaption></figure>
+        <figure><img src="/game/he-is-coming/screenshots/He is Coming - Treasure Chest.png" alt="Treasure Chest" loading="lazy"><figcaption>Treasure Chest</figcaption></figure>
+        <figure><img src="/game/he-is-coming/screenshots/He is Coming - Weapon Pile.png" alt="Weapon Pile" loading="lazy"><figcaption>Weapon Pile</figcaption></figure>
+        <figure><img src="/game/he-is-coming/screenshots/He is Coming - Woodland Unlocked Items.png" alt="Unlocked Items" loading="lazy"><figcaption>Woodland Unlocked Items</figcaption></figure>
       </div>
     </section>
   </main>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Lightbox Preview">
+  </div>
 
   <script>
     const toggle = document.getElementById('theme-toggle');
@@ -110,6 +113,21 @@
     toggle.addEventListener('click', () => {
       const isNowLight = !body.classList.contains('light-theme');
       applyTheme(isNowLight);
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
     });
   </script>
 </body>
