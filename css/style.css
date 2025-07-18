@@ -207,8 +207,8 @@ table.series-clean {
 }
 
 table.series-clean col.col-game    { width: 35%; }
-table.series-clean col.col-playlist{ width: 15%; }
-table.series-clean col.col-episodes{ width: 15%; }
+table.series-clean col.col-playlist{ width: 20%; }
+table.series-clean col.col-episodes{ width: 10%; }
 table.series-clean col.col-duration{ width: 20%; }
 table.series-clean col.col-status  { width: 15%; }
 
