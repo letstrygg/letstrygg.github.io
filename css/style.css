@@ -353,3 +353,9 @@ table.series-clean td[rowspan] {
 .game-title a {
   color: var(--game-title-link) !important;
 }
+
+.playlist-thumb {
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+}
