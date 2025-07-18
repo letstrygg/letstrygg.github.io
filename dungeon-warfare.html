@@ -2,59 +2,190 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dungeon Warfare – LetsTryGG</title>
-  <meta name="description" content="Dungeon Warfare 2 & 3 Let's Plays and Demo Gameplay.">
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dungeon Warfare Series – LetsTryGG</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      color: #222;
+    }
+
+    .site-header {
+      margin-bottom: 40px;
+    }
+
+    .site-title {
+      font-size: 2em;
+      margin-bottom: 0;
+    }
+
+    .site-title a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .site-tagline {
+      color: #777;
+      font-size: 0.9em;
+    }
+
+    h2, h3 {
+      margin-top: 2em;
+    }
+
+    .series {
+      margin-bottom: 3em;
+    }
+
+    .game-desc {
+      font-style: italic;
+      color: #555;
+      margin: 0.5em 0 1em;
+    }
+
+    .playlists {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .playlist-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .playlist-card img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .playlist-meta {
+      font-size: 0.9em;
+      color: #444;
+      margin: 8px 0;
+    }
+
+    .status-label {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 0.8em;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .status-complete {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .status-ongoing {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .status-upcoming {
+      background: #d1ecf1;
+      color: #0c5460;
+    }
+
+    .tags {
+      font-size: 0.85em;
+      color: #666;
+      margin-top: 6px;
+    }
+
+    .external-links a {
+      margin-right: 12px;
+      font-size: 0.95em;
+    }
+
+    #theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 1.4em;
+    }
+  </style>
 </head>
 <body>
 
 <header class="site-header">
-  <h1 class="site-title"><a href="/" class="site-title-link">letstrygg.com</a></h1>
+  <h1 class="site-title"><a href="/">letstrygg.com</a></h1>
   <p class="site-tagline">Old School Let's Plays — Incremental & Idle Games — New Games & Demos</p>
 </header>
 
-<span id="theme-toggle" style="cursor: pointer;" title="Toggle theme">🌚</span>
+<span id="theme-toggle" title="Toggle theme">🌚</span>
 
-<br><br>
+<div class="series">
+  <h2>🎯 Series: Dungeon Warfare</h2>
 
-<h2>🛡️ Dungeon Warfare Series</h2>
+  <div class="game">
+    <h3>🏰 Dungeon Warfare 3</h3>
+    <p class="game-desc">The best new tower defense game of 2025 — strategic, old-school trap placement returns in DW3.</p>
 
-<p><strong>Dungeon Warfare 3</strong> is releasing on <strong>August 11, 2025</strong>! I’ll be doing a full playthrough when it launches.</p>
+    <p><strong>🎉 A full playthrough begins when the game launches on August 11, 2025.</strong></p>
 
-<ul>
-  <li><a href="https://store.steampowered.com/app/3419220/Dungeon_Warfare_3/" target="_blank" rel="noopener noreferrer">🔗 Steam Page</a></li>
-  <li><a href="https://www.reddit.com/r/DungeonWarfare3/" target="_blank" rel="noopener noreferrer">🔗 Fan Subreddit</a></li>
-</ul>
+    <div class="external-links">
+      <a href="https://store.steampowered.com/app/3419220/Dungeon_Warfare_3/" target="_blank">🔗 Steam Page</a>
+      <a href="https://www.reddit.com/r/DungeonWarfare3/" target="_blank">🔗 Fan Subreddit</a>
+    </div>
 
-<h3>▶️ Dungeon Warfare 3 Demo</h3>
-<a href="https://www.youtube.com/watch?v=w4X_Ecf9_ng&list=PLQ4IL4UVgQk6CN3D_koWr2R5QUyWMzMKh" target="_blank" rel="noopener noreferrer">
-  <img src="https://i.ytimg.com/vi/w4X_Ecf9_ng/maxresdefault.jpg" alt="Dungeon Warfare 3 Demo Playlist Thumbnail" style="max-width: 800px; width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-</a>
-<p>Episodes: <strong>4</strong><br>
-Duration: <strong>7h 11m</strong><br>
-Status: <span class="status-label status-ongoing-text">In Progress</span></p>
+    <div class="playlists">
+      <!-- DW3 Demo Playlist -->
+      <div class="playlist-card">
+        <a href="https://www.youtube.com/watch?v=w4X_Ecf9_ng&list=PLQ4IL4UVgQk6CN3D_koWr2R5QUyWMzMKh" target="_blank">
+          <img src="https://i.ytimg.com/vi/w4X_Ecf9_ng/maxresdefault.jpg" alt="DW3 Demo Playlist Thumbnail">
+        </a>
+        <h4>🎬 Demo Playthrough</h4>
+        <div class="playlist-meta">
+          Episodes: 4<br>
+          Duration: 7h 11m<br>
+          <span class="status-label status-ongoing">In Progress</span>
+        </div>
+        <div class="tags">Slow · Chill · Strategic · Old-School</div>
+      </div>
+    </div>
+  </div>
 
-<br>
+  <div class="game">
+    <h3>🏰 Dungeon Warfare 2</h3>
+    <p class="game-desc">A classic reborn — slow-paced tower defense with ruthless traps and perfect pacing.</p>
 
-<h3>📜 Dungeon Warfare 2 Playthrough</h3>
-<a href="https://www.youtube.com/watch?v=i2zYnZKTxMI&list=PLx2gvGm7c8PN1p3FMYSe8ta0Kkebhb5te" target="_blank" rel="noopener noreferrer">
-  <img src="https://i.ytimg.com/vi/i2zYnZKTxMI/maxresdefault.jpg" alt="Dungeon Warfare 2 Playlist Thumbnail" style="max-width: 800px; width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-</a>
-<p>Episodes: <strong>60</strong><br>
-Duration: <strong>36h 46m</strong><br>
-Status: <span class="status-label status-complete-text">Complete</span></p>
+    <div class="playlists">
+      <!-- DW2 Full Playlist -->
+      <div class="playlist-card">
+        <a href="https://www.youtube.com/watch?v=i2zYnZKTxMI&list=PLx2gvGm7c8PN1p3FMYSe8ta0Kkebhb5te" target="_blank">
+          <img src="https://i.ytimg.com/vi/i2zYnZKTxMI/maxresdefault.jpg" alt="DW2 Playlist Thumbnail">
+        </a>
+        <h4>🎬 Full Playthrough</h4>
+        <div class="playlist-meta">
+          Episodes: 60<br>
+          Duration: 36h 46m<br>
+          <span class="status-label status-complete">Complete</span>
+        </div>
+        <div class="tags">Full Game · Chill · No Commentary · Strategic</div>
+      </div>
+    </div>
+  </div>
 
-<br>
-
-<h3>📊 Total</h3>
-<p><strong>Episodes:</strong> 64<br>
-<strong>Total Duration:</strong> 43h 57m</p>
+  <h3>📊 Total</h3>
+  <p><strong>Episodes:</strong> 64<br>
+     <strong>Total Duration:</strong> 43h 57m</p>
+</div>
 
 <script>
   const toggle = document.getElementById('theme-toggle');
   const body = document.body;
-
   const savedTheme = localStorage.getItem('theme');
   const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
