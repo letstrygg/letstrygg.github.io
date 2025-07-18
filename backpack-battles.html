@@ -1,138 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Backpack Battles - LetsTryGG</title>
+  <meta charset="UTF-8">
+  <title>Chill Background Music – LetsTryGG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DMCA/Copyright-Free Chill Background Music playlist for streams, videos, or chill vibes.">
+  <link rel="stylesheet" href="css/style.css">
   <style>
-    :root {
-      --bg: #1c1c1e;
-      --fg: #f0f0f0;
-      --table-bg: #2a2a2e;
-      --table-header-bg: #333;
-      --hover-bg: #292929;
-      --status-complete: #4caf50;
-      --status-ongoing: #ffc107;
-    }
-
-    body {
-      font-family: sans-serif;
-      background-color: var(--bg);
-      color: var(--fg);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header, footer {
-      background: #111;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 1rem;
-    }
-    .theme-tabs {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .theme-tabs button {
-      background: #444;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .theme-tabs button.active {
-      background: #fff;
-      color: #111;
-    }
-    .game-overview {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      background: var(--table-bg);
-      padding: 0rem 1rem 0rem 1rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-    }
-    .game-overview img {
-      width: 400px;
-      border-radius: 10px;
-      margin-right: 1rem;
-    }
-    .game-info {
-      flex: 1;
-    }
-    .playlist-button {
-      display: inline-block;
-      background: #ff0000;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      text-decoration: none;
-      margin-top: 0.5rem;
-      margin-bottom: 2rem;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 2rem;
-      background: var(--table-bg);
-      border-radius: 8px;
-    }
-
-  :root {
-    --link: #1e90ff; /* default theme (dark) */
-  }
-
-  body.light {
-    --link: #0066cc;
-  }
-  body.synth {
-    --link: #8be9fd;
-  }
-  body.earth {
-    --link: #3a5f5f;
-  }
-
-  a {
-    color: var(--link);
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-    th, td {
-      padding: 0.75rem;
-      text-align: left;
-      border-bottom: 1px solid #444;
-    }
-    th {
-      background: var(--table-header-bg);
-    }
-    tr:hover {
-      background-color: var(--hover-bg);
-    }
-    .status-complete { color: var(--status-complete); }
-    .status-ongoing { color: var(--status-ongoing); }
   </style>
 </head>
 <body>
-  <header>
+
+<body>
+<header class="site-header">
+  <h1 class="site-title"><a href="/" class="site-title-link">letstrygg.com</a></h1>
+  <p class="site-tagline">Old School Let's Plays — Incremental & Idle Games — New Games & Demos</p>
+</header>
+
+<span id="theme-toggle" style="cursor: pointer;" title="Toggle theme">🌚</span>
+
     <h1>LetsTryGG - Backpack Battles</h1>
-  </header>
-  <div class="container">
-    <div class="theme-tabs">
-      <button onclick="setTheme('dark')" class="active">Dark</button>
-      <button onclick="setTheme('light')">Light</button>
-      <button onclick="setTheme('synth')">Synthwave</button>
-      <button onclick="setTheme('earth')">Earth</button>
-    </div>
+
 
     <section class="game-overview">
       <img src="https://i3.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg" alt="Backpack Battles Thumbnail">
@@ -145,7 +33,6 @@
       </div>
     </section>
 
-    <section class="season-breakdown">
       <h2>Season Breakdown</h2>
 <table>
   <thead>
@@ -189,63 +76,27 @@
     </tr>
   </tbody>
 </table>
-    </section>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 LetsTryGG | <a href="/" style="color:#fff">Back to Home</a></p>
-  </footer>
 
 <script>
-  function setTheme(name, persist = true) {
-    // Activate button styles
-    document.querySelectorAll('.theme-tabs button').forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`.theme-tabs button[onclick*="${name}"]`)?.classList.add('active');
+  const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
 
-    const root = document.documentElement;
-    if (name === 'light') {
-      root.style.setProperty('--bg', '#f9f9f9');
-      root.style.setProperty('--fg', '#111');
-      root.style.setProperty('--table-bg', '#ffffff');
-      root.style.setProperty('--table-header-bg', '#efefef');
-      root.style.setProperty('--hover-bg', '#f1f1f1');
-      root.style.setProperty('--status-complete', '#2e7d32');
-      root.style.setProperty('--status-ongoing', '#d84315');
-    } else if (name === 'synth') {
-      root.style.setProperty('--bg', '#121212');
-      root.style.setProperty('--fg', '#e0e0e0');
-      root.style.setProperty('--table-bg', '#1f1f2e');
-      root.style.setProperty('--table-header-bg', '#2a2a3d');
-      root.style.setProperty('--hover-bg', '#2c2c3c');
-      root.style.setProperty('--status-complete', '#50fa7b');
-      root.style.setProperty('--status-ongoing', '#f1fa8c');
-    } else if (name === 'earth') {
-      root.style.setProperty('--bg', '#f3f1e7');
-      root.style.setProperty('--fg', '#3a2e1f');
-      root.style.setProperty('--table-bg', '#fffaf3');
-      root.style.setProperty('--table-header-bg', '#e0d1b2');
-      root.style.setProperty('--hover-bg', '#f0e8d8');
-      root.style.setProperty('--status-complete', '#5c8a45');
-      root.style.setProperty('--status-ongoing', '#c76c2a');
-    } else {
-      root.style.setProperty('--bg', '#1c1c1e');
-      root.style.setProperty('--fg', '#f0f0f0');
-      root.style.setProperty('--table-bg', '#2a2a2e');
-      root.style.setProperty('--table-header-bg', '#333');
-      root.style.setProperty('--hover-bg', '#292929');
-      root.style.setProperty('--status-complete', '#4caf50');
-      root.style.setProperty('--status-ongoing', '#ffc107');
-    }
+  const savedTheme = localStorage.getItem('theme');
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-    if (persist) {
-      localStorage.setItem('preferredTheme', name);
-    }
+  const applyTheme = (isLight) => {
+    body.classList.toggle('light-theme', isLight);
+    toggle.textContent = isLight ? '🌞' : '🌚';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  };
+
+  if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+    applyTheme(true);
   }
 
-  // Load saved theme on page load
-  document.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('preferredTheme') || 'dark';
-    setTheme(saved, false);
+  toggle.addEventListener('click', () => {
+    const isNowLight = !body.classList.contains('light-theme');
+    applyTheme(isNowLight);
   });
 </script>
 
