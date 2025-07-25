@@ -7,6 +7,51 @@
   <meta name="description" content="Let's Play series of He is Coming – both Early Access and Full Release campaigns.">
   <link rel="canonical" href="https://letstrygg.com/game/he-is-coming">
   <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 12px;
+      margin-top: 1em;
+    }
+    .gallery figure {
+      margin: 0;
+      text-align: center;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+    .gallery figcaption {
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      display: none;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+  </style>
 </head>
 <body>
 
@@ -15,69 +60,107 @@
   <p class="site-tagline">Old School Let's Plays — Incremental & Idle Games — New Games & Demos</p>
 </header>
 
-<span id="theme-toggle" title="Toggle theme">🌚</span>
 
-<h2 class="series-title">🧿 He is Coming</h2>
+  <span id="theme-toggle" title="Toggle theme">🌚</span>
 
-<p><em>Turn-based strategy meets autobattler RPG — minimalist graphics, maximum strategy.</em></p>
-
-<h3>🎮 Season 2 – Full Release<em> (<a href="https://letstrygg.com/game/he-is-coming/release">July 17, 2025</a>)</em></h3>
-<p><strong>Status:</strong> <span class="status-label status-ongoing-text">In Progress</span><br>
-<strong>Episodes:</strong> 2<br>
-<strong>Total Duration:</strong> 1h 09m</p>
-
-<a href="https://www.youtube.com/watch?v=vp6KDfDSiX8&list=PLQ4IL4UVgQk4qoAJk5JxP91NXUPoZJYN2" target="_blank">
-  <img class="playlist-thumb" src="https://i.ytimg.com/vi/vp6KDfDSiX8/maxresdefault.jpg" alt="He is Coming S2 Thumbnail">
-</a>
-
-<p>
-  <strong>First Episode:</strong><br>
-  <em>Game Released! Bejeweled Blade: He Is Coming S2E1</em>
+<h2>🧿 He is Coming</h2>
+<p class="meta">
+  Steam Reviews: <strong>Very Positive</strong> (83%) • 863 reviews<br>
+  Release Date: <strong><a href="./release">July 17, 2025</a></strong><br>
+  Tags: <em>RPG</em>, <em>Auto Battler</em>, <em>Fantasy</em>, <em>Roguelike</em>
 </p>
 
-<hr>
+<!-- PLAYLIST SECTION -->
+<section class="playlist-list">
 
-<h3>🧪 Season 1 – Early Access</h3>
-<p><strong>Status:</strong> Complete<br>
-<strong>Episodes:</strong> 12<br>
-<strong>Total Duration:</strong> 7h 44m</p>
+  <div class="playlist-row">
+    <h3>🎮 Season 2 – Full Release</h3>
+    <p>
+      <strong>Status:</strong> <span class="status-label status-ongoing-text">In Progress</span> •
+      <strong>Episodes:</strong> 2 •
+      <strong>Duration:</strong> 1h 09m
+    </p>
+    <a href="https://www.youtube.com/watch?v=vp6KDfDSiX8&list=PLQ4IL4UVgQk4qoAJk5JxP91NXUPoZJYN2" target="_blank">
+      <img class="playlist-thumb" src="https://i.ytimg.com/vi/vp6KDfDSiX8/maxresdefault.jpg" alt="Season 2 Thumbnail">
+    </a>
+    <p><em>First Episode: Bejeweled Blade – He is Coming S2E1</em></p>
+  </div>
 
-<a href="https://www.youtube.com/watch?v=41PuAR17Ff4&list=PLQ4IL4UVgQk4KQNkqtLN5CMDdLpp9HyEL" target="_blank">
-  <img class="playlist-thumb" src="https://i.ytimg.com/vi/WW1DaafP7IU/maxresdefault.jpg" alt="He is Coming S1 Thumbnail">
-</a>
+  <div class="playlist-row">
+    <h3>🧪 Season 1 – Early Access</h3>
+    <p>
+      <strong>Status:</strong> <span class="status-label status-complete-text">Complete</span> •
+      <strong>Episodes:</strong> 12 •
+      <strong>Duration:</strong> 7h 44m
+    </p>
+    <a href="https://www.youtube.com/watch?v=41PuAR17Ff4&list=PLQ4IL4UVgQk4KQNkqtLN5CMDdLpp9HyEL" target="_blank">
+      <img class="playlist-thumb" src="https://i.ytimg.com/vi/WW1DaafP7IU/maxresdefault.jpg" alt="Season 1 Thumbnail" width="400px">
+    </a>
+    <p><em>First Episode: New Series, Free Demo</em></p>
+  </div>
 
-<p>
-  <strong>First Episode:</strong><br>
-  <em>1. He is Coming: New Series, Free Demo</em>
-</p>
+</section>
 
-<hr>
+<!-- TOTAL -->
+<p><strong>Total:</strong> 14 episodes • 8h 53m</p>
 
-<h3>📊 Total</h3>
-<p><strong>Episodes:</strong> 14<br>
-<strong>Total Duration:</strong> 8h 53m</p>
+    <section>
+      <h3>📸 Screenshots</h3>
+      <div class="gallery">
+        <figure><img src="./screenshots/He is Coming - Blackbriar King.png" alt="Blackbriar King" loading="lazy"><figcaption>Blackbriar King</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Boss Battle Stage.png" alt="Boss Battle Stage" loading="lazy"><figcaption>Boss Battle Stage</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Carnivorous Slime.png" alt="Carnivorous Slime" loading="lazy"><figcaption>Carnivorous Slime</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Exploration.png" alt="Exploration" loading="lazy"><figcaption>Exploration</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Game Over.png" alt="Game Over" loading="lazy"><figcaption>Game Over</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Kingmaker Mode.png" alt="Kingmaker Mode" loading="lazy"><figcaption>Kingmaker Mode</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Treasure Chest.png" alt="Treasure Chest" loading="lazy"><figcaption>Treasure Chest</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Weapon Pile.png" alt="Weapon Pile" loading="lazy"><figcaption>Weapon Pile</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Woodland Unlocked Items.png" alt="Unlocked Items" loading="lazy"><figcaption>Woodland Unlocked Items</figcaption></figure>
+      </div>
+    </section>
+  </main>
 
-<script>
-  const toggle = document.getElementById('theme-toggle');
-  const body = document.body;
-  const savedTheme = localStorage.getItem('theme');
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Lightbox Preview">
+  </div>
 
-  const applyTheme = (isLight) => {
-    body.classList.toggle('light-theme', isLight);
-    toggle.textContent = isLight ? '🌞' : '🌚';
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  };
 
-  if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
-    applyTheme(true);
-  }
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-  toggle.addEventListener('click', () => {
-    const isNowLight = !body.classList.contains('light-theme');
-    applyTheme(isNowLight);
-  });
-</script>
+    const applyTheme = (isLight) => {
+      body.classList.toggle('light-theme', isLight);
+      toggle.textContent = isLight ? '🌞' : '🌚';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    };
+
+    if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+      applyTheme(true);
+    }
+
+    toggle.addEventListener('click', () => {
+      const isNowLight = !body.classList.contains('light-theme');
+      applyTheme(isNowLight);
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    });
+  </script>
 
 </body>
 </html>
