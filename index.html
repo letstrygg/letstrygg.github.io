@@ -466,7 +466,7 @@
   const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
   const applyTheme = (isLight) => {
-    html.classList.toggle('light-theme', isLight);
+    body.classList.toggle('light-theme', isLight);
     toggle.textContent = isLight ? '🌞' : '🌚';
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
   };
@@ -476,7 +476,7 @@
   }
 
   toggle.addEventListener('click', () => {
-    const isNowLight = !html.classList.contains('light-theme');
+    const isNowLight = !body.classList.contains('light-theme');
     applyTheme(isNowLight);
   });
 </script>
