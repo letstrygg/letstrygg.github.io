@@ -114,6 +114,9 @@
 
 
 /* ============ Base Styles ============ */
+html {
+  background-color: #ff0000;
+}
 body {
   font-family: var(--font-main);
   max-width: 800px;
