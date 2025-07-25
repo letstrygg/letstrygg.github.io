@@ -60,6 +60,9 @@
   <p class="site-tagline">Old School Let's Plays — Incremental & Idle Games — New Games & Demos</p>
 </header>
 
+
+  <span id="theme-toggle" title="Toggle theme">🌚</span>
+
 <h2>🧿 He is Coming</h2>
 <p class="meta">
   Steam Reviews: <strong>Very Positive</strong> (83%) • 863 reviews<br>
@@ -101,14 +104,63 @@
 <!-- TOTAL -->
 <p><strong>Total:</strong> 14 episodes • 8h 53m</p>
 
-<!-- SCREENSHOTS -->
-<h3>📸 Screenshots</h3>
-<div class="gallery">
-  <img src="./screenshots/He is Coming - Blackbriar King.png" alt="Blackbriar King" loading="lazy">
-  <img src="./screenshots/He is Coming - Boss Battle Stage.png" alt="Boss Battle Stage" loading="lazy">
-  <img src="./screenshots/He is Coming - Exploration.png" alt="Exploration" loading="lazy">
-  <!-- Add more as needed -->
-</div>
+    <section>
+      <h3>📸 Screenshots</h3>
+      <div class="gallery">
+        <figure><img src="./screenshots/He is Coming - Blackbriar King.png" alt="Blackbriar King" loading="lazy"><figcaption>Blackbriar King</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Boss Battle Stage.png" alt="Boss Battle Stage" loading="lazy"><figcaption>Boss Battle Stage</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Carnivorous Slime.png" alt="Carnivorous Slime" loading="lazy"><figcaption>Carnivorous Slime</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Exploration.png" alt="Exploration" loading="lazy"><figcaption>Exploration</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Game Over.png" alt="Game Over" loading="lazy"><figcaption>Game Over</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Kingmaker Mode.png" alt="Kingmaker Mode" loading="lazy"><figcaption>Kingmaker Mode</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Treasure Chest.png" alt="Treasure Chest" loading="lazy"><figcaption>Treasure Chest</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Weapon Pile.png" alt="Weapon Pile" loading="lazy"><figcaption>Weapon Pile</figcaption></figure>
+        <figure><img src="./screenshots/He is Coming - Woodland Unlocked Items.png" alt="Unlocked Items" loading="lazy"><figcaption>Woodland Unlocked Items</figcaption></figure>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Lightbox Preview">
+  </div>
+
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    const applyTheme = (isLight) => {
+      body.classList.toggle('light-theme', isLight);
+      toggle.textContent = isLight ? '🌞' : '🌚';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    };
+
+    if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+      applyTheme(true);
+    }
+
+    toggle.addEventListener('click', () => {
+      const isNowLight = !body.classList.contains('light-theme');
+      applyTheme(isNowLight);
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    });
+  </script>
 
 </body>
 </html>
