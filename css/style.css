@@ -4,7 +4,6 @@
 
   /* Base Colors */
   --color-bg: #111111;
-  --color-bg2: #000000;
   --color-text: #e3e3e3;
   --color-heading-1: #dddddd;
   --color-heading-2: #eeeeee;
@@ -59,7 +58,6 @@
 
 .light-theme {
   --color-bg: #ffffff;
-  --color-bg2: #dddddd;
   --color-text: #111111;
   --color-heading-1: #111111;
   --color-heading-2: #333333;
@@ -116,9 +114,6 @@
 
 
 /* ============ Base Styles ============ */
-html {
-  background-color: var(--color-bg2);
-}
 body {
   font-family: var(--font-main);
   max-width: 800px;
