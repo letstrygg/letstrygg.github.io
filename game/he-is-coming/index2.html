@@ -7,6 +7,51 @@
   <meta name="description" content="Let's Play series of He is Coming – both Early Access and Full Release campaigns.">
   <link rel="canonical" href="https://letstrygg.com/game/he-is-coming">
   <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 12px;
+      margin-top: 1em;
+    }
+    .gallery figure {
+      margin: 0;
+      text-align: center;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+    .gallery figcaption {
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      display: none;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+  </style>
 </head>
 <body>
 
