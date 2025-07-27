@@ -131,7 +131,7 @@ permalink: /test.html
 
 
 
-<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 10px; max-width: 1400px;">
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 10px;">
 
   <!-- Luck Be A Landlord -->
   <div style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden; width: 260px; font-size: 0.9em;">
@@ -164,31 +164,33 @@ permalink: /test.html
   </div>
 
   <!-- He is Coming -->
-  <div style="border: 1px solid #ddd; border-radius: 10px; overflow: visible; width: 260px; font-size: 0.9em;">
+  <div style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden; width: 260px; font-size: 0.9em;">
     <a href="/game/he-is-coming/" style="text-decoration: none; color: inherit;">
       <img src="https://i.ytimg.com/vi/vp6KDfDSiX8/maxresdefault.jpg" alt="He is Coming" style="width: 100%; display: block;">
       <div style="padding: 8px;">
         <strong>He is Coming – S2</strong><br>
         📺 2 eps &nbsp; ⏱ 1h 09m &nbsp; <span style="color: #6fff6f; font-weight: bold;">Ongoing</span><br>
-        <div style="display: none; margin-top: 6px; font-size: 0.8em;">
+        <div style="display: none; margin-top: 6px; font-size: 0.8em;" class="season-info">
           S1: 12 eps – 7h 44m<br>
+          <a href="javascript:void(0)" onclick="this.parentElement.style.display = 'none'; this.parentElement.previousElementSibling.style.display = 'inline';" style="font-size: 0.8em; color: #7b7b7b; display: block; margin-top: 6px;">- Hide Seasons</a>
         </div>
-        <a href="javascript:void(0)" onclick="const s=this.previousElementSibling; s.style.display = (s.style.display==='none') ? 'block' : 'none';" style="font-size: 0.8em; color: #7b7b7b; display: inline-block; margin-top: 6px;">+ Show S1 – 14 eps / 8h 53m</a>
+        <a href="javascript:void(0)" onclick="this.style.display = 'none'; this.nextElementSibling.style.display = 'block';" style="font-size: 0.8em; color: #7b7b7b;">+ Show S1 – 14 eps / 8h 53m</a>
       </div>
     </a>
   </div>
 
   <!-- Creeper World -->
-  <div style="border: 1px solid #ddd; border-radius: 10px; overflow: visible; width: 260px; font-size: 0.9em;">
+  <div style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden; width: 260px; font-size: 0.9em;">
     <a href="/game/creeper-world/" style="text-decoration: none; color: inherit;">
       <img src="https://i.ytimg.com/vi/Y3XngIWFnxc/maxresdefault.jpg" alt="Creeper World" style="width: 100%; display: block;">
       <div style="padding: 8px;">
         <strong>Creeper World – CW3</strong><br>
         📺 98 eps &nbsp; ⏱ 156h 30m &nbsp; <span style="color: #6fff6f; font-weight: bold;">Ongoing</span><br>
-        <div style="display: none; margin-top: 6px; font-size: 0.8em;">
-          CW IXE: 21 eps – 31h
+        <div style="display: none; margin-top: 6px; font-size: 0.8em;" class="season-info">
+          CW IXE: 21 eps – 31h<br>
+          <a href="javascript:void(0)" onclick="this.parentElement.style.display = 'none'; this.parentElement.previousElementSibling.style.display = 'inline';" style="font-size: 0.8em; color: #7b7b7b; display: block; margin-top: 6px;">- Hide Seasons</a>
         </div>
-        <a href="javascript:void(0)" onclick="const s=this.previousElementSibling; s.style.display = (s.style.display==='none') ? 'block' : 'none';" style="font-size: 0.8em; color: #7b7b7b; display: inline-block; margin-top: 6px;">+ Show IXE – 119 eps / 187h</a>
+        <a href="javascript:void(0)" onclick="this.style.display = 'none'; this.nextElementSibling.style.display = 'block';" style="font-size: 0.8em; color: #7b7b7b;">+ Show IXE – 119 eps / 187h</a>
       </div>
     </a>
   </div>
@@ -227,6 +229,7 @@ permalink: /test.html
   </div>
 
 </div>
+
 
 
 
