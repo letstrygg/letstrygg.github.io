@@ -1,8 +1,22 @@
----
-layout: default
-title: Home
-permalink: /
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LetsTryGG hosts longform Let's Plays for indie strategy games. Watch full playthroughs of He is Coming, Dungeon Warfare, Backpack Battles, and more.">
+  <title>LetsTryGG – YouTube Gameplay Series</title>
+  <link rel="canonical" href="https://letstrygg.com/">
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+<header class="site-header">
+  <h1 class="site-title">letstrygg.com</h1>
+  <p class="site-tagline">Old School Let's Plays — Incremental & Idle Games — New Games & Demos <a href="test">test</a></p>
+</header>
+
+<span id="theme-toggle" style="cursor: pointer;" title="Toggle theme">🌚</span>
 
 <!-- Chill Background Music Playlist -->
 <table class="series-clean">
@@ -14,7 +28,7 @@ permalink: /
   <tbody>
     <tr class="status-ongoing-row">
       <td class="left">
-        <a href="/music.html">🎵 Chill Background Music</a> -
+        <a href="/music.html">🎵 Chill Background Music</a> - 
         <a href="https://www.youtube.com/watch?v=yxrwdALb_Yk&list=PLQ4IL4UVgQk4oHNHSF1Drty_A7al6phD2" target="_blank" rel="noopener noreferrer" style="font-size: 0.85em; color: #F66;">
           ▶ YouTube Playlist
         </a>
@@ -23,8 +37,7 @@ permalink: /
       <td>3h 21m</td>
     </tr>
   </tbody>
-</table>
-<br><br>
+</table><BR><BR>
 
 <!-- Dungeon Warfare 3-->
 <table class="series-clean"><colgroup><col class="col-game"><col class="col-playlist"><col class="col-episodes"><col class="col-duration"><col class="col-status"></colgroup>
@@ -442,3 +455,30 @@ permalink: /
     <li>Dark Fairy Tale Dreamland Survivors (4)</li>
     <li>Shroom and Gloom (2)</li>
   </ul>
+
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // Set icon based on saved or default theme
+  const savedTheme = localStorage.getItem('theme');
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+  const applyTheme = (isLight) => {
+    body.classList.toggle('light-theme', isLight);
+    toggle.textContent = isLight ? '🌞' : '🌚';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  };
+
+  if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+    applyTheme(true);
+  }
+
+  toggle.addEventListener('click', () => {
+    const isNowLight = !body.classList.contains('light-theme');
+    applyTheme(isNowLight);
+  });
+</script>
+</body>
+</html>
