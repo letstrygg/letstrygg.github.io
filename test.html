@@ -14,16 +14,16 @@ permalink: /test.html
 
 
 
-<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 10px; max-width: 1400px; align-items: flex-start;">
+<div class="game-grid">
 
   <!-- Luck Be A Landlord -->
-  <div style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden; width: 260px; font-size: 0.9em; display: flex; flex-direction: column; align-self: flex-start; min-height: 220px;">
-    <a href="/game/luck-be-a-landlord/" style="text-decoration: none; color: inherit; flex: 1 1 auto; display: flex; flex-direction: column;">
-      <img src="https://i.ytimg.com/vi/tVF-IBOS_iw/maxresdefault.jpg" alt="Luck Be A Landlord" style="width: 100%; display: block;">
-      <div style="padding: 4px 8px 0px 8px;">
-        <div style="display: flex; justify-content: space-between;">
+  <div class="game-card">
+    <a href="/game/luck-be-a-landlord/" class="game-card">
+      <img src="https://i.ytimg.com/vi/tVF-IBOS_iw/maxresdefault.jpg" alt="Luck Be A Landlord">
+      <div class="card-content">
+        <div class="card-title-row">
           <strong>Luck Be A Landlord</strong>
-          <span style="color: #6fff6f; font-weight: bold;">Ongoing</span>
+          <span class="status-ongoing">Ongoing</span>
         </div>
         📺 10 eps &nbsp; ⏱ 6h 07m
       </div>
@@ -31,82 +31,96 @@ permalink: /test.html
   </div>
 
   <!-- Backpack Battles -->
-  <div style="border: 1px solid #ddd; border-radius: 10px; width: 260px; font-size: 0.9em; overflow: hidden; display: flex; flex-direction: column; align-self: flex-start; min-height: 220px;">
-    <div style="text-decoration: none; color: inherit; flex: 1 1 auto; display: flex; flex-direction: column;">
+  <div class="game-card">
+    <div class="game-card">
       <a href="/game/backpack-battles/">
-        <img src="https://i3.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg" alt="Backpack Battles" style="width: 100%; display: block;">
+        <img src="https://i3.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg" alt="Backpack Battles">
       </a>
-      <div style="padding: 4px 8px 0px 8px;">
-        <div style="display: flex; justify-content: space-between;">
+      <div class="card-content">
+        <div class="card-title-row">
           <strong>Backpack Battles</strong>
-          <span style="color: #6fff6f; font-weight: bold;">Ongoing</span>
+          <span class="status-ongoing">Ongoing</span>
         </div>
         Season 5: 📺 34 eps &nbsp; ⏱ 45h 27m
-        <div style="font-size: 0.9em; display: none; padding: 0px 8px;" class="season-info">
+        <div class="season-info">
           S4: 180 eps – 175h<br>
           S3: 159 eps – 155h<br>
           S2: 252 eps – 262h<br>
           S1: 96 eps – 68h<br>
-          <div style="text-align: center; width: 100%;">
-            <a href="javascript:void(0)" onclick="this.parentElement.parentElement.style.display = 'none'; this.parentElement.parentElement.nextElementSibling.style.display = 'inline-block';" style="color: #7b7b7b; display: inline-block;"><span style="color: white;">−</span> All Seasons 📺 721 eps ⏱ 706h</a>
+          <div class="toggle-seasons">
+            <a href="javascript:void(0)" onclick="this.parentElement.parentElement.style.display = 'none'; this.parentElement.parentElement.nextElementSibling.style.display = 'inline-block';">
+              <span>−</span> All Seasons 📺 721 eps ⏱ 706h
+            </a>
           </div>
         </div>
-        <div style="text-align: center; width: 100%;">
-          <a href="javascript:void(0)" onclick="this.parentElement.previousElementSibling.style.display = 'block'; this.parentElement.style.display = 'none';" style="font-size: 0.9em; color: #7b7b7b; display: inline-block;"><span style="color: white;">+</span> All Seasons 📺 721 eps ⏱ 706h</a>
+        <div class="toggle-seasons">
+          <a href="javascript:void(0)" onclick="this.parentElement.previousElementSibling.style.display = 'block'; this.parentElement.style.display = 'none';">
+            <span>+</span> All Seasons 📺 721 eps ⏱ 706h
+          </a>
         </div>
       </div>
     </div>
   </div>
 
   <!-- He is Coming -->
-  <div style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden; width: 260px; font-size: 0.9em; display: flex; flex-direction: column; align-self: flex-start; min-height: 220px;">
-    <div style="text-decoration: none; color: inherit; flex: 1 1 auto; display: flex; flex-direction: column;">
+  <div class="game-card">
+    <div class="game-card">
       <a href="/game/he-is-coming/">
-        <img src="https://i.ytimg.com/vi/vp6KDfDSiX8/maxresdefault.jpg" alt="He is Coming" style="width: 100%; display: block;">
+        <img src="https://i.ytimg.com/vi/vp6KDfDSiX8/maxresdefault.jpg" alt="He is Coming">
       </a>
-      <div style="padding: 4px 8px 0px 8px;">
-        <div style="display: flex; justify-content: space-between;">
+      <div class="card-content">
+        <div class="card-title-row">
           <strong>He is Coming</strong>
-          <span style="color: #6fff6f; font-weight: bold;">Ongoing</span>
+          <span class="status-ongoing">Ongoing</span>
         </div>
         Season 2: 📺 2 eps &nbsp; ⏱ 1h 09m
-        <div style="font-size: 0.9em; display: none; padding: 0px 8px;" class="season-info">
+        <div class="season-info">
           S1: 12 eps – 7h 44m<br>
-          <div style="text-align: center; width: 100%;">
-            <a href="javascript:void(0)" onclick="this.parentElement.parentElement.style.display = 'none'; this.parentElement.parentElement.nextElementSibling.style.display = 'inline-block';" style="color: #7b7b7b; display: inline-block;"><span style="color: white;">−</span> All Seasons 📺 14 eps ⏱ 8h 53m</a>
+          <div class="toggle-seasons">
+            <a href="javascript:void(0)" onclick="this.parentElement.parentElement.style.display = 'none'; this.parentElement.parentElement.nextElementSibling.style.display = 'inline-block';">
+              <span>−</span> All Seasons 📺 14 eps ⏱ 8h 53m
+            </a>
           </div>
         </div>
-        <div style="text-align: center; width: 100%;">
-          <a href="javascript:void(0)" onclick="this.parentElement.previousElementSibling.style.display = 'block'; this.parentElement.style.display = 'none';" style="font-size: 0.9em; color: #7b7b7b; display: inline-block;"><span style="color: white;">+</span> All Seasons 📺 14 eps ⏱ 8h 53m</a>
+        <div class="toggle-seasons">
+          <a href="javascript:void(0)" onclick="this.parentElement.previousElementSibling.style.display = 'block'; this.parentElement.style.display = 'none';">
+            <span>+</span> All Seasons 📺 14 eps ⏱ 8h 53m
+          </a>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Creeper World -->
-  <div style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden; width: 260px; font-size: 0.9em; display: flex; flex-direction: column; align-self: flex-start; min-height: 220px;">
-    <div style="text-decoration: none; color: inherit; flex: 1 1 auto; display: flex; flex-direction: column;">
+  <div class="game-card">
+    <div class="game-card">
       <a href="/game/creeper-world/">
-        <img src="https://i.ytimg.com/vi/Y3XngIWFnxc/maxresdefault.jpg" alt="Creeper World" style="width: 100%; display: block;">
+        <img src="https://i.ytimg.com/vi/Y3XngIWFnxc/maxresdefault.jpg" alt="Creeper World">
       </a>
-      <div style="padding: 4px 8px 0px 8px;">
-        <div style="display: flex; justify-content: space-between;">
+      <div class="card-content">
+        <div class="card-title-row">
           <strong>Creeper World</strong>
-          <span style="color: #6fff6f; font-weight: bold;">Ongoing</span>
+          <span class="status-ongoing">Ongoing</span>
         </div>
         CW3 CSM: 📺 98 eps &nbsp; ⏱ 156h 30m
-        <div style="font-size: 0.9em; display: none; padding: 0px 8px;" class="season-info">
+        <div class="season-info">
           CW IXE: 21 eps – 31h<br>
-          <div style="text-align: center; width: 100%;">
-            <a href="javascript:void(0)" onclick="this.parentElement.parentElement.style.display = 'none'; this.parentElement.parentElement.nextElementSibling.style.display = 'inline-block';" style="color: #7b7b7b; display: inline-block;"><span style="color: white;">−</span> All Seasons 📺 119 eps ⏱ 187h</a>
+          <div class="toggle-seasons">
+            <a href="javascript:void(0)" onclick="this.parentElement.parentElement.style.display = 'none'; this.parentElement.parentElement.nextElementSibling.style.display = 'inline-block';">
+              <span>−</span> All Seasons 📺 119 eps ⏱ 187h
+            </a>
           </div>
         </div>
-        <div style="text-align: center; width: 100%;">
-          <a href="javascript:void(0)" onclick="this.parentElement.previousElementSibling.style.display = 'block'; this.parentElement.style.display = 'none';" style="font-size: 0.9em; color: #7b7b7b; display: inline-block;"><span style="color: white;">+</span> All Seasons 📺 119 eps ⏱ 187h</a>
+        <div class="toggle-seasons">
+          <a href="javascript:void(0)" onclick="this.parentElement.previousElementSibling.style.display = 'block'; this.parentElement.style.display = 'none';">
+            <span>+</span> All Seasons 📺 119 eps ⏱ 187h
+          </a>
         </div>
       </div>
     </div>
   </div>
+
+
 
 
 
