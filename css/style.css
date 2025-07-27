@@ -174,9 +174,12 @@
 }
 
 .toggle-seasons a {
-  font-size: 0.9em;
   color: #7b7b7b;
   display: inline-block;
+}
+
+.plus {
+  font-size: 0.9em;
 }
 
 .toggle-seasons a span {
