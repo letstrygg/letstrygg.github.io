@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dungeon Warfare – LetsTryGG</title>
-  <meta name="description" content="Dungeon Warfare 2 & 3 Let's Plays and Demo Gameplay.">
-  <link rel="canonical" href="https://letstrygg.com/game/dungeon-warfare">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-
-<header class="site-header">
-  <h1 class="site-title"><a href="/" class="site-title-link">letstrygg.com</a></h1>
-  <p class="site-tagline">Old School Let's Plays — Incremental & Idle Games — New Games & Demos</p>
-</header>
-
-<span id="theme-toggle" title="Toggle theme">🌚</span>
+---
+layout: default
+title: Dungeon Warfare
+description: Dungeon Warfare 2 & 3 Let's Plays and Demo Gameplay.
+permalink: /game/dungeon-warfare/
+---
 
 <h2 class="series-title">🎯 Dungeon Warfare Series</h2>
 
@@ -83,30 +71,3 @@
 <h3>📊 Total</h3>
 <p><strong>Episodes:</strong> 64<br>
 <strong>Total Duration:</strong> 43h 57m</p>
-
-<!-- Theme Toggle Script -->
-<script>
-  const toggle = document.getElementById('theme-toggle');
-  const body = document.body;
-
-  const savedTheme = localStorage.getItem('theme');
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-
-  const applyTheme = (isLight) => {
-    body.classList.toggle('light-theme', isLight);
-    toggle.textContent = isLight ? '🌞' : '🌚';
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  };
-
-  if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
-    applyTheme(true);
-  }
-
-  toggle.addEventListener('click', () => {
-    const isNowLight = !body.classList.contains('light-theme');
-    applyTheme(isNowLight);
-  });
-</script>
-
-</body>
-</html>
