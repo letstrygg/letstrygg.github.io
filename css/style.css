@@ -112,7 +112,76 @@
 }
 
 
+/* Container for all game cards */
+.game-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+  max-width: 1400px;
+  align-items: flex-start;
+}
 
+/* Individual card style */
+.game-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 260px;
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  min-height: 220px;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Image inside the card */
+.game-card img {
+  width: 100%;
+  display: block;
+}
+
+/* Content area inside card */
+.card-content {
+  padding: 4px 8px 0px 8px;
+}
+
+/* Title row with game name and status */
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Ongoing status */
+.status-ongoing {
+  color: #6fff6f;
+  font-weight: bold;
+}
+
+/* Collapsible season details */
+.season-info {
+  font-size: 0.9em;
+  display: none;
+  padding: 0px 8px;
+}
+
+/* Show/hide toggle links */
+.toggle-seasons {
+  text-align: center;
+  width: 100%;
+}
+
+.toggle-seasons a {
+  font-size: 0.9em;
+  color: #7b7b7b;
+  display: inline-block;
+}
+
+.toggle-seasons a span {
+  color: white;
+}
 
     .gallery {
       display: grid;
