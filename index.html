@@ -125,14 +125,27 @@ permalink: /
   </div>
 </div>
 
-<!-- Popup placed outside card to prevent hover flicker -->
+<!-- Popup placed outside card -->
 <div class="preview-popup" id="previewPopup">
+  <span class="close-btn" id="closePopup">&times;</span>
   <span class="nav-arrow left" onclick="navigate(-1)">&#10094;</span>
   <span class="nav-arrow right" onclick="navigate(1)">&#10095;</span>
   <img id="mainPreview" class="preview-main" src="" alt="Main Preview">
   <div class="thumbnails" id="thumbnailBar"></div>
 </div>
+
+
 <br><br>
+
+
+
+
+
+
+
+
+
+
 
 
 <h2 style="margin-top: 30px; font-size: 1.4em;" class="status-on">Current Games</h2>
@@ -812,9 +825,11 @@ Trying Games<br>
   const popup = document.getElementById('previewPopup');
   const mainImage = document.getElementById('mainPreview');
   const thumbBar = document.getElementById('thumbnailBar');
+  const closeBtn = document.getElementById('closePopup');
 
   let currentIndex = 0;
   let hideTimeout;
+  let isTouch = false;
 
   function setActive(index) {
     currentIndex = index;
@@ -838,19 +853,45 @@ Trying Games<br>
     thumbBar.appendChild(img);
   });
 
-  // Show popup on hover
+  // Show popup (desktop hover)
   card.addEventListener('mouseenter', () => {
+    if (isTouch) return; // skip on mobile
     clearTimeout(hideTimeout);
     popup.style.display = 'block';
     setActive(0);
   });
 
-  // Hide popup if mouse leaves BOTH card and popup
+  // Hide popup (desktop hover)
   function scheduleHide() {
+    if (isTouch) return; // skip on mobile
     hideTimeout = setTimeout(() => popup.style.display = 'none', 200);
   }
-
   card.addEventListener('mouseleave', scheduleHide);
   popup.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
   popup.addEventListener('mouseleave', scheduleHide);
+
+  // Touch detection for mobile
+  window.addEventListener('touchstart', () => isTouch = true, {once:true});
+
+  // Mobile tap to open
+  card.addEventListener('click', () => {
+    if (isTouch) {
+      popup.style.display = 'block';
+      setActive(0);
+    }
+  });
+
+  // Close button (mobile or desktop)
+  closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+
+  // Swipe navigation for mobile
+  let touchStartX = 0;
+  mainImage.addEventListener('touchstart', (e) => touchStartX = e.touches[0].clientX);
+  mainImage.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (dx > 50) navigate(-1); // swipe right
+    else if (dx < -50) navigate(1); // swipe left
+  });
 </script>
