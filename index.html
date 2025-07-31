@@ -113,36 +113,6 @@ permalink: /
 </div>
 </div>
 
-<!-- Luck & Loot Card with Hover Preview -->
-<div class="game-card preview-wrapper">
-  
-    <img src="/game/luck-and-loot/luck-and-loot-thumbnail.jpg" alt="Luck & Loot">
-  
-  <div class="card-content">
-    <div class="card-title-row">
-      <strong>Luck & Loot</strong>
-      <span class="status-label status-upcoming-text">Upcoming</span>
-    </div>
-    words<br>
-    <span style="font-size: 0.8em; color: #7b7b7b;">Release: Aug 1, 2025</span>
-  </div>
-
-  <!-- Hover Preview Gallery -->
-  <div class="hover-preview">
-    <div class="preview-main">
-      <img id="main-preview" src="/game/luck-and-loot/screenshots/Screenshot-1.jpg" alt="Luck & Loot Preview">
-      <button class="arrow left" onclick="changeScreenshot(-1)">&#10094;</button>
-      <button class="arrow right" onclick="changeScreenshot(1)">&#10095;</button>
-    </div>
-    <div class="preview-thumbs">
-      {% assign screenshots = (1..12) %}
-      {% for n in screenshots %}
-        <img class="thumb" src="/game/luck-and-loot/screenshots/Screenshot-{{ n }}.jpg" onclick="setScreenshot({{ n | minus: 1 }})">
-      {% endfor %}
-    </div>
-  </div>
-</div>
-
 <br><br>
 
 
@@ -804,24 +774,3 @@ Trying Games<br>
     <li>Dark Fairy Tale Dreamland Survivors (4)</li>
     <li>Shroom and Gloom (2)</li>
   </ul>
-
-
-<script>
-const screenshots = [
-  "Screenshot-1.jpg", "Screenshot-2.jpg", "Screenshot-3.jpg",
-  "Screenshot-4.jpg", "Screenshot-5.jpg", "Screenshot-6.jpg",
-  "Screenshot-7.jpg", "Screenshot-8.jpg", "Screenshot-9.jpg",
-  "Screenshot-10.jpg", "Screenshot-11.jpg", "Screenshot-12.jpg"
-];
-let currentIndex = 0;
-
-function setScreenshot(index) {
-  currentIndex = index;
-  document.getElementById('main-preview').src = `/game/luck-and-loot/screenshots/${screenshots[index]}`;
-}
-
-function changeScreenshot(delta) {
-  currentIndex = (currentIndex + delta + screenshots.length) % screenshots.length;
-  setScreenshot(currentIndex);
-}
-</script>
