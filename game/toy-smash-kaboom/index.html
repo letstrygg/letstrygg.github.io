@@ -38,11 +38,11 @@ permalink: /game/toy-smash-kaboom/
 <section>
   <h3>📸 Screenshots</h3>
   <div class="gallery">
-    {% assign screenshots = "Blackbriar King,Boss Battle Stage,Carnivorous Slime,Exploration,Game Over,Kingmaker Mode,Treasure Chest,Weapon Pile,Woodland Unlocked Items" | split: "," %}
+    {% assign screenshots = "Screenshot 1,Screenshot 2,Screenshot 3" | split: "," %}
     {% for caption in screenshots %}
       {% assign filename = caption | replace: ' ', ' - ' %}
       <figure>
-        <img src="./screenshots/toy smash kaboom - {{ caption }}.png" alt="{{ caption }}" loading="lazy">
+        <img src="./screenshots/toy smash kaboom - {{ caption }}.jpg" alt="{{ caption }}" loading="lazy">
         <figcaption>{{ caption }}</figcaption>
       </figure>
     {% endfor %}
