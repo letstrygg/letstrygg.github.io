@@ -26,7 +26,6 @@
   const toggle = document.getElementById('theme-toggle');
   const body = document.body;
   const savedTheme = localStorage.getItem('theme');
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
   const applyTheme = (isLight) => {
     body.classList.toggle('light-theme', isLight);
@@ -34,15 +33,15 @@
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
   };
 
-  if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
-    applyTheme(true);
-  }
+  // Default to dark unless 'light' is saved
+  applyTheme(savedTheme === 'light');
 
   toggle.addEventListener('click', () => {
     const isNowLight = !body.classList.contains('light-theme');
     applyTheme(isNowLight);
   });
 </script>
+
 
 </body>
 </html>
