@@ -42,7 +42,7 @@ permalink: /game/toy-smash-kaboom/
     {% for caption in screenshots %}
       {% assign filename = caption | replace: ' ', ' - ' %}
       <figure>
-        <img src="./screenshots/{{ caption }}.png" alt="{{ caption }}" loading="lazy">
+        <img src="./screenshots/{{ caption }}.jpg" alt="{{ caption }}" loading="lazy">
         <figcaption>{{ caption }}</figcaption>
       </figure>
     {% endfor %}
