@@ -44,7 +44,7 @@
 
   /* Status Text */
   --text-upcoming: #df67ff;
-  --text-ongoing: #6fff6f;
+  --text-ongoing: #8dff8d;
   --text-complete: #666666;
   --text-paused: #ffc28d;
   --text-abandoned: #d32f2f;
@@ -156,7 +156,7 @@
 
 /* Ongoing status */
 .status-on {
-  color: #8dff8d;
+  color: var(--text-ongoing);
   font-weight: 500;
 }
 
