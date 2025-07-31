@@ -33,3 +33,18 @@ permalink: /game/toy-smash-kaboom/
 </div>
 
 <p class="tagline">Craft the chaos. Set the traps. Knock toys off the table and build your Kaboom Legion!</p>
+
+
+<section>
+  <h3>📸 Screenshots</h3>
+  <div class="gallery">
+    {% assign screenshots = "Blackbriar King,Boss Battle Stage,Carnivorous Slime,Exploration,Game Over,Kingmaker Mode,Treasure Chest,Weapon Pile,Woodland Unlocked Items" | split: "," %}
+    {% for caption in screenshots %}
+      {% assign filename = caption | replace: ' ', ' - ' %}
+      <figure>
+        <img src="./screenshots/He is Coming - {{ caption }}.png" alt="{{ caption }}" loading="lazy">
+        <figcaption>{{ caption }}</figcaption>
+      </figure>
+    {% endfor %}
+  </div>
+</section>
