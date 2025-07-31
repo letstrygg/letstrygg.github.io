@@ -113,6 +113,25 @@ permalink: /
 </div>
 </div>
 
+<div class="game-card" id="luckAndLootCard">
+  <img src="/game/luck-and-loot/luck-and-loot-thumbnail.jpg" alt="Luck & Loot">
+  <div class="card-content">
+    <div class="card-title-row">
+      <strong>Luck & Loot</strong>
+      <span class="status-label status-upcoming-text">Upcoming</span>
+    </div>
+    <a href="https://store.steampowered.com/app/3208110/Luck__Loot/" target="_blank" style="color: #aaa;">Steam Page</a><br>
+    <span style="font-size: 0.8em; color: #7b7b7b;">Release: Aug 1, 2025</span>
+  </div>
+</div>
+
+<!-- Popup placed outside card to prevent hover flicker -->
+<div class="preview-popup" id="previewPopup">
+  <span class="nav-arrow left" onclick="navigate(-1)">&#10094;</span>
+  <span class="nav-arrow right" onclick="navigate(1)">&#10095;</span>
+  <img id="mainPreview" class="preview-main" src="" alt="Main Preview">
+  <div class="thumbnails" id="thumbnailBar"></div>
+</div>
 <br><br>
 
 
@@ -774,3 +793,64 @@ Trying Games<br>
     <li>Dark Fairy Tale Dreamland Survivors (4)</li>
     <li>Shroom and Gloom (2)</li>
   </ul>
+
+
+
+
+
+
+
+<script>
+  const screenshots = [
+    "Screenshot-1.jpg", "Screenshot-2.jpg", "Screenshot-3.jpg", "Screenshot-4.jpg",
+    "Screenshot-5.jpg", "Screenshot-6.jpg", "Screenshot-7.jpg", "Screenshot-8.jpg",
+    "Screenshot-9.jpg", "Screenshot-10.jpg", "Screenshot-11.jpg", "Screenshot-12.jpg"
+  ];
+  const basePath = "/game/luck-and-loot/screenshots/";
+
+  const card = document.getElementById('luckAndLootCard');
+  const popup = document.getElementById('previewPopup');
+  const mainImage = document.getElementById('mainPreview');
+  const thumbBar = document.getElementById('thumbnailBar');
+
+  let currentIndex = 0;
+  let hideTimeout;
+
+  function setActive(index) {
+    currentIndex = index;
+    mainImage.src = basePath + screenshots[index];
+    [...thumbBar.children].forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+  }
+
+  window.navigate = function(delta) {
+    currentIndex = (currentIndex + delta + screenshots.length) % screenshots.length;
+    setActive(currentIndex);
+  };
+
+  screenshots.forEach((filename, index) => {
+    const img = document.createElement('img');
+    img.src = basePath + filename;
+    img.alt = `Thumbnail ${index + 1}`;
+    img.onclick = () => setActive(index);
+    if (index === 0) img.classList.add('active');
+    thumbBar.appendChild(img);
+  });
+
+  // Show popup on hover
+  card.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+    popup.style.display = 'block';
+    setActive(0);
+  });
+
+  // Hide popup if mouse leaves BOTH card and popup
+  function scheduleHide() {
+    hideTimeout = setTimeout(() => popup.style.display = 'none', 200);
+  }
+
+  card.addEventListener('mouseleave', scheduleHide);
+  popup.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+  popup.addEventListener('mouseleave', scheduleHide);
+</script>
