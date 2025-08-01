@@ -37,6 +37,17 @@
 </div>
 
 
+
+<!-- Shared Preview Popup -->
+<div class="preview-popup" id="previewPopup">
+  <span class="close-btn" id="closePopup">&times;</span>
+  <span class="nav-arrow left" onclick="navigate(-1)">&#10094;</span>
+  <span class="nav-arrow right" onclick="navigate(1)">&#10095;</span>
+  <img id="mainPreview" class="preview-main" src="" alt="Main Preview">
+  <div class="thumbnails" id="thumbnailBar"></div>
+</div>
+
+
 <script>
 const popup = document.getElementById('previewPopup');
 const mainImage = document.getElementById('mainPreview');
@@ -128,15 +139,6 @@ mainImage.addEventListener('touchend', e => {
 });
 </script>
 
-
-<!-- Shared Preview Popup -->
-<div class="preview-popup" id="previewPopup">
-  <span class="close-btn" id="closePopup">&times;</span>
-  <span class="nav-arrow left" onclick="navigate(-1)">&#10094;</span>
-  <span class="nav-arrow right" onclick="navigate(1)">&#10095;</span>
-  <img id="mainPreview" class="preview-main" src="" alt="Main Preview">
-  <div class="thumbnails" id="thumbnailBar"></div>
-</div>
 
 </body>
 </html>
