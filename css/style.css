@@ -500,7 +500,7 @@ table.series-clean td[rowspan] {
     }
     .card-content {
       padding: 10px;
-      background: var:(--table-bg);
+      background: var(--table-bg);
     }
     .card-title-row {
       display: flex;
