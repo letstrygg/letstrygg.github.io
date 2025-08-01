@@ -12,7 +12,7 @@
     }
     .card-content {
       padding: 10px;
-      background: #222;
+      background: var:(--table-bg);
     }
     .card-title-row {
       display: flex;
