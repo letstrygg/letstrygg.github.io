@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luck & Loot Preview Test</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: sans-serif;
+      padding: 40px;
+    }
+    .game-card {
+      position: relative;
+      width: 250px;
+      border: 1px solid #444;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .game-card img {
+      width: 100%;
+      display: block;
+    }
+    .card-content {
+      padding: 10px;
+      background: #222;
+    }
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1em;
+      margin-bottom: 5px;
+    }
+    .status-label.status-upcoming-text {
+      background: #7722cc;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.8em;
+    }
+
+    /* Preview Popup */
+    .preview-popup {
+      display: none;
+      position: fixed; /* fixed so it doesn't vanish when leaving card */
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 66vw; /* ~2/3 screen width */
+      background: #1a1a1a;
+      border: 1px solid #555;
+      padding: 10px;
+      z-index: 100;
+    }
+    .preview-main {
+      width: 100%;
+      height: 350px;
+      object-fit: contain;
+      border: 1px solid #333;
+      margin-bottom: 8px;
+    }
+    .thumbnails {
+      display: flex;
+      gap: 5px;
+      overflow-x: auto;
+    }
+    .thumbnails img {
+      width: 80px;
+      height: 50px;
+      object-fit: cover;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+    .thumbnails img.active {
+      border-color: #fff;
+    }
+    .nav-arrow {
+      position: absolute;
+      top: 35%;
+      font-size: 2em;
+      color: white;
+      padding: 0 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .nav-arrow.left { left: 10px; }
+    .nav-arrow.right { right: 10px; }
+  </style>
+</head>
+<body>
+v1
+<div class="game-card" id="luckAndLootCard">
+  <img src="/game/luck-and-loot/luck-and-loot-thumbnail.jpg" alt="Luck & Loot">
+  <div class="card-content">
+    <div class="card-title-row">
+      <strong>Luck & Loot</strong>
+      <span class="status-label status-upcoming-text">Upcoming</span>
+    </div>
+    <a href="https://store.steampowered.com/app/3208110/Luck__Loot/" target="_blank" style="color: #aaa;">Steam Page</a><br>
+    <span style="font-size: 0.8em; color: #7b7b7b;">Release: Aug 1, 2025</span>
+  </div>
+</div>
+
+<!-- Popup placed outside card -->
+<div class="preview-popup" id="previewPopup">
+  <span class="close-btn" id="closePopup">&times;</span>
+  <span class="nav-arrow left" onclick="navigate(-1)">&#10094;</span>
+  <span class="nav-arrow right" onclick="navigate(1)">&#10095;</span>
+  <img id="mainPreview" class="preview-main" src="" alt="Main Preview">
+  <div class="thumbnails" id="thumbnailBar"></div>
+</div>
+
+<script>
+  const screenshots = [
+    "Screenshot-1.jpg", "Screenshot-2.jpg", "Screenshot-3.jpg", "Screenshot-4.jpg",
+    "Screenshot-5.jpg", "Screenshot-6.jpg", "Screenshot-7.jpg", "Screenshot-8.jpg",
+    "Screenshot-9.jpg", "Screenshot-10.jpg", "Screenshot-11.jpg", "Screenshot-12.jpg"
+  ];
+  const basePath = "/game/luck-and-loot/screenshots/";
+
+  const card = document.getElementById('luckAndLootCard');
+  const popup = document.getElementById('previewPopup');
+  const mainImage = document.getElementById('mainPreview');
+  const thumbBar = document.getElementById('thumbnailBar');
+
+  let currentIndex = 0;
+  let hideTimeout;
+
+  function setActive(index) {
+    currentIndex = index;
+    mainImage.src = basePath + screenshots[index];
+    [...thumbBar.children].forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+  }
+
+  window.navigate = function(delta) {
+    currentIndex = (currentIndex + delta + screenshots.length) % screenshots.length;
+    setActive(currentIndex);
+  };
+
+  screenshots.forEach((filename, index) => {
+    const img = document.createElement('img');
+    img.src = basePath + filename;
+    img.alt = `Thumbnail ${index + 1}`;
+    img.onclick = () => setActive(index);
+    if (index === 0) img.classList.add('active');
+    thumbBar.appendChild(img);
+  });
+
+  // Show popup on hover
+  card.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+    popup.style.display = 'block';
+    setActive(0);
+  });
+
+  // Hide popup if mouse leaves BOTH card and popup
+  function scheduleHide() {
+    hideTimeout = setTimeout(() => popup.style.display = 'none', 200);
+  }
+
+  card.addEventListener('mouseleave', scheduleHide);
+  popup.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+  popup.addEventListener('mouseleave', scheduleHide);
+</script>
+
+</body>
+</html>
