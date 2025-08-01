@@ -486,63 +486,33 @@ table.series-clean td[rowspan] {
 
 
 
-.preview-wrapper {
-  position: relative;
-}
-.hover-preview {
-  display: none;
-  position: absolute;
-  z-index: 10;
-  top: 0;
-  left: 100%;
-  margin-left: 10px;
-  background: #111;
-  border: 1px solid #444;
-  padding: 8px;
-  width: 480px;
-}
-.preview-wrapper:hover .hover-preview {
-  display: block;
-}
-.preview-main {
-  position: relative;
-}
-.preview-main img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid #333;
-}
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  border: none;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 4px 10px;
-  z-index: 1;
-}
-.arrow.left {
-  left: 0;
-}
-.arrow.right {
-  right: 0;
-}
-.preview-thumbs {
-  margin-top: 6px;
-  display: flex;
-  gap: 4px;
-  overflow-x: auto;
-}
-.preview-thumbs img {
-  width: 60px;
-  height: auto;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-.preview-thumbs img:hover {
-  border-color: #fff;
-}
+    .game-card {
+      position: relative;
+      width: 250px;
+      border: 1px solid #444;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .game-card img {
+      width: 100%;
+      display: block;
+    }
+    .card-content {
+      padding: 10px;
+      background: var:(--table-bg);
+    }
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1em;
+      margin-bottom: 5px;
+    }
+    .status-label.status-upcoming-text {
+      background: #7722cc;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.8em;
+    }
