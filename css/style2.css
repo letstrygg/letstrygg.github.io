@@ -1,3 +1,29 @@
+/* Custom scrollbar for the thumbnail bar */
+.thumbnails {
+  scrollbar-width: thin;                /* Firefox */
+  scrollbar-color: #444 #1a1a1a;        /* thumb color, track color */
+}
+
+.thumbnails::-webkit-scrollbar {
+  height: 8px;                          /* horizontal scrollbar height */
+}
+
+.thumbnails::-webkit-scrollbar-track {
+  background: #1a1a1a;                  /* track background */
+  border-radius: 4px;
+}
+
+.thumbnails::-webkit-scrollbar-thumb {
+  background: #444;                     /* thumb color */
+  border-radius: 4px;
+}
+
+.thumbnails::-webkit-scrollbar-thumb:hover {
+  background: #666;                     /* thumb hover color */
+}
+
+
+
     /* Preview Popup */
     .preview-popup {
       display: none;
