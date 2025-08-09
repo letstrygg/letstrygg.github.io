@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://letstrygg.com/</loc></url>
-  <url><loc>https://letstrygg.com/music/</loc></url>
-  <url><loc>https://letstrygg.com/game/</loc></url>
+  <url><loc>https://letstrygg.com/music</loc></url>
   <url><loc>https://letstrygg.com/game/he-is-coming/</loc></url>
   <url><loc>https://letstrygg.com/game/toy-smash-kaboom/</loc></url>
   <url><loc>https://letstrygg.com/game/slay-the-spire-2/</loc></url>
   <url><loc>https://letstrygg.com/game/subnautica-2/</loc></url>
-  <url><loc>https://letstrygg.com/game/dungeon-warfare/</loc></url>
-  <url><loc>https://letstrygg.com/game/backpack-battles/</loc></url>
-  <url><loc>https://letstrygg.com/game/creeper-world/</loc></url>
+  <url><loc>https://letstrygg.com/game/dungeon-warfare</loc></url>
+  <url><loc>https://letstrygg.com/game/backpack-battles</loc></url>
+  <url><loc>https://letstrygg.com/game/creeper-world</loc></url>
   <url><loc>https://letstrygg.com/game/luck-and-loot/</loc></url>
-  <url><loc>https://letstrygg.com/game/2025/</loc></url>
   <url><loc>https://letstrygg.com/game/2025/hell-builder/</loc></url>
 </urlset>
