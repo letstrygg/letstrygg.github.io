@@ -499,7 +499,7 @@ table.series-clean td[rowspan] {
       display: block;
     }
     .card-content {
-      padding: 10px;
+      padding: 5px 10px;
       background: var(--table-bg);
     }
     .card-title-row {
