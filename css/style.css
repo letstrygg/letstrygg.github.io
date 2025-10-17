@@ -5,7 +5,7 @@
 .guide-card img { display: block; }
 .guide-info { display: flex; align-items: baseline; gap: 0.5em; padding: 0.6em 1em; flex-wrap: nowrap; }
 .guide-info h3 { margin: 0; font-size: 1.1em; font-weight: 600; white-space: nowrap; }
-.guide-info p { margin: 0; font-size: 0.95em; color: #ccc; white-space: nowrap; }
+.guide-info p { margin: 0; font-size: 0.95em; white-space: nowrap; }
 .guide-info p::before { content: "– "; color: #999; }
 .tall { max-width: 320px; }
 .wide { max-width: 600px; }
