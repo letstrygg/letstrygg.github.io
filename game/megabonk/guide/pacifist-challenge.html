@@ -1,89 +1,126 @@
 <style>
-.page-title {
-  font-size: 2.2rem;
+/* --- General page style --- */
+body {
+  background-color: #0b0b0b;
+  color: #ddd;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: #fff;
   font-weight: 700;
-  margin-bottom: 0.25em;
 }
 
 .subtitle {
-  color: #ccc;
+  color: #aaa;
   font-style: italic;
+  margin-top: -0.4em;
   margin-bottom: 1.5em;
 }
 
-.banner img {
-  width: 100%;
-  max-width: 600px;
-  border-radius: 8px;
+/* --- Banner --- */
+.wide-banner {
   display: block;
-  margin: 0 auto 2em;
+  margin: 1.5em auto 2em;
+  max-width: 420px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 100, 0.25);
 }
 
-section {
-  margin-bottom: 2.5em;
+/* --- Sections --- */
+.section {
+  margin-bottom: 3em;
 }
 
-h2 {
-  border-bottom: 2px solid #333;
-  padding-bottom: 0.25em;
-  margin-bottom: 0.75em;
-  color: #f3f3f3;
-}
-
-.card, .items {
-  background: #1a1a1a;
-  border-radius: 8px;
-  padding: 1em 1.5em;
-  box-shadow: 0 0 12px rgba(0,0,0,0.2);
-  margin-bottom: 1.5em;
-}
-
-.dual {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-}
-
-.portrait {
-  width: 120px;
-  border-radius: 6px;
-}
-
-.item-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1em;
-}
-
-.item img {
-  width: 100%;
-  border-radius: 6px;
+.section h2 {
+  font-size: 1.4rem;
+  color: #8cff8c;
   margin-bottom: 0.5em;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 0.25em;
 }
 
-.strategy ul {
-  line-height: 1.6;
-  margin-left: 1.2em;
-}
-
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.3);
-}
-
-.video-wrapper iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-}
-
-.back-link {
-  margin-top: 2em;
+/* --- Character and items --- */
+figure {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 0.75em;
+  margin: 1em 0;
+  display: inline-block;
   text-align: center;
+  transition: background 0.2s ease;
+}
+
+figure:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+figure img {
+  border-radius: 6px;
+  max-width: 200px;
+  display: block;
+  margin: 0 auto 0.5em;
+}
+
+figcaption {
+  color: #bbb;
+  font-size: 0.95em;
+}
+
+/* --- Items in a row --- */
+.section h3 {
+  color: #f0f0f0;
+  margin-top: 1em;
+}
+
+.section figure.wide {
+  display: inline-block;
+  width: calc(50% - 1em);
+  vertical-align: top;
+  margin: 0.5em;
+}
+
+.section figure.tall {
+  display: block;
+  margin: 1em auto;
+}
+
+/* --- Strategy --- */
+ul {
+  list-style-type: "→ ";
+  padding-left: 1.2em;
+}
+
+ul li {
+  margin: 0.4em 0;
+}
+
+/* --- Video --- */
+iframe {
+  width: 100%;
+  max-width: 720px;
+  height: 405px;
+  border-radius: 10px;
+  display: block;
+  margin: 1.5em auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+/* --- Back link --- */
+.back-link {
+  text-align: center;
+  margin-top: 3em;
+}
+
+.back-link a {
+  color: #8cff8c;
+  text-decoration: none;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
 }
 
 </style>
