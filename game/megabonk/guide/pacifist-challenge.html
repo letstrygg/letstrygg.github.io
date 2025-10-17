@@ -1,63 +1,152 @@
----
-layout: default
-title: Pacifist Challenge — Megabonk Guide
-description: Beat all bosses without weapons in Megabonk's Pacifist Challenge using Amog and poison synergy.
-permalink: /game/megabonk/guide/pacifist-challenge.html
----
+<style>
+.page-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.25em;
+}
 
-<h1>Pacifist Challenge</h1>
+.subtitle {
+  color: #ccc;
+  font-style: italic;
+  margin-bottom: 1.5em;
+}
+
+.banner img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 2em;
+}
+
+section {
+  margin-bottom: 2.5em;
+}
+
+h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.25em;
+  margin-bottom: 0.75em;
+  color: #f3f3f3;
+}
+
+.card, .items {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 1em 1.5em;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  margin-bottom: 1.5em;
+}
+
+.dual {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.portrait {
+  width: 120px;
+  border-radius: 6px;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1em;
+}
+
+.item img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.5em;
+}
+
+.strategy ul {
+  line-height: 1.6;
+  margin-left: 1.2em;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+.back-link {
+  margin-top: 2em;
+  text-align: center;
+}
+
+</style>
+
+<h1 class="page-title">Pacifist Challenge</h1>
 <p class="subtitle">No Weapons Allowed — Defeat All Bosses</p>
 
-<img src="/game/megabonk/images/Pacifist_Challenge.png" alt="Pacifist Challenge" class="wide-banner">
+<section class="banner">
+  <img src="/game/megabonk/images/Pacifist_Challenge.png" alt="Pacifist Challenge">
+</section>
 
-<div class="section">
+<section class="overview">
   <h2>Overview</h2>
   <p>
-    The <strong>Pacifist Challenge</strong> is one of Megabonk’s toughest runs — you must survive and kill every boss without equipping any weapons.
-    Instead, you'll rely on poison explosions, item synergies, and clever positioning to spread chaos.
+    The <strong>Pacifist Challenge</strong> is one of <em>Megabonk’s</em> toughest runs — survive and defeat every boss without equipping weapons.
+    Instead, rely on poison explosions, item synergies, and clever positioning to spread chaos.
   </p>
-</div>
+</section>
 
-<div class="section">
+<section class="build">
   <h2>Recommended Build</h2>
+  
+  <div class="card">
+    <h3>Character: Amog</h3>
+    <div class="dual">
+      <img src="/game/megabonk/images/Amog.png" alt="Amog" class="portrait">
+      <div class="info">
+        <p><strong>Passive – Plague:</strong> Poisoned enemies explode on death, spreading poison to nearby foes.</p>
+      </div>
+    </div>
+  </div>
 
-  <h3>Character: Amog</h3>
-  <figure>
-    <img src="/game/megabonk/images/Amog.png" alt="Amog" class="tall">
-    <figcaption>Amog excels in poison-based builds thanks to his Plague passive.</figcaption>
-  </figure>
+  <div class="items">
+    <h3>Core Items</h3>
+    <div class="item-grid">
+      <div class="item">
+        <img src="/game/megabonk/images/Cursed_Doll.png" alt="Cursed Doll">
+        <p><strong>Cursed Doll:</strong> Curse an enemy, dealing 30% of their Max HP every second.</p>
+      </div>
+      <div class="item">
+        <img src="/game/megabonk/images/Moldy_Cheese.png" alt="Moldy Cheese">
+        <p><strong>Moldy Cheese:</strong> +40% chance to poison enemies on hit.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <figure>
-    <img src="/game/megabonk/images/Plague.png" alt="Plague Passive" class="wide">
-    <figcaption><strong>Plague:</strong> Poisoned enemies explode on death, spreading poison to nearby foes.</figcaption>
-  </figure>
-
-  <h3>Core Items</h3>
-
-  <figure>
-    <img src="/game/megabonk/images/Cursed_Doll.png" alt="Cursed Doll" class="wide">
-    <figcaption><strong>Cursed Doll:</strong> Curse an enemy, dealing 30% of their Max HP every second.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="/game/megabonk/images/Moldy_Cheese.png" alt="Moldy Cheese" class="wide">
-    <figcaption><strong>Moldy Cheese:</strong> +40% chance to poison enemies on hit.</figcaption>
-  </figure>
-</div>
-
-<div class="section">
+<section class="strategy">
   <h2>Strategy</h2>
   <ul>
     <li>Prioritize finding <strong>Cursed Doll</strong> and <strong>Moldy Cheese</strong> early — they enable your poison chain.</li>
-    <li>Build defensive layers to survive while poison spreads.</li>
-    <li>Group smaller enemies around bosses to stack poison faster and trigger huge explosion chains.</li>
+    <li>Build defensively to survive while poison spreads.</li>
+    <li>Group smaller enemies near bosses to stack poison and trigger huge explosion chains.</li>
   </ul>
-</div>
+</section>
 
-<div class="section">
+<section class="video">
   <h2>Video Guide</h2>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/sjpqEM3MhGE"
-    title="EZ Guide: Pacifist Challenge, Megabonk" frameborder="0" allowfullscreen loading="lazy"></iframe>
-</div>
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/sjpqEM3MhGE"
+      title="EZ Guide: Pacifist Challenge, Megabonk"
+      frameborder="0" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
 
 <p class="back-link"><a href="/game/megabonk/">← Back to Megabonk Main Page</a></p>
