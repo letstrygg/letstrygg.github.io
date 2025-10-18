@@ -2,7 +2,7 @@
   --bg:				#111111;
   --card-bg:		#222222;
   --text:			#e3e3e3;
-  --title:	#ffffff;
+  --title:			#ffffff;
   --subtitle:		#636363;
   --green:			#8dff8d;
   --blue:			#75caff;
@@ -30,7 +30,6 @@ body {
   color:			var(--text);
   max-width:		1400px;
   margin:			0 auto;
-  padding:			2rem;
   line-height:		1.6;
 }
 
