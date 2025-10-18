@@ -1,51 +1,41 @@
 :root {
-  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --color-bg: #111;
-  --color-text: #e3e3e3;
-  --color-heading-1: #ddd;
-  --color-heading-2: #eee;
-  --color-link: #0064ad;
-  --color-link-hover: #0064ad;
-  --color-site-title: #fff;
-  --color-site-tagline: #636;
-  --text-ongoing: #8dff8d;
-  --text-paused: #ffc28d;
-  --text-upcoming: #df67ff;
-  --text-complete: #666;
+  --font-main:		'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --color-bg:		#111111;
+  --color-text:		#e3e3e3;
+  --color-title:	#ffffff;
+  --color-subtitle:	#636636;
+  --green:		#8dff8d;
+  --blue:		#75caff;
+  --purple:		#c390ff;
+  --gray:		#666666;
 }
 
 .light-theme {
-  --color-bg: #fff;
-  --color-text: #111;
-  --color-heading-1: #111;
-  --color-heading-2: #333;
-  --color-link: #0064ad;
-  --color-link-hover: #003d6b;
-  --color-site-title: #111;
-  --color-site-tagline: #666;
+  --color-bg:		#ffffff;
+  --color-text:		#111111;
+  --color-title:	#111111;
+  --color-subtitle:	#666666;
 }
 
 body {
-  font-family: var(--font-main);
-  background: var(--color-bg);
-  color: var(--color-text);
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 2rem;
-  line-height: 1.6;
+  font-family:		var(--font-main);
+  background:		var(--color-bg);
+  color:		var(--color-text);
+  max-width:		1400px;
+  margin:		0 auto;
+  padding:		2rem;
+  line-height:		1.6;
 }
 
-h1, h2, h3 {
-  color: var(--color-heading-1);
-  margin-top: 1.2em;
-}
-
-a {
-  color: var(--color-link);
-  text-decoration: none;
-}
-
-a:hover { text-decoration: underline; }
+header			{ text-align: center; margin-bottom: 2rem; }
+.title			{ font-size: 2rem; color: var(--color-title); }
+.subtitle		{ color: var(--color-subtitle); }
+.green			{ color: var(--green); }
+.blue			{ color: var(--blue); }
+.purple			{ color: var(--purple); }
+.grey			{ color: var(--grey); }
+a			{ text-decoration: none; }
+h2			{ margin-top: 30px; font-size: 1.2em; }
 
 #theme-toggle {
   position: fixed;
@@ -55,18 +45,6 @@ a:hover { text-decoration: underline; }
   cursor: pointer;
   z-index: 1000;
 }
-
-.site-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.site-title {
-  font-size: 2rem;
-  color: var(--color-site-title);
-}
-
-.site-tagline { color: var(--color-site-tagline); }
 
 .game-grid {
   display: flex;
@@ -101,6 +79,9 @@ a:hover { text-decoration: underline; }
   justify-content: space-between;
   align-items: center;
 }
+
+
+
 
 .status-on { color: var(--text-ongoing); }
 .status-label.status-paused-text { color: var(--text-paused); }
