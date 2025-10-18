@@ -8,6 +8,7 @@
   --blue:			#75caff;
   --purple:			#c390ff;
   --gray:			#666666;
+  --underline:		#;
 }
 
 .light-theme {
@@ -16,10 +17,11 @@
   --text:			#111111;
   --title:			#111111;
   --subtitle:		#666666;
-  --green:			#00c558;
-  --blue:			#44b7ff;
-  --purple:			#a559ff;
+  --green:			#00bb20;
+  --blue:			#0085e3;
+  --purple:			#9134ff;
   --gray:			#666666;
+  --underline:		#2b2b2b;
 }
 
 body {
@@ -41,7 +43,7 @@ header			{ text-align: center; }
 .grey			{ color: var(--grey); }
 a				{ text-decoration: none; color: inherit; }
 h2				{ margin-top: 30px; font-size: 1.2em; }
-b				{ font-weight: 500; }
+b				{ font-weight: 500; text-decoration: underline; text-decoration-color: color: var(--underline);}
 
 #theme-toggle {
   position: fixed;
