@@ -75,11 +75,9 @@ b			{ font-weight: 500; }
   display: block;
 }
 
-.card-content {
-  padding: 6px 8px;
-}
-
 .card-row {
+  margin: 3px 0px;
+  padding: 0px 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
