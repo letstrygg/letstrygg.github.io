@@ -1,0 +1,108 @@
+:root {
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --color-bg: #111;
+  --color-text: #e3e3e3;
+  --color-heading: #ddd;
+
+  --green: #8dff8d;
+  --blue: #75caff;
+  --purple: #c390ff;
+  --gray: #666;
+}
+
+.light-theme {
+  --color-bg: #fff;
+  --color-text: #111;
+  --color-heading: #111;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--color-bg);
+  color: var(--color-text);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+h1, h2 {
+  color: var(--color-heading);
+  margin-top: 2rem;
+  font-size: 1.3em;
+}
+
+/* Section Title Colors */
+.section-title.ongoing { color: var(--green); }
+.section-title.paused { color: var(--purple); }
+.section-title.complete { color: var(--blue); }
+
+/* Grids */
+.game-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Card layout */
+.game-card {
+  width: 260px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1a1a1a;
+  font-size: 0.9em;
+  padding-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.game-card img {
+  width: 100%;
+  display: block;
+}
+
+.game-title {
+  font-weight: 600;
+  margin-top: 6px;
+  color: var(--color-text);
+}
+
+.game-status {
+  font-size: 0.85em;
+  margin-bottom: 4px;
+}
+
+.game-status.ongoing { color: var(--green); }
+.game-status.paused { color: var(--purple); }
+.game-status.complete { color: var(--blue); }
+
+.game-stats {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  font-size: 0.85em;
+  opacity: 0.9;
+}
+
+.sort-controls {
+  margin-bottom: 10px;
+}
+
+.sort-controls button {
+  background: none;
+  border: 1px solid #444;
+  color: var(--color-text);
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sort-controls button:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}

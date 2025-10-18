@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ site.description }}">
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="stylesheet" href="{{ "/css/style2.css" | relative_url }}">
+  {% seo %}
+</head>
+<body>
+
+<header class="site-header">
+  <h1 class="site-title"><a href="{{ '/' | relative_url }}" class="site-title-link">letstrygg.com</a></h1>
+  <p class="site-tagline">Let's Play Series and New Indie Games.</p>
+</header>
+
+<span id="theme-toggle" style="cursor: pointer;" title="Toggle theme">🌚</span>
+
+<main>
+  {{ content }}
+</main>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  const savedTheme = localStorage.getItem('theme');
+
+  const applyTheme = (isLight) => {
+    body.classList.toggle('light-theme', isLight);
+    toggle.textContent = isLight ? '🌞' : '🌚';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  };
+
+  // Default to dark unless 'light' is saved
+  applyTheme(savedTheme === 'light');
+
+  toggle.addEventListener('click', () => {
+    const isNowLight = !body.classList.contains('light-theme');
+    applyTheme(isNowLight);
+  });
+</script>
+
+
+</body>
+</html>
