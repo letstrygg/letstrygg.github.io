@@ -1,27 +1,21 @@
-/* ========= THEME VARIABLES ========= */
 :root {
   --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --color-bg: #111;
   --color-text: #e3e3e3;
-  --color-link: #0064ad;
-  --color-link-hover: #0064ad;
-  --color-site-title: #fff;
-  --color-site-tagline: #636;
+  --color-heading: #ddd;
 
-  /* status colors */
-  --color-ongoing: #8dff8d;
-  --color-paused: #c88bff;
-  --color-complete: #66a3ff;
+  --green: #8dff8d;
+  --blue: #75caff;
+  --purple: #c390ff;
+  --gray: #666;
 }
 
 .light-theme {
   --color-bg: #fff;
   --color-text: #111;
-  --color-site-title: #111;
-  --color-site-tagline: #666;
+  --color-heading: #111;
 }
 
-/* ========= BASE ========= */
 body {
   font-family: var(--font-main);
   background: var(--color-bg);
@@ -32,35 +26,18 @@ body {
   line-height: 1.6;
 }
 
-h1 {
-  font-size: 1.2em;
-  margin-top: 2em;
+h1, h2 {
+  color: var(--color-heading);
+  margin-top: 2rem;
+  font-size: 1.3em;
 }
 
-/* ========= HEADER ========= */
-.site-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.site-title {
-  font-size: 2rem;
-  color: var(--color-site-title);
-}
-.site-tagline {
-  color: var(--color-site-tagline);
-}
+/* Section Title Colors */
+.section-title.ongoing { color: var(--green); }
+.section-title.paused { color: var(--purple); }
+.section-title.complete { color: var(--blue); }
 
-/* ========= THEME TOGGLE ========= */
-#theme-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.4rem;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-/* ========= GRID & CARDS ========= */
+/* Grids */
 .game-grid {
   display: flex;
   flex-wrap: wrap;
@@ -69,14 +46,19 @@ h1 {
   align-items: flex-start;
 }
 
+/* Card layout */
 .game-card {
   width: 260px;
   border: 1px solid #444;
   border-radius: 10px;
   overflow: hidden;
+  background: #1a1a1a;
   font-size: 0.9em;
-  color: inherit;
-  background: #222;
+  padding-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .game-card img {
@@ -84,26 +66,43 @@ h1 {
   display: block;
 }
 
-/* title + status line */
-.game-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6px 8px 2px;
-}
-
 .game-title {
-  font-weight: bold;
+  font-weight: 600;
+  margin-top: 6px;
+  color: var(--color-text);
 }
 
-/* stats line */
+.game-status {
+  font-size: 0.85em;
+  margin-bottom: 4px;
+}
+
+.game-status.ongoing { color: var(--green); }
+.game-status.paused { color: var(--purple); }
+.game-status.complete { color: var(--blue); }
+
 .game-stats {
   display: flex;
   justify-content: space-between;
-  padding: 0 8px 6px;
+  width: 90%;
+  font-size: 0.85em;
+  opacity: 0.9;
 }
 
-/* ========= STATUS COLORS ========= */
-.status.ongoing, .game-status.ongoing { color: var(--color-ongoing); }
-.status.paused, .game-status.paused { color: var(--color-paused); }
-.status.complete, .game-status.complete { color: var(--color-complete); }
+.sort-controls {
+  margin-bottom: 10px;
+}
+
+.sort-controls button {
+  background: none;
+  border: 1px solid #444;
+  color: var(--color-text);
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sort-controls button:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
