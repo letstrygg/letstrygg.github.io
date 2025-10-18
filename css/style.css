@@ -2,7 +2,7 @@
   --bg:				#111111;
   --card-bg:		#222222;
   --text:			#e3e3e3;
-  --color-title:	#ffffff;
+  --title:	#ffffff;
   --subtitle:		#636363;
   --green:			#8dff8d;
   --blue:			#75caff;
@@ -35,7 +35,7 @@ body {
 }
 
 header			{ text-align: center; }
-.title			{ font-size: 2rem; color: var(--title); }
+.title			{ color: var(--title); }
 .subtitle		{ color: var(--subtitle); }
 .green			{ color: var(--green); }
 .blue			{ color: var(--blue); }
