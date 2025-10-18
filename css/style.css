@@ -66,6 +66,7 @@ b			{ font-weight: 500; }
   border-radius: 10px;
   overflow: hidden;
   font-size: 0.9em;
+  background: var(--card-bg);
   color: inherit;
 }
 
@@ -76,7 +77,6 @@ b			{ font-weight: 500; }
 
 .card-content {
   padding: 6px 8px;
-  background: var(--card-bg);
 }
 
 .card-title-row,
