@@ -1,8 +1,7 @@
 :root {
-  --font-main:		'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --color-bg:		#111111;
+  --bg:			#111111;
   --card-bg:		#222222;
-  --color-text:		#e3e3e3;
+  --text:		#e3e3e3;
   --color-title:	#ffffff;
   --color-subtitle:	#636363;
   --green:		#8dff8d;
@@ -12,11 +11,11 @@
 }
 
 .light-theme {
-  --color-bg:		#ffffff;
+  --bg:			#ffffff;
   --card-bg:		#dddddd;
-  --color-text:		#111111;
-  --color-title:	#111111;
-  --color-subtitle:	#666666;
+  --text:		#111111;
+  --title:		#111111;
+  --subtitle:		#666666;
   --green:		#00c558;
   --blue:		#44b7ff;
   --purple:		#a559ff;
@@ -24,18 +23,18 @@
 }
 
 body {
-  font-family:		var(--font-main);
-  background:		var(--color-bg);
-  color:		var(--color-text);
+  font-family:		'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:		var(--bg);
+  color:		var(--text);
   max-width:		1400px;
   margin:		0 auto;
   padding:		2rem;
   line-height:		1.6;
 }
 
-header			{ text-align: center; margin-bottom: 2rem; }
-.title			{ font-size: 2rem; color: var(--color-title); }
-.subtitle		{ color: var(--color-subtitle); }
+header			{ text-align: center; }
+.title			{ font-size: 2rem; color: var(--title); }
+.subtitle		{ color: var(--subtitle); }
 .green			{ color: var(--green); }
 .blue			{ color: var(--blue); }
 .purple			{ color: var(--purple); }
