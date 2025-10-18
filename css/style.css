@@ -1,6 +1,7 @@
 :root {
   --font-main:		'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --color-bg:		#111111;
+  --card-bg:		#222222;
   --color-text:		#e3e3e3;
   --color-title:	#ffffff;
   --color-subtitle:	#636363;
@@ -12,9 +13,14 @@
 
 .light-theme {
   --color-bg:		#ffffff;
+  --card-bg:		#dddddd;
   --color-text:		#111111;
   --color-title:	#111111;
   --color-subtitle:	#666666;
+  --green:		#00c558;
+  --blue:		#75caff;
+  --purple:		#c390ff;
+  --gray:		#666666;
 }
 
 body {
@@ -71,7 +77,7 @@ b			{ font-weight: 500; }
 
 .card-content {
   padding: 6px 8px;
-  background: #222;
+  background: var(--card-bg);
 }
 
 .card-title-row,
