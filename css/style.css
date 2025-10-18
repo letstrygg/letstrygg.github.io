@@ -63,7 +63,7 @@ b				{ font-weight: 500; text-decoration: underline; text-decoration-color: colo
 
 .game-card {
   width: 260px;
-  border: 1px solid #30456d;
+  border: 1px solid #3d6fcf;
   border-radius: 10px;
   overflow: hidden;
   font-size: 0.9em;
