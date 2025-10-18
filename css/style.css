@@ -34,7 +34,7 @@ header			{ text-align: center; margin-bottom: 2rem; }
 .blue			{ color: var(--blue); }
 .purple			{ color: var(--purple); }
 .grey			{ color: var(--grey); }
-a			{ text-decoration: none; }
+a			{ text-decoration: none; color: inherit; }
 h2			{ margin-top: 30px; font-size: 1.2em; }
 b			{ font-weight: 500; }
 
