@@ -86,9 +86,3 @@ b			{ font-weight: 500; }
   justify-content: space-between;
   align-items: center;
 }
-
-
-
-
-.status-on { color: var(--text-ongoing); }
-.status-label.status-paused-text { color: var(--text-paused); }
