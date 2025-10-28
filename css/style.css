@@ -37,7 +37,7 @@ body {
 
 header			{ text-align: center; }
 .title			{ color: var(--title); margin: 20px 0px 0px; }
-.subtitle		{ color: var(--subtitle); margin: 0; }
+.subtitle		{ color: var(--subtitle); margin: 0; font-weight: 500; font-style: oblique;}
 .green			{ color: var(--green); }
 .blue			{ color: var(--blue); }
 .purple			{ color: var(--purple); }
