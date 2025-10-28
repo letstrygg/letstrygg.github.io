@@ -86,3 +86,5 @@ b				{ font-weight: 500; text-decoration: underline; text-decoration-color: var(
   justify-content: space-between;
   align-items: center;
 }
+
+.section { padding-left: 2em; }
