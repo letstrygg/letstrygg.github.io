@@ -140,32 +140,59 @@ permalink: /game/megabonk/items/key
   
     .table-grid {
     display: flex;
+	justify-content: center;      /* Center all tables as a group */
+	flex-wrap: wrap;              /* Let them wrap on smaller screens */
     gap: 3rem;
     margin-top: 1em;
   }
 
   .data-table {
-    background: var(--card-bg);
-    border-collapse: collapse;
-    text-align: right;
+		background: var(--card-bg);
+		border-collapse: collapse;
+		text-align: right;
+		min-width: 140px;
+		border-radius: 8px;
+		overflow: hidden;             /* Keeps hover highlight + rounded corners clean */
+		box-shadow: 0 0 6px rgba(0,0,0,0.3);
   }
 
-  .data-table th, .data-table td {
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 0.4em 0.8em;
-  }
+/* Header row styling */
+.data-table thead th {
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+  padding: 0.6em 0.8em;
+}
 
-  .data-table th:first-child,
-  .data-table td:first-child {
-    text-align: left;
-  }
+/* Data rows */
+.data-table td {
+  padding: 0.4em 0.8em;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
-  /* Stack on small screens */
-  @media (max-width: 800px) {
-    .table-grid {
-      grid-template-columns: 1fr;
-    }
+
+/* Align first column left */
+.data-table th:first-child,
+.data-table td:first-child {
+  text-align: left;
+}
+
+/* Hover effect on rows */
+.data-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transition: background 0.2s ease;
+}
+
+
+/* Stack tables vertically on small screens */
+@media (max-width: 800px) {
+  .table-grid {
+    flex-direction: column;
+    align-items: center;
   }
+}
   
   
   .video-wrapper {
