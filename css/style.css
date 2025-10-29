@@ -91,6 +91,6 @@ b				{ font-weight: 500; text-decoration: underline; text-decoration-color: var(
 
 .playlist-thumb { max-width: 400px; width: 100%; height: auto; }
 
-.item-list li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
-.item-list { list-style-type: none; /* removes bullets */ padding-left: 1.5em; /* gentle indent inside the section */ }
-.item-list li { margin-bottom: 0.6em; text-indent: -1.2em; /* brings the first line back if you prefer no visual indent */ }
+ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
+ul { list-style-type: none; /* removes bullets */ padding-left: 1.5em; /* gentle indent inside the section */ }
+ul li { margin-bottom: 0.6em; text-indent: -1.2em; /* brings the first line back if you prefer no visual indent */ }
