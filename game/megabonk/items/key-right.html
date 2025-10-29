@@ -12,8 +12,8 @@ permalink: /game/megabonk/items/key-right
 <div class="section">
 	<img src="/game/megabonk/images/Key.png" alt="Key Description" class="item-image">
 	<p>
-		The <strong>Key</strong> item in <em>Megabonk</em> gives a <strong>10% chance</strong> for a chest to open for free.
-		However, the chances stack *multiplicatively*, not additively — meaning 10 Keys does <strong>not</strong> guarantee 100%.
+		The <strong>Key</strong> item in <em>Megabonk</em> gives a <strong>10% base chance</strong> for a chest to open for free.
+		However, this chance does <strong>not</strong> stack linearly — instead, it follows a <strong>diminishing return formula</strong>.
 	</p>
 </div>
 
@@ -22,7 +22,6 @@ permalink: /game/megabonk/items/key-right
 <div class="two-col">
 	<div class="section col video-col">
 		<div class="video-wrapper">
-			<!-- Replace VIDEO_ID with actual YouTube video ID -->
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/PZcuI-fK4V8" 
 			title="Megabonk Key Item Explained" frameborder="0" 
 			allowfullscreen></iframe>
@@ -30,25 +29,35 @@ permalink: /game/megabonk/items/key-right
 	</div>
 
 	<div class="section col text-col">
-		<h3>How It Works</h2>
+		<h3>How It Works</h3>
 		<div class="section">
 			<p>
-				Each Key adds another independent 10% chance for the chest to open for free.<br>
-				The probability of a chest <em>not</em> opening for free with one Key is 90% (0.9).<br><br>
-				With multiple Keys, you multiply that chance together:
+				Each Key increases your odds, but with <em>diminishing returns</em> — meaning each additional Key adds less benefit than the one before.
+				The formula is:
 			</p>
-			Formula, 
-			<pre><code>Chance to open = 1 − (0.9)<sup>n</sup></code></pre>
+
+			<pre><code>Chance to open = n / (n + 10)</code></pre>
+
 			<p>
-				Where <code>n</code> is the number of Keys you have.
+				Where <code>n</code> is the number of Keys you have.  
+				This means even with infinite Keys, the chance can never exceed 100%.
 			</p>
+
+			<p>Examples:</p>
+			<ul>
+				<li>1 Key → 9.09%</li>
+				<li>5 Keys → 33.33%</li>
+				<li>10 Keys → 50%</li>
+				<li>20 Keys → 66.67%</li>
+				<li>30 Keys → 75%</li>
+			</ul>
 		</div>
 	</div>
 </div>
 
 
-  <h2 class="title">Chance Table</h2>
-  <p class="subtitle">Odds of opening a chest for free based on # of Keys,</p>
+<h2 class="title">Chance Table</h2>
+<p class="subtitle">Odds of opening a chest for free based on # of Keys</p>
 <div class="section">
 
   <div class="table-grid">
@@ -81,7 +90,7 @@ permalink: /game/megabonk/items/key-right
 
 <script>
   function formatChance(n) {
-    const chance = 1 - Math.pow(0.9, n);
+    const chance = n / (n + 10);
     return (chance * 100).toFixed(2) + '%';
   }
 
@@ -95,13 +104,12 @@ permalink: /game/megabonk/items/key-right
     }
   }
 
-	fillTable('table-1', 1, 10);
-	fillTable('table-2', 11, 20);
-	fillTable('table-3', 21, 30);
+  fillTable('table-1', 1, 10);
+  fillTable('table-2', 11, 20);
+  fillTable('table-3', 21, 30);
 </script>
 
 <style>
-
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -126,39 +134,37 @@ permalink: /game/megabonk/items/key-right
   }
 }
 
-  .item-image {
-    border-radius: 12px;
-    margin-bottom: 1em;
-  }
-  pre code {
-    background: var(--card-bg);
-    padding: 0.5em 1em;
-    border-radius: 8px;
-    display: inline-block;
-  }
-  
-  
-    .table-grid {
-    display: flex;
-/*	justify-content: center;       Center all tables as a group */
-	flex-wrap: wrap;              /* Let them wrap on smaller screens */
-    gap: 3rem;
-    margin-top: 1em;
-  }
+.item-image {
+  border-radius: 12px;
+  margin-bottom: 1em;
+}
 
-  .data-table {
-		background: var(--card-bg);
-		border-collapse: collapse;
-		text-align: right;
-		min-width: 140px;
-		border-radius: 8px;
-		overflow: hidden;             /* Keeps hover highlight + rounded corners clean */
-		box-shadow: 0 0 6px rgba(0,0,0,0.3);
-  }
+pre code {
+  background: var(--card-bg);
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  display: inline-block;
+}
 
-/* Header row styling */
+.table-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-top: 1em;
+}
+
+.data-table {
+  background: var(--card-bg);
+  border-collapse: collapse;
+  text-align: right;
+  min-width: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
 .data-table thead th {
-  background: rgba(055, 055, 255, 0.18);
+  background: rgba(55, 55, 255, 0.18);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -166,45 +172,38 @@ permalink: /game/megabonk/items/key-right
   padding: 0.6em 0.8em;
 }
 
-/* Data rows */
 .data-table td {
   padding: 0.4em 0.8em;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-
-/* Align first column left */
 .data-table th:first-child,
 .data-table td:first-child {
   text-align: left;
 }
 
-/* Hover effect on rows */
 .data-table tbody tr:hover {
-  background: rgba(055, 055, 255, 0.18);
+  background: rgba(55, 55, 255, 0.18);
   transition: background 0.2s ease;
 }
 
-
-/* Stack tables vertically on small screens */
 @media (max-width: 800px) {
   .table-grid {
     flex-direction: column;
     align-items: center;
   }
 }
-  
-  
-  .video-wrapper {
-    position: relative;
-  }
-  .video-wrapper iframe {
-    width: 100%;
-    max-width: 720px;
-    height: 405px;
-    border-radius: 10px;
-    display: block;
-    margin: 1.5em auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-  }
+
+.video-wrapper {
+  position: relative;
+}
+.video-wrapper iframe {
+  width: 100%;
+  max-width: 720px;
+  height: 405px;
+  border-radius: 10px;
+  display: block;
+  margin: 1.5em auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
 </style>
