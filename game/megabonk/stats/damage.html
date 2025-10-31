@@ -1,0 +1,172 @@
+---
+layout: new
+title: Damage Formula – Megabonk Stats
+description: Interactive breakdown of how Megabonk calculates damage multipliers.
+permalink: /game/megabonk/stats/damage
+---
+
+<b><a href="/" class="green">letstrygg.com</a></b>/game/<b><a href="/game/megabonk/" class="green">megabonk</a></b>/stats/<b><a href="/game/megabonk/stats/damage" class="green">damage</a></b>
+
+<h1 class="title">Damage Formula</h1>
+<p class="subtitle">Interactive breakdown of all damage multipliers in Megabonk</p><br>
+
+<div class="section">
+  <h2>Formula</h2>
+  <pre id="formula-display"><code>Base × (Damage Tome) × ( ... )</code></pre>
+</div>
+
+<div class="section toggles">
+  <h2>Toggle Multipliers</h2>
+  <div class="toggle-grid">
+
+    <!-- Always On -->
+    <button class="toggle always-on" data-type="always" data-id="base" disabled>Base (Always On)</button>
+
+    <!-- Simple On/Off -->
+    <button class="toggle active" data-type="binary" data-id="damageTome">Damage Tome</button>
+
+    <!-- 3-State -->
+    <button class="toggle maybe" data-type="tristate" data-id="joesDagger">Joe’s Dagger (On / Off / Maybe)</button>
+
+    <!-- Exclusive Group -->
+    <button class="toggle active" data-type="exclusive" data-group="char" data-id="ogre">Ogre</button>
+    <button class="toggle" data-type="exclusive" data-group="char" data-id="birdo">Birdo</button>
+    <button class="toggle" data-type="exclusive" data-group="char" data-id="megachad">Megachad</button>
+    <button class="toggle" data-type="exclusive" data-group="char" data-id="athena">Athena</button>
+    <button class="toggle" data-type="exclusive" data-group="char" data-id="robinette">Robinette</button>
+
+  </div>
+</div>
+
+<div class="section">
+  <h2>Output Formula</h2>
+  <pre id="output"><code></code></pre>
+</div>
+
+<script>
+const toggles = document.querySelectorAll('.toggle');
+const output = document.getElementById('output');
+const formulaDisplay = document.getElementById('formula-display');
+
+const state = {
+  base: true,
+  damageTome: true,
+  joesDagger: 'maybe',
+  ogre: true,
+  birdo: false,
+  megachad: false,
+  athena: false,
+  robinette: false,
+};
+
+// Update formula output
+function updateFormula() {
+  let parts = [];
+
+  if (state.base) parts.push("Base");
+  if (state.damageTome) parts.push("(Damage Tome)");
+
+  let group1 = [];
+  if (state.joesDagger === 'on') group1.push("Joe's Dagger");
+  if (state.joesDagger === 'maybe') group1.push("Joe's Dagger (maybe)");
+
+  if (group1.length) parts.push("(" + group1.join(" + ") + ")");
+
+  const activeChar = Object.entries(state).find(([k,v]) => ['ogre','birdo','megachad','athena','robinette'].includes(k) && v);
+  if (activeChar) parts.push(`(${capitalize(activeChar[0])}'s Passive)`);
+
+  output.textContent = parts.join(" × ");
+}
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function toggleState(el) {
+  const id = el.dataset.id;
+  const type = el.dataset.type;
+
+  if (type === 'binary') {
+    state[id] = !state[id];
+    el.classList.toggle('active', state[id]);
+    el.classList.toggle('off', !state[id]);
+  }
+  else if (type === 'tristate') {
+    if (state[id] === 'on') { state[id] = 'off'; el.className = 'toggle off'; }
+    else if (state[id] === 'off') { state[id] = 'maybe'; el.className = 'toggle maybe'; }
+    else { state[id] = 'on'; el.className = 'toggle active'; }
+  }
+  else if (type === 'exclusive') {
+    const group = el.dataset.group;
+    document.querySelectorAll(`[data-group="${group}"]`).forEach(btn => {
+      btn.classList.remove('active');
+      state[btn.dataset.id] = false;
+    });
+    el.classList.add('active');
+    state[id] = true;
+  }
+
+  updateFormula();
+}
+
+toggles.forEach(el => {
+  if (el.dataset.type !== 'always') el.addEventListener('click', () => toggleState(el));
+});
+
+updateFormula();
+</script>
+
+<style>
+.toggle-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8em;
+}
+
+.toggle {
+  border: 1px solid var(--text);
+  border-radius: 6px;
+  padding: 0.4em 0.9em;
+  background: var(--card-bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-size: 0.9em;
+}
+
+.toggle.active {
+  background: rgba(80, 255, 80, 0.25);
+  border-color: #8dff8d;
+}
+
+.toggle.off {
+  background: rgba(255, 60, 60, 0.25);
+  border-color: #ff6666;
+}
+
+.toggle.maybe {
+  background: rgba(255, 200, 100, 0.25);
+  border-color: #ffcc66;
+}
+
+.toggle.always-on {
+  background: rgba(80, 255, 80, 0.15);
+  cursor: default;
+  opacity: 0.8;
+}
+
+#output code {
+  background: var(--card-bg);
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+pre code {
+  background: var(--card-bg);
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  display: inline-block;
+}
+</style>
