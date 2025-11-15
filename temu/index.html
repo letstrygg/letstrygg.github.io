@@ -4,15 +4,37 @@ title: Temu Deals – Are They Legit or a Scam?
 description: Hands-on reviews of Temu products, including shelving units compared to Home Depot equivalents. Is Temu worth it?
 ---
 
-<!-- Temporary inline CSS (move to main stylesheet later) -->
 <style>
-  .cards-grid img {
+  /* Temporary card styles (move to main stylesheet later) */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.6rem;
+    margin-top: 2rem;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.15s ease;
+  }
+
+  .card:hover {
+    background: var(--card-bg-hover, #1a2333);
+  }
+
+  .card img {
     width: 100%;
-    max-width: 300px; /* <-- adjust this number if you want smaller or larger */
     height: auto;
     border-radius: 8px;
-    display: block;
-    margin: 1em;
+    margin-bottom: 0.8rem;
+  }
+
+  .card h3 {
+    margin: 0.3rem 0;
   }
 </style>
 
@@ -43,22 +65,24 @@ description: Hands-on reviews of Temu products, including shelving units compare
     <li>The app is <strong class="red">overly gamified</strong> and <strong class="red">borderline predatory</strong>—expect constant pop-ups and rewards.</li>
     <li>Privacy is a concern, but realistically no worse than Amazon, Meta, TikTok, or most large apps.</li>
   </ul>
-  <p>
-    My Temu recommendations, <b><a class="green" href="https://temu.to/k/p29bvdxfu1v">https://temu.to/k/p29bvdxfu1v</a></b>
+
+  <p class="mt1">
+    My Temu recommendations: <b><a class="green" href="https://temu.to/k/p29bvdxfu1v">https://temu.to/k/p29bvdxfu1v</a></b>
   </p>
 </div>
 
 <h2 class="title">My Temu Product Reviews</h2>
-<div class="section cards-grid">
-  
+
+<div class="cards-grid">
+
   <a class="card" href="/temu/shelf-72.html">
     <img src="/temu/images/shelf-72/9-temu-shelf-assembled.jpg" alt="72-inch Temu shelf">
-    <h3 class="title">72" Shelving Unit – $27.98 for Two</h3>
-    <p>Massive price difference vs Home Depot’s $104.99 per shelf. Full photo assembly walkthrough.</p>
+    <h3 class="title">72" Shelving Unit – $13.99</h3>
+    <p>Massive price difference vs Home Depot’s $104.99 per shelf. Full assembly walkthrough.</p>
   </a>
-  
-  <!-- Add more future Temu product cards here -->
-  
+
+  <!-- More product cards coming soon -->
+
 </div>
 
 <h2 class="title">Affiliate Disclosure</h2>
