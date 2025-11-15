@@ -8,6 +8,7 @@
   --blue:			#75caff;
   --purple:			#c390ff;
   --orange:         #ffb347;  /* 🔶 bright orange for dark mode */
+  --red:            #ff6b6b;  /* 🔴 new red for dark mode */
   --gray:			#666666;
   --underline:		#ffffff;
 }
@@ -22,9 +23,11 @@
   --blue:			#0085e3;
   --purple:			#9134ff;
   --orange:         #e66b00;  /* 🟧 rich orange for light mode */
+  --red:            #d10000;  /* 🔴 rich red for light mode */
   --gray:			#666666;
   --underline:		#2b2b2b;
 }
+
 
 body {
   font-family:		'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
