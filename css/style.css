@@ -45,6 +45,7 @@ header			{ text-align: center; }
 .blue			{ color: var(--blue); }
 .purple			{ color: var(--purple); }
 .orange			{ color: var(--orange); }
+.red			{ color: var(--red); }
 .grey			{ color: var(--grey); }
 a				{ text-decoration: none; color: inherit; }
 h2				{ margin: 30px 0px 0px 10px; font-size: 1.2em; }
