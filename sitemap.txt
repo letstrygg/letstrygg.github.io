@@ -14,5 +14,6 @@ letstrygg.com
 -projects
 --car
 ---hood strut replacement
+---hood strut replacement video
 -temu
 --shelf 72
