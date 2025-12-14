@@ -9,6 +9,13 @@ letstrygg.com
 --backpack battles
 --creeper world
 --luck and loot
+--megabonk
+---challenges
+----pacifist challenge
+----pacifist challenge video
+---items
+----key
+----key video
 --2025
 ---hell builder
 -projects
