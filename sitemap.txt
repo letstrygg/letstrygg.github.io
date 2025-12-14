@@ -11,3 +11,8 @@ letstrygg.com
 --luck and loot
 --2025
 ---hell builder
+-projects
+--car
+---hood strut replacement
+-temu
+--shelf 72
