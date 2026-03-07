@@ -1,0 +1,68 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "rXZh-D6LUh1P14sidg77cR6029w",
+    "id": "UExRNElMNFVWZ1FrNVRaNlg0SHdDOVhNRHA0NjFYX3NkZC41NkI0NEY2RDEwNTU3Q0M2",
+    "contentDetails": {
+      "videoId": "X1s6kFKz4Ac",
+      "videoPublishedAt": "2023-11-27T13:00:25Z",
+      "durationInSeconds": 2873,
+      "viewCount": 682
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "adlJeTZpEQcpVJJm7ATOiFrrGGg",
+    "id": "UExRNElMNFVWZ1FrNVRaNlg0SHdDOVhNRHA0NjFYX3NkZC4yODlGNEE0NkRGMEEzMEQy",
+    "contentDetails": {
+      "videoId": "5FNqe7j_kSw",
+      "videoPublishedAt": "2023-11-28T13:00:05Z",
+      "durationInSeconds": 2041,
+      "viewCount": 520
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "vYItRPMzji-VXYN4I4aj3hmlKXw",
+    "id": "UExRNElMNFVWZ1FrNVRaNlg0SHdDOVhNRHA0NjFYX3NkZC4wMTcyMDhGQUE4NTIzM0Y5",
+    "contentDetails": {
+      "videoId": "EQAEWWrMU0A",
+      "videoPublishedAt": "2023-11-29T13:00:11Z",
+      "durationInSeconds": 3813,
+      "viewCount": 139
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "tj5WhFd2-NgZaMyHfZEiSwqF8lQ",
+    "id": "UExRNElMNFVWZ1FrNVRaNlg0SHdDOVhNRHA0NjFYX3NkZC41MjE1MkI0OTQ2QzJGNzNG",
+    "contentDetails": {
+      "videoId": "Xdd-8c2jDT0",
+      "videoPublishedAt": "2023-11-30T13:00:25Z",
+      "durationInSeconds": 2157,
+      "viewCount": 314
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "0jWGBguLpQLOFQRLlrOpsJT5yaM",
+    "id": "UExRNElMNFVWZ1FrNVRaNlg0SHdDOVhNRHA0NjFYX3NkZC4wOTA3OTZBNzVEMTUzOTMy",
+    "contentDetails": {
+      "videoId": "ZYrJArMRnZw",
+      "videoPublishedAt": "2023-12-01T13:00:34Z",
+      "durationInSeconds": 4883,
+      "viewCount": 144
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "e3J2rajAbukCo9Kk8pH8TSVNV40",
+    "id": "UExRNElMNFVWZ1FrNVRaNlg0SHdDOVhNRHA0NjFYX3NkZC4xMkVGQjNCMUM1N0RFNEUx",
+    "contentDetails": {
+      "videoId": "RXJ8qHl06R0",
+      "videoPublishedAt": "2023-12-02T13:00:31Z",
+      "durationInSeconds": 2006,
+      "viewCount": 98
+    }
+  }
+]

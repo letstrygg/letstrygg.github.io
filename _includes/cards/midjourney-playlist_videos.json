@@ -1,0 +1,35 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "cvaUZvB0PBAkCcr3uEUz-kjeLhQ",
+    "id": "UExRNElMNFVWZ1FrNF9SVEhYaDN4dHpxU213ak5rV0dCcC41NkI0NEY2RDEwNTU3Q0M2",
+    "contentDetails": {
+      "videoId": "roLvZCDHo9I",
+      "videoPublishedAt": "2022-08-12T13:00:28Z",
+      "durationInSeconds": 3616,
+      "viewCount": 78
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Y2FWpjVpTr8TK7V9mGBEK3nyjV8",
+    "id": "UExRNElMNFVWZ1FrNF9SVEhYaDN4dHpxU213ak5rV0dCcC4yODlGNEE0NkRGMEEzMEQy",
+    "contentDetails": {
+      "videoId": "2A-FfCH0zm4",
+      "videoPublishedAt": "2022-09-16T15:00:02Z",
+      "durationInSeconds": 7775,
+      "viewCount": 133
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "xrmTm0ED_w8u-GlCYu2LHVcpEnk",
+    "id": "UExRNElMNFVWZ1FrNF9SVEhYaDN4dHpxU213ak5rV0dCcC4wMTcyMDhGQUE4NTIzM0Y5",
+    "contentDetails": {
+      "videoId": "rAbP_zs0mXc",
+      "videoPublishedAt": "2023-02-14T14:00:36Z",
+      "durationInSeconds": 1849,
+      "viewCount": 101
+    }
+  }
+]

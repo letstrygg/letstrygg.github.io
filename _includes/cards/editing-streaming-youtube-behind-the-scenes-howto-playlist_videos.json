@@ -1,0 +1,68 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "hJO4CBtQ0zO8w_UfYSHbYLzdBOw",
+    "id": "UExRNElMNFVWZ1FrN3lrYktpYnNkTDl3WGNQS2pocHBYNC41MjE1MkI0OTQ2QzJGNzNG",
+    "contentDetails": {
+      "videoId": "SAj-D5-pCzk",
+      "videoPublishedAt": "2024-06-27T19:00:10Z",
+      "durationInSeconds": 44,
+      "viewCount": 26691
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "x1OwrhTVHvILUMkPtV7-BJ9Jv28",
+    "id": "UExRNElMNFVWZ1FrN3lrYktpYnNkTDl3WGNQS2pocHBYNC4xMkVGQjNCMUM1N0RFNEUx",
+    "contentDetails": {
+      "videoId": "Y8G3dAiyzb4",
+      "videoPublishedAt": "2025-08-07T04:25:01Z",
+      "durationInSeconds": 57,
+      "viewCount": 927
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "rxI4bKlOU7mkcn013XLBKv99KIU",
+    "id": "UExRNElMNFVWZ1FrN3lrYktpYnNkTDl3WGNQS2pocHBYNC4wOTA3OTZBNzVEMTUzOTMy",
+    "contentDetails": {
+      "videoId": "IXhjO0TcIAg",
+      "videoPublishedAt": "2025-01-07T17:00:17Z",
+      "durationInSeconds": 558,
+      "viewCount": 570
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "OCwhYC1kWnj5VclQxd_9RmHg5PI",
+    "id": "UExRNElMNFVWZ1FrN3lrYktpYnNkTDl3WGNQS2pocHBYNC4wMTcyMDhGQUE4NTIzM0Y5",
+    "contentDetails": {
+      "videoId": "o4rjX08Tx0M",
+      "videoPublishedAt": "2025-01-06T03:45:02Z",
+      "durationInSeconds": 774,
+      "viewCount": 425
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "DE6Ei8plPXYm_FZLwTf5UMeRZno",
+    "id": "UExRNElMNFVWZ1FrN3lrYktpYnNkTDl3WGNQS2pocHBYNC41NkI0NEY2RDEwNTU3Q0M2",
+    "contentDetails": {
+      "videoId": "YLANrpEQ19M",
+      "videoPublishedAt": "2024-12-23T15:00:43Z",
+      "durationInSeconds": 79,
+      "viewCount": 44
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "KnkYsfGEPSX-T5Wye7E4Fxc6EFk",
+    "id": "UExRNElMNFVWZ1FrN3lrYktpYnNkTDl3WGNQS2pocHBYNC41MzJCQjBCNDIyRkJDN0VD",
+    "contentDetails": {
+      "videoId": "HTFjqplPG0g",
+      "videoPublishedAt": "2026-02-28T20:01:00Z",
+      "durationInSeconds": 192,
+      "viewCount": 16
+    }
+  }
+]

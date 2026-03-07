@@ -1,0 +1,79 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5Y3jJo6I-c-df577vOtrjeis8IU",
+    "id": "UExrd1lLUVVxWkVVV1BlMnVJY3FvN0pSdURYcVhpTHJpVi41MzJCQjBCNDIyRkJDN0VD",
+    "contentDetails": {
+      "videoId": "0CN-ICAUh3Q",
+      "videoPublishedAt": "2025-08-26T16:00:02Z",
+      "durationInSeconds": 2898,
+      "viewCount": 123
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "p1W8FeAkwM06zxrFAP4VAZYWBL4",
+    "id": "UExrd1lLUVVxWkVVV1BlMnVJY3FvN0pSdURYcVhpTHJpVi4xMkVGQjNCMUM1N0RFNEUx",
+    "contentDetails": {
+      "videoId": "xNofN-WAXlQ",
+      "videoPublishedAt": "2025-08-25T16:01:34Z",
+      "durationInSeconds": 2791,
+      "viewCount": 55
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "xMjGwtVbSPZ5fnwMJhO23HjPOMs",
+    "id": "UExrd1lLUVVxWkVVV1BlMnVJY3FvN0pSdURYcVhpTHJpVi4wOTA3OTZBNzVEMTUzOTMy",
+    "contentDetails": {
+      "videoId": "4eJV9UPzncE",
+      "videoPublishedAt": "2025-08-24T17:15:00Z",
+      "durationInSeconds": 2119,
+      "viewCount": 74
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "3kVLAQM5t4OtegEiPujeLIQK3Do",
+    "id": "UExrd1lLUVVxWkVVV1BlMnVJY3FvN0pSdURYcVhpTHJpVi41MjE1MkI0OTQ2QzJGNzNG",
+    "contentDetails": {
+      "videoId": "fr3T_RJWk2o",
+      "videoPublishedAt": "2025-08-19T14:01:17Z",
+      "durationInSeconds": 2720,
+      "viewCount": 94
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "jf4uoglmv6bGqldwfAej3OSKlms",
+    "id": "UExrd1lLUVVxWkVVV1BlMnVJY3FvN0pSdURYcVhpTHJpVi4wMTcyMDhGQUE4NTIzM0Y5",
+    "contentDetails": {
+      "videoId": "VCB7EHgFi1w",
+      "videoPublishedAt": "2025-08-18T14:00:45Z",
+      "durationInSeconds": 2285,
+      "viewCount": 84
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "yTdzb4bJ-lFrQ1q0U0fUB6vjVzw",
+    "id": "UExrd1lLUVVxWkVVV1BlMnVJY3FvN0pSdURYcVhpTHJpVi4yODlGNEE0NkRGMEEzMEQy",
+    "contentDetails": {
+      "videoId": "Q1AOiU8pp40",
+      "videoPublishedAt": "2025-08-17T17:45:00Z",
+      "durationInSeconds": 2698,
+      "viewCount": 146
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ow5-Pe6IAf5XYt6iZ61DiqcaeOw",
+    "id": "UExrd1lLUVVxWkVVV1BlMnVJY3FvN0pSdURYcVhpTHJpVi41NkI0NEY2RDEwNTU3Q0M2",
+    "contentDetails": {
+      "videoId": "nqiWYhg1oiw",
+      "videoPublishedAt": "2025-08-15T14:01:20Z",
+      "durationInSeconds": 8724,
+      "viewCount": 292
+    }
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "OiqpZFZFHxsDsqtI9RGTjOUSGdQ",
+    "id": "UExRNElMNFVWZ1FrN2RQR2dWT2ZwVWVDMEVZaUJ4a1lpUi41MjE1MkI0OTQ2QzJGNzNG",
+    "contentDetails": {
+      "videoId": "siYB6qOuvX8",
+      "videoPublishedAt": "2025-04-03T15:01:20Z",
+      "durationInSeconds": 2802,
+      "viewCount": 94
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "FIZuX-iuFqk3bw1ki33LBq7GnUo",
+    "id": "UExRNElMNFVWZ1FrN2RQR2dWT2ZwVWVDMEVZaUJ4a1lpUi4wMTcyMDhGQUE4NTIzM0Y5",
+    "contentDetails": {
+      "videoId": "AwWENMzpAmo",
+      "videoPublishedAt": "2025-04-03T03:07:22Z",
+      "durationInSeconds": 1523,
+      "viewCount": 283
+    }
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ZQKokEwb8t09RRxNx6uok-Ov6FU",
+    "id": "UExRNElMNFVWZ1FrNmZoVlpMVmVRa3dTMnJGTmZvWDBlMy41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2026-03-05T21:40:56Z",
+      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
+      "title": "001 It Begins, Slay the Spire 2",
+      "description": "Slay the Spire 2 Playlist, https://www.youtube.com/playlist?list=PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_7Q5TVP3q24/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_7Q5TVP3q24/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_7Q5TVP3q24/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_7Q5TVP3q24/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LetsTryGG",
+      "playlistId": "PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "_7Q5TVP3q24"
+      },
+      "videoOwnerChannelTitle": "LetsTryGG",
+      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
+    },
+    "contentDetails": {
+      "videoId": "_7Q5TVP3q24",
+      "videoPublishedAt": "2026-03-05T22:00:38Z",
+      "durationInSeconds": 10076,
+      "viewCount": 95
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "UKsakxMDcrZtdrsEWFMDl4fpaFc",
+    "id": "UExRNElMNFVWZ1FrNmZoVlpMVmVRa3dTMnJGTmZvWDBlMy4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2026-03-06T00:40:11Z",
+      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
+      "title": "002 You think you are so Sly, Slay the Spire 2",
+      "description": "Slay the Spire 2 Playlist, https://www.youtube.com/playlist?list=PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Kv4hcCFQzW8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Kv4hcCFQzW8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Kv4hcCFQzW8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Kv4hcCFQzW8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Kv4hcCFQzW8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LetsTryGG",
+      "playlistId": "PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Kv4hcCFQzW8"
+      },
+      "videoOwnerChannelTitle": "LetsTryGG",
+      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
+    },
+    "contentDetails": {
+      "videoId": "Kv4hcCFQzW8",
+      "videoPublishedAt": "2026-03-06T12:00:42Z",
+      "durationInSeconds": 9471,
+      "viewCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "c_faQdZTQn__zTpuEOc9hYBlSdU",
+    "id": "UExRNElMNFVWZ1FrNmZoVlpMVmVRa3dTMnJGTmZvWDBlMy4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2026-03-07T03:00:23Z",
+      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
+      "title": "Private video",
+      "description": "This video is private.",
+      "thumbnails": {},
+      "channelTitle": "LetsTryGG",
+      "playlistId": "PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "AtaIKy3yvnk"
+      }
+    },
+    "contentDetails": {
+      "videoId": "AtaIKy3yvnk",
+      "durationInSeconds": 0,
+      "videoPublishedAt": "",
+      "viewCount": 0
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "OSukd4w5H2ykS6QY8LrqW7EBuqg",
+    "id": "UExRNElMNFVWZ1FrNmZoVlpMVmVRa3dTMnJGTmZvWDBlMy41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2026-03-07T06:10:36Z",
+      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
+      "title": "004 Osty & Necrobinder, Slay the Spire 2",
+      "description": "Slay the Spire 2 Playlist, https://www.youtube.com/playlist?list=PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3\n\n1:12:16 Reading Crystal Sphere Event\n1:13:00 How To Divine",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/CpIJ2qDV2JA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/CpIJ2qDV2JA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/CpIJ2qDV2JA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/CpIJ2qDV2JA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/CpIJ2qDV2JA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LetsTryGG",
+      "playlistId": "PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "CpIJ2qDV2JA"
+      },
+      "videoOwnerChannelTitle": "LetsTryGG",
+      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
+    },
+    "contentDetails": {
+      "videoId": "CpIJ2qDV2JA",
+      "videoPublishedAt": "2026-03-07T06:06:46Z",
+      "durationInSeconds": 8406,
+      "viewCount": 0
+    }
+  }
+]

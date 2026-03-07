@@ -1,0 +1,46 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "hhu7dpME85v1bufr0uP3TB1i7o8",
+    "id": "UExrd1lLUVVxWkVVVkQ5RFpfYW81QTRxXy1BVC1ZbXBGTS4wOTA3OTZBNzVEMTUzOTMy",
+    "contentDetails": {
+      "videoId": "lXnbf6cbzp0",
+      "videoPublishedAt": "2025-10-06T13:30:48Z",
+      "durationInSeconds": 1419,
+      "viewCount": 181
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5R1OCnW8ORiZVgUwSvt3IdhcclM",
+    "id": "UExrd1lLUVVxWkVVVkQ5RFpfYW81QTRxXy1BVC1ZbXBGTS4xMkVGQjNCMUM1N0RFNEUx",
+    "contentDetails": {
+      "videoId": "euX0RiyE-kQ",
+      "videoPublishedAt": "2025-10-07T14:01:05Z",
+      "durationInSeconds": 1357,
+      "viewCount": 35
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "GVL02LlVYtP_J1AohLdHbGJFMSA",
+    "id": "UExrd1lLUVVxWkVVVkQ5RFpfYW81QTRxXy1BVC1ZbXBGTS41MzJCQjBCNDIyRkJDN0VD",
+    "contentDetails": {
+      "videoId": "KvKkxKeKYfc",
+      "videoPublishedAt": "2025-10-08T14:00:28Z",
+      "durationInSeconds": 1316,
+      "viewCount": 20
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "eJMU9PiuVTrCPNMMRme9xTdJZEs",
+    "id": "UExrd1lLUVVxWkVVVkQ5RFpfYW81QTRxXy1BVC1ZbXBGTS45NDk1REZENzhEMzU5MDQz",
+    "contentDetails": {
+      "videoId": "e0u2Lyzkv48",
+      "videoPublishedAt": "2025-10-09T14:01:03Z",
+      "durationInSeconds": 2911,
+      "viewCount": 28
+    }
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "zjjuhjVDUAWCVTE5GuLUJaLyimY",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi41NkI0NEY2RDEwNTU3Q0M2",
+    "contentDetails": {
+      "videoId": "hDKoJDq6pjk",
+      "videoPublishedAt": "2023-12-19T14:30:19Z",
+      "durationInSeconds": 1953,
+      "viewCount": 1977
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "wkPITKg2Kr7MUpLobUzVSj7478g",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi4yODlGNEE0NkRGMEEzMEQy",
+    "contentDetails": {
+      "videoId": "IXE9PTjCzT4",
+      "videoPublishedAt": "2023-12-20T19:00:06Z",
+      "durationInSeconds": 1539,
+      "viewCount": 245
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "NmENgyv0uucaBCk-lA6g51BZ7iM",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi4wMTcyMDhGQUE4NTIzM0Y5",
+    "contentDetails": {
+      "videoId": "N0lwJYFO1ck",
+      "videoPublishedAt": "2023-12-22T19:00:08Z",
+      "durationInSeconds": 1315,
+      "viewCount": 543
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "fWAKHD_gaoVWqcIa0d3H816dn5s",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi41MjE1MkI0OTQ2QzJGNzNG",
+    "contentDetails": {
+      "videoId": "A9qsWn0zNm8",
+      "videoPublishedAt": "2023-12-24T19:00:05Z",
+      "durationInSeconds": 1413,
+      "viewCount": 353
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "lCUArPlp2bH749mqK8ovNUJCuDQ",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi4wOTA3OTZBNzVEMTUzOTMy",
+    "contentDetails": {
+      "videoId": "YL0jwy1etEA",
+      "videoPublishedAt": "2023-12-26T19:00:12Z",
+      "durationInSeconds": 2118,
+      "viewCount": 605
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "caTvExqsjGEqCzsgzqjJwau1ZjY",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi4xMkVGQjNCMUM1N0RFNEUx",
+    "contentDetails": {
+      "videoId": "Nhfdvmb7gsw",
+      "videoPublishedAt": "2023-12-28T19:00:09Z",
+      "durationInSeconds": 2154,
+      "viewCount": 643
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ivga8Z0BTI9P8BQI_Xkqy2vxr_E",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi41MzJCQjBCNDIyRkJDN0VD",
+    "contentDetails": {
+      "videoId": "bsNYZ0Ugl60",
+      "videoPublishedAt": "2023-12-30T19:00:29Z",
+      "durationInSeconds": 1354,
+      "viewCount": 618
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "t1Tt7NDH1Xg7ro5MzeEUE8_H2QM",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi5DQUNERDQ2NkIzRUQxNTY1",
+    "contentDetails": {
+      "videoId": "ij-bBr8cCKw",
+      "videoPublishedAt": "2024-01-01T19:00:14Z",
+      "durationInSeconds": 3255,
+      "viewCount": 509
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "9gEdHuX1gFlbmuXyuew6-rrdW5A",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi45NDk1REZENzhEMzU5MDQz",
+    "contentDetails": {
+      "videoId": "vmfljjjQ9i8",
+      "videoPublishedAt": "2024-01-03T19:00:21Z",
+      "durationInSeconds": 2702,
+      "viewCount": 405
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "cyLx9hYaCuhPv8LxLA2SB0REP4U",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi5GNjNDRDREMDQxOThCMDQ2",
+    "contentDetails": {
+      "videoId": "NO_7XOMCS58",
+      "videoPublishedAt": "2024-01-05T14:30:07Z",
+      "durationInSeconds": 2269,
+      "viewCount": 604
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "lGn_6ZaKazrBm4-c2kjNprKsLw0",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi40NzZCMERDMjVEN0RFRThB",
+    "contentDetails": {
+      "videoId": "xeTea8bG_ik",
+      "videoPublishedAt": "2024-01-07T19:00:22Z",
+      "durationInSeconds": 1712,
+      "viewCount": 1191
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "yWLdOBZvaVnxeLUhppUqnWrPIkY",
+    "id": "UExRNElMNFVWZ1FrNkUtMy1HMWtTdWdBbXdXRkNla29MZi5EMEEwRUY5M0RDRTU3NDJC",
+    "contentDetails": {
+      "videoId": "5naHEzDxnzk",
+      "videoPublishedAt": "2024-04-28T19:00:03Z",
+      "durationInSeconds": 2874,
+      "viewCount": 378
+    }
+  }
+]

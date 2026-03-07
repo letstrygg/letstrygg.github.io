@@ -1,0 +1,35 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-4BwpztdJPxbgZnMdBLOlCrljvE",
+    "id": "UExRNElMNFVWZ1FrN0ZiUU5saFRoa1BpcG9aSTFZOS0wSy41NkI0NEY2RDEwNTU3Q0M2",
+    "contentDetails": {
+      "videoId": "m5kY6k9GnSU",
+      "videoPublishedAt": "2020-08-21T19:00:18Z",
+      "durationInSeconds": 2075,
+      "viewCount": 80
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "gtMuUSANqgOoCFh4LFKE-BmUlQU",
+    "id": "UExRNElMNFVWZ1FrN0ZiUU5saFRoa1BpcG9aSTFZOS0wSy4yODlGNEE0NkRGMEEzMEQy",
+    "contentDetails": {
+      "videoId": "A7OlkrVYCFA",
+      "videoPublishedAt": "2020-08-22T19:00:01Z",
+      "durationInSeconds": 1969,
+      "viewCount": 24
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "CapwKCWkGEkV8-a7MlFZc2xLP3o",
+    "id": "UExRNElMNFVWZ1FrN0ZiUU5saFRoa1BpcG9aSTFZOS0wSy4wMTcyMDhGQUE4NTIzM0Y5",
+    "contentDetails": {
+      "videoId": "UF2zoMbczUY",
+      "videoPublishedAt": "2020-08-23T19:00:05Z",
+      "durationInSeconds": 1675,
+      "viewCount": 38
+    }
+  }
+]
