@@ -4,6 +4,8 @@ letstrygg.com
 --he is coming
 --toy smash kaboom
 --slay the spire 2
+---events
+----crystal shere
 --subnautica 2
 --dungeon warfare
 --backpack battles
