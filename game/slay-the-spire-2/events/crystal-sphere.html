@@ -8,32 +8,6 @@ custom_css: "/css/spire-style.css"
 
 <div class="sts-page-wrapper">
 
-<div class="sts-breadcrumbs">
-    <a href="/" class="sts-blue">letstrygg.com</a>
-    
-    {% assign url_parts = page.url | split: '/' %}
-    {% assign current_path = "" %}
-    
-    {% for part in url_parts %}
-      {% if part != "" and part != "index.html" %}
-        {% assign current_path = current_path | append: "/" | append: part %}
-        <span class="breadcrumb-separator">/</span>
-        
-        {% if forloop.last %}
-          <span class="sts-yellow">{{ page.title | split: " – " | first | split: " - " | first }}</span>
-        {% else %}
-          <a href="{{ current_path }}/" class="sts-blue">
-            {% if part == 'slay-the-spire-2' %}
-              Slay the Spire 2
-            {% else %}
-              {{ part | replace: '-', ' ' | capitalize }}
-            {% endif %}
-          </a>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  </div>
-
   <h1 class="sts-yellow">Slay the Spire 2 – Crystal Sphere Event</h1>
 
   <div class="sts-event-quote sts-blue">

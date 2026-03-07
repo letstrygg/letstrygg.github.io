@@ -25,6 +25,23 @@
 .sts-page-wrapper h2 {
     font-size: 1.8rem;
 }
+
+/* Breadcrumb Styling for Spire Pages */
+.sts-page-wrapper .site-breadcrumbs a {
+    color: var(--sts-blue);
+    text-decoration: none;
+}
+
+.sts-page-wrapper .site-breadcrumbs a:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 5px rgba(135, 206, 235, 0.3);
+}
+
+.sts-page-wrapper .breadcrumb-current {
+    color: var(--sts-yellow);
+    font-weight: normal;
+}
+
 :root {
     /* Slay the Spire UI Colors */
     --sts-red: #ff6565;
