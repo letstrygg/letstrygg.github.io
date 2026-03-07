@@ -1,0 +1,25 @@
+<div class="site-breadcrumbs" style="margin-bottom: 25px; font-size: 1.05rem;">
+  <a href="/">letstrygg.com</a>
+  
+  {% assign url_parts = page.url | split: '/' %}
+  {% assign current_path = "" %}
+  
+  {% for part in url_parts %}
+    {% if part != "" and part != "index.html" %}
+      {% assign current_path = current_path | append: "/" | append: part %}
+      <span style="margin: 0 10px; opacity: 0.5;">/</span>
+      
+      {% if forloop.last %}
+        <strong class="breadcrumb-current">{{ page.title | split: " – " | first | split: " - " | first }}</strong>
+      {% else %}
+        <a href="{{ current_path }}/" class="breadcrumb-link">
+          {% if part == 'slay-the-spire-2' %}
+            Slay the Spire 2
+          {% else %}
+            {{ part | replace: '-', ' ' | capitalize }}
+          {% endif %}
+        </a>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
