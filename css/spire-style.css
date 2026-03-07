@@ -11,6 +11,7 @@
 .sts-page-wrapper span,
 .sts-page-wrapper {
     color: var(--sts-text-main);
+    font-family: 'Kreon', serif;
     line-height: 1.6;
     font-size: 1.15rem; 
 }
