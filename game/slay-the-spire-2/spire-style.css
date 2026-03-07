@@ -1,0 +1,206 @@
+/* Import a font similar to Slay the Spire's UI */
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@400;500;700&display=swap');
+
+:root {
+    /* Slay the Spire UI Colors */
+    --sts-red: #ff6565;
+    --sts-green: #7fff00;
+    --sts-yellow: #f6c043;
+    --sts-blue: #87ceeb;
+    --sts-bg: #18191c;
+    --sts-panel-bg: rgba(20, 25, 30, 0.7);
+    --sts-text-main: #e2e2e2;
+    --sts-text-muted: #888;
+}
+
+/* Base Let's Try GG Spire Section Styles */
+.sts-body {
+    background-color: var(--sts-bg);
+    background-image: radial-gradient(circle at center, #2a282f 0%, #111113 100%);
+    color: var(--sts-text-main);
+    font-family: 'Kreon', serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Color Utilities */
+.sts-red { color: var(--sts-red) !important; }
+.sts-green { color: var(--sts-green) !important; }
+.sts-yellow { color: var(--sts-yellow) !important; }
+.sts-blue { color: var(--sts-blue) !important; }
+
+.run-history-container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+}
+
+/* Header / Stats */
+.stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.stats-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    font-size: 1.4rem;
+}
+
+/* Potion Slots Placeholder */
+.potion-slots {
+    display: flex;
+    gap: 4px;
+    background: rgba(40, 50, 60, 0.6);
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.potion-slot {
+    width: 20px;
+    height: 20px;
+    background: #2a3540;
+    border-radius: 50%;
+    transform: rotate(45deg) skew(15deg, 15deg); /* Rough potion shape */
+    border: 1px solid #555;
+}
+
+.stats-right {
+    text-align: right;
+    font-size: 0.95rem;
+    color: var(--sts-yellow);
+    line-height: 1.4;
+}
+
+.stats-right span {
+    color: var(--sts-text-main);
+}
+
+.version-text {
+    color: var(--sts-text-muted);
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* Flavor Text */
+.flavor-text {
+    text-align: center;
+    font-style: italic;
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+/* Map Section */
+.map-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.map-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.2rem;
+}
+
+.act-name {
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.node-icon {
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
+
+/* Sections General */
+.section-title {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Relics */
+.relics-section {
+    margin-bottom: 40px;
+}
+
+.relic-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.relic-placeholder {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Cards */
+.cards-section {
+    margin-bottom: 40px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px 20px;
+}
+
+.card-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+}
+
+/* Card Type Icons Placeholders (Attack, Skill, Power) */
+.card-type {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+}
+
+.card-type.attack { background-color: #d1566e; } /* Pinkish red */
+.card-type.skill { background-color: #6a9c84; } /* Muted green */
+.card-type.power { background-color: #4da6ff; } /* Light blue */
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .stats-header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .stats-right {
+        text-align: center;
+    }
+}
