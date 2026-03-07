@@ -26,17 +26,35 @@ title: LTG YouTube Gameplay
 </div>
 
 <div class="game-grid" id="all-series-grid">
-  {% for file in site.static_files %}
-    {% if file.path contains '/_includes/cards/' and file.extname == '.html' %}
-      {% include_relative {{ file.path }} %}
-    {% endif %}
+  {% for item in site.data.playlists %}
+    {% assign p = item[1] %}
+    
+    {% assign slug = item[0] | replace: '-playlist_details', '' %}
+    
+    {% assign s_color = p.status_color | default: 'blue' %}
+    {% if p.status == 'Ongoing' %}{% assign s_color = 'green' %}{% endif %}
+    {% if p.status == 'Paused' %}{% assign s_color = 'purple' %}{% endif %}
+
+    <a href="/game/{{ slug }}/">
+      <div class="game-card" data-updated="{{ p.updated | date: '%Y%m%d' }}" data-episodes="{{ p.episodes }}" data-views="{{ p.views }}" data-duration="{{ p.duration }}">
+        <img src="{{ p.thumbnail }}" alt="{{ p.title }}">
+        <div class="card-row">
+          <strong>{{ p.title }}</strong>
+          <span class="card-status {{ s_color }}">{{ p.status }}</span>
+        </div>
+        <div class="card-row">
+          <span>{{ p.episodes }} videos</span>
+          <span>{{ p.views_formatted | default: p.views }} views</span>
+          <span>⏱ {{ p.duration_formatted | default: p.duration }}</span>
+        </div>
+      </div>
+    </a>
   {% endfor %}
 </div>
 
 <script>
 function sortGrid(type) {
   const grid = document.getElementById('all-series-grid');
-  // Get all the <a> tags which are the card wrappers
   const cards = Array.from(grid.querySelectorAll('a'));
 
   cards.sort((a, b) => {
@@ -45,13 +63,17 @@ function sortGrid(type) {
     
     if (!cardA || !cardB) return 0;
 
-    if (type === 'recent') return parseInt(cardB.dataset.updated) - parseInt(cardA.dataset.updated);
-    if (type === 'popular') return parseInt(cardB.dataset.views) - parseInt(cardA.dataset.views);
-    if (type === 'length') return parseInt(cardB.dataset.duration) - parseInt(cardA.dataset.duration);
+    // Use parseInt to ensure we are doing math, not alphabetical string comparison
+    if (type === 'recent') return parseInt(cardB.dataset.updated || 0) - parseInt(cardA.dataset.updated || 0);
+    if (type === 'popular') return parseInt(cardB.dataset.views || 0) - parseInt(cardA.dataset.views || 0);
+    if (type === 'length') return parseInt(cardB.dataset.duration || 0) - parseInt(cardA.dataset.duration || 0);
   });
 
-  // Re-append in new order
+  // Re-append the cards in their new order
   grid.innerHTML = '';
   cards.forEach(card => grid.appendChild(card));
 }
+
+// Optional: Auto-sort by Newest when the page first loads
+document.addEventListener('DOMContentLoaded', () => sortGrid('recent'));
 </script>
