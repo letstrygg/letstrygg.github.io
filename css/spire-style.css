@@ -26,30 +26,27 @@
     font-size: 1.8rem;
 }
 
-/* Breadcrumb Link Styling */
+/* Spire Breadcrumb Styling (Overrides Global) */
 .sts-page-wrapper .site-breadcrumbs a {
-    color: var(--sts-blue);
-    font-weight: 500;
-    text-decoration: underline;
-    
-    /* Here is the modern magic */
-    text-decoration-color: #ffffff; /* Or var(--underline) if you have that set globally! */
-    text-decoration-thickness: 2px; /* Makes the line a bit bolder */
-    text-underline-offset: 3px;     /* Pushes the line down, creating that nice gap */
-    
-    transition: all 0.2s ease; /* Smooth transition for hover effects */
+    color: var(--sts-blue) !important;
+    font-weight: 500 !important;
+    text-decoration: underline !important;
+    text-decoration-color: #ffffff !important;
+    text-decoration-thickness: 2px !important;
+    text-underline-offset: 3px !important;
+    transition: all 0.2s ease;
 }
 
-/* Hover effect to make it feel interactive */
 .sts-page-wrapper .site-breadcrumbs a:hover {
-    color: #ffffff;
-    text-decoration-color: var(--sts-blue);
-    text-shadow: 0 0 5px rgba(135, 206, 235, 0.4);
+    color: #ffffff !important;
+    text-decoration-color: var(--sts-blue) !important;
+    text-shadow: 0 0 5px rgba(135, 206, 235, 0.4) !important;
+    opacity: 1 !important;
 }
 
 .sts-page-wrapper .breadcrumb-current {
-    color: var(--sts-yellow);
-    font-weight: normal;
+    color: var(--sts-yellow) !important;
+    font-weight: normal !important;
 }
 
 :root {
