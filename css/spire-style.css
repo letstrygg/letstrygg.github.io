@@ -201,6 +201,35 @@
 .card-type.skill { background-color: #6a9c84; } /* Muted green */
 .card-type.power { background-color: #4da6ff; } /* Light blue */
 
+/* Event Page Specific Styles */
+
+.sts-purple { color: #c18cff !important; }
+
+.sts-event-quote {
+    font-size: 1.4rem;
+    font-style: italic;
+    margin-bottom: 25px;
+    text-shadow: 0 0 4px rgba(126, 201, 255, 0.3);
+}
+
+.sts-event-option {
+    margin-top: 20px;
+    padding: 18px 24px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #2a3a40, #1c2b30);
+    border: 1px solid #3f5a63;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+.sts-option-title {
+    color: var(--sts-yellow);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
 /* Responsive tweaks for smaller screens */
 @media (max-width: 900px) {
     .card-grid {
