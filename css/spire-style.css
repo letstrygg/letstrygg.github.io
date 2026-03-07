@@ -9,8 +9,26 @@
 .sts-page-wrapper a,
 .sts-page-wrapper li,
 .sts-page-wrapper span,
-.sts-page-wrapper strong {
-    font-family: 'Kreon', serif !important;
+.sts-page-wrapper {
+    background-color: var(--sts-bg);
+    background-image: radial-gradient(circle at center, #000000 0%, #111113 100%);
+    color: var(--sts-text-main);
+    font-family: 'Kreon', serif;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    line-height: 1.6;
+    font-size: 1.15rem; /* <-- This increases the text size for all Spire pages */
+}
+
+/* Add these to make sure headers scale up nicely */
+.sts-page-wrapper h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.sts-page-wrapper h2 {
+    font-size: 1.8rem;
 }
 :root {
     /* Slay the Spire UI Colors */
