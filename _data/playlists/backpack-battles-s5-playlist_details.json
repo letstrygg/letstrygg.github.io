@@ -8,8 +8,9 @@
   "episodes": 2,
   "duration": 9226,
   "views": 145,
-  "status": "Completed",
+  "status": "Ongoing",
   "duration_formatted": "2h 33m",
   "views_formatted": "145",
-  "slug": "backpack-battles-s5"
+  "slug": "backpack-battles-s5",
+  "status_color": "green"
 }

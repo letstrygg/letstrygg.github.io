@@ -8,8 +8,9 @@
   "episodes": 16,
   "duration": 38229,
   "views": 459,
-  "status": "Completed",
+  "status": "Ongoing",
   "duration_formatted": "10h 37m",
   "views_formatted": "459",
-  "slug": "lets-play-bloons-btd6-s3"
+  "slug": "lets-play-bloons-btd6-s3",
+  "status_color": "green"
 }
