@@ -1,50 +1,8 @@
 [
   {
     "kind": "youtube#playlistItem",
-    "etag": "nR2qXO1E91S4bsxxaelglfUBvMY",
+    "etag": "YcLCT-SKIDa-E7udWuV92DTP6ho",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy41NkI0NEY2RDEwNTU3Q0M2",
-    "snippet": {
-      "publishedAt": "2025-06-09T07:28:12Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "001 Banished / Pyreborne: Monster Train 2, Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code: RapidlyMouseTwins\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/u3fJmpSVWI8/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/u3fJmpSVWI8/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/u3fJmpSVWI8/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/u3fJmpSVWI8/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/u3fJmpSVWI8/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 0,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "u3fJmpSVWI8"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "u3fJmpSVWI8",
       "videoPublishedAt": "2025-06-09T13:01:39Z",
@@ -54,50 +12,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "oNoBSftHxNzWJEuzffkEHqomIAs",
+    "etag": "UI_EbBKAoag9dLo_vzdd8vsrXG0",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy4yODlGNEE0NkRGMEEzMEQy",
-    "snippet": {
-      "publishedAt": "2025-06-09T07:39:12Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "002 Cov1 Banished / Pyreborne: Monster Train 2, Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code: ConcertProduceDollar\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/7Swa_k3T0hE/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/7Swa_k3T0hE/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/7Swa_k3T0hE/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/7Swa_k3T0hE/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/7Swa_k3T0hE/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 1,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "7Swa_k3T0hE"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "7Swa_k3T0hE",
       "videoPublishedAt": "2025-06-10T13:00:13Z",
@@ -107,50 +23,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "1kLtYryH-177gZ1zsWSM3-z6CRY",
+    "etag": "HQy969CuTVJ8vOFlb8uuJK3Trvs",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy4wMTcyMDhGQUE4NTIzM0Y5",
-    "snippet": {
-      "publishedAt": "2025-06-09T07:42:09Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "003 Cov2 Banished / Pyreborne: Monster Train 2, Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code: PunchSeemsAngry\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/oIyXzgxdEho/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/oIyXzgxdEho/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/oIyXzgxdEho/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/oIyXzgxdEho/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/oIyXzgxdEho/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 2,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "oIyXzgxdEho"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "oIyXzgxdEho",
       "videoPublishedAt": "2025-06-11T13:01:29Z",
@@ -160,50 +34,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "_P3jtTL2u2U8BNv8qh64XopdnKw",
+    "etag": "esRQmfpLje4o8r5nsdQUGTbgw0A",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy41MjE1MkI0OTQ2QzJGNzNG",
-    "snippet": {
-      "publishedAt": "2025-06-09T23:28:35Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "004 Cov3 Pyreborne / Banishedx: Monster Train 2, Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code1: TownshipMarkedPretty\nChallenge Code2: MetalMutualStrand\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/ztGr3h9Nyy8/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/ztGr3h9Nyy8/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/ztGr3h9Nyy8/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/ztGr3h9Nyy8/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/ztGr3h9Nyy8/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 3,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "ztGr3h9Nyy8"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "ztGr3h9Nyy8",
       "videoPublishedAt": "2025-06-12T13:01:50Z",
@@ -213,50 +45,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "tIBEuAcmyeAyNWCt1YXkvlqVA88",
+    "etag": "CAWfqvaxdLJ1AO12ztoe5nifzNo",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy4wOTA3OTZBNzVEMTUzOTMy",
-    "snippet": {
-      "publishedAt": "2025-06-09T23:29:49Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "005 Cov3 Luna Coven / Banished: Monster Train 2, Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code: HazardTurnsSilicon\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/zKcz-jVFBZU/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/zKcz-jVFBZU/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/zKcz-jVFBZU/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/zKcz-jVFBZU/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/zKcz-jVFBZU/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 4,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "zKcz-jVFBZU"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "zKcz-jVFBZU",
       "videoPublishedAt": "2025-06-13T13:01:46Z",
@@ -266,50 +56,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "h6J6G2soWoMlXPgRmjMTwhiH3aQ",
+    "etag": "TNFeOBtoa1ohRKiJ_Tq6rVAG-YM",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy4xMkVGQjNCMUM1N0RFNEUx",
-    "snippet": {
-      "publishedAt": "2025-06-10T08:36:16Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "006 Cov3 BanishedX / Luna Coven: Monster Train 2, Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code1: AnybodyStressWhere\nChallenge Code2: MissionIgnoreDomain\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/2zwh-mSD0-Q/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/2zwh-mSD0-Q/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/2zwh-mSD0-Q/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/2zwh-mSD0-Q/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/2zwh-mSD0-Q/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 5,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "2zwh-mSD0-Q"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "2zwh-mSD0-Q",
       "videoPublishedAt": "2025-06-14T13:00:09Z",
@@ -319,50 +67,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "68Rqr63flcDx-aSj5JcMyioV97g",
+    "etag": "BqsC0UMZd2ivTXN-VG4P2X18Zew",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy41MzJCQjBCNDIyRkJDN0VD",
-    "snippet": {
-      "publishedAt": "2025-06-11T15:42:12Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "007 Dimensional Challenge: Weapons Make the Warrior - Monster Train 2, Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/WUYOTIm_1bU/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/WUYOTIm_1bU/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/WUYOTIm_1bU/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/WUYOTIm_1bU/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/WUYOTIm_1bU/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 6,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "WUYOTIm_1bU"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "WUYOTIm_1bU",
       "videoPublishedAt": "2025-06-15T13:00:52Z",
@@ -372,50 +78,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "z4yh7PukL2bzTsATELY0vJg0udM",
+    "etag": "Js7aWBqWr350EhNT6dadjrhqI28",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy5DQUNERDQ2NkIzRUQxNTY1",
-    "snippet": {
-      "publishedAt": "2025-06-12T21:53:58Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "008 Cov4 Underlegion / Luna Coven: Monster Train 2, Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code1: LargeDarknessEclipse\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/ER2LosuUgj4/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/ER2LosuUgj4/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/ER2LosuUgj4/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/ER2LosuUgj4/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/ER2LosuUgj4/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 7,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "ER2LosuUgj4"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "ER2LosuUgj4",
       "videoPublishedAt": "2025-06-16T13:00:21Z",
@@ -425,50 +89,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "JYTq9hrwWylM_h-Os4YrWwm65so",
+    "etag": "PDUYVT-YNZ2IGKiGSGnQFvvEa-Y",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy45NDk1REZENzhEMzU5MDQz",
-    "snippet": {
-      "publishedAt": "2025-06-13T17:58:54Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "009 Cov6 Lazarus League / Underlegion: Monster Train 2, Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code1: ArticleSwitchesIndices\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/sjW_6yxUcdQ/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/sjW_6yxUcdQ/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/sjW_6yxUcdQ/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/sjW_6yxUcdQ/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/sjW_6yxUcdQ/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 8,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "sjW_6yxUcdQ"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "sjW_6yxUcdQ",
       "videoPublishedAt": "2025-06-17T13:01:43Z",
@@ -478,50 +100,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "wGkqYQQmRHVQmyIGzfwWTokXvxE",
+    "etag": "3um8nZPXzmcRHdxDVV1_GWSmy1I",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy5GNjNDRDREMDQxOThCMDQ2",
-    "snippet": {
-      "publishedAt": "2025-06-15T09:08:43Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "010 Cov5 Luna Coven / Banished: Monster Train 2, Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code1: HopedNovelsSpots\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/QsDdgrTz4SI/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/QsDdgrTz4SI/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/QsDdgrTz4SI/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/QsDdgrTz4SI/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/QsDdgrTz4SI/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 9,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "QsDdgrTz4SI"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "QsDdgrTz4SI",
       "videoPublishedAt": "2025-06-18T15:00:43Z",
@@ -531,50 +111,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "ScK9d1Kl3QZmaUTC0I7jNAtIk9E",
+    "etag": "si5Y2OiiaYNukF8n2_Z8HaqEb2E",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy40NzZCMERDMjVEN0RFRThB",
-    "snippet": {
-      "publishedAt": "2025-06-17T10:25:30Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "011 Cov6 Banished / Luna Coven: Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code1: VesselInvolvesFairly\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/YFOdPGI_d8Y/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/YFOdPGI_d8Y/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/YFOdPGI_d8Y/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/YFOdPGI_d8Y/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/YFOdPGI_d8Y/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 10,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "YFOdPGI_d8Y"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "YFOdPGI_d8Y",
       "videoPublishedAt": "2025-06-19T15:01:02Z",
@@ -584,50 +122,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "XDAlJ12U4E9Kr-mRWGnOLjCskpo",
+    "etag": "9M5vZNzoL_HcFP84Wa2f9uDWczw",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy5EMEEwRUY5M0RDRTU3NDJC",
-    "snippet": {
-      "publishedAt": "2025-06-18T05:41:55Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "012 Cov6 Luna CovenX / Banished: Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code1: WhichOpeningsBarely\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/9-mcQVJ-0iI/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/9-mcQVJ-0iI/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/9-mcQVJ-0iI/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/9-mcQVJ-0iI/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/9-mcQVJ-0iI/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 11,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "9-mcQVJ-0iI"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "9-mcQVJ-0iI",
       "videoPublishedAt": "2025-06-20T17:00:12Z",
@@ -637,50 +133,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "J8B3MqTms73O_L00sgl8V_Qu-nc",
+    "etag": "u2IK0KhWFqFKjMcITQFWh7FxWYY",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy45ODRDNTg0QjA4NkFBNkQy",
-    "snippet": {
-      "publishedAt": "2025-06-19T13:44:23Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "013 Cov7 Lazarus League / PyreborneX: Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code1: BasenameInvolveBright\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/WF8_VgguJyQ/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/WF8_VgguJyQ/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/WF8_VgguJyQ/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/WF8_VgguJyQ/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/WF8_VgguJyQ/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 12,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "WF8_VgguJyQ"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "WF8_VgguJyQ",
       "videoPublishedAt": "2025-06-21T15:00:54Z",
@@ -690,50 +144,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "lrIVH0iUi6Cq_cnVx-fkVKC7iSo",
+    "etag": "iy2AGelszCjvF6weaIVzeuo-L-g",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy4zMDg5MkQ5MEVDMEM1NTg2",
-    "snippet": {
-      "publishedAt": "2025-06-19T13:45:20Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "014 Cov7 Luna Coven / Stygian Guard: Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code1: BatchChosenThrowing\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/CcubC6gJGQw/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/CcubC6gJGQw/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/CcubC6gJGQw/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/CcubC6gJGQw/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/CcubC6gJGQw/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 13,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "CcubC6gJGQw"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "CcubC6gJGQw",
       "videoPublishedAt": "2025-06-22T17:00:23Z",
@@ -743,50 +155,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "JEx1KRnzoF1bg-9Bvbfrx4pjjxg",
+    "etag": "TDcG9jovdnv_H6pajZMEu5YLeq4",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy41Mzk2QTAxMTkzNDk4MDhF",
-    "snippet": {
-      "publishedAt": "2025-06-21T09:07:36Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "015 Cov7 Luna CovenX / Stygian Guard: Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code: FeaturesBuyersFlavor\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/S3RdvhK4Mng/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/S3RdvhK4Mng/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/S3RdvhK4Mng/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/S3RdvhK4Mng/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/S3RdvhK4Mng/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 14,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "S3RdvhK4Mng"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "S3RdvhK4Mng",
       "videoPublishedAt": "2025-06-23T17:00:38Z",
@@ -796,50 +166,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "YO9KKbqAdRKIsD3PupHmgkFDG5A",
+    "etag": "tGyPr2PqerT2jcH2LZ5KkZ6rkTY",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy5EQUE1NTFDRjcwMDg0NEMz",
-    "snippet": {
-      "publishedAt": "2025-06-22T06:52:52Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "016 Cov8 Hellhorned, Lazarus League: Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code1: MoversAirlinesAsking\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/rQSbJpRB_0g/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/rQSbJpRB_0g/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/rQSbJpRB_0g/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/rQSbJpRB_0g/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/rQSbJpRB_0g/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 15,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "rQSbJpRB_0g"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "rQSbJpRB_0g",
       "videoPublishedAt": "2025-06-24T13:01:28Z",
@@ -849,50 +177,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "lJGhOrvk5e7EId2pkJYPIdrHRhM",
+    "etag": "SCw3ViOhbIy6Uk6duKpZiQr3tao",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy41QTY1Q0UxMTVCODczNThE",
-    "snippet": {
-      "publishedAt": "2025-06-22T06:53:20Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "017 Cov9 Lazarus League / Underlegion: Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code1: FolksContextTheta\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/v-u7M-BkwCU/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/v-u7M-BkwCU/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/v-u7M-BkwCU/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/v-u7M-BkwCU/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/v-u7M-BkwCU/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 16,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "v-u7M-BkwCU"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "v-u7M-BkwCU",
       "videoPublishedAt": "2025-06-25T13:01:43Z",
@@ -902,50 +188,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "iMAJkV5eRvO82xrEoEPdERt9A2w",
+    "etag": "90MHJ0QRpXYt6DMpjF4FUC297Co",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy4yMUQyQTQzMjRDNzMyQTMy",
-    "snippet": {
-      "publishedAt": "2025-06-26T18:47:31Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "018 Cov9 Pyreborne / Umbra: Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code: StereoSurviveJustify\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/T3QJB2_36h4/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/T3QJB2_36h4/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/T3QJB2_36h4/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/T3QJB2_36h4/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/T3QJB2_36h4/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 17,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "T3QJB2_36h4"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "T3QJB2_36h4",
       "videoPublishedAt": "2025-06-27T13:01:03Z",
@@ -955,50 +199,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "a84nPXcL17jsN3HhD0cAybC3120",
+    "etag": "UrmDPPh7iXxA_jtSYHUAM8aDyAw",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy45RTgxNDRBMzUwRjQ0MDhC",
-    "snippet": {
-      "publishedAt": "2025-06-29T08:19:10Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "019 Cov10 Umbra / Stygian Guard: Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code: BehaviorVectorProceeds\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/uY820n4uBXU/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/uY820n4uBXU/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/uY820n4uBXU/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/uY820n4uBXU/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/uY820n4uBXU/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 18,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "uY820n4uBXU"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "uY820n4uBXU",
       "videoPublishedAt": "2025-06-29T17:01:00Z",
@@ -1008,50 +210,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "6Z5icC-N0SI7NiulOFkgWv0PT-0",
+    "etag": "TcwLz_pQPf6VId3JxW4ALMeVPC8",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy5ENDU4Q0M4RDExNzM1Mjcy",
-    "snippet": {
-      "publishedAt": "2025-07-02T13:55:44Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "020 Cov10 Stygian Guard / Pyreborne: Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code: AwardCommerceNested\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/qOHrmDyu5n8/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/qOHrmDyu5n8/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/qOHrmDyu5n8/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/qOHrmDyu5n8/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/qOHrmDyu5n8/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 19,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "qOHrmDyu5n8"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "qOHrmDyu5n8",
       "videoPublishedAt": "2025-07-02T17:01:19Z",
@@ -1061,50 +221,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "-hQ6TaJBY1RGAS_624SlNI_RZns",
+    "etag": "s-gqFhog6O4hx-1qCZHfer4uz9Q",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy4yMDhBMkNBNjRDMjQxQTg1",
-    "snippet": {
-      "publishedAt": "2025-07-09T02:40:29Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "021 Cov10 Stygian Guard / Luna Coven: Monster Train 2",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code 1: PhantomSeniorsSealed\nChallenge Code 2: SynopsisPhaseMounted\nChallenge Code 3: UnderEngineerPerhaps\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/SNzXcDDUPeE/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/SNzXcDDUPeE/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/SNzXcDDUPeE/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/SNzXcDDUPeE/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/SNzXcDDUPeE/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 20,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "SNzXcDDUPeE"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "SNzXcDDUPeE",
       "videoPublishedAt": "2025-07-09T13:01:02Z",
@@ -1114,50 +232,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "AI5lWnmxDoMoqek-mkeEoop_LCo",
+    "etag": "Krs0M3R1bLNpuA_Gf50DiKhyMTg",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy5GM0Q3M0MzMzY5NTJFNTdE",
-    "snippet": {
-      "publishedAt": "2025-07-11T17:01:17Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "022 Unlocking Pyre Hearts: Monster Train 2, Dimensional Challenge - Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code: None, It's a Dimensional Challenge\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/agQrb9wQPxQ/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/agQrb9wQPxQ/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/agQrb9wQPxQ/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/agQrb9wQPxQ/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/agQrb9wQPxQ/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 21,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "agQrb9wQPxQ"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "agQrb9wQPxQ",
       "videoPublishedAt": "2025-07-11T17:05:00Z",
@@ -1167,50 +243,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "H2TYtYwAQN08rVJzlzfi3cIIxsw",
+    "etag": "_U7odo4dF0n6H74S3XdX2qBQ9Vs",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy4zRjM0MkVCRTg0MkYyQTM0",
-    "snippet": {
-      "publishedAt": "2025-07-11T17:03:09Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "023 Cov10 Lazarus League / Underlegion: Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nWhite Shirt 12-pack: https://amzn.to/4jEW1oc\n\nChallenge Code: ExposureSpecifyMerchant\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/fRzKgtVb1kI/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/fRzKgtVb1kI/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/fRzKgtVb1kI/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/fRzKgtVb1kI/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/fRzKgtVb1kI/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 22,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "fRzKgtVb1kI"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "fRzKgtVb1kI",
       "videoPublishedAt": "2025-07-12T17:00:49Z",
@@ -1220,50 +254,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "1IEJR8H_kE_ly7_kwb55FT5ZKIk",
+    "etag": "CE8v4TOXTIqrHnTT6HN-5_PTarM",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy45NzUwQkI1M0UxNThBMkU0",
-    "snippet": {
-      "publishedAt": "2025-09-11T00:42:09Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "024 New Update! Cov10 Pyreborne Awoken Monster Train 2 Completionist Playthrough",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nhttps://amzn.to/4jEW1oc\n\nChallenge Code: albumscrackdirector\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/4BzX3rdQYaA/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/4BzX3rdQYaA/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/4BzX3rdQYaA/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/4BzX3rdQYaA/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/4BzX3rdQYaA/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 23,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "4BzX3rdQYaA"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "4BzX3rdQYaA",
       "videoPublishedAt": "2025-09-11T14:00:07Z",
@@ -1273,50 +265,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "KZb5cI_Y2G6MpRi6T328ZtDZFQM",
+    "etag": "CgU-9jgSPLfW_5J562G7KejOIxc",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy5DNzE1RjZEMUZCMjA0RDBB",
-    "snippet": {
-      "publishedAt": "2025-12-01T01:57:04Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "025 No Commentary (Unlisted) Cov10 Monster Train 2 Completionist Playthrough",
-      "description": "",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/6dBKYNSh7w0/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/6dBKYNSh7w0/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/6dBKYNSh7w0/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/6dBKYNSh7w0/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/6dBKYNSh7w0/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 24,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "6dBKYNSh7w0"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "6dBKYNSh7w0",
       "videoPublishedAt": "2025-12-01T01:56:32Z",
@@ -1326,50 +276,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "UtHPEH1iTCdHKJT2JBtNVh25hW8",
+    "etag": "gweQaAVqL_4KlolgZuyhPctDdZY",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy43MTI1NDIwOTMwQjIxMzNG",
-    "snippet": {
-      "publishedAt": "2026-01-23T04:12:43Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "026 Cov10 Monster Train 2",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nhttps://amzn.to/4jEW1oc\n\nChallenge Code 1: DomainLecturesFotos\nChallenge Code 2: ElderlyBuriedDelayed\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/k4bcl6dOHJg/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/k4bcl6dOHJg/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/k4bcl6dOHJg/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/k4bcl6dOHJg/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/k4bcl6dOHJg/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 25,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "k4bcl6dOHJg"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "k4bcl6dOHJg",
       "videoPublishedAt": "2026-01-23T12:01:22Z",
@@ -1379,50 +287,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "Vh5EoS0uzc3QTs8mxfQFKqPJYzA",
+    "etag": "4UPBu9VaVsXpx9mt6GRor5daNyE",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy5DQ0MyQ0Y4Mzg0M0VGOEYw",
-    "snippet": {
-      "publishedAt": "2026-02-02T23:12:53Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "027 Monster Train 2: Destiny of the Railforged",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?\nChallenge Code: JewelHistoryMoving\n\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/rglqHEKicuw/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/rglqHEKicuw/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/rglqHEKicuw/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/rglqHEKicuw/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/rglqHEKicuw/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 26,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "rglqHEKicuw"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "rglqHEKicuw",
       "videoPublishedAt": "2026-02-03T00:30:54Z",
@@ -1432,50 +298,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "Lu8Yja0DeJs_5Vn-vp2GIWdtIBc",
+    "etag": "Z1FPEoGEcw1ZJ356Ev6mddQI684",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy4yQUE2Q0JEMTk4NTM3RTZC",
-    "snippet": {
-      "publishedAt": "2026-02-07T09:19:08Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "028 Monster Train 2: Destiny of the Railforged",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nhttps://amzn.to/4jEW1oc\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/AK_4QHwwYQE/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/AK_4QHwwYQE/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/AK_4QHwwYQE/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/AK_4QHwwYQE/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/AK_4QHwwYQE/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 27,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "AK_4QHwwYQE"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "AK_4QHwwYQE",
       "videoPublishedAt": "2026-02-08T14:00:22Z",
@@ -1485,50 +309,8 @@
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "54PDS-J92-V1Ba7nk7pJXaILnwY",
+    "etag": "s8krxOxgL-57yGJ6HYfIvC9Xfq0",
     "id": "UExRNElMNFVWZ1FrN2lSeXdSWnEtZ2JSRWhQX193cWZLYy5DMkU4NTY1QUFGQTYwMDE3",
-    "snippet": {
-      "publishedAt": "2026-02-07T09:20:37Z",
-      "channelId": "UC0OHMw7pBB4hRJOEpPoE0Mg",
-      "title": "029 Monster Train 2: Destiny of the Railforged",
-      "description": "MT2 Playlist: https://www.youtube.com/watch?v=u3fJmpSVWI8&list=PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc\nhttps://amzn.to/4jEW1oc\n\nAmazon affiliate link purchases help support my channel, tyty :)\n\n#monstertrain2 #monstertrain #letsplay #gameplay #gaming #deckbuilder #completionist #roguelike #roguelite",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/RIB-U4CpUIU/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/RIB-U4CpUIU/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/RIB-U4CpUIU/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        },
-        "standard": {
-          "url": "https://i.ytimg.com/vi/RIB-U4CpUIU/sddefault.jpg",
-          "width": 640,
-          "height": 480
-        },
-        "maxres": {
-          "url": "https://i.ytimg.com/vi/RIB-U4CpUIU/maxresdefault.jpg",
-          "width": 1280,
-          "height": 720
-        }
-      },
-      "channelTitle": "LetsTryGG",
-      "playlistId": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-      "position": 28,
-      "resourceId": {
-        "kind": "youtube#video",
-        "videoId": "RIB-U4CpUIU"
-      },
-      "videoOwnerChannelTitle": "LetsTryGG",
-      "videoOwnerChannelId": "UC0OHMw7pBB4hRJOEpPoE0Mg"
-    },
     "contentDetails": {
       "videoId": "RIB-U4CpUIU",
       "videoPublishedAt": "2026-02-08T15:00:49Z",
