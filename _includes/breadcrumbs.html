@@ -12,13 +12,7 @@
       {% if forloop.last %}
         <strong class="breadcrumb-current">{{ page.title | split: " – " | first | split: " - " | first }}</strong>
       {% else %}
-        <a href="{{ current_path }}/" class="breadcrumb-link">
-          {% if part == 'slay-the-spire-2' %}
-            Slay the Spire 2
-          {% else %}
-            {{ part | replace: '-', ' ' | capitalize }}
-          {% endif %}
-        </a>
+        <a href="{{ current_path }}/" class="breadcrumb-link">{% if part == 'slay-the-spire-2' %}Slay the Spire 2{% else %}{{ part | replace: '-', ' ' | capitalize }}{% endif %}</a>
       {% endif %}
     {% endif %}
   {% endfor %}
