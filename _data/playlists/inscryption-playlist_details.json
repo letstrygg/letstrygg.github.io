@@ -8,5 +8,8 @@
   "episodes": 11,
   "duration": 28878,
   "views": 1210,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "8h 1m",
+  "views_formatted": "1.2K",
+  "slug": "inscryption"
 }

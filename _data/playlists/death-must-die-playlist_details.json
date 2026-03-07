@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 3501,
   "views": 564,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "58m",
+  "views_formatted": "564",
+  "slug": "death-must-die"
 }

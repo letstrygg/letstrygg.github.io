@@ -8,5 +8,8 @@
   "episodes": 1,
   "duration": 4357,
   "views": 210,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 12m",
+  "views_formatted": "210",
+  "slug": "backpack-battles-unranked"
 }

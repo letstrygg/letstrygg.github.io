@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 17522,
   "views": 404,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 52m",
+  "views_formatted": "404",
+  "slug": "monster-train-2-demo"
 }

@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 15926,
   "views": 952,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 25m",
+  "views_formatted": "952",
+  "slug": "toy-smash-kaboom!"
 }

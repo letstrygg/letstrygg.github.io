@@ -8,5 +8,8 @@
   "episodes": 9,
   "duration": 46014,
   "views": 1675,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "12h 46m",
+  "views_formatted": "1.7K",
+  "slug": "bpb-custom-lobbies"
 }

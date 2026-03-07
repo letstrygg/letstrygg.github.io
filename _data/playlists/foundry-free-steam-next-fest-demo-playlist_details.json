@@ -8,5 +8,8 @@
   "episodes": 15,
   "duration": 21759,
   "views": 2774,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "6h 2m",
+  "views_formatted": "2.8K",
+  "slug": "foundry-free-steam-next-fest-demo"
 }

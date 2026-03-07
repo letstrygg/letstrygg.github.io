@@ -8,5 +8,8 @@
   "episodes": 38,
   "duration": 57245,
   "views": 1316,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "15h 54m",
+  "views_formatted": "1.3K",
+  "slug": "factorio"
 }

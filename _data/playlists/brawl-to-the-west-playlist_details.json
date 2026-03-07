@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 11900,
   "views": 262,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 18m",
+  "views_formatted": "262",
+  "slug": "brawl-to-the-west"
 }

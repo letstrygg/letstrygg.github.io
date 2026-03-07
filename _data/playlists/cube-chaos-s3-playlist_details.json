@@ -8,5 +8,8 @@
   "episodes": 7,
   "duration": 24235,
   "views": 868,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "6h 43m",
+  "views_formatted": "868",
+  "slug": "cube-chaos-s3"
 }

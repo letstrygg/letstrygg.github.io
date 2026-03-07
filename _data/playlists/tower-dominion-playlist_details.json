@@ -8,5 +8,8 @@
   "episodes": 17,
   "duration": 47862,
   "views": 13187,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "13h 17m",
+  "views_formatted": "13.2K",
+  "slug": "tower-dominion"
 }

@@ -8,5 +8,8 @@
   "episodes": 1,
   "duration": 1870,
   "views": 95,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "31m",
+  "views_formatted": "95",
+  "slug": "galactic-glitch"
 }

@@ -8,5 +8,8 @@
   "episodes": 5,
   "duration": 9506,
   "views": 2640,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 38m",
+  "views_formatted": "2.6K",
+  "slug": "asgards-fall"
 }

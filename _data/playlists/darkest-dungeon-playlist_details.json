@@ -8,5 +8,8 @@
   "episodes": 7,
   "duration": 16574,
   "views": 106,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 36m",
+  "views_formatted": "106",
+  "slug": "darkest-dungeon"
 }

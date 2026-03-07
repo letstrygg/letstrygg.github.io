@@ -8,5 +8,8 @@
   "episodes": 23,
   "duration": 34754,
   "views": 397,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "9h 39m",
+  "views_formatted": "397",
+  "slug": "terraria"
 }

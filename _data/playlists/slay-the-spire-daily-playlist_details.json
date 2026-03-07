@@ -8,5 +8,8 @@
   "episodes": 18,
   "duration": 140248,
   "views": 521,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "38h 57m",
+  "views_formatted": "521",
+  "slug": "slay-the-spire-daily"
 }

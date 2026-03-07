@@ -8,5 +8,8 @@
   "episodes": 15,
   "duration": 47345,
   "views": 1758,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "13h 9m",
+  "views_formatted": "1.8K",
+  "slug": "the-witness-playthrough"
 }

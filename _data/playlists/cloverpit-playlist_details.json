@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 14791,
   "views": 255,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 6m",
+  "views_formatted": "255",
+  "slug": "cloverpit"
 }

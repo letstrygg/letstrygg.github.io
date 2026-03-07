@@ -8,5 +8,8 @@
   "episodes": 15,
   "duration": 43815,
   "views": 1024,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "12h 10m",
+  "views_formatted": "1K",
+  "slug": "20-minutes-till-dawn"
 }

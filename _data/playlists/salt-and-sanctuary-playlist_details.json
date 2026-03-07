@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 3598,
   "views": 86,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "59m",
+  "views_formatted": "86",
+  "slug": "salt-and-sanctuary"
 }

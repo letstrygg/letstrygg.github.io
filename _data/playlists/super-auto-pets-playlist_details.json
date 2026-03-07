@@ -8,5 +8,8 @@
   "episodes": 19,
   "duration": 35976,
   "views": 548,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "9h 59m",
+  "views_formatted": "548",
+  "slug": "super-auto-pets"
 }

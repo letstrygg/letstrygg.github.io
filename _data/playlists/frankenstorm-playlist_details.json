@@ -8,5 +8,8 @@
   "episodes": 20,
   "duration": 62612,
   "views": 1575,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "17h 23m",
+  "views_formatted": "1.6K",
+  "slug": "frankenstorm"
 }

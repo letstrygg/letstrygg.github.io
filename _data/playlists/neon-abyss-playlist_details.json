@@ -8,5 +8,8 @@
   "episodes": 1,
   "duration": 1378,
   "views": 96,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "22m",
+  "views_formatted": "96",
+  "slug": "neon-abyss"
 }

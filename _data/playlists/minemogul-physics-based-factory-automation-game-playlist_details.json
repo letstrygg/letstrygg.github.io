@@ -8,5 +8,8 @@
   "episodes": 5,
   "duration": 17801,
   "views": 349,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 56m",
+  "views_formatted": "349",
+  "slug": "minemogul-physics-based-factory-automation-game"
 }

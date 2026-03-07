@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 10085,
   "views": 178,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 48m",
+  "views_formatted": "178",
+  "slug": "tiny-auto-knights"
 }

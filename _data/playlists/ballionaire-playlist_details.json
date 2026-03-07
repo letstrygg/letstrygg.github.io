@@ -8,5 +8,8 @@
   "episodes": 9,
   "duration": 32044,
   "views": 2211,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "8h 54m",
+  "views_formatted": "2.2K",
+  "slug": "ballionaire"
 }

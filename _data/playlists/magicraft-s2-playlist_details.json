@@ -8,5 +8,8 @@
   "episodes": 108,
   "duration": 334270,
   "views": 136560,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "92h 51m",
+  "views_formatted": "136.6K",
+  "slug": "magicraft-s2"
 }

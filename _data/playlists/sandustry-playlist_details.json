@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 14422,
   "views": 18887,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 0m",
+  "views_formatted": "18.9K",
+  "slug": "sandustry"
 }

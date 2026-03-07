@@ -8,5 +8,8 @@
   "episodes": 16,
   "duration": 26070,
   "views": 887,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "7h 14m",
+  "views_formatted": "887",
+  "slug": "skill-legends-royale"
 }

@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 6808,
   "views": 1025,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 53m",
+  "views_formatted": "1K",
+  "slug": "bpb-master-pyro"
 }

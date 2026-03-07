@@ -8,5 +8,8 @@
   "episodes": 6,
   "duration": 8385,
   "views": 120,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 19m",
+  "views_formatted": "120",
+  "slug": "nitro-kid-demo"
 }

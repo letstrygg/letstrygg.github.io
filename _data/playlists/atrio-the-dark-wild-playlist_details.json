@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 6581,
   "views": 273,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 49m",
+  "views_formatted": "273",
+  "slug": "atrio-the-dark-wild"
 }

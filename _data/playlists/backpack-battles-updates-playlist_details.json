@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 168,
   "views": 773,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2m",
+  "views_formatted": "773",
+  "slug": "backpack-battles-updates"
 }

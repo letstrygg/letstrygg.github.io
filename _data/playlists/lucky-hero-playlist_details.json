@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 18847,
   "views": 1373,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "5h 14m",
+  "views_formatted": "1.4K",
+  "slug": "lucky-hero"
 }

@@ -8,5 +8,8 @@
   "episodes": 16,
   "duration": 35506,
   "views": 2209,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "9h 51m",
+  "views_formatted": "2.2K",
+  "slug": "dredge"
 }

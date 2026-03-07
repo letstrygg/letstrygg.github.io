@@ -8,5 +8,8 @@
   "episodes": 6,
   "duration": 12816,
   "views": 414,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 33m",
+  "views_formatted": "414",
+  "slug": "squad-busters"
 }

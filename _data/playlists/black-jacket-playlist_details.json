@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 4727,
   "views": 1270,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 18m",
+  "views_formatted": "1.3K",
+  "slug": "black-jacket"
 }

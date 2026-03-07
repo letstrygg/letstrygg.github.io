@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 13341,
   "views": 161,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 42m",
+  "views_formatted": "161",
+  "slug": "slay-the-spire"
 }

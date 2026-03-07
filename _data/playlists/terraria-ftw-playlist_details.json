@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 5719,
   "views": 142,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 35m",
+  "views_formatted": "142",
+  "slug": "terraria-ftw"
 }

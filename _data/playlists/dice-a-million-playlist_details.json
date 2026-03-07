@@ -8,5 +8,8 @@
   "episodes": 6,
   "duration": 28636,
   "views": 824,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "7h 57m",
+  "views_formatted": "824",
+  "slug": "dice-a-million"
 }

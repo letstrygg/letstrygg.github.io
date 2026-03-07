@@ -8,5 +8,8 @@
   "episodes": 5,
   "duration": 14349,
   "views": 2467,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 59m",
+  "views_formatted": "2.5K",
+  "slug": "free-itchio-games"
 }

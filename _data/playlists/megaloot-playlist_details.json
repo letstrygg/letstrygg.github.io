@@ -8,5 +8,8 @@
   "episodes": 5,
   "duration": 33201,
   "views": 3098,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "9h 13m",
+  "views_formatted": "3.1K",
+  "slug": "megaloot"
 }

@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 7237,
   "views": 275,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 0m",
+  "views_formatted": "275",
+  "slug": "they-are-billions"
 }

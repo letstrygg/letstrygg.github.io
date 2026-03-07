@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 7628,
   "views": 105,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 7m",
+  "views_formatted": "105",
+  "slug": "archon-soul"
 }

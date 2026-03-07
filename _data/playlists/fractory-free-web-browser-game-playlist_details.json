@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 17928,
   "views": 2433,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 58m",
+  "views_formatted": "2.4K",
+  "slug": "fractory-free-web-browser-game"
 }

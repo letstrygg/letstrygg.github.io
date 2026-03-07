@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 2075,
   "views": 570,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "34m",
+  "views_formatted": "570",
+  "slug": "carrion"
 }

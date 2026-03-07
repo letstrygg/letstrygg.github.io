@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 5591,
   "views": 174,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 33m",
+  "views_formatted": "174",
+  "slug": "organs-please-demo-full-playthrough"
 }

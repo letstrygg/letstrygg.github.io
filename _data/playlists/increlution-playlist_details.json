@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 6887,
   "views": 2536,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 54m",
+  "views_formatted": "2.5K",
+  "slug": "increlution"
 }

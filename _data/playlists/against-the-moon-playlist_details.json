@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 2898,
   "views": 91,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "48m",
+  "views_formatted": "91",
+  "slug": "against-the-moon"
 }

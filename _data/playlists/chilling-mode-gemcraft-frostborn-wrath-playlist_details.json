@@ -8,5 +8,8 @@
   "episodes": 5,
   "duration": 8266,
   "views": 389,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 17m",
+  "views_formatted": "389",
+  "slug": "chilling-mode-gemcraft-frostborn-wrath"
 }

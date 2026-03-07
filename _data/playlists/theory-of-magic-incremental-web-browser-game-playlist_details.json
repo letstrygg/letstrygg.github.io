@@ -8,5 +8,8 @@
   "episodes": 7,
   "duration": 39103,
   "views": 1038,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "10h 51m",
+  "views_formatted": "1K",
+  "slug": "theory-of-magic-incremental-web-browser-game"
 }

@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 6131,
   "views": 248,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 42m",
+  "views_formatted": "248",
+  "slug": "hollow-knight-first-time-playthrough"
 }

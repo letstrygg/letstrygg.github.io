@@ -8,5 +8,8 @@
   "episodes": 63,
   "duration": 142898,
   "views": 11471,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "39h 41m",
+  "views_formatted": "11.5K",
+  "slug": "mindustry"
 }

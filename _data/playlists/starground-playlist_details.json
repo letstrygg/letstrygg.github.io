@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 6755,
   "views": 2690,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 52m",
+  "views_formatted": "2.7K",
+  "slug": "starground"
 }

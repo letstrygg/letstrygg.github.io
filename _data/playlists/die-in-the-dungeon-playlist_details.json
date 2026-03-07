@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 13783,
   "views": 807,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 49m",
+  "views_formatted": "807",
+  "slug": "die-in-the-dungeon"
 }

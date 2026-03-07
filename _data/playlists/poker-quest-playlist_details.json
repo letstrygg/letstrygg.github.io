@@ -8,5 +8,8 @@
   "episodes": 36,
   "duration": 70192,
   "views": 3382,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "19h 29m",
+  "views_formatted": "3.4K",
+  "slug": "poker-quest"
 }

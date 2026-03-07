@@ -8,5 +8,8 @@
   "episodes": 14,
   "duration": 33181,
   "views": 1049,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "9h 13m",
+  "views_formatted": "1K",
+  "slug": "bloons-td-battles-2"
 }

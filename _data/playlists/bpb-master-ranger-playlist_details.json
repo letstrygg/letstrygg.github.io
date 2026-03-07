@@ -8,5 +8,8 @@
   "episodes": 27,
   "duration": 169208,
   "views": 8808,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "47h 0m",
+  "views_formatted": "8.8K",
+  "slug": "bpb-master-ranger"
 }

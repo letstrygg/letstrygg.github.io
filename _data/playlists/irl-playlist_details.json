@@ -8,5 +8,8 @@
   "episodes": 13,
   "duration": 13756,
   "views": 2337,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 49m",
+  "views_formatted": "2.3K",
+  "slug": "irl"
 }

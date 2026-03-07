@@ -8,5 +8,8 @@
   "episodes": 13,
   "duration": 42948,
   "views": 2943,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "11h 55m",
+  "views_formatted": "2.9K",
+  "slug": "dungeon-clawler"
 }

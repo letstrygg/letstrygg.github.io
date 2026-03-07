@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 3678,
   "views": 417,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 1m",
+  "views_formatted": "417",
+  "slug": "hell-builder-complete-demo-playthrough"
 }

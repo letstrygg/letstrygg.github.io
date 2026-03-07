@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 6336,
   "views": 52,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 45m",
+  "views_formatted": "52",
+  "slug": "diablo-ii-resurrected-beta"
 }

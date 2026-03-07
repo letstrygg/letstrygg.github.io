@@ -8,5 +8,8 @@
   "episodes": 19,
   "duration": 38388,
   "views": 849,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "10h 39m",
+  "views_formatted": "849",
+  "slug": "steam-next-fest-2022"
 }

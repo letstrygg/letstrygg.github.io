@@ -8,5 +8,8 @@
   "episodes": 159,
   "duration": 557499,
   "views": 52968,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "154h 51m",
+  "views_formatted": "53K",
+  "slug": "backpack-battles-s3"
 }

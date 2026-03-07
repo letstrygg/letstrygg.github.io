@@ -8,5 +8,8 @@
   "episodes": 16,
   "duration": 58843,
   "views": 2830,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "16h 20m",
+  "views_formatted": "2.8K",
+  "slug": "monster-battles-s2"
 }

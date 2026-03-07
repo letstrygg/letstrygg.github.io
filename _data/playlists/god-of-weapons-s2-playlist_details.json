@@ -8,5 +8,8 @@
   "episodes": 8,
   "duration": 31749,
   "views": 508,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "8h 49m",
+  "views_formatted": "508",
+  "slug": "god-of-weapons-s2"
 }

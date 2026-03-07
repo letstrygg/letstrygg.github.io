@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 21323,
   "views": 127,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "5h 55m",
+  "views_formatted": "127",
+  "slug": "shapez-2-factory-automation-game"
 }

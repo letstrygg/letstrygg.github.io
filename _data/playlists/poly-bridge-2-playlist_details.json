@@ -8,5 +8,8 @@
   "episodes": 20,
   "duration": 30291,
   "views": 1453,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "8h 24m",
+  "views_formatted": "1.5K",
+  "slug": "poly-bridge-2"
 }

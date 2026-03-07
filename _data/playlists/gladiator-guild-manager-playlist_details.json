@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 9722,
   "views": 813,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 42m",
+  "views_formatted": "813",
+  "slug": "gladiator-guild-manager"
 }

@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 8835,
   "views": 218,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 27m",
+  "views_formatted": "218",
+  "slug": "vertical-kingdom"
 }

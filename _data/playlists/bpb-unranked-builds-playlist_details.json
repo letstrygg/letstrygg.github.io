@@ -8,5 +8,8 @@
   "episodes": 13,
   "duration": 49574,
   "views": 16129,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "13h 46m",
+  "views_formatted": "16.1K",
+  "slug": "bpb-unranked-builds"
 }

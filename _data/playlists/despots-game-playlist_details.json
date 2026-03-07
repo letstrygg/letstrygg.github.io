@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 5783,
   "views": 335,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 36m",
+  "views_formatted": "335",
+  "slug": "despots-game"
 }

@@ -8,5 +8,8 @@
   "episodes": 6,
   "duration": 14220,
   "views": 660,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 57m",
+  "views_formatted": "660",
+  "slug": "9-kings-s1"
 }

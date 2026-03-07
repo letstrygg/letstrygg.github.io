@@ -8,5 +8,8 @@
   "episodes": 5,
   "duration": 7108,
   "views": 134,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 58m",
+  "views_formatted": "134",
+  "slug": "guild-of-dungeoneering"
 }

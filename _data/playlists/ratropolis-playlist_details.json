@@ -8,5 +8,8 @@
   "episodes": 8,
   "duration": 30715,
   "views": 286,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "8h 31m",
+  "views_formatted": "286",
+  "slug": "ratropolis"
 }

@@ -8,5 +8,8 @@
   "episodes": 5,
   "duration": 11970,
   "views": 2010,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 19m",
+  "views_formatted": "2K",
+  "slug": "stratum-descent"
 }

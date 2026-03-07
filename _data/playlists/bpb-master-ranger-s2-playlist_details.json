@@ -8,5 +8,8 @@
   "episodes": 33,
   "duration": 128178,
   "views": 11145,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "35h 36m",
+  "views_formatted": "11.1K",
+  "slug": "bpb-master-ranger-s2"
 }

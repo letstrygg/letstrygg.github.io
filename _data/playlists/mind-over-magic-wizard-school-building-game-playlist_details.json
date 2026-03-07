@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 5206,
   "views": 823,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 26m",
+  "views_formatted": "823",
+  "slug": "mind-over-magic-wizard-school-building-game"
 }

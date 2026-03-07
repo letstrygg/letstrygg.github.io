@@ -8,5 +8,8 @@
   "episodes": 14,
   "duration": 37902,
   "views": 49211,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "10h 31m",
+  "views_formatted": "49.2K",
+  "slug": "magicraft-s1-steam-demo"
 }

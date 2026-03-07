@@ -8,5 +8,8 @@
   "episodes": 101,
   "duration": 311667,
   "views": 35105,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "86h 34m",
+  "views_formatted": "35.1K",
+  "slug": "cube-chaos-block-army-strategy-roguelite-game"
 }

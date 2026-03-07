@@ -8,5 +8,8 @@
   "episodes": 6,
   "duration": 9274,
   "views": 281,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 34m",
+  "views_formatted": "281",
+  "slug": "enter-the-gungeon"
 }

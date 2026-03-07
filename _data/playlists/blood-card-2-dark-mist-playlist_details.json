@@ -8,5 +8,8 @@
   "episodes": 1,
   "duration": 8309,
   "views": 511,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 18m",
+  "views_formatted": "511",
+  "slug": "blood-card-2-dark-mist"
 }

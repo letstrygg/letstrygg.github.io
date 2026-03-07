@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 2840,
   "views": 577,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "47m",
+  "views_formatted": "577",
+  "slug": "main-assembly"
 }

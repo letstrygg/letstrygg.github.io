@@ -8,5 +8,8 @@
   "episodes": 252,
   "duration": 944455,
   "views": 70504,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "262h 20m",
+  "views_formatted": "70.5K",
+  "slug": "backpack-battles-s2"
 }

@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 7790,
   "views": 177,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 9m",
+  "views_formatted": "177",
+  "slug": "diablo-ii-median-xl-assassin"
 }

@@ -8,5 +8,8 @@
   "episodes": 8,
   "duration": 65205,
   "views": 595,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "18h 6m",
+  "views_formatted": "595",
+  "slug": "satisfactory-s3"
 }

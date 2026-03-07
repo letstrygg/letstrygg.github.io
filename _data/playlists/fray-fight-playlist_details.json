@@ -8,5 +8,8 @@
   "episodes": 1,
   "duration": 2514,
   "views": 233,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "41m",
+  "views_formatted": "233",
+  "slug": "fray-fight"
 }

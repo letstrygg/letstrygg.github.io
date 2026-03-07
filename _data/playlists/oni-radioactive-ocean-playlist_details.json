@@ -8,5 +8,8 @@
   "episodes": 10,
   "duration": 13586,
   "views": 1023,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 46m",
+  "views_formatted": "1K",
+  "slug": "oni-radioactive-ocean"
 }

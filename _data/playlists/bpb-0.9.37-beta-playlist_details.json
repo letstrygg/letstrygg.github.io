@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 13578,
   "views": 931,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 46m",
+  "views_formatted": "931",
+  "slug": "bpb-0.9.37-beta"
 }

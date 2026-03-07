@@ -8,5 +8,8 @@
   "episodes": 6,
   "duration": 21167,
   "views": 2265,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "5h 52m",
+  "views_formatted": "2.3K",
+  "slug": "bpb-gm-berserker"
 }

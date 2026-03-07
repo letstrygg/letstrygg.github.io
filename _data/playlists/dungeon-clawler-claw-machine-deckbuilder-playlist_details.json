@@ -8,5 +8,8 @@
   "episodes": 1,
   "duration": 3575,
   "views": 411,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "59m",
+  "views_formatted": "411",
+  "slug": "dungeon-clawler-claw-machine-deckbuilder"
 }

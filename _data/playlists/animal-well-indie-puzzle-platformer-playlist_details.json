@@ -8,5 +8,8 @@
   "episodes": 27,
   "duration": 54588,
   "views": 4292,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "15h 9m",
+  "views_formatted": "4.3K",
+  "slug": "animal-well-indie-puzzle-platformer"
 }

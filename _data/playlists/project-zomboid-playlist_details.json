@@ -8,5 +8,8 @@
   "episodes": 5,
   "duration": 10575,
   "views": 555,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 56m",
+  "views_formatted": "555",
+  "slug": "project-zomboid"
 }

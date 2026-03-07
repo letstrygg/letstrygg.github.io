@@ -8,5 +8,8 @@
   "episodes": 30,
   "duration": 83753,
   "views": 13238,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "23h 15m",
+  "views_formatted": "13.2K",
+  "slug": "bpb-master-reaper-s2"
 }

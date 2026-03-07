@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 5317,
   "views": 1160,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 28m",
+  "views_formatted": "1.2K",
+  "slug": "terra-cards"
 }

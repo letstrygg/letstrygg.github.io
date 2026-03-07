@@ -8,5 +8,8 @@
   "episodes": 6,
   "duration": 14610,
   "views": 5930,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 3m",
+  "views_formatted": "5.9K",
+  "slug": "vectorio-update-3"
 }

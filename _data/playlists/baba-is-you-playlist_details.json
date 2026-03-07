@@ -8,5 +8,8 @@
   "episodes": 13,
   "duration": 21554,
   "views": 2442,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "5h 59m",
+  "views_formatted": "2.4K",
+  "slug": "baba-is-you"
 }

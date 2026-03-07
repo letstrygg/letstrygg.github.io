@@ -8,5 +8,8 @@
   "episodes": 16,
   "duration": 30715,
   "views": 2289,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "8h 31m",
+  "views_formatted": "2.3K",
+  "slug": "ball-x-pit"
 }

@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 6873,
   "views": 67,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 54m",
+  "views_formatted": "67",
+  "slug": "lets-play-monster-sanctuary"
 }

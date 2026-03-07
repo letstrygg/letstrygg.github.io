@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 6126,
   "views": 108,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 42m",
+  "views_formatted": "108",
+  "slug": "alchemortis"
 }

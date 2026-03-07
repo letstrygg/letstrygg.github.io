@@ -8,5 +8,8 @@
   "episodes": 1,
   "duration": 708,
   "views": 243,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "11m",
+  "views_formatted": "243",
+  "slug": "quick-look-at-games"
 }

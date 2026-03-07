@@ -8,5 +8,8 @@
   "episodes": 12,
   "duration": 31615,
   "views": 3042,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "8h 46m",
+  "views_formatted": "3K",
+  "slug": "nimrods-s2"
 }

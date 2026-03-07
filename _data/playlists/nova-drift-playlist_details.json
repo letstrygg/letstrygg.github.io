@@ -8,5 +8,8 @@
   "episodes": 29,
   "duration": 88146,
   "views": 1359,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "24h 29m",
+  "views_formatted": "1.4K",
+  "slug": "nova-drift"
 }

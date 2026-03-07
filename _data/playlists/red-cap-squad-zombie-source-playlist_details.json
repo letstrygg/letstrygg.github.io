@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 3965,
   "views": 121,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 6m",
+  "views_formatted": "121",
+  "slug": "red-cap-squad-zombie-source"
 }

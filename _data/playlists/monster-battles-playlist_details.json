@@ -8,5 +8,8 @@
   "episodes": 14,
   "duration": 38792,
   "views": 2512,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "10h 46m",
+  "views_formatted": "2.5K",
+  "slug": "monster-battles"
 }

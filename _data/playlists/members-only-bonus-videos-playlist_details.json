@@ -8,5 +8,8 @@
   "episodes": 57,
   "duration": 124262,
   "views": 34,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "34h 31m",
+  "views_formatted": "34",
+  "slug": "members-only-bonus-videos"
 }

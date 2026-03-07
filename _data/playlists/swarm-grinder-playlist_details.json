@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 7740,
   "views": 1680,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 9m",
+  "views_formatted": "1.7K",
+  "slug": "swarm-grinder"
 }

@@ -8,5 +8,8 @@
   "episodes": 1,
   "duration": 75,
   "views": 39,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1m",
+  "views_formatted": "39",
+  "slug": "game-trailer-hype"
 }

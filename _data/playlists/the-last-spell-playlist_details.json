@@ -8,5 +8,8 @@
   "episodes": 12,
   "duration": 67573,
   "views": 785,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "18h 46m",
+  "views_formatted": "785",
+  "slug": "the-last-spell"
 }

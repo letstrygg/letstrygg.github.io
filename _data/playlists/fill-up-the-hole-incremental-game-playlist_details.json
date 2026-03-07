@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 8631,
   "views": 583,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 23m",
+  "views_formatted": "583",
+  "slug": "fill-up-the-hole-incremental-game"
 }

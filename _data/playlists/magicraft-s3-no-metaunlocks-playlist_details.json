@@ -8,5 +8,8 @@
   "episodes": 9,
   "duration": 26063,
   "views": 4328,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "7h 14m",
+  "views_formatted": "4.3K",
+  "slug": "magicraft-s3-no-metaunlocks"
 }

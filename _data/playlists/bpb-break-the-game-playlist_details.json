@@ -8,5 +8,8 @@
   "episodes": 6,
   "duration": 23961,
   "views": 2964,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "6h 39m",
+  "views_formatted": "3K",
+  "slug": "bpb-break-the-game"
 }

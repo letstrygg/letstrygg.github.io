@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 7003,
   "views": 264,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 56m",
+  "views_formatted": "264",
+  "slug": "stabjack"
 }

@@ -8,5 +8,8 @@
   "episodes": 9,
   "duration": 18018,
   "views": 5903,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "5h 0m",
+  "views_formatted": "5.9K",
+  "slug": "melvor-idle"
 }

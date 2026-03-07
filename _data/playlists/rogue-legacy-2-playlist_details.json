@@ -8,5 +8,8 @@
   "episodes": 9,
   "duration": 20007,
   "views": 1601,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "5h 33m",
+  "views_formatted": "1.6K",
+  "slug": "rogue-legacy-2"
 }

@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 14266,
   "views": 425,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 57m",
+  "views_formatted": "425",
+  "slug": "down-with-the-ship-pvp-space-autobattler-game"
 }

@@ -8,5 +8,8 @@
   "episodes": 51,
   "duration": 313882,
   "views": 62342,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "87h 11m",
+  "views_formatted": "62.3K",
+  "slug": "magicraft-s4-10-release"
 }

@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 10788,
   "views": 434,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 59m",
+  "views_formatted": "434",
+  "slug": "shroom-and-gloom"
 }

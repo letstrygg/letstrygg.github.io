@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 8497,
   "views": 6608,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 21m",
+  "views_formatted": "6.6K",
+  "slug": "industry-idle"
 }

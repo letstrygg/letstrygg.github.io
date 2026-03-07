@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 11760,
   "views": 186,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 16m",
+  "views_formatted": "186",
+  "slug": "dark-fairy-tale-dreamland-survivors"
 }

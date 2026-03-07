@@ -8,5 +8,8 @@
   "episodes": 7,
   "duration": 16040,
   "views": 1810,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 27m",
+  "views_formatted": "1.8K",
+  "slug": "outpath"
 }

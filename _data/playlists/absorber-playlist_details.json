@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 20140,
   "views": 1040,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "5h 35m",
+  "views_formatted": "1K",
+  "slug": "absorber"
 }

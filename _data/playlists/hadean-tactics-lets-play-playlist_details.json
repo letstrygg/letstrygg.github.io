@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 6328,
   "views": 332,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 45m",
+  "views_formatted": "332",
+  "slug": "hadean-tactics-lets-play"
 }

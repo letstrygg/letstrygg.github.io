@@ -8,5 +8,8 @@
   "episodes": 13,
   "duration": 51107,
   "views": 1744,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "14h 11m",
+  "views_formatted": "1.7K",
+  "slug": "s2-brotato"
 }

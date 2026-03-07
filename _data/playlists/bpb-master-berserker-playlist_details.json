@@ -8,5 +8,8 @@
   "episodes": 30,
   "duration": 123467,
   "views": 12864,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "34h 17m",
+  "views_formatted": "12.9K",
+  "slug": "bpb-master-berserker"
 }

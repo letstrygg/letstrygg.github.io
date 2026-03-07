@@ -8,5 +8,8 @@
   "episodes": 14,
   "duration": 41191,
   "views": 16586,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "11h 26m",
+  "views_formatted": "16.6K",
+  "slug": "idle-loops-web-browser-game"
 }

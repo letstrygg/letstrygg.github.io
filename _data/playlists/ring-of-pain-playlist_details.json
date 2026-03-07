@@ -8,5 +8,8 @@
   "episodes": 26,
   "duration": 96723,
   "views": 634,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "26h 52m",
+  "views_formatted": "634",
+  "slug": "ring-of-pain"
 }

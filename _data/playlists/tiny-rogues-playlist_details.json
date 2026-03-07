@@ -8,5 +8,8 @@
   "episodes": 14,
   "duration": 36904,
   "views": 1490,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "10h 15m",
+  "views_formatted": "1.5K",
+  "slug": "tiny-rogues"
 }

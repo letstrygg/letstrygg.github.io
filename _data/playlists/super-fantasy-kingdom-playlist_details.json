@@ -8,5 +8,8 @@
   "episodes": 9,
   "duration": 19996,
   "views": 6612,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "5h 33m",
+  "views_formatted": "6.6K",
+  "slug": "super-fantasy-kingdom"
 }

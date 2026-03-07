@@ -8,5 +8,8 @@
   "episodes": 8,
   "duration": 34836,
   "views": 671,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "9h 40m",
+  "views_formatted": "671",
+  "slug": "balatro-poker-roguelike-lets-play-series"
 }

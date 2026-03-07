@@ -8,5 +8,8 @@
   "episodes": 7,
   "duration": 26612,
   "views": 4752,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "7h 23m",
+  "views_formatted": "4.8K",
+  "slug": "dungeonsweeper-itchio-free-browser-game"
 }

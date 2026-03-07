@@ -8,5 +8,8 @@
   "episodes": 1,
   "duration": 38588,
   "views": 31,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "10h 43m",
+  "views_formatted": "31",
+  "slug": "supercuts"
 }

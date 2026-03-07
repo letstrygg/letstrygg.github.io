@@ -8,5 +8,8 @@
   "episodes": 12,
   "duration": 24658,
   "views": 8071,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "6h 50m",
+  "views_formatted": "8.1K",
+  "slug": "below-the-stone"
 }

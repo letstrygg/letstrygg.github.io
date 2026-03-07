@@ -8,5 +8,8 @@
   "episodes": 180,
   "duration": 630174,
   "views": 54622,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "175h 2m",
+  "views_formatted": "54.6K",
+  "slug": "backpack-battles-s4"
 }

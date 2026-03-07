@@ -8,5 +8,8 @@
   "episodes": 25,
   "duration": 817,
   "views": 10598,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "13m",
+  "views_formatted": "10.6K",
+  "slug": "a-short-journey-through-noita"
 }

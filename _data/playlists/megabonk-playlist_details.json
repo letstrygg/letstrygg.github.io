@@ -8,5 +8,8 @@
   "episodes": 126,
   "duration": 445123,
   "views": 34695,
-  "status": "Ongoing"
+  "status": "Ongoing",
+  "duration_formatted": "123h 38m",
+  "views_formatted": "34.7K",
+  "slug": "megabonk"
 }

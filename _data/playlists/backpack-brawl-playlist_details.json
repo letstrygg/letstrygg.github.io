@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 4850,
   "views": 365,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 20m",
+  "views_formatted": "365",
+  "slug": "backpack-brawl"
 }

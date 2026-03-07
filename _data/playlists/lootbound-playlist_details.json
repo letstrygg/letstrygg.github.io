@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 7055,
   "views": 882,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 57m",
+  "views_formatted": "882",
+  "slug": "lootbound"
 }

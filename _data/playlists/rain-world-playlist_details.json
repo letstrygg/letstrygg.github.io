@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 4295,
   "views": 375,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 11m",
+  "views_formatted": "375",
+  "slug": "rain-world"
 }

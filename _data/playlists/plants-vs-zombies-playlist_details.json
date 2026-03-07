@@ -8,5 +8,8 @@
   "episodes": 10,
   "duration": 18441,
   "views": 858,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "5h 7m",
+  "views_formatted": "858",
+  "slug": "plants-vs-zombies"
 }

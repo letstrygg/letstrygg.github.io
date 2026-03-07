@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 5115,
   "views": 627,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 25m",
+  "views_formatted": "627",
+  "slug": "heretics-fork"
 }

@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 6858,
   "views": 65,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 54m",
+  "views_formatted": "65",
+  "slug": "fights-in-tight-spaces-lets-play-series"
 }

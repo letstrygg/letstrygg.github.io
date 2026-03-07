@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 10285,
   "views": 376,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 51m",
+  "views_formatted": "376",
+  "slug": "halls-of-torment"
 }

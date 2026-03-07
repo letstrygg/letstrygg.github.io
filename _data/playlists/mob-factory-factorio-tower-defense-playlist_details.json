@@ -8,5 +8,8 @@
   "episodes": 6,
   "duration": 5126,
   "views": 2365,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 25m",
+  "views_formatted": "2.4K",
+  "slug": "mob-factory-factorio-tower-defense"
 }

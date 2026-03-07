@@ -8,5 +8,8 @@
   "episodes": 12,
   "duration": 24437,
   "views": 685,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "6h 47m",
+  "views_formatted": "685",
+  "slug": "graveyard-keeper"
 }

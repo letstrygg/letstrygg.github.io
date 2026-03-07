@@ -8,5 +8,8 @@
   "episodes": 24,
   "duration": 90846,
   "views": 1616,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "25h 14m",
+  "views_formatted": "1.6K",
+  "slug": "warzone-free-browser-game"
 }

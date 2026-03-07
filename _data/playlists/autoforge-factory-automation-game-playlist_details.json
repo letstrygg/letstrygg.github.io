@@ -8,5 +8,8 @@
   "episodes": 9,
   "duration": 23850,
   "views": 5035,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "6h 37m",
+  "views_formatted": "5K",
+  "slug": "autoforge-factory-automation-game"
 }

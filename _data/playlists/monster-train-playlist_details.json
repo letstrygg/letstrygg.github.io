@@ -8,5 +8,8 @@
   "episodes": 27,
   "duration": 123965,
   "views": 465,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "34h 26m",
+  "views_formatted": "465",
+  "slug": "monster-train"
 }

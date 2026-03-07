@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 3392,
   "views": 76,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "56m",
+  "views_formatted": "76",
+  "slug": "creatorcrate-lets-play"
 }

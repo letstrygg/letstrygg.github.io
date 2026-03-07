@@ -8,5 +8,8 @@
   "episodes": 1,
   "duration": 1279,
   "views": 29,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "21m",
+  "views_formatted": "29",
+  "slug": "arkos"
 }

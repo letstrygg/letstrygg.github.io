@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 9117,
   "views": 248,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 31m",
+  "views_formatted": "248",
+  "slug": "the-gnorp-apologue"
 }

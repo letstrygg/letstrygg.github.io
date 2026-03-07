@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 7542,
   "views": 139,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 5m",
+  "views_formatted": "139",
+  "slug": "heros-hour"
 }

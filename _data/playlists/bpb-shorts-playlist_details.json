@@ -8,5 +8,8 @@
   "episodes": 8,
   "duration": 286,
   "views": 39176,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4m",
+  "views_formatted": "39.2K",
+  "slug": "bpb-shorts"
 }

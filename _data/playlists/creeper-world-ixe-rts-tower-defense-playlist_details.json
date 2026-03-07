@@ -8,5 +8,8 @@
   "episodes": 21,
   "duration": 111627,
   "views": 9435,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "31h 0m",
+  "views_formatted": "9.4K",
+  "slug": "creeper-world-ixe-rts-tower-defense"
 }

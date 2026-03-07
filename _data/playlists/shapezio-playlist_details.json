@@ -8,5 +8,8 @@
   "episodes": 12,
   "duration": 17692,
   "views": 3004,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 54m",
+  "views_formatted": "3K",
+  "slug": "shapezio"
 }

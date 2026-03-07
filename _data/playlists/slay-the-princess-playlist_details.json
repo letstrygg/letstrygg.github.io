@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 4504,
   "views": 314,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 15m",
+  "views_formatted": "314",
+  "slug": "slay-the-princess"
 }

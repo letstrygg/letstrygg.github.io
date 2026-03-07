@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 7339,
   "views": 1060,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 2m",
+  "views_formatted": "1.1K",
+  "slug": "knightica"
 }

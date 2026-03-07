@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 10053,
   "views": 734,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 47m",
+  "views_formatted": "734",
+  "slug": "turnbound-s2"
 }

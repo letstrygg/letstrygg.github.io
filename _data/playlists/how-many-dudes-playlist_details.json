@@ -8,5 +8,8 @@
   "episodes": 8,
   "duration": 12795,
   "views": 1676,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 33m",
+  "views_formatted": "1.7K",
+  "slug": "how-many-dudes"
 }

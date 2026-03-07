@@ -8,5 +8,8 @@
   "episodes": 6,
   "duration": 17773,
   "views": 1897,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 56m",
+  "views_formatted": "1.9K",
+  "slug": "looper-tactics-s2"
 }

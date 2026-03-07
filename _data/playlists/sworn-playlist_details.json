@@ -8,5 +8,8 @@
   "episodes": 5,
   "duration": 10540,
   "views": 1564,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 55m",
+  "views_formatted": "1.6K",
+  "slug": "sworn"
 }

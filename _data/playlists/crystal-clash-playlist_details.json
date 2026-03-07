@@ -8,5 +8,8 @@
   "episodes": 5,
   "duration": 10753,
   "views": 391,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 59m",
+  "views_formatted": "391",
+  "slug": "crystal-clash"
 }

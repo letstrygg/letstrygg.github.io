@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 4098,
   "views": 93,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 8m",
+  "views_formatted": "93",
+  "slug": "kingdom-two-crowns"
 }

@@ -8,5 +8,8 @@
   "episodes": 2,
   "duration": 4325,
   "views": 377,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "1h 12m",
+  "views_formatted": "377",
+  "slug": "heroes-of-hammerwatch-ii"
 }

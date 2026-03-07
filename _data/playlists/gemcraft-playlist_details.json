@@ -8,5 +8,8 @@
   "episodes": 160,
   "duration": 285784,
   "views": 64240,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "79h 23m",
+  "views_formatted": "64.2K",
+  "slug": "gemcraft"
 }

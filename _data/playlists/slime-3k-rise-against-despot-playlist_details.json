@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 7743,
   "views": 768,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "2h 9m",
+  "views_formatted": "768",
+  "slug": "slime-3k-rise-against-despot"
 }

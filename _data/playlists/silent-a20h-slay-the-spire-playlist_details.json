@@ -8,5 +8,8 @@
   "episodes": 11,
   "duration": 48850,
   "views": 985,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "13h 34m",
+  "views_formatted": "985",
+  "slug": "silent-a20h-slay-the-spire"
 }

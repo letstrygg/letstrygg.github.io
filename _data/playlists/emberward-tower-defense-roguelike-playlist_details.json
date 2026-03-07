@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 20507,
   "views": 370,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "5h 41m",
+  "views_formatted": "370",
+  "slug": "emberward-tower-defense-roguelike"
 }

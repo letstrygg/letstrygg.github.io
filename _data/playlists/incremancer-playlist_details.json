@@ -8,5 +8,8 @@
   "episodes": 14,
   "duration": 25775,
   "views": 6512,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "7h 9m",
+  "views_formatted": "6.5K",
+  "slug": "incremancer"
 }

@@ -8,5 +8,8 @@
   "episodes": 3,
   "duration": 13240,
   "views": 312,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 40m",
+  "views_formatted": "312",
+  "slug": "midjourney"
 }

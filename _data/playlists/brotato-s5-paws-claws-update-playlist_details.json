@@ -8,5 +8,8 @@
   "episodes": 10,
   "duration": 17131,
   "views": 292,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "4h 45m",
+  "views_formatted": "292",
+  "slug": "brotato-s5-paws-claws-update"
 }

@@ -8,5 +8,8 @@
   "episodes": 4,
   "duration": 11003,
   "views": 187,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "3h 3m",
+  "views_formatted": "187",
+  "slug": "for-the-forge"
 }

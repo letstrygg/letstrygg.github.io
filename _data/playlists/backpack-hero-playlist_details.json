@@ -8,5 +8,8 @@
   "episodes": 19,
   "duration": 51316,
   "views": 822,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "14h 15m",
+  "views_formatted": "822",
+  "slug": "backpack-hero"
 }

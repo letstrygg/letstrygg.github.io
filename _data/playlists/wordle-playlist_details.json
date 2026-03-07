@@ -8,5 +8,8 @@
   "episodes": 40,
   "duration": 61632,
   "views": 997,
-  "status": "Completed"
+  "status": "Completed",
+  "duration_formatted": "17h 7m",
+  "views_formatted": "997",
+  "slug": "wordle"
 }
