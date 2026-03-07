@@ -1,6 +1,17 @@
 /* Import a font similar to Slay the Spire's UI */
+/* Add this to the top of spire-style.css */
 @import url('https://fonts.googleapis.com/css2?family=Kreon:wght@400;500;700&display=swap');
 
+.sts-page-wrapper,
+.sts-page-wrapper h1,
+.sts-page-wrapper h2,
+.sts-page-wrapper p,
+.sts-page-wrapper a,
+.sts-page-wrapper li,
+.sts-page-wrapper span,
+.sts-page-wrapper strong {
+    font-family: 'Kreon', serif !important;
+}
 :root {
     /* Slay the Spire UI Colors */
     --sts-red: #ff6565;
