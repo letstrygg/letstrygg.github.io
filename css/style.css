@@ -131,15 +131,10 @@ ul li { text-indent: -1.2em; /* brings the first line back if you prefer no visu
     margin-top: 20px;
 }
 
-.game-index-list li::before {
-    content: none; /* Removes the default green bullet for this specific list */
-}
-
 .game-index-list a {
     font-size: 1.2rem;
     text-decoration: underline;
     text-decoration-color: var(--underline);
-    text-decoration-thickness: 2px;
     text-underline-offset: 4px;
     transition: opacity 0.2s ease;
 }

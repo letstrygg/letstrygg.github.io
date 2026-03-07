@@ -29,7 +29,7 @@ permalink: /game/
         {% if path_size == 3 and item.url != '/game/' %}
           <li style="margin-bottom: 15px;">
             <a href="{{ item.url | relative_url }}" class="blue">
-              <strong>▶ {{ item.title | remove: " - LetsTryGG" | remove: " – LetsTryGG" }}</strong>
+              <strong>{{ item.title | remove: " - LetsTryGG" | remove: " – LetsTryGG" }}</strong>
             </a>
           </li>
         {% endif %}
