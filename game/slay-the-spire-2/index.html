@@ -20,9 +20,21 @@ custom_css: "/css/spire-style.css"
     <h2 class="sts-yellow">Events & Encounters</h2>
     <p>Documenting the strange and dangerous encounters found within the new Spire. Choose wisely:</p>
     
-    <div style="margin-top: 15px;">
-      <a href="/game/slay-the-spire-2/events/crystal-sphere.html" class="sts-blue">
-        ▶ Crystal Sphere Event
+    {% assign event_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/events/'" %}
+    
+    {% for event in event_pages %}
+      {% if event.url != '/game/slay-the-spire-2/events/' %}
+        <div style="margin-top: 15px;">
+          <a href="{{ event.url | relative_url }}" class="sts-blue">
+            ▶ {{ event.title | remove: " – Slay the Spire 2 Event" | remove: " - Slay the Spire 2 Event" }}
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <div style="margin-top: 25px;">
+      <a href="/game/slay-the-spire-2/events/" class="sts-yellow">
+        View All Events →
       </a>
     </div>
   </div>
