@@ -26,15 +26,25 @@
     font-size: 1.8rem;
 }
 
-/* Breadcrumb Styling for Spire Pages */
+/* Breadcrumb Link Styling */
 .sts-page-wrapper .site-breadcrumbs a {
     color: var(--sts-blue);
-    text-decoration: none;
+    font-weight: 500;
+    text-decoration: underline;
+    
+    /* Here is the modern magic */
+    text-decoration-color: #ffffff; /* Or var(--underline) if you have that set globally! */
+    text-decoration-thickness: 2px; /* Makes the line a bit bolder */
+    text-underline-offset: 3px;     /* Pushes the line down, creating that nice gap */
+    
+    transition: all 0.2s ease; /* Smooth transition for hover effects */
 }
 
+/* Hover effect to make it feel interactive */
 .sts-page-wrapper .site-breadcrumbs a:hover {
-    text-decoration: underline;
-    text-shadow: 0 0 5px rgba(135, 206, 235, 0.3);
+    color: #ffffff;
+    text-decoration-color: var(--sts-blue);
+    text-shadow: 0 0 5px rgba(135, 206, 235, 0.4);
 }
 
 .sts-page-wrapper .breadcrumb-current {
