@@ -10,8 +10,6 @@
 .sts-page-wrapper li,
 .sts-page-wrapper span,
 .sts-page-wrapper {
-    background-color: var(--sts-bg);
-    background-image: radial-gradient(circle at center, #000000 0%, #111113 100%);
     color: var(--sts-text-main);
     line-height: 1.6;
     font-size: 1.15rem; 
