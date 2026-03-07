@@ -1,0 +1,35 @@
+---
+layout: new
+title: Events & Encounters - Slay the Spire 2
+description: A complete list of documented events, choices, and outcomes in Slay the Spire 2.
+permalink: /game/slay-the-spire-2/events/
+custom_css: "/css/spire-style.css"
+---
+
+<div class="sts-page-wrapper">
+  
+  <div style="margin-bottom: 20px;">
+    <a href="/game/slay-the-spire-2/" class="sts-blue">← Back to Spire 2 Hub</a>
+  </div>
+
+  <h1 class="sts-yellow">Events & Encounters</h1>
+  <p class="subtitle sts-blue">Slay the Spire 2</p>
+
+  <p>Documenting the strange, dangerous, and mysterious encounters found within the Spire. Click an event to view its dialogue, choices, and potential outcomes.</p>
+
+  <div class="sts-section" style="margin-top: 30px;">
+    
+    {% assign event_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/events/'" %}
+    
+    {% for event in event_pages %}
+      {% if event.url != '/game/slay-the-spire-2/events/' %}
+        <div style="margin-top: 15px;">
+          <a href="{{ event.url | relative_url }}" class="sts-blue">
+            ▶ {{ event.title | remove: " – Slay the Spire 2 Event" | remove: " - Slay the Spire 2 Event" }}
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+
+</div>
