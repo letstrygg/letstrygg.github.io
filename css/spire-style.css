@@ -13,12 +13,8 @@
     background-color: var(--sts-bg);
     background-image: radial-gradient(circle at center, #000000 0%, #111113 100%);
     color: var(--sts-text-main);
-    font-family: 'Kreon', serif;
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid #333;
     line-height: 1.6;
-    font-size: 1.15rem; /* <-- This increases the text size for all Spire pages */
+    font-size: 1.15rem; 
 }
 
 /* Add these to make sure headers scale up nicely */
