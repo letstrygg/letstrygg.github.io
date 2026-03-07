@@ -8,8 +8,9 @@
   "episodes": 29,
   "duration": 178380,
   "views": 703,
-  "status": "Ongoing",
+  "status": "Paused",
   "duration_formatted": "49h 33m",
   "views_formatted": "703",
-  "slug": "monster-train-2"
+  "slug": "monster-train-2",
+  "status_color": "purple"
 }

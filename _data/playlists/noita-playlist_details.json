@@ -8,8 +8,9 @@
   "episodes": 443,
   "duration": 1423967,
   "views": 220646,
-  "status": "Ongoing",
+  "status": "Completed",
   "duration_formatted": "395h 32m",
   "views_formatted": "220.6K",
-  "slug": "noita"
+  "slug": "noita",
+  "status_color": "blue"
 }

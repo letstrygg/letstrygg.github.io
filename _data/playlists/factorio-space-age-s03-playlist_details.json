@@ -8,8 +8,9 @@
   "episodes": 18,
   "duration": 97098,
   "views": 746,
-  "status": "Completed",
+  "status": "Paused",
   "duration_formatted": "26h 58m",
   "views_formatted": "746",
-  "slug": "factorio-space-age-s03"
+  "slug": "factorio-space-age-s03",
+  "status_color": "purple"
 }
