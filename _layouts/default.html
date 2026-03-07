@@ -7,6 +7,9 @@
   <title>{{ page.title | default: site.title }}</title>
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <link rel="stylesheet" href="{{ "/css/style-old.css" | relative_url }}">
+  {% if page.custom_css %}
+    <link rel="stylesheet" href="{{ page.custom_css | relative_url }}">
+  {% endif %}
   {% seo %}
 </head>
 <body>
