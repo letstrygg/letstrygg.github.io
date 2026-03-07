@@ -78,6 +78,13 @@ b				{ font-weight: 500; text-decoration: underline; text-decoration-color: var(
   color: inherit;
 }
 
+.card-status {
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--underline);
+    text-underline-offset: 3px;
+}
+
 .game-card img {
   width: 100%;
   display: block;
