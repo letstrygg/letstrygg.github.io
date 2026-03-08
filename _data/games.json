@@ -980,18 +980,18 @@
     "duration_formatted": "11m"
   },
   {
-    "id": "god-of-weapons-s2",
-    "title": "God Of Weapons S2",
+    "id": "god-of-weapons",
+    "title": "God Of Weapons",
     "thumbnail": "https://i.ytimg.com/vi/WM-EsyJ9cZg/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 8,
-    "views": 508,
-    "duration": 31749,
+    "highest_season": 2,
+    "episodes": 23,
+    "views": 5539,
+    "duration": 77790,
     "status": "Completed",
     "status_color": "green",
     "updated": "2025-07-02T15:01:42Z",
-    "views_formatted": "508",
-    "duration_formatted": "8h 49m"
+    "views_formatted": "5.5K",
+    "duration_formatted": "21h 36m"
   },
   {
     "id": "warzone",
@@ -1750,8 +1750,8 @@
     "duration_formatted": "1h 26m"
   },
   {
-    "id": "slime-3k-rise-against-despot",
-    "title": "Slime 3k Rise Against Despot",
+    "id": "slime-3k",
+    "title": "Slime 3k",
     "thumbnail": "https://i.ytimg.com/vi/bM_nrNzwUdM/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -1778,8 +1778,8 @@
     "duration_formatted": "6h 2m"
   },
   {
-    "id": "techtonica-indie-factory-builder-game-lets-play",
-    "title": "Techtonica Indie Factory Builder Game Lets Play",
+    "id": "techtonica",
+    "title": "Techtonica",
     "thumbnail": "https://i.ytimg.com/vi/Rl13z7wU2nw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -1792,18 +1792,18 @@
     "duration_formatted": "2h 30m"
   },
   {
-    "id": "vectorio-early-access-s3",
-    "title": "Vectorio Early Access S3",
+    "id": "vectorio",
+    "title": "Vectorio",
     "thumbnail": "https://i.ytimg.com/vi/aQ1CHA9YpzE/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 4,
-    "views": 386,
-    "duration": 8069,
+    "highest_season": 3,
+    "episodes": 19,
+    "views": 7534,
+    "duration": 34820,
     "status": "Completed",
     "status_color": "green",
     "updated": "2023-09-09T19:00:01Z",
-    "views_formatted": "386",
-    "duration_formatted": "2h 14m"
+    "views_formatted": "7.5K",
+    "duration_formatted": "9h 40m"
   },
   {
     "id": "asgards-fall",
@@ -1890,22 +1890,8 @@
     "duration_formatted": "38h 32m"
   },
   {
-    "id": "members-only-bonus-videos",
-    "title": "Members Only Bonus Videos",
-    "thumbnail": "https://i.ytimg.com/vi/Z6K37JxUe1w/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 57,
-    "views": 34,
-    "duration": 124262,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2023-07-22T15:42:03Z",
-    "views_formatted": "34",
-    "duration_formatted": "34h 31m"
-  },
-  {
-    "id": "nova-lands-free-steam-demo-full-playthrough",
-    "title": "Nova Lands Free Steam Demo Full Playthrough",
+    "id": "nova-lands",
+    "title": "Nova Lands",
     "thumbnail": "https://i.ytimg.com/vi/99cEmyfHrtw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
@@ -1932,18 +1918,18 @@
     "duration_formatted": "12h 10m"
   },
   {
-    "id": "idle-loops-squirrel-edition-free-web-browser-idle-game",
-    "title": "Idle Loops Squirrel Edition Free Web Browser Idle Game",
+    "id": "idle-loops",
+    "title": "Idle Loops",
     "thumbnail": "https://i.ytimg.com/vi/HhAFq-8PUKw/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 6,
-    "views": 2040,
-    "duration": 12615,
+    "highest_season": 2,
+    "episodes": 20,
+    "views": 18626,
+    "duration": 53806,
     "status": "Completed",
     "status_color": "green",
     "updated": "2023-06-18T00:00:24Z",
-    "views_formatted": "2K",
-    "duration_formatted": "3h 30m"
+    "views_formatted": "18.6K",
+    "duration_formatted": "14h 56m"
   },
   {
     "id": "vampire-survivors",
@@ -2030,20 +2016,6 @@
     "duration_formatted": "6h 54m"
   },
   {
-    "id": "god-of-weapons-free-steam-demo",
-    "title": "God Of Weapons Free Steam Demo",
-    "thumbnail": "https://i.ytimg.com/vi/tnEAR2PCDQo/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 15,
-    "views": 5031,
-    "duration": 46041,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2023-09-15T00:00:09Z",
-    "views_formatted": "5K",
-    "duration_formatted": "12h 47m"
-  },
-  {
     "id": "free-itchio-games",
     "title": "Free Itchio Games",
     "thumbnail": "https://i.ytimg.com/vi/Kt8tb6B8Aeo/maxresdefault.jpg",
@@ -2072,8 +2044,8 @@
     "duration_formatted": "6h 47m"
   },
   {
-    "id": "castle-of-alchemist-free-steam-demo",
-    "title": "Castle Of Alchemist Free Steam Demo",
+    "id": "castle-of-alchemist",
+    "title": "Castle Of Alchemist",
     "thumbnail": "https://i.ytimg.com/vi/7PiH1Fmq2xo/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
@@ -2086,8 +2058,8 @@
     "duration_formatted": "58m"
   },
   {
-    "id": "gods-of-defense-roguelike-tower-defense",
-    "title": "Gods Of Defense Roguelike Tower Defense",
+    "id": "gods-of-defense",
+    "title": "Gods Of Defense",
     "thumbnail": "https://i.ytimg.com/vi/aWFRI1vxodU/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 1,
@@ -2156,8 +2128,8 @@
     "duration_formatted": "34m"
   },
   {
-    "id": "cookie-clicker-aka-digital-crack",
-    "title": "Cookie Clicker Aka Digital Crack",
+    "id": "cookie-clicker",
+    "title": "Cookie Clicker",
     "thumbnail": "https://i.ytimg.com/vi/O2gN_3kLy3c/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 11,
@@ -2380,8 +2352,8 @@
     "duration_formatted": "42m"
   },
   {
-    "id": "apico-bee-keeping-lets-play",
-    "title": "Apico Bee Keeping Lets Play",
+    "id": "apico",
+    "title": "Apico",
     "thumbnail": "https://i.ytimg.com/vi/wR0oMM8ZwZQ/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
@@ -2520,20 +2492,6 @@
     "duration_formatted": "7h 9m"
   },
   {
-    "id": "idle-loops-web-browser-game",
-    "title": "Idle Loops Web Browser Game",
-    "thumbnail": "https://i.ytimg.com/vi/cH9-evSX-uI/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 14,
-    "views": 16586,
-    "duration": 41191,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2022-08-26T15:00:16Z",
-    "views_formatted": "16.6K",
-    "duration_formatted": "11h 26m"
-  },
-  {
     "id": "increlution",
     "title": "Increlution",
     "thumbnail": "https://i.ytimg.com/vi/tkGgzkmPCHg/maxresdefault.jpg",
@@ -2604,8 +2562,8 @@
     "duration_formatted": "2h 59m"
   },
   {
-    "id": "organs-please-demo-full-playthrough",
-    "title": "Organs Please Demo Full Playthrough",
+    "id": "organs-please",
+    "title": "Organs Please",
     "thumbnail": "https://i.ytimg.com/vi/V-hoTUZe50I/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -2632,22 +2590,8 @@
     "duration_formatted": "24h 29m"
   },
   {
-    "id": "vectorio-update-3",
-    "title": "Vectorio Update 3",
-    "thumbnail": "https://i.ytimg.com/vi/7IpbcTJsV28/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 6,
-    "views": 5930,
-    "duration": 14610,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2022-01-21T20:00:04Z",
-    "views_formatted": "5.9K",
-    "duration_formatted": "4h 3m"
-  },
-  {
-    "id": "fights-in-tight-spaces-lets-play-series",
-    "title": "Fights In Tight Spaces Lets Play Series",
+    "id": "fights-in-tight-spaces",
+    "title": "Fights In Tight Spaces",
     "thumbnail": "https://i.ytimg.com/vi/rUje5J4LOeU/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
@@ -2674,8 +2618,8 @@
     "duration_formatted": "59m"
   },
   {
-    "id": "loop-hero-lets-play-series",
-    "title": "Loop Hero Lets Play Series",
+    "id": "loop-hero",
+    "title": "Loop Hero",
     "thumbnail": "https://i.ytimg.com/vi/DKYNWzUINdw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 5,
@@ -2814,32 +2758,18 @@
     "duration_formatted": "1h 49m"
   },
   {
-    "id": "diablo-ii-resurrected-beta",
-    "title": "Diablo Ii Resurrected Beta",
+    "id": "diablo-ii",
+    "title": "Diablo Ii",
     "thumbnail": "https://i.ytimg.com/vi/lAEX2xG_y8I/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 4,
-    "views": 52,
-    "duration": 6336,
+    "highest_season": 2,
+    "episodes": 8,
+    "views": 229,
+    "duration": 14126,
     "status": "Completed",
     "status_color": "green",
     "updated": "2021-08-18T00:30:17Z",
-    "views_formatted": "52",
-    "duration_formatted": "1h 45m"
-  },
-  {
-    "id": "vectorio-early-access-playthrough",
-    "title": "Vectorio Early Access Playthrough",
-    "thumbnail": "https://i.ytimg.com/vi/xoLUqR4k5cs/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 9,
-    "views": 1218,
-    "duration": 12141,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2021-08-26T15:00:20Z",
-    "views_formatted": "1.2K",
-    "duration_formatted": "3h 22m"
+    "views_formatted": "229",
+    "duration_formatted": "3h 55m"
   },
   {
     "id": "ratropolis",
@@ -3094,8 +3024,8 @@
     "duration_formatted": "30h 25m"
   },
   {
-    "id": "project-highrise-architects-edition",
-    "title": "Project Highrise Architects Edition",
+    "id": "project-highrise",
+    "title": "Project Highrise",
     "thumbnail": "https://i.ytimg.com/vi/JP15GJ7qFRM/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
@@ -3134,20 +3064,6 @@
     "updated": "2020-05-29T18:00:00Z",
     "views_formatted": "11.5K",
     "duration_formatted": "39h 41m"
-  },
-  {
-    "id": "diablo-ii-median-xl-assassin",
-    "title": "Diablo Ii Median Xl Assassin",
-    "thumbnail": "https://i.ytimg.com/vi/wcvWnPbXu9s/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 4,
-    "views": 177,
-    "duration": 7790,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2020-02-09T23:30:01Z",
-    "views_formatted": "177",
-    "duration_formatted": "2h 9m"
   },
   {
     "id": "wordle",
