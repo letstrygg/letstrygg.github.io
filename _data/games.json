@@ -2496,20 +2496,20 @@
     "vpv_formatted": "112"
   },
   {
-    "id": "mindustry-season-2",
-    "title": "Mindustry Season 2",
+    "id": "mindustry",
+    "title": "Mindustry",
     "thumbnail": "https://i.ytimg.com/vi/cS5IB3PBuRY/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 3,
-    "views": 407,
-    "duration": 11021,
+    "highest_season": 2,
+    "episodes": 66,
+    "views": 11878,
+    "duration": 153919,
     "status": "Completed",
     "status_color": "blue",
     "updated": "2022-10-01T15:00:22Z",
-    "views_formatted": "407",
-    "duration_formatted": "3h 3m",
-    "vpv": 136,
-    "vpv_formatted": "136"
+    "views_formatted": "11.9K",
+    "duration_formatted": "42h 45m",
+    "vpv": 180,
+    "vpv_formatted": "180"
   },
   {
     "id": "super-auto-pets-s2",
@@ -3470,22 +3470,6 @@
     "duration_formatted": "47m",
     "vpv": 289,
     "vpv_formatted": "289"
-  },
-  {
-    "id": "mindustry",
-    "title": "Mindustry",
-    "thumbnail": "https://i.ytimg.com/vi/l7Pz3DDjl7M/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 63,
-    "views": 11471,
-    "duration": 142898,
-    "status": "Completed",
-    "status_color": "blue",
-    "updated": "2020-05-29T18:00:00Z",
-    "views_formatted": "11.5K",
-    "duration_formatted": "39h 41m",
-    "vpv": 182,
-    "vpv_formatted": "182"
   },
   {
     "id": "wordle",
