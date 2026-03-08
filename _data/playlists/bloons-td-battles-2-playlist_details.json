@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk5R-xDOTWV0ztBaroZce5xJ",
+  "slug": "bloons-td-battles-2",
   "title": "Bloons TD Battles 2",
   "thumbnail": "https://i.ytimg.com/vi/WjIcJCf0y7w/maxresdefault.jpg",
   "published": "2021-12-05T12:26:24.537563Z",
   "updated": "2021-12-28T17:00:09Z",
-  "fetched": "2026-03-07T12:04:45.933Z",
+  "fetched": "2026-03-08T03:59:33.762Z",
   "episodes": 14,
   "duration": 33181,
-  "views": 1049,
-  "status": "Completed",
   "duration_formatted": "9h 13m",
+  "views": 1049,
   "views_formatted": "1K",
-  "slug": "bloons-td-battles-2",
-  "status_color": "blue"
+  "status": "Ongoing",
+  "status_color": "green"
 }
