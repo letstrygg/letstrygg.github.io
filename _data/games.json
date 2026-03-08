@@ -434,20 +434,6 @@
     "duration_formatted": "3h 57m"
   },
   {
-    "id": "slay-the-spire",
-    "title": "Slay The Spire",
-    "thumbnail": "https://i.ytimg.com/vi/hy7nTLp6E_M/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 6,
-    "views": 322,
-    "duration": 26682,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-03-10T16:00:58Z",
-    "views_formatted": "322",
-    "duration_formatted": "7h 24m"
-  },
-  {
     "id": "ballionaire",
     "title": "Ballionaire",
     "thumbnail": "https://i.ytimg.com/vi/1IXqFBWstkY/maxresdefault.jpg",
@@ -1596,18 +1582,18 @@
     "duration_formatted": "5h 41m"
   },
   {
-    "id": "silent-a20h-slay-the-spire",
-    "title": "Silent A20h Slay The Spire",
+    "id": "slay-the-spire",
+    "title": "Slay The Spire",
     "thumbnail": "https://i.ytimg.com/vi/SMMsCdv64xs/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 11,
-    "views": 985,
-    "duration": 48850,
+    "highest_season": 4.1,
+    "episodes": 60,
+    "views": 2689,
+    "duration": 300868,
     "status": "Completed",
     "status_color": "green",
-    "updated": "2024-07-06T13:00:23Z",
-    "views_formatted": "985",
-    "duration_formatted": "13h 34m"
+    "updated": "2025-11-08T16:01:22Z",
+    "views_formatted": "2.7K",
+    "duration_formatted": "83h 34m"
   },
   {
     "id": "super-fantasy-kingdom",
@@ -2492,20 +2478,6 @@
     "duration_formatted": "38m"
   },
   {
-    "id": "slay-the-spire-a20h-rotations-season-3",
-    "title": "Slay The Spire A20h Rotations Season 3",
-    "thumbnail": "https://i.ytimg.com/vi/RTaBNoV8CQU/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 6,
-    "views": 382,
-    "duration": 9824,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2023-04-15T17:00:13Z",
-    "views_formatted": "382",
-    "duration_formatted": "2h 43m"
-  },
-  {
     "id": "takara-cards",
     "title": "Takara Cards",
     "thumbnail": "https://i.ytimg.com/vi/sOyjvRhsFjA/maxresdefault.jpg",
@@ -3374,20 +3346,6 @@
     "duration_formatted": "73h 11m"
   },
   {
-    "id": "new-slay-the-spire-playthrough",
-    "title": "New Slay The Spire Playthrough",
-    "thumbnail": "https://i.ytimg.com/vi/usKoFsyPLmE/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 21,
-    "views": 675,
-    "duration": 90967,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2021-07-02T12:30:02Z",
-    "views_formatted": "675",
-    "duration_formatted": "25h 16m"
-  },
-  {
     "id": "baba-is-you",
     "title": "Baba Is You",
     "thumbnail": "https://i.ytimg.com/vi/tPpYwOE6s1U/maxresdefault.jpg",
@@ -3640,20 +3598,6 @@
     "duration_formatted": "2h 17m"
   },
   {
-    "id": "slay-the-spire-daily",
-    "title": "Slay The Spire Daily",
-    "thumbnail": "https://i.ytimg.com/vi/2d-Goj5TH3M/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 18,
-    "views": 521,
-    "duration": 140248,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2021-06-26T06:44:33Z",
-    "views_formatted": "521",
-    "duration_formatted": "38h 57m"
-  },
-  {
     "id": "kenshi",
     "title": "Kenshi",
     "thumbnail": "https://i.ytimg.com/vi/Bgww74SxL0A/maxresdefault.jpg",
@@ -3764,20 +3708,6 @@
     "updated": "2026-01-08T01:15:12Z",
     "views_formatted": "997",
     "duration_formatted": "17h 7m"
-  },
-  {
-    "id": "slay-the-spire-s4-the-quest-for-a-single-a20h-win",
-    "title": "Slay The Spire S4 The Quest For A Single A20h Win",
-    "thumbnail": "https://i.ytimg.com/vi/rzNVEWgDzSc/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 4,
-    "views": 126,
-    "duration": 10979,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-11-08T16:01:22Z",
-    "views_formatted": "126",
-    "duration_formatted": "3h 2m"
   },
   {
     "id": "down-with-the-ship-pvp-space-autobattler-game",
