@@ -1750,20 +1750,6 @@
     "duration_formatted": "1h 52m"
   },
   {
-    "id": "backpack-battles-lets-play-season-2",
-    "title": "Backpack Battles Lets Play Season 2",
-    "thumbnail": "https://i.ytimg.com/vi/43DjglP8I1U/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 73,
-    "views": 8691,
-    "duration": 237176,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-04-27T16:00:00Z",
-    "views_formatted": "8.7K",
-    "duration_formatted": "65h 52m"
-  },
-  {
     "id": "undermine",
     "title": "Undermine",
     "thumbnail": "https://i.ytimg.com/vi/y4xdDJ1Lkng/maxresdefault.jpg",
@@ -2084,20 +2070,6 @@
     "updated": "2023-11-08T19:00:19Z",
     "views_formatted": "823",
     "duration_formatted": "1h 26m"
-  },
-  {
-    "id": "backpack-battles-pvp-backpack-management-game",
-    "title": "Backpack Battles Pvp Backpack Management Game",
-    "thumbnail": "https://i.ytimg.com/vi/FXYapsbD85k/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 39,
-    "views": 2433,
-    "duration": 96109,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2023-10-31T19:00:36Z",
-    "views_formatted": "2.4K",
-    "duration_formatted": "26h 41m"
   },
   {
     "id": "slime-3k-rise-against-despot",
