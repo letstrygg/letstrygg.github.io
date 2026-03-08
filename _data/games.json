@@ -46,14 +46,14 @@
     "title": "Monster Train 2",
     "thumbnail": "https://i.ytimg.com/vi/u3fJmpSVWI8/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 29,
-    "views": 703,
-    "duration": 178380,
+    "episodes": 32,
+    "views": 1107,
+    "duration": 195902,
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-02-08T15:00:49Z",
-    "views_formatted": "703",
-    "duration_formatted": "49h 33m"
+    "views_formatted": "1.1K",
+    "duration_formatted": "54h 25m"
   },
   {
     "id": "noita",
@@ -70,32 +70,32 @@
     "duration_formatted": "395h 32m"
   },
   {
-    "id": "gemcraft",
-    "title": "Gemcraft",
-    "thumbnail": "https://i.ytimg.com/vi/_2A_hHSd-eo/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 160,
-    "views": 64240,
-    "duration": 285784,
+    "id": "gemcraft-frostborn-wrath",
+    "title": "Gemcraft Frostborn Wrath",
+    "thumbnail": "https://i.ytimg.com/vi/Rm-qy9SxKLk/maxresdefault.jpg",
+    "highest_season": 5,
+    "episodes": 407,
+    "views": 81889,
+    "duration": 715072,
     "status": "Completed",
     "status_color": "green",
-    "updated": "2020-05-23T19:00:06Z",
-    "views_formatted": "64.2K",
-    "duration_formatted": "79h 23m"
+    "updated": "2022-07-11T13:00:02Z",
+    "views_formatted": "81.9K",
+    "duration_formatted": "198h 37m"
   },
   {
-    "id": "he-is-coming-s2",
-    "title": "He Is Coming S2",
+    "id": "he-is-coming",
+    "title": "He Is Coming",
     "thumbnail": "https://i.ytimg.com/vi/vp6KDfDSiX8/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 78,
-    "views": 54857,
-    "duration": 222051,
+    "highest_season": 2,
+    "episodes": 90,
+    "views": 59789,
+    "duration": 249918,
     "status": "Completed",
     "status_color": "green",
     "updated": "2025-09-30T12:01:54Z",
-    "views_formatted": "54.9K",
-    "duration_formatted": "61h 40m"
+    "views_formatted": "59.8K",
+    "duration_formatted": "69h 25m"
   },
   {
     "id": "tower-dominion",
@@ -112,18 +112,18 @@
     "duration_formatted": "13h 17m"
   },
   {
-    "id": "magicraft-s2",
-    "title": "Magicraft S2",
-    "thumbnail": "https://i.ytimg.com/vi/xePjqHi7Sp0/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 108,
-    "views": 136560,
-    "duration": 334270,
+    "id": "magicraft",
+    "title": "Magicraft",
+    "thumbnail": "https://i.ytimg.com/vi/P4MyZUB258E/maxresdefault.jpg",
+    "highest_season": 4,
+    "episodes": 182,
+    "views": 252441,
+    "duration": 712117,
     "status": "Completed",
     "status_color": "green",
-    "updated": "2024-04-25T14:30:14Z",
-    "views_formatted": "136.6K",
-    "duration_formatted": "92h 51m"
+    "updated": "2025-09-10T12:00:27Z",
+    "views_formatted": "252.4K",
+    "duration_formatted": "197h 48m"
   },
   {
     "id": "ball-x-pit",
@@ -140,18 +140,18 @@
     "duration_formatted": "8h 31m"
   },
   {
-    "id": "bloons-td6",
-    "title": "Bloons Td6",
-    "thumbnail": "https://i.ytimg.com/vi/Pk7s9AcCG-k/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 90,
-    "views": 3983,
-    "duration": 225916,
-    "status": "Completed",
+    "id": "bloons-td-6",
+    "title": "Bloons Td 6",
+    "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
+    "highest_season": 3,
+    "episodes": 115,
+    "views": 5805,
+    "duration": 282824,
+    "status": "Ongoing",
     "status_color": "green",
-    "updated": "2022-03-16T13:00:20Z",
-    "views_formatted": "4K",
-    "duration_formatted": "62h 45m"
+    "updated": "2026-03-06T14:00:12Z",
+    "views_formatted": "5.8K",
+    "duration_formatted": "78h 33m"
   },
   {
     "id": "turnbound",
@@ -240,16 +240,16 @@
   {
     "id": "monster-battles",
     "title": "Monster Battles",
-    "thumbnail": "https://i.ytimg.com/vi/ZwMIcLTCsEk/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 14,
-    "views": 2512,
-    "duration": 38792,
+    "thumbnail": "https://i.ytimg.com/vi/IBTj5ztoGV0/maxresdefault.jpg",
+    "highest_season": 2,
+    "episodes": 30,
+    "views": 5342,
+    "duration": 97635,
     "status": "Completed",
     "status_color": "green",
     "updated": "2026-02-25T14:01:08Z",
-    "views_formatted": "2.5K",
-    "duration_formatted": "10h 46m"
+    "views_formatted": "5.3K",
+    "duration_formatted": "27h 7m"
   },
   {
     "id": "down-with-the-ship",
@@ -308,32 +308,18 @@
     "duration_formatted": "24h 6m"
   },
   {
-    "id": "cube-chaos-s3",
-    "title": "Cube Chaos S3",
+    "id": "cube-chaos",
+    "title": "Cube Chaos",
     "thumbnail": "https://i.ytimg.com/vi/0CN-ICAUh3Q/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 7,
-    "views": 868,
-    "duration": 24235,
+    "highest_season": 3,
+    "episodes": 124,
+    "views": 39863,
+    "duration": 397216,
     "status": "Completed",
     "status_color": "green",
     "updated": "2025-08-26T16:00:02Z",
-    "views_formatted": "868",
-    "duration_formatted": "6h 43m"
-  },
-  {
-    "id": "monster-battles-s2",
-    "title": "Monster Battles S2",
-    "thumbnail": "https://i.ytimg.com/vi/IBTj5ztoGV0/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 16,
-    "views": 2830,
-    "duration": 58843,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-07-31T14:00:44Z",
-    "views_formatted": "2.8K",
-    "duration_formatted": "16h 20m"
+    "views_formatted": "39.9K",
+    "duration_formatted": "110h 20m"
   },
   {
     "id": "backpack-brawl",
@@ -504,20 +490,6 @@
     "duration_formatted": "18h 26m"
   },
   {
-    "id": "cube-chaos",
-    "title": "Cube Chaos",
-    "thumbnail": "https://i.ytimg.com/vi/RcBtR76ZUX0/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 16,
-    "views": 3890,
-    "duration": 61314,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-09-11T14:00:09Z",
-    "views_formatted": "3.9K",
-    "duration_formatted": "17h 1m"
-  },
-  {
     "id": "shapez-2-factory-automation-game",
     "title": "Shapez 2 Factory Automation Game",
     "thumbnail": "https://i.ytimg.com/vi/iU1Sz1sUhiM/maxresdefault.jpg",
@@ -560,32 +532,18 @@
     "duration_formatted": "7h 57m"
   },
   {
-    "id": "lets-play-bloons-btd6-s3",
-    "title": "Lets Play Bloons Btd6 S3",
-    "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 16,
-    "views": 459,
-    "duration": 38229,
-    "status": "Ongoing",
-    "status_color": "green",
-    "updated": "2026-03-06T14:00:12Z",
-    "views_formatted": "459",
-    "duration_formatted": "10h 37m"
-  },
-  {
-    "id": "factorio-space-age-s03",
-    "title": "Factorio Space Age S03",
+    "id": "factorio",
+    "title": "Factorio",
     "thumbnail": "https://i.ytimg.com/vi/d3jj_ARI3RQ/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 18,
-    "views": 746,
-    "duration": 97098,
+    "highest_season": 3,
+    "episodes": 91,
+    "views": 9471,
+    "duration": 373367,
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-03-04T14:00:52Z",
-    "views_formatted": "746",
-    "duration_formatted": "26h 58m"
+    "views_formatted": "9.5K",
+    "duration_formatted": "103h 42m"
   },
   {
     "id": "brotato-s5-paws-claws-update",
@@ -896,18 +854,18 @@
     "duration_formatted": "2h 18m"
   },
   {
-    "id": "satisfactory-s3",
-    "title": "Satisfactory S3",
+    "id": "satisfactory",
+    "title": "Satisfactory",
     "thumbnail": "https://i.ytimg.com/vi/CbGJ0CNSNbg/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 8,
-    "views": 595,
-    "duration": 65205,
+    "highest_season": 3,
+    "episodes": 160,
+    "views": 33479,
+    "duration": 710475,
     "status": "Completed",
     "status_color": "green",
     "updated": "2025-08-24T12:00:32Z",
-    "views_formatted": "595",
-    "duration_formatted": "18h 6m"
+    "views_formatted": "33.5K",
+    "duration_formatted": "197h 21m"
   },
   {
     "id": "merge-maestro",
@@ -1190,20 +1148,6 @@
     "duration_formatted": "7h 23m"
   },
   {
-    "id": "he-is-coming",
-    "title": "He Is Coming",
-    "thumbnail": "https://i.ytimg.com/vi/41PuAR17Ff4/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 12,
-    "views": 4932,
-    "duration": 27867,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-03-20T15:00:09Z",
-    "views_formatted": "4.9K",
-    "duration_formatted": "7h 44m"
-  },
-  {
     "id": "dungeon-warfare-3-full-demo-playthrough",
     "title": "Dungeon Warfare 3 Full Demo Playthrough",
     "thumbnail": "https://i.ytimg.com/vi/w4X_Ecf9_ng/maxresdefault.jpg",
@@ -1230,20 +1174,6 @@
     "updated": "2025-03-05T15:00:47Z",
     "views_formatted": "4.5K",
     "duration_formatted": "11h 48m"
-  },
-  {
-    "id": "monster-train-2-demo",
-    "title": "Monster Train 2 Demo",
-    "thumbnail": "https://i.ytimg.com/vi/0ra2F2gw09E/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 3,
-    "views": 404,
-    "duration": 17522,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-02-24T15:00:01Z",
-    "views_formatted": "404",
-    "duration_formatted": "4h 52m"
   },
   {
     "id": "game-trailer-hype",
@@ -1442,20 +1372,6 @@
     "duration_formatted": "59m"
   },
   {
-    "id": "magicraft-s4-10-release",
-    "title": "Magicraft S4 10 Release",
-    "thumbnail": "https://i.ytimg.com/vi/P4MyZUB258E/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 51,
-    "views": 62342,
-    "duration": 313882,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-09-10T12:00:27Z",
-    "views_formatted": "62.3K",
-    "duration_formatted": "87h 11m"
-  },
-  {
     "id": "brotato-abyssal-terrors-dlc-full-release",
     "title": "Brotato Abyssal Terrors Dlc Full Release",
     "thumbnail": "https://i.ytimg.com/vi/NFtt9kmaomE/maxresdefault.jpg",
@@ -1470,20 +1386,6 @@
     "duration_formatted": "33h 33m"
   },
   {
-    "id": "factorio-space-age-a-new-players-slow-journey",
-    "title": "Factorio Space Age A New Players Slow Journey",
-    "thumbnail": "https://i.ytimg.com/vi/EH4Rv4cblZM/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 35,
-    "views": 7409,
-    "duration": 219024,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-11-24T17:00:41Z",
-    "views_formatted": "7.4K",
-    "duration_formatted": "60h 50m"
-  },
-  {
     "id": "brotato-abyssal-terrors-beta-dlc",
     "title": "Brotato Abyssal Terrors Beta Dlc",
     "thumbnail": "https://i.ytimg.com/vi/hIPEfgXA5hs/maxresdefault.jpg",
@@ -1496,20 +1398,6 @@
     "updated": "2024-10-25T14:00:30Z",
     "views_formatted": "5.8K",
     "duration_formatted": "15h 22m"
-  },
-  {
-    "id": "satisfactory-10-a-new-factory-adventure",
-    "title": "Satisfactory 10 A New Factory Adventure",
-    "thumbnail": "https://i.ytimg.com/vi/F1pVPsrkl5k/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 72,
-    "views": 11738,
-    "duration": 371530,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-12-20T13:01:02Z",
-    "views_formatted": "11.7K",
-    "duration_formatted": "103h 12m"
   },
   {
     "id": "emberward-tower-defense-roguelike",
@@ -1680,20 +1568,6 @@
     "duration_formatted": "15h 9m"
   },
   {
-    "id": "magicraft-s3-no-metaunlocks",
-    "title": "Magicraft S3 No Metaunlocks",
-    "thumbnail": "https://i.ytimg.com/vi/Awhj9Csv7hk/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 9,
-    "views": 4328,
-    "duration": 26063,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-07-22T13:00:01Z",
-    "views_formatted": "4.3K",
-    "duration_formatted": "7h 14m"
-  },
-  {
     "id": "swarm-grinder",
     "title": "Swarm Grinder",
     "thumbnail": "https://i.ytimg.com/vi/a2Ep-U_ZOuo/maxresdefault.jpg",
@@ -1862,20 +1736,6 @@
     "duration_formatted": "6h 34m"
   },
   {
-    "id": "cube-chaos-block-army-strategy-roguelite-game",
-    "title": "Cube Chaos Block Army Strategy Roguelite Game",
-    "thumbnail": "https://i.ytimg.com/vi/z3E0wjuhLZw/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 101,
-    "views": 35105,
-    "duration": 311667,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-08-06T14:00:03Z",
-    "views_formatted": "35.1K",
-    "duration_formatted": "86h 34m"
-  },
-  {
     "id": "tiny-rogues-between-heaven-and-hell-020-update",
     "title": "Tiny Rogues Between Heaven And Hell 020 Update",
     "thumbnail": "https://i.ytimg.com/vi/afWwdFLOmsA/maxresdefault.jpg",
@@ -1916,20 +1776,6 @@
     "updated": "2024-04-28T19:00:03Z",
     "views_formatted": "8.1K",
     "duration_formatted": "6h 50m"
-  },
-  {
-    "id": "satisfactory",
-    "title": "Satisfactory",
-    "thumbnail": "https://i.ytimg.com/vi/GinsHvOuU1A/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 80,
-    "views": 21146,
-    "duration": 273740,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-08-18T13:00:10Z",
-    "views_formatted": "21.1K",
-    "duration_formatted": "76h 2m"
   },
   {
     "id": "orb-of-creation",
@@ -2072,20 +1918,6 @@
     "duration_formatted": "2h 9m"
   },
   {
-    "id": "magicraft-s1-steam-demo",
-    "title": "Magicraft S1 Steam Demo",
-    "thumbnail": "https://i.ytimg.com/vi/4cNsvW3ACWY/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 14,
-    "views": 49211,
-    "duration": 37902,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2023-11-07T14:30:05Z",
-    "views_formatted": "49.2K",
-    "duration_formatted": "10h 31m"
-  },
-  {
     "id": "steam-next-fest-2023",
     "title": "Steam Next Fest 2023",
     "thumbnail": "https://i.ytimg.com/vi/F-RNtbuEuwc/maxresdefault.jpg",
@@ -2226,20 +2058,6 @@
     "duration_formatted": "2h 43m"
   },
   {
-    "id": "bloons-td-6-season-2-monkey-tower-game",
-    "title": "Bloons Td 6 Season 2 Monkey Tower Game",
-    "thumbnail": "https://i.ytimg.com/vi/BicOxkbFzIc/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 9,
-    "views": 1363,
-    "duration": 18679,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2023-07-27T19:00:12Z",
-    "views_formatted": "1.4K",
-    "duration_formatted": "5h 11m"
-  },
-  {
     "id": "oxygen-not-included",
     "title": "Oxygen Not Included",
     "thumbnail": "https://i.ytimg.com/vi/h1vgfN2PLUA/maxresdefault.jpg",
@@ -2352,8 +2170,8 @@
     "duration_formatted": "31m"
   },
   {
-    "id": "mob-factory-factorio-tower-defense",
-    "title": "Mob Factory Factorio Tower Defense",
+    "id": "mob-factory",
+    "title": "Mob Factory",
     "thumbnail": "https://i.ytimg.com/vi/ABFKSvwAV9s/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 6,
@@ -2898,18 +2716,18 @@
     "duration_formatted": "5h 58m"
   },
   {
-    "id": "monster-train-the-last-divinity-dlc",
-    "title": "Monster Train The Last Divinity Dlc",
+    "id": "monster-train",
+    "title": "Monster Train",
     "thumbnail": "https://i.ytimg.com/vi/bhzZypJt4vw/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 9,
-    "views": 184,
-    "duration": 52261,
+    "highest_season": 2,
+    "episodes": 36,
+    "views": 649,
+    "duration": 176226,
     "status": "Completed",
     "status_color": "green",
     "updated": "2022-04-15T15:00:06Z",
-    "views_formatted": "184",
-    "duration_formatted": "14h 31m"
+    "views_formatted": "649",
+    "duration_formatted": "48h 57m"
   },
   {
     "id": "industry-idle",
@@ -3052,20 +2870,6 @@
     "duration_formatted": "24h 29m"
   },
   {
-    "id": "gemcraft-frostborn-wrath-all-achievements",
-    "title": "Gemcraft Frostborn Wrath All Achievements",
-    "thumbnail": "https://i.ytimg.com/vi/Rm-qy9SxKLk/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 70,
-    "views": 8229,
-    "duration": 125113,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2022-07-11T13:00:02Z",
-    "views_formatted": "8.2K",
-    "duration_formatted": "34h 45m"
-  },
-  {
     "id": "vectorio-update-3",
     "title": "Vectorio Update 3",
     "thumbnail": "https://i.ytimg.com/vi/7IpbcTJsV28/maxresdefault.jpg",
@@ -3078,20 +2882,6 @@
     "updated": "2022-01-21T20:00:04Z",
     "views_formatted": "5.9K",
     "duration_formatted": "4h 3m"
-  },
-  {
-    "id": "gemcraft-frostborn-wrath-trial-mode-no-leaks",
-    "title": "Gemcraft Frostborn Wrath Trial Mode No Leaks",
-    "thumbnail": "https://i.ytimg.com/vi/SL9YkdbaXPA/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 31,
-    "views": 1657,
-    "duration": 32421,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2022-02-21T13:00:06Z",
-    "views_formatted": "1.7K",
-    "duration_formatted": "9h 0m"
   },
   {
     "id": "vampire-survivors-lets-play",
@@ -3262,8 +3052,8 @@
     "duration_formatted": "70h 26m"
   },
   {
-    "id": "lets-play-monster-sanctuary",
-    "title": "Lets Play Monster Sanctuary",
+    "id": "monster-sanctuary",
+    "title": "Monster Sanctuary",
     "thumbnail": "https://i.ytimg.com/vi/f_fVSRhaTGg/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -3330,20 +3120,6 @@
     "updated": "2022-01-07T17:00:02Z",
     "views_formatted": "286",
     "duration_formatted": "8h 31m"
-  },
-  {
-    "id": "gemcraft-iron-mode-playthrough",
-    "title": "Gemcraft Iron Mode Playthrough",
-    "thumbnail": "https://i.ytimg.com/vi/_cmKDBsEaEo/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 141,
-    "views": 7374,
-    "duration": 263488,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2022-01-20T13:00:09Z",
-    "views_formatted": "7.4K",
-    "duration_formatted": "73h 11m"
   },
   {
     "id": "baba-is-you",
@@ -3570,34 +3346,6 @@
     "duration_formatted": "2h 33m"
   },
   {
-    "id": "monster-train",
-    "title": "Monster Train",
-    "thumbnail": "https://i.ytimg.com/vi/eMScngbviyU/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 27,
-    "views": 465,
-    "duration": 123965,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2021-10-14T19:00:31Z",
-    "views_formatted": "465",
-    "duration_formatted": "34h 26m"
-  },
-  {
-    "id": "chilling-mode-gemcraft-frostborn-wrath",
-    "title": "Chilling Mode Gemcraft Frostborn Wrath",
-    "thumbnail": "https://i.ytimg.com/vi/xa-w6N0vZds/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 5,
-    "views": 389,
-    "duration": 8266,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2020-05-27T16:00:12Z",
-    "views_formatted": "389",
-    "duration_formatted": "2h 17m"
-  },
-  {
     "id": "kenshi",
     "title": "Kenshi",
     "thumbnail": "https://i.ytimg.com/vi/Bgww74SxL0A/maxresdefault.jpg",
@@ -3652,20 +3400,6 @@
     "updated": "2020-05-29T18:00:00Z",
     "views_formatted": "11.5K",
     "duration_formatted": "39h 41m"
-  },
-  {
-    "id": "factorio",
-    "title": "Factorio",
-    "thumbnail": "https://i.ytimg.com/vi/3oOssN0nnAU/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 38,
-    "views": 1316,
-    "duration": 57245,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2020-03-17T22:30:00Z",
-    "views_formatted": "1.3K",
-    "duration_formatted": "15h 54m"
   },
   {
     "id": "diablo-ii-median-xl-assassin",
