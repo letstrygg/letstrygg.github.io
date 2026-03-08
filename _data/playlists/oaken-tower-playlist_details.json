@@ -11,5 +11,6 @@
   "status": "Ongoing",
   "duration_formatted": "159h 17m",
   "views_formatted": "54.2K",
-  "slug": "oaken-tower"
+  "slug": "oaken-tower",
+  "status_color": "green"
 }
