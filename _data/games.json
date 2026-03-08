@@ -770,18 +770,18 @@
     "duration_formatted": "1h 0m"
   },
   {
-    "id": "nimrods-s2",
-    "title": "Nimrods S2",
+    "id": "nimrods",
+    "title": "Nimrods",
     "thumbnail": "https://i.ytimg.com/vi/Tf7PKxnBMrc/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 12,
-    "views": 3042,
-    "duration": 31615,
+    "highest_season": 2,
+    "episodes": 19,
+    "views": 4867,
+    "duration": 49031,
     "status": "Completed",
     "status_color": "green",
     "updated": "2025-09-29T14:01:09Z",
-    "views_formatted": "3K",
-    "duration_formatted": "8h 46m"
+    "views_formatted": "4.9K",
+    "duration_formatted": "13h 37m"
   },
   {
     "id": "hollow-knight",
@@ -1204,8 +1204,8 @@
     "duration_formatted": "2h 56m"
   },
   {
-    "id": "border-pioneer-base-builder-resource-management-tower-defense",
-    "title": "Border Pioneer Base Builder Resource Management Tower Defense",
+    "id": "border-pioneer",
+    "title": "Border Pioneer",
     "thumbnail": "https://i.ytimg.com/vi/Og_lCB8bBvE/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
@@ -1260,8 +1260,8 @@
     "duration_formatted": "2h 55m"
   },
   {
-    "id": "fractory-free-web-browser-game",
-    "title": "Fractory Free Web Browser Game",
+    "id": "fractory",
+    "title": "Fractory",
     "thumbnail": "https://i.ytimg.com/vi/IYkG0cyki-Q/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
@@ -1288,18 +1288,18 @@
     "duration_formatted": "9h 51m"
   },
   {
-    "id": "super-fantasy-kingdom-undead-kingdom",
-    "title": "Super Fantasy Kingdom Undead Kingdom",
+    "id": "super-fantasy-kingdom",
+    "title": "Super Fantasy Kingdom",
     "thumbnail": "https://i.ytimg.com/vi/l-Dee0f9QYU/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 1,
-    "views": 462,
-    "duration": 1632,
+    "highest_season": 2,
+    "episodes": 10,
+    "views": 7074,
+    "duration": 21628,
     "status": "Completed",
     "status_color": "green",
     "updated": "2024-12-06T13:00:58Z",
-    "views_formatted": "462",
-    "duration_formatted": "27m"
+    "views_formatted": "7.1K",
+    "duration_formatted": "6h 0m"
   },
   {
     "id": "creeper-world-ixe",
@@ -1316,8 +1316,8 @@
     "duration_formatted": "31h 0m"
   },
   {
-    "id": "emberward-tower-defense-roguelike",
-    "title": "Emberward Tower Defense Roguelike",
+    "id": "emberward",
+    "title": "Emberward",
     "thumbnail": "https://i.ytimg.com/vi/N3pBhKWpS3s/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -1344,8 +1344,8 @@
     "duration_formatted": "1h 25m"
   },
   {
-    "id": "portal-reloaded-full-playthrough-complete",
-    "title": "Portal Reloaded Full Playthrough Complete",
+    "id": "portal-reloaded",
+    "title": "Portal Reloaded",
     "thumbnail": "https://i.ytimg.com/vi/Nd_eO0-BoUo/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 16,
@@ -1358,8 +1358,8 @@
     "duration_formatted": "10h 53m"
   },
   {
-    "id": "deep-rock-galactic-survivor-lets-play-series",
-    "title": "Deep Rock Galactic Survivor Lets Play Series",
+    "id": "deep-rock-g-survivors",
+    "title": "Deep Rock G Survivors",
     "thumbnail": "https://i.ytimg.com/vi/8XnjBd5pFtc/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 9,
@@ -1384,20 +1384,6 @@
     "updated": "2025-11-08T16:01:22Z",
     "views_formatted": "2.7K",
     "duration_formatted": "83h 34m"
-  },
-  {
-    "id": "super-fantasy-kingdom",
-    "title": "Super Fantasy Kingdom",
-    "thumbnail": "https://i.ytimg.com/vi/voBtbkCaSSY/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 9,
-    "views": 6612,
-    "duration": 19996,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-12-06T13:00:58Z",
-    "views_formatted": "6.6K",
-    "duration_formatted": "5h 33m"
   },
   {
     "id": "gladiator-guild-manager",
@@ -1428,18 +1414,18 @@
     "duration_formatted": "3h 33m"
   },
   {
-    "id": "antimatter-dimensions-x-orb-of-creation-beta-playthrough",
-    "title": "Antimatter Dimensions X Orb Of Creation Beta Playthrough",
+    "id": "orb-of-creation",
+    "title": "Orb Of Creation",
     "thumbnail": "https://i.ytimg.com/vi/LSVlazuTHKw/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 3,
-    "views": 967,
-    "duration": 6801,
+    "highest_season": 2,
+    "episodes": 25,
+    "views": 8005,
+    "duration": 76941,
     "status": "Completed",
     "status_color": "green",
     "updated": "2024-05-25T19:25:00Z",
-    "views_formatted": "967",
-    "duration_formatted": "1h 53m"
+    "views_formatted": "8K",
+    "duration_formatted": "21h 22m"
   },
   {
     "id": "inscryption",
@@ -1456,8 +1442,8 @@
     "duration_formatted": "8h 1m"
   },
   {
-    "id": "animal-well-indie-puzzle-platformer",
-    "title": "Animal Well Indie Puzzle Platformer",
+    "id": "animal-well",
+    "title": "Animal Well",
     "thumbnail": "https://i.ytimg.com/vi/AFJNBMqhJCk/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 27,
@@ -1484,8 +1470,8 @@
     "duration_formatted": "2h 9m"
   },
   {
-    "id": "autoforge-factory-automation-game",
-    "title": "Autoforge Factory Automation Game",
+    "id": "autoforge",
+    "title": "Autoforge",
     "thumbnail": "https://i.ytimg.com/vi/_tfsZpH4hJ0/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 9,
@@ -1554,22 +1540,22 @@
     "duration_formatted": "2h 31m"
   },
   {
-    "id": "balatro-poker-roguelike-lets-play-series",
-    "title": "Balatro Poker Roguelike Lets Play Series",
+    "id": "balatro",
+    "title": "Balatro",
     "thumbnail": "https://i.ytimg.com/vi/0YoVG3cyfkU/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 8,
-    "views": 671,
-    "duration": 34836,
+    "episodes": 12,
+    "views": 1643,
+    "duration": 44651,
     "status": "Completed",
     "status_color": "green",
     "updated": "2024-03-09T13:00:15Z",
-    "views_formatted": "671",
-    "duration_formatted": "9h 40m"
+    "views_formatted": "1.6K",
+    "duration_formatted": "12h 24m"
   },
   {
-    "id": "nearly-dead-live-and-let-die",
-    "title": "Nearly Dead Live And Let Die",
+    "id": "nearly-dead-lald",
+    "title": "Nearly Dead Lald",
     "thumbnail": "https://i.ytimg.com/vi/rm41J202kiQ/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -1596,20 +1582,6 @@
     "duration_formatted": "2h 6m"
   },
   {
-    "id": "nimrods-guncraft-survivor",
-    "title": "Nimrods Guncraft Survivor",
-    "thumbnail": "https://i.ytimg.com/vi/zPU1WjQdFWM/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 7,
-    "views": 1825,
-    "duration": 17416,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-02-15T14:30:15Z",
-    "views_formatted": "1.8K",
-    "duration_formatted": "4h 50m"
-  },
-  {
     "id": "they-are-billions",
     "title": "They Are Billions",
     "thumbnail": "https://i.ytimg.com/vi/eMXJSd2zhII/maxresdefault.jpg",
@@ -1624,8 +1596,8 @@
     "duration_formatted": "2h 0m"
   },
   {
-    "id": "vault-hunters-modded-minecraft",
-    "title": "Vault Hunters Modded Minecraft",
+    "id": "minecraft",
+    "title": "Minecraft",
     "thumbnail": "https://i.ytimg.com/vi/Uz6CPHIa7XE/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 6,
@@ -1638,18 +1610,18 @@
     "duration_formatted": "6h 34m"
   },
   {
-    "id": "tiny-rogues-between-heaven-and-hell-020-update",
-    "title": "Tiny Rogues Between Heaven And Hell 020 Update",
-    "thumbnail": "https://i.ytimg.com/vi/afWwdFLOmsA/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 5,
-    "views": 757,
-    "duration": 15799,
+    "id": "tiny-rogues",
+    "title": "Tiny Rogues",
+    "thumbnail": "https://i.ytimg.com/vi/UHAeNosKJBc/maxresdefault.jpg",
+    "highest_season": 2,
+    "episodes": 19,
+    "views": 2247,
+    "duration": 52703,
     "status": "Completed",
     "status_color": "green",
-    "updated": "2023-12-31T14:30:23Z",
-    "views_formatted": "757",
-    "duration_formatted": "4h 23m"
+    "updated": "2024-01-18T14:30:12Z",
+    "views_formatted": "2.2K",
+    "duration_formatted": "14h 38m"
   },
   {
     "id": "stratum-descent",
@@ -1678,20 +1650,6 @@
     "updated": "2024-04-28T19:00:03Z",
     "views_formatted": "8.1K",
     "duration_formatted": "6h 50m"
-  },
-  {
-    "id": "orb-of-creation",
-    "title": "Orb Of Creation",
-    "thumbnail": "https://i.ytimg.com/vi/IkuhtH1mJpg/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 22,
-    "views": 7038,
-    "duration": 70140,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-03-13T13:00:29Z",
-    "views_formatted": "7K",
-    "duration_formatted": "19h 29m"
   },
   {
     "id": "lucky-hero",
@@ -1792,8 +1750,8 @@
     "duration_formatted": "4h 27m"
   },
   {
-    "id": "mind-over-magic-wizard-school-building-game",
-    "title": "Mind Over Magic Wizard School Building Game",
+    "id": "mind-over-magic",
+    "title": "Mind Over Magic",
     "thumbnail": "https://i.ytimg.com/vi/Sai3Y2fK4Cs/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
@@ -1918,8 +1876,8 @@
     "duration_formatted": "12h 39m"
   },
   {
-    "id": "thronefall-kingdom-tower-defense-game",
-    "title": "Thronefall Kingdom Tower Defense Game",
+    "id": "thronefall",
+    "title": "Thronefall",
     "thumbnail": "https://i.ytimg.com/vi/jYZrzejEBEo/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -1944,20 +1902,6 @@
     "updated": "2023-08-27T13:00:37Z",
     "views_formatted": "1K",
     "duration_formatted": "3h 46m"
-  },
-  {
-    "id": "balatro-free-demo-full-playthrough",
-    "title": "Balatro Free Demo Full Playthrough",
-    "thumbnail": "https://i.ytimg.com/vi/78xgbgELxzg/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 4,
-    "views": 972,
-    "duration": 9815,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2023-07-22T19:00:18Z",
-    "views_formatted": "972",
-    "duration_formatted": "2h 43m"
   },
   {
     "id": "oxygen-not-included",
@@ -2266,20 +2210,6 @@
     "updated": "2024-04-23T14:30:17Z",
     "views_formatted": "3.4K",
     "duration_formatted": "19h 29m"
-  },
-  {
-    "id": "tiny-rogues",
-    "title": "Tiny Rogues",
-    "thumbnail": "https://i.ytimg.com/vi/UHAeNosKJBc/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 14,
-    "views": 1490,
-    "duration": 36904,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-01-18T14:30:12Z",
-    "views_formatted": "1.5K",
-    "duration_formatted": "10h 15m"
   },
   {
     "id": "melvor-idle",
@@ -3302,19 +3232,5 @@
     "updated": "2025-08-20T19:00:24Z",
     "views_formatted": "2K",
     "duration_formatted": "16h 45m"
-  },
-  {
-    "id": "backpack-battles-updates",
-    "title": "Backpack Battles Updates",
-    "thumbnail": "https://i.ytimg.com/vi/O_OTqRgCm7c/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 3,
-    "views": 773,
-    "duration": 168,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-05-05T19:00:01Z",
-    "views_formatted": "773",
-    "duration_formatted": "2m"
   }
 ]
