@@ -3232,20 +3232,20 @@
     "vpv_formatted": "47"
   },
   {
-    "id": "terraria-ftw",
-    "title": "Terraria Ftw",
+    "id": "terraria",
+    "title": "Terraria",
     "thumbnail": "https://i.ytimg.com/vi/m5kY6k9GnSU/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 3,
-    "views": 142,
-    "duration": 5719,
+    "highest_season": 2,
+    "episodes": 26,
+    "views": 539,
+    "duration": 40473,
     "status": "Completed",
     "status_color": "blue",
     "updated": "2020-08-23T19:00:05Z",
-    "views_formatted": "142",
-    "duration_formatted": "1h 35m",
-    "vpv": 47,
-    "vpv_formatted": "47"
+    "views_formatted": "539",
+    "duration_formatted": "11h 14m",
+    "vpv": 21,
+    "vpv_formatted": "21"
   },
   {
     "id": "nongunz",
@@ -3342,22 +3342,6 @@
     "duration_formatted": "34m",
     "vpv": 285,
     "vpv_formatted": "285"
-  },
-  {
-    "id": "terraria",
-    "title": "Terraria",
-    "thumbnail": "https://i.ytimg.com/vi/XVPl1JsNyvw/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 23,
-    "views": 397,
-    "duration": 34754,
-    "status": "Completed",
-    "status_color": "blue",
-    "updated": "2020-08-07T19:00:20Z",
-    "views_formatted": "397",
-    "duration_formatted": "9h 39m",
-    "vpv": 17,
-    "vpv_formatted": "17"
   },
   {
     "id": "kingdom-two-crowns",
