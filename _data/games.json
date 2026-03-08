@@ -2142,18 +2142,18 @@
     "duration_formatted": "3h 30m"
   },
   {
-    "id": "vampire-survivors-s2-daily-lets-play-series",
-    "title": "Vampire Survivors S2 Daily Lets Play Series",
+    "id": "vampire-survivors",
+    "title": "Vampire Survivors",
     "thumbnail": "https://i.ytimg.com/vi/-QQVksvbGjI/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 43,
-    "views": 4261,
-    "duration": 96436,
+    "highest_season": 2,
+    "episodes": 125,
+    "views": 65786,
+    "duration": 310870,
     "status": "Completed",
     "status_color": "green",
     "updated": "2023-12-23T14:30:10Z",
-    "views_formatted": "4.3K",
-    "duration_formatted": "26h 47m"
+    "views_formatted": "65.8K",
+    "duration_formatted": "86h 21m"
   },
   {
     "id": "galactic-glitch",
@@ -2882,20 +2882,6 @@
     "updated": "2022-01-21T20:00:04Z",
     "views_formatted": "5.9K",
     "duration_formatted": "4h 3m"
-  },
-  {
-    "id": "vampire-survivors-lets-play",
-    "title": "Vampire Survivors Lets Play",
-    "thumbnail": "https://i.ytimg.com/vi/1n-s4hYDi7Y/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 82,
-    "views": 61525,
-    "duration": 214434,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2022-10-24T15:00:02Z",
-    "views_formatted": "61.5K",
-    "duration_formatted": "59h 33m"
   },
   {
     "id": "fights-in-tight-spaces-lets-play-series",
