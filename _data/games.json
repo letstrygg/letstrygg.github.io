@@ -546,18 +546,18 @@
     "duration_formatted": "103h 42m"
   },
   {
-    "id": "brotato-s5-paws-claws-update",
-    "title": "Brotato S5 Paws Claws Update",
+    "id": "brotato",
+    "title": "Brotato",
     "thumbnail": "https://i.ytimg.com/vi/rF5aLrpu3WY/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 10,
-    "views": 292,
-    "duration": 17131,
+    "highest_season": 5,
+    "episodes": 158,
+    "views": 15313,
+    "duration": 460267,
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-02-21T16:00:10Z",
-    "views_formatted": "292",
-    "duration_formatted": "4h 45m"
+    "views_formatted": "15.3K",
+    "duration_formatted": "127h 51m"
   },
   {
     "id": "zoominoes",
@@ -784,8 +784,8 @@
     "duration_formatted": "8h 46m"
   },
   {
-    "id": "hollow-knight-first-time-playthrough",
-    "title": "Hollow Knight First Time Playthrough",
+    "id": "hollow-knight",
+    "title": "Hollow Knight",
     "thumbnail": "https://i.ytimg.com/vi/TtUZKe46Emk/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
@@ -854,8 +854,8 @@
     "duration_formatted": "1h 27m"
   },
   {
-    "id": "hell-builder-complete-demo-playthrough",
-    "title": "Hell Builder Complete Demo Playthrough",
+    "id": "hell-builder",
+    "title": "Hell Builder",
     "thumbnail": "https://i.ytimg.com/vi/z63VSg0SXUQ/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
@@ -910,8 +910,8 @@
     "duration_formatted": "18h 46m"
   },
   {
-    "id": "leaf-blower-revolution-free-incremental-game",
-    "title": "Leaf Blower Revolution Free Incremental Game",
+    "id": "leaf-blower-revolution",
+    "title": "Leaf Blower Revolution",
     "thumbnail": "https://i.ytimg.com/vi/oriT8VX4H-w/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -938,8 +938,8 @@
     "duration_formatted": "2h 59m"
   },
   {
-    "id": "dark-fairy-tale-dreamland-survivors",
-    "title": "Dark Fairy Tale Dreamland Survivors",
+    "id": "dark-fairy-tale-ds",
+    "title": "Dark Fairy Tale Ds",
     "thumbnail": "https://i.ytimg.com/vi/_iTou4zzTos/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -952,8 +952,8 @@
     "duration_formatted": "3h 16m"
   },
   {
-    "id": "theory-of-magic-incremental-web-browser-game",
-    "title": "Theory Of Magic Incremental Web Browser Game",
+    "id": "theory-of-magic",
+    "title": "Theory Of Magic",
     "thumbnail": "https://i.ytimg.com/vi/cHlprxFlfws/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 7,
@@ -994,8 +994,8 @@
     "duration_formatted": "8h 49m"
   },
   {
-    "id": "warzone-free-browser-game",
-    "title": "Warzone Free Browser Game",
+    "id": "warzone",
+    "title": "Warzone",
     "thumbnail": "https://i.ytimg.com/vi/e1AiLuBeoEc/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 24,
@@ -1022,8 +1022,8 @@
     "duration_formatted": "1h 6m"
   },
   {
-    "id": "heroes-of-hammerwatch-ii",
-    "title": "Heroes Of Hammerwatch Ii",
+    "id": "heroes-of-hw-ii",
+    "title": "Heroes Of Hw Ii",
     "thumbnail": "https://i.ytimg.com/vi/siYB6qOuvX8/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
@@ -1092,8 +1092,8 @@
     "duration_formatted": "5h 35m"
   },
   {
-    "id": "rogue-genesia-heros-soul-playthrough",
-    "title": "Rogue Genesia Heros Soul Playthrough",
+    "id": "rogue-genesia",
+    "title": "Rogue Genesia",
     "thumbnail": "https://i.ytimg.com/vi/7XVb7HQ9cbA/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
@@ -1162,8 +1162,8 @@
     "duration_formatted": "3h 49m"
   },
   {
-    "id": "paquerette-down-the-bunburrows-bunny-puzzle-game",
-    "title": "Paquerette Down The Bunburrows Bunny Puzzle Game",
+    "id": "paquerette-dt-bunburrows",
+    "title": "Paquerette Dt Bunburrows",
     "thumbnail": "https://i.ytimg.com/vi/UgNwwfACS5o/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 7,
@@ -1176,18 +1176,18 @@
     "duration_formatted": "6h 22m"
   },
   {
-    "id": "csm-creeper-world-3-arc-eternal",
-    "title": "Csm Creeper World 3 Arc Eternal",
+    "id": "creeper-world-3",
+    "title": "Creeper World 3",
     "thumbnail": "https://i.ytimg.com/vi/Y3XngIWFnxc/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 103,
-    "views": 21089,
-    "duration": 598157,
+    "highest_season": 2,
+    "episodes": 106,
+    "views": 21190,
+    "duration": 606700,
     "status": "Completed",
     "status_color": "green",
     "updated": "2025-07-27T17:00:44Z",
-    "views_formatted": "21.1K",
-    "duration_formatted": "166h 9m"
+    "views_formatted": "21.2K",
+    "duration_formatted": "168h 31m"
   },
   {
     "id": "project-zomboid",
@@ -1302,8 +1302,8 @@
     "duration_formatted": "27m"
   },
   {
-    "id": "creeper-world-ixe-rts-tower-defense",
-    "title": "Creeper World Ixe Rts Tower Defense",
+    "id": "creeper-world-ixe",
+    "title": "Creeper World Ixe",
     "thumbnail": "https://i.ytimg.com/vi/OAkGiWsnqLQ/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 21,
@@ -1314,34 +1314,6 @@
     "updated": "2025-06-02T13:01:20Z",
     "views_formatted": "9.4K",
     "duration_formatted": "31h 0m"
-  },
-  {
-    "id": "brotato-abyssal-terrors-dlc-full-release",
-    "title": "Brotato Abyssal Terrors Dlc Full Release",
-    "thumbnail": "https://i.ytimg.com/vi/NFtt9kmaomE/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 37,
-    "views": 4498,
-    "duration": 120820,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-02-10T17:00:45Z",
-    "views_formatted": "4.5K",
-    "duration_formatted": "33h 33m"
-  },
-  {
-    "id": "brotato-abyssal-terrors-beta-dlc",
-    "title": "Brotato Abyssal Terrors Beta Dlc",
-    "thumbnail": "https://i.ytimg.com/vi/hIPEfgXA5hs/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 14,
-    "views": 5783,
-    "duration": 55343,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-10-25T14:00:30Z",
-    "views_formatted": "5.8K",
-    "duration_formatted": "15h 22m"
   },
   {
     "id": "emberward-tower-defense-roguelike",
@@ -1356,20 +1328,6 @@
     "updated": "2024-09-06T13:00:30Z",
     "views_formatted": "370",
     "duration_formatted": "5h 41m"
-  },
-  {
-    "id": "s2-brotato",
-    "title": "S2 Brotato",
-    "thumbnail": "https://i.ytimg.com/vi/4maVj5BU4s4/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 13,
-    "views": 1744,
-    "duration": 51107,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-09-01T13:00:04Z",
-    "views_formatted": "1.7K",
-    "duration_formatted": "14h 11m"
   },
   {
     "id": "heretics-fork",
@@ -2014,20 +1972,6 @@
     "updated": "2023-09-05T00:00:01Z",
     "views_formatted": "14.8K",
     "duration_formatted": "38h 32m"
-  },
-  {
-    "id": "brotato-unleash-the-power-of-the-potato",
-    "title": "Brotato Unleash The Power Of The Potato",
-    "thumbnail": "https://i.ytimg.com/vi/N860nuvw8kk/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 84,
-    "views": 2996,
-    "duration": 215866,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-06-02T14:30:04Z",
-    "views_formatted": "3K",
-    "duration_formatted": "59h 57m"
   },
   {
     "id": "members-only-bonus-videos",
@@ -3318,20 +3262,6 @@
     "duration_formatted": "2h 9m"
   },
   {
-    "id": "creeper-world-3-arc-eternal",
-    "title": "Creeper World 3 Arc Eternal",
-    "thumbnail": "https://i.ytimg.com/vi/Y9PUs0-tIsk/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 3,
-    "views": 101,
-    "duration": 8543,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2020-02-06T22:00:06Z",
-    "views_formatted": "101",
-    "duration_formatted": "2h 22m"
-  },
-  {
     "id": "wordle",
     "title": "Wordle",
     "thumbnail": "https://i.ytimg.com/vi/Tlmok0UjrDE/maxresdefault.jpg",
@@ -3360,8 +3290,8 @@
     "duration_formatted": "3h 57m"
   },
   {
-    "id": "luck-be-a-landlord-numbergoup-slotmachine-reelbuilder-game",
-    "title": "Luck Be A Landlord Numbergoup Slotmachine Reelbuilder Game",
+    "id": "luck-be-a-landlord",
+    "title": "Luck Be A Landlord",
     "thumbnail": "https://i.ytimg.com/vi/ixI4-OLD6J8/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 24,
