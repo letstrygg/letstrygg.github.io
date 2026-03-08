@@ -3808,20 +3808,6 @@
     "duration_formatted": "16h 45m"
   },
   {
-    "id": "supercuts",
-    "title": "Supercuts",
-    "thumbnail": "https://i.ytimg.com/vi/MmBeFtqFP7U/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 1,
-    "views": 31,
-    "duration": 38588,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-09-17T14:00:19Z",
-    "views_formatted": "31",
-    "duration_formatted": "10h 43m"
-  },
-  {
     "id": "backpack-battles-updates",
     "title": "Backpack Battles Updates",
     "thumbnail": "https://i.ytimg.com/vi/O_OTqRgCm7c/maxresdefault.jpg",
