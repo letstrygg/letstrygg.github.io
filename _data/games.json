@@ -78,7 +78,7 @@
     "views": 81889,
     "duration": 715072,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-07-11T13:00:02Z",
     "views_formatted": "81.9K",
     "duration_formatted": "198h 37m"
@@ -92,7 +92,7 @@
     "views": 59789,
     "duration": 249918,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-09-30T12:01:54Z",
     "views_formatted": "59.8K",
     "duration_formatted": "69h 25m"
@@ -106,7 +106,7 @@
     "views": 13187,
     "duration": 47862,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-05-01T17:01:11Z",
     "views_formatted": "13.2K",
     "duration_formatted": "13h 17m"
@@ -120,7 +120,7 @@
     "views": 252441,
     "duration": 712117,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-09-10T12:00:27Z",
     "views_formatted": "252.4K",
     "duration_formatted": "197h 48m"
@@ -134,7 +134,7 @@
     "views": 2289,
     "duration": 30715,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-10-07T12:00:35Z",
     "views_formatted": "2.3K",
     "duration_formatted": "8h 31m"
@@ -162,7 +162,7 @@
     "views": 285,
     "duration": 6657,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-10-15T14:01:05Z",
     "views_formatted": "285",
     "duration_formatted": "1h 50m"
@@ -176,7 +176,7 @@
     "views": 2159,
     "duration": 39806,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-12-16T14:01:10Z",
     "views_formatted": "2.2K",
     "duration_formatted": "11h 3m"
@@ -190,7 +190,7 @@
     "views": 264,
     "duration": 7003,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-10-09T14:01:03Z",
     "views_formatted": "264",
     "duration_formatted": "1h 56m"
@@ -204,7 +204,7 @@
     "views": 105,
     "duration": 7628,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-10-07T12:01:49Z",
     "views_formatted": "105",
     "duration_formatted": "2h 7m"
@@ -218,7 +218,7 @@
     "views": 145,
     "duration": 9226,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-10-01T16:00:12Z",
     "views_formatted": "145",
     "duration_formatted": "2h 33m"
@@ -246,7 +246,7 @@
     "views": 5342,
     "duration": 97635,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-02-25T14:01:08Z",
     "views_formatted": "5.3K",
     "duration_formatted": "27h 7m"
@@ -274,7 +274,7 @@
     "views": 262,
     "duration": 11900,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-08-29T14:00:22Z",
     "views_formatted": "262",
     "duration_formatted": "3h 18m"
@@ -288,7 +288,7 @@
     "views": 1774,
     "duration": 52140,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-08-28T14:00:47Z",
     "views_formatted": "1.8K",
     "duration_formatted": "14h 29m"
@@ -302,7 +302,7 @@
     "views": 2907,
     "duration": 86781,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-12-24T23:45:00Z",
     "views_formatted": "2.9K",
     "duration_formatted": "24h 6m"
@@ -316,7 +316,7 @@
     "views": 39863,
     "duration": 397216,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-08-26T16:00:02Z",
     "views_formatted": "39.9K",
     "duration_formatted": "110h 20m"
@@ -330,7 +330,7 @@
     "views": 365,
     "duration": 4850,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-07-22T16:01:04Z",
     "views_formatted": "365",
     "duration_formatted": "1h 20m"
@@ -344,7 +344,7 @@
     "views": 187,
     "duration": 11003,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-07-13T16:00:26Z",
     "views_formatted": "187",
     "duration_formatted": "3h 3m"
@@ -358,7 +358,7 @@
     "views": 1125,
     "duration": 78334,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-10-22T16:01:22Z",
     "views_formatted": "1.1K",
     "duration_formatted": "21h 45m"
@@ -372,7 +372,7 @@
     "views": 178,
     "duration": 10085,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-06-10T16:01:16Z",
     "views_formatted": "178",
     "duration_formatted": "2h 48m"
@@ -386,7 +386,7 @@
     "views": 211,
     "duration": 15289,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-06-04T14:01:04Z",
     "views_formatted": "211",
     "duration_formatted": "4h 14m"
@@ -400,7 +400,7 @@
     "views": 1060,
     "duration": 7339,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-03-29T16:00:59Z",
     "views_formatted": "1.1K",
     "duration_formatted": "2h 2m"
@@ -414,7 +414,7 @@
     "views": 660,
     "duration": 14220,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-03-23T12:15:03Z",
     "views_formatted": "660",
     "duration_formatted": "3h 57m"
@@ -428,7 +428,7 @@
     "views": 4422,
     "duration": 64088,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-12-21T16:00:24Z",
     "views_formatted": "4.4K",
     "duration_formatted": "17h 48m"
@@ -442,7 +442,7 @@
     "views": 3354,
     "duration": 46523,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-12-04T14:01:01Z",
     "views_formatted": "3.4K",
     "duration_formatted": "12h 55m"
@@ -456,7 +456,7 @@
     "views": 376,
     "duration": 10285,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-10-23T17:00:44Z",
     "views_formatted": "376",
     "duration_formatted": "2h 51m"
@@ -470,7 +470,7 @@
     "views": 1874,
     "duration": 8191,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-11-13T14:00:47Z",
     "views_formatted": "1.9K",
     "duration_formatted": "2h 16m"
@@ -484,7 +484,7 @@
     "views": 6196,
     "duration": 66402,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-09-14T16:00:34Z",
     "views_formatted": "6.2K",
     "duration_formatted": "18h 26m"
@@ -512,7 +512,7 @@
     "views": 229,
     "duration": 4554,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-03-01T13:01:09Z",
     "views_formatted": "229",
     "duration_formatted": "1h 15m"
@@ -568,7 +568,7 @@
     "views": 55,
     "duration": 7579,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-02-09T12:00:14Z",
     "views_formatted": "55",
     "duration_formatted": "2h 6m"
@@ -582,7 +582,7 @@
     "views": 108,
     "duration": 6126,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-02-07T16:00:14Z",
     "views_formatted": "108",
     "duration_formatted": "1h 42m"
@@ -596,7 +596,7 @@
     "views": 882,
     "duration": 7055,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-02-07T12:01:33Z",
     "views_formatted": "882",
     "duration_formatted": "1h 57m"
@@ -610,7 +610,7 @@
     "views": 122,
     "duration": 6085,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-02-05T12:01:38Z",
     "views_formatted": "122",
     "duration_formatted": "1h 41m"
@@ -624,7 +624,7 @@
     "views": 518,
     "duration": 4906,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-02-03T12:01:22Z",
     "views_formatted": "518",
     "duration_formatted": "1h 21m"
@@ -638,7 +638,7 @@
     "views": 858,
     "duration": 18441,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-02-16T19:00:02Z",
     "views_formatted": "858",
     "duration_formatted": "5h 7m"
@@ -652,7 +652,7 @@
     "views": 6826,
     "duration": 87005,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-02-02T12:01:20Z",
     "views_formatted": "6.8K",
     "duration_formatted": "24h 10m"
@@ -666,7 +666,7 @@
     "views": 583,
     "duration": 8631,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-01-04T14:00:33Z",
     "views_formatted": "583",
     "duration_formatted": "2h 23m"
@@ -680,7 +680,7 @@
     "views": 3353,
     "duration": 32237,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-01-19T12:00:05Z",
     "views_formatted": "3.4K",
     "duration_formatted": "8h 57m"
@@ -694,7 +694,7 @@
     "views": 1676,
     "duration": 12795,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-12-25T03:30:01Z",
     "views_formatted": "1.7K",
     "duration_formatted": "3h 33m"
@@ -708,7 +708,7 @@
     "views": 349,
     "duration": 17801,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-12-19T12:00:30Z",
     "views_formatted": "349",
     "duration_formatted": "4h 56m"
@@ -722,7 +722,7 @@
     "views": 734,
     "duration": 10053,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-12-16T12:01:52Z",
     "views_formatted": "734",
     "duration_formatted": "2h 47m"
@@ -736,7 +736,7 @@
     "views": 255,
     "duration": 14791,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-10-11T13:00:16Z",
     "views_formatted": "255",
     "duration_formatted": "4h 6m"
@@ -750,7 +750,7 @@
     "views": 1270,
     "duration": 4727,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-10-10T14:00:42Z",
     "views_formatted": "1.3K",
     "duration_formatted": "1h 18m"
@@ -764,7 +764,7 @@
     "views": 512,
     "duration": 3648,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-09-20T12:00:52Z",
     "views_formatted": "512",
     "duration_formatted": "1h 0m"
@@ -778,7 +778,7 @@
     "views": 4867,
     "duration": 49031,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-09-29T14:01:09Z",
     "views_formatted": "4.9K",
     "duration_formatted": "13h 37m"
@@ -792,7 +792,7 @@
     "views": 248,
     "duration": 6131,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-09-01T12:00:05Z",
     "views_formatted": "248",
     "duration_formatted": "1h 42m"
@@ -806,7 +806,7 @@
     "views": 11782,
     "duration": 101654,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-09-22T12:00:15Z",
     "views_formatted": "11.8K",
     "duration_formatted": "28h 14m"
@@ -820,7 +820,7 @@
     "views": 616,
     "duration": 8327,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-08-18T13:30:38Z",
     "views_formatted": "616",
     "duration_formatted": "2h 18m"
@@ -834,7 +834,7 @@
     "views": 33479,
     "duration": 710475,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-08-24T12:00:32Z",
     "views_formatted": "33.5K",
     "duration_formatted": "197h 21m"
@@ -848,7 +848,7 @@
     "views": 386,
     "duration": 5233,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-08-04T15:00:32Z",
     "views_formatted": "386",
     "duration_formatted": "1h 27m"
@@ -862,7 +862,7 @@
     "views": 417,
     "duration": 3678,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-08-03T15:00:04Z",
     "views_formatted": "417",
     "duration_formatted": "1h 1m"
@@ -876,7 +876,7 @@
     "views": 262,
     "duration": 4543,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-08-01T15:01:11Z",
     "views_formatted": "262",
     "duration_formatted": "1h 15m"
@@ -890,7 +890,7 @@
     "views": 3686,
     "duration": 38370,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-02-10T12:00:54Z",
     "views_formatted": "3.7K",
     "duration_formatted": "10h 39m"
@@ -904,7 +904,7 @@
     "views": 785,
     "duration": 67573,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-07-22T17:00:43Z",
     "views_formatted": "785",
     "duration_formatted": "18h 46m"
@@ -918,7 +918,7 @@
     "views": 699,
     "duration": 14822,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-07-11T15:01:02Z",
     "views_formatted": "699",
     "duration_formatted": "4h 7m"
@@ -932,7 +932,7 @@
     "views": 434,
     "duration": 10788,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-06-29T15:01:18Z",
     "views_formatted": "434",
     "duration_formatted": "2h 59m"
@@ -946,7 +946,7 @@
     "views": 186,
     "duration": 11760,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-06-24T13:00:45Z",
     "views_formatted": "186",
     "duration_formatted": "3h 16m"
@@ -960,7 +960,7 @@
     "views": 1038,
     "duration": 39103,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-07-17T15:00:57Z",
     "views_formatted": "1K",
     "duration_formatted": "10h 51m"
@@ -974,7 +974,7 @@
     "views": 243,
     "duration": 708,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-06-11T15:01:16Z",
     "views_formatted": "243",
     "duration_formatted": "11m"
@@ -988,7 +988,7 @@
     "views": 5539,
     "duration": 77790,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-07-02T15:01:42Z",
     "views_formatted": "5.5K",
     "duration_formatted": "21h 36m"
@@ -1002,7 +1002,7 @@
     "views": 1616,
     "duration": 90846,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-06-09T15:00:20Z",
     "views_formatted": "1.6K",
     "duration_formatted": "25h 14m"
@@ -1016,7 +1016,7 @@
     "views": 121,
     "duration": 3965,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-04-19T15:01:18Z",
     "views_formatted": "121",
     "duration_formatted": "1h 6m"
@@ -1030,7 +1030,7 @@
     "views": 377,
     "duration": 4325,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-04-03T15:01:20Z",
     "views_formatted": "377",
     "duration_formatted": "1h 12m"
@@ -1044,7 +1044,7 @@
     "views": 278,
     "duration": 7496,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-04-01T17:00:33Z",
     "views_formatted": "278",
     "duration_formatted": "2h 4m"
@@ -1058,7 +1058,7 @@
     "views": 399,
     "duration": 5375,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-03-25T17:00:14Z",
     "views_formatted": "399",
     "duration_formatted": "1h 29m"
@@ -1072,7 +1072,7 @@
     "views": 314,
     "duration": 4504,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-03-22T17:00:12Z",
     "views_formatted": "314",
     "duration_formatted": "1h 15m"
@@ -1086,7 +1086,7 @@
     "views": 1040,
     "duration": 20140,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-03-28T17:00:24Z",
     "views_formatted": "1K",
     "duration_formatted": "5h 35m"
@@ -1100,7 +1100,7 @@
     "views": 464,
     "duration": 9812,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-03-19T15:00:10Z",
     "views_formatted": "464",
     "duration_formatted": "2h 43m"
@@ -1114,7 +1114,7 @@
     "views": 4752,
     "duration": 26612,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-03-26T15:00:16Z",
     "views_formatted": "4.8K",
     "duration_formatted": "7h 23m"
@@ -1128,7 +1128,7 @@
     "views": 39,
     "duration": 75,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-02-20T14:00:33Z",
     "views_formatted": "39",
     "duration_formatted": "1m"
@@ -1142,7 +1142,7 @@
     "views": 807,
     "duration": 13783,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-02-16T19:00:13Z",
     "views_formatted": "807",
     "duration_formatted": "3h 49m"
@@ -1156,7 +1156,7 @@
     "views": 390,
     "duration": 22922,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-02-18T15:01:05Z",
     "views_formatted": "390",
     "duration_formatted": "6h 22m"
@@ -1170,7 +1170,7 @@
     "views": 21190,
     "duration": 606700,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-07-27T17:00:44Z",
     "views_formatted": "21.2K",
     "duration_formatted": "168h 31m"
@@ -1184,7 +1184,7 @@
     "views": 555,
     "duration": 10575,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-02-13T15:00:34Z",
     "views_formatted": "555",
     "duration_formatted": "2h 56m"
@@ -1198,7 +1198,7 @@
     "views": 931,
     "duration": 4687,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-02-09T15:00:34Z",
     "views_formatted": "931",
     "duration_formatted": "1h 18m"
@@ -1212,7 +1212,7 @@
     "views": 18887,
     "duration": 14422,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-02-06T13:00:12Z",
     "views_formatted": "18.9K",
     "duration_formatted": "4h 0m"
@@ -1226,7 +1226,7 @@
     "views": 7041,
     "duration": 29561,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-02-21T17:01:17Z",
     "views_formatted": "7K",
     "duration_formatted": "8h 12m"
@@ -1240,7 +1240,7 @@
     "views": 1564,
     "duration": 10540,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-01-28T17:00:06Z",
     "views_formatted": "1.6K",
     "duration_formatted": "2h 55m"
@@ -1254,7 +1254,7 @@
     "views": 2433,
     "duration": 17928,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-01-19T15:00:50Z",
     "views_formatted": "2.4K",
     "duration_formatted": "4h 58m"
@@ -1268,7 +1268,7 @@
     "views": 2209,
     "duration": 35506,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-02-09T13:00:28Z",
     "views_formatted": "2.2K",
     "duration_formatted": "9h 51m"
@@ -1282,7 +1282,7 @@
     "views": 7074,
     "duration": 21628,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-12-06T13:00:58Z",
     "views_formatted": "7.1K",
     "duration_formatted": "6h 0m"
@@ -1296,7 +1296,7 @@
     "views": 9435,
     "duration": 111627,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-06-02T13:01:20Z",
     "views_formatted": "9.4K",
     "duration_formatted": "31h 0m"
@@ -1310,7 +1310,7 @@
     "views": 370,
     "duration": 20507,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-09-06T13:00:30Z",
     "views_formatted": "370",
     "duration_formatted": "5h 41m"
@@ -1324,7 +1324,7 @@
     "views": 627,
     "duration": 5115,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-08-26T13:00:04Z",
     "views_formatted": "627",
     "duration_formatted": "1h 25m"
@@ -1338,7 +1338,7 @@
     "views": 1535,
     "duration": 39235,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-08-13T17:00:15Z",
     "views_formatted": "1.5K",
     "duration_formatted": "10h 53m"
@@ -1352,7 +1352,7 @@
     "views": 1065,
     "duration": 20480,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-07-17T13:00:13Z",
     "views_formatted": "1.1K",
     "duration_formatted": "5h 41m"
@@ -1366,7 +1366,7 @@
     "views": 2689,
     "duration": 300868,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-11-08T16:01:22Z",
     "views_formatted": "2.7K",
     "duration_formatted": "83h 34m"
@@ -1380,7 +1380,7 @@
     "views": 813,
     "duration": 9722,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-06-25T16:00:35Z",
     "views_formatted": "813",
     "duration_formatted": "2h 42m"
@@ -1394,7 +1394,7 @@
     "views": 414,
     "duration": 12816,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-06-06T18:00:02Z",
     "views_formatted": "414",
     "duration_formatted": "3h 33m"
@@ -1408,7 +1408,7 @@
     "views": 8005,
     "duration": 76941,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-05-25T19:25:00Z",
     "views_formatted": "8K",
     "duration_formatted": "21h 22m"
@@ -1422,7 +1422,7 @@
     "views": 1210,
     "duration": 28878,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-05-30T14:30:16Z",
     "views_formatted": "1.2K",
     "duration_formatted": "8h 1m"
@@ -1436,7 +1436,7 @@
     "views": 4292,
     "duration": 54588,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-08-03T15:00:44Z",
     "views_formatted": "4.3K",
     "duration_formatted": "15h 9m"
@@ -1450,7 +1450,7 @@
     "views": 1680,
     "duration": 7740,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-04-18T19:00:21Z",
     "views_formatted": "1.7K",
     "duration_formatted": "2h 9m"
@@ -1464,7 +1464,7 @@
     "views": 5035,
     "duration": 23850,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-04-26T19:00:09Z",
     "views_formatted": "5K",
     "duration_formatted": "6h 37m"
@@ -1478,7 +1478,7 @@
     "views": 2690,
     "duration": 6755,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-04-07T13:00:08Z",
     "views_formatted": "2.7K",
     "duration_formatted": "1h 52m"
@@ -1492,7 +1492,7 @@
     "views": 1546,
     "duration": 5763,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-03-19T13:00:01Z",
     "views_formatted": "1.5K",
     "duration_formatted": "1h 36m"
@@ -1506,7 +1506,7 @@
     "views": 421,
     "duration": 8413,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-03-13T14:30:05Z",
     "views_formatted": "421",
     "duration_formatted": "2h 20m"
@@ -1520,7 +1520,7 @@
     "views": 248,
     "duration": 9117,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-03-09T14:30:14Z",
     "views_formatted": "248",
     "duration_formatted": "2h 31m"
@@ -1534,7 +1534,7 @@
     "views": 1643,
     "duration": 44651,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-03-09T13:00:15Z",
     "views_formatted": "1.6K",
     "duration_formatted": "12h 24m"
@@ -1548,7 +1548,7 @@
     "views": 1614,
     "duration": 10460,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-02-25T14:30:19Z",
     "views_formatted": "1.6K",
     "duration_formatted": "2h 54m"
@@ -1562,7 +1562,7 @@
     "views": 531,
     "duration": 7619,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-02-19T14:30:09Z",
     "views_formatted": "531",
     "duration_formatted": "2h 6m"
@@ -1576,7 +1576,7 @@
     "views": 275,
     "duration": 7237,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-02-04T14:30:17Z",
     "views_formatted": "275",
     "duration_formatted": "2h 0m"
@@ -1590,7 +1590,7 @@
     "views": 748,
     "duration": 23652,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-01-27T14:30:03Z",
     "views_formatted": "748",
     "duration_formatted": "6h 34m"
@@ -1604,7 +1604,7 @@
     "views": 2247,
     "duration": 52703,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-01-18T14:30:12Z",
     "views_formatted": "2.2K",
     "duration_formatted": "14h 38m"
@@ -1618,7 +1618,7 @@
     "views": 2010,
     "duration": 11970,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-01-07T13:00:08Z",
     "views_formatted": "2K",
     "duration_formatted": "3h 19m"
@@ -1632,7 +1632,7 @@
     "views": 8071,
     "duration": 24658,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-04-28T19:00:03Z",
     "views_formatted": "8.1K",
     "duration_formatted": "6h 50m"
@@ -1646,7 +1646,7 @@
     "views": 1373,
     "duration": 18847,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-12-04T14:30:24Z",
     "views_formatted": "1.4K",
     "duration_formatted": "5h 14m"
@@ -1660,7 +1660,7 @@
     "views": 1897,
     "duration": 17773,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-12-02T13:00:31Z",
     "views_formatted": "1.9K",
     "duration_formatted": "4h 56m"
@@ -1674,7 +1674,7 @@
     "views": 8723,
     "duration": 40129,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-12-23T19:00:04Z",
     "views_formatted": "8.7K",
     "duration_formatted": "11h 8m"
@@ -1688,7 +1688,7 @@
     "views": 1160,
     "duration": 5317,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-11-22T13:00:17Z",
     "views_formatted": "1.2K",
     "duration_formatted": "1h 28m"
@@ -1702,7 +1702,7 @@
     "views": 564,
     "duration": 3501,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-11-18T13:00:03Z",
     "views_formatted": "564",
     "duration_formatted": "58m"
@@ -1716,7 +1716,7 @@
     "views": 1601,
     "duration": 20007,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-11-14T19:00:02Z",
     "views_formatted": "1.6K",
     "duration_formatted": "5h 33m"
@@ -1730,7 +1730,7 @@
     "views": 1810,
     "duration": 16040,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-11-12T19:00:17Z",
     "views_formatted": "1.8K",
     "duration_formatted": "4h 27m"
@@ -1744,7 +1744,7 @@
     "views": 823,
     "duration": 5206,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-11-08T19:00:19Z",
     "views_formatted": "823",
     "duration_formatted": "1h 26m"
@@ -1758,7 +1758,7 @@
     "views": 768,
     "duration": 7743,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-10-25T19:30:00Z",
     "views_formatted": "768",
     "duration_formatted": "2h 9m"
@@ -1772,7 +1772,7 @@
     "views": 2774,
     "duration": 21759,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-10-21T22:00:08Z",
     "views_formatted": "2.8K",
     "duration_formatted": "6h 2m"
@@ -1786,7 +1786,7 @@
     "views": 194,
     "duration": 9031,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-09-14T17:00:33Z",
     "views_formatted": "194",
     "duration_formatted": "2h 30m"
@@ -1800,7 +1800,7 @@
     "views": 7534,
     "duration": 34820,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-09-09T19:00:01Z",
     "views_formatted": "7.5K",
     "duration_formatted": "9h 40m"
@@ -1814,7 +1814,7 @@
     "views": 2640,
     "duration": 9506,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-04-11T15:01:29Z",
     "views_formatted": "2.6K",
     "duration_formatted": "2h 38m"
@@ -1828,7 +1828,7 @@
     "views": 599,
     "duration": 6459,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-01-31T14:30:14Z",
     "views_formatted": "599",
     "duration_formatted": "1h 47m"
@@ -1842,7 +1842,7 @@
     "views": 3921,
     "duration": 45592,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-09-05T19:00:31Z",
     "views_formatted": "3.9K",
     "duration_formatted": "12h 39m"
@@ -1856,7 +1856,7 @@
     "views": 456,
     "duration": 10489,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-03-11T13:00:21Z",
     "views_formatted": "456",
     "duration_formatted": "2h 54m"
@@ -1870,7 +1870,7 @@
     "views": 1023,
     "duration": 13586,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-08-27T13:00:37Z",
     "views_formatted": "1K",
     "duration_formatted": "3h 46m"
@@ -1884,7 +1884,7 @@
     "views": 14767,
     "duration": 138730,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-09-05T00:00:01Z",
     "views_formatted": "14.8K",
     "duration_formatted": "38h 32m"
@@ -1898,7 +1898,7 @@
     "views": 428,
     "duration": 7894,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-06-19T22:00:32Z",
     "views_formatted": "428",
     "duration_formatted": "2h 11m"
@@ -1912,7 +1912,7 @@
     "views": 1024,
     "duration": 43815,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-06-26T02:31:46Z",
     "views_formatted": "1K",
     "duration_formatted": "12h 10m"
@@ -1926,7 +1926,7 @@
     "views": 18626,
     "duration": 53806,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-06-18T00:00:24Z",
     "views_formatted": "18.6K",
     "duration_formatted": "14h 56m"
@@ -1940,7 +1940,7 @@
     "views": 65786,
     "duration": 310870,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-12-23T14:30:10Z",
     "views_formatted": "65.8K",
     "duration_formatted": "86h 21m"
@@ -1954,7 +1954,7 @@
     "views": 95,
     "duration": 1870,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-05-28T13:00:30Z",
     "views_formatted": "95",
     "duration_formatted": "31m"
@@ -1968,7 +1968,7 @@
     "views": 2365,
     "duration": 5126,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-05-27T00:00:06Z",
     "views_formatted": "2.4K",
     "duration_formatted": "1h 25m"
@@ -1982,7 +1982,7 @@
     "views": 190,
     "duration": 3401,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-05-21T22:00:14Z",
     "views_formatted": "190",
     "duration_formatted": "56m"
@@ -1996,7 +1996,7 @@
     "views": 323,
     "duration": 6251,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-05-20T22:00:03Z",
     "views_formatted": "323",
     "duration_formatted": "1h 44m"
@@ -2010,7 +2010,7 @@
     "views": 689,
     "duration": 24855,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-05-19T22:00:19Z",
     "views_formatted": "689",
     "duration_formatted": "6h 54m"
@@ -2024,7 +2024,7 @@
     "views": 2467,
     "duration": 14349,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-05-08T13:00:42Z",
     "views_formatted": "2.5K",
     "duration_formatted": "3h 59m"
@@ -2038,7 +2038,7 @@
     "views": 685,
     "duration": 24437,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-05-18T17:00:02Z",
     "views_formatted": "685",
     "duration_formatted": "6h 47m"
@@ -2052,7 +2052,7 @@
     "views": 1041,
     "duration": 3502,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-04-24T13:00:11Z",
     "views_formatted": "1K",
     "duration_formatted": "58m"
@@ -2066,7 +2066,7 @@
     "views": 571,
     "duration": 2294,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-04-13T15:00:02Z",
     "views_formatted": "571",
     "duration_formatted": "38m"
@@ -2080,7 +2080,7 @@
     "views": 99,
     "duration": 8967,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-04-03T17:00:21Z",
     "views_formatted": "99",
     "duration_formatted": "2h 29m"
@@ -2094,7 +2094,7 @@
     "views": 375,
     "duration": 4295,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-03-25T13:00:25Z",
     "views_formatted": "375",
     "duration_formatted": "1h 11m"
@@ -2108,7 +2108,7 @@
     "views": 987,
     "duration": 4476,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-03-19T13:00:03Z",
     "views_formatted": "987",
     "duration_formatted": "1h 14m"
@@ -2122,7 +2122,7 @@
     "views": 111,
     "duration": 2077,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-02-25T12:30:02Z",
     "views_formatted": "111",
     "duration_formatted": "34m"
@@ -2136,7 +2136,7 @@
     "views": 11997,
     "duration": 26817,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-01-22T13:00:33Z",
     "views_formatted": "12K",
     "duration_formatted": "7h 26m"
@@ -2150,7 +2150,7 @@
     "views": 3382,
     "duration": 70192,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-04-23T14:30:17Z",
     "views_formatted": "3.4K",
     "duration_formatted": "19h 29m"
@@ -2164,7 +2164,7 @@
     "views": 5903,
     "duration": 18018,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-11-10T15:00:26Z",
     "views_formatted": "5.9K",
     "duration_formatted": "5h 0m"
@@ -2178,7 +2178,7 @@
     "views": 335,
     "duration": 5783,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-09-30T17:00:08Z",
     "views_formatted": "335",
     "duration_formatted": "1h 36m"
@@ -2192,7 +2192,7 @@
     "views": 407,
     "duration": 11021,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-10-01T15:00:22Z",
     "views_formatted": "407",
     "duration_formatted": "3h 3m"
@@ -2206,7 +2206,7 @@
     "views": 123,
     "duration": 3301,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-09-20T15:00:07Z",
     "views_formatted": "123",
     "duration_formatted": "55m"
@@ -2220,7 +2220,7 @@
     "views": 634,
     "duration": 96723,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-09-04T13:00:00Z",
     "views_formatted": "634",
     "duration_formatted": "26h 52m"
@@ -2234,7 +2234,7 @@
     "views": 1778,
     "duration": 6837,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-08-03T14:00:35Z",
     "views_formatted": "1.8K",
     "duration_formatted": "1h 53m"
@@ -2248,7 +2248,7 @@
     "views": 1758,
     "duration": 47345,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-08-05T13:00:19Z",
     "views_formatted": "1.8K",
     "duration_formatted": "13h 9m"
@@ -2262,7 +2262,7 @@
     "views": 139,
     "duration": 7542,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-07-07T13:00:24Z",
     "views_formatted": "139",
     "duration_formatted": "2h 5m"
@@ -2276,7 +2276,7 @@
     "views": 943,
     "duration": 58939,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-09-11T14:00:15Z",
     "views_formatted": "943",
     "duration_formatted": "16h 22m"
@@ -2290,7 +2290,7 @@
     "views": 86,
     "duration": 7913,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-06-18T15:00:10Z",
     "views_formatted": "86",
     "duration_formatted": "2h 11m"
@@ -2304,7 +2304,7 @@
     "views": 120,
     "duration": 8385,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-06-19T13:00:01Z",
     "views_formatted": "120",
     "duration_formatted": "2h 19m"
@@ -2318,7 +2318,7 @@
     "views": 233,
     "duration": 2514,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-06-11T13:00:22Z",
     "views_formatted": "233",
     "duration_formatted": "41m"
@@ -2332,7 +2332,7 @@
     "views": 218,
     "duration": 8835,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-06-12T15:00:18Z",
     "views_formatted": "218",
     "duration_formatted": "2h 27m"
@@ -2346,7 +2346,7 @@
     "views": 36,
     "duration": 2525,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-06-03T17:00:12Z",
     "views_formatted": "36",
     "duration_formatted": "42m"
@@ -2360,7 +2360,7 @@
     "views": 315,
     "duration": 4193,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-06-04T15:00:17Z",
     "views_formatted": "315",
     "duration_formatted": "1h 9m"
@@ -2374,7 +2374,7 @@
     "views": 6475,
     "duration": 94225,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-06-21T13:00:02Z",
     "views_formatted": "6.5K",
     "duration_formatted": "26h 10m"
@@ -2388,7 +2388,7 @@
     "views": 511,
     "duration": 8309,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-05-09T13:00:23Z",
     "views_formatted": "511",
     "duration_formatted": "2h 18m"
@@ -2402,7 +2402,7 @@
     "views": 184,
     "duration": 3523,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-04-29T13:00:31Z",
     "views_formatted": "184",
     "duration_formatted": "58m"
@@ -2416,7 +2416,7 @@
     "views": 822,
     "duration": 51316,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-06-18T14:00:10Z",
     "views_formatted": "822",
     "duration_formatted": "14h 15m"
@@ -2430,7 +2430,7 @@
     "views": 66,
     "duration": 2744,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-04-11T10:18:33Z",
     "views_formatted": "66",
     "duration_formatted": "45m"
@@ -2444,7 +2444,7 @@
     "views": 3642,
     "duration": 21486,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-04-20T15:00:25Z",
     "views_formatted": "3.6K",
     "duration_formatted": "5h 58m"
@@ -2458,7 +2458,7 @@
     "views": 649,
     "duration": 176226,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-04-15T15:00:06Z",
     "views_formatted": "649",
     "duration_formatted": "48h 57m"
@@ -2472,7 +2472,7 @@
     "views": 6608,
     "duration": 8497,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-03-24T13:00:16Z",
     "views_formatted": "6.6K",
     "duration_formatted": "2h 21m"
@@ -2486,7 +2486,7 @@
     "views": 6512,
     "duration": 25775,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-04-01T15:00:30Z",
     "views_formatted": "6.5K",
     "duration_formatted": "7h 9m"
@@ -2500,7 +2500,7 @@
     "views": 2536,
     "duration": 6887,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-02-28T17:00:20Z",
     "views_formatted": "2.5K",
     "duration_formatted": "1h 54m"
@@ -2514,7 +2514,7 @@
     "views": 52,
     "duration": 3313,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-02-25T17:00:06Z",
     "views_formatted": "52",
     "duration_formatted": "55m"
@@ -2528,7 +2528,7 @@
     "views": 76,
     "duration": 3392,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-02-22T17:00:15Z",
     "views_formatted": "76",
     "duration_formatted": "56m"
@@ -2542,7 +2542,7 @@
     "views": 509,
     "duration": 10241,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-02-06T17:00:43Z",
     "views_formatted": "509",
     "duration_formatted": "2h 50m"
@@ -2556,7 +2556,7 @@
     "views": 391,
     "duration": 10753,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-02-09T17:00:30Z",
     "views_formatted": "391",
     "duration_formatted": "2h 59m"
@@ -2570,7 +2570,7 @@
     "views": 174,
     "duration": 5591,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-01-24T19:00:13Z",
     "views_formatted": "174",
     "duration_formatted": "1h 33m"
@@ -2584,7 +2584,7 @@
     "views": 1359,
     "duration": 88146,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2024-08-14T13:00:57Z",
     "views_formatted": "1.4K",
     "duration_formatted": "24h 29m"
@@ -2598,7 +2598,7 @@
     "views": 65,
     "duration": 6858,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-01-09T13:00:04Z",
     "views_formatted": "65",
     "duration_formatted": "1h 54m"
@@ -2612,7 +2612,7 @@
     "views": 86,
     "duration": 3598,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-01-09T17:00:23Z",
     "views_formatted": "86",
     "duration_formatted": "59m"
@@ -2626,7 +2626,7 @@
     "views": 249,
     "duration": 8962,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-01-05T13:00:24Z",
     "views_formatted": "249",
     "duration_formatted": "2h 29m"
@@ -2640,7 +2640,7 @@
     "views": 1049,
     "duration": 33181,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2021-12-28T17:00:09Z",
     "views_formatted": "1K",
     "duration_formatted": "9h 13m"
@@ -2654,7 +2654,7 @@
     "views": 134,
     "duration": 7108,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2021-11-25T19:00:02Z",
     "views_formatted": "134",
     "duration_formatted": "1h 58m"
@@ -2668,7 +2668,7 @@
     "views": 1575,
     "duration": 62612,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-02-25T19:00:06Z",
     "views_formatted": "1.6K",
     "duration_formatted": "17h 23m"
@@ -2682,7 +2682,7 @@
     "views": 29,
     "duration": 1279,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2021-11-07T19:00:19Z",
     "views_formatted": "29",
     "duration_formatted": "21m"
@@ -2696,7 +2696,7 @@
     "views": 548,
     "duration": 35976,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-02-26T17:00:10Z",
     "views_formatted": "548",
     "duration_formatted": "9h 59m"
@@ -2710,7 +2710,7 @@
     "views": 332,
     "duration": 6328,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2021-09-18T19:00:09Z",
     "views_formatted": "332",
     "duration_formatted": "1h 45m"
@@ -2724,7 +2724,7 @@
     "views": 2889,
     "duration": 253599,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2023-06-10T13:00:03Z",
     "views_formatted": "2.9K",
     "duration_formatted": "70h 26m"
@@ -2738,7 +2738,7 @@
     "views": 67,
     "duration": 6873,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2021-08-29T15:00:03Z",
     "views_formatted": "67",
     "duration_formatted": "1h 54m"
@@ -2752,7 +2752,7 @@
     "views": 273,
     "duration": 6581,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2021-08-19T22:30:01Z",
     "views_formatted": "273",
     "duration_formatted": "1h 49m"
@@ -2766,7 +2766,7 @@
     "views": 229,
     "duration": 14126,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2021-08-18T00:30:17Z",
     "views_formatted": "229",
     "duration_formatted": "3h 55m"
@@ -2780,7 +2780,7 @@
     "views": 286,
     "duration": 30715,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2022-01-07T17:00:02Z",
     "views_formatted": "286",
     "duration_formatted": "8h 31m"
@@ -2794,7 +2794,7 @@
     "views": 2442,
     "duration": 21554,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-10-13T16:00:03Z",
     "views_formatted": "2.4K",
     "duration_formatted": "5h 59m"
@@ -2808,7 +2808,7 @@
     "views": 91,
     "duration": 2898,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-09-25T17:00:08Z",
     "views_formatted": "91",
     "duration_formatted": "48m"
@@ -2822,7 +2822,7 @@
     "views": 281,
     "duration": 9274,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-08-28T20:00:08Z",
     "views_formatted": "281",
     "duration_formatted": "2h 34m"
@@ -2836,7 +2836,7 @@
     "views": 142,
     "duration": 5719,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-08-23T19:00:05Z",
     "views_formatted": "142",
     "duration_formatted": "1h 35m"
@@ -2850,7 +2850,7 @@
     "views": 31,
     "duration": 1344,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-08-01T17:03:24Z",
     "views_formatted": "31",
     "duration_formatted": "22m"
@@ -2864,7 +2864,7 @@
     "views": 63,
     "duration": 2020,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-07-30T16:19:04Z",
     "views_formatted": "63",
     "duration_formatted": "33m"
@@ -2878,7 +2878,7 @@
     "views": 96,
     "duration": 1378,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-07-28T14:15:00Z",
     "views_formatted": "96",
     "duration_formatted": "22m"
@@ -2892,7 +2892,7 @@
     "views": 27,
     "duration": 1010,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-07-26T15:47:15Z",
     "views_formatted": "27",
     "duration_formatted": "16m"
@@ -2906,7 +2906,7 @@
     "views": 66,
     "duration": 11649,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-08-02T16:30:02Z",
     "views_formatted": "66",
     "duration_formatted": "3h 14m"
@@ -2920,7 +2920,7 @@
     "views": 570,
     "duration": 2075,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-07-18T17:00:03Z",
     "views_formatted": "570",
     "duration_formatted": "34m"
@@ -2934,7 +2934,7 @@
     "views": 397,
     "duration": 34754,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-08-07T19:00:20Z",
     "views_formatted": "397",
     "duration_formatted": "9h 39m"
@@ -2948,7 +2948,7 @@
     "views": 93,
     "duration": 4098,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-07-15T20:00:07Z",
     "views_formatted": "93",
     "duration_formatted": "1h 8m"
@@ -2962,7 +2962,7 @@
     "views": 3004,
     "duration": 17692,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-07-16T18:00:02Z",
     "views_formatted": "3K",
     "duration_formatted": "4h 54m"
@@ -2976,7 +2976,7 @@
     "views": 106,
     "duration": 16574,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-06-12T18:00:08Z",
     "views_formatted": "106",
     "duration_formatted": "4h 36m"
@@ -2990,7 +2990,7 @@
     "views": 1453,
     "duration": 30291,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-10-15T20:00:02Z",
     "views_formatted": "1.5K",
     "duration_formatted": "8h 24m"
@@ -3004,7 +3004,7 @@
     "views": 141,
     "duration": 9183,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-06-04T17:00:27Z",
     "views_formatted": "141",
     "duration_formatted": "2h 33m"
@@ -3018,7 +3018,7 @@
     "views": 1481,
     "duration": 109536,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-06-15T16:00:24Z",
     "views_formatted": "1.5K",
     "duration_formatted": "30h 25m"
@@ -3032,7 +3032,7 @@
     "views": 392,
     "duration": 4315,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-04-13T00:30:01Z",
     "views_formatted": "392",
     "duration_formatted": "1h 11m"
@@ -3046,7 +3046,7 @@
     "views": 577,
     "duration": 2840,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-04-11T00:30:01Z",
     "views_formatted": "577",
     "duration_formatted": "47m"
@@ -3060,7 +3060,7 @@
     "views": 11471,
     "duration": 142898,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2020-05-29T18:00:00Z",
     "views_formatted": "11.5K",
     "duration_formatted": "39h 41m"
@@ -3074,7 +3074,7 @@
     "views": 997,
     "duration": 61632,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2026-01-08T01:15:12Z",
     "views_formatted": "997",
     "duration_formatted": "17h 7m"
@@ -3088,7 +3088,7 @@
     "views": 425,
     "duration": 14266,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-09-12T12:02:03Z",
     "views_formatted": "425",
     "duration_formatted": "3h 57m"
@@ -3102,7 +3102,7 @@
     "views": 1994,
     "duration": 60300,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-08-20T19:00:24Z",
     "views_formatted": "2K",
     "duration_formatted": "16h 45m"
