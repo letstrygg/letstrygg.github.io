@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "4h 25m",
   "views_formatted": "952",
-  "slug": "toy-smash-kaboom!"
+  "slug": "toy-smash-kaboom!",
+  "status_color": "blue"
 }

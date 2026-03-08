@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "4h 52m",
   "views_formatted": "404",
-  "slug": "monster-train-2-demo"
+  "slug": "monster-train-2-demo",
+  "status_color": "blue"
 }

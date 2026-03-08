@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "87h 11m",
   "views_formatted": "62.3K",
-  "slug": "magicraft-s4-10-release"
+  "slug": "magicraft-s4-10-release",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "9h 51m",
   "views_formatted": "2.2K",
-  "slug": "dredge"
+  "slug": "dredge",
+  "status_color": "blue"
 }

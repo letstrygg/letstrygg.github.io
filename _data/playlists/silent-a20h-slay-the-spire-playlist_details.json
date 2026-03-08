@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "13h 34m",
   "views_formatted": "985",
-  "slug": "silent-a20h-slay-the-spire"
+  "slug": "silent-a20h-slay-the-spire",
+  "status_color": "blue"
 }

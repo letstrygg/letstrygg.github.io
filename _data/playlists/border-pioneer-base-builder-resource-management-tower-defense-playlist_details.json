@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 18m",
   "views_formatted": "931",
-  "slug": "border-pioneer-base-builder-resource-management-tower-defense"
+  "slug": "border-pioneer-base-builder-resource-management-tower-defense",
+  "status_color": "blue"
 }

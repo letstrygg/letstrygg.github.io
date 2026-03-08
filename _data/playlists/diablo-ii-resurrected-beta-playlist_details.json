@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 45m",
   "views_formatted": "52",
-  "slug": "diablo-ii-resurrected-beta"
+  "slug": "diablo-ii-resurrected-beta",
+  "status_color": "blue"
 }

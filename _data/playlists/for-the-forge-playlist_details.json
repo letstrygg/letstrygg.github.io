@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "3h 3m",
   "views_formatted": "187",
-  "slug": "for-the-forge"
+  "slug": "for-the-forge",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "15h 9m",
   "views_formatted": "4.3K",
-  "slug": "animal-well-indie-puzzle-platformer"
+  "slug": "animal-well-indie-puzzle-platformer",
+  "status_color": "blue"
 }

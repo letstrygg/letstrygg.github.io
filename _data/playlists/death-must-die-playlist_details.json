@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "58m",
   "views_formatted": "564",
-  "slug": "death-must-die"
+  "slug": "death-must-die",
+  "status_color": "blue"
 }

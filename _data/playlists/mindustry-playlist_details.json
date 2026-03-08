@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "39h 41m",
   "views_formatted": "11.5K",
-  "slug": "mindustry"
+  "slug": "mindustry",
+  "status_color": "blue"
 }

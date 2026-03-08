@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "3h 59m",
   "views_formatted": "2.5K",
-  "slug": "free-itchio-games"
+  "slug": "free-itchio-games",
+  "status_color": "blue"
 }

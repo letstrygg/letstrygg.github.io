@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "19h 29m",
   "views_formatted": "3.4K",
-  "slug": "poker-quest"
+  "slug": "poker-quest",
+  "status_color": "blue"
 }

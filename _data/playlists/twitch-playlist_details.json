@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "16m",
   "views_formatted": "27",
-  "slug": "twitch"
+  "slug": "twitch",
+  "status_color": "blue"
 }

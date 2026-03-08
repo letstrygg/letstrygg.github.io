@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 58m",
   "views_formatted": "134",
-  "slug": "guild-of-dungeoneering"
+  "slug": "guild-of-dungeoneering",
+  "status_color": "blue"
 }

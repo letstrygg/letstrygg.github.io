@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "5h 3m",
   "views_formatted": "3.4K",
-  "slug": "dwarves-glory-death-and-loot-s1"
+  "slug": "dwarves-glory-death-and-loot-s1",
+  "status_color": "blue"
 }

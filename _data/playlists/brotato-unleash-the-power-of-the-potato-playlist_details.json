@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "59h 57m",
   "views_formatted": "3K",
-  "slug": "brotato-unleash-the-power-of-the-potato"
+  "slug": "brotato-unleash-the-power-of-the-potato",
+  "status_color": "blue"
 }

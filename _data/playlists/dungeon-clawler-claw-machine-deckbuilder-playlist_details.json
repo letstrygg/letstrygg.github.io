@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "59m",
   "views_formatted": "411",
-  "slug": "dungeon-clawler-claw-machine-deckbuilder"
+  "slug": "dungeon-clawler-claw-machine-deckbuilder",
+  "status_color": "blue"
 }

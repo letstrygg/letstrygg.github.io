@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 35m",
   "views_formatted": "142",
-  "slug": "terraria-ftw"
+  "slug": "terraria-ftw",
+  "status_color": "blue"
 }

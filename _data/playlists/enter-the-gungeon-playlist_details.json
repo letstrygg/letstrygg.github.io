@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 34m",
   "views_formatted": "281",
-  "slug": "enter-the-gungeon"
+  "slug": "enter-the-gungeon",
+  "status_color": "blue"
 }

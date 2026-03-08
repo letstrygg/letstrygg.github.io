@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "3h 3m",
   "views_formatted": "407",
-  "slug": "mindustry-season-2"
+  "slug": "mindustry-season-2",
+  "status_color": "blue"
 }

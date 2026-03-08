@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 36m",
   "views_formatted": "1.5K",
-  "slug": "undermine"
+  "slug": "undermine",
+  "status_color": "blue"
 }

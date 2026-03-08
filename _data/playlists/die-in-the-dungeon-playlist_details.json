@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "3h 49m",
   "views_formatted": "807",
-  "slug": "die-in-the-dungeon"
+  "slug": "die-in-the-dungeon",
+  "status_color": "blue"
 }

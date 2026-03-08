@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "13h 46m",
   "views_formatted": "16.1K",
-  "slug": "bpb-unranked-builds"
+  "slug": "bpb-unranked-builds",
+  "status_color": "blue"
 }

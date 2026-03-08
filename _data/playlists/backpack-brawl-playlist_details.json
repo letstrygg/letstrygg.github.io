@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 20m",
   "views_formatted": "365",
-  "slug": "backpack-brawl"
+  "slug": "backpack-brawl",
+  "status_color": "blue"
 }

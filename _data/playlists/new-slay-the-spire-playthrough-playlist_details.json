@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "25h 16m",
   "views_formatted": "675",
-  "slug": "new-slay-the-spire-playthrough"
+  "slug": "new-slay-the-spire-playthrough",
+  "status_color": "blue"
 }

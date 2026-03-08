@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "5h 33m",
   "views_formatted": "1.6K",
-  "slug": "rogue-legacy-2"
+  "slug": "rogue-legacy-2",
+  "status_color": "blue"
 }

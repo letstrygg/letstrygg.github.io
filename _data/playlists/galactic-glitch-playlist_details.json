@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "31m",
   "views_formatted": "95",
-  "slug": "galactic-glitch"
+  "slug": "galactic-glitch",
+  "status_color": "blue"
 }

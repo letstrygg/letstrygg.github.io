@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 51m",
   "views_formatted": "376",
-  "slug": "halls-of-torment"
+  "slug": "halls-of-torment",
+  "status_color": "blue"
 }

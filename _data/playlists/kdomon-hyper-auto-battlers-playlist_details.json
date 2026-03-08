@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 47m",
   "views_formatted": "599",
-  "slug": "kdomon-hyper-auto-battlers"
+  "slug": "kdomon-hyper-auto-battlers",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 5m",
   "views_formatted": "139",
-  "slug": "heros-hour"
+  "slug": "heros-hour",
+  "status_color": "blue"
 }

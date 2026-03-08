@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "24h 6m",
   "views_formatted": "2.9K",
-  "slug": "the-bazaar"
+  "slug": "the-bazaar",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 0m",
   "views_formatted": "512",
-  "slug": "machick-2"
+  "slug": "machick-2",
+  "status_color": "blue"
 }

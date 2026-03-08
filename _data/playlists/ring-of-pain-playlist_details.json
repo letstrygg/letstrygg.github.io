@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "26h 52m",
   "views_formatted": "634",
-  "slug": "ring-of-pain"
+  "slug": "ring-of-pain",
+  "status_color": "blue"
 }

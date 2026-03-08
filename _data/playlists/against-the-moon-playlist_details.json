@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "48m",
   "views_formatted": "91",
-  "slug": "against-the-moon"
+  "slug": "against-the-moon",
+  "status_color": "blue"
 }

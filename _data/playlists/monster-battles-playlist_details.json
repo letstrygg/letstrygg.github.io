@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "10h 46m",
   "views_formatted": "2.5K",
-  "slug": "monster-battles"
+  "slug": "monster-battles",
+  "status_color": "blue"
 }

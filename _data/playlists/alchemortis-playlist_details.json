@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 42m",
   "views_formatted": "108",
-  "slug": "alchemortis"
+  "slug": "alchemortis",
+  "status_color": "blue"
 }

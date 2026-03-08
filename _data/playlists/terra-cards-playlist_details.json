@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 28m",
   "views_formatted": "1.2K",
-  "slug": "terra-cards"
+  "slug": "terra-cards",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 56m",
   "views_formatted": "555",
-  "slug": "project-zomboid"
+  "slug": "project-zomboid",
+  "status_color": "blue"
 }

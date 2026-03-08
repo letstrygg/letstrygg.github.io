@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "47m",
   "views_formatted": "577",
-  "slug": "main-assembly"
+  "slug": "main-assembly",
+  "status_color": "blue"
 }

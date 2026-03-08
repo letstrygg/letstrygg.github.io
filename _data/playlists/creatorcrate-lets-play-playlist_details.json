@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "56m",
   "views_formatted": "76",
-  "slug": "creatorcrate-lets-play"
+  "slug": "creatorcrate-lets-play",
+  "status_color": "blue"
 }

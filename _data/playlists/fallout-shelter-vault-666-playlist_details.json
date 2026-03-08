@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 50m",
   "views_formatted": "509",
-  "slug": "fallout-shelter-vault-666"
+  "slug": "fallout-shelter-vault-666",
+  "status_color": "blue"
 }

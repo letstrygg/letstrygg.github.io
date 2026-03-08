@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "8h 31m",
   "views_formatted": "2.3K",
-  "slug": "ball-x-pit"
+  "slug": "ball-x-pit",
+  "status_color": "blue"
 }

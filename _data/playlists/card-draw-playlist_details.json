@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 16m",
   "views_formatted": "1.9K",
-  "slug": "card-draw"
+  "slug": "card-draw",
+  "status_color": "blue"
 }

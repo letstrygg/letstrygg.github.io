@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 45m",
   "views_formatted": "332",
-  "slug": "hadean-tactics-lets-play"
+  "slug": "hadean-tactics-lets-play",
+  "status_color": "blue"
 }

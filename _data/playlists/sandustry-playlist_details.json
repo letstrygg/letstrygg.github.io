@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "4h 0m",
   "views_formatted": "18.9K",
-  "slug": "sandustry"
+  "slug": "sandustry",
+  "status_color": "blue"
 }

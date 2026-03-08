@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "10h 15m",
   "views_formatted": "1.5K",
-  "slug": "tiny-rogues"
+  "slug": "tiny-rogues",
+  "status_color": "blue"
 }

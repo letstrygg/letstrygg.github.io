@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 36m",
   "views_formatted": "1K",
-  "slug": "bpb-0.9.16c-beta"
+  "slug": "bpb-0.9.16c-beta",
+  "status_color": "blue"
 }

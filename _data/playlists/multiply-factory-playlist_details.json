@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 53m",
   "views_formatted": "1.8K",
-  "slug": "multiply-factory"
+  "slug": "multiply-factory",
+  "status_color": "blue"
 }

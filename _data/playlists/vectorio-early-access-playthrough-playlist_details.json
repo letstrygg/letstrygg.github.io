@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "3h 22m",
   "views_formatted": "1.2K",
-  "slug": "vectorio-early-access-playthrough"
+  "slug": "vectorio-early-access-playthrough",
+  "status_color": "blue"
 }

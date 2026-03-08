@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "8h 46m",
   "views_formatted": "3K",
-  "slug": "nimrods-s2"
+  "slug": "nimrods-s2",
+  "status_color": "blue"
 }

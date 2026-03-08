@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "14h 15m",
   "views_formatted": "822",
-  "slug": "backpack-hero"
+  "slug": "backpack-hero",
+  "status_color": "blue"
 }

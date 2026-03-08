@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 54m",
   "views_formatted": "67",
-  "slug": "lets-play-monster-sanctuary"
+  "slug": "lets-play-monster-sanctuary",
+  "status_color": "blue"
 }

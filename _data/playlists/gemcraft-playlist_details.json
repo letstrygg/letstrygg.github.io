@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "79h 23m",
   "views_formatted": "64.2K",
-  "slug": "gemcraft"
+  "slug": "gemcraft",
+  "status_color": "blue"
 }

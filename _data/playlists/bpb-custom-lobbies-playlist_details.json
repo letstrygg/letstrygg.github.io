@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "12h 46m",
   "views_formatted": "1.7K",
-  "slug": "bpb-custom-lobbies"
+  "slug": "bpb-custom-lobbies",
+  "status_color": "blue"
 }

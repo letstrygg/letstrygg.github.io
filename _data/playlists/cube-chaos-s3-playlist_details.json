@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "6h 43m",
   "views_formatted": "868",
-  "slug": "cube-chaos-s3"
+  "slug": "cube-chaos-s3",
+  "status_color": "blue"
 }

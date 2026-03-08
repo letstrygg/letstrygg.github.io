@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 6m",
   "views_formatted": "55",
-  "slug": "zoominoes"
+  "slug": "zoominoes",
+  "status_color": "blue"
 }

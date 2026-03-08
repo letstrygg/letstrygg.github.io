@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "34m",
   "views_formatted": "570",
-  "slug": "carrion"
+  "slug": "carrion",
+  "status_color": "blue"
 }

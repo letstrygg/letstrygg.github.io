@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "11h 8m",
   "views_formatted": "8.7K",
-  "slug": "stuck-in-time"
+  "slug": "stuck-in-time",
+  "status_color": "blue"
 }

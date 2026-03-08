@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "8h 24m",
   "views_formatted": "1.5K",
-  "slug": "poly-bridge-2"
+  "slug": "poly-bridge-2",
+  "status_color": "blue"
 }

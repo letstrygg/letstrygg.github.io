@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "25h 14m",
   "views_formatted": "1.6K",
-  "slug": "warzone-free-browser-game"
+  "slug": "warzone-free-browser-game",
+  "status_color": "blue"
 }

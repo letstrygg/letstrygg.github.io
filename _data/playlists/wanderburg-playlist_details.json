@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 15m",
   "views_formatted": "229",
-  "slug": "wanderburg"
+  "slug": "wanderburg",
+  "status_color": "blue"
 }

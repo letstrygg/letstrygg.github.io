@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "5h 59m",
   "views_formatted": "2.4K",
-  "slug": "baba-is-you"
+  "slug": "baba-is-you",
+  "status_color": "blue"
 }

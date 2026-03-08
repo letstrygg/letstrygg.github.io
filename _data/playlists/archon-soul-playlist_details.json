@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 7m",
   "views_formatted": "105",
-  "slug": "archon-soul"
+  "slug": "archon-soul",
+  "status_color": "blue"
 }

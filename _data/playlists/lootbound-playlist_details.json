@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 57m",
   "views_formatted": "882",
-  "slug": "lootbound"
+  "slug": "lootbound",
+  "status_color": "blue"
 }

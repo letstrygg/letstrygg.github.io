@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "166h 9m",
   "views_formatted": "21.1K",
-  "slug": "csm-creeper-world-3-arc-eternal"
+  "slug": "csm-creeper-world-3-arc-eternal",
+  "status_color": "blue"
 }

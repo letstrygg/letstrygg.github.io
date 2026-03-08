@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "4h 50m",
   "views_formatted": "1.8K",
-  "slug": "nimrods-guncraft-survivor"
+  "slug": "nimrods-guncraft-survivor",
+  "status_color": "blue"
 }

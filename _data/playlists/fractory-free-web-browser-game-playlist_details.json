@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "4h 58m",
   "views_formatted": "2.4K",
-  "slug": "fractory-free-web-browser-game"
+  "slug": "fractory-free-web-browser-game",
+  "status_color": "blue"
 }

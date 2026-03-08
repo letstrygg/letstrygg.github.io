@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "8h 31m",
   "views_formatted": "286",
-  "slug": "ratropolis"
+  "slug": "ratropolis",
+  "status_color": "blue"
 }

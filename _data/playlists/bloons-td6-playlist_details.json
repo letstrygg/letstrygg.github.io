@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "62h 45m",
   "views_formatted": "4K",
-  "slug": "bloons-td6"
+  "slug": "bloons-td6",
+  "status_color": "blue"
 }

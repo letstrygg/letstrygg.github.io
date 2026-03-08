@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "38m",
   "views_formatted": "571",
-  "slug": "gods-of-defense-roguelike-tower-defense"
+  "slug": "gods-of-defense-roguelike-tower-defense",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 8m",
   "views_formatted": "93",
-  "slug": "kingdom-two-crowns"
+  "slug": "kingdom-two-crowns",
+  "status_color": "blue"
 }

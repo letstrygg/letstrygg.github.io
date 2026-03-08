@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "5h 33m",
   "views_formatted": "6.6K",
-  "slug": "super-fantasy-kingdom"
+  "slug": "super-fantasy-kingdom",
+  "status_color": "blue"
 }

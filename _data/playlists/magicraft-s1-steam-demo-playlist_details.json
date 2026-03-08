@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "10h 31m",
   "views_formatted": "49.2K",
-  "slug": "magicraft-s1-steam-demo"
+  "slug": "magicraft-s1-steam-demo",
+  "status_color": "blue"
 }

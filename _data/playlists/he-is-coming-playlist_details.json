@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "7h 44m",
   "views_formatted": "4.9K",
-  "slug": "he-is-coming"
+  "slug": "he-is-coming",
+  "status_color": "blue"
 }

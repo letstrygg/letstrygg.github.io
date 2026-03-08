@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 11m",
   "views_formatted": "86",
-  "slug": "logicality-playthrough"
+  "slug": "logicality-playthrough",
+  "status_color": "blue"
 }

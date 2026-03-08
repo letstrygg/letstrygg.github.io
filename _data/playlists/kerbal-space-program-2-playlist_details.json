@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "34m",
   "views_formatted": "111",
-  "slug": "kerbal-space-program-2"
+  "slug": "kerbal-space-program-2",
+  "status_color": "blue"
 }

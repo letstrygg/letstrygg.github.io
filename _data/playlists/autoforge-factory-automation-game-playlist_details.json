@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "6h 37m",
   "views_formatted": "5K",
-  "slug": "autoforge-factory-automation-game"
+  "slug": "autoforge-factory-automation-game",
+  "status_color": "blue"
 }

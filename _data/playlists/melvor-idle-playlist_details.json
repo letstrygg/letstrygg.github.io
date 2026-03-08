@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "5h 0m",
   "views_formatted": "5.9K",
-  "slug": "melvor-idle"
+  "slug": "melvor-idle",
+  "status_color": "blue"
 }

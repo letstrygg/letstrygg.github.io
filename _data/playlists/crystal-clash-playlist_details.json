@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 59m",
   "views_formatted": "391",
-  "slug": "crystal-clash"
+  "slug": "crystal-clash",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "7h 9m",
   "views_formatted": "6.5K",
-  "slug": "incremancer"
+  "slug": "incremancer",
+  "status_color": "blue"
 }

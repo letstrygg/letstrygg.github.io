@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 14m",
   "views_formatted": "987",
-  "slug": "gunsuit-guardians"
+  "slug": "gunsuit-guardians",
+  "status_color": "blue"
 }

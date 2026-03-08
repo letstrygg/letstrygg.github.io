@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "4h 56m",
   "views_formatted": "349",
-  "slug": "minemogul-physics-based-factory-automation-game"
+  "slug": "minemogul-physics-based-factory-automation-game",
+  "status_color": "blue"
 }

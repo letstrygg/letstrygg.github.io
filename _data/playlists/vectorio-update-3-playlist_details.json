@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "4h 3m",
   "views_formatted": "5.9K",
-  "slug": "vectorio-update-3"
+  "slug": "vectorio-update-3",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 23m",
   "views_formatted": "583",
-  "slug": "fill-up-the-hole-incremental-game"
+  "slug": "fill-up-the-hole-incremental-game",
+  "status_color": "blue"
 }

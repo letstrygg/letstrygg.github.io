@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 47m",
   "views_formatted": "734",
-  "slug": "turnbound-s2"
+  "slug": "turnbound-s2",
+  "status_color": "blue"
 }

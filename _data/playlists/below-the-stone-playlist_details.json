@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "6h 50m",
   "views_formatted": "8.1K",
-  "slug": "below-the-stone"
+  "slug": "below-the-stone",
+  "status_color": "blue"
 }

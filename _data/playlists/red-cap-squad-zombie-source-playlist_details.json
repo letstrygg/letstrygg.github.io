@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 6m",
   "views_formatted": "121",
-  "slug": "red-cap-squad-zombie-source"
+  "slug": "red-cap-squad-zombie-source",
+  "status_color": "blue"
 }

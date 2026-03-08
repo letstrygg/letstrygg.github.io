@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "4h 14m",
   "views_formatted": "211",
-  "slug": "konfronto"
+  "slug": "konfronto",
+  "status_color": "blue"
 }

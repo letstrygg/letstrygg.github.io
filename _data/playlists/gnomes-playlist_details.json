@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 4m",
   "views_formatted": "278",
-  "slug": "gnomes"
+  "slug": "gnomes",
+  "status_color": "blue"
 }

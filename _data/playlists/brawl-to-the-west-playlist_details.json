@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "3h 18m",
   "views_formatted": "262",
-  "slug": "brawl-to-the-west"
+  "slug": "brawl-to-the-west",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "11h 55m",
   "views_formatted": "2.9K",
-  "slug": "dungeon-clawler"
+  "slug": "dungeon-clawler",
+  "status_color": "blue"
 }

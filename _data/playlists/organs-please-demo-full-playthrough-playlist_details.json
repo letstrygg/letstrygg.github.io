@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 33m",
   "views_formatted": "174",
-  "slug": "organs-please-demo-full-playthrough"
+  "slug": "organs-please-demo-full-playthrough",
+  "status_color": "blue"
 }

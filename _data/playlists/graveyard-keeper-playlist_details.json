@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "6h 47m",
   "views_formatted": "685",
-  "slug": "graveyard-keeper"
+  "slug": "graveyard-keeper",
+  "status_color": "blue"
 }

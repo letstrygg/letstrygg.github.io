@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 29m",
   "views_formatted": "399",
-  "slug": "ways-of-alchemy"
+  "slug": "ways-of-alchemy",
+  "status_color": "blue"
 }

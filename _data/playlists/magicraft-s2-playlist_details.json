@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "92h 51m",
   "views_formatted": "136.6K",
-  "slug": "magicraft-s2"
+  "slug": "magicraft-s2",
+  "status_color": "blue"
 }

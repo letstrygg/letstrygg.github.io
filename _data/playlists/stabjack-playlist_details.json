@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 56m",
   "views_formatted": "264",
-  "slug": "stabjack"
+  "slug": "stabjack",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 6m",
   "views_formatted": "531",
-  "slug": "a-land-goos-crazy"
+  "slug": "a-land-goos-crazy",
+  "status_color": "blue"
 }

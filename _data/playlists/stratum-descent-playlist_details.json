@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "3h 19m",
   "views_formatted": "2K",
-  "slug": "stratum-descent"
+  "slug": "stratum-descent",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 11m",
   "views_formatted": "392",
-  "slug": "project-highrise-architects-edition"
+  "slug": "project-highrise-architects-edition",
+  "status_color": "blue"
 }

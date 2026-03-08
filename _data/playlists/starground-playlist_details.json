@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 52m",
   "views_formatted": "2.7K",
-  "slug": "starground"
+  "slug": "starground",
+  "status_color": "blue"
 }

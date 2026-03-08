@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "58m",
   "views_formatted": "184",
-  "slug": "trigon-space-story"
+  "slug": "trigon-space-story",
+  "status_color": "blue"
 }

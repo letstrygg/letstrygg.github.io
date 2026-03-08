@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1m",
   "views_formatted": "39",
-  "slug": "game-trailer-hype"
+  "slug": "game-trailer-hype",
+  "status_color": "blue"
 }

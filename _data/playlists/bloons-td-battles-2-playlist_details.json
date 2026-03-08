@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "9h 13m",
   "views_formatted": "1K",
-  "slug": "bloons-td-battles-2"
+  "slug": "bloons-td-battles-2",
+  "status_color": "blue"
 }

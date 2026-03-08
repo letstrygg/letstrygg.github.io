@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "3h 46m",
   "views_formatted": "1K",
-  "slug": "oni-radioactive-ocean"
+  "slug": "oni-radioactive-ocean",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "12h 39m",
   "views_formatted": "3.9K",
-  "slug": "forager"
+  "slug": "forager",
+  "status_color": "blue"
 }

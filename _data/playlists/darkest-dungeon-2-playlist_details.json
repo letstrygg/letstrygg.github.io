@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "6h 54m",
   "views_formatted": "689",
-  "slug": "darkest-dungeon-2"
+  "slug": "darkest-dungeon-2",
+  "status_color": "blue"
 }

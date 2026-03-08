@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "55m",
   "views_formatted": "123",
-  "slug": "super-auto-pets-s2"
+  "slug": "super-auto-pets-s2",
+  "status_color": "blue"
 }

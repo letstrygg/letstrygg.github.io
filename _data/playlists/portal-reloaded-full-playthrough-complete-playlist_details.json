@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "10h 53m",
   "views_formatted": "1.5K",
-  "slug": "portal-reloaded-full-playthrough-complete"
+  "slug": "portal-reloaded-full-playthrough-complete",
+  "status_color": "blue"
 }

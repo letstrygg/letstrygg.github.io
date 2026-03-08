@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "5h 41m",
   "views_formatted": "370",
-  "slug": "emberward-tower-defense-roguelike"
+  "slug": "emberward-tower-defense-roguelike",
+  "status_color": "blue"
 }

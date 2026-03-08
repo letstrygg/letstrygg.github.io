@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "158h 32m",
   "views_formatted": "38K",
-  "slug": "backpack-battles-s5-10-release"
+  "slug": "backpack-battles-s5-10-release",
+  "status_color": "blue"
 }

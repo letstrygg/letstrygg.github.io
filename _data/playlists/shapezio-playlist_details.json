@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "4h 54m",
   "views_formatted": "3K",
-  "slug": "shapezio"
+  "slug": "shapezio",
+  "status_color": "blue"
 }

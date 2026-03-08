@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 9m",
   "views_formatted": "1.7K",
-  "slug": "swarm-grinder"
+  "slug": "swarm-grinder",
+  "status_color": "blue"
 }

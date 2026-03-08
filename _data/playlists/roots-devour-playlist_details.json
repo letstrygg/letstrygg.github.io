@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 21m",
   "views_formatted": "518",
-  "slug": "roots-devour"
+  "slug": "roots-devour",
+  "status_color": "blue"
 }

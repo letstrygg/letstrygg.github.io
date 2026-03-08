@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "18h 46m",
   "views_formatted": "785",
-  "slug": "the-last-spell"
+  "slug": "the-last-spell",
+  "status_color": "blue"
 }

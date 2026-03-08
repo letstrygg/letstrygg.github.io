@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "13h 17m",
   "views_formatted": "13.2K",
-  "slug": "tower-dominion"
+  "slug": "tower-dominion",
+  "status_color": "blue"
 }

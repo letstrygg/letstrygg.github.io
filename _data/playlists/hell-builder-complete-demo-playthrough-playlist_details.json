@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 1m",
   "views_formatted": "417",
-  "slug": "hell-builder-complete-demo-playthrough"
+  "slug": "hell-builder-complete-demo-playthrough",
+  "status_color": "blue"
 }

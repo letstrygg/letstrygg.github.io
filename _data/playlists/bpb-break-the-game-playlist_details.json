@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "6h 39m",
   "views_formatted": "3K",
-  "slug": "bpb-break-the-game"
+  "slug": "bpb-break-the-game",
+  "status_color": "blue"
 }

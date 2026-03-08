@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 36m",
   "views_formatted": "335",
-  "slug": "despots-game"
+  "slug": "despots-game",
+  "status_color": "blue"
 }

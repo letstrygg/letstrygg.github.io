@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "19h 29m",
   "views_formatted": "7K",
-  "slug": "orb-of-creation"
+  "slug": "orb-of-creation",
+  "status_color": "blue"
 }

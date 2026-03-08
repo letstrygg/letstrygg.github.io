@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "42m",
   "views_formatted": "36",
-  "slug": "v-rising"
+  "slug": "v-rising",
+  "status_color": "blue"
 }

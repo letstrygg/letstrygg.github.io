@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "41m",
   "views_formatted": "233",
-  "slug": "fray-fight"
+  "slug": "fray-fight",
+  "status_color": "blue"
 }

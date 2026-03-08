@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "14h 11m",
   "views_formatted": "1.7K",
-  "slug": "s2-brotato"
+  "slug": "s2-brotato",
+  "status_color": "blue"
 }

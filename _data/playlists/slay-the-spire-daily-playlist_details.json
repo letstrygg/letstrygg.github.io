@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "38h 57m",
   "views_formatted": "521",
-  "slug": "slay-the-spire-daily"
+  "slug": "slay-the-spire-daily",
+  "status_color": "blue"
 }

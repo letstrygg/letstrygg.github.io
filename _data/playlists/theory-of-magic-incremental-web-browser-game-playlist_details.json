@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "10h 51m",
   "views_formatted": "1K",
-  "slug": "theory-of-magic-incremental-web-browser-game"
+  "slug": "theory-of-magic-incremental-web-browser-game",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "8h 1m",
   "views_formatted": "1.2K",
-  "slug": "inscryption"
+  "slug": "inscryption",
+  "status_color": "blue"
 }

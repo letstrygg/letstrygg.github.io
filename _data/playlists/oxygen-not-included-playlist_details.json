@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "38h 32m",
   "views_formatted": "14.8K",
-  "slug": "oxygen-not-included"
+  "slug": "oxygen-not-included",
+  "status_color": "blue"
 }

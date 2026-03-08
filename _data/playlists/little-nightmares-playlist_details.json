@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "3h 14m",
   "views_formatted": "66",
-  "slug": "little-nightmares"
+  "slug": "little-nightmares",
+  "status_color": "blue"
 }

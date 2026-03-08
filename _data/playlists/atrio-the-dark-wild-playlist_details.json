@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 49m",
   "views_formatted": "273",
-  "slug": "atrio-the-dark-wild"
+  "slug": "atrio-the-dark-wild",
+  "status_color": "blue"
 }

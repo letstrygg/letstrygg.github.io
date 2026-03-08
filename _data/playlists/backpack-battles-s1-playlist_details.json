@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "68h 8m",
   "views_formatted": "10.8K",
-  "slug": "backpack-battles-s1"
+  "slug": "backpack-battles-s1",
+  "status_color": "blue"
 }

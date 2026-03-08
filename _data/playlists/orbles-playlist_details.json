@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "45m",
   "views_formatted": "66",
-  "slug": "orbles"
+  "slug": "orbles",
+  "status_color": "blue"
 }

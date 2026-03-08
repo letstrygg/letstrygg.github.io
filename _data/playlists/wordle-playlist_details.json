@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "17h 7m",
   "views_formatted": "997",
-  "slug": "wordle"
+  "slug": "wordle",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 27m",
   "views_formatted": "386",
-  "slug": "merge-maestro"
+  "slug": "merge-maestro",
+  "status_color": "blue"
 }

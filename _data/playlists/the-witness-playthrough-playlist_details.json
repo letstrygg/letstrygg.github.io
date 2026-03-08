@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "13h 9m",
   "views_formatted": "1.8K",
-  "slug": "the-witness-playthrough"
+  "slug": "the-witness-playthrough",
+  "status_color": "blue"
 }

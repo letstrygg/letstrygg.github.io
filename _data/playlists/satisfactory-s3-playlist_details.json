@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "18h 6m",
   "views_formatted": "595",
-  "slug": "satisfactory-s3"
+  "slug": "satisfactory-s3",
+  "status_color": "blue"
 }

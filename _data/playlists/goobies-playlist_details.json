@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 20m",
   "views_formatted": "421",
-  "slug": "goobies"
+  "slug": "goobies",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "4h 27m",
   "views_formatted": "1.8K",
-  "slug": "outpath"
+  "slug": "outpath",
+  "status_color": "blue"
 }

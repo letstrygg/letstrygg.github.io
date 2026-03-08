@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 54m",
   "views_formatted": "1.6K",
-  "slug": "nearly-dead-live-and-let-die"
+  "slug": "nearly-dead-live-and-let-die",
+  "status_color": "blue"
 }

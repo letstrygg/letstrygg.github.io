@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "30h 25m",
   "views_formatted": "1.5K",
-  "slug": "kenshi"
+  "slug": "kenshi",
+  "status_color": "blue"
 }

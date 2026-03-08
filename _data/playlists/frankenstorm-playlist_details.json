@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "17h 23m",
   "views_formatted": "1.6K",
-  "slug": "frankenstorm"
+  "slug": "frankenstorm",
+  "status_color": "blue"
 }

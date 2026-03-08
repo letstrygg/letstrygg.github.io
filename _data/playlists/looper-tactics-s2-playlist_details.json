@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "4h 56m",
   "views_formatted": "1.9K",
-  "slug": "looper-tactics-s2"
+  "slug": "looper-tactics-s2",
+  "status_color": "blue"
 }

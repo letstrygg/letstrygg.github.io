@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 18m",
   "views_formatted": "511",
-  "slug": "blood-card-2-dark-mist"
+  "slug": "blood-card-2-dark-mist",
+  "status_color": "blue"
 }

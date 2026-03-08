@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "59m",
   "views_formatted": "86",
-  "slug": "salt-and-sanctuary"
+  "slug": "salt-and-sanctuary",
+  "status_color": "blue"
 }

@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 41m",
   "views_formatted": "122",
-  "slug": "skull-horde"
+  "slug": "skull-horde",
+  "status_color": "blue"
 }

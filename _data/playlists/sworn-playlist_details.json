@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 55m",
   "views_formatted": "1.6K",
-  "slug": "sworn"
+  "slug": "sworn",
+  "status_color": "blue"
 }

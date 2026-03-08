@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "16h 8m",
   "views_formatted": "5.7K",
-  "slug": "backpack-battles-beta"
+  "slug": "backpack-battles-beta",
+  "status_color": "blue"
 }

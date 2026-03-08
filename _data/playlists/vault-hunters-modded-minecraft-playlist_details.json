@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "6h 34m",
   "views_formatted": "748",
-  "slug": "vault-hunters-modded-minecraft"
+  "slug": "vault-hunters-modded-minecraft",
+  "status_color": "blue"
 }

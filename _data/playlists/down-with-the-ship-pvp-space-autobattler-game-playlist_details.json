@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "3h 57m",
   "views_formatted": "425",
-  "slug": "down-with-the-ship-pvp-space-autobattler-game"
+  "slug": "down-with-the-ship-pvp-space-autobattler-game",
+  "status_color": "blue"
 }

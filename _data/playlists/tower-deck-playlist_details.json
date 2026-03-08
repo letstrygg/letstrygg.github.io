@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "56m",
   "views_formatted": "190",
-  "slug": "tower-deck"
+  "slug": "tower-deck",
+  "status_color": "blue"
 }

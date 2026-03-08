@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 9m",
   "views_formatted": "315",
-  "slug": "apico-bee-keeping-lets-play"
+  "slug": "apico-bee-keeping-lets-play",
+  "status_color": "blue"
 }

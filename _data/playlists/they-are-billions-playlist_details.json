@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "2h 0m",
   "views_formatted": "275",
-  "slug": "they-are-billions"
+  "slug": "they-are-billions",
+  "status_color": "blue"
 }

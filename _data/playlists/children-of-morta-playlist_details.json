@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "1h 44m",
   "views_formatted": "323",
-  "slug": "children-of-morta"
+  "slug": "children-of-morta",
+  "status_color": "blue"
 }

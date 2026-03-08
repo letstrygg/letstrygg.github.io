@@ -11,5 +11,6 @@
   "status": "Completed",
   "duration_formatted": "3h 33m",
   "views_formatted": "1.7K",
-  "slug": "how-many-dudes"
+  "slug": "how-many-dudes",
+  "status_color": "blue"
 }
