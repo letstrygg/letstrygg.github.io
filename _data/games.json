@@ -11,7 +11,9 @@
     "status_color": "green",
     "updated": "2026-03-07T16:00:31Z",
     "views_formatted": "155",
-    "duration_formatted": "10h 32m"
+    "duration_formatted": "10h 32m",
+    "vpv": 39,
+    "vpv_formatted": "39"
   },
   {
     "id": "oaken-tower",
@@ -25,7 +27,9 @@
     "status_color": "green",
     "updated": "2026-03-02T14:01:01Z",
     "views_formatted": "54.2K",
-    "duration_formatted": "159h 17m"
+    "duration_formatted": "159h 17m",
+    "vpv": 200,
+    "vpv_formatted": "200"
   },
   {
     "id": "megabonk",
@@ -39,7 +43,9 @@
     "status_color": "blue",
     "updated": "2026-01-21T12:00:52Z",
     "views_formatted": "35.7K",
-    "duration_formatted": "124h 45m"
+    "duration_formatted": "124h 45m",
+    "vpv": 270,
+    "vpv_formatted": "270"
   },
   {
     "id": "monster-train-2",
@@ -53,7 +59,9 @@
     "status_color": "purple",
     "updated": "2026-02-08T15:00:49Z",
     "views_formatted": "1.1K",
-    "duration_formatted": "54h 25m"
+    "duration_formatted": "54h 25m",
+    "vpv": 35,
+    "vpv_formatted": "35"
   },
   {
     "id": "noita",
@@ -67,7 +75,9 @@
     "status_color": "blue",
     "updated": "2024-08-16T12:00:16Z",
     "views_formatted": "220.6K",
-    "duration_formatted": "395h 32m"
+    "duration_formatted": "395h 32m",
+    "vpv": 498,
+    "vpv_formatted": "498"
   },
   {
     "id": "gemcraft-fbw",
@@ -81,7 +91,9 @@
     "status_color": "blue",
     "updated": "2022-07-11T13:00:02Z",
     "views_formatted": "81.9K",
-    "duration_formatted": "198h 37m"
+    "duration_formatted": "198h 37m",
+    "vpv": 201,
+    "vpv_formatted": "201"
   },
   {
     "id": "he-is-coming",
@@ -95,7 +107,9 @@
     "status_color": "blue",
     "updated": "2025-09-30T12:01:54Z",
     "views_formatted": "59.8K",
-    "duration_formatted": "69h 25m"
+    "duration_formatted": "69h 25m",
+    "vpv": 664,
+    "vpv_formatted": "664"
   },
   {
     "id": "tower-dominion",
@@ -109,7 +123,9 @@
     "status_color": "blue",
     "updated": "2025-05-01T17:01:11Z",
     "views_formatted": "13.2K",
-    "duration_formatted": "13h 17m"
+    "duration_formatted": "13h 17m",
+    "vpv": 776,
+    "vpv_formatted": "776"
   },
   {
     "id": "magicraft",
@@ -123,7 +139,9 @@
     "status_color": "blue",
     "updated": "2025-09-10T12:00:27Z",
     "views_formatted": "252.4K",
-    "duration_formatted": "197h 48m"
+    "duration_formatted": "197h 48m",
+    "vpv": 1387,
+    "vpv_formatted": "1.4K"
   },
   {
     "id": "ball-x-pit",
@@ -137,7 +155,9 @@
     "status_color": "blue",
     "updated": "2025-10-07T12:00:35Z",
     "views_formatted": "2.3K",
-    "duration_formatted": "8h 31m"
+    "duration_formatted": "8h 31m",
+    "vpv": 143,
+    "vpv_formatted": "143"
   },
   {
     "id": "bloons-td-6",
@@ -151,7 +171,9 @@
     "status_color": "green",
     "updated": "2026-03-06T14:00:12Z",
     "views_formatted": "5.8K",
-    "duration_formatted": "78h 33m"
+    "duration_formatted": "78h 33m",
+    "vpv": 50,
+    "vpv_formatted": "50"
   },
   {
     "id": "turnbound",
@@ -165,7 +187,9 @@
     "status_color": "blue",
     "updated": "2025-10-15T14:01:05Z",
     "views_formatted": "285",
-    "duration_formatted": "1h 50m"
+    "duration_formatted": "1h 50m",
+    "vpv": 143,
+    "vpv_formatted": "143"
   },
   {
     "id": "toy-smash-kaboom",
@@ -179,7 +203,9 @@
     "status_color": "blue",
     "updated": "2025-12-16T14:01:10Z",
     "views_formatted": "2.2K",
-    "duration_formatted": "11h 3m"
+    "duration_formatted": "11h 3m",
+    "vpv": 270,
+    "vpv_formatted": "270"
   },
   {
     "id": "stabjack",
@@ -193,7 +219,9 @@
     "status_color": "blue",
     "updated": "2025-10-09T14:01:03Z",
     "views_formatted": "264",
-    "duration_formatted": "1h 56m"
+    "duration_formatted": "1h 56m",
+    "vpv": 66,
+    "vpv_formatted": "66"
   },
   {
     "id": "archon-soul",
@@ -207,7 +235,9 @@
     "status_color": "blue",
     "updated": "2025-10-07T12:01:49Z",
     "views_formatted": "105",
-    "duration_formatted": "2h 7m"
+    "duration_formatted": "2h 7m",
+    "vpv": 35,
+    "vpv_formatted": "35"
   },
   {
     "id": "deadly-days-roadtrip",
@@ -221,7 +251,9 @@
     "status_color": "blue",
     "updated": "2025-10-01T16:00:12Z",
     "views_formatted": "145",
-    "duration_formatted": "2h 33m"
+    "duration_formatted": "2h 33m",
+    "vpv": 73,
+    "vpv_formatted": "73"
   },
   {
     "id": "backpack-battles",
@@ -235,7 +267,9 @@
     "status_color": "green",
     "updated": "2026-03-04T12:00:51Z",
     "views_formatted": "263.3K",
-    "duration_formatted": "898h 14m"
+    "duration_formatted": "898h 14m",
+    "vpv": 292,
+    "vpv_formatted": "292"
   },
   {
     "id": "monster-battles",
@@ -249,7 +283,9 @@
     "status_color": "blue",
     "updated": "2026-02-25T14:01:08Z",
     "views_formatted": "5.3K",
-    "duration_formatted": "27h 7m"
+    "duration_formatted": "27h 7m",
+    "vpv": 178,
+    "vpv_formatted": "178"
   },
   {
     "id": "auto-rogue",
@@ -263,7 +299,9 @@
     "status_color": "blue",
     "updated": "2025-09-24T16:01:27Z",
     "views_formatted": "150",
-    "duration_formatted": "2h 18m"
+    "duration_formatted": "2h 18m",
+    "vpv": 75,
+    "vpv_formatted": "75"
   },
   {
     "id": "brawl-to-the-west",
@@ -277,7 +315,9 @@
     "status_color": "blue",
     "updated": "2025-08-29T14:00:22Z",
     "views_formatted": "262",
-    "duration_formatted": "3h 18m"
+    "duration_formatted": "3h 18m",
+    "vpv": 66,
+    "vpv_formatted": "66"
   },
   {
     "id": "skill-legends-royale",
@@ -291,7 +331,9 @@
     "status_color": "blue",
     "updated": "2025-08-28T14:00:47Z",
     "views_formatted": "1.8K",
-    "duration_formatted": "14h 29m"
+    "duration_formatted": "14h 29m",
+    "vpv": 55,
+    "vpv_formatted": "55"
   },
   {
     "id": "the-bazaar",
@@ -305,7 +347,9 @@
     "status_color": "blue",
     "updated": "2025-12-24T23:45:00Z",
     "views_formatted": "2.9K",
-    "duration_formatted": "24h 6m"
+    "duration_formatted": "24h 6m",
+    "vpv": 153,
+    "vpv_formatted": "153"
   },
   {
     "id": "cube-chaos",
@@ -319,7 +363,9 @@
     "status_color": "blue",
     "updated": "2025-08-26T16:00:02Z",
     "views_formatted": "39.9K",
-    "duration_formatted": "110h 20m"
+    "duration_formatted": "110h 20m",
+    "vpv": 321,
+    "vpv_formatted": "321"
   },
   {
     "id": "backpack-brawl",
@@ -333,7 +379,9 @@
     "status_color": "blue",
     "updated": "2025-07-22T16:01:04Z",
     "views_formatted": "365",
-    "duration_formatted": "1h 20m"
+    "duration_formatted": "1h 20m",
+    "vpv": 183,
+    "vpv_formatted": "183"
   },
   {
     "id": "for-the-forge",
@@ -347,7 +395,9 @@
     "status_color": "blue",
     "updated": "2025-07-13T16:00:26Z",
     "views_formatted": "187",
-    "duration_formatted": "3h 3m"
+    "duration_formatted": "3h 3m",
+    "vpv": 47,
+    "vpv_formatted": "47"
   },
   {
     "id": "9-kings-s2",
@@ -361,7 +411,9 @@
     "status_color": "blue",
     "updated": "2025-10-22T16:01:22Z",
     "views_formatted": "1.1K",
-    "duration_formatted": "21h 45m"
+    "duration_formatted": "21h 45m",
+    "vpv": 75,
+    "vpv_formatted": "75"
   },
   {
     "id": "tiny-auto-knights",
@@ -375,7 +427,9 @@
     "status_color": "blue",
     "updated": "2025-06-10T16:01:16Z",
     "views_formatted": "178",
-    "duration_formatted": "2h 48m"
+    "duration_formatted": "2h 48m",
+    "vpv": 45,
+    "vpv_formatted": "45"
   },
   {
     "id": "konfronto",
@@ -389,7 +443,9 @@
     "status_color": "blue",
     "updated": "2025-06-04T14:01:04Z",
     "views_formatted": "211",
-    "duration_formatted": "4h 14m"
+    "duration_formatted": "4h 14m",
+    "vpv": 53,
+    "vpv_formatted": "53"
   },
   {
     "id": "knightica",
@@ -403,7 +459,9 @@
     "status_color": "blue",
     "updated": "2025-03-29T16:00:59Z",
     "views_formatted": "1.1K",
-    "duration_formatted": "2h 2m"
+    "duration_formatted": "2h 2m",
+    "vpv": 530,
+    "vpv_formatted": "530"
   },
   {
     "id": "9-kings-s1",
@@ -417,7 +475,9 @@
     "status_color": "blue",
     "updated": "2025-03-23T12:15:03Z",
     "views_formatted": "660",
-    "duration_formatted": "3h 57m"
+    "duration_formatted": "3h 57m",
+    "vpv": 110,
+    "vpv_formatted": "110"
   },
   {
     "id": "ballionaire",
@@ -431,7 +491,9 @@
     "status_color": "blue",
     "updated": "2024-12-21T16:00:24Z",
     "views_formatted": "4.4K",
-    "duration_formatted": "17h 48m"
+    "duration_formatted": "17h 48m",
+    "vpv": 246,
+    "vpv_formatted": "246"
   },
   {
     "id": "dungeon-clawler",
@@ -445,7 +507,9 @@
     "status_color": "blue",
     "updated": "2024-12-04T14:01:01Z",
     "views_formatted": "3.4K",
-    "duration_formatted": "12h 55m"
+    "duration_formatted": "12h 55m",
+    "vpv": 240,
+    "vpv_formatted": "240"
   },
   {
     "id": "halls-of-torment",
@@ -459,7 +523,9 @@
     "status_color": "blue",
     "updated": "2024-10-23T17:00:44Z",
     "views_formatted": "376",
-    "duration_formatted": "2h 51m"
+    "duration_formatted": "2h 51m",
+    "vpv": 94,
+    "vpv_formatted": "94"
   },
   {
     "id": "card-draw",
@@ -473,7 +539,9 @@
     "status_color": "blue",
     "updated": "2024-11-13T14:00:47Z",
     "views_formatted": "1.9K",
-    "duration_formatted": "2h 16m"
+    "duration_formatted": "2h 16m",
+    "vpv": 937,
+    "vpv_formatted": "937"
   },
   {
     "id": "megaloot",
@@ -487,7 +555,9 @@
     "status_color": "blue",
     "updated": "2024-09-14T16:00:34Z",
     "views_formatted": "6.2K",
-    "duration_formatted": "18h 26m"
+    "duration_formatted": "18h 26m",
+    "vpv": 620,
+    "vpv_formatted": "620"
   },
   {
     "id": "shapez-2",
@@ -501,7 +571,9 @@
     "status_color": "green",
     "updated": "2026-03-06T16:01:10Z",
     "views_formatted": "127",
-    "duration_formatted": "5h 55m"
+    "duration_formatted": "5h 55m",
+    "vpv": 32,
+    "vpv_formatted": "32"
   },
   {
     "id": "wanderburg",
@@ -515,7 +587,9 @@
     "status_color": "blue",
     "updated": "2026-03-01T13:01:09Z",
     "views_formatted": "229",
-    "duration_formatted": "1h 15m"
+    "duration_formatted": "1h 15m",
+    "vpv": 115,
+    "vpv_formatted": "115"
   },
   {
     "id": "dice-a-million",
@@ -529,7 +603,9 @@
     "status_color": "purple",
     "updated": "2026-03-02T16:00:07Z",
     "views_formatted": "824",
-    "duration_formatted": "7h 57m"
+    "duration_formatted": "7h 57m",
+    "vpv": 137,
+    "vpv_formatted": "137"
   },
   {
     "id": "factorio",
@@ -543,7 +619,9 @@
     "status_color": "purple",
     "updated": "2026-03-04T14:00:52Z",
     "views_formatted": "9.5K",
-    "duration_formatted": "103h 42m"
+    "duration_formatted": "103h 42m",
+    "vpv": 104,
+    "vpv_formatted": "104"
   },
   {
     "id": "brotato",
@@ -557,7 +635,9 @@
     "status_color": "purple",
     "updated": "2026-02-21T16:00:10Z",
     "views_formatted": "15.3K",
-    "duration_formatted": "127h 51m"
+    "duration_formatted": "127h 51m",
+    "vpv": 97,
+    "vpv_formatted": "97"
   },
   {
     "id": "zoominoes",
@@ -571,7 +651,9 @@
     "status_color": "blue",
     "updated": "2026-02-09T12:00:14Z",
     "views_formatted": "55",
-    "duration_formatted": "2h 6m"
+    "duration_formatted": "2h 6m",
+    "vpv": 28,
+    "vpv_formatted": "28"
   },
   {
     "id": "alchemortis",
@@ -585,7 +667,9 @@
     "status_color": "blue",
     "updated": "2026-02-07T16:00:14Z",
     "views_formatted": "108",
-    "duration_formatted": "1h 42m"
+    "duration_formatted": "1h 42m",
+    "vpv": 54,
+    "vpv_formatted": "54"
   },
   {
     "id": "lootbound",
@@ -599,7 +683,9 @@
     "status_color": "blue",
     "updated": "2026-02-07T12:01:33Z",
     "views_formatted": "882",
-    "duration_formatted": "1h 57m"
+    "duration_formatted": "1h 57m",
+    "vpv": 294,
+    "vpv_formatted": "294"
   },
   {
     "id": "skull-horde",
@@ -613,7 +699,9 @@
     "status_color": "blue",
     "updated": "2026-02-05T12:01:38Z",
     "views_formatted": "122",
-    "duration_formatted": "1h 41m"
+    "duration_formatted": "1h 41m",
+    "vpv": 61,
+    "vpv_formatted": "61"
   },
   {
     "id": "roots-devour",
@@ -627,7 +715,9 @@
     "status_color": "blue",
     "updated": "2026-02-03T12:01:22Z",
     "views_formatted": "518",
-    "duration_formatted": "1h 21m"
+    "duration_formatted": "1h 21m",
+    "vpv": 259,
+    "vpv_formatted": "259"
   },
   {
     "id": "plants-vs-zombies",
@@ -641,7 +731,9 @@
     "status_color": "blue",
     "updated": "2026-02-16T19:00:02Z",
     "views_formatted": "858",
-    "duration_formatted": "5h 7m"
+    "duration_formatted": "5h 7m",
+    "vpv": 86,
+    "vpv_formatted": "86"
   },
   {
     "id": "dwarves-gdl",
@@ -655,7 +747,9 @@
     "status_color": "blue",
     "updated": "2026-02-02T12:01:20Z",
     "views_formatted": "6.8K",
-    "duration_formatted": "24h 10m"
+    "duration_formatted": "24h 10m",
+    "vpv": 297,
+    "vpv_formatted": "297"
   },
   {
     "id": "fill-up-the-hole",
@@ -669,7 +763,9 @@
     "status_color": "blue",
     "updated": "2026-01-04T14:00:33Z",
     "views_formatted": "583",
-    "duration_formatted": "2h 23m"
+    "duration_formatted": "2h 23m",
+    "vpv": 292,
+    "vpv_formatted": "292"
   },
   {
     "id": "everything-is-crab",
@@ -683,7 +779,9 @@
     "status_color": "blue",
     "updated": "2026-01-19T12:00:05Z",
     "views_formatted": "3.4K",
-    "duration_formatted": "8h 57m"
+    "duration_formatted": "8h 57m",
+    "vpv": 240,
+    "vpv_formatted": "240"
   },
   {
     "id": "how-many-dudes",
@@ -697,7 +795,9 @@
     "status_color": "blue",
     "updated": "2025-12-25T03:30:01Z",
     "views_formatted": "1.7K",
-    "duration_formatted": "3h 33m"
+    "duration_formatted": "3h 33m",
+    "vpv": 210,
+    "vpv_formatted": "210"
   },
   {
     "id": "minemogul",
@@ -711,7 +811,9 @@
     "status_color": "blue",
     "updated": "2025-12-19T12:00:30Z",
     "views_formatted": "349",
-    "duration_formatted": "4h 56m"
+    "duration_formatted": "4h 56m",
+    "vpv": 70,
+    "vpv_formatted": "70"
   },
   {
     "id": "turnbound-s2",
@@ -725,7 +827,9 @@
     "status_color": "blue",
     "updated": "2025-12-16T12:01:52Z",
     "views_formatted": "734",
-    "duration_formatted": "2h 47m"
+    "duration_formatted": "2h 47m",
+    "vpv": 245,
+    "vpv_formatted": "245"
   },
   {
     "id": "cloverpit",
@@ -739,7 +843,9 @@
     "status_color": "blue",
     "updated": "2025-10-11T13:00:16Z",
     "views_formatted": "255",
-    "duration_formatted": "4h 6m"
+    "duration_formatted": "4h 6m",
+    "vpv": 128,
+    "vpv_formatted": "128"
   },
   {
     "id": "black-jacket",
@@ -753,7 +859,9 @@
     "status_color": "blue",
     "updated": "2025-10-10T14:00:42Z",
     "views_formatted": "1.3K",
-    "duration_formatted": "1h 18m"
+    "duration_formatted": "1h 18m",
+    "vpv": 635,
+    "vpv_formatted": "635"
   },
   {
     "id": "machick-2",
@@ -767,7 +875,9 @@
     "status_color": "blue",
     "updated": "2025-09-20T12:00:52Z",
     "views_formatted": "512",
-    "duration_formatted": "1h 0m"
+    "duration_formatted": "1h 0m",
+    "vpv": 256,
+    "vpv_formatted": "256"
   },
   {
     "id": "nimrods",
@@ -781,7 +891,9 @@
     "status_color": "blue",
     "updated": "2025-09-29T14:01:09Z",
     "views_formatted": "4.9K",
-    "duration_formatted": "13h 37m"
+    "duration_formatted": "13h 37m",
+    "vpv": 256,
+    "vpv_formatted": "256"
   },
   {
     "id": "hollow-knight",
@@ -795,7 +907,9 @@
     "status_color": "blue",
     "updated": "2025-09-01T12:00:05Z",
     "views_formatted": "248",
-    "duration_formatted": "1h 42m"
+    "duration_formatted": "1h 42m",
+    "vpv": 83,
+    "vpv_formatted": "83"
   },
   {
     "id": "dungeon-warfare-3",
@@ -809,7 +923,9 @@
     "status_color": "blue",
     "updated": "2025-09-22T12:00:15Z",
     "views_formatted": "11.8K",
-    "duration_formatted": "28h 14m"
+    "duration_formatted": "28h 14m",
+    "vpv": 471,
+    "vpv_formatted": "471"
   },
   {
     "id": "holocure",
@@ -823,7 +939,9 @@
     "status_color": "blue",
     "updated": "2025-08-18T13:30:38Z",
     "views_formatted": "616",
-    "duration_formatted": "2h 18m"
+    "duration_formatted": "2h 18m",
+    "vpv": 308,
+    "vpv_formatted": "308"
   },
   {
     "id": "satisfactory",
@@ -837,7 +955,9 @@
     "status_color": "blue",
     "updated": "2025-08-24T12:00:32Z",
     "views_formatted": "33.5K",
-    "duration_formatted": "197h 21m"
+    "duration_formatted": "197h 21m",
+    "vpv": 209,
+    "vpv_formatted": "209"
   },
   {
     "id": "merge-maestro",
@@ -851,7 +971,9 @@
     "status_color": "blue",
     "updated": "2025-08-04T15:00:32Z",
     "views_formatted": "386",
-    "duration_formatted": "1h 27m"
+    "duration_formatted": "1h 27m",
+    "vpv": 193,
+    "vpv_formatted": "193"
   },
   {
     "id": "hell-builder",
@@ -865,7 +987,9 @@
     "status_color": "blue",
     "updated": "2025-08-03T15:00:04Z",
     "views_formatted": "417",
-    "duration_formatted": "1h 1m"
+    "duration_formatted": "1h 1m",
+    "vpv": 209,
+    "vpv_formatted": "209"
   },
   {
     "id": "luck-loot",
@@ -879,7 +1003,9 @@
     "status_color": "blue",
     "updated": "2025-08-01T15:01:11Z",
     "views_formatted": "262",
-    "duration_formatted": "1h 15m"
+    "duration_formatted": "1h 15m",
+    "vpv": 262,
+    "vpv_formatted": "262"
   },
   {
     "id": "fakutori",
@@ -893,7 +1019,9 @@
     "status_color": "blue",
     "updated": "2026-02-10T12:00:54Z",
     "views_formatted": "3.7K",
-    "duration_formatted": "10h 39m"
+    "duration_formatted": "10h 39m",
+    "vpv": 461,
+    "vpv_formatted": "461"
   },
   {
     "id": "the-last-spell",
@@ -907,7 +1035,9 @@
     "status_color": "blue",
     "updated": "2025-07-22T17:00:43Z",
     "views_formatted": "785",
-    "duration_formatted": "18h 46m"
+    "duration_formatted": "18h 46m",
+    "vpv": 65,
+    "vpv_formatted": "65"
   },
   {
     "id": "leaf-blower-revolution",
@@ -921,7 +1051,9 @@
     "status_color": "blue",
     "updated": "2025-07-11T15:01:02Z",
     "views_formatted": "699",
-    "duration_formatted": "4h 7m"
+    "duration_formatted": "4h 7m",
+    "vpv": 175,
+    "vpv_formatted": "175"
   },
   {
     "id": "shroom-and-gloom",
@@ -935,7 +1067,9 @@
     "status_color": "blue",
     "updated": "2025-06-29T15:01:18Z",
     "views_formatted": "434",
-    "duration_formatted": "2h 59m"
+    "duration_formatted": "2h 59m",
+    "vpv": 217,
+    "vpv_formatted": "217"
   },
   {
     "id": "dark-fairy-tale-ds",
@@ -949,7 +1083,9 @@
     "status_color": "blue",
     "updated": "2025-06-24T13:00:45Z",
     "views_formatted": "186",
-    "duration_formatted": "3h 16m"
+    "duration_formatted": "3h 16m",
+    "vpv": 47,
+    "vpv_formatted": "47"
   },
   {
     "id": "theory-of-magic",
@@ -963,7 +1099,9 @@
     "status_color": "blue",
     "updated": "2025-07-17T15:00:57Z",
     "views_formatted": "1K",
-    "duration_formatted": "10h 51m"
+    "duration_formatted": "10h 51m",
+    "vpv": 148,
+    "vpv_formatted": "148"
   },
   {
     "id": "quick-look-at-games",
@@ -977,7 +1115,9 @@
     "status_color": "blue",
     "updated": "2025-06-11T15:01:16Z",
     "views_formatted": "243",
-    "duration_formatted": "11m"
+    "duration_formatted": "11m",
+    "vpv": 243,
+    "vpv_formatted": "243"
   },
   {
     "id": "god-of-weapons",
@@ -991,7 +1131,9 @@
     "status_color": "blue",
     "updated": "2025-07-02T15:01:42Z",
     "views_formatted": "5.5K",
-    "duration_formatted": "21h 36m"
+    "duration_formatted": "21h 36m",
+    "vpv": 241,
+    "vpv_formatted": "241"
   },
   {
     "id": "warzone",
@@ -1005,7 +1147,9 @@
     "status_color": "blue",
     "updated": "2025-06-09T15:00:20Z",
     "views_formatted": "1.6K",
-    "duration_formatted": "25h 14m"
+    "duration_formatted": "25h 14m",
+    "vpv": 67,
+    "vpv_formatted": "67"
   },
   {
     "id": "red-cap-squad-zombie-source",
@@ -1019,7 +1163,9 @@
     "status_color": "blue",
     "updated": "2025-04-19T15:01:18Z",
     "views_formatted": "121",
-    "duration_formatted": "1h 6m"
+    "duration_formatted": "1h 6m",
+    "vpv": 61,
+    "vpv_formatted": "61"
   },
   {
     "id": "heroes-of-hw-ii",
@@ -1033,7 +1179,9 @@
     "status_color": "blue",
     "updated": "2025-04-03T15:01:20Z",
     "views_formatted": "377",
-    "duration_formatted": "1h 12m"
+    "duration_formatted": "1h 12m",
+    "vpv": 189,
+    "vpv_formatted": "189"
   },
   {
     "id": "gnomes",
@@ -1047,7 +1195,9 @@
     "status_color": "blue",
     "updated": "2025-04-01T17:00:33Z",
     "views_formatted": "278",
-    "duration_formatted": "2h 4m"
+    "duration_formatted": "2h 4m",
+    "vpv": 139,
+    "vpv_formatted": "139"
   },
   {
     "id": "ways-of-alchemy",
@@ -1061,7 +1211,9 @@
     "status_color": "blue",
     "updated": "2025-03-25T17:00:14Z",
     "views_formatted": "399",
-    "duration_formatted": "1h 29m"
+    "duration_formatted": "1h 29m",
+    "vpv": 200,
+    "vpv_formatted": "200"
   },
   {
     "id": "slay-the-princess",
@@ -1075,7 +1227,9 @@
     "status_color": "blue",
     "updated": "2025-03-22T17:00:12Z",
     "views_formatted": "314",
-    "duration_formatted": "1h 15m"
+    "duration_formatted": "1h 15m",
+    "vpv": 105,
+    "vpv_formatted": "105"
   },
   {
     "id": "absorber",
@@ -1089,7 +1243,9 @@
     "status_color": "blue",
     "updated": "2025-03-28T17:00:24Z",
     "views_formatted": "1K",
-    "duration_formatted": "5h 35m"
+    "duration_formatted": "5h 35m",
+    "vpv": 260,
+    "vpv_formatted": "260"
   },
   {
     "id": "rogue-genesia",
@@ -1103,7 +1259,9 @@
     "status_color": "blue",
     "updated": "2025-03-19T15:00:10Z",
     "views_formatted": "464",
-    "duration_formatted": "2h 43m"
+    "duration_formatted": "2h 43m",
+    "vpv": 155,
+    "vpv_formatted": "155"
   },
   {
     "id": "dungeon-sweeper",
@@ -1117,7 +1275,9 @@
     "status_color": "blue",
     "updated": "2025-03-26T15:00:16Z",
     "views_formatted": "4.8K",
-    "duration_formatted": "7h 23m"
+    "duration_formatted": "7h 23m",
+    "vpv": 679,
+    "vpv_formatted": "679"
   },
   {
     "id": "game-trailer-hype",
@@ -1131,7 +1291,9 @@
     "status_color": "blue",
     "updated": "2025-02-20T14:00:33Z",
     "views_formatted": "39",
-    "duration_formatted": "1m"
+    "duration_formatted": "1m",
+    "vpv": 39,
+    "vpv_formatted": "39"
   },
   {
     "id": "die-in-the-dungeon",
@@ -1145,7 +1307,9 @@
     "status_color": "blue",
     "updated": "2025-02-16T19:00:13Z",
     "views_formatted": "807",
-    "duration_formatted": "3h 49m"
+    "duration_formatted": "3h 49m",
+    "vpv": 269,
+    "vpv_formatted": "269"
   },
   {
     "id": "paquerette-dtb",
@@ -1159,7 +1323,9 @@
     "status_color": "blue",
     "updated": "2025-02-18T15:01:05Z",
     "views_formatted": "390",
-    "duration_formatted": "6h 22m"
+    "duration_formatted": "6h 22m",
+    "vpv": 56,
+    "vpv_formatted": "56"
   },
   {
     "id": "creeper-world-3",
@@ -1173,7 +1339,9 @@
     "status_color": "blue",
     "updated": "2025-07-27T17:00:44Z",
     "views_formatted": "21.2K",
-    "duration_formatted": "168h 31m"
+    "duration_formatted": "168h 31m",
+    "vpv": 200,
+    "vpv_formatted": "200"
   },
   {
     "id": "project-zomboid",
@@ -1187,7 +1355,9 @@
     "status_color": "blue",
     "updated": "2025-02-13T15:00:34Z",
     "views_formatted": "555",
-    "duration_formatted": "2h 56m"
+    "duration_formatted": "2h 56m",
+    "vpv": 111,
+    "vpv_formatted": "111"
   },
   {
     "id": "border-pioneer",
@@ -1201,7 +1371,9 @@
     "status_color": "blue",
     "updated": "2025-02-09T15:00:34Z",
     "views_formatted": "931",
-    "duration_formatted": "1h 18m"
+    "duration_formatted": "1h 18m",
+    "vpv": 466,
+    "vpv_formatted": "466"
   },
   {
     "id": "sandustry",
@@ -1215,7 +1387,9 @@
     "status_color": "blue",
     "updated": "2025-02-06T13:00:12Z",
     "views_formatted": "18.9K",
-    "duration_formatted": "4h 0m"
+    "duration_formatted": "4h 0m",
+    "vpv": 6296,
+    "vpv_formatted": "6.3K"
   },
   {
     "id": "cavernous-ii-free-web-browser-game",
@@ -1229,7 +1403,9 @@
     "status_color": "blue",
     "updated": "2025-02-21T17:01:17Z",
     "views_formatted": "7K",
-    "duration_formatted": "8h 12m"
+    "duration_formatted": "8h 12m",
+    "vpv": 782,
+    "vpv_formatted": "782"
   },
   {
     "id": "sworn",
@@ -1243,7 +1419,9 @@
     "status_color": "blue",
     "updated": "2025-01-28T17:00:06Z",
     "views_formatted": "1.6K",
-    "duration_formatted": "2h 55m"
+    "duration_formatted": "2h 55m",
+    "vpv": 313,
+    "vpv_formatted": "313"
   },
   {
     "id": "fractory",
@@ -1257,7 +1435,9 @@
     "status_color": "blue",
     "updated": "2025-01-19T15:00:50Z",
     "views_formatted": "2.4K",
-    "duration_formatted": "4h 58m"
+    "duration_formatted": "4h 58m",
+    "vpv": 811,
+    "vpv_formatted": "811"
   },
   {
     "id": "dredge",
@@ -1271,7 +1451,9 @@
     "status_color": "blue",
     "updated": "2025-02-09T13:00:28Z",
     "views_formatted": "2.2K",
-    "duration_formatted": "9h 51m"
+    "duration_formatted": "9h 51m",
+    "vpv": 138,
+    "vpv_formatted": "138"
   },
   {
     "id": "super-fantasy-kingdom",
@@ -1285,7 +1467,9 @@
     "status_color": "blue",
     "updated": "2024-12-06T13:00:58Z",
     "views_formatted": "7.1K",
-    "duration_formatted": "6h 0m"
+    "duration_formatted": "6h 0m",
+    "vpv": 707,
+    "vpv_formatted": "707"
   },
   {
     "id": "creeper-world-ixe",
@@ -1299,7 +1483,9 @@
     "status_color": "blue",
     "updated": "2025-06-02T13:01:20Z",
     "views_formatted": "9.4K",
-    "duration_formatted": "31h 0m"
+    "duration_formatted": "31h 0m",
+    "vpv": 449,
+    "vpv_formatted": "449"
   },
   {
     "id": "emberward",
@@ -1313,7 +1499,9 @@
     "status_color": "blue",
     "updated": "2024-09-06T13:00:30Z",
     "views_formatted": "370",
-    "duration_formatted": "5h 41m"
+    "duration_formatted": "5h 41m",
+    "vpv": 93,
+    "vpv_formatted": "93"
   },
   {
     "id": "heretics-fork",
@@ -1327,7 +1515,9 @@
     "status_color": "blue",
     "updated": "2024-08-26T13:00:04Z",
     "views_formatted": "627",
-    "duration_formatted": "1h 25m"
+    "duration_formatted": "1h 25m",
+    "vpv": 314,
+    "vpv_formatted": "314"
   },
   {
     "id": "portal-reloaded",
@@ -1341,7 +1531,9 @@
     "status_color": "blue",
     "updated": "2024-08-13T17:00:15Z",
     "views_formatted": "1.5K",
-    "duration_formatted": "10h 53m"
+    "duration_formatted": "10h 53m",
+    "vpv": 96,
+    "vpv_formatted": "96"
   },
   {
     "id": "deep-rock-g-survivors",
@@ -1355,7 +1547,9 @@
     "status_color": "blue",
     "updated": "2024-07-17T13:00:13Z",
     "views_formatted": "1.1K",
-    "duration_formatted": "5h 41m"
+    "duration_formatted": "5h 41m",
+    "vpv": 118,
+    "vpv_formatted": "118"
   },
   {
     "id": "slay-the-spire",
@@ -1369,7 +1563,9 @@
     "status_color": "blue",
     "updated": "2025-11-08T16:01:22Z",
     "views_formatted": "2.7K",
-    "duration_formatted": "83h 34m"
+    "duration_formatted": "83h 34m",
+    "vpv": 45,
+    "vpv_formatted": "45"
   },
   {
     "id": "gladiator-guild-manager",
@@ -1383,7 +1579,9 @@
     "status_color": "blue",
     "updated": "2024-06-25T16:00:35Z",
     "views_formatted": "813",
-    "duration_formatted": "2h 42m"
+    "duration_formatted": "2h 42m",
+    "vpv": 271,
+    "vpv_formatted": "271"
   },
   {
     "id": "squad-busters",
@@ -1397,7 +1595,9 @@
     "status_color": "blue",
     "updated": "2024-06-06T18:00:02Z",
     "views_formatted": "414",
-    "duration_formatted": "3h 33m"
+    "duration_formatted": "3h 33m",
+    "vpv": 69,
+    "vpv_formatted": "69"
   },
   {
     "id": "orb-of-creation",
@@ -1411,7 +1611,9 @@
     "status_color": "blue",
     "updated": "2024-05-25T19:25:00Z",
     "views_formatted": "8K",
-    "duration_formatted": "21h 22m"
+    "duration_formatted": "21h 22m",
+    "vpv": 320,
+    "vpv_formatted": "320"
   },
   {
     "id": "inscryption",
@@ -1425,7 +1627,9 @@
     "status_color": "blue",
     "updated": "2024-05-30T14:30:16Z",
     "views_formatted": "1.2K",
-    "duration_formatted": "8h 1m"
+    "duration_formatted": "8h 1m",
+    "vpv": 110,
+    "vpv_formatted": "110"
   },
   {
     "id": "animal-well",
@@ -1439,7 +1643,9 @@
     "status_color": "blue",
     "updated": "2024-08-03T15:00:44Z",
     "views_formatted": "4.3K",
-    "duration_formatted": "15h 9m"
+    "duration_formatted": "15h 9m",
+    "vpv": 159,
+    "vpv_formatted": "159"
   },
   {
     "id": "swarm-grinder",
@@ -1453,7 +1659,9 @@
     "status_color": "blue",
     "updated": "2024-04-18T19:00:21Z",
     "views_formatted": "1.7K",
-    "duration_formatted": "2h 9m"
+    "duration_formatted": "2h 9m",
+    "vpv": 420,
+    "vpv_formatted": "420"
   },
   {
     "id": "autoforge",
@@ -1467,7 +1675,9 @@
     "status_color": "blue",
     "updated": "2024-04-26T19:00:09Z",
     "views_formatted": "5K",
-    "duration_formatted": "6h 37m"
+    "duration_formatted": "6h 37m",
+    "vpv": 559,
+    "vpv_formatted": "559"
   },
   {
     "id": "starground",
@@ -1481,7 +1691,9 @@
     "status_color": "blue",
     "updated": "2024-04-07T13:00:08Z",
     "views_formatted": "2.7K",
-    "duration_formatted": "1h 52m"
+    "duration_formatted": "1h 52m",
+    "vpv": 897,
+    "vpv_formatted": "897"
   },
   {
     "id": "undermine",
@@ -1495,7 +1707,9 @@
     "status_color": "blue",
     "updated": "2024-03-19T13:00:01Z",
     "views_formatted": "1.5K",
-    "duration_formatted": "1h 36m"
+    "duration_formatted": "1h 36m",
+    "vpv": 773,
+    "vpv_formatted": "773"
   },
   {
     "id": "goobies",
@@ -1509,7 +1723,9 @@
     "status_color": "blue",
     "updated": "2024-03-13T14:30:05Z",
     "views_formatted": "421",
-    "duration_formatted": "2h 20m"
+    "duration_formatted": "2h 20m",
+    "vpv": 140,
+    "vpv_formatted": "140"
   },
   {
     "id": "the-gnorp-apologue",
@@ -1523,7 +1739,9 @@
     "status_color": "blue",
     "updated": "2024-03-09T14:30:14Z",
     "views_formatted": "248",
-    "duration_formatted": "2h 31m"
+    "duration_formatted": "2h 31m",
+    "vpv": 124,
+    "vpv_formatted": "124"
   },
   {
     "id": "balatro",
@@ -1537,7 +1755,9 @@
     "status_color": "blue",
     "updated": "2024-03-09T13:00:15Z",
     "views_formatted": "1.6K",
-    "duration_formatted": "12h 24m"
+    "duration_formatted": "12h 24m",
+    "vpv": 137,
+    "vpv_formatted": "137"
   },
   {
     "id": "nearly-dead-lald",
@@ -1551,7 +1771,9 @@
     "status_color": "blue",
     "updated": "2024-02-25T14:30:19Z",
     "views_formatted": "1.6K",
-    "duration_formatted": "2h 54m"
+    "duration_formatted": "2h 54m",
+    "vpv": 404,
+    "vpv_formatted": "404"
   },
   {
     "id": "a-land-goos-crazy",
@@ -1565,7 +1787,9 @@
     "status_color": "blue",
     "updated": "2024-02-19T14:30:09Z",
     "views_formatted": "531",
-    "duration_formatted": "2h 6m"
+    "duration_formatted": "2h 6m",
+    "vpv": 133,
+    "vpv_formatted": "133"
   },
   {
     "id": "they-are-billions",
@@ -1579,7 +1803,9 @@
     "status_color": "blue",
     "updated": "2024-02-04T14:30:17Z",
     "views_formatted": "275",
-    "duration_formatted": "2h 0m"
+    "duration_formatted": "2h 0m",
+    "vpv": 92,
+    "vpv_formatted": "92"
   },
   {
     "id": "minecraft",
@@ -1593,7 +1819,9 @@
     "status_color": "blue",
     "updated": "2024-01-27T14:30:03Z",
     "views_formatted": "748",
-    "duration_formatted": "6h 34m"
+    "duration_formatted": "6h 34m",
+    "vpv": 125,
+    "vpv_formatted": "125"
   },
   {
     "id": "tiny-rogues",
@@ -1607,7 +1835,9 @@
     "status_color": "blue",
     "updated": "2024-01-18T14:30:12Z",
     "views_formatted": "2.2K",
-    "duration_formatted": "14h 38m"
+    "duration_formatted": "14h 38m",
+    "vpv": 118,
+    "vpv_formatted": "118"
   },
   {
     "id": "stratum-descent",
@@ -1621,7 +1851,9 @@
     "status_color": "blue",
     "updated": "2024-01-07T13:00:08Z",
     "views_formatted": "2K",
-    "duration_formatted": "3h 19m"
+    "duration_formatted": "3h 19m",
+    "vpv": 402,
+    "vpv_formatted": "402"
   },
   {
     "id": "below-the-stone",
@@ -1635,7 +1867,9 @@
     "status_color": "blue",
     "updated": "2024-04-28T19:00:03Z",
     "views_formatted": "8.1K",
-    "duration_formatted": "6h 50m"
+    "duration_formatted": "6h 50m",
+    "vpv": 673,
+    "vpv_formatted": "673"
   },
   {
     "id": "lucky-hero",
@@ -1649,7 +1883,9 @@
     "status_color": "blue",
     "updated": "2023-12-04T14:30:24Z",
     "views_formatted": "1.4K",
-    "duration_formatted": "5h 14m"
+    "duration_formatted": "5h 14m",
+    "vpv": 343,
+    "vpv_formatted": "343"
   },
   {
     "id": "looper-tactics-s2",
@@ -1663,7 +1899,9 @@
     "status_color": "blue",
     "updated": "2023-12-02T13:00:31Z",
     "views_formatted": "1.9K",
-    "duration_formatted": "4h 56m"
+    "duration_formatted": "4h 56m",
+    "vpv": 316,
+    "vpv_formatted": "316"
   },
   {
     "id": "stuck-in-time",
@@ -1677,7 +1915,9 @@
     "status_color": "blue",
     "updated": "2023-12-23T19:00:04Z",
     "views_formatted": "8.7K",
-    "duration_formatted": "11h 8m"
+    "duration_formatted": "11h 8m",
+    "vpv": 415,
+    "vpv_formatted": "415"
   },
   {
     "id": "terra-cards",
@@ -1691,7 +1931,9 @@
     "status_color": "blue",
     "updated": "2023-11-22T13:00:17Z",
     "views_formatted": "1.2K",
-    "duration_formatted": "1h 28m"
+    "duration_formatted": "1h 28m",
+    "vpv": 580,
+    "vpv_formatted": "580"
   },
   {
     "id": "death-must-die",
@@ -1705,7 +1947,9 @@
     "status_color": "blue",
     "updated": "2023-11-18T13:00:03Z",
     "views_formatted": "564",
-    "duration_formatted": "58m"
+    "duration_formatted": "58m",
+    "vpv": 282,
+    "vpv_formatted": "282"
   },
   {
     "id": "rogue-legacy-2",
@@ -1719,7 +1963,9 @@
     "status_color": "blue",
     "updated": "2023-11-14T19:00:02Z",
     "views_formatted": "1.6K",
-    "duration_formatted": "5h 33m"
+    "duration_formatted": "5h 33m",
+    "vpv": 178,
+    "vpv_formatted": "178"
   },
   {
     "id": "outpath",
@@ -1733,7 +1979,9 @@
     "status_color": "blue",
     "updated": "2023-11-12T19:00:17Z",
     "views_formatted": "1.8K",
-    "duration_formatted": "4h 27m"
+    "duration_formatted": "4h 27m",
+    "vpv": 259,
+    "vpv_formatted": "259"
   },
   {
     "id": "mind-over-magic",
@@ -1747,7 +1995,9 @@
     "status_color": "blue",
     "updated": "2023-11-08T19:00:19Z",
     "views_formatted": "823",
-    "duration_formatted": "1h 26m"
+    "duration_formatted": "1h 26m",
+    "vpv": 274,
+    "vpv_formatted": "274"
   },
   {
     "id": "slime-3k",
@@ -1761,7 +2011,9 @@
     "status_color": "blue",
     "updated": "2023-10-25T19:30:00Z",
     "views_formatted": "768",
-    "duration_formatted": "2h 9m"
+    "duration_formatted": "2h 9m",
+    "vpv": 192,
+    "vpv_formatted": "192"
   },
   {
     "id": "foundry",
@@ -1775,7 +2027,9 @@
     "status_color": "blue",
     "updated": "2023-10-21T22:00:08Z",
     "views_formatted": "2.8K",
-    "duration_formatted": "6h 2m"
+    "duration_formatted": "6h 2m",
+    "vpv": 185,
+    "vpv_formatted": "185"
   },
   {
     "id": "techtonica",
@@ -1789,7 +2043,9 @@
     "status_color": "blue",
     "updated": "2023-09-14T17:00:33Z",
     "views_formatted": "194",
-    "duration_formatted": "2h 30m"
+    "duration_formatted": "2h 30m",
+    "vpv": 49,
+    "vpv_formatted": "49"
   },
   {
     "id": "vectorio",
@@ -1803,7 +2059,9 @@
     "status_color": "blue",
     "updated": "2023-09-09T19:00:01Z",
     "views_formatted": "7.5K",
-    "duration_formatted": "9h 40m"
+    "duration_formatted": "9h 40m",
+    "vpv": 397,
+    "vpv_formatted": "397"
   },
   {
     "id": "asgards-fall",
@@ -1817,7 +2075,9 @@
     "status_color": "blue",
     "updated": "2025-04-11T15:01:29Z",
     "views_formatted": "2.6K",
-    "duration_formatted": "2h 38m"
+    "duration_formatted": "2h 38m",
+    "vpv": 528,
+    "vpv_formatted": "528"
   },
   {
     "id": "kdomon-hyper-auto-battlers",
@@ -1831,7 +2091,9 @@
     "status_color": "blue",
     "updated": "2024-01-31T14:30:14Z",
     "views_formatted": "599",
-    "duration_formatted": "1h 47m"
+    "duration_formatted": "1h 47m",
+    "vpv": 150,
+    "vpv_formatted": "150"
   },
   {
     "id": "forager",
@@ -1845,7 +2107,9 @@
     "status_color": "blue",
     "updated": "2023-09-05T19:00:31Z",
     "views_formatted": "3.9K",
-    "duration_formatted": "12h 39m"
+    "duration_formatted": "12h 39m",
+    "vpv": 135,
+    "vpv_formatted": "135"
   },
   {
     "id": "thronefall",
@@ -1859,7 +2123,9 @@
     "status_color": "blue",
     "updated": "2024-03-11T13:00:21Z",
     "views_formatted": "456",
-    "duration_formatted": "2h 54m"
+    "duration_formatted": "2h 54m",
+    "vpv": 114,
+    "vpv_formatted": "114"
   },
   {
     "id": "oni-radioactive-ocean",
@@ -1873,7 +2139,9 @@
     "status_color": "blue",
     "updated": "2023-08-27T13:00:37Z",
     "views_formatted": "1K",
-    "duration_formatted": "3h 46m"
+    "duration_formatted": "3h 46m",
+    "vpv": 102,
+    "vpv_formatted": "102"
   },
   {
     "id": "oxygen-not-included",
@@ -1887,7 +2155,9 @@
     "status_color": "blue",
     "updated": "2023-09-05T00:00:01Z",
     "views_formatted": "14.8K",
-    "duration_formatted": "38h 32m"
+    "duration_formatted": "38h 32m",
+    "vpv": 238,
+    "vpv_formatted": "238"
   },
   {
     "id": "nova-lands",
@@ -1901,7 +2171,9 @@
     "status_color": "blue",
     "updated": "2023-06-19T22:00:32Z",
     "views_formatted": "428",
-    "duration_formatted": "2h 11m"
+    "duration_formatted": "2h 11m",
+    "vpv": 143,
+    "vpv_formatted": "143"
   },
   {
     "id": "20-minutes-till-dawn",
@@ -1915,7 +2187,9 @@
     "status_color": "blue",
     "updated": "2023-06-26T02:31:46Z",
     "views_formatted": "1K",
-    "duration_formatted": "12h 10m"
+    "duration_formatted": "12h 10m",
+    "vpv": 68,
+    "vpv_formatted": "68"
   },
   {
     "id": "idle-loops",
@@ -1929,7 +2203,9 @@
     "status_color": "blue",
     "updated": "2023-06-18T00:00:24Z",
     "views_formatted": "18.6K",
-    "duration_formatted": "14h 56m"
+    "duration_formatted": "14h 56m",
+    "vpv": 931,
+    "vpv_formatted": "931"
   },
   {
     "id": "vampire-survivors",
@@ -1943,7 +2219,9 @@
     "status_color": "blue",
     "updated": "2023-12-23T14:30:10Z",
     "views_formatted": "65.8K",
-    "duration_formatted": "86h 21m"
+    "duration_formatted": "86h 21m",
+    "vpv": 526,
+    "vpv_formatted": "526"
   },
   {
     "id": "galactic-glitch",
@@ -1957,7 +2235,9 @@
     "status_color": "blue",
     "updated": "2023-05-28T13:00:30Z",
     "views_formatted": "95",
-    "duration_formatted": "31m"
+    "duration_formatted": "31m",
+    "vpv": 95,
+    "vpv_formatted": "95"
   },
   {
     "id": "mob-factory",
@@ -1971,7 +2251,9 @@
     "status_color": "blue",
     "updated": "2023-05-27T00:00:06Z",
     "views_formatted": "2.4K",
-    "duration_formatted": "1h 25m"
+    "duration_formatted": "1h 25m",
+    "vpv": 394,
+    "vpv_formatted": "394"
   },
   {
     "id": "tower-deck",
@@ -1985,7 +2267,9 @@
     "status_color": "blue",
     "updated": "2023-05-21T22:00:14Z",
     "views_formatted": "190",
-    "duration_formatted": "56m"
+    "duration_formatted": "56m",
+    "vpv": 95,
+    "vpv_formatted": "95"
   },
   {
     "id": "children-of-morta",
@@ -1999,7 +2283,9 @@
     "status_color": "blue",
     "updated": "2023-05-20T22:00:03Z",
     "views_formatted": "323",
-    "duration_formatted": "1h 44m"
+    "duration_formatted": "1h 44m",
+    "vpv": 108,
+    "vpv_formatted": "108"
   },
   {
     "id": "darkest-dungeon-2",
@@ -2013,7 +2299,9 @@
     "status_color": "blue",
     "updated": "2023-05-19T22:00:19Z",
     "views_formatted": "689",
-    "duration_formatted": "6h 54m"
+    "duration_formatted": "6h 54m",
+    "vpv": 77,
+    "vpv_formatted": "77"
   },
   {
     "id": "free-itchio-games",
@@ -2027,7 +2315,9 @@
     "status_color": "blue",
     "updated": "2023-05-08T13:00:42Z",
     "views_formatted": "2.5K",
-    "duration_formatted": "3h 59m"
+    "duration_formatted": "3h 59m",
+    "vpv": 493,
+    "vpv_formatted": "493"
   },
   {
     "id": "graveyard-keeper",
@@ -2041,7 +2331,9 @@
     "status_color": "blue",
     "updated": "2023-05-18T17:00:02Z",
     "views_formatted": "685",
-    "duration_formatted": "6h 47m"
+    "duration_formatted": "6h 47m",
+    "vpv": 57,
+    "vpv_formatted": "57"
   },
   {
     "id": "castle-of-alchemist",
@@ -2055,7 +2347,9 @@
     "status_color": "blue",
     "updated": "2023-04-24T13:00:11Z",
     "views_formatted": "1K",
-    "duration_formatted": "58m"
+    "duration_formatted": "58m",
+    "vpv": 521,
+    "vpv_formatted": "521"
   },
   {
     "id": "gods-of-defense",
@@ -2069,7 +2363,9 @@
     "status_color": "blue",
     "updated": "2023-04-13T15:00:02Z",
     "views_formatted": "571",
-    "duration_formatted": "38m"
+    "duration_formatted": "38m",
+    "vpv": 571,
+    "vpv_formatted": "571"
   },
   {
     "id": "takara-cards",
@@ -2083,7 +2379,9 @@
     "status_color": "blue",
     "updated": "2023-04-03T17:00:21Z",
     "views_formatted": "99",
-    "duration_formatted": "2h 29m"
+    "duration_formatted": "2h 29m",
+    "vpv": 25,
+    "vpv_formatted": "25"
   },
   {
     "id": "rain-world",
@@ -2097,7 +2395,9 @@
     "status_color": "blue",
     "updated": "2023-03-25T13:00:25Z",
     "views_formatted": "375",
-    "duration_formatted": "1h 11m"
+    "duration_formatted": "1h 11m",
+    "vpv": 125,
+    "vpv_formatted": "125"
   },
   {
     "id": "gunsuit-guardians",
@@ -2111,7 +2411,9 @@
     "status_color": "blue",
     "updated": "2023-03-19T13:00:03Z",
     "views_formatted": "987",
-    "duration_formatted": "1h 14m"
+    "duration_formatted": "1h 14m",
+    "vpv": 329,
+    "vpv_formatted": "329"
   },
   {
     "id": "kerbal-space-program-2",
@@ -2125,7 +2427,9 @@
     "status_color": "blue",
     "updated": "2023-02-25T12:30:02Z",
     "views_formatted": "111",
-    "duration_formatted": "34m"
+    "duration_formatted": "34m",
+    "vpv": 111,
+    "vpv_formatted": "111"
   },
   {
     "id": "cookie-clicker",
@@ -2139,7 +2443,9 @@
     "status_color": "blue",
     "updated": "2023-01-22T13:00:33Z",
     "views_formatted": "12K",
-    "duration_formatted": "7h 26m"
+    "duration_formatted": "7h 26m",
+    "vpv": 1091,
+    "vpv_formatted": "1.1K"
   },
   {
     "id": "poker-quest",
@@ -2153,7 +2459,9 @@
     "status_color": "blue",
     "updated": "2024-04-23T14:30:17Z",
     "views_formatted": "3.4K",
-    "duration_formatted": "19h 29m"
+    "duration_formatted": "19h 29m",
+    "vpv": 94,
+    "vpv_formatted": "94"
   },
   {
     "id": "melvor-idle",
@@ -2167,7 +2475,9 @@
     "status_color": "blue",
     "updated": "2022-11-10T15:00:26Z",
     "views_formatted": "5.9K",
-    "duration_formatted": "5h 0m"
+    "duration_formatted": "5h 0m",
+    "vpv": 656,
+    "vpv_formatted": "656"
   },
   {
     "id": "despots-game",
@@ -2181,7 +2491,9 @@
     "status_color": "blue",
     "updated": "2022-09-30T17:00:08Z",
     "views_formatted": "335",
-    "duration_formatted": "1h 36m"
+    "duration_formatted": "1h 36m",
+    "vpv": 112,
+    "vpv_formatted": "112"
   },
   {
     "id": "mindustry-season-2",
@@ -2195,7 +2507,9 @@
     "status_color": "blue",
     "updated": "2022-10-01T15:00:22Z",
     "views_formatted": "407",
-    "duration_formatted": "3h 3m"
+    "duration_formatted": "3h 3m",
+    "vpv": 136,
+    "vpv_formatted": "136"
   },
   {
     "id": "super-auto-pets-s2",
@@ -2209,7 +2523,9 @@
     "status_color": "blue",
     "updated": "2022-09-20T15:00:07Z",
     "views_formatted": "123",
-    "duration_formatted": "55m"
+    "duration_formatted": "55m",
+    "vpv": 62,
+    "vpv_formatted": "62"
   },
   {
     "id": "ring-of-pain",
@@ -2223,7 +2539,9 @@
     "status_color": "blue",
     "updated": "2023-09-04T13:00:00Z",
     "views_formatted": "634",
-    "duration_formatted": "26h 52m"
+    "duration_formatted": "26h 52m",
+    "vpv": 24,
+    "vpv_formatted": "24"
   },
   {
     "id": "multiply-factory",
@@ -2237,7 +2555,9 @@
     "status_color": "blue",
     "updated": "2022-08-03T14:00:35Z",
     "views_formatted": "1.8K",
-    "duration_formatted": "1h 53m"
+    "duration_formatted": "1h 53m",
+    "vpv": 445,
+    "vpv_formatted": "445"
   },
   {
     "id": "the-witness-playthrough",
@@ -2251,7 +2571,9 @@
     "status_color": "blue",
     "updated": "2022-08-05T13:00:19Z",
     "views_formatted": "1.8K",
-    "duration_formatted": "13h 9m"
+    "duration_formatted": "13h 9m",
+    "vpv": 117,
+    "vpv_formatted": "117"
   },
   {
     "id": "heros-hour",
@@ -2265,7 +2587,9 @@
     "status_color": "blue",
     "updated": "2022-07-07T13:00:24Z",
     "views_formatted": "139",
-    "duration_formatted": "2h 5m"
+    "duration_formatted": "2h 5m",
+    "vpv": 35,
+    "vpv_formatted": "35"
   },
   {
     "id": "into-the-breach-lets-play",
@@ -2279,7 +2603,9 @@
     "status_color": "blue",
     "updated": "2022-09-11T14:00:15Z",
     "views_formatted": "943",
-    "duration_formatted": "16h 22m"
+    "duration_formatted": "16h 22m",
+    "vpv": 52,
+    "vpv_formatted": "52"
   },
   {
     "id": "logicality-playthrough",
@@ -2293,7 +2619,9 @@
     "status_color": "blue",
     "updated": "2022-06-18T15:00:10Z",
     "views_formatted": "86",
-    "duration_formatted": "2h 11m"
+    "duration_formatted": "2h 11m",
+    "vpv": 43,
+    "vpv_formatted": "43"
   },
   {
     "id": "nitro-kid-demo",
@@ -2307,7 +2635,9 @@
     "status_color": "blue",
     "updated": "2022-06-19T13:00:01Z",
     "views_formatted": "120",
-    "duration_formatted": "2h 19m"
+    "duration_formatted": "2h 19m",
+    "vpv": 20,
+    "vpv_formatted": "20"
   },
   {
     "id": "fray-fight",
@@ -2321,7 +2651,9 @@
     "status_color": "blue",
     "updated": "2022-06-11T13:00:22Z",
     "views_formatted": "233",
-    "duration_formatted": "41m"
+    "duration_formatted": "41m",
+    "vpv": 233,
+    "vpv_formatted": "233"
   },
   {
     "id": "vertical-kingdom",
@@ -2335,7 +2667,9 @@
     "status_color": "blue",
     "updated": "2022-06-12T15:00:18Z",
     "views_formatted": "218",
-    "duration_formatted": "2h 27m"
+    "duration_formatted": "2h 27m",
+    "vpv": 55,
+    "vpv_formatted": "55"
   },
   {
     "id": "v-rising",
@@ -2349,7 +2683,9 @@
     "status_color": "blue",
     "updated": "2022-06-03T17:00:12Z",
     "views_formatted": "36",
-    "duration_formatted": "42m"
+    "duration_formatted": "42m",
+    "vpv": 36,
+    "vpv_formatted": "36"
   },
   {
     "id": "apico",
@@ -2363,7 +2699,9 @@
     "status_color": "blue",
     "updated": "2022-06-04T15:00:17Z",
     "views_formatted": "315",
-    "duration_formatted": "1h 9m"
+    "duration_formatted": "1h 9m",
+    "vpv": 158,
+    "vpv_formatted": "158"
   },
   {
     "id": "dungeon-warfare-2",
@@ -2377,7 +2715,9 @@
     "status_color": "blue",
     "updated": "2022-06-21T13:00:02Z",
     "views_formatted": "6.5K",
-    "duration_formatted": "26h 10m"
+    "duration_formatted": "26h 10m",
+    "vpv": 151,
+    "vpv_formatted": "151"
   },
   {
     "id": "blood-card-2-dark-mist",
@@ -2391,7 +2731,9 @@
     "status_color": "blue",
     "updated": "2022-05-09T13:00:23Z",
     "views_formatted": "511",
-    "duration_formatted": "2h 18m"
+    "duration_formatted": "2h 18m",
+    "vpv": 511,
+    "vpv_formatted": "511"
   },
   {
     "id": "trigon-space-story",
@@ -2405,7 +2747,9 @@
     "status_color": "blue",
     "updated": "2022-04-29T13:00:31Z",
     "views_formatted": "184",
-    "duration_formatted": "58m"
+    "duration_formatted": "58m",
+    "vpv": 92,
+    "vpv_formatted": "92"
   },
   {
     "id": "backpack-hero",
@@ -2419,7 +2763,9 @@
     "status_color": "blue",
     "updated": "2022-06-18T14:00:10Z",
     "views_formatted": "822",
-    "duration_formatted": "14h 15m"
+    "duration_formatted": "14h 15m",
+    "vpv": 43,
+    "vpv_formatted": "43"
   },
   {
     "id": "orbles",
@@ -2433,7 +2779,9 @@
     "status_color": "blue",
     "updated": "2022-04-11T10:18:33Z",
     "views_formatted": "66",
-    "duration_formatted": "45m"
+    "duration_formatted": "45m",
+    "vpv": 66,
+    "vpv_formatted": "66"
   },
   {
     "id": "factory-idle",
@@ -2447,7 +2795,9 @@
     "status_color": "blue",
     "updated": "2022-04-20T15:00:25Z",
     "views_formatted": "3.6K",
-    "duration_formatted": "5h 58m"
+    "duration_formatted": "5h 58m",
+    "vpv": 405,
+    "vpv_formatted": "405"
   },
   {
     "id": "monster-train",
@@ -2461,7 +2811,9 @@
     "status_color": "blue",
     "updated": "2022-04-15T15:00:06Z",
     "views_formatted": "649",
-    "duration_formatted": "48h 57m"
+    "duration_formatted": "48h 57m",
+    "vpv": 18,
+    "vpv_formatted": "18"
   },
   {
     "id": "industry-idle",
@@ -2475,7 +2827,9 @@
     "status_color": "blue",
     "updated": "2022-03-24T13:00:16Z",
     "views_formatted": "6.6K",
-    "duration_formatted": "2h 21m"
+    "duration_formatted": "2h 21m",
+    "vpv": 2203,
+    "vpv_formatted": "2.2K"
   },
   {
     "id": "incremancer",
@@ -2489,7 +2843,9 @@
     "status_color": "blue",
     "updated": "2022-04-01T15:00:30Z",
     "views_formatted": "6.5K",
-    "duration_formatted": "7h 9m"
+    "duration_formatted": "7h 9m",
+    "vpv": 465,
+    "vpv_formatted": "465"
   },
   {
     "id": "increlution",
@@ -2503,7 +2859,9 @@
     "status_color": "blue",
     "updated": "2022-02-28T17:00:20Z",
     "views_formatted": "2.5K",
-    "duration_formatted": "1h 54m"
+    "duration_formatted": "1h 54m",
+    "vpv": 1268,
+    "vpv_formatted": "1.3K"
   },
   {
     "id": "guntech-2",
@@ -2517,7 +2875,9 @@
     "status_color": "blue",
     "updated": "2022-02-25T17:00:06Z",
     "views_formatted": "52",
-    "duration_formatted": "55m"
+    "duration_formatted": "55m",
+    "vpv": 26,
+    "vpv_formatted": "26"
   },
   {
     "id": "creatorcrate-lets-play",
@@ -2531,7 +2891,9 @@
     "status_color": "blue",
     "updated": "2022-02-22T17:00:15Z",
     "views_formatted": "76",
-    "duration_formatted": "56m"
+    "duration_formatted": "56m",
+    "vpv": 38,
+    "vpv_formatted": "38"
   },
   {
     "id": "fallout-shelter-vault-666",
@@ -2545,7 +2907,9 @@
     "status_color": "blue",
     "updated": "2022-02-06T17:00:43Z",
     "views_formatted": "509",
-    "duration_formatted": "2h 50m"
+    "duration_formatted": "2h 50m",
+    "vpv": 102,
+    "vpv_formatted": "102"
   },
   {
     "id": "crystal-clash",
@@ -2559,7 +2923,9 @@
     "status_color": "blue",
     "updated": "2022-02-09T17:00:30Z",
     "views_formatted": "391",
-    "duration_formatted": "2h 59m"
+    "duration_formatted": "2h 59m",
+    "vpv": 78,
+    "vpv_formatted": "78"
   },
   {
     "id": "organs-please",
@@ -2573,7 +2939,9 @@
     "status_color": "blue",
     "updated": "2022-01-24T19:00:13Z",
     "views_formatted": "174",
-    "duration_formatted": "1h 33m"
+    "duration_formatted": "1h 33m",
+    "vpv": 44,
+    "vpv_formatted": "44"
   },
   {
     "id": "nova-drift",
@@ -2587,7 +2955,9 @@
     "status_color": "blue",
     "updated": "2024-08-14T13:00:57Z",
     "views_formatted": "1.4K",
-    "duration_formatted": "24h 29m"
+    "duration_formatted": "24h 29m",
+    "vpv": 47,
+    "vpv_formatted": "47"
   },
   {
     "id": "fights-in-tight-spaces",
@@ -2601,7 +2971,9 @@
     "status_color": "blue",
     "updated": "2022-01-09T13:00:04Z",
     "views_formatted": "65",
-    "duration_formatted": "1h 54m"
+    "duration_formatted": "1h 54m",
+    "vpv": 33,
+    "vpv_formatted": "33"
   },
   {
     "id": "salt-and-sanctuary",
@@ -2615,7 +2987,9 @@
     "status_color": "blue",
     "updated": "2022-01-09T17:00:23Z",
     "views_formatted": "86",
-    "duration_formatted": "59m"
+    "duration_formatted": "59m",
+    "vpv": 43,
+    "vpv_formatted": "43"
   },
   {
     "id": "loop-hero",
@@ -2629,7 +3003,9 @@
     "status_color": "blue",
     "updated": "2022-01-05T13:00:24Z",
     "views_formatted": "249",
-    "duration_formatted": "2h 29m"
+    "duration_formatted": "2h 29m",
+    "vpv": 50,
+    "vpv_formatted": "50"
   },
   {
     "id": "bloons-td-battles-2",
@@ -2643,7 +3019,9 @@
     "status_color": "blue",
     "updated": "2021-12-28T17:00:09Z",
     "views_formatted": "1K",
-    "duration_formatted": "9h 13m"
+    "duration_formatted": "9h 13m",
+    "vpv": 75,
+    "vpv_formatted": "75"
   },
   {
     "id": "guild-of-dungeoneering",
@@ -2657,7 +3035,9 @@
     "status_color": "blue",
     "updated": "2021-11-25T19:00:02Z",
     "views_formatted": "134",
-    "duration_formatted": "1h 58m"
+    "duration_formatted": "1h 58m",
+    "vpv": 27,
+    "vpv_formatted": "27"
   },
   {
     "id": "frankenstorm",
@@ -2671,7 +3051,9 @@
     "status_color": "blue",
     "updated": "2022-02-25T19:00:06Z",
     "views_formatted": "1.6K",
-    "duration_formatted": "17h 23m"
+    "duration_formatted": "17h 23m",
+    "vpv": 79,
+    "vpv_formatted": "79"
   },
   {
     "id": "arkos",
@@ -2685,7 +3067,9 @@
     "status_color": "blue",
     "updated": "2021-11-07T19:00:19Z",
     "views_formatted": "29",
-    "duration_formatted": "21m"
+    "duration_formatted": "21m",
+    "vpv": 29,
+    "vpv_formatted": "29"
   },
   {
     "id": "super-auto-pets",
@@ -2699,7 +3083,9 @@
     "status_color": "blue",
     "updated": "2022-02-26T17:00:10Z",
     "views_formatted": "548",
-    "duration_formatted": "9h 59m"
+    "duration_formatted": "9h 59m",
+    "vpv": 29,
+    "vpv_formatted": "29"
   },
   {
     "id": "hadean-tactics-lets-play",
@@ -2713,7 +3099,9 @@
     "status_color": "blue",
     "updated": "2021-09-18T19:00:09Z",
     "views_formatted": "332",
-    "duration_formatted": "1h 45m"
+    "duration_formatted": "1h 45m",
+    "vpv": 111,
+    "vpv_formatted": "111"
   },
   {
     "id": "breach-wanderers",
@@ -2727,7 +3115,9 @@
     "status_color": "blue",
     "updated": "2023-06-10T13:00:03Z",
     "views_formatted": "2.9K",
-    "duration_formatted": "70h 26m"
+    "duration_formatted": "70h 26m",
+    "vpv": 39,
+    "vpv_formatted": "39"
   },
   {
     "id": "monster-sanctuary",
@@ -2741,7 +3131,9 @@
     "status_color": "blue",
     "updated": "2021-08-29T15:00:03Z",
     "views_formatted": "67",
-    "duration_formatted": "1h 54m"
+    "duration_formatted": "1h 54m",
+    "vpv": 17,
+    "vpv_formatted": "17"
   },
   {
     "id": "atrio-the-dark-wild",
@@ -2755,7 +3147,9 @@
     "status_color": "blue",
     "updated": "2021-08-19T22:30:01Z",
     "views_formatted": "273",
-    "duration_formatted": "1h 49m"
+    "duration_formatted": "1h 49m",
+    "vpv": 68,
+    "vpv_formatted": "68"
   },
   {
     "id": "diablo-ii",
@@ -2769,7 +3163,9 @@
     "status_color": "blue",
     "updated": "2021-08-18T00:30:17Z",
     "views_formatted": "229",
-    "duration_formatted": "3h 55m"
+    "duration_formatted": "3h 55m",
+    "vpv": 29,
+    "vpv_formatted": "29"
   },
   {
     "id": "ratropolis",
@@ -2783,7 +3179,9 @@
     "status_color": "blue",
     "updated": "2022-01-07T17:00:02Z",
     "views_formatted": "286",
-    "duration_formatted": "8h 31m"
+    "duration_formatted": "8h 31m",
+    "vpv": 36,
+    "vpv_formatted": "36"
   },
   {
     "id": "baba-is-you",
@@ -2797,7 +3195,9 @@
     "status_color": "blue",
     "updated": "2020-10-13T16:00:03Z",
     "views_formatted": "2.4K",
-    "duration_formatted": "5h 59m"
+    "duration_formatted": "5h 59m",
+    "vpv": 188,
+    "vpv_formatted": "188"
   },
   {
     "id": "against-the-moon",
@@ -2811,7 +3211,9 @@
     "status_color": "blue",
     "updated": "2020-09-25T17:00:08Z",
     "views_formatted": "91",
-    "duration_formatted": "48m"
+    "duration_formatted": "48m",
+    "vpv": 46,
+    "vpv_formatted": "46"
   },
   {
     "id": "enter-the-gungeon",
@@ -2825,7 +3227,9 @@
     "status_color": "blue",
     "updated": "2020-08-28T20:00:08Z",
     "views_formatted": "281",
-    "duration_formatted": "2h 34m"
+    "duration_formatted": "2h 34m",
+    "vpv": 47,
+    "vpv_formatted": "47"
   },
   {
     "id": "terraria-ftw",
@@ -2839,7 +3243,9 @@
     "status_color": "blue",
     "updated": "2020-08-23T19:00:05Z",
     "views_formatted": "142",
-    "duration_formatted": "1h 35m"
+    "duration_formatted": "1h 35m",
+    "vpv": 47,
+    "vpv_formatted": "47"
   },
   {
     "id": "nongunz",
@@ -2853,7 +3259,9 @@
     "status_color": "blue",
     "updated": "2020-08-01T17:03:24Z",
     "views_formatted": "31",
-    "duration_formatted": "22m"
+    "duration_formatted": "22m",
+    "vpv": 31,
+    "vpv_formatted": "31"
   },
   {
     "id": "ageless",
@@ -2867,7 +3275,9 @@
     "status_color": "blue",
     "updated": "2020-07-30T16:19:04Z",
     "views_formatted": "63",
-    "duration_formatted": "33m"
+    "duration_formatted": "33m",
+    "vpv": 63,
+    "vpv_formatted": "63"
   },
   {
     "id": "neon-abyss",
@@ -2881,7 +3291,9 @@
     "status_color": "blue",
     "updated": "2020-07-28T14:15:00Z",
     "views_formatted": "96",
-    "duration_formatted": "22m"
+    "duration_formatted": "22m",
+    "vpv": 96,
+    "vpv_formatted": "96"
   },
   {
     "id": "twitch",
@@ -2895,7 +3307,9 @@
     "status_color": "blue",
     "updated": "2020-07-26T15:47:15Z",
     "views_formatted": "27",
-    "duration_formatted": "16m"
+    "duration_formatted": "16m",
+    "vpv": 27,
+    "vpv_formatted": "27"
   },
   {
     "id": "little-nightmares",
@@ -2909,7 +3323,9 @@
     "status_color": "blue",
     "updated": "2020-08-02T16:30:02Z",
     "views_formatted": "66",
-    "duration_formatted": "3h 14m"
+    "duration_formatted": "3h 14m",
+    "vpv": 13,
+    "vpv_formatted": "13"
   },
   {
     "id": "carrion",
@@ -2923,7 +3339,9 @@
     "status_color": "blue",
     "updated": "2020-07-18T17:00:03Z",
     "views_formatted": "570",
-    "duration_formatted": "34m"
+    "duration_formatted": "34m",
+    "vpv": 285,
+    "vpv_formatted": "285"
   },
   {
     "id": "terraria",
@@ -2937,7 +3355,9 @@
     "status_color": "blue",
     "updated": "2020-08-07T19:00:20Z",
     "views_formatted": "397",
-    "duration_formatted": "9h 39m"
+    "duration_formatted": "9h 39m",
+    "vpv": 17,
+    "vpv_formatted": "17"
   },
   {
     "id": "kingdom-two-crowns",
@@ -2951,7 +3371,9 @@
     "status_color": "blue",
     "updated": "2020-07-15T20:00:07Z",
     "views_formatted": "93",
-    "duration_formatted": "1h 8m"
+    "duration_formatted": "1h 8m",
+    "vpv": 31,
+    "vpv_formatted": "31"
   },
   {
     "id": "shapez",
@@ -2965,7 +3387,9 @@
     "status_color": "blue",
     "updated": "2020-07-16T18:00:02Z",
     "views_formatted": "3K",
-    "duration_formatted": "4h 54m"
+    "duration_formatted": "4h 54m",
+    "vpv": 250,
+    "vpv_formatted": "250"
   },
   {
     "id": "darkest-dungeon",
@@ -2979,7 +3403,9 @@
     "status_color": "blue",
     "updated": "2020-06-12T18:00:08Z",
     "views_formatted": "106",
-    "duration_formatted": "4h 36m"
+    "duration_formatted": "4h 36m",
+    "vpv": 15,
+    "vpv_formatted": "15"
   },
   {
     "id": "poly-bridge-2",
@@ -2993,7 +3419,9 @@
     "status_color": "blue",
     "updated": "2020-10-15T20:00:02Z",
     "views_formatted": "1.5K",
-    "duration_formatted": "8h 24m"
+    "duration_formatted": "8h 24m",
+    "vpv": 73,
+    "vpv_formatted": "73"
   },
   {
     "id": "causa-pvp",
@@ -3007,7 +3435,9 @@
     "status_color": "blue",
     "updated": "2020-06-04T17:00:27Z",
     "views_formatted": "141",
-    "duration_formatted": "2h 33m"
+    "duration_formatted": "2h 33m",
+    "vpv": 18,
+    "vpv_formatted": "18"
   },
   {
     "id": "kenshi",
@@ -3021,7 +3451,9 @@
     "status_color": "blue",
     "updated": "2020-06-15T16:00:24Z",
     "views_formatted": "1.5K",
-    "duration_formatted": "30h 25m"
+    "duration_formatted": "30h 25m",
+    "vpv": 39,
+    "vpv_formatted": "39"
   },
   {
     "id": "project-highrise",
@@ -3035,7 +3467,9 @@
     "status_color": "blue",
     "updated": "2020-04-13T00:30:01Z",
     "views_formatted": "392",
-    "duration_formatted": "1h 11m"
+    "duration_formatted": "1h 11m",
+    "vpv": 131,
+    "vpv_formatted": "131"
   },
   {
     "id": "main-assembly",
@@ -3049,7 +3483,9 @@
     "status_color": "blue",
     "updated": "2020-04-11T00:30:01Z",
     "views_formatted": "577",
-    "duration_formatted": "47m"
+    "duration_formatted": "47m",
+    "vpv": 289,
+    "vpv_formatted": "289"
   },
   {
     "id": "mindustry",
@@ -3063,7 +3499,9 @@
     "status_color": "blue",
     "updated": "2020-05-29T18:00:00Z",
     "views_formatted": "11.5K",
-    "duration_formatted": "39h 41m"
+    "duration_formatted": "39h 41m",
+    "vpv": 182,
+    "vpv_formatted": "182"
   },
   {
     "id": "wordle",
@@ -3077,7 +3515,9 @@
     "status_color": "blue",
     "updated": "2026-01-08T01:15:12Z",
     "views_formatted": "997",
-    "duration_formatted": "17h 7m"
+    "duration_formatted": "17h 7m",
+    "vpv": 25,
+    "vpv_formatted": "25"
   },
   {
     "id": "down-with-the-ship",
@@ -3091,7 +3531,9 @@
     "status_color": "blue",
     "updated": "2025-09-12T12:02:03Z",
     "views_formatted": "425",
-    "duration_formatted": "3h 57m"
+    "duration_formatted": "3h 57m",
+    "vpv": 142,
+    "vpv_formatted": "142"
   },
   {
     "id": "luck-be-a-landlord",
@@ -3105,6 +3547,8 @@
     "status_color": "blue",
     "updated": "2025-08-20T19:00:24Z",
     "views_formatted": "2K",
-    "duration_formatted": "16h 45m"
+    "duration_formatted": "16h 45m",
+    "vpv": 83,
+    "vpv_formatted": "83"
   }
 ]
