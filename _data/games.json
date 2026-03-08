@@ -252,15 +252,15 @@
     "duration_formatted": "27h 7m"
   },
   {
-    "id": "down-with-the-ship",
-    "title": "Down With The Ship",
+    "id": "auto-rogue",
+    "title": "Auto Rogue",
     "thumbnail": "https://i.ytimg.com/vi/woVrYxJjGiw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
     "views": 150,
     "duration": 8337,
     "status": "Completed",
-    "status_color": "green",
+    "status_color": "blue",
     "updated": "2025-09-24T16:01:27Z",
     "views_formatted": "150",
     "duration_formatted": "2h 18m"
@@ -3164,8 +3164,8 @@
     "duration_formatted": "17h 7m"
   },
   {
-    "id": "down-with-the-ship-pvp-space-autobattler-game",
-    "title": "Down With The Ship Pvp Space Autobattler Game",
+    "id": "down-with-the-ship",
+    "title": "Down With The Ship",
     "thumbnail": "https://i.ytimg.com/vi/xVOAqk4J8XM/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
