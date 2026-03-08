@@ -30,16 +30,16 @@
   {
     "id": "megabonk",
     "title": "Megabonk",
-    "thumbnail": "https://i.ytimg.com/vi/Y43oiLHNUmI/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 126,
-    "views": 34695,
-    "duration": 445123,
+    "thumbnail": "https://i.ytimg.com/vi/L2v3gQDx4KA/maxresdefault.jpg",
+    "highest_season": 1.1,
+    "episodes": 132,
+    "views": 35690,
+    "duration": 449147,
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-01-21T12:00:52Z",
-    "views_formatted": "34.7K",
-    "duration_formatted": "123h 38m"
+    "views_formatted": "35.7K",
+    "duration_formatted": "124h 45m"
   },
   {
     "id": "monster-train-2",
@@ -168,18 +168,18 @@
     "duration_formatted": "1h 50m"
   },
   {
-    "id": "toy-smash-kaboom!",
-    "title": "Toy Smash Kaboom!",
-    "thumbnail": "https://i.ytimg.com/vi/BFjSs-EaEwA/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 3,
-    "views": 952,
-    "duration": 15926,
+    "id": "toy-smash-kaboom",
+    "title": "Toy Smash Kaboom",
+    "thumbnail": "https://i.ytimg.com/vi/wg6b3qmxBqU/maxresdefault.jpg",
+    "highest_season": 2,
+    "episodes": 8,
+    "views": 2159,
+    "duration": 39806,
     "status": "Completed",
     "status_color": "green",
-    "updated": "2025-10-10T12:00:30Z",
-    "views_formatted": "952",
-    "duration_formatted": "4h 25m"
+    "updated": "2025-12-16T14:01:10Z",
+    "views_formatted": "2.2K",
+    "duration_formatted": "11h 3m"
   },
   {
     "id": "stabjack",
@@ -438,14 +438,14 @@
     "title": "Dungeon Clawler",
     "thumbnail": "https://i.ytimg.com/vi/YoZ3mxf0QMw/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 13,
-    "views": 2943,
-    "duration": 42948,
+    "episodes": 14,
+    "views": 3354,
+    "duration": 46523,
     "status": "Completed",
     "status_color": "green",
     "updated": "2024-12-04T14:01:01Z",
-    "views_formatted": "2.9K",
-    "duration_formatted": "11h 55m"
+    "views_formatted": "3.4K",
+    "duration_formatted": "12h 55m"
   },
   {
     "id": "halls-of-torment",
@@ -644,22 +644,22 @@
     "duration_formatted": "5h 7m"
   },
   {
-    "id": "dwarves-glory-death-and-loot-s2",
-    "title": "Dwarves Glory Death And Loot S2",
+    "id": "dwarves-gdl",
+    "title": "Dwarves Gdl",
     "thumbnail": "https://i.ytimg.com/vi/5-v4weMsQe0/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 16,
-    "views": 3413,
-    "duration": 68786,
+    "highest_season": 2,
+    "episodes": 23,
+    "views": 6826,
+    "duration": 87005,
     "status": "Completed",
     "status_color": "green",
     "updated": "2026-02-02T12:01:20Z",
-    "views_formatted": "3.4K",
-    "duration_formatted": "19h 6m"
+    "views_formatted": "6.8K",
+    "duration_formatted": "24h 10m"
   },
   {
-    "id": "fill-up-the-hole-incremental-game",
-    "title": "Fill Up The Hole Incremental Game",
+    "id": "fill-up-the-hole",
+    "title": "Fill Up The Hole",
     "thumbnail": "https://i.ytimg.com/vi/65VOQoQFsOA/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
@@ -672,8 +672,8 @@
     "duration_formatted": "2h 23m"
   },
   {
-    "id": "everything-is-crab-evolution-survival-game",
-    "title": "Everything Is Crab Evolution Survival Game",
+    "id": "everything-is-crab",
+    "title": "Everything Is Crab",
     "thumbnail": "https://i.ytimg.com/vi/pmCpEm70uR4/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 14,
@@ -700,8 +700,8 @@
     "duration_formatted": "3h 33m"
   },
   {
-    "id": "minemogul-physics-based-factory-automation-game",
-    "title": "Minemogul Physics Based Factory Automation Game",
+    "id": "minemogul",
+    "title": "Minemogul",
     "thumbnail": "https://i.ytimg.com/vi/2Cgu7XGB5PI/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 5,
@@ -712,20 +712,6 @@
     "updated": "2025-12-19T12:00:30Z",
     "views_formatted": "349",
     "duration_formatted": "4h 56m"
-  },
-  {
-    "id": "toy-smash-kaboom-s2-game-released",
-    "title": "Toy Smash Kaboom S2 Game Released",
-    "thumbnail": "https://i.ytimg.com/vi/wg6b3qmxBqU/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 5,
-    "views": 1207,
-    "duration": 23880,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-12-16T14:01:10Z",
-    "views_formatted": "1.2K",
-    "duration_formatted": "6h 38m"
   },
   {
     "id": "turnbound-s2",
@@ -740,20 +726,6 @@
     "updated": "2025-12-16T12:01:52Z",
     "views_formatted": "734",
     "duration_formatted": "2h 47m"
-  },
-  {
-    "id": "megabonk-under-6-min-unlock-challenges",
-    "title": "Megabonk Under 6 Min Unlock Challenges",
-    "thumbnail": "https://i.ytimg.com/vi/L2v3gQDx4KA/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 6,
-    "views": 995,
-    "duration": 4024,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-11-05T12:01:31Z",
-    "views_formatted": "995",
-    "duration_formatted": "1h 7m"
   },
   {
     "id": "cloverpit",
@@ -826,18 +798,18 @@
     "duration_formatted": "1h 42m"
   },
   {
-    "id": "dungeon-warfare-3-best-new-tower-defense-of-2025",
-    "title": "Dungeon Warfare 3 Best New Tower Defense Of 2025",
-    "thumbnail": "https://i.ytimg.com/vi/4M13R5_OuvA/maxresdefault.jpg",
+    "id": "dungeon-warfare-3",
+    "title": "Dungeon Warfare 3",
+    "thumbnail": "https://i.ytimg.com/vi/w4X_Ecf9_ng/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 21,
-    "views": 8453,
-    "duration": 75778,
+    "episodes": 25,
+    "views": 11782,
+    "duration": 101654,
     "status": "Completed",
     "status_color": "green",
     "updated": "2025-09-22T12:00:15Z",
-    "views_formatted": "8.5K",
-    "duration_formatted": "21h 2m"
+    "views_formatted": "11.8K",
+    "duration_formatted": "28h 14m"
   },
   {
     "id": "holocure",
@@ -910,8 +882,8 @@
     "duration_formatted": "1h 15m"
   },
   {
-    "id": "fakutori-physics-magic-automation-game-complete-playthrough",
-    "title": "Fakutori Physics Magic Automation Game Complete Playthrough",
+    "id": "fakutori",
+    "title": "Fakutori",
     "thumbnail": "https://i.ytimg.com/vi/lTTXZxN5fac/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 8,
@@ -1134,8 +1106,8 @@
     "duration_formatted": "2h 43m"
   },
   {
-    "id": "dungeonsweeper-itchio-free-browser-game",
-    "title": "Dungeonsweeper Itchio Free Browser Game",
+    "id": "dungeon-sweeper",
+    "title": "Dungeon Sweeper",
     "thumbnail": "https://i.ytimg.com/vi/fc-vhjeo5fA/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 7,
@@ -1146,20 +1118,6 @@
     "updated": "2025-03-26T15:00:16Z",
     "views_formatted": "4.8K",
     "duration_formatted": "7h 23m"
-  },
-  {
-    "id": "dungeon-warfare-3-full-demo-playthrough",
-    "title": "Dungeon Warfare 3 Full Demo Playthrough",
-    "thumbnail": "https://i.ytimg.com/vi/w4X_Ecf9_ng/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 4,
-    "views": 3329,
-    "duration": 25876,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-07-12T15:01:28Z",
-    "views_formatted": "3.3K",
-    "duration_formatted": "7h 11m"
   },
   {
     "id": "steam-next-fest-2025-demos",
@@ -1356,20 +1314,6 @@
     "updated": "2025-06-02T13:01:20Z",
     "views_formatted": "9.4K",
     "duration_formatted": "31h 0m"
-  },
-  {
-    "id": "dungeon-clawler-claw-machine-deckbuilder",
-    "title": "Dungeon Clawler Claw Machine Deckbuilder",
-    "thumbnail": "https://i.ytimg.com/vi/BxTqL2kb8dc/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 1,
-    "views": 411,
-    "duration": 3575,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2024-11-23T15:00:18Z",
-    "views_formatted": "411",
-    "duration_formatted": "59m"
   },
   {
     "id": "brotato-abyssal-terrors-dlc-full-release",
@@ -2408,20 +2352,6 @@
     "duration_formatted": "5h 0m"
   },
   {
-    "id": "dwarves-glory-death-and-loot-s1",
-    "title": "Dwarves Glory Death And Loot S1",
-    "thumbnail": "https://i.ytimg.com/vi/HRQh00Mt6OE/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 7,
-    "views": 3413,
-    "duration": 18219,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2023-09-14T00:00:20Z",
-    "views_formatted": "3.4K",
-    "duration_formatted": "5h 3m"
-  },
-  {
     "id": "despots-game",
     "title": "Despots Game",
     "thumbnail": "https://i.ytimg.com/vi/vPT8Cx4pHlI/maxresdefault.jpg",
@@ -2632,8 +2562,8 @@
     "duration_formatted": "1h 9m"
   },
   {
-    "id": "dungeon-warfare-2-lets-play-series",
-    "title": "Dungeon Warfare 2 Lets Play Series",
+    "id": "dungeon-warfare-2",
+    "title": "Dungeon Warfare 2",
     "thumbnail": "https://i.ytimg.com/vi/i2zYnZKTxMI/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 43,
@@ -2966,20 +2896,6 @@
     "updated": "2022-02-25T19:00:06Z",
     "views_formatted": "1.6K",
     "duration_formatted": "17h 23m"
-  },
-  {
-    "id": "irl",
-    "title": "Irl",
-    "thumbnail": "https://i.ytimg.com/vi/Qxp0Wf_Z39s/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 13,
-    "views": 2337,
-    "duration": 13756,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-12-12T12:00:22Z",
-    "views_formatted": "2.3K",
-    "duration_formatted": "3h 49m"
   },
   {
     "id": "arkos",
