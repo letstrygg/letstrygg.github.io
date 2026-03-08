@@ -13,7 +13,8 @@ title: LTG YouTube Gameplay
 
 <h2 class="blue">All Series</h2>
 
-<div class="sort-controls" style="margin-bottom: 20px; display: flex; gap: 10px;">
+<div class="sort-controls" style="margin-bottom: 20px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+  <input type="text" id="gameSearch" placeholder="Search games (e.g. spire)..." style="padding: 6px 10px; border-radius: 3px; border: 1px solid #444; background: #222; color: #eee; flex-grow: 1; max-width: 300px; font-size: 14px;">
   <button class="btn" onclick="sortGrid('recent')">Newest</button>
   <button class="btn" onclick="sortGrid('popular')">Most Views</button>
   <button class="btn" onclick="sortGrid('length')">Longest</button>
@@ -21,7 +22,7 @@ title: LTG YouTube Gameplay
 
 <div class="game-grid" id="all-series-grid">
   {% for p in site.data.games %}
-    <a href="/game/{{ p.id }}/">
+    <a href="/game/{{ p.id }}/" class="filterable-card" data-title="{{ p.title | downcase }}">
       <div class="game-card" data-updated="{{ p.updated | date: '%Y%m%d' }}" data-episodes="{{ p.episodes }}" data-views="{{ p.views }}" data-duration="{{ p.duration }}">
         <img src="{{ p.thumbnail }}" alt="{{ p.title }}">
         <div class="card-row">
@@ -39,9 +40,11 @@ title: LTG YouTube Gameplay
 </div>
 
 <script>
+// --- 1. The Sorting Logic ---
 function sortGrid(type) {
   const grid = document.getElementById('all-series-grid');
-  const cards = Array.from(grid.querySelectorAll('a'));
+  // Target our specific class just in case you add other links later
+  const cards = Array.from(grid.querySelectorAll('.filterable-card'));
 
   cards.sort((a, b) => {
     const cardA = a.querySelector('.game-card');
@@ -49,17 +52,32 @@ function sortGrid(type) {
     
     if (!cardA || !cardB) return 0;
 
-    // Use parseInt to ensure we are doing math, not alphabetical string comparison
     if (type === 'recent') return parseInt(cardB.dataset.updated || 0) - parseInt(cardA.dataset.updated || 0);
     if (type === 'popular') return parseInt(cardB.dataset.views || 0) - parseInt(cardA.dataset.views || 0);
     if (type === 'length') return parseInt(cardB.dataset.duration || 0) - parseInt(cardA.dataset.duration || 0);
   });
 
-  // Re-append the cards in their new order
   grid.innerHTML = '';
   cards.forEach(card => grid.appendChild(card));
 }
 
-// Optional: Auto-sort by Newest when the page first loads
+// --- 2. The Search Logic ---
+document.getElementById('gameSearch').addEventListener('input', function(e) {
+  const searchTerm = e.target.value.toLowerCase();
+  const grid = document.getElementById('all-series-grid');
+  const cards = grid.querySelectorAll('.filterable-card');
+
+  cards.forEach(card => {
+    const title = card.getAttribute('data-title');
+    // If the title includes the search term, show it. Otherwise, hide it.
+    if (title.includes(searchTerm)) {
+      card.style.display = ''; 
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+
+// Optional: Sort by Newest on load
 document.addEventListener('DOMContentLoaded', () => sortGrid('recent'));
 </script>
