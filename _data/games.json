@@ -5,15 +5,15 @@
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
-    "views": 155,
+    "views": 181,
     "duration": 37969,
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-07T16:00:31Z",
-    "views_formatted": "155",
+    "views_formatted": "181",
     "duration_formatted": "10h 32m",
-    "vpv": 39,
-    "vpv_formatted": "39"
+    "vpv": 45,
+    "vpv_formatted": "45"
   },
   {
     "id": "oaken-tower",
@@ -1104,22 +1104,6 @@
     "vpv_formatted": "148"
   },
   {
-    "id": "quick-look-at-games",
-    "title": "Quick Look At Games",
-    "thumbnail": "https://i.ytimg.com/vi/iBdlBlCxftw/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 1,
-    "views": 243,
-    "duration": 708,
-    "status": "Completed",
-    "status_color": "blue",
-    "updated": "2025-06-11T15:01:16Z",
-    "views_formatted": "243",
-    "duration_formatted": "11m",
-    "vpv": 243,
-    "vpv_formatted": "243"
-  },
-  {
     "id": "god-of-weapons",
     "title": "God Of Weapons",
     "thumbnail": "https://i.ytimg.com/vi/WM-EsyJ9cZg/maxresdefault.jpg",
@@ -1278,22 +1262,6 @@
     "duration_formatted": "7h 23m",
     "vpv": 679,
     "vpv_formatted": "679"
-  },
-  {
-    "id": "game-trailer-hype",
-    "title": "Game Trailer Hype",
-    "thumbnail": "https://i.ytimg.com/vi/Q4lgjUPEOgE/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 1,
-    "views": 39,
-    "duration": 75,
-    "status": "Completed",
-    "status_color": "blue",
-    "updated": "2025-02-20T14:00:33Z",
-    "views_formatted": "39",
-    "duration_formatted": "1m",
-    "vpv": 39,
-    "vpv_formatted": "39"
   },
   {
     "id": "die-in-the-dungeon",
@@ -3294,22 +3262,6 @@
     "duration_formatted": "22m",
     "vpv": 96,
     "vpv_formatted": "96"
-  },
-  {
-    "id": "twitch",
-    "title": "Twitch",
-    "thumbnail": "https://i.ytimg.com/vi/0AgtPkdmVLo/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 1,
-    "views": 27,
-    "duration": 1010,
-    "status": "Completed",
-    "status_color": "blue",
-    "updated": "2020-07-26T15:47:15Z",
-    "views_formatted": "27",
-    "duration_formatted": "16m",
-    "vpv": 27,
-    "vpv_formatted": "27"
   },
   {
     "id": "little-nightmares",
