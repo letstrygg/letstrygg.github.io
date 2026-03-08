@@ -4,18 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<link rel="stylesheet" href="/css/style.css">
-	
-	{% if page.custom_css %}
-	  {% assign is_array = page.custom_css | first %}
-	  {% if is_array %}
-		{% for css in page.custom_css %}
-		  <link rel="stylesheet" href="{{ css }}">
-		{% endfor %}
-	  {% else %}
-		<link rel="stylesheet" href="{{ page.custom_css }}">
-	  {% endif %}
-	{% endif %}
+<link rel="stylesheet" href="/css/style.css">
+
+{% if page.custom_css %}
+  {% assign css_list = page.custom_css | join: ',' | split: ',' %}
+  {% for css in css_list %}
+    <link rel="stylesheet" href="{{ css }}">
+  {% endfor %}
+{% endif %}
 
 </head>
 <body>
