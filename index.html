@@ -18,12 +18,13 @@ title: LTG YouTube Gameplay
   <button class="btn" onclick="sortGrid('recent')">Newest</button>
   <button class="btn" onclick="sortGrid('popular')">Most Views</button>
   <button class="btn" onclick="sortGrid('length')">Longest</button>
+  <button class="btn orange" onclick="sortGrid('vpv')">Views/Video</button>
 </div>
 
 <div class="game-grid" id="all-series-grid">
   {% for p in site.data.games %}
     <a href="/game/{{ p.id }}/" class="filterable-card" data-title="{{ p.title | downcase }}">
-      <div class="game-card" data-updated="{{ p.updated | date: '%Y%m%d' }}" data-episodes="{{ p.episodes }}" data-views="{{ p.views }}" data-duration="{{ p.duration }}">
+      <div class="game-card" data-updated="{{ p.updated | date: '%Y%m%d' }}" data-episodes="{{ p.episodes }}" data-views="{{ p.views }}" data-duration="{{ p.duration }}" data-vpv="{{ p.vpv }}">
         <img src="{{ p.thumbnail }}" alt="{{ p.title }}">
         <div class="card-row">
           <strong>{{ p.title }}</strong>
@@ -34,16 +35,17 @@ title: LTG YouTube Gameplay
           <span>{{ p.views_formatted }} views</span>
           <span>⏱ {{ p.duration_formatted }}</span>
         </div>
+        <div class="card-row vpv-row" style="display: none; justify-content: center; color: #aaa; font-size: 0.9em; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px;">
+          <span>🔥 {{ p.vpv_formatted }} views per video</span>
+        </div>
       </div>
     </a>
   {% endfor %}
 </div>
 
 <script>
-// --- 1. The Sorting Logic ---
 function sortGrid(type) {
   const grid = document.getElementById('all-series-grid');
-  // Target our specific class just in case you add other links later
   const cards = Array.from(grid.querySelectorAll('.filterable-card'));
 
   cards.sort((a, b) => {
@@ -55,13 +57,20 @@ function sortGrid(type) {
     if (type === 'recent') return parseInt(cardB.dataset.updated || 0) - parseInt(cardA.dataset.updated || 0);
     if (type === 'popular') return parseInt(cardB.dataset.views || 0) - parseInt(cardA.dataset.views || 0);
     if (type === 'length') return parseInt(cardB.dataset.duration || 0) - parseInt(cardA.dataset.duration || 0);
+    if (type === 'vpv') return parseInt(cardB.dataset.vpv || 0) - parseInt(cardA.dataset.vpv || 0); // NEW: VPV Sort
   });
 
   grid.innerHTML = '';
-  cards.forEach(card => grid.appendChild(card));
+  cards.forEach(card => {
+    // NEW: Toggle the VPV row visibility
+    const vpvRow = card.querySelector('.vpv-row');
+    if (vpvRow) {
+      vpvRow.style.display = (type === 'vpv') ? 'flex' : 'none';
+    }
+    grid.appendChild(card);
+  });
 }
 
-// --- 2. The Search Logic ---
 document.getElementById('gameSearch').addEventListener('input', function(e) {
   const searchTerm = e.target.value.toLowerCase();
   const grid = document.getElementById('all-series-grid');
@@ -69,7 +78,6 @@ document.getElementById('gameSearch').addEventListener('input', function(e) {
 
   cards.forEach(card => {
     const title = card.getAttribute('data-title');
-    // If the title includes the search term, show it. Otherwise, hide it.
     if (title.includes(searchTerm)) {
       card.style.display = ''; 
     } else {
@@ -78,6 +86,5 @@ document.getElementById('gameSearch').addEventListener('input', function(e) {
   });
 });
 
-// Optional: Sort by Newest on load
 document.addEventListener('DOMContentLoaded', () => sortGrid('recent'));
 </script>
