@@ -21,26 +21,18 @@ title: LTG YouTube Gameplay
 </div>
 
 <div class="game-grid" id="all-series-grid">
-  {% for item in site.data.playlists %}
-    {% assign p = item[1] %}
-    
-    {% assign slug = item[0] | replace: '-playlist_details', '' %}
-    
-    {% assign s_color = p.status_color | default: 'blue' %}
-    {% if p.status == 'Ongoing' %}{% assign s_color = 'green' %}{% endif %}
-    {% if p.status == 'Paused' %}{% assign s_color = 'purple' %}{% endif %}
-
-    <a href="/game/{{ slug }}/">
+  {% for p in site.data.games %}
+    <a href="/game/{{ p.id }}/">
       <div class="game-card" data-updated="{{ p.updated | date: '%Y%m%d' }}" data-episodes="{{ p.episodes }}" data-views="{{ p.views }}" data-duration="{{ p.duration }}">
         <img src="{{ p.thumbnail }}" alt="{{ p.title }}">
         <div class="card-row">
           <strong>{{ p.title }}</strong>
-          <span class="card-status {{ s_color }}">{{ p.status }}</span>
+          <span class="card-status {{ p.status_color }}">{{ p.status }}</span>
         </div>
         <div class="card-row">
           <span>{{ p.episodes }} videos</span>
-          <span>{{ p.views_formatted | default: p.views }} views</span>
-          <span>⏱ {{ p.duration_formatted | default: p.duration }}</span>
+          <span>{{ p.views_formatted }} views</span>
+          <span>⏱ {{ p.duration_formatted }}</span>
         </div>
       </div>
     </a>
