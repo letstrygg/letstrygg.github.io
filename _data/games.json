@@ -1120,20 +1120,6 @@
     "duration_formatted": "7h 23m"
   },
   {
-    "id": "steam-next-fest-2025-demos",
-    "title": "Steam Next Fest 2025 Demos",
-    "thumbnail": "https://i.ytimg.com/vi/ZtdfW6zAyvo/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 14,
-    "views": 4487,
-    "duration": 42505,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2025-03-05T15:00:47Z",
-    "views_formatted": "4.5K",
-    "duration_formatted": "11h 48m"
-  },
-  {
     "id": "game-trailer-hype",
     "title": "Game Trailer Hype",
     "thumbnail": "https://i.ytimg.com/vi/Q4lgjUPEOgE/maxresdefault.jpg",
@@ -1162,8 +1148,8 @@
     "duration_formatted": "3h 49m"
   },
   {
-    "id": "paquerette-dt-bunburrows",
-    "title": "Paquerette Dt Bunburrows",
+    "id": "paquerette-dtb",
+    "title": "Paquerette Dtb",
     "thumbnail": "https://i.ytimg.com/vi/UgNwwfACS5o/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 7,
@@ -1778,22 +1764,8 @@
     "duration_formatted": "2h 9m"
   },
   {
-    "id": "steam-next-fest-2023",
-    "title": "Steam Next Fest 2023",
-    "thumbnail": "https://i.ytimg.com/vi/F-RNtbuEuwc/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 11,
-    "views": 5367,
-    "duration": 24558,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2023-10-25T19:30:00Z",
-    "views_formatted": "5.4K",
-    "duration_formatted": "6h 49m"
-  },
-  {
-    "id": "foundry-free-steam-next-fest-demo",
-    "title": "Foundry Free Steam Next Fest Demo",
+    "id": "foundry",
+    "title": "Foundry",
     "thumbnail": "https://i.ytimg.com/vi/liPLc0hVP44/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 15,
@@ -2336,20 +2308,6 @@
     "updated": "2022-09-11T14:00:15Z",
     "views_formatted": "943",
     "duration_formatted": "16h 22m"
-  },
-  {
-    "id": "steam-next-fest-2022",
-    "title": "Steam Next Fest 2022",
-    "thumbnail": "https://i.ytimg.com/vi/A5lh3aaP5iw/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 19,
-    "views": 849,
-    "duration": 38388,
-    "status": "Completed",
-    "status_color": "green",
-    "updated": "2022-06-27T13:00:10Z",
-    "views_formatted": "849",
-    "duration_formatted": "10h 39m"
   },
   {
     "id": "logicality-playthrough",
