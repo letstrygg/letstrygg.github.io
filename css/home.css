@@ -12,7 +12,7 @@
   height: 100%; /* ADDED: Fills the anchor tag */
   display: flex; /* ADDED: Turns the card into a vertical flexbox */
   flex-direction: column; /* ADDED: Stacks the image and rows vertically */
-  border: 1px solid #3d6fcf;
+  border: 1px solid #007dab;
   border-radius: 10px;
   overflow: hidden;
   font-size: 0.9em;
