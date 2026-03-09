@@ -1,16 +1,16 @@
 {
   "id": "PLkwYKQUqZEUWAJ3Nbi3FGuRx4_WaSVpKZ",
+  "slug": "backpack-battles-beta",
   "title": "Backpack Battles Beta",
   "thumbnail": "https://i.ytimg.com/vi/o2XhGsE7UmU/maxresdefault.jpg",
   "published": "2024-05-11T00:01:43.537375Z",
   "updated": "2024-06-23T12:00:42Z",
-  "fetched": "2026-03-07T11:47:51.930Z",
+  "fetched": "2026-03-09T00:00:52.931Z",
   "episodes": 20,
   "duration": 58100,
-  "views": 5718,
-  "status": "Completed",
   "duration_formatted": "16h 8m",
+  "views": 5718,
   "views_formatted": "5.7K",
-  "slug": "backpack-battles-beta",
-  "status_color": "blue"
+  "status": "Ongoing",
+  "status_color": "green"
 }

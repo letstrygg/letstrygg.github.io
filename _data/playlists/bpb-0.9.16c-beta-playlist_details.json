@@ -1,16 +1,16 @@
 {
   "id": "PLkwYKQUqZEUW2U5XB4XDgMLij3JwedGmH",
-  "title": "0.9.16c BETA Backpack Battles",
+  "slug": "bpb-0.9.16c-beta",
+  "title": "BPB 0.9.16c Beta",
   "thumbnail": "https://i.ytimg.com/vi/p9yWxKfEu0g/maxresdefault.jpg",
   "published": "2024-07-26T20:53:27.987632Z",
   "updated": "2024-07-28T14:00:43Z",
-  "fetched": "2026-03-07T11:47:49.589Z",
+  "fetched": "2026-03-09T00:00:52.253Z",
   "episodes": 2,
   "duration": 9411,
-  "views": 1029,
-  "status": "Completed",
   "duration_formatted": "2h 36m",
+  "views": 1029,
   "views_formatted": "1K",
-  "slug": "bpb-0.9.16c-beta",
-  "status_color": "blue"
+  "status": "Ongoing",
+  "status_color": "green"
 }

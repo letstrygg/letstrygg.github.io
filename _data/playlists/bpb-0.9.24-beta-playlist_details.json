@@ -1,16 +1,16 @@
 {
   "id": "PLkwYKQUqZEUVUNWUnDwWrwrX82kHABNcJ",
-  "title": "0.9.24 Beta Branch - New Items - Backpack Battles",
+  "slug": "bpb-0.9.24-beta",
+  "title": "BPB 0.9.24 Beta",
   "thumbnail": "https://i.ytimg.com/vi/XEMvimurDRQ/maxresdefault.jpg",
   "published": "2024-10-26T23:40:01.40329Z",
   "updated": "2024-10-29T12:00:40Z",
-  "fetched": "2026-03-07T11:47:28.757Z",
+  "fetched": "2026-03-09T00:00:46.260Z",
   "episodes": 4,
   "duration": 13849,
-  "views": 1603,
-  "status": "Completed",
   "duration_formatted": "3h 50m",
+  "views": 1603,
   "views_formatted": "1.6K",
-  "slug": "bpb-0.9.24-beta",
-  "status_color": "blue"
+  "status": "Ongoing",
+  "status_color": "green"
 }

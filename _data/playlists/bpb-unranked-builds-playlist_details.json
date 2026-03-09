@@ -1,16 +1,16 @@
 {
   "id": "PLkwYKQUqZEUW4kkrkRRHRMNzVTaMN7Dq4",
-  "title": "Unranked Builds",
+  "slug": "bpb-unranked-builds",
+  "title": "BPB Unranked Builds",
   "thumbnail": "https://i.ytimg.com/vi/3cEg8qI1BIc/maxresdefault.jpg",
   "published": "2024-07-26T06:14:41.331779Z",
   "updated": "2024-08-17T14:00:02Z",
-  "fetched": "2026-03-07T11:47:38.449Z",
+  "fetched": "2026-03-09T00:00:47.355Z",
   "episodes": 13,
   "duration": 49574,
-  "views": 16129,
-  "status": "Completed",
   "duration_formatted": "13h 46m",
+  "views": 16139,
   "views_formatted": "16.1K",
-  "slug": "bpb-unranked-builds",
-  "status_color": "blue"
+  "status": "Ongoing",
+  "status_color": "green"
 }

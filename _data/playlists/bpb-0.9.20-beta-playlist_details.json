@@ -1,16 +1,16 @@
 {
   "id": "PLkwYKQUqZEUVDNrncRllRU8_A0aRZ2Xnx",
-  "title": "Backpack Battles 0.9.20 Skills Update (Beta Branch)",
+  "slug": "bpb-0.9.20-beta",
+  "title": "BPB 0.9.20 Beta",
   "thumbnail": "https://i.ytimg.com/vi/SXZQpqD9Wq4/maxresdefault.jpg",
   "published": "2024-09-06T10:07:41.804022Z",
   "updated": "2024-09-08T16:00:22Z",
-  "fetched": "2026-03-07T11:47:32.180Z",
+  "fetched": "2026-03-09T00:00:46.789Z",
   "episodes": 7,
   "duration": 26703,
-  "views": 2531,
-  "status": "Completed",
   "duration_formatted": "7h 25m",
+  "views": 2531,
   "views_formatted": "2.5K",
-  "slug": "bpb-0.9.20-beta",
-  "status_color": "blue"
+  "status": "Ongoing",
+  "status_color": "green"
 }

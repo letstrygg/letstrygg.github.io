@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk6dDr7RNNpSvsYCb0OHb9EP",
+  "slug": "factorio",
   "title": "Factorio",
   "thumbnail": "https://i.ytimg.com/vi/3oOssN0nnAU/maxresdefault.jpg",
   "published": "2020-02-09T10:42:30.150469Z",
   "updated": "2020-03-17T22:30:00Z",
-  "fetched": "2026-03-07T12:05:13.640Z",
+  "fetched": "2026-03-09T00:01:10.740Z",
   "episodes": 38,
   "duration": 57245,
-  "views": 1316,
-  "status": "Completed",
   "duration_formatted": "15h 54m",
+  "views": 1318,
   "views_formatted": "1.3K",
-  "slug": "factorio",
-  "status_color": "blue"
+  "status": "Ongoing",
+  "status_color": "green"
 }

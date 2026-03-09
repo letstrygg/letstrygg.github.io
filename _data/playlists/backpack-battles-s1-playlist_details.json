@@ -1,16 +1,16 @@
 {
   "id": "PLkwYKQUqZEUUfYYNHskSd_zYQZgGrER6i",
-  "title": "Backpack Battles",
+  "slug": "backpack-battles-s1",
+  "title": "Backpack Battles S1",
   "thumbnail": "https://i.ytimg.com/vi/FXYapsbD85k/maxresdefault.jpg",
   "published": "2023-10-22T18:21:06.911918Z",
   "updated": "2023-12-25T12:30:02Z",
-  "fetched": "2026-03-07T11:47:56.361Z",
+  "fetched": "2026-03-09T00:00:54.476Z",
   "episodes": 96,
   "duration": 245294,
-  "views": 10806,
-  "status": "Completed",
   "duration_formatted": "68h 8m",
+  "views": 10806,
   "views_formatted": "10.8K",
-  "slug": "backpack-battles-s1",
-  "status_color": "blue"
+  "status": "Ongoing",
+  "status_color": "green"
 }

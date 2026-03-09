@@ -1,16 +1,16 @@
 {
   "id": "PLkwYKQUqZEUVurn-VM0UonNGrs32yXyox",
-  "title": "Break The Game - Backpack Battles",
+  "slug": "bpb-break-the-game",
+  "title": "BPB Break the Game",
   "thumbnail": "https://i.ytimg.com/vi/zl_a97Bbv40/maxresdefault.jpg",
   "published": "2025-06-25T18:53:32.972643Z",
   "updated": "2025-07-24T12:00:25Z",
-  "fetched": "2026-03-07T11:46:44.911Z",
+  "fetched": "2026-03-09T00:00:39.357Z",
   "episodes": 6,
   "duration": 23961,
-  "views": 2964,
-  "status": "Completed",
   "duration_formatted": "6h 39m",
+  "views": 2967,
   "views_formatted": "3K",
-  "slug": "bpb-break-the-game",
-  "status_color": "blue"
+  "status": "Ongoing",
+  "status_color": "green"
 }

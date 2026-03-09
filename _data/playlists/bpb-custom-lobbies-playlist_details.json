@@ -1,16 +1,16 @@
 {
   "id": "PLkwYKQUqZEUVyB-azyWfnfyTPblxEzlST",
+  "slug": "bpb-custom-lobbies",
   "title": "BPB Custom Lobbies",
   "thumbnail": "https://i.ytimg.com/vi/G6DIVASs-3M/maxresdefault.jpg",
   "published": "2024-12-31T10:54:35.558537Z",
   "updated": "2025-02-25T16:00:42Z",
-  "fetched": "2026-03-07T12:05:19.790Z",
+  "fetched": "2026-03-09T00:00:55.041Z",
   "episodes": 9,
   "duration": 46014,
-  "views": 1675,
-  "status": "Completed",
   "duration_formatted": "12h 46m",
+  "views": 1675,
   "views_formatted": "1.7K",
-  "slug": "bpb-custom-lobbies",
-  "status_color": "blue"
+  "status": "Ongoing",
+  "status_color": "green"
 }
