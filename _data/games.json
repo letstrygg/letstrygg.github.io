@@ -400,20 +400,20 @@
     "vpv_formatted": "47"
   },
   {
-    "id": "9-kings-s2",
-    "title": "9 Kings S2",
+    "id": "9-kings",
+    "title": "9 Kings",
     "thumbnail": "https://i.ytimg.com/vi/IX24uMzbnso/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 15,
-    "views": 1125,
-    "duration": 78334,
+    "highest_season": 2,
+    "episodes": 21,
+    "views": 1785,
+    "duration": 92554,
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-10-22T16:01:22Z",
-    "views_formatted": "1.1K",
-    "duration_formatted": "21h 45m",
-    "vpv": 75,
-    "vpv_formatted": "75"
+    "views_formatted": "1.8K",
+    "duration_formatted": "25h 42m",
+    "vpv": 85,
+    "vpv_formatted": "85"
   },
   {
     "id": "tiny-auto-knights",
@@ -462,22 +462,6 @@
     "duration_formatted": "2h 2m",
     "vpv": 530,
     "vpv_formatted": "530"
-  },
-  {
-    "id": "9-kings-s1",
-    "title": "9 Kings S1",
-    "thumbnail": "https://i.ytimg.com/vi/HV_y2oz0YRE/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 6,
-    "views": 660,
-    "duration": 14220,
-    "status": "Completed",
-    "status_color": "blue",
-    "updated": "2025-03-23T12:15:03Z",
-    "views_formatted": "660",
-    "duration_formatted": "3h 57m",
-    "vpv": 110,
-    "vpv_formatted": "110"
   },
   {
     "id": "ballionaire",
