@@ -5,12 +5,12 @@
   "thumbnail": "https://i.ytimg.com/vi/3oOssN0nnAU/maxresdefault.jpg",
   "published": "2020-02-09T10:42:30.150469Z",
   "updated": "2020-03-17T22:30:00Z",
-  "fetched": "2026-03-09T00:01:10.740Z",
+  "fetched": "2026-03-09T00:41:10.995Z",
   "episodes": 38,
   "duration": 57245,
   "duration_formatted": "15h 54m",
   "views": 1318,
   "views_formatted": "1.3K",
-  "status": "Ongoing",
-  "status_color": "green"
+  "status": "Paused",
+  "status_color": "purple"
 }
