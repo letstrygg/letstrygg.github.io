@@ -1,26 +1,21 @@
 .game-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  /* The magic formula for responsive cards without media queries: */
+  grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 18vw, 360px), 1fr));
   gap: 8px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: start;
 }
 
 .game-card {
-  width: 260px;
+  /* Remove the fixed 260px width. The grid handles the width now! */
+  width: 100%; 
   border: 1px solid #3d6fcf;
   border-radius: 10px;
   overflow: hidden;
   font-size: 0.9em;
   background: var(--card-bg);
   color: inherit;
-}
-
-.card-status {
-    font-weight: 500;
-    text-decoration: underline;
-    text-decoration-color: var(--underline);
-    text-underline-offset: 3px;
 }
 
 .game-card img {
@@ -35,3 +30,11 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.card-status {
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--underline);
+    text-underline-offset: 3px;
+}
+
