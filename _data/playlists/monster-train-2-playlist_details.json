@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk7iRywRZq-gbREhP__wqfKc",
-  "title": "Monster Train 2, Completionist Playthrough",
+  "slug": "monster-train-2",
+  "title": "Monster Train 2",
   "thumbnail": "https://i.ytimg.com/vi/u3fJmpSVWI8/maxresdefault.jpg",
   "published": "2025-06-09T07:27:58.651462Z",
   "updated": "2026-02-08T15:00:49Z",
-  "fetched": "2026-03-07T21:43:26.177Z",
+  "fetched": "2026-03-09T00:23:07.771Z",
   "episodes": 29,
   "duration": 178380,
-  "views": 703,
-  "status": "Paused",
   "duration_formatted": "49h 33m",
-  "views_formatted": "703",
-  "slug": "monster-train-2",
-  "status_color": "purple"
+  "views": 704,
+  "views_formatted": "704",
+  "status": "Ongoing",
+  "status_color": "green"
 }
