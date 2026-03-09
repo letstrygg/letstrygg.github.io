@@ -5,15 +5,15 @@
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 5,
-    "views": 229,
+    "views": 242,
     "duration": 45673,
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-08T12:01:34Z",
-    "views_formatted": "229",
+    "views_formatted": "242",
     "duration_formatted": "12h 41m",
-    "vpv": 46,
-    "vpv_formatted": "46"
+    "vpv": 48,
+    "vpv_formatted": "48"
   },
   {
     "id": "oaken-tower",
@@ -165,7 +165,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 117,
-    "views": 5990,
+    "views": 6008,
     "duration": 286065,
     "status": "Ongoing",
     "status_color": "green",
@@ -549,15 +549,15 @@
     "thumbnail": "https://i.ytimg.com/vi/VUcnnc-kFxc/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 5,
-    "views": 143,
+    "views": 163,
     "duration": 25774,
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-08T16:00:44Z",
-    "views_formatted": "143",
+    "views_formatted": "163",
     "duration_formatted": "7h 9m",
-    "vpv": 29,
-    "vpv_formatted": "29"
+    "vpv": 33,
+    "vpv_formatted": "33"
   },
   {
     "id": "wanderburg",
