@@ -33,6 +33,7 @@ body {
   font-family:		'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background:		var(--bg);
   color:			var(--text);
+  margin:0px;
 /*  max-width:		1400px; 
   margin:			0px auto 50px auto;
   line-height:		1.6; */
