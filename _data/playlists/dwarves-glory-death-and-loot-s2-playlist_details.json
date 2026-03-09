@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk5C4MGOPJaB5E0SDs7N5pdA",
-  "title": "Dwarves: Glory, Death and Loot S2",
+  "slug": "dwarves-glory-death-and-loot-s2",
+  "title": "Dwarves Glory Death and Loot S2",
   "thumbnail": "https://i.ytimg.com/vi/5-v4weMsQe0/maxresdefault.jpg",
   "published": "2026-01-24T09:07:47.973162Z",
   "updated": "2026-02-02T12:01:20Z",
-  "fetched": "2026-03-07T12:02:50.223Z",
+  "fetched": "2026-03-09T00:36:33.611Z",
   "episodes": 16,
   "duration": 68786,
-  "views": 3413,
-  "status": "Completed",
   "duration_formatted": "19h 6m",
-  "views_formatted": "3.4K",
-  "slug": "dwarves-glory-death-and-loot-s2",
+  "views": 3455,
+  "views_formatted": "3.5K",
+  "status": "Completed",
   "status_color": "blue"
 }
