@@ -44,7 +44,7 @@ header			{ text-align: center; }
 .purple			{ color: var(--purple); }
 .orange			{ color: var(--orange); }
 .red			{ color: var(--red); }
-.grey			{ color: var(--grey); }
+.gray			{ color: var(--gray); }
 a				{ text-decoration: none; color: inherit; }
 h2				{ margin: 0px 178px; font-size: 1.2em; }
 b				{ font-weight: 500; text-decoration: underline; text-decoration-color: var(--underline);}
