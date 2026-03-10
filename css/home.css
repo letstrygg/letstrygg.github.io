@@ -98,7 +98,7 @@
 #gameSearch:focus {
   border-color: var(--blue);
 }
-
+/* Base Button Styling */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -118,51 +118,42 @@
   max-width: max-content;
 }
 
-/* Button Hover State */
-.btn:hover {
+/* Standard Button: Hover & Active */
+.btn:hover,
+.btn.active {
   background: var(--blue);
   border-color: var(--blue);
-  color: #fff;
+  color: var(--bg); /* High contrast text */
 }
 
-/* Special Orange Button Styling */
+/* Special Orange Button: Base */
 .btn.orange-btn {
   border-color: var(--orange);
   color: var(--orange);
 }
 
-.btn.orange-btn:hover {
-  background: var(--orange);
-  color: #fff;
-}
-
-/* Active state for standard buttons */
-.btn.active {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: #fff;
-}
-
-/* Active state for the special orange button */
+/* Special Orange Button: Hover & Active */
+.btn.orange-btn:hover,
 .btn.orange-btn.active {
   background: var(--orange);
   border-color: var(--orange);
-  color: #fff;
+  color: var(--bg); /* High contrast text */
 }
 
-/* Size the icons perfectly for the buttons */
+/* Icon Sizing & Transition */
 .btn .material-symbols-outlined {
   font-size: 1.2em;
-  transition: color 0.2s ease; /* Makes the color swap smooth */
+  transition: color 0.2s ease; 
 }
 
-/* Default icon colors pulling from your root variables */
+/* Default Icon Colors */
 .icon-green { color: var(--green); }
 .icon-blue { color: var(--blue); }
 .icon-purple { color: var(--purple); }
 .icon-orange { color: var(--orange); }
 
-/* The magic contrast swap when the button is clicked! */
+/* High Contrast Icons on Hover & Active */
+.btn:hover .material-symbols-outlined,
 .btn.active .material-symbols-outlined {
   color: var(--bg); 
 }
