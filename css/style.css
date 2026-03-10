@@ -102,9 +102,3 @@ ul li { text-indent: -1.2em; /* brings the first line back if you prefer no visu
 .game-index-list a:hover {
     opacity: 0.8;
 }
-
-@media (max-width: 500px) {
-  .mobile-hide {
-    display: none;
-  }
-}

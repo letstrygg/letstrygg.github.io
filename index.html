@@ -36,9 +36,9 @@ custom_css: "/css/home.css"
           <span>{{ p.views_formatted }} <span class="material-symbols-outlined">visibility</span></span>
           <span>{{ p.duration_formatted }} <span class="material-symbols-outlined">schedule</span></span>
 -->		  
-			<span><span class="material-symbols-outlined">play_circle</span> {{ p.episodes }}<span class="mobile-hide"> videos</span></span>
-			<span><span class="material-symbols-outlined">visibility</span> {{ p.views_formatted }}<span class="mobile-hide"> views</span></span>
-			<span><span class="material-symbols-outlined">schedule</span> {{ p.duration_formatted }}</span>
+			<span><span class="material-symbols-outlined gray">play_circle</span> {{ p.episodes }}</span>
+			<span><span class="material-symbols-outlined gray">visibility</span> {{ p.views_formatted }}</span>
+			<span><span class="material-symbols-outlined gray">schedule</span> {{ p.duration_formatted }}</span>
         </div>
         <div class="card-row vpv-row" style="display: none; justify-content: center; color: #aaa; font-size: 0.9em; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px;">
           <span><span class="material-symbols-outlined orange">mode_heat</span> {{ p.vpv_formatted }} views per video</span>
