@@ -46,6 +46,10 @@ custom_css: "/css/home.css"
 
 <script>
 function sortGrid(type) {
+  document.querySelectorAll('.sort-controls .btn').forEach(btn => btn.classList.remove('active'));
+  const clickedBtn = document.getElementById(`btn-${type}`);
+  if (clickedBtn) clickedBtn.classList.add('active');
+
   const grid = document.getElementById('all-series-grid');
   const cards = Array.from(grid.querySelectorAll('.filterable-card'));
 
