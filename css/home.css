@@ -37,6 +37,15 @@
   align-items: center;
 }
 
+/* Targets the game title in your top card-row */
+.card-row strong {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  margin-right: 8px;
+}
+
 /* This targets the direct child spans inside the row */
 .card-row > span {
   display: inline-flex;
