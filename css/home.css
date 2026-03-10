@@ -58,7 +58,5 @@
 }
 
 .material-symbols-outlined {
-  font-size: 1.2em; /* Tweak this if you want the icons slightly larger or smaller */
-  /* Optional: Give the icons a slightly muted color so the numbers stand out */
-  color: #a0a0a0; 
+  font-size: 1.2em;
 }
