@@ -54,10 +54,10 @@ b				{ font-weight: 500; text-decoration: underline; text-decoration-color: var(
   top: .5rem;
   right: 1rem;
   font-size: 1.4rem;
-  cursor: pointer;
   z-index: 1000;
-  color: var(--purple); /* Default color for dark mode */
-  transition: color 0.3s ease; /* Smooth fade when switching themes */
+  color: var(--purple);
+  transition: color 0.3s ease;
+  font-variation-settings: 'FILL' 1; 
 }
 
 .light-theme #theme-toggle {
