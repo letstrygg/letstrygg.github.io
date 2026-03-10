@@ -15,11 +15,11 @@ custom_css: "/css/home.css"
 -->
 
 <div class="sort-controls" style="margin: 0px 170px 8px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-  <input type="text" id="gameSearch" placeholder="Search games (e.g. spire)..." style="padding: 6px 10px; border-radius: 3px; border: 1px solid #444; background: #222; color: #eee; flex-grow: 1; max-width: 300px; font-size: 14px;">
-  <button class="btn" onclick="sortGrid('recent')">Newest</button>
-  <button class="btn" onclick="sortGrid('popular')">Most Views</button>
-  <button class="btn" onclick="sortGrid('length')">Longest</button>
-  <button class="btn orange" onclick="sortGrid('vpv')">Views/Video</button>
+	<input type="text" id="gameSearch" placeholder="Search games (e.g. slay the spire)..." style="padding: 6px 10px; border-radius: 3px; border: 1px solid #444; background: #222; color: #eee; flex-grow: 1; max-width: 300px; font-size: 14px;">
+	<button class="btn" onclick="sortGrid('recent')">Newest</button>
+	<button class="btn" onclick="sortGrid('popular')">Most Views</button>
+	<button class="btn" onclick="sortGrid('length')">Longest</button>
+	<button class="btn orange" onclick="sortGrid('vpv')">Views/Video</button>
 </div>
 
 <div class="game-grid" id="all-series-grid">
@@ -28,20 +28,16 @@ custom_css: "/css/home.css"
       <div class="game-card" data-updated="{{ p.updated | date: '%Y%m%d' }}" data-episodes="{{ p.episodes }}" data-views="{{ p.views }}" data-duration="{{ p.duration }}" data-vpv="{{ p.vpv }}">
         <img src="{{ p.thumbnail }}" alt="{{ p.title }}">
         <div class="card-row">
-          <strong>{{ p.title }}</strong>
-          <span class="card-status {{ p.status_color }}">{{ p.status }}</span>
+			<strong>{{ p.title }}</strong>
+			<span class="card-status {{ p.status_color }}">{{ p.status }}</span>
         </div>
         <div class="card-row">
-<!--          <span>{{ p.episodes }} <span class="material-symbols-outlined">play_circle</span></span>
-          <span>{{ p.views_formatted }} <span class="material-symbols-outlined">visibility</span></span>
-          <span>{{ p.duration_formatted }} <span class="material-symbols-outlined">schedule</span></span>
--->		  
 			<span><span class="material-symbols-outlined gray">play_circle</span> {{ p.episodes }}</span>
 			<span><span class="material-symbols-outlined gray">visibility</span> {{ p.views_formatted }}</span>
 			<span><span class="material-symbols-outlined gray">schedule</span> {{ p.duration_formatted }}</span>
         </div>
         <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> {{ p.vpv_formatted }} views per video</span>
+			<span><span class="material-symbols-outlined orange">mode_heat</span> {{ p.vpv_formatted }} views per video</span>
         </div>
       </div>
     </a>
