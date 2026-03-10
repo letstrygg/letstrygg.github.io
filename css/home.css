@@ -145,17 +145,11 @@
 }
 
 /* 4. Orange Button (VPV) */
-/* Keeps the base orange text/border when NOT active, just like you had before */
-.btn.btn-orange {
-  border-color: var(--orange);
-  color: var(--orange);
-}
 .btn.btn-orange:hover,
 .btn.btn-orange.active {
   background: var(--orange);
   border-color: var(--orange);
   color: var(--bg);
-}
 }
 
 /* Icon Sizing & Transition */
