@@ -34,9 +34,6 @@ body {
   background:		var(--bg);
   color:			var(--text);
   margin:0px;
-/*  max-width:		1400px; 
-  margin:			0px auto 50px auto;
-  line-height:		1.6; */
 }
 
 header			{ text-align: center; }
@@ -104,4 +101,10 @@ ul li { text-indent: -1.2em; /* brings the first line back if you prefer no visu
 
 .game-index-list a:hover {
     opacity: 0.8;
+}
+
+@media (max-width: 500px) {
+  .mobile-hide {
+    display: none;
+  }
 }

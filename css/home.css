@@ -37,6 +37,13 @@
   align-items: center;
 }
 
+/* This targets the direct child spans inside the row */
+.card-row > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px; /* Adds that nice little space between the icon and the number */
+}
+
 .card-status {
     font-weight: 500;
     text-decoration: underline;
