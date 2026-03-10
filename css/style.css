@@ -33,7 +33,7 @@ body {
   font-family:		'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background:		var(--bg);
   color:			var(--text);
-  margin:0px;
+  margin:2px;
 }
 
 header			{ text-align: center; }
