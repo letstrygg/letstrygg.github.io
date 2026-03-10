@@ -14,12 +14,12 @@ custom_css: "/css/home.css"
 <h2 class="blue">All Series</h2>
 -->
 
-<div class="sort-controls" style="margin: 0px 170px 8px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-	<input type="text" id="gameSearch" placeholder="Search games (e.g. slay the spire)..." style="padding: 6px 10px; border-radius: 3px; border: 1px solid #444; background: #222; color: #eee; flex-grow: 1; max-width: 300px; font-size: 14px;">
-	<button class="btn" onclick="sortGrid('recent')">Newest</button>
-	<button class="btn" onclick="sortGrid('popular')">Most Views</button>
-	<button class="btn" onclick="sortGrid('length')">Longest</button>
-	<button class="btn orange" onclick="sortGrid('vpv')">Views/Video</button>
+<div class="sort-controls">
+  <input type="text" id="gameSearch" placeholder="Search games (e.g. slay the spire)...">
+  <button class="btn" onclick="sortGrid('recent')">Newest</button>
+  <button class="btn" onclick="sortGrid('popular')">Most Views</button>
+  <button class="btn" onclick="sortGrid('length')">Longest</button>
+  <button class="btn orange-btn" onclick="sortGrid('vpv')">Views/Video</button>
 </div>
 
 <div class="game-grid" id="all-series-grid">
