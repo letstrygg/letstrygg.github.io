@@ -118,26 +118,44 @@
   max-width: max-content;
 }
 
-/* Standard Button: Hover & Active */
-.btn:hover,
-.btn.active {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: var(--bg); /* High contrast text */
+/* --- BUTTON HOVER & ACTIVE STATES --- */
+
+/* 1. Green Button (Newest) */
+.btn.btn-green:hover,
+.btn.btn-green.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--bg);
 }
 
-/* Special Orange Button: Base */
-.btn.orange-btn {
+/* 2. Blue Button (Most Views) */
+.btn.btn-blue:hover,
+.btn.btn-blue.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--bg);
+}
+
+/* 3. Purple Button (Longest) */
+.btn.btn-purple:hover,
+.btn.btn-purple.active {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: var(--bg);
+}
+
+/* 4. Orange Button (VPV) */
+/* Keeps the base orange text/border when NOT active, just like you had before */
+.btn.btn-orange {
   border-color: var(--orange);
   color: var(--orange);
 }
-
-/* Special Orange Button: Hover & Active */
-.btn.orange-btn:hover,
-.btn.orange-btn.active {
+.btn.btn-orange:hover,
+.btn.btn-orange.active {
   background: var(--orange);
   border-color: var(--orange);
-  color: var(--bg); /* High contrast text */
+  color: var(--bg);
+}
 }
 
 /* Icon Sizing & Transition */
