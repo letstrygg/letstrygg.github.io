@@ -56,6 +56,12 @@ b				{ font-weight: 500; text-decoration: underline; text-decoration-color: var(
   font-size: 1.4rem;
   cursor: pointer;
   z-index: 1000;
+  color: var(--purple); /* Default color for dark mode */
+  transition: color 0.3s ease; /* Smooth fade when switching themes */
+}
+
+.light-theme #theme-toggle {
+  color: var(--orange); 
 }
 
 .section { padding-left: 2em; }
