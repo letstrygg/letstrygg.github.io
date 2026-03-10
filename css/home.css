@@ -132,3 +132,17 @@
   background: var(--orange);
   color: #fff;
 }
+
+/* Active state for standard buttons */
+.btn.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+/* Active state for the special orange button */
+.btn.orange-btn.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}

@@ -15,11 +15,11 @@ custom_css: "/css/home.css"
 -->
 
 <div class="sort-controls">
-  <input type="text" id="gameSearch" placeholder="Search games (e.g. slay the spire)...">
-  <button class="btn" onclick="sortGrid('recent')">Newest</button>
-  <button class="btn" onclick="sortGrid('popular')">Most Views</button>
-  <button class="btn" onclick="sortGrid('length')">Longest</button>
-  <button class="btn orange-btn" onclick="sortGrid('vpv')">VPV</button>
+	<input type="text" id="gameSearch" placeholder="Search games (e.g. slay the spire)...">
+	<button class="btn active" id="btn-recent" onclick="sortGrid('recent')">Newest</button>
+	<button class="btn" id="btn-popular" onclick="sortGrid('popular')">Most Views</button>
+	<button class="btn" id="btn-length" onclick="sortGrid('length')">Longest</button>
+	<button class="btn orange-btn" id="btn-vpv" onclick="sortGrid('vpv')">VPV</button>
 </div>
 
 <div class="game-grid" id="all-series-grid">
