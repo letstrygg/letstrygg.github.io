@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk6f0wqXmriN5XJcQYD50ezE",
+  "slug": "cloverpit",
   "title": "CloverPit",
   "thumbnail": "https://i.ytimg.com/vi/q1LecEZbYo0/maxresdefault.jpg",
   "published": "2025-10-11T05:11:22.649448Z",
   "updated": "2025-10-11T13:00:16Z",
-  "fetched": "2026-03-07T12:02:54.415Z",
+  "fetched": "2026-03-10T04:10:55.303Z",
   "episodes": 2,
   "duration": 14791,
-  "views": 255,
-  "status": "Completed",
   "duration_formatted": "4h 6m",
+  "views": 255,
   "views_formatted": "255",
-  "slug": "cloverpit",
+  "status": "Completed",
   "status_color": "blue"
 }

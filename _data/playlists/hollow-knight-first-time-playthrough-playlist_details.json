@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk78Wzwd9b5Xjfb8l-OC26VD",
-  "title": "Hollow Knight, First Time Playthrough",
+  "slug": "hollow-knight-first-time-playthrough",
+  "title": "Hollow Knight First Time Playthrough",
   "thumbnail": "https://i.ytimg.com/vi/TtUZKe46Emk/maxresdefault.jpg",
   "published": "2025-08-31T05:07:40.870924Z",
   "updated": "2025-09-01T12:00:05Z",
-  "fetched": "2026-03-07T12:02:56.767Z",
+  "fetched": "2026-03-10T04:11:21.692Z",
   "episodes": 3,
   "duration": 6131,
-  "views": 248,
-  "status": "Completed",
   "duration_formatted": "1h 42m",
+  "views": 248,
   "views_formatted": "248",
-  "slug": "hollow-knight-first-time-playthrough",
+  "status": "Completed",
   "status_color": "blue"
 }

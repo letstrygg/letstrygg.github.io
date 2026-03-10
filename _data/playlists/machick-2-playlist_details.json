@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk4mSyJn8SHzBxKz8d9de0hw",
+  "slug": "machick-2",
   "title": "Machick 2",
   "thumbnail": "https://i.ytimg.com/vi/Jf0FmH5u3Ec/maxresdefault.jpg",
   "published": "2025-09-19T22:32:12.697305Z",
   "updated": "2025-09-20T12:00:52Z",
-  "fetched": "2026-03-07T12:02:55.480Z",
+  "fetched": "2026-03-10T04:11:14.467Z",
   "episodes": 2,
   "duration": 3648,
-  "views": 512,
-  "status": "Completed",
   "duration_formatted": "1h 0m",
+  "views": 512,
   "views_formatted": "512",
-  "slug": "machick-2",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk7onDO4JY-AXPDLib0UQFU7",
-  "title": "Hell Builder, Complete Demo Playthrough",
+  "slug": "hell-builder-complete-demo-playthrough",
+  "title": "Hell Builder Complete Demo Playthrough",
   "thumbnail": "https://i.ytimg.com/vi/z63VSg0SXUQ/maxresdefault.jpg",
   "published": "2025-08-02T04:59:20.609128Z",
   "updated": "2025-08-03T15:00:04Z",
-  "fetched": "2026-03-07T12:02:59.493Z",
+  "fetched": "2026-03-10T04:11:36.452Z",
   "episodes": 2,
   "duration": 3678,
-  "views": 417,
-  "status": "Completed",
   "duration_formatted": "1h 1m",
+  "views": 417,
   "views_formatted": "417",
-  "slug": "hell-builder-complete-demo-playthrough",
+  "status": "Completed",
   "status_color": "blue"
 }

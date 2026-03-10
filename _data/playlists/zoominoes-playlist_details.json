@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk6xe7uv6QOOWj22ZS12FUFX",
+  "slug": "zoominoes",
   "title": "Zoominoes",
   "thumbnail": "https://i.ytimg.com/vi/8xTx7x6Bra4/maxresdefault.jpg",
   "published": "2026-02-07T22:37:41.863273Z",
   "updated": "2026-02-09T12:00:14Z",
-  "fetched": "2026-03-07T12:02:46.998Z",
+  "fetched": "2026-03-10T04:10:19.492Z",
   "episodes": 2,
   "duration": 7579,
-  "views": 55,
-  "status": "Completed",
   "duration_formatted": "2h 6m",
+  "views": 55,
   "views_formatted": "55",
-  "slug": "zoominoes",
+  "status": "Completed",
   "status_color": "blue"
 }

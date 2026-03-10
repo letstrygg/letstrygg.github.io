@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk4Ab7YKL6l3cTI7VrtG2Uf6",
+  "slug": "turnbound-s2",
   "title": "Turnbound S2",
   "thumbnail": "https://i.ytimg.com/vi/uEvpcM_tonk/maxresdefault.jpg",
   "published": "2025-12-13T01:50:00.796915Z",
   "updated": "2025-12-16T12:01:52Z",
-  "fetched": "2026-03-07T12:02:53.385Z",
+  "fetched": "2026-03-10T04:10:43.836Z",
   "episodes": 3,
   "duration": 10053,
-  "views": 734,
-  "status": "Completed",
   "duration_formatted": "2h 47m",
-  "views_formatted": "734",
-  "slug": "turnbound-s2",
+  "views": 740,
+  "views_formatted": "740",
+  "status": "Completed",
   "status_color": "blue"
 }

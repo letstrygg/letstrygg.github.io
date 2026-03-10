@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk6d6r3wCaHotje60JmgVRuU",
+  "slug": "roots-devour",
   "title": "Roots Devour",
   "thumbnail": "https://i.ytimg.com/vi/MT8aNQ7TKOw/maxresdefault.jpg",
   "published": "2026-02-02T02:55:28.921418Z",
   "updated": "2026-02-03T12:01:22Z",
-  "fetched": "2026-03-07T12:02:49.061Z",
+  "fetched": "2026-03-10T04:10:27.145Z",
   "episodes": 2,
   "duration": 4906,
-  "views": 518,
-  "status": "Completed",
   "duration_formatted": "1h 21m",
-  "views_formatted": "518",
-  "slug": "roots-devour",
+  "views": 519,
+  "views_formatted": "519",
+  "status": "Completed",
   "status_color": "blue"
 }

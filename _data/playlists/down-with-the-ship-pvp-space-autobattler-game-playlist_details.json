@@ -1,16 +1,16 @@
 {
   "id": "PLkwYKQUqZEUUkGpbrW_pFbUF8kHeGqUr8",
-  "title": "Down With The Ship - PvP Space Auto-Battler Game",
+  "slug": "down-with-the-ship-pvp-space-autobattler-game",
+  "title": "Down With The Ship PvP Space AutoBattler Game",
   "thumbnail": "https://i.ytimg.com/vi/xVOAqk4J8XM/maxresdefault.jpg",
   "published": "2025-08-13T07:14:03.113456Z",
   "updated": "2025-09-12T12:02:03Z",
-  "fetched": "2026-03-07T12:05:17.029Z",
+  "fetched": "2026-03-10T04:11:17.665Z",
   "episodes": 3,
   "duration": 14266,
-  "views": 425,
-  "status": "Completed",
   "duration_formatted": "3h 57m",
+  "views": 425,
   "views_formatted": "425",
-  "slug": "down-with-the-ship-pvp-space-autobattler-game",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -1,16 +1,16 @@
 {
   "id": "PLkwYKQUqZEUV4Aj9ZKt51J2Bw1oEPpB_1",
-  "title": "Brawl To The West",
+  "slug": "brawl-to-the-west",
+  "title": "Brawl to the West",
   "thumbnail": "https://i.ytimg.com/vi/CWsdz2TW51g/maxresdefault.jpg",
   "published": "2025-06-24T04:22:48.429853Z",
   "updated": "2025-08-29T14:00:22Z",
-  "fetched": "2026-03-07T11:46:29.295Z",
+  "fetched": "2026-03-10T04:11:25.752Z",
   "episodes": 4,
   "duration": 11900,
-  "views": 262,
-  "status": "Completed",
   "duration_formatted": "3h 18m",
+  "views": 262,
   "views_formatted": "262",
-  "slug": "brawl-to-the-west",
+  "status": "Completed",
   "status_color": "blue"
 }
