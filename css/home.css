@@ -15,7 +15,7 @@
   border: 1px solid #007dab;
   border-radius: 10px;
   overflow: hidden;
-  font-size: 0.9em;
+  font-size: 1.0em;
   background: var(--card-bg);
   color: inherit;
 }
@@ -40,7 +40,7 @@
 /* This targets the direct child spans inside the row */
 .card-row > span {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 4px; /* Adds that nice little space between the icon and the number */
 }
 
