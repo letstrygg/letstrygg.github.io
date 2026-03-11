@@ -5,7 +5,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 9,
-    "views": 431,
+    "views": 446,
     "duration": 84042,
     "tags": [
       "Deck Builder"
@@ -13,10 +13,10 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-11T14:00:10Z",
-    "views_formatted": "431",
+    "views_formatted": "446",
     "duration_formatted": "23h 20m",
-    "vpv": 48,
-    "vpv_formatted": "48"
+    "vpv": 50,
+    "vpv_formatted": "50"
   },
   {
     "id": "oaken-tower",
@@ -202,7 +202,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 120,
-    "views": 6176,
+    "views": 6201,
     "duration": 292987,
     "tags": [
       "Tower Defense"
@@ -212,8 +212,8 @@
     "updated": "2026-03-11T12:01:39Z",
     "views_formatted": "6.2K",
     "duration_formatted": "81h 23m",
-    "vpv": 51,
-    "vpv_formatted": "51"
+    "vpv": 52,
+    "vpv_formatted": "52"
   },
   {
     "id": "turnbound",
@@ -485,7 +485,11 @@
     "episodes": 4,
     "views": 187,
     "duration": 11003,
-    "tags": [],
+    "tags": [
+      "Auto Battler",
+      "Deck Builder",
+      "PVP"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-07-13T16:00:26Z",
@@ -688,18 +692,19 @@
     "thumbnail": "https://i.ytimg.com/vi/izYH-s98Y-8/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 6,
-    "views": 306,
+    "views": 314,
     "duration": 30822,
     "tags": [
-      "Automation"
+      "Automation",
+      "Base Building"
     ],
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-03-11T16:01:10Z",
-    "views_formatted": "306",
+    "views_formatted": "314",
     "duration_formatted": "8h 33m",
-    "vpv": 51,
-    "vpv_formatted": "51"
+    "vpv": 52,
+    "vpv_formatted": "52"
   },
   {
     "id": "wanderburg",
@@ -749,7 +754,8 @@
     "views": 9513,
     "duration": 373367,
     "tags": [
-      "Automation"
+      "Automation",
+      "Base Building"
     ],
     "status": "Paused",
     "status_color": "purple",
@@ -1199,7 +1205,10 @@
     "episodes": 2,
     "views": 417,
     "duration": 3678,
-    "tags": [],
+    "tags": [
+      "Base Building",
+      "Deck Builder"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-03T15:00:04Z",
@@ -1216,7 +1225,10 @@
     "episodes": 1,
     "views": 263,
     "duration": 4543,
-    "tags": [],
+    "tags": [
+      "Turn-Based Tactics",
+      "Dungeon Crawler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-01T15:01:11Z",
@@ -1234,7 +1246,8 @@
     "views": 3686,
     "duration": 38370,
     "tags": [
-      "Automation"
+      "Automation",
+      "Base Building"
     ],
     "status": "Completed",
     "status_color": "blue",
@@ -1252,7 +1265,10 @@
     "episodes": 12,
     "views": 785,
     "duration": 67573,
-    "tags": [],
+    "tags": [
+      "Turn-Based Tactics",
+      "Base Building"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-07-22T17:00:43Z",
@@ -1408,7 +1424,9 @@
     "episodes": 2,
     "views": 377,
     "duration": 4325,
-    "tags": [],
+    "tags": [
+      "Dungeon Crawler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-04-03T15:01:20Z",
@@ -1444,7 +1462,9 @@
     "episodes": 2,
     "views": 399,
     "duration": 5375,
-    "tags": [],
+    "tags": [
+      "Resource Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-03-25T17:00:14Z",
@@ -1539,7 +1559,10 @@
     "episodes": 3,
     "views": 807,
     "duration": 13783,
-    "tags": [],
+    "tags": [
+      "Turn-Based Tactics",
+      "Deck Builder"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-02-16T19:00:13Z",
@@ -1615,7 +1638,10 @@
     "episodes": 2,
     "views": 931,
     "duration": 4687,
-    "tags": [],
+    "tags": [
+      "Resource Management",
+      "Base Building"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-02-09T15:00:34Z",
@@ -1731,7 +1757,11 @@
     "episodes": 10,
     "views": 7074,
     "duration": 21628,
-    "tags": [],
+    "tags": [
+      "Resource Management",
+      "Base Building",
+      "Auto Battler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-12-06T13:00:58Z",
@@ -1964,7 +1994,10 @@
     "episodes": 4,
     "views": 1680,
     "duration": 7740,
-    "tags": [],
+    "tags": [
+      "Horde Survival",
+      "Bullet Heaven"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-04-18T19:00:21Z",
@@ -1981,7 +2014,11 @@
     "episodes": 9,
     "views": 5035,
     "duration": 23850,
-    "tags": [],
+    "tags": [
+      "Base Building",
+      "Automation",
+      "Sandbox"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-04-26T19:00:09Z",
@@ -2017,7 +2054,11 @@
     "episodes": 2,
     "views": 1546,
     "duration": 5763,
-    "tags": [],
+    "tags": [
+      "Action RPG",
+      "Dungeon Crawler",
+      "Resource Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-03-19T13:00:01Z",
@@ -2054,7 +2095,11 @@
     "episodes": 2,
     "views": 248,
     "duration": 9117,
-    "tags": [],
+    "tags": [
+      "Incremental",
+      "Idle",
+      "Resource Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-03-09T14:30:14Z",
@@ -2111,7 +2156,9 @@
     "episodes": 4,
     "views": 531,
     "duration": 7619,
-    "tags": [],
+    "tags": [
+      "Action RPG"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-02-19T14:30:09Z",
@@ -2147,7 +2194,11 @@
     "episodes": 6,
     "views": 748,
     "duration": 23652,
-    "tags": [],
+    "tags": [
+      "Sandbox",
+      "Base Building",
+      "Crafting"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-01-27T14:30:03Z",
@@ -2164,7 +2215,11 @@
     "episodes": 19,
     "views": 2247,
     "duration": 52703,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Dungeon Crawler",
+      "Action RPG"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-01-18T14:30:12Z",
@@ -2181,7 +2236,11 @@
     "episodes": 5,
     "views": 2010,
     "duration": 11970,
-    "tags": [],
+    "tags": [
+      "Deck Builder",
+      "Turn-Based Tactics",
+      "Dungeon Crawler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-01-07T13:00:08Z",
@@ -2218,7 +2277,10 @@
     "episodes": 4,
     "views": 1373,
     "duration": 18847,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Incremental"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2023-12-04T14:30:24Z",
@@ -2228,12 +2290,12 @@
     "vpv_formatted": "343"
   },
   {
-    "id": "looper-tactics-s2",
-    "title": "Looper Tactics S2",
+    "id": "looper-tactics",
+    "title": "Looper Tactics",
     "thumbnail": "https://i.ytimg.com/vi/X1s6kFKz4Ac/maxresdefault.jpg",
-    "highest_season": 1,
+    "highest_season": 2,
     "episodes": 6,
-    "views": 1897,
+    "views": 1898,
     "duration": 17773,
     "tags": [],
     "status": "Completed",
