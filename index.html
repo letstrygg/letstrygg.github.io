@@ -215,76 +215,97 @@ document.getElementById('gameSearch').addEventListener('input', function(e) {
 });
 
 // --- Tag & Filter Logic ---
-let activeTags = new Set();
+let allSortedTags = [];
+let isTagsExpanded = false;
 
 function initTags() {
     const cards = document.querySelectorAll('.filterable-card');
     const tagCounts = {};
-
-    // 1. Count every tag across all games
+    
     cards.forEach(card => {
         const tagsStr = card.getAttribute('data-tags');
         if (!tagsStr) return;
-        const tags = tagsStr.split(',').filter(Boolean);
-        tags.forEach(t => {
+        tagsStr.split(',').filter(Boolean).forEach(t => {
             const cleanTag = t.trim();
             tagCounts[cleanTag] = (tagCounts[cleanTag] || 0) + 1;
         });
     });
 
-    // 2. Sort tags by popularity (highest count first)
-    const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
-    if (sortedTags.length === 0) return;
+    allSortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+    if (allSortedTags.length === 0) return;
 
     const container = document.getElementById('tag-filters');
     container.innerHTML = '';
 
-    const topTags = sortedTags.slice(0, 3);
-    const hiddenTags = sortedTags.slice(3);
-
-    // Helper function to build a tag button
-    const buildBtn = (tagName, count, isHiddenObj = false) => {
+    // 1. Build all the tag buttons
+    allSortedTags.forEach(([tag, count]) => {
         const btn = document.createElement('button');
-        btn.className = 'btn-tag';
-        btn.innerText = `${tagName} (${count})`;
-        if (isHiddenObj) btn.style.display = 'none'; // Hide if it's past the top 3
-        
+        btn.className = 'btn-tag tag-item'; 
+        btn.innerText = `${tag} (${count})`;
         btn.onclick = () => {
-            if (activeTags.has(tagName)) {
-                activeTags.delete(tagName);
+            if (activeTags.has(tag)) {
+                activeTags.delete(tag);
                 btn.classList.remove('active');
             } else {
-                activeTags.add(tagName);
+                activeTags.add(tag);
                 btn.classList.add('active');
             }
             applyFilters();
         };
-        return btn;
+        container.appendChild(btn);
+    });
+
+    // 2. Build the "+ More" button
+    const moreBtn = document.createElement('button');
+    moreBtn.id = 'btn-tag-more';
+    moreBtn.className = 'btn-tag btn-tag-more';
+    moreBtn.onclick = () => {
+        isTagsExpanded = !isTagsExpanded;
+        layoutTags();
     };
+    container.appendChild(moreBtn);
 
-    // 3. Render Top 3 Tags
-    topTags.forEach(([tag, count]) => container.appendChild(buildBtn(tag, count)));
+    // 3. Layout the tags initially, and recalculate whenever the screen resizes!
+    layoutTags();
+    window.addEventListener('resize', layoutTags);
+}
 
-    // 4. Render the "More Tags" toggle if needed
-    if (hiddenTags.length > 0) {
-        const hiddenElements = [];
-        hiddenTags.forEach(([tag, count]) => {
-            const btn = buildBtn(tag, count, true);
-            hiddenElements.push(btn);
-            container.appendChild(btn);
-        });
+function layoutTags() {
+    const container = document.getElementById('tag-filters');
+    if (!container) return;
+    
+    const tags = Array.from(container.querySelectorAll('.tag-item'));
+    const moreBtn = document.getElementById('btn-tag-more');
+    if (!tags.length || !moreBtn) return;
 
-        const moreBtn = document.createElement('button');
-        moreBtn.className = 'btn-tag btn-tag-more';
-        moreBtn.innerText = `+ ${hiddenTags.length} More`;
-        
-        moreBtn.onclick = () => {
-            const isCurrentlyHidden = hiddenElements[0].style.display === 'none';
-            hiddenElements.forEach(el => el.style.display = isCurrentlyHidden ? 'inline-block' : 'none');
-            moreBtn.innerText = isCurrentlyHidden ? '- Show Less' : `+ ${hiddenTags.length} More`;
-        };
-        
-        container.appendChild(moreBtn);
+    if (isTagsExpanded) {
+        tags.forEach(t => t.style.display = 'inline-flex');
+        moreBtn.innerText = '- Show Less';
+        return;
+    }
+
+    // Temporarily show all tags to calculate physical space
+    tags.forEach(t => t.style.display = 'inline-flex');
+    moreBtn.style.display = 'inline-flex';
+
+    const isMobile = window.innerWidth <= 600;
+    const allowedRows = isMobile ? 2 : 1;
+    
+    const firstY = tags[0].offsetTop;
+    const rowThreshold = 45; // Approximate pixel height of a row + gap
+    const maxY = firstY + ((allowedRows - 1) * rowThreshold) + 15;
+
+    // Hide tags from the end one by one until the "More" button jumps up to the correct row
+    for (let i = tags.length - 1; i >= 0; i--) {
+        if (moreBtn.offsetTop <= maxY) break; 
+        tags[i].style.display = 'none'; 
+    }
+
+    const hiddenCount = tags.filter(t => t.style.display === 'none').length;
+    if (hiddenCount === 0) {
+        moreBtn.style.display = 'none';
+    } else {
+        moreBtn.innerText = `+ ${hiddenCount} More`;
     }
 }
 
