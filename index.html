@@ -38,26 +38,26 @@ custom_css: "/css/home.css"
     </div>
 
     <div id="tag-filters" class="tag-filters"></div>
-</div>
 
-<div id="summary-info-box" style="display: none; background: var(--card-bg); padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--blue); color: var(--text); font-size: 0.9em;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
-        <div>
-            <strong style="color: var(--blue); font-size: 1.1em;">Library Scope</strong><br>
-            Games: <strong id="stat-games">0</strong><br>
-            Videos: <strong id="stat-videos-total">0</strong>
-        </div>
-        <div>
-            <strong style="color: var(--green); font-size: 1.1em;">Views</strong><br>
-            Total: <span id="stat-views-total">0</span><br>
-            Avg / Game: <span id="stat-views-avg-game">0</span><br>
-            Avg / Video: <span id="stat-vpv" style="color: var(--orange); font-weight: bold;">0</span>
-        </div>
-        <div>
-            <strong style="color: var(--purple); font-size: 1.1em;">Duration</strong><br>
-            Total: <span id="stat-dur-total">0</span><br>
-            Avg / Game: <span id="stat-dur-game">0</span><br>
-            Avg / Video: <span id="stat-dur-video">0</span>
+    <div id="summary-info-box" class="summary-info-box" style="display: none;">
+        <div class="summary-grid">
+            <div>
+                <strong class="text-blue" style="font-size: 1.1em;">Library Scope</strong><br>
+                Games: <strong id="stat-games">0</strong><br>
+                Videos: <strong id="stat-videos-total">0</strong>
+            </div>
+            <div>
+                <strong class="text-green" style="font-size: 1.1em;">Views</strong><br>
+                Total: <span id="stat-views-total">0</span><br>
+                Avg / Game: <span id="stat-views-avg-game">0</span><br>
+                Avg / Video: <span id="stat-vpv" class="text-orange" style="font-weight: bold;">0</span>
+            </div>
+            <div>
+                <strong class="text-purple" style="font-size: 1.1em;">Duration</strong><br>
+                Total: <span id="stat-dur-total">0</span><br>
+                Avg / Game: <span id="stat-dur-game">0</span><br>
+                Avg / Video: <span id="stat-dur-video">0</span>
+            </div>
         </div>
     </div>
 </div>

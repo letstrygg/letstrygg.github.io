@@ -73,38 +73,74 @@
 /* =========================================
    NEW LAYOUT: CONTROLS & SEGMENTS 
    ========================================= */
-
-/* Master Container */
 .controls-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin: 16px 10px 24px 10px;
-  max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* This ensures perfect spacing between ALL rows, including the info box */
+    margin: 16px auto 24px auto; /* Centers the whole block */
+    max-width: 800px; /* Gives nice desktop margins. Set to 1000px if you want it wider */
+    width: 100%;
+    padding: 0 10px; /* Safe mobile padding */
 }
 
-/* Top Row: Search & Info */
 .controls-top-row {
-  display: flex;
-  gap: 10px;
-  width: 100%;
+    display: flex;
+    justify-content: space-between; /* Pushes Search to the left, Info to the right */
+    align-items: center;
+    width: 100%;
 }
 
 /* Search Bar */
 #gameSearch {
-  flex-grow: 1;
-  padding: 10px 16px;
-  font-size: 1rem;
-  border-radius: 8px; /* Squarer, input-like shape */
-  border: 1px solid var(--gray);
-  background: var(--card-bg);
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.2s ease;
+	max-width: 350px; /* Prevents it from touching the Info button */
+    width: 100%;
+	flex-grow: 1;
+	padding: 10px 16px;
+	font-size: 1rem;
+	border-radius: 8px; /* Squarer, input-like shape */
+	border: 1px solid var(--gray);
+	background: var(--card-bg);
+	color: var(--text);
+	outline: none;
+	transition: border-color 0.2s ease;
 }
 
 #gameSearch:focus {
   border-color: var(--blue);
+}
+
+/* --- THE CLEANED UP INFO BOX --- */
+.summary-info-box {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--blue);
+    color: var(--text);
+    font-size: 0.9em;
+}
+
+.summary-grid {
+    display: grid;
+    /* This forces exactly 3 columns at all times, preventing vertical stacking on mobile */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px;
+}
+
+/* Helper Text Colors */
+.text-blue { color: var(--blue); }
+.text-green { color: var(--green); }
+.text-purple { color: var(--purple); }
+.text-orange { color: var(--orange); }
+
+/* --- MOBILE OPTIMIZATION --- */
+@media (max-width: 600px) {
+    .summary-info-box {
+        padding: 12px; /* Less padding on mobile */
+    }
+    .summary-grid {
+        font-size: 0.85em; /* Shrink text slightly so 3 columns fit beautifully */
+        gap: 5px;
+    }
 }
 
 /* Base Button Styling (Kept for Info Button & Future use) */
