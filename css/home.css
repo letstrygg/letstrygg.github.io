@@ -78,23 +78,23 @@
     flex-direction: column;
     gap: 16px; /* This ensures perfect spacing between ALL rows, including the info box */
     margin: 16px auto 24px auto; /* Centers the whole block */
-    max-width: 800px; /* Gives nice desktop margins. Set to 1000px if you want it wider */
-    width: 100%;
+    max-width: 1200px; /* Gives nice desktop margins. Set to 1000px if you want it wider */
+    /* width: 100%; */
     padding: 0 10px; /* Safe mobile padding */
 }
 
 .controls-top-row {
     display: flex;
     justify-content: space-between; /* Pushes Search to the left, Info to the right */
-    align-items: center;
-    width: 100%;
+    /* align-items: center;
+    width: 100%; */
 }
 
 /* Search Bar */
 #gameSearch {
 	max-width: 350px; /* Prevents it from touching the Info button */
-    width: 100%;
-	flex-grow: 1;
+    /* width: 100%; */
+	flex-grow: .7;
 	padding: 10px 16px;
 	font-size: 1rem;
 	border-radius: 8px; /* Squarer, input-like shape */
