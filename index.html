@@ -215,6 +215,8 @@ document.getElementById('gameSearch').addEventListener('input', function(e) {
 });
 
 // --- Tag & Filter Logic ---
+let activeTags = new Set();
+
 let allSortedTags = [];
 let isTagsExpanded = false;
 
@@ -307,31 +309,6 @@ function layoutTags() {
     } else {
         moreBtn.innerText = `+ ${hiddenCount} More`;
     }
-}
-
-// Unified Filter: Handles Search Bar AND Tag Selections simultaneously
-function applyFilters() {
-    const searchTerm = document.getElementById('gameSearch').value.toLowerCase();
-    const cards = document.querySelectorAll('.filterable-card');
-
-    cards.forEach(card => {
-        const title = card.getAttribute('data-title') || '';
-        const tagsStr = card.getAttribute('data-tags') || '';
-        const cardTags = tagsStr.split(',').map(t => t.trim());
-
-        const matchesSearch = title.includes(searchTerm);
-        
-        // AND Logic: Game must have ALL of the active tags. 
-        const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(tag => cardTags.includes(tag));
-
-        if (matchesSearch && matchesTags) {
-            card.style.display = '';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-
-    calculateStats(); // Instantly update the summary box!
 }
 
 // Replace your old search listener with the unified function
