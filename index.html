@@ -300,9 +300,8 @@ function applyFilters() {
 
         const matchesSearch = title.includes(searchTerm);
         
-        // OR Logic: Game must have AT LEAST ONE of the active tags. 
-        // (Change .some to .every if you want AND logic where it must have ALL active tags)
-        const matchesTags = activeTags.size === 0 || Array.from(activeTags).some(tag => cardTags.includes(tag));
+        // AND Logic: Game must have ALL of the active tags. 
+        const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(tag => cardTags.includes(tag));
 
         if (matchesSearch && matchesTags) {
             card.style.display = '';
