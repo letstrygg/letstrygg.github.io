@@ -70,24 +70,32 @@
   font-size: 1.2em;
 }
 
-/* Container Layout */
-.sort-controls {
+/* =========================================
+   NEW LAYOUT: CONTROLS & SEGMENTS 
+   ========================================= */
+
+/* Master Container */
+.controls-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  justify-content: center; /* Centers the controls above the grid */
-  margin: 16px 10px 24px 10px; /* Safe mobile margins */
+  flex-direction: column;
+  gap: 16px;
+  margin: 16px 10px 24px 10px;
   max-width: 100%;
+}
+
+/* Top Row: Search & Info */
+.controls-top-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
 }
 
 /* Search Bar */
 #gameSearch {
-  flex: 1 1 250px; /* Grows to fill space, but won't get smaller than 250px */
-  max-width: 400px;
+  flex-grow: 1;
   padding: 10px 16px;
   font-size: 1rem;
-  border-radius: 20px; /* Clean pill shape */
+  border-radius: 8px; /* Squarer, input-like shape */
   border: 1px solid var(--gray);
   background: var(--card-bg);
   color: var(--text);
@@ -98,7 +106,8 @@
 #gameSearch:focus {
   border-color: var(--blue);
 }
-/* Base Button Styling */
+
+/* Base Button Styling (Kept for Info Button & Future use) */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -107,63 +116,68 @@
   padding: 8px 16px;
   font-size: 0.95em;
   font-weight: 500;
-  border-radius: 20px;
+  border-radius: 8px; /* Changed from 20px to match new aesthetic */
   border: 1px solid var(--gray);
   background: transparent;
   color: var(--text);
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
-  flex-grow: 1;
-  max-width: max-content;
 }
 
-/* --- BUTTON HOVER & ACTIVE STATES --- */
-
-/* 1. Green Button (Newest) */
-.btn.btn-green:hover,
-.btn.btn-green.active {
-  background: var(--green);
-  border-color: var(--green);
-  color: var(--bg);
-}
-
-/* 2. Blue Button (Most Views) */
-.btn.btn-blue:hover,
-.btn.btn-blue.active {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: var(--bg);
-}
-
-/* 3. Purple Button (Longest) */
-.btn.btn-purple:hover,
-.btn.btn-purple.active {
-  background: var(--purple);
-  border-color: var(--purple);
-  color: var(--bg);
-}
-
-/* 4. Orange Button (VPV) */
-.btn.btn-orange:hover,
-.btn.btn-orange.active {
-  background: var(--orange);
-  border-color: var(--orange);
-  color: var(--bg);
-}
-
-/* 5. Gray Button (Info) */
+/* Info Button Hover/Active */
 .btn.btn-gray:hover,
 .btn.btn-gray.active {
-  background: var(--text); /* Using text color for a bold, high-contrast active state */
+  background: var(--text);
   border-color: var(--text);
   color: var(--bg);
 }
 
-/* Icon Sizing & Transition */
-.btn .material-symbols-outlined {
-  font-size: 1.2em;
-  transition: color 0.2s ease; 
+/* --- MIDDLE ROW: SEGMENTED CONTROL --- */
+.segmented-control {
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--gray);
+  overflow: hidden; /* This makes the children respect the rounded corners */
+  background: var(--card-bg);
+}
+
+.segment-btn {
+  flex: 1; /* Forces all 4 buttons to be exactly equal width */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 5px;
+  font-size: 0.95em;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  border-right: 1px solid var(--gray); /* Internal dividers */
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.segment-btn:last-child {
+  border-right: none; /* Removes the divider from the last button */
+}
+
+/* Hover & Active States for Segments */
+.segment-btn:hover { background: #333; }
+
+#btn-recent.active { background: var(--green); color: var(--bg); }
+#btn-popular.active { background: var(--blue); color: var(--bg); }
+#btn-length.active { background: var(--purple); color: var(--bg); }
+#btn-vpv.active { background: var(--orange); color: var(--bg); }
+
+/* High Contrast Icons on Hover & Active */
+.btn:hover .material-symbols-outlined,
+.btn.active .material-symbols-outlined,
+.segment-btn.active .material-symbols-outlined {
+  color: var(--bg); 
 }
 
 /* Default Icon Colors */
@@ -173,15 +187,23 @@
 .icon-orange { color: var(--orange); }
 .icon-gray { color: var(--gray); }
 
-/* High Contrast Icons on Hover & Active */
-.btn:hover .material-symbols-outlined,
-.btn.active .material-symbols-outlined {
-  color: var(--bg); 
+/* --- MOBILE OPTIMIZATION --- */
+@media (max-width: 600px) {
+  .segment-btn {
+      flex-direction: column; /* Stacks the icon on top of the text */
+      gap: 4px;
+      font-size: 0.75em; /* Slightly smaller text to prevent clipping */
+      padding: 8px 2px;
+  }
+  .segment-btn .material-symbols-outlined {
+      font-size: 1.4em; /* Keep icons big and readable */
+  }
 }
 
+/* =========================================
+   TAG FILTERING SYSTEM 
+   ========================================= */
 
-
-/* Tag Filtering System */
 .tag-filters {
     display: flex;
     flex-wrap: wrap;
