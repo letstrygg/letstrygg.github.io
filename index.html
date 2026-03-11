@@ -88,8 +88,11 @@ custom_css: "/css/home.css"
 // --- State Management ---
 let currentSort = 'recent';
 let isInfoActive = false;
+let activeTags = new Set();
+let allSortedTags = [];
+let isTagsExpanded = false;
 
-// --- Formatting Helpers (Mirrors your backend logic) ---
+// --- Formatting Helpers ---
 function formatViews(num) {
     num = Math.round(num);
     if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
@@ -111,7 +114,7 @@ function toggleInfo() {
     const infoBox = document.getElementById('summary-info-box');
 
     if (isInfoActive) {
-        btn.classList.add('active'); // CSS handles the colors entirely now!
+        btn.classList.add('active'); 
         infoBox.style.display = 'block';
         calculateStats();
     } else {
@@ -130,7 +133,6 @@ function calculateStats() {
     let totalVideos = 0;
     let totalDuration = 0;
 
-    // Only do math on cards that are currently visible
     cards.forEach(card => {
         if (card.style.display !== 'none') {
             gamesCount++;
@@ -161,65 +163,64 @@ function updateVPVVisibility() {
     cards.forEach(card => {
         const vpvRow = card.querySelector('.vpv-row');
         if (vpvRow) {
-            // Show VPV if either the VPV sort is active OR the Info box is active
             vpvRow.style.display = (currentSort === 'vpv' || isInfoActive) ? 'flex' : 'none';
         }
     });
 }
 
-// --- Existing Logic ---
+// --- Sorting Logic ---
 function sortGrid(type) {
-  currentSort = type;
-  document.querySelectorAll('.segment-btn').forEach(btn => btn.classList.remove('active'));
-  
-  const clickedBtn = document.getElementById(`btn-${type}`);
-  if (clickedBtn) clickedBtn.classList.add('active');
-
-  const grid = document.getElementById('all-series-grid');
-  const cards = Array.from(grid.querySelectorAll('.filterable-card'));
-
-  cards.sort((a, b) => {
-    const cardA = a.querySelector('.game-card');
-    const cardB = b.querySelector('.game-card');
+    currentSort = type;
+    document.querySelectorAll('.segment-btn').forEach(btn => btn.classList.remove('active'));
     
-    if (!cardA || !cardB) return 0;
+    const clickedBtn = document.getElementById(`btn-${type}`);
+    if (clickedBtn) clickedBtn.classList.add('active');
 
-    if (type === 'recent') return parseInt(cardB.dataset.updated || 0) - parseInt(cardA.dataset.updated || 0);
-    if (type === 'popular') return parseInt(cardB.dataset.views || 0) - parseInt(cardA.dataset.views || 0);
-    if (type === 'length') return parseInt(cardB.dataset.duration || 0) - parseInt(cardA.dataset.duration || 0);
-    if (type === 'vpv') return parseInt(cardB.dataset.vpv || 0) - parseInt(cardA.dataset.vpv || 0);
-  });
+    const grid = document.getElementById('all-series-grid');
+    const cards = Array.from(grid.querySelectorAll('.filterable-card'));
 
-  grid.innerHTML = '';
-  cards.forEach(card => grid.appendChild(card));
-  
-  updateVPVVisibility();
+    cards.sort((a, b) => {
+        const cardA = a.querySelector('.game-card');
+        const cardB = b.querySelector('.game-card');
+        if (!cardA || !cardB) return 0;
+
+        if (type === 'recent') return parseInt(cardB.dataset.updated || 0) - parseInt(cardA.dataset.updated || 0);
+        if (type === 'popular') return parseInt(cardB.dataset.views || 0) - parseInt(cardA.dataset.views || 0);
+        if (type === 'length') return parseInt(cardB.dataset.duration || 0) - parseInt(cardA.dataset.duration || 0);
+        if (type === 'vpv') return parseInt(cardB.dataset.vpv || 0) - parseInt(cardA.dataset.vpv || 0);
+    });
+
+    grid.innerHTML = '';
+    cards.forEach(card => grid.appendChild(card));
+    updateVPVVisibility();
 }
 
-document.getElementById('gameSearch').addEventListener('input', function(e) {
-  const searchTerm = e.target.value.toLowerCase();
-  const grid = document.getElementById('all-series-grid');
-  const cards = grid.querySelectorAll('.filterable-card');
+// --- Unified Filter Logic (THIS IS WHAT WENT MISSING!) ---
+function applyFilters() {
+    const searchTerm = document.getElementById('gameSearch').value.toLowerCase();
+    const cards = document.querySelectorAll('.filterable-card');
 
-  cards.forEach(card => {
-    const title = card.getAttribute('data-title');
-    if (title.includes(searchTerm)) {
-      card.style.display = ''; 
-    } else {
-      card.style.display = 'none';
-    }
-  });
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const tagsStr = card.getAttribute('data-tags') || '';
+        const cardTags = tagsStr.split(',').map(t => t.trim());
 
-  // Recalculate the box stats every time the user types!
-  calculateStats();
-});
+        const matchesSearch = title.includes(searchTerm);
+        
+        // AND Logic: Game must have ALL of the active tags. 
+        const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(tag => cardTags.includes(tag));
 
-// --- Tag & Filter Logic ---
-let activeTags = new Set();
+        if (matchesSearch && matchesTags) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
 
-let allSortedTags = [];
-let isTagsExpanded = false;
+    calculateStats(); 
+}
 
+// --- Tag Building Logic ---
 function initTags() {
     const cards = document.querySelectorAll('.filterable-card');
     const tagCounts = {};
@@ -239,7 +240,6 @@ function initTags() {
     const container = document.getElementById('tag-filters');
     container.innerHTML = '';
 
-    // 1. Build all the tag buttons
     allSortedTags.forEach(([tag, count]) => {
         const btn = document.createElement('button');
         btn.className = 'btn-tag tag-item'; 
@@ -257,7 +257,6 @@ function initTags() {
         container.appendChild(btn);
     });
 
-    // 2. Build the "+ More" button
     const moreBtn = document.createElement('button');
     moreBtn.id = 'btn-tag-more';
     moreBtn.className = 'btn-tag btn-tag-more';
@@ -267,7 +266,6 @@ function initTags() {
     };
     container.appendChild(moreBtn);
 
-    // 3. Layout the tags initially, and recalculate whenever the screen resizes!
     layoutTags();
     window.addEventListener('resize', layoutTags);
 }
@@ -286,7 +284,6 @@ function layoutTags() {
         return;
     }
 
-    // Temporarily show all tags to calculate physical space
     tags.forEach(t => t.style.display = 'inline-flex');
     moreBtn.style.display = 'inline-flex';
 
@@ -294,10 +291,9 @@ function layoutTags() {
     const allowedRows = isMobile ? 2 : 1;
     
     const firstY = tags[0].offsetTop;
-    const rowThreshold = 45; // Approximate pixel height of a row + gap
+    const rowThreshold = 45; 
     const maxY = firstY + ((allowedRows - 1) * rowThreshold) + 15;
 
-    // Hide tags from the end one by one until the "More" button jumps up to the correct row
     for (let i = tags.length - 1; i >= 0; i--) {
         if (moreBtn.offsetTop <= maxY) break; 
         tags[i].style.display = 'none'; 
@@ -311,11 +307,12 @@ function layoutTags() {
     }
 }
 
-// Replace your old search listener with the unified function
+// Ensure event listener triggers the unified filter function
 document.getElementById('gameSearch').addEventListener('input', applyFilters);
 
+// Boot it all up
 document.addEventListener('DOMContentLoaded', () => {
     sortGrid('recent');
-    initTags(); // Boots up the tag UI!
+    initTags(); 
 });
 </script>
