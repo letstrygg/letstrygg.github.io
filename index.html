@@ -14,8 +14,8 @@ custom_css: "/css/home.css"
 <h2 class="blue">All Series</h2>
 -->
 
-<div class="sort-controls">
-	<input type="text" id="gameSearch" placeholder="Search games (e.g. slay the spire)...">
+<div class="sort-controls" style="margin-bottom: 20px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+	<input type="text" id="gameSearch" placeholder="Search games (e.g. slay the spire)..." style="padding: 6px 10px; border-radius: 3px; border: 1px solid #444; background: #222; color: #eee; flex-grow: 1; max-width: 300px; font-size: 14px;">
 	
 	<button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')">
 	  <span class="material-symbols-outlined icon-green">psychiatry</span> New
@@ -29,6 +29,33 @@ custom_css: "/css/home.css"
 	<button class="btn btn-orange" id="btn-vpv" onclick="sortGrid('vpv')">
 	  <span class="material-symbols-outlined icon-orange">mode_heat</span> VPV
 	</button>
+    
+    <div style="width: 1px; height: 30px; background: #444; margin: 0 5px;"></div>
+    <button class="btn btn-gray" id="btn-info" onclick="toggleInfo()">
+      <span class="material-symbols-outlined icon-gray">info</span> Info
+    </button>
+</div>
+
+<div id="summary-info-box" style="display: none; background: #222; padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #0085e3; color: #eee; font-size: 0.9em;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div>
+            <strong style="color: #0085e3; font-size: 1.1em;">Library Scope</strong><br>
+            Games: <strong id="stat-games">0</strong><br>
+            Videos: <strong id="stat-videos-total">0</strong>
+        </div>
+        <div>
+            <strong style="color: #28a745; font-size: 1.1em;">Views</strong><br>
+            Total: <span id="stat-views-total">0</span><br>
+            Avg / Game: <span id="stat-views-avg-game">0</span><br>
+            Avg / Video: <span id="stat-vpv" style="color: #ff9900; font-weight: bold;">0</span>
+        </div>
+        <div>
+            <strong style="color: #6f42c1; font-size: 1.1em;">Duration</strong><br>
+            Total: <span id="stat-dur-total">0</span><br>
+            Avg / Game: <span id="stat-dur-game">0</span><br>
+            Avg / Video: <span id="stat-dur-video">0</span>
+        </div>
+    </div>
 </div>
 
 <div class="game-grid" id="all-series-grid">
@@ -45,8 +72,8 @@ custom_css: "/css/home.css"
 			<span><span class="material-symbols-outlined gray">visibility</span> {{ p.views_formatted }}</span>
 			<span><span class="material-symbols-outlined gray">schedule</span> {{ p.duration_formatted }}</span>
         </div>
-        <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333;">
-			<span><span class="material-symbols-outlined orange">mode_heat</span> {{ p.vpv_formatted }} views per video</span>
+        <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
+			<span><span class="material-symbols-outlined orange" style="font-size: 1em; vertical-align: text-bottom;">mode_heat</span> {{ p.vpv_formatted }} views per video</span>
         </div>
       </div>
     </a>
@@ -54,8 +81,99 @@ custom_css: "/css/home.css"
 </div>
 
 <script>
+// --- State Management ---
+let currentSort = 'recent';
+let isInfoActive = false;
+
+// --- Formatting Helpers (Mirrors your backend logic) ---
+function formatViews(num) {
+    num = Math.round(num);
+    if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+    return num.toString();
+}
+
+function formatDuration(seconds) {
+    seconds = Math.round(seconds);
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    return h > 0 ? `${h}h ${m}m` : `${m}m`;
+}
+
+// --- Info Box Logic ---
+function toggleInfo() {
+    isInfoActive = !isInfoActive;
+    const btn = document.getElementById('btn-info');
+    const infoBox = document.getElementById('summary-info-box');
+
+    if (isInfoActive) {
+        btn.classList.add('active');
+        btn.style.background = '#0085e3'; // Highlight it when on
+        btn.style.color = '#fff';
+        infoBox.style.display = 'block';
+        calculateStats();
+    } else {
+        btn.classList.remove('active');
+        btn.style.background = '';
+        btn.style.color = '';
+        infoBox.style.display = 'none';
+    }
+    updateVPVVisibility();
+}
+
+function calculateStats() {
+    if (!isInfoActive) return;
+
+    const cards = document.querySelectorAll('.filterable-card');
+    let gamesCount = 0;
+    let totalViews = 0;
+    let totalVideos = 0;
+    let totalDuration = 0;
+
+    // Only do math on cards that are currently visible
+    cards.forEach(card => {
+        if (card.style.display !== 'none') {
+            gamesCount++;
+            const inner = card.querySelector('.game-card');
+            totalViews += parseInt(inner.dataset.views || 0);
+            totalVideos += parseInt(inner.dataset.episodes || 0);
+            totalDuration += parseInt(inner.dataset.duration || 0);
+        }
+    });
+
+    const avgViewsGame = gamesCount > 0 ? totalViews / gamesCount : 0;
+    const avgViewsVideo = totalVideos > 0 ? totalViews / totalVideos : 0;
+    const avgDurGame = gamesCount > 0 ? totalDuration / gamesCount : 0;
+    const avgDurVideo = totalVideos > 0 ? totalDuration / totalVideos : 0;
+
+    document.getElementById('stat-games').innerText = gamesCount;
+    document.getElementById('stat-views-total').innerText = formatViews(totalViews);
+    document.getElementById('stat-views-avg-game').innerText = formatViews(avgViewsGame);
+    document.getElementById('stat-videos-total').innerText = totalVideos;
+    document.getElementById('stat-vpv').innerText = formatViews(avgViewsVideo);
+    document.getElementById('stat-dur-total').innerText = formatDuration(totalDuration);
+    document.getElementById('stat-dur-game').innerText = formatDuration(avgDurGame);
+    document.getElementById('stat-dur-video').innerText = formatDuration(avgDurVideo);
+}
+
+function updateVPVVisibility() {
+    const cards = document.querySelectorAll('.filterable-card');
+    cards.forEach(card => {
+        const vpvRow = card.querySelector('.vpv-row');
+        if (vpvRow) {
+            // Show VPV if either the VPV sort is active OR the Info box is active
+            vpvRow.style.display = (currentSort === 'vpv' || isInfoActive) ? 'flex' : 'none';
+        }
+    });
+}
+
+// --- Existing Logic ---
 function sortGrid(type) {
-  document.querySelectorAll('.sort-controls .btn').forEach(btn => btn.classList.remove('active'));
+  currentSort = type;
+  document.querySelectorAll('.sort-controls .btn').forEach(btn => {
+      if (btn.id !== 'btn-info') btn.classList.remove('active');
+  });
+  
   const clickedBtn = document.getElementById(`btn-${type}`);
   if (clickedBtn) clickedBtn.classList.add('active');
 
@@ -71,18 +189,13 @@ function sortGrid(type) {
     if (type === 'recent') return parseInt(cardB.dataset.updated || 0) - parseInt(cardA.dataset.updated || 0);
     if (type === 'popular') return parseInt(cardB.dataset.views || 0) - parseInt(cardA.dataset.views || 0);
     if (type === 'length') return parseInt(cardB.dataset.duration || 0) - parseInt(cardA.dataset.duration || 0);
-    if (type === 'vpv') return parseInt(cardB.dataset.vpv || 0) - parseInt(cardA.dataset.vpv || 0); // NEW: VPV Sort
+    if (type === 'vpv') return parseInt(cardB.dataset.vpv || 0) - parseInt(cardA.dataset.vpv || 0);
   });
 
   grid.innerHTML = '';
-  cards.forEach(card => {
-    // NEW: Toggle the VPV row visibility
-    const vpvRow = card.querySelector('.vpv-row');
-    if (vpvRow) {
-      vpvRow.style.display = (type === 'vpv') ? 'flex' : 'none';
-    }
-    grid.appendChild(card);
-  });
+  cards.forEach(card => grid.appendChild(card));
+  
+  updateVPVVisibility();
 }
 
 document.getElementById('gameSearch').addEventListener('input', function(e) {
@@ -98,6 +211,9 @@ document.getElementById('gameSearch').addEventListener('input', function(e) {
       card.style.display = 'none';
     }
   });
+
+  // Recalculate the box stats every time the user types!
+  calculateStats();
 });
 
 document.addEventListener('DOMContentLoaded', () => sortGrid('recent'));
