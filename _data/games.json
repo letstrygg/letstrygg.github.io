@@ -117,15 +117,15 @@
     "thumbnail": "https://i.ytimg.com/vi/_E_3N4RtJEw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 17,
-    "views": 13187,
+    "views": 13203,
     "duration": 47862,
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-05-01T17:01:11Z",
     "views_formatted": "13.2K",
     "duration_formatted": "13h 17m",
-    "vpv": 776,
-    "vpv_formatted": "776"
+    "vpv": 777,
+    "vpv_formatted": "777"
   },
   {
     "id": "magicraft",
@@ -1136,8 +1136,8 @@
     "vpv_formatted": "61"
   },
   {
-    "id": "heroes-of-hw-ii",
-    "title": "Heroes Of Hw Ii",
+    "id": "heroes-of-hammerwatch-ii",
+    "title": "Heroes Of Hammerwatch Ii",
     "thumbnail": "https://i.ytimg.com/vi/siYB6qOuvX8/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
