@@ -1,7 +1,7 @@
 .game-grid {
   display: grid;
   /* The magic formula for responsive cards without media queries: */
-  grid-template-columns: repeat(auto-fit, minmax(clamp(150px, calc(50vw - 16px), 360px), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(clamp(150px, calc(50vw - 16px), 360px), 1fr));
   gap: 4px;
   justify-content: center;
   align-items: stretch;
@@ -152,6 +152,14 @@
   color: var(--bg);
 }
 
+/* 5. Gray Button (Info) */
+.btn.btn-gray:hover,
+.btn.btn-gray.active {
+  background: var(--text); /* Using text color for a bold, high-contrast active state */
+  border-color: var(--text);
+  color: var(--bg);
+}
+
 /* Icon Sizing & Transition */
 .btn .material-symbols-outlined {
   font-size: 1.2em;
@@ -163,9 +171,11 @@
 .icon-blue { color: var(--blue); }
 .icon-purple { color: var(--purple); }
 .icon-orange { color: var(--orange); }
+.icon-gray { color: var(--gray); }
 
 /* High Contrast Icons on Hover & Active */
 .btn:hover .material-symbols-outlined,
 .btn.active .material-symbols-outlined {
   color: var(--bg); 
 }
+
