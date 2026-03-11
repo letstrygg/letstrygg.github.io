@@ -41,10 +41,11 @@ custom_css: "/css/home.css"
 
     <div id="summary-info-box" class="summary-info-box" style="display: none;">
         <div class="summary-grid">
-            <div>
+			<div>
                 <strong class="text-blue" style="font-size: 1.1em;">Library Scope</strong><br>
                 Games: <strong id="stat-games">0</strong><br>
-                Videos: <strong id="stat-videos-total">0</strong>
+                Videos: <strong id="stat-videos-total">0</strong><br>
+                Avg / Game: <strong id="stat-avg-vid-game">0</strong>
             </div>
             <div>
                 <strong class="text-green" style="font-size: 1.1em;">Views</strong><br>
@@ -147,11 +148,12 @@ function calculateStats() {
     const avgViewsVideo = totalVideos > 0 ? totalViews / totalVideos : 0;
     const avgDurGame = gamesCount > 0 ? totalDuration / gamesCount : 0;
     const avgDurVideo = totalVideos > 0 ? totalDuration / totalVideos : 0;
-
-    document.getElementById('stat-games').innerText = gamesCount;
-    document.getElementById('stat-views-total').innerText = formatViews(totalViews);
-    document.getElementById('stat-views-avg-game').innerText = formatViews(avgViewsGame);
+	const avgVideosGame = gamesCount > 0 ? Math.round(totalVideos / gamesCount) : 0;
+	
+	document.getElementById('stat-games').innerText = gamesCount;
     document.getElementById('stat-videos-total').innerText = totalVideos;
+    document.getElementById('stat-avg-vid-game').innerText = avgVideosGame;
+        document.getElementById('stat-views-total').innerText = formatViews(totalViews);
     document.getElementById('stat-vpv').innerText = formatViews(avgViewsVideo);
     document.getElementById('stat-dur-total').innerText = formatDuration(totalDuration);
     document.getElementById('stat-dur-game').innerText = formatDuration(avgDurGame);
