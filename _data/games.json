@@ -46,7 +46,11 @@
     "episodes": 132,
     "views": 35690,
     "duration": 449147,
-    "tags": [],
+    "tags": [
+      "Horde Survival",
+      "Bullet Heaven",
+      "Incremental"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-01-21T12:00:52Z",
@@ -63,7 +67,9 @@
     "episodes": 32,
     "views": 1108,
     "duration": 195902,
-    "tags": [],
+    "tags": [
+      "Deck Builder"
+    ],
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-02-08T15:00:49Z",
@@ -80,7 +86,10 @@
     "episodes": 443,
     "views": 220646,
     "duration": 1423967,
-    "tags": [],
+    "tags": [
+      "Platformer",
+      "Puzzle"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-08-16T12:00:16Z",
@@ -114,7 +123,10 @@
     "episodes": 90,
     "views": 59789,
     "duration": 249918,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Auto Battler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-30T12:01:54Z",
@@ -131,7 +143,9 @@
     "episodes": 17,
     "views": 13203,
     "duration": 47862,
-    "tags": [],
+    "tags": [
+      "Tower Defense"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-05-01T17:01:11Z",
@@ -148,7 +162,10 @@
     "episodes": 182,
     "views": 252441,
     "duration": 712117,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-10T12:00:27Z",
@@ -165,7 +182,10 @@
     "episodes": 16,
     "views": 2289,
     "duration": 30715,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-10-07T12:00:35Z",
@@ -201,7 +221,11 @@
     "episodes": 2,
     "views": 285,
     "duration": 6657,
-    "tags": [],
+    "tags": [
+      "Auto Battler",
+      "PVP",
+      "Inventory Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-10-15T14:01:05Z",
@@ -218,7 +242,11 @@
     "episodes": 8,
     "views": 2159,
     "duration": 39806,
-    "tags": [],
+    "tags": [
+      "PVP",
+      "Auto Battler",
+      "Inventory Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-12-16T14:01:10Z",
@@ -235,7 +263,9 @@
     "episodes": 4,
     "views": 264,
     "duration": 7003,
-    "tags": [],
+    "tags": [
+      "Deck Builder"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-10-09T14:01:03Z",
@@ -252,7 +282,9 @@
     "episodes": 3,
     "views": 105,
     "duration": 7628,
-    "tags": [],
+    "tags": [
+      "Deck Builder"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-10-07T12:01:49Z",
@@ -269,7 +301,10 @@
     "episodes": 2,
     "views": 145,
     "duration": 9226,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-10-01T16:00:12Z",
@@ -288,7 +323,8 @@
     "duration": 3233686,
     "tags": [
       "PVP",
-      "Auto Battler"
+      "Auto Battler",
+      "Inventory Management"
     ],
     "status": "Ongoing",
     "status_color": "green",
@@ -308,7 +344,8 @@
     "duration": 97635,
     "tags": [
       "PVP",
-      "Auto Battler"
+      "Auto Battler",
+      "Inventory Management"
     ],
     "status": "Completed",
     "status_color": "blue",
@@ -326,7 +363,10 @@
     "episodes": 2,
     "views": 150,
     "duration": 8337,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Auto Battler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-24T16:01:27Z",
@@ -343,7 +383,10 @@
     "episodes": 4,
     "views": 262,
     "duration": 11900,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Auto Battler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-29T14:00:22Z",
@@ -360,7 +403,10 @@
     "episodes": 32,
     "views": 1774,
     "duration": 52140,
-    "tags": [],
+    "tags": [
+      "Auto Battler",
+      "PVP"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-28T14:00:47Z",
@@ -377,7 +423,9 @@
     "episodes": 19,
     "views": 2907,
     "duration": 86781,
-    "tags": [],
+    "tags": [
+      "Deck Builder"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-12-24T23:45:00Z",
@@ -394,7 +442,10 @@
     "episodes": 124,
     "views": 39863,
     "duration": 397216,
-    "tags": [],
+    "tags": [
+      "Auto Battler",
+      "Inventory Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-26T16:00:02Z",
@@ -411,7 +462,11 @@
     "episodes": 2,
     "views": 365,
     "duration": 4850,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Auto Battler",
+      "PVP"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-07-22T16:01:04Z",
@@ -445,7 +500,11 @@
     "episodes": 21,
     "views": 1785,
     "duration": 92554,
-    "tags": [],
+    "tags": [
+      "Auto Battler",
+      "Tower Defense",
+      "Inventory Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-10-22T16:01:22Z",
@@ -462,7 +521,10 @@
     "episodes": 4,
     "views": 178,
     "duration": 10085,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Auto Battler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-06-10T16:01:16Z",
@@ -479,7 +541,11 @@
     "episodes": 4,
     "views": 211,
     "duration": 15289,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Auto Battler",
+      "PVP"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-06-04T14:01:04Z",
@@ -496,7 +562,11 @@
     "episodes": 2,
     "views": 1060,
     "duration": 7339,
-    "tags": [],
+    "tags": [
+      "Auto Battler",
+      "PVP",
+      "Inventory Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-03-29T16:00:59Z",
@@ -513,7 +583,11 @@
     "episodes": 18,
     "views": 4422,
     "duration": 64088,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Auto Battler",
+      "Incremental"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-12-21T16:00:24Z",
@@ -530,7 +604,11 @@
     "episodes": 14,
     "views": 3354,
     "duration": 46523,
-    "tags": [],
+    "tags": [
+      "Incremental",
+      "Inventory Management",
+      "Auto Battler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-12-04T14:01:01Z",
@@ -547,7 +625,10 @@
     "episodes": 4,
     "views": 376,
     "duration": 10285,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-10-23T17:00:44Z",
@@ -564,7 +645,12 @@
     "episodes": 2,
     "views": 1874,
     "duration": 8191,
-    "tags": [],
+    "tags": [
+      "Incremental",
+      "Relaxing",
+      "Inventory Management",
+      "Auto Battler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-11-13T14:00:47Z",
@@ -581,7 +667,11 @@
     "episodes": 10,
     "views": 6196,
     "duration": 66402,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Auto Battler",
+      "Incremental"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-09-14T16:00:34Z",
@@ -598,7 +688,9 @@
     "episodes": 6,
     "views": 306,
     "duration": 30822,
-    "tags": [],
+    "tags": [
+      "Automation"
+    ],
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-03-11T16:01:10Z",
@@ -615,7 +707,10 @@
     "episodes": 2,
     "views": 255,
     "duration": 4554,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-03-01T13:01:09Z",
@@ -632,7 +727,9 @@
     "episodes": 6,
     "views": 831,
     "duration": 28636,
-    "tags": [],
+    "tags": [
+      "Incremental"
+    ],
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-03-02T16:00:07Z",
@@ -649,7 +746,9 @@
     "episodes": 91,
     "views": 9513,
     "duration": 373367,
-    "tags": [],
+    "tags": [
+      "Automation"
+    ],
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-03-04T14:00:52Z",
@@ -666,7 +765,10 @@
     "episodes": 158,
     "views": 15313,
     "duration": 460267,
-    "tags": [],
+    "tags": [
+      "Horde Survival",
+      "Bullet Heaven"
+    ],
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-02-21T16:00:10Z",
@@ -683,7 +785,10 @@
     "episodes": 2,
     "views": 55,
     "duration": 7579,
-    "tags": [],
+    "tags": [
+      "Auto Battler",
+      "Inventory Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-09T12:00:14Z",
@@ -700,7 +805,10 @@
     "episodes": 2,
     "views": 108,
     "duration": 6126,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Auto Battler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-07T16:00:14Z",
@@ -717,7 +825,10 @@
     "episodes": 3,
     "views": 998,
     "duration": 7055,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Auto Battler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-07T12:01:33Z",
@@ -734,7 +845,9 @@
     "episodes": 2,
     "views": 122,
     "duration": 6085,
-    "tags": [],
+    "tags": [
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-05T12:01:38Z",
@@ -751,7 +864,9 @@
     "episodes": 2,
     "views": 519,
     "duration": 4906,
-    "tags": [],
+    "tags": [
+      "Puzzle"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-03T12:01:22Z",
@@ -768,7 +883,9 @@
     "episodes": 10,
     "views": 858,
     "duration": 18441,
-    "tags": [],
+    "tags": [
+      "Tower Defense"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-16T19:00:02Z",
@@ -785,7 +902,10 @@
     "episodes": 23,
     "views": 6898,
     "duration": 87005,
-    "tags": [],
+    "tags": [
+      "Auto Battler",
+      "Inventory Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-02T12:01:20Z",
@@ -821,7 +941,9 @@
     "episodes": 14,
     "views": 3353,
     "duration": 32237,
-    "tags": [],
+    "tags": [
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-01-19T12:00:05Z",
@@ -838,7 +960,9 @@
     "episodes": 8,
     "views": 1676,
     "duration": 12795,
-    "tags": [],
+    "tags": [
+      "Auto Battler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-12-25T03:30:01Z",
@@ -855,7 +979,9 @@
     "episodes": 5,
     "views": 351,
     "duration": 17801,
-    "tags": [],
+    "tags": [
+      "Automation"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-12-19T12:00:30Z",
@@ -872,7 +998,11 @@
     "episodes": 3,
     "views": 740,
     "duration": 10053,
-    "tags": [],
+    "tags": [
+      "Auto Battler",
+      "PVP",
+      "Inventory Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-12-16T12:01:52Z",
@@ -889,7 +1019,10 @@
     "episodes": 2,
     "views": 255,
     "duration": 14791,
-    "tags": [],
+    "tags": [
+      "Incremental",
+      "Inventory Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-10-11T13:00:16Z",
@@ -906,7 +1039,10 @@
     "episodes": 2,
     "views": 1270,
     "duration": 4727,
-    "tags": [],
+    "tags": [
+      "Deck Builder",
+      "Narrative"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-10-10T14:00:42Z",
@@ -923,7 +1059,10 @@
     "episodes": 2,
     "views": 512,
     "duration": 3648,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-20T12:00:52Z",
@@ -940,7 +1079,10 @@
     "episodes": 19,
     "views": 4867,
     "duration": 49031,
-    "tags": [],
+    "tags": [
+      "Horde Survival",
+      "Bullet Heaven"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-29T14:01:09Z",
@@ -957,7 +1099,10 @@
     "episodes": 3,
     "views": 248,
     "duration": 6131,
-    "tags": [],
+    "tags": [
+      "Platformer",
+      "Atmospheric"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-01T12:00:05Z",
@@ -974,7 +1119,9 @@
     "episodes": 25,
     "views": 11782,
     "duration": 101654,
-    "tags": [],
+    "tags": [
+      "Tower Defense"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-22T12:00:15Z",
@@ -991,7 +1138,10 @@
     "episodes": 2,
     "views": 619,
     "duration": 8327,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-18T13:30:38Z",
@@ -1008,7 +1158,9 @@
     "episodes": 160,
     "views": 33479,
     "duration": 710475,
-    "tags": [],
+    "tags": [
+      "Automation"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-24T12:00:32Z",
@@ -1025,7 +1177,10 @@
     "episodes": 2,
     "views": 386,
     "duration": 5233,
-    "tags": [],
+    "tags": [
+      "Inventory Management",
+      "Auto Battler"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-04T15:00:32Z",
@@ -1076,7 +1231,9 @@
     "episodes": 8,
     "views": 3686,
     "duration": 38370,
-    "tags": [],
+    "tags": [
+      "Automation"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-10T12:00:54Z",
@@ -1110,7 +1267,9 @@
     "episodes": 4,
     "views": 699,
     "duration": 14822,
-    "tags": [],
+    "tags": [
+      "Incremental"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-07-11T15:01:02Z",
@@ -1127,7 +1286,9 @@
     "episodes": 2,
     "views": 434,
     "duration": 10788,
-    "tags": [],
+    "tags": [
+      "Deck Builder"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-06-29T15:01:18Z",
@@ -1144,7 +1305,10 @@
     "episodes": 4,
     "views": 186,
     "duration": 11760,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-06-24T13:00:45Z",
@@ -1161,7 +1325,11 @@
     "episodes": 7,
     "views": 1038,
     "duration": 39103,
-    "tags": [],
+    "tags": [
+      "Relaxing",
+      "Incremental",
+      "Idle"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-07-17T15:00:57Z",
@@ -1178,7 +1346,10 @@
     "episodes": 23,
     "views": 5539,
     "duration": 77790,
-    "tags": [],
+    "tags": [
+      "Horde Survival",
+      "Bullet Heaven"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-07-02T15:01:42Z",
@@ -1195,7 +1366,10 @@
     "episodes": 24,
     "views": 1616,
     "duration": 90846,
-    "tags": [],
+    "tags": [
+      "Puzzle",
+      "Relaxing"
+    ],
     "status": "Paused",
     "status_color": "purple",
     "updated": "2025-06-09T15:00:20Z",
@@ -1212,7 +1386,10 @@
     "episodes": 2,
     "views": 121,
     "duration": 3965,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-04-19T15:01:18Z",
@@ -1246,7 +1423,9 @@
     "episodes": 2,
     "views": 278,
     "duration": 7496,
-    "tags": [],
+    "tags": [
+      "Tower Defense"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-04-01T17:00:33Z",
@@ -1280,7 +1459,10 @@
     "episodes": 3,
     "views": 314,
     "duration": 4504,
-    "tags": [],
+    "tags": [
+      "Atmospheric",
+      "Narrative"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-03-22T17:00:12Z",
@@ -1297,7 +1479,9 @@
     "episodes": 4,
     "views": 1040,
     "duration": 20140,
-    "tags": [],
+    "tags": [
+      "Incremental"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-03-28T17:00:24Z",
@@ -1314,7 +1498,10 @@
     "episodes": 3,
     "views": 464,
     "duration": 9812,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-03-19T15:00:10Z",
@@ -1386,7 +1573,11 @@
     "episodes": 106,
     "views": 21192,
     "duration": 606700,
-    "tags": [],
+    "tags": [
+      "Tower Defense",
+      "Puzzle",
+      "Relaxing"
+    ],
     "status": "Paused",
     "status_color": "purple",
     "updated": "2025-07-27T17:00:44Z",
@@ -1403,7 +1594,9 @@
     "episodes": 5,
     "views": 555,
     "duration": 10575,
-    "tags": [],
+    "tags": [
+      "Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-02-13T15:00:34Z",
@@ -1437,7 +1630,9 @@
     "episodes": 3,
     "views": 18887,
     "duration": 14422,
-    "tags": [],
+    "tags": [
+      "Automation"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-02-06T13:00:12Z",
@@ -1454,7 +1649,10 @@
     "episodes": 9,
     "views": 7041,
     "duration": 29561,
-    "tags": [],
+    "tags": [
+      "Puzzle",
+      "Relaxing"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-02-21T17:01:17Z",
@@ -1471,7 +1669,9 @@
     "episodes": 5,
     "views": 1564,
     "duration": 10540,
-    "tags": [],
+    "tags": [
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-01-28T17:00:06Z",
@@ -1488,7 +1688,11 @@
     "episodes": 3,
     "views": 2433,
     "duration": 17928,
-    "tags": [],
+    "tags": [
+      "Puzzle",
+      "Incremental",
+      "Relaxing"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-01-19T15:00:50Z",
@@ -1505,7 +1709,10 @@
     "episodes": 16,
     "views": 2209,
     "duration": 35506,
-    "tags": [],
+    "tags": [
+      "Survival",
+      "Atmospheric"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-02-09T13:00:28Z",
@@ -1539,7 +1746,9 @@
     "episodes": 21,
     "views": 9435,
     "duration": 111627,
-    "tags": [],
+    "tags": [
+      "Tower Defense"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-06-02T13:01:20Z",
@@ -1556,7 +1765,9 @@
     "episodes": 4,
     "views": 370,
     "duration": 20507,
-    "tags": [],
+    "tags": [
+      "Tower Defense"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-09-06T13:00:30Z",
@@ -1573,7 +1784,9 @@
     "episodes": 2,
     "views": 627,
     "duration": 5115,
-    "tags": [],
+    "tags": [
+      "Tower Defense"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-08-26T13:00:04Z",
@@ -1590,7 +1803,11 @@
     "episodes": 16,
     "views": 1535,
     "duration": 39235,
-    "tags": [],
+    "tags": [
+      "Puzzle",
+      "Atmospheric",
+      "Narrative"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-08-13T17:00:15Z",
@@ -1607,7 +1824,10 @@
     "episodes": 9,
     "views": 1065,
     "duration": 20480,
-    "tags": [],
+    "tags": [
+      "Horde Survival",
+      "Bullet Heaven"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-07-17T13:00:13Z",
@@ -1624,7 +1844,9 @@
     "episodes": 60,
     "views": 2689,
     "duration": 300868,
-    "tags": [],
+    "tags": [
+      "Deck Builder"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-11-08T16:01:22Z",
@@ -1641,7 +1863,10 @@
     "episodes": 3,
     "views": 813,
     "duration": 9722,
-    "tags": [],
+    "tags": [
+      "Auto Battler",
+      "Inventory Management"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-06-25T16:00:35Z",
@@ -1658,7 +1883,11 @@
     "episodes": 6,
     "views": 414,
     "duration": 12816,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival",
+      "PVP"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-06-06T18:00:02Z",
@@ -1675,7 +1904,9 @@
     "episodes": 25,
     "views": 8005,
     "duration": 76941,
-    "tags": [],
+    "tags": [
+      "Incremental"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-05-25T19:25:00Z",
@@ -1692,7 +1923,9 @@
     "episodes": 11,
     "views": 1210,
     "duration": 28878,
-    "tags": [],
+    "tags": [
+      "Deck Builder"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-05-30T14:30:16Z",
@@ -1709,7 +1942,10 @@
     "episodes": 27,
     "views": 4292,
     "duration": 54588,
-    "tags": [],
+    "tags": [
+      "Puzzle",
+      "Atmospheric"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-08-03T15:00:44Z",
@@ -1760,7 +1996,9 @@
     "episodes": 3,
     "views": 2690,
     "duration": 6755,
-    "tags": [],
+    "tags": [
+      "Automation"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-04-07T13:00:08Z",
@@ -1794,7 +2032,10 @@
     "episodes": 3,
     "views": 421,
     "duration": 8413,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-03-13T14:30:05Z",
@@ -1828,7 +2069,10 @@
     "episodes": 12,
     "views": 1643,
     "duration": 44651,
-    "tags": [],
+    "tags": [
+      "Incremental",
+      "Deck Builder"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-03-09T13:00:15Z",
@@ -1845,7 +2089,10 @@
     "episodes": 4,
     "views": 1614,
     "duration": 10460,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-02-25T14:30:19Z",
@@ -1879,7 +2126,9 @@
     "episodes": 3,
     "views": 275,
     "duration": 7237,
-    "tags": [],
+    "tags": [
+      "Tower Defense"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-02-04T14:30:17Z",
@@ -1947,7 +2196,10 @@
     "episodes": 12,
     "views": 8071,
     "duration": 24658,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-04-28T19:00:03Z",
@@ -2168,7 +2420,10 @@
     "episodes": 5,
     "views": 2640,
     "duration": 9506,
-    "tags": [],
+    "tags": [
+      "Horde Survival",
+      "Bullet Heaven"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-04-11T15:01:29Z",
@@ -2219,7 +2474,9 @@
     "episodes": 4,
     "views": 456,
     "duration": 10489,
-    "tags": [],
+    "tags": [
+      "Tower Defense"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-03-11T13:00:21Z",
@@ -3069,7 +3326,10 @@
     "episodes": 29,
     "views": 1359,
     "duration": 88146,
-    "tags": [],
+    "tags": [
+      "Bullet Heaven",
+      "Horde Survival"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-08-14T13:00:57Z",
@@ -3596,7 +3856,9 @@
     "episodes": 40,
     "views": 997,
     "duration": 61632,
-    "tags": [],
+    "tags": [
+      "Puzzle"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-01-08T01:15:12Z",
@@ -3613,7 +3875,11 @@
     "episodes": 3,
     "views": 425,
     "duration": 14266,
-    "tags": [],
+    "tags": [
+      "Auto Battler",
+      "Inventory Management",
+      "PVP"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-12T12:02:03Z",
@@ -3630,7 +3896,11 @@
     "episodes": 24,
     "views": 1994,
     "duration": 60300,
-    "tags": [],
+    "tags": [
+      "Incremental",
+      "Auto Battler",
+      "Deck Builder"
+    ],
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-20T19:00:24Z",

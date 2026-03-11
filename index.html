@@ -36,6 +36,8 @@ custom_css: "/css/home.css"
     </button>
 </div>
 
+<div id="tag-filters" class="tag-filters"></div>
+
 <div id="summary-info-box" style="display: none; background: var(--card-bg); padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--blue); color: var(--text); font-size: 0.9em;">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
         <div>
@@ -60,7 +62,7 @@ custom_css: "/css/home.css"
 
 <div class="game-grid" id="all-series-grid">
   {% for p in site.data.games %}
-    <a href="/game/{{ p.id }}/" class="filterable-card" data-title="{{ p.title | downcase }}">
+    <a href="/game/{{ p.id }}/" class="filterable-card" data-title="{{ p.title | downcase }}" data-tags="{{ p.tags | join: ',' }}">
       <div class="game-card" data-updated="{{ p.updated | date: '%Y%m%d' }}" data-episodes="{{ p.episodes }}" data-views="{{ p.views }}" data-duration="{{ p.duration }}" data-vpv="{{ p.vpv }}">
         <img src="{{ p.thumbnail }}" alt="{{ p.title }}">
         <div class="card-row">
@@ -212,5 +214,111 @@ document.getElementById('gameSearch').addEventListener('input', function(e) {
   calculateStats();
 });
 
-document.addEventListener('DOMContentLoaded', () => sortGrid('recent'));
+// --- Tag & Filter Logic ---
+let activeTags = new Set();
+
+function initTags() {
+    const cards = document.querySelectorAll('.filterable-card');
+    const tagCounts = {};
+
+    // 1. Count every tag across all games
+    cards.forEach(card => {
+        const tagsStr = card.getAttribute('data-tags');
+        if (!tagsStr) return;
+        const tags = tagsStr.split(',').filter(Boolean);
+        tags.forEach(t => {
+            const cleanTag = t.trim();
+            tagCounts[cleanTag] = (tagCounts[cleanTag] || 0) + 1;
+        });
+    });
+
+    // 2. Sort tags by popularity (highest count first)
+    const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+    if (sortedTags.length === 0) return;
+
+    const container = document.getElementById('tag-filters');
+    container.innerHTML = '';
+
+    const topTags = sortedTags.slice(0, 3);
+    const hiddenTags = sortedTags.slice(3);
+
+    // Helper function to build a tag button
+    const buildBtn = (tagName, count, isHiddenObj = false) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-tag';
+        btn.innerText = `${tagName} (${count})`;
+        if (isHiddenObj) btn.style.display = 'none'; // Hide if it's past the top 3
+        
+        btn.onclick = () => {
+            if (activeTags.has(tagName)) {
+                activeTags.delete(tagName);
+                btn.classList.remove('active');
+            } else {
+                activeTags.add(tagName);
+                btn.classList.add('active');
+            }
+            applyFilters();
+        };
+        return btn;
+    };
+
+    // 3. Render Top 3 Tags
+    topTags.forEach(([tag, count]) => container.appendChild(buildBtn(tag, count)));
+
+    // 4. Render the "More Tags" toggle if needed
+    if (hiddenTags.length > 0) {
+        const hiddenElements = [];
+        hiddenTags.forEach(([tag, count]) => {
+            const btn = buildBtn(tag, count, true);
+            hiddenElements.push(btn);
+            container.appendChild(btn);
+        });
+
+        const moreBtn = document.createElement('button');
+        moreBtn.className = 'btn-tag btn-tag-more';
+        moreBtn.innerText = `+ ${hiddenTags.length} More`;
+        
+        moreBtn.onclick = () => {
+            const isCurrentlyHidden = hiddenElements[0].style.display === 'none';
+            hiddenElements.forEach(el => el.style.display = isCurrentlyHidden ? 'inline-block' : 'none');
+            moreBtn.innerText = isCurrentlyHidden ? '- Show Less' : `+ ${hiddenTags.length} More`;
+        };
+        
+        container.appendChild(moreBtn);
+    }
+}
+
+// Unified Filter: Handles Search Bar AND Tag Selections simultaneously
+function applyFilters() {
+    const searchTerm = document.getElementById('gameSearch').value.toLowerCase();
+    const cards = document.querySelectorAll('.filterable-card');
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const tagsStr = card.getAttribute('data-tags') || '';
+        const cardTags = tagsStr.split(',').map(t => t.trim());
+
+        const matchesSearch = title.includes(searchTerm);
+        
+        // OR Logic: Game must have AT LEAST ONE of the active tags. 
+        // (Change .some to .every if you want AND logic where it must have ALL active tags)
+        const matchesTags = activeTags.size === 0 || Array.from(activeTags).some(tag => cardTags.includes(tag));
+
+        if (matchesSearch && matchesTags) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    calculateStats(); // Instantly update the summary box!
+}
+
+// Replace your old search listener with the unified function
+document.getElementById('gameSearch').addEventListener('input', applyFilters);
+
+document.addEventListener('DOMContentLoaded', () => {
+    sortGrid('recent');
+    initTags(); // Boots up the tag UI!
+});
 </script>

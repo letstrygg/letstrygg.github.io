@@ -179,3 +179,40 @@
   color: var(--bg); 
 }
 
+
+
+/* Tag Filtering System */
+.tag-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.btn-tag {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--gray);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-tag:hover {
+    background: #333;
+    border-color: #555;
+}
+.btn-tag.active {
+    background: var(--blue);
+    color: var(--bg);
+    border-color: var(--blue);
+}
+.btn-tag-more {
+    border: 1px dashed var(--gray);
+    color: var(--gray);
+}
+.btn-tag-more:hover {
+    border-color: var(--text);
+    color: var(--text);
+}
