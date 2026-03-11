@@ -73,40 +73,37 @@
 /* =========================================
    NEW LAYOUT: CONTROLS & SEGMENTS 
    ========================================= */
+/* --- UPDATED CONTROLS WRAPPER --- */
 .controls-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 16px; /* This ensures perfect spacing between ALL rows, including the info box */
-    margin: 16px auto 24px auto; /* Centers the whole block */
-    max-width: 1200px; /* Gives nice desktop margins. Set to 1000px if you want it wider */
-    /* width: 100%; */
-    padding: 0 10px; /* Safe mobile padding */
+    gap: 16px;
+    margin: 16px auto 24px auto; 
+    max-width: 1200px; /* Your chosen width! */
+    padding: 0 10px; 
 }
 
 .controls-top-row {
     display: flex;
-    justify-content: space-between; /* Pushes Search to the left, Info to the right */
-    /* align-items: center;
-    width: 100%; */
+    justify-content: space-between; 
 }
 
 /* Search Bar */
 #gameSearch {
-	max-width: 350px; /* Prevents it from touching the Info button */
-    /* width: 100%; */
-	flex-grow: .7;
-	padding: 10px 16px;
-	font-size: 1rem;
-	border-radius: 8px; /* Squarer, input-like shape */
-	border: 1px solid var(--gray);
-	background: var(--card-bg);
-	color: var(--text);
-	outline: none;
-	transition: border-color 0.2s ease;
+    max-width: 350px; 
+    flex-grow: .7; /* Your custom sizing! */
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: 8px; 
+    border: 1px solid var(--gray);
+    background: var(--card-bg);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s ease;
 }
 
 #gameSearch:focus {
-  border-color: var(--blue);
+    border-color: var(--blue);
 }
 
 /* --- THE CLEANED UP INFO BOX --- */
@@ -121,8 +118,8 @@
 
 .summary-grid {
     display: grid;
-    /* This forces exactly 3 columns at all times, preventing vertical stacking on mobile */
-    grid-template-columns: repeat(3, 1fr); 
+    /* This allows 3 columns, but safely wraps if a column gets smaller than 140px! */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
     gap: 10px;
 }
 
@@ -132,15 +129,9 @@
 .text-purple { color: var(--purple); }
 .text-orange { color: var(--orange); }
 
-/* --- MOBILE OPTIMIZATION --- */
 @media (max-width: 600px) {
-    .summary-info-box {
-        padding: 12px; /* Less padding on mobile */
-    }
-    .summary-grid {
-        font-size: 0.85em; /* Shrink text slightly so 3 columns fit beautifully */
-        gap: 5px;
-    }
+    .summary-info-box { padding: 12px; }
+    .summary-grid { font-size: 0.85em; gap: 8px; }
 }
 
 /* Base Button Styling (Kept for Info Button & Future use) */
