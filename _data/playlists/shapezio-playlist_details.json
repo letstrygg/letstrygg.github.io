@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk5dmpDHIYg5yFdR6EACSrBh",
-  "title": "Shapez.io",
+  "slug": "shapezio",
+  "title": "Shapezio",
   "thumbnail": "https://i.ytimg.com/vi/XnP06JR6oYk/maxresdefault.jpg",
   "published": "2020-07-05T02:56:14.105687Z",
   "updated": "2020-07-16T18:00:02Z",
-  "fetched": "2026-03-07T12:05:02.726Z",
+  "fetched": "2026-03-11T19:21:41.258Z",
   "episodes": 12,
   "duration": 17692,
-  "views": 3004,
-  "status": "Completed",
   "duration_formatted": "4h 54m",
+  "views": 3005,
   "views_formatted": "3K",
-  "slug": "shapezio",
+  "status": "Completed",
   "status_color": "blue"
 }

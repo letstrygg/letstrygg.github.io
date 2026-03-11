@@ -85,12 +85,12 @@
     "thumbnail": "https://i.ytimg.com/vi/Rm-qy9SxKLk/maxresdefault.jpg",
     "highest_season": 5,
     "episodes": 407,
-    "views": 81889,
+    "views": 81992,
     "duration": 715072,
     "status": "Completed",
     "status_color": "blue",
     "updated": "2022-07-11T13:00:02Z",
-    "views_formatted": "81.9K",
+    "views_formatted": "82K",
     "duration_formatted": "198h 37m",
     "vpv": 201,
     "vpv_formatted": "201"
@@ -720,20 +720,20 @@
     "vpv_formatted": "86"
   },
   {
-    "id": "dwarves-gdl",
-    "title": "Dwarves Gdl",
+    "id": "dwarves-glory-death-and-loot",
+    "title": "Dwarves Glory Death And Loot",
     "thumbnail": "https://i.ytimg.com/vi/5-v4weMsQe0/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 23,
-    "views": 6869,
+    "views": 6898,
     "duration": 87005,
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-02T12:01:20Z",
     "views_formatted": "6.9K",
     "duration_formatted": "24h 10m",
-    "vpv": 299,
-    "vpv_formatted": "299"
+    "vpv": 300,
+    "vpv_formatted": "300"
   },
   {
     "id": "fill-up-the-hole",
@@ -1056,8 +1056,8 @@
     "vpv_formatted": "217"
   },
   {
-    "id": "dark-fairy-tale-ds",
-    "title": "Dark Fairy Tale Ds",
+    "id": "dark-fairy-tale-dreamland-survivors",
+    "title": "Dark Fairy Tale Dreamland Survivors",
     "thumbnail": "https://i.ytimg.com/vi/_iTou4zzTos/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -1264,8 +1264,8 @@
     "vpv_formatted": "269"
   },
   {
-    "id": "paquerette-dtb",
-    "title": "Paquerette Dtb",
+    "id": "paquerette-down-the-bunburrows",
+    "title": "Paquerette Down The Bunburrows",
     "thumbnail": "https://i.ytimg.com/vi/UgNwwfACS5o/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 7,
@@ -1712,8 +1712,8 @@
     "vpv_formatted": "137"
   },
   {
-    "id": "nearly-dead-lald",
-    "title": "Nearly Dead Lald",
+    "id": "nearly-dead-live-and-let-die",
+    "title": "Nearly Dead Live And Let Die",
     "thumbnail": "https://i.ytimg.com/vi/rm41J202kiQ/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -2032,8 +2032,8 @@
     "vpv_formatted": "528"
   },
   {
-    "id": "kdomon-hyper-auto-battlers",
-    "title": "Kdomon Hyper Auto Battlers",
+    "id": "kadomon-hyper-auto-battlers",
+    "title": "Kadomon Hyper Auto Battlers",
     "thumbnail": "https://i.ytimg.com/vi/vEc7vq-QFxI/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
@@ -2080,36 +2080,20 @@
     "vpv_formatted": "114"
   },
   {
-    "id": "oni-radioactive-ocean",
-    "title": "Oni Radioactive Ocean",
-    "thumbnail": "https://i.ytimg.com/vi/IXcfTQl_lH0/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 10,
-    "views": 1023,
-    "duration": 13586,
-    "status": "Completed",
-    "status_color": "blue",
-    "updated": "2023-08-27T13:00:37Z",
-    "views_formatted": "1K",
-    "duration_formatted": "3h 46m",
-    "vpv": 102,
-    "vpv_formatted": "102"
-  },
-  {
     "id": "oxygen-not-included",
     "title": "Oxygen Not Included",
-    "thumbnail": "https://i.ytimg.com/vi/h1vgfN2PLUA/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 62,
-    "views": 14767,
-    "duration": 138730,
+    "thumbnail": "https://i.ytimg.com/vi/IXcfTQl_lH0/maxresdefault.jpg",
+    "highest_season": 2,
+    "episodes": 72,
+    "views": 15790,
+    "duration": 152316,
     "status": "Completed",
     "status_color": "blue",
     "updated": "2023-09-05T00:00:01Z",
-    "views_formatted": "14.8K",
-    "duration_formatted": "38h 32m",
-    "vpv": 238,
-    "vpv_formatted": "238"
+    "views_formatted": "15.8K",
+    "duration_formatted": "42h 18m",
+    "vpv": 219,
+    "vpv_formatted": "219"
   },
   {
     "id": "nova-lands",
@@ -2254,22 +2238,6 @@
     "duration_formatted": "6h 54m",
     "vpv": 77,
     "vpv_formatted": "77"
-  },
-  {
-    "id": "free-itchio-games",
-    "title": "Free Itchio Games",
-    "thumbnail": "https://i.ytimg.com/vi/Kt8tb6B8Aeo/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 5,
-    "views": 2467,
-    "duration": 14349,
-    "status": "Completed",
-    "status_color": "blue",
-    "updated": "2023-05-08T13:00:42Z",
-    "views_formatted": "2.5K",
-    "duration_formatted": "3h 59m",
-    "vpv": 493,
-    "vpv_formatted": "493"
   },
   {
     "id": "graveyard-keeper",
@@ -2464,20 +2432,20 @@
     "vpv_formatted": "180"
   },
   {
-    "id": "super-auto-pets-s2",
-    "title": "Super Auto Pets S2",
+    "id": "super-auto-pets",
+    "title": "Super Auto Pets",
     "thumbnail": "https://i.ytimg.com/vi/9pAef1ZJ6AQ/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 2,
-    "views": 123,
-    "duration": 3301,
+    "highest_season": 2,
+    "episodes": 21,
+    "views": 671,
+    "duration": 39277,
     "status": "Completed",
     "status_color": "blue",
     "updated": "2022-09-20T15:00:07Z",
-    "views_formatted": "123",
-    "duration_formatted": "55m",
-    "vpv": 62,
-    "vpv_formatted": "62"
+    "views_formatted": "671",
+    "duration_formatted": "10h 54m",
+    "vpv": 32,
+    "vpv_formatted": "32"
   },
   {
     "id": "ring-of-pain",
@@ -2512,8 +2480,8 @@
     "vpv_formatted": "445"
   },
   {
-    "id": "the-witness-playthrough",
-    "title": "The Witness Playthrough",
+    "id": "the-witness",
+    "title": "The Witness",
     "thumbnail": "https://i.ytimg.com/vi/Iib8zkxeEMs/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 15,
@@ -2544,8 +2512,8 @@
     "vpv_formatted": "35"
   },
   {
-    "id": "into-the-breach-lets-play",
-    "title": "Into The Breach Lets Play",
+    "id": "into-the-breach",
+    "title": "Into The Breach",
     "thumbnail": "https://i.ytimg.com/vi/famzjELa6A8/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 18,
@@ -2560,8 +2528,8 @@
     "vpv_formatted": "52"
   },
   {
-    "id": "logicality-playthrough",
-    "title": "Logicality Playthrough",
+    "id": "logicality",
+    "title": "Logicality",
     "thumbnail": "https://i.ytimg.com/vi/dvSYC7oa6a0/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
@@ -2832,8 +2800,8 @@
     "vpv_formatted": "26"
   },
   {
-    "id": "creatorcrate-lets-play",
-    "title": "Creatorcrate Lets Play",
+    "id": "creatorcrate",
+    "title": "Creatorcrate",
     "thumbnail": "https://i.ytimg.com/vi/pzlSY1T_ct4/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
@@ -3024,24 +2992,8 @@
     "vpv_formatted": "29"
   },
   {
-    "id": "super-auto-pets",
-    "title": "Super Auto Pets",
-    "thumbnail": "https://i.ytimg.com/vi/MFTNaxQe4Bg/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 19,
-    "views": 548,
-    "duration": 35976,
-    "status": "Completed",
-    "status_color": "blue",
-    "updated": "2022-02-26T17:00:10Z",
-    "views_formatted": "548",
-    "duration_formatted": "9h 59m",
-    "vpv": 29,
-    "vpv_formatted": "29"
-  },
-  {
-    "id": "hadean-tactics-lets-play",
-    "title": "Hadean Tactics Lets Play",
+    "id": "hadean-tactics",
+    "title": "Hadean Tactics",
     "thumbnail": "https://i.ytimg.com/vi/W4bi2QrcLak/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
@@ -3301,7 +3253,7 @@
     "thumbnail": "https://i.ytimg.com/vi/XnP06JR6oYk/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 12,
-    "views": 3004,
+    "views": 3005,
     "duration": 17692,
     "status": "Completed",
     "status_color": "blue",

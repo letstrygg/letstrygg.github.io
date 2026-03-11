@@ -1,16 +1,16 @@
 {
   "id": "PLQ4IL4UVgQk7nGy3RGto9hawWWsUC_Kmy",
-  "title": "Nearly Dead - Live and Let Die",
+  "slug": "nearly-dead-live-and-let-die",
+  "title": "Nearly Dead Live and Let Die",
   "thumbnail": "https://i.ytimg.com/vi/rm41J202kiQ/maxresdefault.jpg",
   "published": "2024-02-21T06:27:48.005245Z",
   "updated": "2024-02-25T14:30:19Z",
-  "fetched": "2026-03-07T12:03:41.872Z",
+  "fetched": "2026-03-11T19:14:34.134Z",
   "episodes": 4,
   "duration": 10460,
-  "views": 1614,
-  "status": "Completed",
   "duration_formatted": "2h 54m",
+  "views": 1614,
   "views_formatted": "1.6K",
-  "slug": "nearly-dead-live-and-let-die",
+  "status": "Completed",
   "status_color": "blue"
 }
