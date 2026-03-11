@@ -14,8 +14,8 @@ custom_css: "/css/home.css"
 <h2 class="blue">All Series</h2>
 -->
 
-<div class="sort-controls" style="margin-bottom: 20px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-	<input type="text" id="gameSearch" placeholder="Search games (e.g. slay the spire)..." style="padding: 6px 10px; border-radius: 3px; border: 1px solid #444; background: #222; color: #eee; flex-grow: 1; max-width: 300px; font-size: 14px;">
+<div class="sort-controls">
+	<input type="text" id="gameSearch" placeholder="Search games (e.g. slay the spire)...">
 	
 	<button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')">
 	  <span class="material-symbols-outlined icon-green">psychiatry</span> New
@@ -30,27 +30,27 @@ custom_css: "/css/home.css"
 	  <span class="material-symbols-outlined icon-orange">mode_heat</span> VPV
 	</button>
     
-    <div style="width: 1px; height: 30px; background: #444; margin: 0 5px;"></div>
+    <div style="width: 1px; height: 30px; background: var(--gray); margin: 0 5px;"></div>
     <button class="btn btn-gray" id="btn-info" onclick="toggleInfo()">
       <span class="material-symbols-outlined icon-gray">info</span> Info
     </button>
 </div>
 
-<div id="summary-info-box" style="display: none; background: #222; padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #0085e3; color: #eee; font-size: 0.9em;">
+<div id="summary-info-box" style="display: none; background: var(--card-bg); padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--blue); color: var(--text); font-size: 0.9em;">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
         <div>
-            <strong style="color: #0085e3; font-size: 1.1em;">Library Scope</strong><br>
+            <strong style="color: var(--blue); font-size: 1.1em;">Library Scope</strong><br>
             Games: <strong id="stat-games">0</strong><br>
             Videos: <strong id="stat-videos-total">0</strong>
         </div>
         <div>
-            <strong style="color: #28a745; font-size: 1.1em;">Views</strong><br>
+            <strong style="color: var(--green); font-size: 1.1em;">Views</strong><br>
             Total: <span id="stat-views-total">0</span><br>
             Avg / Game: <span id="stat-views-avg-game">0</span><br>
-            Avg / Video: <span id="stat-vpv" style="color: #ff9900; font-weight: bold;">0</span>
+            Avg / Video: <span id="stat-vpv" style="color: var(--orange); font-weight: bold;">0</span>
         </div>
         <div>
-            <strong style="color: #6f42c1; font-size: 1.1em;">Duration</strong><br>
+            <strong style="color: var(--purple); font-size: 1.1em;">Duration</strong><br>
             Total: <span id="stat-dur-total">0</span><br>
             Avg / Game: <span id="stat-dur-game">0</span><br>
             Avg / Video: <span id="stat-dur-video">0</span>
@@ -107,15 +107,11 @@ function toggleInfo() {
     const infoBox = document.getElementById('summary-info-box');
 
     if (isInfoActive) {
-        btn.classList.add('active');
-        btn.style.background = '#0085e3'; // Highlight it when on
-        btn.style.color = '#fff';
+        btn.classList.add('active'); // CSS handles the colors entirely now!
         infoBox.style.display = 'block';
         calculateStats();
     } else {
         btn.classList.remove('active');
-        btn.style.background = '';
-        btn.style.color = '';
         infoBox.style.display = 'none';
     }
     updateVPVVisibility();
