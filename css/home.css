@@ -86,12 +86,17 @@
 .controls-top-row {
     display: flex;
     justify-content: space-between; 
+    align-items: center; /* Keeps everything vertically centered */
+    gap: 10px; /* NEW: Forces exactly 10px of space between Search and the Buttons */
+    width: 100%;
 }
 
 /* Search Bar */
 #gameSearch {
+    box-sizing: border-box; /* NEW: Forces padding to stay strictly inside the box! */
+    min-width: 0; /* NEW: Allows the search bar to shrink smoothly on tiny phone screens */
     max-width: 350px; 
-    flex-grow: .7; /* Your custom sizing! */
+    flex-grow: .7; 
     padding: 10px 16px;
     font-size: 1rem;
     border-radius: 8px; 
