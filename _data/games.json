@@ -4,19 +4,19 @@
     "title": "Slay The Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 9,
-    "views": 454,
-    "duration": 84042,
+    "episodes": 10,
+    "views": 478,
+    "duration": 91878,
     "tags": [
       "Deck Builder"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-11T14:00:10Z",
-    "views_formatted": "454",
-    "duration_formatted": "23h 20m",
-    "vpv": 50,
-    "vpv_formatted": "50"
+    "updated": "2026-03-12T14:00:10Z",
+    "views_formatted": "478",
+    "duration_formatted": "25h 31m",
+    "vpv": 48,
+    "vpv_formatted": "48"
   },
   {
     "id": "oaken-tower",
@@ -24,7 +24,7 @@
     "thumbnail": "https://i.ytimg.com/vi/4LHX5Ojo07M/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 271,
-    "views": 54211,
+    "views": 54217,
     "duration": 573430,
     "tags": [
       "PVP",
@@ -201,17 +201,17 @@
     "title": "Bloons Td 6",
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
-    "episodes": 120,
-    "views": 6201,
-    "duration": 292987,
+    "episodes": 121,
+    "views": 6234,
+    "duration": 295585,
     "tags": [
       "Tower Defense"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-11T12:01:39Z",
+    "updated": "2026-03-12T12:00:45Z",
     "views_formatted": "6.2K",
-    "duration_formatted": "81h 23m",
+    "duration_formatted": "82h 6m",
     "vpv": 52,
     "vpv_formatted": "52"
   },
@@ -321,7 +321,7 @@
     "thumbnail": "https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg",
     "highest_season": 5,
     "episodes": 902,
-    "views": 263385,
+    "views": 263410,
     "duration": 3233686,
     "tags": [
       "PVP",
@@ -688,22 +688,22 @@
   {
     "id": "shapez-2",
     "title": "Shapez 2",
-    "thumbnail": "https://i.ytimg.com/vi/izYH-s98Y-8/maxresdefault.jpg",
+    "thumbnail": "https://i.ytimg.com/vi/hpRYm5B6I6U/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 6,
-    "views": 314,
-    "duration": 30822,
+    "episodes": 7,
+    "views": 328,
+    "duration": 36869,
     "tags": [
       "Automation",
       "Base Building"
     ],
-    "status": "Paused",
-    "status_color": "purple",
-    "updated": "2026-03-11T16:01:10Z",
-    "views_formatted": "314",
-    "duration_formatted": "8h 33m",
-    "vpv": 52,
-    "vpv_formatted": "52"
+    "status": "Ongoing",
+    "status_color": "green",
+    "updated": "2026-03-12T16:01:06Z",
+    "views_formatted": "328",
+    "duration_formatted": "10h 14m",
+    "vpv": 47,
+    "vpv_formatted": "47"
   },
   {
     "id": "wanderburg",
@@ -731,7 +731,7 @@
     "thumbnail": "https://i.ytimg.com/vi/b2jAfL21hK0/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 6,
-    "views": 831,
+    "views": 838,
     "duration": 28636,
     "tags": [
       "Incremental"
@@ -739,10 +739,10 @@
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-03-02T16:00:07Z",
-    "views_formatted": "831",
+    "views_formatted": "838",
     "duration_formatted": "7h 57m",
-    "vpv": 139,
-    "vpv_formatted": "139"
+    "vpv": 140,
+    "vpv_formatted": "140"
   },
   {
     "id": "factorio",
@@ -750,7 +750,7 @@
     "thumbnail": "https://i.ytimg.com/vi/d3jj_ARI3RQ/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 91,
-    "views": 9513,
+    "views": 9518,
     "duration": 373367,
     "tags": [
       "Automation",

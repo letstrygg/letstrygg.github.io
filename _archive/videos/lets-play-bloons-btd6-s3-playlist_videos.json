@@ -7,7 +7,7 @@
       "videoId": "LjPAuRoQjds",
       "videoPublishedAt": "2026-02-19T12:00:36Z",
       "durationInSeconds": 2107,
-      "viewCount": 26
+      "viewCount": 27
     }
   },
   {
@@ -18,7 +18,7 @@
       "videoId": "mBL0KZ4R6tU",
       "videoPublishedAt": "2026-02-20T12:01:26Z",
       "durationInSeconds": 1423,
-      "viewCount": 35
+      "viewCount": 36
     }
   },
   {
@@ -29,7 +29,7 @@
       "videoId": "nDmeUsFof-I",
       "videoPublishedAt": "2026-02-21T12:01:29Z",
       "durationInSeconds": 1694,
-      "viewCount": 37
+      "viewCount": 38
     }
   },
   {
@@ -40,7 +40,7 @@
       "videoId": "KWJgK8N_2EU",
       "videoPublishedAt": "2026-02-22T12:00:33Z",
       "durationInSeconds": 1306,
-      "viewCount": 27
+      "viewCount": 28
     }
   },
   {
@@ -51,7 +51,7 @@
       "videoId": "DRLQqNCZflw",
       "videoPublishedAt": "2026-02-23T12:00:21Z",
       "durationInSeconds": 1200,
-      "viewCount": 36
+      "viewCount": 37
     }
   },
   {
@@ -62,7 +62,7 @@
       "videoId": "bAb6NZ-MnCg",
       "videoPublishedAt": "2026-02-24T12:01:04Z",
       "durationInSeconds": 6657,
-      "viewCount": 56
+      "viewCount": 57
     }
   },
   {
@@ -73,7 +73,7 @@
       "videoId": "zsaf4WF5ZE4",
       "videoPublishedAt": "2026-02-25T12:01:47Z",
       "durationInSeconds": 1590,
-      "viewCount": 21
+      "viewCount": 22
     }
   },
   {
@@ -84,7 +84,7 @@
       "videoId": "y0aPJM_9jcw",
       "videoPublishedAt": "2026-02-26T12:01:43Z",
       "durationInSeconds": 1468,
-      "viewCount": 14
+      "viewCount": 15
     }
   },
   {
@@ -95,7 +95,7 @@
       "videoId": "fBnuxU4bVIs",
       "videoPublishedAt": "2026-02-27T12:01:16Z",
       "durationInSeconds": 1110,
-      "viewCount": 93
+      "viewCount": 94
     }
   },
   {
@@ -106,7 +106,7 @@
       "videoId": "Ol-ZsBX7WQg",
       "videoPublishedAt": "2026-02-28T12:00:46Z",
       "durationInSeconds": 1250,
-      "viewCount": 21
+      "viewCount": 24
     }
   },
   {
@@ -117,7 +117,7 @@
       "videoId": "-laWp_6_uTM",
       "videoPublishedAt": "2026-03-01T12:00:01Z",
       "durationInSeconds": 3788,
-      "viewCount": 29
+      "viewCount": 30
     }
   },
   {
@@ -194,7 +194,7 @@
       "videoId": "pNUS2ERcyNU",
       "videoPublishedAt": "2026-03-08T12:01:27Z",
       "durationInSeconds": 1561,
-      "viewCount": 93
+      "viewCount": 97
     }
   },
   {
@@ -205,7 +205,7 @@
       "videoId": "Md3MI00qtrY",
       "videoPublishedAt": "2026-03-09T12:00:39Z",
       "durationInSeconds": 3131,
-      "viewCount": 8
+      "viewCount": 9
     }
   },
   {
@@ -216,7 +216,7 @@
       "videoId": "0Dsw_u5Mu2c",
       "videoPublishedAt": "2026-03-10T12:00:00Z",
       "durationInSeconds": 2581,
-      "viewCount": 8
+      "viewCount": 13
     }
   },
   {
@@ -227,7 +227,18 @@
       "videoId": "rWBy3Uj4vu0",
       "videoPublishedAt": "2026-03-11T12:01:39Z",
       "durationInSeconds": 1210,
-      "viewCount": 10
+      "viewCount": 15
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "VwwOzYgrPtyOLtyVZSiKBOzTAZU",
+    "id": "UExRNElMNFVWZ1FrNUcyb3cycm44Q3dKYlBEbzBUU1B6ei5DNzE1RjZEMUZCMjA0RDBB",
+    "contentDetails": {
+      "videoId": "Nzs1gTgBnMQ",
+      "videoPublishedAt": "2026-03-12T12:00:45Z",
+      "durationInSeconds": 2598,
+      "viewCount": 5
     }
   }
 ]
