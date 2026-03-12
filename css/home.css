@@ -124,7 +124,7 @@
 .summary-grid {
     display: grid;
     /* This allows 3 columns, but safely wraps if a column gets smaller than 140px! */
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
     gap: 10px;
 }
 
