@@ -5,7 +5,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 10,
-    "views": 478,
+    "views": 485,
     "duration": 91878,
     "tags": [
       "Deck Builder"
@@ -13,10 +13,10 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-12T14:00:10Z",
-    "views_formatted": "478",
+    "views_formatted": "485",
     "duration_formatted": "25h 31m",
-    "vpv": 48,
-    "vpv_formatted": "48"
+    "vpv": 49,
+    "vpv_formatted": "49"
   },
   {
     "id": "oaken-tower",
@@ -202,7 +202,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 121,
-    "views": 6234,
+    "views": 6239,
     "duration": 295585,
     "tags": [
       "Tower Defense"
@@ -691,7 +691,7 @@
     "thumbnail": "https://i.ytimg.com/vi/hpRYm5B6I6U/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 7,
-    "views": 328,
+    "views": 333,
     "duration": 36869,
     "tags": [
       "Automation",
@@ -700,10 +700,10 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-12T16:01:06Z",
-    "views_formatted": "328",
+    "views_formatted": "333",
     "duration_formatted": "10h 14m",
-    "vpv": 47,
-    "vpv_formatted": "47"
+    "vpv": 48,
+    "vpv_formatted": "48"
   },
   {
     "id": "wanderburg",
