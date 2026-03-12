@@ -231,8 +231,15 @@
    TAG FILTERING SYSTEM 
    ========================================= */
 
-.tag-filters {
+/* Keeps the buttons grouped together on the right */
+.top-row-buttons {
     display: flex;
+    gap: 10px;
+}
+
+/* Update your existing .tag-filters class to be hidden by default */
+.tag-filters {
+    display: none; /* Changed from flex to none */
     flex-wrap: wrap;
     gap: 8px;
     align-items: center;

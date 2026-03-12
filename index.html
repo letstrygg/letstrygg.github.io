@@ -15,11 +15,16 @@ custom_css: "/css/home.css"
 -->
 
 <div class="controls-wrapper">
-    <div class="controls-top-row">
-        <input type="text" id="gameSearch" placeholder="Search games (e.g. slay the spire)...">
-        <button class="btn btn-gray" id="btn-info" onclick="toggleInfo()">
-            <span class="material-symbols-outlined icon-gray">info</span> Info
-        </button>
+	<div class="controls-top-row">
+        <input type="text" id="gameSearch" placeholder="Search Games">
+        <div class="top-row-buttons">
+            <button class="btn btn-gray" id="btn-tags-toggle" onclick="toggleTagPanel()">
+                <span class="material-symbols-outlined icon-gray">sell</span> Tags
+            </button>
+            <button class="btn btn-gray" id="btn-info" onclick="toggleInfo()">
+                <span class="material-symbols-outlined icon-gray">info</span> Info
+            </button>
+        </div>
     </div>
 
     <div class="segmented-control">
@@ -153,7 +158,7 @@ function calculateStats() {
 	document.getElementById('stat-games').innerText = gamesCount;
     document.getElementById('stat-videos-total').innerText = totalVideos;
     document.getElementById('stat-avg-vid-game').innerText = avgVideosGame;
-        document.getElementById('stat-views-total').innerText = formatViews(totalViews);
+    document.getElementById('stat-views-total').innerText = formatViews(totalViews);
     document.getElementById('stat-vpv').innerText = formatViews(avgViewsVideo);
     document.getElementById('stat-dur-total').innerText = formatDuration(totalDuration);
     document.getElementById('stat-dur-game').innerText = formatDuration(avgDurGame);
@@ -222,11 +227,29 @@ function applyFilters() {
     calculateStats(); 
 }
 
-// --- Tag Building Logic ---
+// --- NEW: Tag Panel Toggle Logic ---
+let isTagPanelActive = false;
+
+function toggleTagPanel() {
+    isTagPanelActive = !isTagPanelActive;
+    const btn = document.getElementById('btn-tags-toggle');
+    const panel = document.getElementById('tag-filters');
+    
+    if (isTagPanelActive) {
+        btn.classList.add('active');
+        panel.style.display = 'flex'; // Reveals the whole panel
+    } else {
+        btn.classList.remove('active');
+        panel.style.display = 'none'; // Hides it
+    }
+}
+
+// --- UPDATED: Tag Building Logic (No more "+ More" button!) ---
 function initTags() {
     const cards = document.querySelectorAll('.filterable-card');
     const tagCounts = {};
     
+    // Count the tags
     cards.forEach(card => {
         const tagsStr = card.getAttribute('data-tags');
         if (!tagsStr) return;
@@ -242,10 +265,12 @@ function initTags() {
     const container = document.getElementById('tag-filters');
     container.innerHTML = '';
 
+    // Render all tag buttons instantly
     allSortedTags.forEach(([tag, count]) => {
         const btn = document.createElement('button');
         btn.className = 'btn-tag tag-item'; 
         btn.innerText = `${tag} (${count})`;
+        
         btn.onclick = () => {
             if (activeTags.has(tag)) {
                 activeTags.delete(tag);
@@ -258,55 +283,6 @@ function initTags() {
         };
         container.appendChild(btn);
     });
-
-    const moreBtn = document.createElement('button');
-    moreBtn.id = 'btn-tag-more';
-    moreBtn.className = 'btn-tag btn-tag-more';
-    moreBtn.onclick = () => {
-        isTagsExpanded = !isTagsExpanded;
-        layoutTags();
-    };
-    container.appendChild(moreBtn);
-
-    layoutTags();
-    window.addEventListener('resize', layoutTags);
-}
-
-function layoutTags() {
-    const container = document.getElementById('tag-filters');
-    if (!container) return;
-    
-    const tags = Array.from(container.querySelectorAll('.tag-item'));
-    const moreBtn = document.getElementById('btn-tag-more');
-    if (!tags.length || !moreBtn) return;
-
-    if (isTagsExpanded) {
-        tags.forEach(t => t.style.display = 'inline-flex');
-        moreBtn.innerText = '- Show Less';
-        return;
-    }
-
-    tags.forEach(t => t.style.display = 'inline-flex');
-    moreBtn.style.display = 'inline-flex';
-
-    const isMobile = window.innerWidth <= 600;
-    const allowedRows = isMobile ? 2 : 1;
-    
-    const firstY = tags[0].offsetTop;
-    const rowThreshold = 45; 
-    const maxY = firstY + ((allowedRows - 1) * rowThreshold) + 15;
-
-    for (let i = tags.length - 1; i >= 0; i--) {
-        if (moreBtn.offsetTop <= maxY) break; 
-        tags[i].style.display = 'none'; 
-    }
-
-    const hiddenCount = tags.filter(t => t.style.display === 'none').length;
-    if (hiddenCount === 0) {
-        moreBtn.style.display = 'none';
-    } else {
-        moreBtn.innerText = `+ ${hiddenCount} More`;
-    }
 }
 
 // Ensure event listener triggers the unified filter function
