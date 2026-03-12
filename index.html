@@ -155,11 +155,17 @@ function calculateStats() {
     const avgDurVideo = totalVideos > 0 ? totalDuration / totalVideos : 0;
 	const avgVideosGame = gamesCount > 0 ? Math.round(totalVideos / gamesCount) : 0;
 	
-	document.getElementById('stat-games').innerText = gamesCount;
+	// 1. Library Scope
+    document.getElementById('stat-games').innerText = gamesCount;
     document.getElementById('stat-videos-total').innerText = totalVideos;
     document.getElementById('stat-avg-vid-game').innerText = avgVideosGame;
+
+    // 2. Views
     document.getElementById('stat-views-total').innerText = formatViews(totalViews);
+    document.getElementById('stat-views-avg-game').innerText = formatViews(avgViewsGame);
     document.getElementById('stat-vpv').innerText = formatViews(avgViewsVideo);
+
+    // 3. Duration
     document.getElementById('stat-dur-total').innerText = formatDuration(totalDuration);
     document.getElementById('stat-dur-game').innerText = formatDuration(avgDurGame);
     document.getElementById('stat-dur-video').innerText = formatDuration(avgDurVideo);
