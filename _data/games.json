@@ -5,7 +5,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 11,
-    "views": 530,
+    "views": 536,
     "duration": 98848,
     "tags": [
       "Deck Builder"
@@ -13,10 +13,10 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-13T14:01:14Z",
-    "views_formatted": "530",
+    "views_formatted": "536",
     "duration_formatted": "27h 27m",
-    "vpv": 48,
-    "vpv_formatted": "48"
+    "vpv": 49,
+    "vpv_formatted": "49"
   },
   {
     "id": "oaken-tower",
@@ -202,7 +202,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 122,
-    "views": 6312,
+    "views": 6321,
     "duration": 299588,
     "tags": [
       "Tower Defense"
@@ -691,7 +691,7 @@
     "thumbnail": "https://i.ytimg.com/vi/BaEJI_gxp3g/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 8,
-    "views": 357,
+    "views": 361,
     "duration": 43084,
     "tags": [
       "Automation",
@@ -700,7 +700,7 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-13T16:00:30Z",
-    "views_formatted": "357",
+    "views_formatted": "361",
     "duration_formatted": "11h 58m",
     "vpv": 45,
     "vpv_formatted": "45"
@@ -711,7 +711,7 @@
     "thumbnail": "https://i.ytimg.com/vi/e-dBtCzI-74/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 255,
+    "views": 265,
     "duration": 4554,
     "tags": [
       "Bullet Heaven",
@@ -720,10 +720,10 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-03-01T13:01:09Z",
-    "views_formatted": "255",
+    "views_formatted": "265",
     "duration_formatted": "1h 15m",
-    "vpv": 128,
-    "vpv_formatted": "128"
+    "vpv": 133,
+    "vpv_formatted": "133"
   },
   {
     "id": "dice-a-million",
@@ -731,7 +731,7 @@
     "thumbnail": "https://i.ytimg.com/vi/b2jAfL21hK0/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 6,
-    "views": 838,
+    "views": 843,
     "duration": 28636,
     "tags": [
       "Incremental"
@@ -739,10 +739,10 @@
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-03-02T16:00:07Z",
-    "views_formatted": "838",
+    "views_formatted": "843",
     "duration_formatted": "7h 57m",
-    "vpv": 140,
-    "vpv_formatted": "140"
+    "vpv": 141,
+    "vpv_formatted": "141"
   },
   {
     "id": "factorio",
@@ -750,7 +750,7 @@
     "thumbnail": "https://i.ytimg.com/vi/d3jj_ARI3RQ/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 91,
-    "views": 9518,
+    "views": 9525,
     "duration": 373367,
     "tags": [
       "Automation",
@@ -1246,7 +1246,7 @@
     "thumbnail": "https://i.ytimg.com/vi/lTTXZxN5fac/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 8,
-    "views": 3686,
+    "views": 3797,
     "duration": 38370,
     "tags": [
       "Automation",
@@ -1255,10 +1255,10 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-10T12:00:54Z",
-    "views_formatted": "3.7K",
+    "views_formatted": "3.8K",
     "duration_formatted": "10h 39m",
-    "vpv": 461,
-    "vpv_formatted": "461"
+    "vpv": 475,
+    "vpv_formatted": "475"
   },
   {
     "id": "the-last-spell",
