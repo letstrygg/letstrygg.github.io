@@ -1,0 +1,31 @@
+---
+layout: new
+title: Cards Database - Slay the Spire 2
+description: A growing database of cards, upgrades, and synergies in Slay the Spire 2.
+permalink: /game/slay-the-spire-2/cards/
+custom_css: "/css/spire-style.css"
+---
+
+<div class="sts-page-wrapper">
+
+  <h1 class="sts-yellow">Cards Database</h1>
+  <p class="subtitle sts-blue">Slay the Spire 2</p>
+
+  <p>Documenting the deck. Click a card to view its energy cost, upgrade effects, and episodes where it carried the run (or ruined it).</p>
+
+  <div class="sts-section" style="margin-top: 30px;">
+    
+    {% assign card_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/cards/'" %}
+    
+    {% for card in card_pages %}
+      {% if card.url != '/game/slay-the-spire-2/cards/' %}
+        <div style="margin-top: 15px;">
+          <a href="{{ card.url | relative_url }}" class="sts-blue">
+            ▶ {{ card.title | remove: " – Slay the Spire 2 Card" | remove: " - Slay the Spire 2 Card" }}
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+
+</div>

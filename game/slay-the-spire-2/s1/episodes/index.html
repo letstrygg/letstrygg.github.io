@@ -1,0 +1,31 @@
+---
+layout: new
+title: Season 1 Episodes - Slay the Spire 2
+description: A complete list of episodes from Season 1 of the Slay the Spire 2 Let's Play.
+permalink: /game/slay-the-spire-2/s1/episodes/
+custom_css: "/css/spire-style.css"
+---
+
+<div class="sts-page-wrapper">
+
+  <h1 class="sts-yellow">Season 1 Episodes</h1>
+  <p class="subtitle sts-blue">Slay the Spire 2 Let's Play</p>
+
+  <p>The master list for Season 1. Following a strict character rotation: <em>Ironclad > Silent > Regent > Necrobinder > Defect</em>. Every victory means the Ascension level goes up on the next rotation.</p>
+
+  <div class="sts-section" style="margin-top: 30px;">
+    
+    {% assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" %}
+    
+    {% for ep in ep_pages %}
+      {% if ep.url != '/game/slay-the-spire-2/s1/episodes/' %}
+        <div style="margin-top: 15px;">
+          <a href="{{ ep.url | relative_url }}" class="sts-blue">
+            ▶ {{ ep.title }}
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+
+</div>
