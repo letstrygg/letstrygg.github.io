@@ -40,7 +40,7 @@ custom_css: ["/css/game.css", "/css/spire-style.css"]
   </div>
 
   <div class="sts-section">
-    <h2 class="sts-yellow">Cards</h2>
+    <h2 class="sts-yellow">Cards Database</h2>
     <p>Documenting the deck. Discover card mechanics, upgrades, and synergies:</p>
     
     {% assign card_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/cards/'" %}
@@ -63,7 +63,7 @@ custom_css: ["/css/game.css", "/css/spire-style.css"]
   </div>
 
   <div class="sts-section">
-    <h2 class="sts-yellow">Episodes</h2>
+    <h2 class="sts-yellow">Season 1 Episodes</h2>
     
     {% assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" | reverse %}
     
