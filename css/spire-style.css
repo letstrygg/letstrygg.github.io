@@ -295,19 +295,22 @@
     width: 100%;
     max-width: 260px;
     padding: 8px;
-    border-radius: 8px; /* Outer frame */
+    border-radius: 8px; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     text-align: center;
+    display: flex; 
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
-/* The Inner Border (This is where the Rarity and Type shapes apply) */
 .sts-card-inner {
-    border: 3px solid var(--gray); /* Default Common */
-    height: 100%;
+    border: 3px solid var(--gray); 
+    flex-grow: 1; 
     padding: 15px 10px;
     position: relative;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 /* Card Types (Powers get rounded inner borders) */
