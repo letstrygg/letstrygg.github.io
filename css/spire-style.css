@@ -381,3 +381,37 @@
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+/* --- UPGRADE ARROW --- */
+.sts-card-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.sts-card-arrow .material-symbols-outlined {
+    font-size: 3.5em; /* Makes the arrow nice and large */
+    color: #2ecc71; /* STS Green */
+    margin-top: -5px; /* Pulls the arrow slightly closer to the text */
+    transition: transform 0.2s ease;
+}
+
+/* On mobile, when cards stack, rotate the arrow to point down! */
+@media (max-width: 650px) {
+    .sts-card-arrow {
+        flex-direction: row; /* Puts the text and arrow side-by-side */
+        gap: 15px;
+        margin: 10px 0;
+    }
+    .sts-card-arrow .material-symbols-outlined {
+        transform: rotate(90deg); /* Points it down */
+        margin-top: 0;
+    }
+}
