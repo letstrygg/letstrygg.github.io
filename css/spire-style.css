@@ -401,7 +401,9 @@
     color: #2ecc71; /* STS Green */
     margin-top: -5px; /* Pulls the arrow slightly closer to the text */
     transition: transform 0.2s ease;
-	text-transform: none;
+	text-transform: none !important;
+	letter-spacing: normal !important; 
+	font-family: 'Material Symbols Outlined' !important;
 }
 
 /* On mobile, when cards stack, rotate the arrow to point down! */
