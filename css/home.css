@@ -1,6 +1,8 @@
+/* =========================================
+   THE GAME GRID
+   ========================================= */
 .game-grid {
   display: grid;
-  /* The magic formula for responsive cards without media queries: */
   grid-template-columns: repeat(auto-fill, minmax(clamp(150px, calc(50vw - 16px), 360px), 1fr));
   gap: 4px;
   justify-content: center;
@@ -9,10 +11,10 @@
 
 .game-card {
   width: 100%; 
-  height: 100%; /* ADDED: Fills the anchor tag */
-  display: flex; /* ADDED: Turns the card into a vertical flexbox */
-  flex-direction: column; /* ADDED: Stacks the image and rows vertically */
-  border: 1px solid #007dab;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--blue);
   border-radius: 10px;
   overflow: hidden;
   font-size: 1.0em;
@@ -20,14 +22,8 @@
   color: inherit;
 }
 
-.game-card img {
-  width: 100%;
-  display: block;
-}
-
-.game-card .card-row:nth-of-type(2) {
-  margin-top: auto; 
-}
+.game-card img { width: 100%; display: block; }
+.game-card .card-row:nth-of-type(2) { margin-top: auto; }
 
 .card-row {
   margin: 3px 0px;
@@ -37,7 +33,6 @@
   align-items: center;
 }
 
-/* Targets the game title in your top card-row */
 .card-row strong {
   white-space: nowrap;
   overflow: hidden;
@@ -46,11 +41,10 @@
   margin-right: 8px;
 }
 
-/* This targets the direct child spans inside the row */
 .card-row > span {
   display: inline-flex;
   align-items: flex-end;
-  gap: 4px; /* Adds that nice little space between the icon and the number */
+  gap: 4px;
 }
 
 .card-status {
@@ -62,39 +56,37 @@
 
 .filterable-card {
   display: block; 
-  height: 100%; /* Forces the link to fill the stretched grid cell */
-  text-decoration: none; /* Prevents unwanted underlines on your card text */
-}
-
-.material-symbols-outlined {
-  font-size: 1.2em;
+  height: 100%;
+  text-decoration: none;
 }
 
 /* =========================================
-   NEW LAYOUT: CONTROLS & SEGMENTS 
+   CONTROLS & SEGMENTS 
    ========================================= */
-/* --- UPDATED CONTROLS WRAPPER --- */
 .controls-wrapper {
     display: flex;
     flex-direction: column;
     gap: 16px;
     margin: 16px auto 24px auto; 
-    max-width: 1200px; /* Your chosen width! */
+    max-width: 1200px;
     padding: 0 10px; 
 }
 
 .controls-top-row {
     display: flex;
     justify-content: space-between; 
-    align-items: center; /* Keeps everything vertically centered */
-    gap: 10px; /* NEW: Forces exactly 10px of space between Search and the Buttons */
+    align-items: center;
+    gap: 10px;
     width: 100%;
 }
 
-/* Search Bar */
+.top-row-buttons {
+    display: flex;
+    gap: 10px;
+}
+
 #gameSearch {
-    box-sizing: border-box; /* NEW: Forces padding to stay strictly inside the box! */
-    min-width: 0; /* NEW: Allows the search bar to shrink smoothly on tiny phone screens */
+    min-width: 0;
     max-width: 350px; 
     flex-grow: .7; 
     padding: 10px 16px;
@@ -106,12 +98,84 @@
     outline: none;
     transition: border-color 0.2s ease;
 }
+#gameSearch:focus { border-color: var(--blue); }
 
-#gameSearch:focus {
+.segmented-control {
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--gray);
+  overflow: hidden;
+  background: var(--card-bg);
+}
+
+.segment-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 5px;
+  font-size: 0.95em;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  border-right: 1px solid var(--gray);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.segment-btn:last-child { border-right: none; }
+.segment-btn:hover { background: #333; }
+
+#btn-recent.active { background: var(--green); color: var(--bg); }
+#btn-popular.active { background: var(--blue); color: var(--bg); }
+#btn-length.active { background: var(--purple); color: var(--bg); }
+#btn-vpv.active { background: var(--orange); color: var(--bg); }
+
+.segment-btn.active .material-symbols-outlined,
+.btn:hover .material-symbols-outlined,
+.btn.active .material-symbols-outlined { color: var(--bg); }
+
+@media (max-width: 600px) {
+  .segment-btn {
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.75em;
+      padding: 8px 2px;
+  }
+  .segment-btn .material-symbols-outlined { font-size: 1.4em; }
+}
+
+/* =========================================
+   TAG FILTERING & INFO BOX
+   ========================================= */
+.tag-filters {
+    display: none;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-tag {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--gray);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-tag:hover { background: #333; border-color: #555; }
+.btn-tag.active {
+    background: var(--blue);
+    color: var(--bg);
     border-color: var(--blue);
 }
 
-/* --- THE CLEANED UP INFO BOX --- */
 .summary-info-box {
     background: var(--card-bg);
     padding: 20px;
@@ -123,156 +187,11 @@
 
 .summary-grid {
     display: grid;
-    /* This allows 3 columns, but safely wraps if a column gets smaller than 140px! */
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
     gap: 10px;
 }
 
-/* Helper Text Colors */
-.text-blue { color: var(--blue); }
-.text-green { color: var(--green); }
-.text-purple { color: var(--purple); }
-.text-orange { color: var(--orange); }
-
 @media (max-width: 600px) {
     .summary-info-box { padding: 12px; }
     .summary-grid { font-size: 0.85em; gap: 8px; }
-}
-
-/* Base Button Styling (Kept for Info Button & Future use) */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 16px;
-  font-size: 0.95em;
-  font-weight: 500;
-  border-radius: 8px; /* Changed from 20px to match new aesthetic */
-  border: 1px solid var(--gray);
-  background: transparent;
-  color: var(--text);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-/* Info Button Hover/Active */
-.btn.btn-gray:hover,
-.btn.btn-gray.active {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--bg);
-}
-
-/* --- MIDDLE ROW: SEGMENTED CONTROL --- */
-.segmented-control {
-  display: flex;
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid var(--gray);
-  overflow: hidden; /* This makes the children respect the rounded corners */
-  background: var(--card-bg);
-}
-
-.segment-btn {
-  flex: 1; /* Forces all 4 buttons to be exactly equal width */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 10px 5px;
-  font-size: 0.95em;
-  font-weight: 500;
-  background: transparent;
-  color: var(--text);
-  border: none;
-  border-right: 1px solid var(--gray); /* Internal dividers */
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-  white-space: nowrap;
-}
-
-.segment-btn:last-child {
-  border-right: none; /* Removes the divider from the last button */
-}
-
-/* Hover & Active States for Segments */
-.segment-btn:hover { background: #333; }
-
-#btn-recent.active { background: var(--green); color: var(--bg); }
-#btn-popular.active { background: var(--blue); color: var(--bg); }
-#btn-length.active { background: var(--purple); color: var(--bg); }
-#btn-vpv.active { background: var(--orange); color: var(--bg); }
-
-/* High Contrast Icons on Hover & Active */
-.btn:hover .material-symbols-outlined,
-.btn.active .material-symbols-outlined,
-.segment-btn.active .material-symbols-outlined {
-  color: var(--bg); 
-}
-
-/* Default Icon Colors */
-.icon-green { color: var(--green); }
-.icon-blue { color: var(--blue); }
-.icon-purple { color: var(--purple); }
-.icon-orange { color: var(--orange); }
-.icon-gray { color: var(--gray); }
-
-/* --- MOBILE OPTIMIZATION --- */
-@media (max-width: 600px) {
-  .segment-btn {
-      flex-direction: column; /* Stacks the icon on top of the text */
-      gap: 4px;
-      font-size: 0.75em; /* Slightly smaller text to prevent clipping */
-      padding: 8px 2px;
-  }
-  .segment-btn .material-symbols-outlined {
-      font-size: 1.4em; /* Keep icons big and readable */
-  }
-}
-
-/* =========================================
-   TAG FILTERING SYSTEM 
-   ========================================= */
-
-/* Keeps the buttons grouped together on the right */
-.top-row-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-/* Update your existing .tag-filters class to be hidden by default */
-.tag-filters {
-    display: none; /* Changed from flex to none */
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: center;
-}
-.btn-tag {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--gray);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-.btn-tag:hover {
-    background: #333;
-    border-color: #555;
-}
-.btn-tag.active {
-    background: var(--blue);
-    color: var(--bg);
-    border-color: var(--blue);
-}
-.btn-tag-more {
-    border: 1px dashed var(--gray);
-    color: var(--gray);
-}
-.btn-tag-more:hover {
-    border-color: var(--text);
-    color: var(--text);
 }

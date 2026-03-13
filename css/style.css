@@ -1,54 +1,71 @@
 :root {
-  --bg:				#111111;
-  --card-bg:		#111723;
-  --text:			#e3e3e3;
-  --title:			#ffffff;
-  --subtitle:		#00e8ff;
-  --green:			#8dff8d;
-  --blue:			#75caff;
-  --purple:			#c390ff;
-  --orange:         #ffb347;  /* 🔶 bright orange for dark mode */
-  --red:            #ff6b6b;  /* 🔴 new red for dark mode */
-  --gray:			#a0a0a0;
-  --underline:		#ffffff;
+  --bg:          #111111;
+  --card-bg:     #111723;
+  --text:        #e3e3e3;
+  --title:       #ffffff;
+  --subtitle:    #00e8ff;
+  --green:       #8dff8d;
+  --blue:        #75caff;
+  --purple:      #c390ff;
+  --orange:      #ffb347;
+  --red:         #ff6b6b;
+  --gray:        #a0a0a0;
+  --underline:   #ffffff;
 }
 
 .light-theme {
-  --bg:				#ffffff;
-  --card-bg:		#daefff;
-  --text:			#111111;
-  --title:			#06cfff;
-  --subtitle:		#898989;
-  --green:			#00bb20;
-  --blue:			#0085e3;
-  --purple:			#9134ff;
-  --orange:         #e66b00;  /* 🟧 rich orange for light mode */
-  --red:            #d10000;  /* 🔴 rich red for light mode */
-  --gray:			#666666;
-  --underline:		#2b2b2b;
+  --bg:          #ffffff;
+  --card-bg:     #daefff;
+  --text:        #111111;
+  --title:       #06cfff;
+  --subtitle:    #898989;
+  --green:       #00bb20;
+  --blue:        #0085e3;
+  --purple:      #9134ff;
+  --orange:      #e66b00;
+  --red:         #d10000;
+  --gray:        #666666;
+  --underline:   #2b2b2b;
 }
 
+/* --- GLOBAL RESETS --- */
+*, *::before, *::after {
+  box-sizing: border-box; /* This single line prevents padding from breaking widths globally! */
+}
 
 body {
-  font-family:		'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background:		var(--bg);
-  color:			var(--text);
-  margin:2px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0; /* Removed the weird 2px margin */
+  padding: 0;
+  line-height: 1.5;
 }
 
-header			{ text-align: center; }
-.title			{ color: var(--title); margin: 0px 0px 0px; }
-.subtitle		{ color: var(--subtitle); margin: 0; font-weight: 500; font-style: oblique;}
-.green			{ color: var(--green); }
-.blue			{ color: var(--blue); }
-.purple			{ color: var(--purple); }
-.orange			{ color: var(--orange); }
-.red			{ color: var(--red); }
-.gray			{ color: var(--gray); }
-a				{ text-decoration: none; color: inherit; }
-h2				{ margin: 0px 178px; font-size: 1.2em; }
-b				{ font-weight: 500; text-decoration: underline; text-decoration-color: var(--underline);}
+/* --- LAYOUT CONTAINERS --- */
+.site-container {
+  max-width: 1000px; /* Constrains all sub-pages beautifully */
+  margin: 0 auto;
+  padding: 0 20px; /* Safe mobile padding */
+}
 
+/* --- TYPOGRAPHY --- */
+header { text-align: center; padding: 20px 0; }
+.title { color: var(--title); margin: 0; font-size: 2.5rem; }
+.subtitle { color: var(--subtitle); margin: 0; font-weight: 500; font-style: oblique; }
+h1, h2, h3 { margin-top: 0; } /* Clean resets */
+a { text-decoration: none; color: inherit; }
+b, strong { font-weight: 600; }
+
+/* Text Utility Classes */
+.green  { color: var(--green); }
+.blue   { color: var(--blue); }
+.purple { color: var(--purple); }
+.orange { color: var(--orange); }
+.red    { color: var(--red); }
+.gray   { color: var(--gray); }
+
+/* --- GLOBAL UI COMPONENTS --- */
 #theme-toggle {
   position: fixed;
   top: .5rem;
@@ -56,23 +73,46 @@ b				{ font-weight: 500; text-decoration: underline; text-decoration-color: var(
   font-size: 1.4rem;
   z-index: 1000;
   color: var(--purple);
+  cursor: pointer;
   transition: color 0.3s ease;
   font-variation-settings: 'FILL' 1; 
 }
+.light-theme #theme-toggle { color: var(--orange); }
 
-.light-theme #theme-toggle {
-  color: var(--orange); 
+/* The Base Button - Now available site-wide! */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 0.95em;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid var(--gray);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn.btn-gray:hover,
+.btn.btn-gray.active {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
 }
 
-.section { padding-left: 2em; }
+/* Global Icon Sizing */
+.material-symbols-outlined { font-size: 1.2em; }
+.icon-green { color: var(--green); }
+.icon-blue { color: var(--blue); }
+.icon-purple { color: var(--purple); }
+.icon-orange { color: var(--orange); }
+.icon-gray { color: var(--gray); }
 
-.playlist-thumb { max-width: 400px; width: 100%; height: auto; }
-
-ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
-ul { list-style-type: none; /* removes bullets */ padding-left: 1.5em; /* gentle indent inside the section */ }
-ul li { text-indent: -1.2em; /* brings the first line back if you prefer no visual indent */ }
-
-/* Global Breadcrumb Link Styling */
+/* --- NAVIGATION & LISTS --- */
+.site-breadcrumbs { margin-bottom: 25px; font-size: 1.05rem; }
 .site-breadcrumbs a {
     color: var(--blue);
     font-weight: 500;
@@ -81,22 +121,10 @@ ul li { text-indent: -1.2em; /* brings the first line back if you prefer no visu
     text-underline-offset: 3px;
     transition: opacity 0.2s ease;
 }
+.site-breadcrumbs a:hover { opacity: 0.8; }
+.breadcrumb-current { color: var(--text); font-weight: normal; }
 
-.site-breadcrumbs a:hover {
-    opacity: 0.8;
-}
-
-.breadcrumb-current {
-    color: var(--text);
-    font-weight: normal;
-}
-
-/* Game Index List Styling */
-.game-index-list {
-    padding-left: 0;
-    margin-top: 20px;
-}
-
+.game-index-list { padding-left: 0; margin-top: 20px; }
 .game-index-list a {
     font-size: 1.2rem;
     text-decoration: underline;
@@ -104,7 +132,8 @@ ul li { text-indent: -1.2em; /* brings the first line back if you prefer no visu
     text-underline-offset: 4px;
     transition: opacity 0.2s ease;
 }
+.game-index-list a:hover { opacity: 0.8; }
 
-.game-index-list a:hover {
-    opacity: 0.8;
-}
+ul { list-style-type: none; padding-left: 1.5em; }
+ul li { text-indent: -1.2em; }
+ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
