@@ -4,19 +4,19 @@
     "title": "Slay The Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 10,
-    "views": 508,
-    "duration": 91878,
+    "episodes": 11,
+    "views": 530,
+    "duration": 98848,
     "tags": [
       "Deck Builder"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-12T14:00:10Z",
-    "views_formatted": "508",
-    "duration_formatted": "25h 31m",
-    "vpv": 51,
-    "vpv_formatted": "51"
+    "updated": "2026-03-13T14:01:14Z",
+    "views_formatted": "530",
+    "duration_formatted": "27h 27m",
+    "vpv": 48,
+    "vpv_formatted": "48"
   },
   {
     "id": "oaken-tower",
@@ -201,17 +201,17 @@
     "title": "Bloons Td 6",
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
-    "episodes": 121,
-    "views": 6280,
-    "duration": 295585,
+    "episodes": 122,
+    "views": 6312,
+    "duration": 299588,
     "tags": [
       "Tower Defense"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-12T12:00:45Z",
+    "updated": "2026-03-13T12:00:58Z",
     "views_formatted": "6.3K",
-    "duration_formatted": "82h 6m",
+    "duration_formatted": "83h 13m",
     "vpv": 52,
     "vpv_formatted": "52"
   },
@@ -688,22 +688,22 @@
   {
     "id": "shapez-2",
     "title": "Shapez 2",
-    "thumbnail": "https://i.ytimg.com/vi/hpRYm5B6I6U/maxresdefault.jpg",
+    "thumbnail": "https://i.ytimg.com/vi/BaEJI_gxp3g/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 7,
-    "views": 348,
-    "duration": 36869,
+    "episodes": 8,
+    "views": 357,
+    "duration": 43084,
     "tags": [
       "Automation",
       "Base Building"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-12T16:01:06Z",
-    "views_formatted": "348",
-    "duration_formatted": "10h 14m",
-    "vpv": 50,
-    "vpv_formatted": "50"
+    "updated": "2026-03-13T16:00:30Z",
+    "views_formatted": "357",
+    "duration_formatted": "11h 58m",
+    "vpv": 45,
+    "vpv_formatted": "45"
   },
   {
     "id": "wanderburg",
