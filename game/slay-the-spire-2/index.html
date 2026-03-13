@@ -22,7 +22,7 @@ custom_css: ["/css/game.css", "/css/spire-style.css"]
     
     {% assign event_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/events/'" %}
     
-    {% for event in event_pages %}
+    {% for event in event_pages limit: 5 %}
       {% if event.url != '/game/slay-the-spire-2/events/' %}
         <div style="margin-top: 15px;">
           <a href="{{ event.url | relative_url }}" class="sts-blue">
@@ -35,6 +35,51 @@ custom_css: ["/css/game.css", "/css/spire-style.css"]
     <div style="margin-top: 25px;">
       <a href="/game/slay-the-spire-2/events/" class="sts-yellow">
         View All Events →
+      </a>
+    </div>
+  </div>
+
+  <div class="sts-section">
+    <h2 class="sts-yellow">Cards Database</h2>
+    <p>Documenting the deck. Discover card mechanics, upgrades, and synergies:</p>
+    
+    {% assign card_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/cards/'" %}
+    
+    {% for card in card_pages limit: 5 %}
+      {% if card.url != '/game/slay-the-spire-2/cards/' %}
+        <div style="margin-top: 15px;">
+          <a href="{{ card.url | relative_url }}" class="sts-blue">
+            ▶ {{ card.title | remove: " – Slay the Spire 2 Card" | remove: " - Slay the Spire 2 Card" }}
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <div style="margin-top: 25px;">
+      <a href="/game/slay-the-spire-2/cards/" class="sts-yellow">
+        View All Cards →
+      </a>
+    </div>
+  </div>
+
+  <div class="sts-section">
+    <h2 class="sts-yellow">Season 1 Episodes</h2>
+    
+    {% assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" | reverse %}
+    
+    {% for ep in ep_pages limit: 5 %}
+      {% if ep.url != '/game/slay-the-spire-2/s1/episodes/' %}
+        <div style="margin-top: 15px;">
+          <a href="{{ ep.url | relative_url }}" class="sts-blue">
+            ▶ {{ ep.title }}
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <div style="margin-top: 25px;">
+      <a href="/game/slay-the-spire-2/s1/episodes/" class="sts-yellow">
+        View All Episodes →
       </a>
     </div>
   </div>
