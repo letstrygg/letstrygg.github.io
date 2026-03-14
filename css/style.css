@@ -353,3 +353,69 @@ ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
 
 /* Orange for comments, as it stands out well as an action color */
 .ep-stat.orange .material-symbols-outlined { color: #f39c12; }
+
+/* --- SEASON ARCHIVE GRID --- */
+.season-grid {
+    display: grid;
+    /* Auto-fits items: 1 col on mobile, 2 or 3 cols on wide desktop screens */
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.season-block {
+    display: flex;
+    flex-direction: column;
+    background: #111113;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Elevate the entire block on hover */
+.season-block:hover {
+    transform: translateY(-3px);
+    border-color: var(--blue);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.season-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 10px;
+    transition: all 0.2s ease;
+}
+
+.season-header h2 {
+    margin: 0 !important;
+    font-size: 1.5rem;
+}
+
+/* High contrast hover feedback for both text and any symbols present */
+.season-block:hover .season-header h2,
+.season-block:hover .season-header .material-symbols-outlined {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(135, 206, 235, 0.4);
+}
+
+/* Re-proportions the pills to fit nicely inside the grid cell */
+.season-block .ep-pill-container {
+    margin-top: 20px;
+    margin-bottom: 0;
+    justify-content: center;
+}
+
+.season-block .ep-pill {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.season-block .ep-all {
+    width: 100%; /* Forces the "View All" pill to take a full row */
+    margin: 5px 0;
+}
