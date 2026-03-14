@@ -1,0 +1,33 @@
+/* =========================================
+   SLAY THE SPIRE 2 - SPECIFIC OVERRIDES
+   ========================================= */
+
+/* The Spire Yellow for all headers */
+.game-page-wrapper .title,
+.game-page-wrapper h1,
+.game-page-wrapper h2,
+.game-page-wrapper h3 {
+    color: #f1c40f !important; 
+}
+
+/* The Spire Blue for subtitles and links */
+.game-page-wrapper .subtitle,
+.game-page-wrapper .blue {
+    color: #3498db !important; 
+}
+
+/* The Spire Gray for meta text */
+.game-page-wrapper .gray {
+    color: #aaa !important;
+}
+
+/* Darker borders for the Spire aesthetic */
+.game-page-wrapper .game-section-divider {
+    border-top: 1px solid #444 !important;
+}
+
+/* Give the navigation links that nice Spire hover effect */
+.game-page-wrapper .nav-row a:hover {
+    color: #f1c40f !important; /* Turns yellow on hover */
+    opacity: 1;
+}
