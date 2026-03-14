@@ -77,10 +77,13 @@ custom_css: "/css/home.css"
 			<strong>{{ p.title }}</strong>
 			<span class="card-status {{ p.status_color }}">{{ p.status }}</span>
         </div>
-        <div class="card-row">
-			<span><span class="material-symbols-outlined gray">play_circle</span> {{ p.episodes }}</span>
-			<span><span class="material-symbols-outlined gray">visibility</span> {{ p.views_formatted }}</span>
-			<span><span class="material-symbols-outlined gray">schedule</span> {{ p.duration_formatted }}</span>
+<div class="card-row">
+            <span><span class="material-symbols-outlined gray">play_circle</span> {{ p.episodes }}</span>
+            <span><span class="material-symbols-outlined gray">visibility</span> {{ p.views_formatted }}</span>
+            <span class="card-duration">
+                <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> {{ p.duration_formatted }}</span>
+                <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> {{ p.duration_short }}</span>
+            </span>
         </div>
         <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
 			<span><span class="material-symbols-outlined orange">mode_heat</span> {{ p.vpv_formatted }} views per video</span>
