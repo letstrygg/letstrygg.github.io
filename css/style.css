@@ -30,6 +30,15 @@
   --underline:   #2b2b2b;
 }
 
+/* Text Utility Classes */
+.green  { color: var(--green); }
+.blue   { color: var(--blue); }
+.purple { color: var(--purple); }
+.orange { color: var(--orange); }
+.yellow { color: var(--yellow); }
+.red    { color: var(--red); }
+.gray   { color: var(--gray); }
+
 /* --- GLOBAL RESETS --- */
 *, *::before, *::after {
   box-sizing: border-box; /* This single line prevents padding from breaking widths globally! */
@@ -65,14 +74,6 @@ h1, h2, h3 { margin-top: 0; } /* Clean resets */
 a { text-decoration: none; color: inherit; }
 b, strong { font-weight: 600; }
 
-/* Text Utility Classes */
-.green  { color: var(--green); }
-.blue   { color: var(--blue); }
-.purple { color: var(--purple); }
-.orange { color: var(--orange); }
-.yellow { color: var(--yellow); }
-.red    { color: var(--red); }
-.gray   { color: var(--gray); }
 
 /* --- GLOBAL UI COMPONENTS --- */
 #theme-toggle {
