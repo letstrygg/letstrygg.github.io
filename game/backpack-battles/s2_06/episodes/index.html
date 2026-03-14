@@ -1,0 +1,31 @@
+---
+layout: new
+title: Season 2.06 Episodes - Backpack Battles
+description: A complete list of episodes from Season 2.06 of the Backpack Battles Let's Play.
+permalink: /game/backpack-battles/s2_06/episodes/
+custom_css: "/css/game/bb-style.css"
+---
+
+<div class="game-page-wrapper">
+
+  <h1 class="title">Season 2.06 Episodes</h1>
+  <p class="subtitle">Backpack Battles Let's Play</p>
+
+  <p>The master list for Season 2.06.</p>
+
+  <div class="game-section">
+    
+    {% assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/backpack-battles/s2_06/episodes/'" | sort: "title" %}
+    
+    {% for ep in ep_pages %}
+      {% if ep.url != '/game/backpack-battles/s2_06/episodes/' %}
+        <div style="margin-top: 15px;">
+          <a href="{{ ep.url | relative_url }}" class="blue">
+            ▶ {{ ep.title }}
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+
+</div>
