@@ -46,7 +46,7 @@ body {
 
 /* --- LAYOUT CONTAINERS --- */
 .site-container {
-	padding: 0 80px;
+	padding: 0 120px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -365,7 +365,7 @@ ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
     display: grid;
     /* auto-fill stops a single season from stretching across the whole screen! */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 10px;
     margin-top: 0; /* Removed the top margin */
     width: 100%;
 }
