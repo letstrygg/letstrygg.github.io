@@ -46,9 +46,15 @@ body {
 
 /* --- LAYOUT CONTAINERS --- */
 .site-container {
-  max-width: 1000px; /* Constrains all sub-pages beautifully */
-  margin: 0 auto;
-  padding: 0 20px; /* Safe mobile padding */
+	padding: 0 80px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .site-container {
+        padding: 0 20px;
+    }
 }
 
 /* --- TYPOGRAPHY --- */
@@ -370,8 +376,9 @@ ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
     background: #111113;
     border: 1px solid #2a2a2a;
     border-radius: 12px;
-    padding: 15px; /* Tighter padding */
+    padding: 15px; 
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    max-width: 420px; /* Capped width for 1-season games */
 }
 
 /* Force the playlist card to respect the block width, killing the 460px breakout */
@@ -416,20 +423,22 @@ ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 6px;
-    flex-wrap: nowrap; /* Forces a single line */
+    gap: 8px;
+    flex-wrap: nowrap; 
 }
 
 .season-block .ep-pill {
-    padding: 4px 10px;
+    padding: 5px 12px;
     font-size: 0.85em;
-    white-space: nowrap; /* Stops text from breaking onto two lines */
-    flex: 0 1 auto;
+    white-space: nowrap; 
+    flex: 0 1 auto; /* Stops it from stretching */
+    text-align: center;
 }
 
 .season-block .ep-all {
-    flex: 1 1 auto; /* Allows the middle 'View All' button to fill the center nicely */
-    background: #222;
+    /* Uses the exact same background and border as the regular pills now */
+    padding: 5px 16px; /* Just slightly wider padding than the numbered eps */
+    font-weight: 500; 
 }
 
 .ep-delimiter {
