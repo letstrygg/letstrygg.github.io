@@ -374,7 +374,6 @@ header { text-align: center; padding: 20px 0; }
 }
 
 .game-card:hover {
-  transform: translateY(-2px);
   border-color: var(--subtitle);
 }
 
