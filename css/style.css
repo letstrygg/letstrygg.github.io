@@ -348,3 +348,86 @@ header { text-align: center; padding: 20px 0; }
       padding: 20px 30px;
   }
 }
+
+/* ==========================================================================
+   8. UNIVERSAL GAME CARDS
+   ========================================================================== */
+.filterable-card {
+  display: block; 
+  height: 100%;
+  text-decoration: none !important;
+}
+
+.game-card {
+  width: 100%; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--card-bg);
+  color: var(--text);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  /* NEW: Turns every card into a responsive container! */
+  container-type: inline-size; 
+}
+
+.game-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--subtitle);
+}
+
+.game-card img { 
+  width: 100%; 
+  display: block; 
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.card-row {
+  margin: 6px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95em;
+}
+
+/* Pushes the bottom row down so cards in a grid perfectly align */
+.game-card .card-row:nth-of-type(2) { 
+  margin-top: auto; 
+  padding-bottom: 4px;
+}
+
+/* Prevents long game titles from breaking the layout */
+.card-row strong {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 8px;
+}
+
+.card-row > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-status {
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-underline-offset: 3px;
+}
+
+/* --- RESPONSIVE DURATION SWAPPER --- */
+.dur-short { 
+  display: none; 
+}
+
+/* When the card shrinks below 340px, swap the text and shrink the font! */
+@container (max-width: 340px) {
+  .dur-full { display: none; }
+  .dur-short { display: inline; }
+  .card-row { font-size: 0.85em; } 
+}
