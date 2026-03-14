@@ -137,3 +137,35 @@ b, strong { font-weight: 600; }
 ul { list-style-type: none; padding-left: 1.5em; }
 ul li { text-indent: -1.2em; }
 ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
+
+/* --- UNIVERSAL GAME PAGE LAYOUTS --- */
+.game-page-wrapper {
+    width: 100%;
+}
+
+.game-section {
+    margin-top: 30px;
+}
+
+.game-section-divider {
+    margin-top: 40px; 
+    border-top: 1px solid var(--gray); 
+    padding-top: 20px;
+}
+
+/* --- UNIVERSAL EPISODE NAVIGATION --- */
+.nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-item {
+    flex: 1; /* Forces perfectly equal thirds */
+    display: flex;
+}
+
+.nav-prev { justify-content: flex-start; }
+.nav-center { justify-content: center; }
+.nav-next { justify-content: flex-end; }
