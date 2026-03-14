@@ -172,3 +172,49 @@ ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
 .nav-prev { justify-content: flex-start; }
 .nav-center { justify-content: center; }
 .nav-next { justify-content: flex-end; }
+
+/* --- EPISODE PILLS (GAME INDEX ARCHIVE) --- */
+.ep-pill-container {
+    display: flex; 
+    gap: 8px; 
+    flex-wrap: wrap; 
+    margin-top: 15px; 
+    margin-bottom: 40px;
+    align-items: center; 
+}
+
+.ep-pill {
+    background: #1a1a1a; 
+    color: var(--blue); 
+    padding: 6px 12px; 
+    border-radius: 6px; 
+    font-size: 0.9em; 
+    text-decoration: none !important; 
+    border: 1px solid #333; 
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.ep-pill:hover { 
+    background: var(--blue); 
+    color: #fff !important; 
+    border-color: var(--blue); 
+    transform: translateY(-2px);
+}
+
+.ep-pill.ep-all { 
+    background: #222; 
+    border-color: var(--gray); 
+    color: var(--text-main) !important; 
+    font-weight: bold; 
+}
+
+.ep-pill.ep-all:hover { 
+    background: #333; 
+}
+
+.ep-dots { 
+    color: var(--gray); 
+    font-weight: bold; 
+    padding: 0 2px; 
+}
