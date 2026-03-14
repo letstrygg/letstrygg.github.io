@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. VARIABLES, THEMES, & COLOR UTILITIES
+   ========================================================================== */
 :root {
   --bg:          #111111;
   --card-bg:     #111723;
@@ -30,7 +33,7 @@
   --underline:   #2b2b2b;
 }
 
-/* Text Utility Classes */
+/* Universal Text & Icon Colors (Base level, easily overridden by game CSS) */
 .green  { color: var(--green); }
 .blue   { color: var(--blue); }
 .purple { color: var(--purple); }
@@ -39,43 +42,64 @@
 .red    { color: var(--red); }
 .gray   { color: var(--gray); }
 
-/* --- GLOBAL RESETS --- */
+/* Material Symbols Standard Sizing */
+.material-symbols-outlined { font-size: 1.2em; }
+
+/* ==========================================================================
+   2. GLOBAL RESETS & BASE TYPOGRAPHY
+   ========================================================================== */
 *, *::before, *::after {
-  box-sizing: border-box; /* This single line prevents padding from breaking widths globally! */
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: var(--bg);
   color: var(--text);
-  margin: 0; /* Removed the weird 2px margin */
+  margin: 0;
   padding: 0;
   line-height: 1.5;
 }
 
-/* --- LAYOUT CONTAINERS --- */
-.site-container {
-	padding: 0 120px;
-    width: 100%;
-    box-sizing: border-box;
-}
+h1, h2, h3 { margin-top: 0; }
+a { text-decoration: none; color: inherit; }
+b, strong { font-weight: 600; }
+ul { list-style-type: none; padding-left: 1.5em; }
+ul li { text-indent: -1.2em; }
+ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
 
-@media (max-width: 768px) {
-    .site-container {
-        padding: 0 20px;
-    }
-}
-
-/* --- TYPOGRAPHY --- */
 header { text-align: center; padding: 20px 0; }
 .title { color: var(--title); margin: 0; font-size: 2.5rem; }
 .subtitle { color: var(--subtitle); margin: 0; font-weight: 500; font-style: oblique; }
-h1, h2, h3 { margin-top: 0; } /* Clean resets */
-a { text-decoration: none; color: inherit; }
-b, strong { font-weight: 600; }
 
+/* ==========================================================================
+   3. GLOBAL UI COMPONENTS
+   ========================================================================== */
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 0.95em;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid var(--gray);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn.btn-gray:hover,
+.btn.btn-gray.active {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
 
-/* --- GLOBAL UI COMPONENTS --- */
+/* Theme Toggle */
 #theme-toggle {
   position: fixed;
   top: .5rem;
@@ -115,11 +139,6 @@ b, strong { font-weight: 600; }
 
 /* Global Icon Sizing */
 .material-symbols-outlined { font-size: 1.2em; }
-.icon-green { color: var(--green); }
-.icon-blue { color: var(--blue); }
-.icon-purple { color: var(--purple); }
-.icon-orange { color: var(--orange); }
-.icon-gray { color: var(--gray); }
 
 /* --- NAVIGATION & LISTS --- */
 .site-breadcrumbs { margin-bottom: 25px; font-size: 1.05rem; }
