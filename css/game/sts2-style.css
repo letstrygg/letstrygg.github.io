@@ -2,13 +2,15 @@
    SLAY THE SPIRE 2 - SPECIFIC OVERRIDES
    ========================================= */
 
-/* 1. Import the Spire UI Font */
 @import url('https://fonts.googleapis.com/css2?family=Kreon:wght@400;500;700&display=swap');
 
-/* 2. Map Authentic Variables to the Wrapper */
 .game-page-wrapper {
+    /* Authentic Slay the Spire UI Colors */
+    --sts-red: #ff6565;
+    --sts-green: #7fff00;
     --sts-yellow: #f6c043;
     --sts-blue: #87ceeb;
+    --sts-purple: #c18cff;
     --sts-text-main: #e2e2e2;
     --sts-text-muted: #888;
     
@@ -18,7 +20,7 @@
     line-height: 1.6;
 }
 
-/* 3. Headers & Text Colors */
+/* --- HEADERS & COLORS --- */
 .game-page-wrapper .title,
 .game-page-wrapper h1,
 .game-page-wrapper h2,
@@ -27,18 +29,17 @@
     font-family: 'Kreon', serif !important;
 }
 
-/* Forces the subtitle and any "blue" utility class to use Spire Blue */
-.game-page-wrapper .subtitle,
-.game-page-wrapper .blue,
-.game-page-wrapper a.blue {
-    color: var(--sts-blue) !important;
-}
+.game-page-wrapper .subtitle { color: var(--sts-blue) !important; }
 
-.game-page-wrapper .gray {
-    color: var(--sts-text-muted) !important;
-}
+/* Force global utility colors to use the Spire palette */
+.game-page-wrapper .yellow { color: var(--sts-yellow) !important; }
+.game-page-wrapper .blue, .game-page-wrapper a.blue { color: var(--sts-blue) !important; }
+.game-page-wrapper .green { color: var(--sts-green) !important; }
+.game-page-wrapper .red { color: var(--sts-red) !important; }
+.game-page-wrapper .purple { color: var(--sts-purple) !important; }
+.game-page-wrapper .gray { color: var(--sts-text-muted) !important; }
 
-/* 4. Spire Breadcrumb Styling (Overrides Global) */
+/* --- NAVIGATION & BREADCRUMBS --- */
 .game-page-wrapper .site-breadcrumbs a {
     color: var(--sts-blue) !important;
     font-weight: 500 !important;
@@ -47,25 +48,150 @@
     text-underline-offset: 3px !important;
     transition: all 0.2s ease;
 }
-
 .game-page-wrapper .site-breadcrumbs a:hover {
     color: #ffffff !important;
     text-decoration-color: var(--sts-blue) !important;
     text-shadow: 0 0 5px rgba(135, 206, 235, 0.4) !important;
     opacity: 1 !important;
 }
-
 .game-page-wrapper .breadcrumb-current {
     color: var(--sts-yellow) !important;
     font-weight: normal !important;
 }
-
-/* 5. Themed Dividers & Navigation Hover Effects */
-.game-page-wrapper .game-section-divider {
-    border-top: 1px solid #3f5a63 !important; /* Authentic Spire UI border color */
-}
-
+.game-page-wrapper .game-section-divider { border-top: 1px solid #3f5a63 !important; }
 .game-page-wrapper .nav-row a:hover {
     color: var(--sts-yellow) !important;
     text-shadow: 0 0 5px rgba(246, 192, 67, 0.4) !important;
+}
+
+/* =========================================
+   CUSTOM COMPONENTS (EVENTS & CARDS)
+   ========================================= */
+
+/* --- EVENT BOXES --- */
+.sts-event-quote {
+    font-size: 1.4rem;
+    font-style: italic;
+    margin-bottom: 25px;
+    text-shadow: 0 0 4px rgba(126, 201, 255, 0.3);
+}
+.sts-event-option {
+    margin-top: 20px;
+    padding: 18px 24px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #2a3a40, #1c2b30);
+    border: 1px solid #3f5a63;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+.sts-option-title {
+    color: var(--sts-yellow);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* --- CARD DISPLAY SYSTEM --- */
+.sts-card-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 25px 0;
+    justify-content: center;
+}
+.sts-card {
+    background: #1a1a1a;
+    width: 100%;
+    max-width: 260px;
+    padding: 8px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    text-align: center;
+    display: flex; 
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.sts-card-inner {
+    border: 3px solid var(--gray); 
+    flex-grow: 1; 
+    padding: 15px 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.sts-card.power .sts-card-inner { border-radius: 15px; }
+.sts-card.skill .sts-card-inner { border-radius: 4px; }
+.sts-card.attack .sts-card-inner { border-radius: 4px; }
+
+.sts-card.rare .sts-card-inner { border-color: var(--sts-yellow); }
+.sts-card.uncommon .sts-card-inner { border-color: var(--sts-blue); }
+.sts-card.common .sts-card-inner { border-color: #95a5a6; }
+.sts-card.event .sts-card-inner { border-color: var(--sts-green); }
+.sts-card.ancient .sts-card-inner { border-color: #2c3e50; background: #000; }
+
+.sts-card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative;
+}
+.sts-energy {
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    background: var(--sts-green);
+    color: #111;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #111;
+}
+.sts-card-title { font-size: 1.2em; font-weight: bold; color: #eee; }
+.sts-card-type-banner {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    background: #333;
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin: 0 auto 15px auto;
+    color: #ccc;
+}
+.sts-card-text { flex-grow: 1; font-size: 1.05em; line-height: 1.4; margin-bottom: 15px; }
+.sts-card-footer { font-size: 0.8em; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+
+.sts-card-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+.sts-card-arrow .material-symbols-outlined {
+    font-size: 3.5em;
+    color: var(--sts-green);
+    margin-top: -5px;
+    transition: transform 0.2s ease;
+    text-transform: none !important;
+    letter-spacing: normal !important; 
+    font-family: 'Material Symbols Outlined' !important;
+}
+
+@media (max-width: 650px) {
+    .sts-card-arrow { flex-direction: row; gap: 15px; margin: 10px 0; }
+    .sts-card-arrow .material-symbols-outlined { transform: rotate(90deg); margin-top: 0; }
 }
