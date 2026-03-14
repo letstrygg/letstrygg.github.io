@@ -187,7 +187,7 @@
       "videoId": "CLJ43fUu7bs",
       "videoPublishedAt": "2026-03-03T12:00:28Z",
       "durationInSeconds": 3915,
-      "viewCount": 17
+      "viewCount": 18
     },
     "title": "Alternate Bloons | Monkey Meadow: TD6 S3E13",
     "thumbnail": "https://i.ytimg.com/vi/CLJ43fUu7bs/maxresdefault.jpg",
@@ -262,7 +262,7 @@
       "videoId": "pNUS2ERcyNU",
       "videoPublishedAt": "2026-03-08T12:01:27Z",
       "durationInSeconds": 1561,
-      "viewCount": 103
+      "viewCount": 104
     },
     "title": "IMPOPPABLE | In the Loop: Bloons TD6 S3E18",
     "thumbnail": "https://i.ytimg.com/vi/pNUS2ERcyNU/maxresdefault.jpg",
@@ -307,7 +307,7 @@
       "videoId": "rWBy3Uj4vu0",
       "videoPublishedAt": "2026-03-11T12:01:39Z",
       "durationInSeconds": 1210,
-      "viewCount": 49
+      "viewCount": 59
     },
     "title": "Three Mines 'Round: Bloons TD6 S3E21",
     "thumbnail": "https://i.ytimg.com/vi/rWBy3Uj4vu0/maxresdefault.jpg",
@@ -337,11 +337,26 @@
       "videoId": "WIMxUD4gWsg",
       "videoPublishedAt": "2026-03-13T12:00:58Z",
       "durationInSeconds": 4003,
-      "viewCount": 13
+      "viewCount": 19
     },
     "title": "IMPOPPABLE | Three Mines 'Round: Bloons TD6 S3E23",
     "thumbnail": "https://i.ytimg.com/vi/WIMxUD4gWsg/maxresdefault.jpg",
     "likes": 3,
+    "comments": 1
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "pHj7VFP4mp8eo--xEuoanxTULhc",
+    "id": "UExRNElMNFVWZ1FrNUcyb3cycm44Q3dKYlBEbzBUU1B6ei43MTI1NDIwOTMwQjIxMzNG",
+    "contentDetails": {
+      "videoId": "OIXaDJfwAZs",
+      "videoPublishedAt": "2026-03-14T12:00:43Z",
+      "durationInSeconds": 1785,
+      "viewCount": 3
+    },
+    "title": "C.H.I.M.P.S. | Three Mines 'Round: Bloons TD6 S3E24",
+    "thumbnail": "https://i.ytimg.com/vi/OIXaDJfwAZs/maxresdefault.jpg",
+    "likes": 1,
     "comments": 0
   }
 ]

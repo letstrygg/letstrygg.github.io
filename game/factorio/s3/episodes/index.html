@@ -1,0 +1,31 @@
+---
+layout: new
+title: Season 3 Episodes - Factorio
+description: A complete list of episodes from Season 3 of the Factorio Let's Play.
+permalink: /game/factorio/s3/episodes/
+custom_css: "/css/game/f-style.css"
+---
+
+<div class="game-page-wrapper">
+
+  <h1 class="title">Season 3 Episodes</h1>
+  <p class="subtitle">Factorio Let's Play</p>
+
+  <p>The master list for Season 3.</p>
+
+  <div class="game-section">
+    
+    {% assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/factorio/s3/episodes/'" | sort: "title" %}
+    
+    {% for ep in ep_pages %}
+      {% if ep.url != '/game/factorio/s3/episodes/' %}
+        <div style="margin-top: 15px;">
+          <a href="{{ ep.url | relative_url }}" class="blue">
+            ▶ {{ ep.title }}
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+
+</div>

@@ -4,20 +4,20 @@
     "title": "Slay The Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 11,
-    "views": 558,
-    "duration": 98848,
+    "episodes": 12,
+    "views": 567,
+    "duration": 105231,
     "tags": [
       "Deck Builder"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-13T14:01:14Z",
-    "views_formatted": "558",
-    "duration_formatted": "27h 27m",
-    "duration_short": "27h",
-    "vpv": 51,
-    "vpv_formatted": "51"
+    "updated": "2026-03-14T14:00:06Z",
+    "views_formatted": "567",
+    "duration_formatted": "29h 13m",
+    "duration_short": "29h",
+    "vpv": 47,
+    "vpv_formatted": "47"
   },
   {
     "id": "oaken-tower",
@@ -25,7 +25,7 @@
     "thumbnail": "https://i.ytimg.com/vi/4LHX5Ojo07M/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 271,
-    "views": 54234,
+    "views": 54246,
     "duration": 573430,
     "tags": [
       "PVP",
@@ -211,18 +211,18 @@
     "title": "Bloons Td 6",
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
-    "episodes": 122,
-    "views": 6339,
-    "duration": 299588,
+    "episodes": 123,
+    "views": 6363,
+    "duration": 301373,
     "tags": [
       "Tower Defense"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-13T12:00:58Z",
-    "views_formatted": "6.3K",
-    "duration_formatted": "83h 13m",
-    "duration_short": "83h",
+    "updated": "2026-03-14T12:00:43Z",
+    "views_formatted": "6.4K",
+    "duration_formatted": "83h 42m",
+    "duration_short": "84h",
     "vpv": 52,
     "vpv_formatted": "52"
   },
@@ -337,7 +337,7 @@
     "thumbnail": "https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg",
     "highest_season": 5,
     "episodes": 902,
-    "views": 263463,
+    "views": 263473,
     "duration": 3233686,
     "tags": [
       "PVP",
@@ -725,7 +725,7 @@
     "thumbnail": "https://i.ytimg.com/vi/BaEJI_gxp3g/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 8,
-    "views": 370,
+    "views": 375,
     "duration": 43084,
     "tags": [
       "Automation",
@@ -734,11 +734,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-13T16:00:30Z",
-    "views_formatted": "370",
+    "views_formatted": "375",
     "duration_formatted": "11h 58m",
     "duration_short": "12h",
-    "vpv": 46,
-    "vpv_formatted": "46"
+    "vpv": 47,
+    "vpv_formatted": "47"
   },
   {
     "id": "wanderburg",
@@ -787,7 +787,7 @@
     "thumbnail": "https://i.ytimg.com/vi/d3jj_ARI3RQ/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 91,
-    "views": 9526,
+    "views": 9523,
     "duration": 373367,
     "tags": [
       "Automation",
