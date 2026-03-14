@@ -2,32 +2,70 @@
    SLAY THE SPIRE 2 - SPECIFIC OVERRIDES
    ========================================= */
 
-/* The Spire Yellow for all headers */
+/* 1. Import the Spire UI Font */
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@400;500;700&display=swap');
+
+/* 2. Map Authentic Variables to the Wrapper */
+.game-page-wrapper {
+    --sts-yellow: #f6c043;
+    --sts-blue: #87ceeb;
+    --sts-text-main: #e2e2e2;
+    --sts-text-muted: #888;
+    
+    font-family: 'Kreon', serif !important;
+    color: var(--sts-text-main);
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+/* 3. Headers & Text Colors */
 .game-page-wrapper .title,
 .game-page-wrapper h1,
 .game-page-wrapper h2,
 .game-page-wrapper h3 {
-    color: #f1c40f !important; 
+    color: var(--sts-yellow) !important;
+    font-family: 'Kreon', serif !important;
 }
 
-/* The Spire Blue for subtitles and links */
+/* Forces the subtitle and any "blue" utility class to use Spire Blue */
 .game-page-wrapper .subtitle,
-.game-page-wrapper .blue {
-    color: #3498db !important; 
+.game-page-wrapper .blue,
+.game-page-wrapper a.blue {
+    color: var(--sts-blue) !important;
 }
 
-/* The Spire Gray for meta text */
 .game-page-wrapper .gray {
-    color: #aaa !important;
+    color: var(--sts-text-muted) !important;
 }
 
-/* Darker borders for the Spire aesthetic */
+/* 4. Spire Breadcrumb Styling (Overrides Global) */
+.game-page-wrapper .site-breadcrumbs a {
+    color: var(--sts-blue) !important;
+    font-weight: 500 !important;
+    text-decoration: underline !important;
+    text-decoration-color: #ffffff !important;
+    text-underline-offset: 3px !important;
+    transition: all 0.2s ease;
+}
+
+.game-page-wrapper .site-breadcrumbs a:hover {
+    color: #ffffff !important;
+    text-decoration-color: var(--sts-blue) !important;
+    text-shadow: 0 0 5px rgba(135, 206, 235, 0.4) !important;
+    opacity: 1 !important;
+}
+
+.game-page-wrapper .breadcrumb-current {
+    color: var(--sts-yellow) !important;
+    font-weight: normal !important;
+}
+
+/* 5. Themed Dividers & Navigation Hover Effects */
 .game-page-wrapper .game-section-divider {
-    border-top: 1px solid #444 !important;
+    border-top: 1px solid #3f5a63 !important; /* Authentic Spire UI border color */
 }
 
-/* Give the navigation links that nice Spire hover effect */
 .game-page-wrapper .nav-row a:hover {
-    color: #f1c40f !important; /* Turns yellow on hover */
-    opacity: 1;
+    color: var(--sts-yellow) !important;
+    text-shadow: 0 0 5px rgba(246, 192, 67, 0.4) !important;
 }
