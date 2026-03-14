@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-07-02T22:00:05Z",
       "durationInSeconds": 2860,
       "viewCount": 154
-    }
+    },
+    "title": "Let's Play Bloons TD 6 Season 2: Episode 1 - New Bloon Adventures!",
+    "thumbnail": "https://i.ytimg.com/vi/BicOxkbFzIc/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-07-05T22:00:21Z",
       "durationInSeconds": 2429,
       "viewCount": 55
-    }
+    },
+    "title": "Let's Play Bloons TD 6 Season 2: Episode 2",
+    "thumbnail": "https://i.ytimg.com/vi/fe3xfvxm5Hg/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-07-06T22:00:02Z",
       "durationInSeconds": 1697,
       "viewCount": 60
-    }
+    },
+    "title": "Let's Play Bloons TD 6 Season 2: Episode 3",
+    "thumbnail": "https://i.ytimg.com/vi/2QafaRv4-2c/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2023-07-08T22:00:19Z",
       "durationInSeconds": 2186,
       "viewCount": 219
-    }
+    },
+    "title": "Let's Play Bloons BTD6 S2E4",
+    "thumbnail": "https://i.ytimg.com/vi/U9AMImks73A/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2023-07-12T19:00:31Z",
       "durationInSeconds": 2505,
       "viewCount": 95
-    }
+    },
+    "title": "Let's Play Bloons BTD6 S2E5",
+    "thumbnail": "https://i.ytimg.com/vi/fu9lp63oSNE/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2023-07-15T19:00:18Z",
       "durationInSeconds": 1740,
       "viewCount": 80
-    }
+    },
+    "title": "Let's Play Bloons BTD6 S2E6",
+    "thumbnail": "https://i.ytimg.com/vi/vSp4BHVMtF8/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2023-07-23T19:00:04Z",
       "durationInSeconds": 1243,
       "viewCount": 178
-    }
+    },
+    "title": "Let's Play Bloons BTD6 S2E7",
+    "thumbnail": "https://i.ytimg.com/vi/ByxmRjxfDwY/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2023-07-25T19:00:05Z",
       "durationInSeconds": 2499,
       "viewCount": 46
-    }
+    },
+    "title": "Beast Master! Let's Play Bloons BTD6 S2E8",
+    "thumbnail": "https://i.ytimg.com/vi/DVbia9cMRZM/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,6 +128,10 @@
       "videoPublishedAt": "2023-07-27T19:00:12Z",
       "durationInSeconds": 1520,
       "viewCount": 477
-    }
+    },
+    "title": "New Map: Waterpark - v38.0 Update | Let's Play Bloons BTD6 S2E9",
+    "thumbnail": "https://i.ytimg.com/vi/S-lPTS2o2MM/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 6
   }
 ]

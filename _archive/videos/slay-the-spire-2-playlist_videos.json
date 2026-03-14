@@ -8,7 +8,11 @@
       "videoPublishedAt": "2026-03-05T22:00:38Z",
       "durationInSeconds": 10076,
       "viewCount": 147
-    }
+    },
+    "title": "001 It Begins, Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2026-03-06T12:00:42Z",
       "durationInSeconds": 9471,
       "viewCount": 25
-    }
+    },
+    "title": "002 You think you are so Sly, Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/Kv4hcCFQzW8/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2026-03-07T12:00:14Z",
       "durationInSeconds": 10016,
       "viewCount": 47
-    }
+    },
+    "title": "003 New Character, Regent: Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/AtaIKy3yvnk/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2026-03-07T16:00:31Z",
       "durationInSeconds": 8406,
       "viewCount": 34
-    }
+    },
+    "title": "004 Osty & Necrobinder, Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/CpIJ2qDV2JA/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2026-03-08T12:01:34Z",
       "durationInSeconds": 7704,
       "viewCount": 84
-    }
+    },
+    "title": "005 Claw got Buffed! Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/rUyS-J4P_cA/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2026-03-09T14:01:29Z",
       "durationInSeconds": 5637,
       "viewCount": 44
-    }
+    },
+    "title": "006 Pillage + Hellraiser, Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/r9ynUjsCRZA/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2026-03-09T16:00:53Z",
       "durationInSeconds": 10115,
       "viewCount": 50
-    }
+    },
+    "title": "007 First Card Prepared+? Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/XUOXMskgRx4/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2026-03-10T14:01:15Z",
       "durationInSeconds": 15595,
       "viewCount": 34
-    }
+    },
+    "title": "008 Regent is BRUTAL. Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/l8Ih44aCOr8/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,7 +128,11 @@
       "videoPublishedAt": "2026-03-11T14:00:10Z",
       "durationInSeconds": 7022,
       "viewCount": 33
-    }
+    },
+    "title": "009 Hang is Supa-Strong! Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/2qoivb017kw/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -106,8 +142,12 @@
       "videoId": "2kqRdH4ucmE",
       "videoPublishedAt": "2026-03-12T14:00:10Z",
       "durationInSeconds": 7836,
-      "viewCount": 34
-    }
+      "viewCount": 35
+    },
+    "title": "010 Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/2kqRdH4ucmE/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -118,6 +158,10 @@
       "videoPublishedAt": "2026-03-13T14:01:14Z",
       "durationInSeconds": 6970,
       "viewCount": 20
-    }
+    },
+    "title": "011 Goop = 4x Genetic Algorithm! Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/mSspBO3z1Ks/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   }
 ]
