@@ -357,10 +357,10 @@ ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
 /* --- SEASON ARCHIVE GRID --- */
 .season-grid {
     display: grid;
-    /* Auto-fits items: 1 col on mobile, 2 or 3 cols on wide desktop screens */
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
+    /* auto-fill stops a single season from stretching across the whole screen! */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 0; /* Removed the top margin */
     width: 100%;
 }
 
@@ -370,11 +370,18 @@ ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
     background: #111113;
     border: 1px solid #2a2a2a;
     border-radius: 12px;
-    padding: 20px;
+    padding: 15px; /* Tighter padding */
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Elevate the entire block on hover */
+/* Force the playlist card to respect the block width, killing the 460px breakout */
+.season-block .game-card {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
 .season-block:hover {
     transform: translateY(-3px);
     border-color: var(--blue);
@@ -382,40 +389,50 @@ ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
 }
 
 .season-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #222;
-    padding-bottom: 10px;
-    transition: all 0.2s ease;
+    margin-bottom: 12px;
+    text-align: left;
 }
 
-.season-header h2 {
-    margin: 0 !important;
-    font-size: 1.5rem;
+/* Tiny, sleek season label instead of a giant H2 */
+.season-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--blue);
+    font-weight: bold;
+    transition: color 0.2s;
 }
 
-/* High contrast hover feedback for both text and any symbols present */
-.season-block:hover .season-header h2,
-.season-block:hover .season-header .material-symbols-outlined {
-    color: #ffffff !important;
-    text-shadow: 0 0 8px rgba(135, 206, 235, 0.4);
+.season-block:hover .season-label {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(135, 206, 235, 0.5);
 }
 
-/* Re-proportions the pills to fit nicely inside the grid cell */
+/* --- MINIMALIST SINGLE-LINE PILLS --- */
 .season-block .ep-pill-container {
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap; /* Forces a single line */
 }
 
 .season-block .ep-pill {
-    flex: 1 1 auto;
-    text-align: center;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    white-space: nowrap; /* Stops text from breaking onto two lines */
+    flex: 0 1 auto;
 }
 
 .season-block .ep-all {
-    width: 100%; /* Forces the "View All" pill to take a full row */
-    margin: 5px 0;
+    flex: 1 1 auto; /* Allows the middle 'View All' button to fill the center nicely */
+    background: #222;
+}
+
+.ep-delimiter {
+    color: #555;
+    font-size: 0.8em;
 }
