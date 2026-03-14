@@ -421,13 +421,21 @@ header { text-align: center; padding: 20px 0; }
 }
 
 /* --- RESPONSIVE DURATION SWAPPER --- */
+.dur-full {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .dur-short { 
   display: none; 
+  align-items: center;
+  gap: 4px;
 }
 
 /* When the card shrinks below 340px, swap the text and shrink the font! */
 @container (max-width: 340px) {
   .dur-full { display: none; }
-  .dur-short { display: inline; }
+  .dur-short { display: inline-flex; } /* Changed from inline to inline-flex! */
   .card-row { font-size: 0.85em; } 
 }
