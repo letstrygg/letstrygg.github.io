@@ -8,7 +8,11 @@
       "videoPublishedAt": "2026-02-13T20:00:36Z",
       "durationInSeconds": 2993,
       "viewCount": 228
-    }
+    },
+    "title": "001 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/d3jj_ARI3RQ/maxresdefault.jpg",
+    "likes": 13,
+    "comments": 10
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2026-02-14T14:01:19Z",
       "durationInSeconds": 3727,
       "viewCount": 54
-    }
+    },
+    "title": "002 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/mLyiULXrHQs/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2026-02-15T14:01:22Z",
       "durationInSeconds": 3228,
       "viewCount": 51
-    }
+    },
+    "title": "003 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/x3yWSAii-lA/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2026-02-16T14:00:30Z",
       "durationInSeconds": 2927,
       "viewCount": 151
-    }
+    },
+    "title": "004 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/MKb9-NcHBVg/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2026-02-17T14:00:28Z",
       "durationInSeconds": 2963,
       "viewCount": 35
-    }
+    },
+    "title": "005 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/I_BgkXRE0dY/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2026-02-18T14:00:57Z",
       "durationInSeconds": 3107,
       "viewCount": 21
-    }
+    },
+    "title": "006 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/fInBg6QbLX4/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2026-02-19T14:01:01Z",
       "durationInSeconds": 3563,
       "viewCount": 23
-    }
+    },
+    "title": "007 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/YpiwuPsaO4Q/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2026-02-20T14:01:20Z",
       "durationInSeconds": 3228,
       "viewCount": 27
-    }
+    },
+    "title": "008 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/nByF8hf15xg/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,7 +128,11 @@
       "videoPublishedAt": "2026-02-21T14:01:32Z",
       "durationInSeconds": 5690,
       "viewCount": 24
-    }
+    },
+    "title": "009 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/xjzCTSh28u8/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -107,7 +143,11 @@
       "videoPublishedAt": "2026-02-22T14:00:45Z",
       "durationInSeconds": 14259,
       "viewCount": 21
-    }
+    },
+    "title": "010 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/RFQpQligZtE/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -118,7 +158,11 @@
       "videoPublishedAt": "2026-02-23T14:01:36Z",
       "durationInSeconds": 3610,
       "viewCount": 19
-    }
+    },
+    "title": "011 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/zoe3hPl69uw/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -129,7 +173,11 @@
       "videoPublishedAt": "2026-02-24T14:01:26Z",
       "durationInSeconds": 6963,
       "viewCount": 11
-    }
+    },
+    "title": "012 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/rRjZy_e6pSw/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -140,7 +188,11 @@
       "videoPublishedAt": "2026-02-25T14:01:03Z",
       "durationInSeconds": 5568,
       "viewCount": 20
-    }
+    },
+    "title": "013 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/_0jzYn-bsPY/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -151,7 +203,11 @@
       "videoPublishedAt": "2026-02-27T14:01:43Z",
       "durationInSeconds": 10001,
       "viewCount": 19
-    }
+    },
+    "title": "014 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/zAWj2Z_Yd8s/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -162,7 +218,11 @@
       "videoPublishedAt": "2026-03-01T16:00:55Z",
       "durationInSeconds": 9739,
       "viewCount": 22
-    }
+    },
+    "title": "015 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/gnq3yGgjmaM/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -173,7 +233,11 @@
       "videoPublishedAt": "2026-03-02T14:00:13Z",
       "durationInSeconds": 4061,
       "viewCount": 26
-    }
+    },
+    "title": "016 Refactoring, Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/9RMzQ8V_2vk/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -184,7 +248,11 @@
       "videoPublishedAt": "2026-03-03T14:01:12Z",
       "durationInSeconds": 4921,
       "viewCount": 16
-    }
+    },
+    "title": "017 Blue Science Online, Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/oXyqmJ8AOQ0/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -195,6 +263,10 @@
       "videoPublishedAt": "2026-03-04T14:00:52Z",
       "durationInSeconds": 6550,
       "viewCount": 8
-    }
+    },
+    "title": "018 Factorio",
+    "thumbnail": "https://i.ytimg.com/vi/_g4EjZ9mmHE/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 3
   }
 ]

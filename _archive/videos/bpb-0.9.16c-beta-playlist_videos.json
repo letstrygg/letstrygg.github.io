@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-07-28T14:00:43Z",
       "durationInSeconds": 3990,
       "viewCount": 625
-    }
+    },
+    "title": "Is New Reaper Bag Broken? 0.9.16c BETA",
+    "thumbnail": "https://i.ytimg.com/vi/p9yWxKfEu0g/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 22
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2024-07-27T12:00:58Z",
       "durationInSeconds": 5421,
       "viewCount": 404
-    }
+    },
+    "title": "0.9.16c BETA Madness! Unique Star is BROKEN",
+    "thumbnail": "https://i.ytimg.com/vi/pHd2szPymJw/maxresdefault.jpg",
+    "likes": 12,
+    "comments": 0
   }
 ]

@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-10-29T12:00:40Z",
       "durationInSeconds": 3069,
       "viewCount": 249
-    }
+    },
+    "title": "Flame Vamp: 0.9.24 Beta Ep 4 - RNG Backpack Battles",
+    "thumbnail": "https://i.ytimg.com/vi/XEMvimurDRQ/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2024-10-28T12:00:20Z",
       "durationInSeconds": 2621,
       "viewCount": 299
-    }
+    },
+    "title": "🛡️ D-Fence! 0.9.24f Beta Ep 3 - RNG Backpack Battles",
+    "thumbnail": "https://i.ytimg.com/vi/CZaje4a5biY/maxresdefault.jpg",
+    "likes": 14,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2024-10-27T12:00:02Z",
       "durationInSeconds": 2698,
       "viewCount": 375
-    }
+    },
+    "title": "New Items too Strong: 0.9.24 Beta Ep 2 - RNG Backpack Battles",
+    "thumbnail": "https://i.ytimg.com/vi/1Gni8NbAWI8/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2024-10-26T12:00:02Z",
       "durationInSeconds": 5461,
       "viewCount": 680
-    }
+    },
+    "title": "New Items on Beta Branch: s3e114 RNG Backpack Battles",
+    "thumbnail": "https://i.ytimg.com/vi/15M8ePSoXcA/maxresdefault.jpg",
+    "likes": 15,
+    "comments": 2
   }
 ]
