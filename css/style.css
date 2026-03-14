@@ -73,8 +73,51 @@ header { text-align: center; padding: 20px 0; }
 .subtitle { color: var(--subtitle); margin: 0; font-weight: 500; font-style: oblique; }
 
 /* ==========================================================================
-   3. GLOBAL UI COMPONENTS
+   3. LAYOUT CONTAINERS
    ========================================================================== */
+.site-container {
+  padding: 0 120px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .site-container {
+      padding: 0 20px;
+  }
+}
+
+.game-page-wrapper {
+  width: 100%;
+}
+
+.game-section {
+  margin-top: 30px;
+}
+
+.game-section-divider {
+  margin-top: 40px; 
+  border-top: 1px solid var(--gray); 
+  padding-top: 20px;
+}
+
+/* ==========================================================================
+   4. GLOBAL UI COMPONENTS
+   ========================================================================== */
+/* Theme Toggle */
+#theme-toggle {
+  position: fixed;
+  top: .5rem;
+  right: 1rem;
+  font-size: 1.4rem;
+  z-index: 1000;
+  color: var(--purple);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-variation-settings: 'FILL' 1; 
+}
+.light-theme #theme-toggle { color: var(--orange); }
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -99,369 +142,249 @@ header { text-align: center; padding: 20px 0; }
   color: var(--bg);
 }
 
-/* Theme Toggle */
-#theme-toggle {
-  position: fixed;
-  top: .5rem;
-  right: 1rem;
-  font-size: 1.4rem;
-  z-index: 1000;
-  color: var(--purple);
-  cursor: pointer;
-  transition: color 0.3s ease;
-  font-variation-settings: 'FILL' 1; 
-}
-.light-theme #theme-toggle { color: var(--orange); }
-
-/* The Base Button - Now available site-wide! */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 16px;
-  font-size: 0.95em;
-  font-weight: 500;
-  border-radius: 8px;
-  border: 1px solid var(--gray);
-  background: transparent;
-  color: var(--text);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-.btn.btn-gray:hover,
-.btn.btn-gray.active {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--bg);
-}
-
-/* Global Icon Sizing */
-.material-symbols-outlined { font-size: 1.2em; }
-
-/* --- NAVIGATION & LISTS --- */
+/* ==========================================================================
+   5. NAVIGATION & LISTS
+   ========================================================================== */
 .site-breadcrumbs { margin-bottom: 25px; font-size: 1.05rem; }
 .site-breadcrumbs a {
-    color: var(--blue);
-    font-weight: 500;
-    text-decoration: underline;
-    text-decoration-color: var(--underline);
-    text-underline-offset: 3px;
-    transition: opacity 0.2s ease;
+  color: var(--blue);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
 }
 .site-breadcrumbs a:hover { opacity: 0.8; }
 .breadcrumb-current { color: var(--text); font-weight: normal; }
 
 .game-index-list { padding-left: 0; margin-top: 20px; }
 .game-index-list a {
-    font-size: 1.2rem;
-    text-decoration: underline;
-    text-decoration-color: var(--underline);
-    text-underline-offset: 4px;
-    transition: opacity 0.2s ease;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease;
 }
 .game-index-list a:hover { opacity: 0.8; }
 
-ul { list-style-type: none; padding-left: 1.5em; }
-ul li { text-indent: -1.2em; }
-ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
-
-/* --- UNIVERSAL GAME PAGE LAYOUTS --- */
-.game-page-wrapper {
-    width: 100%;
-}
-
-.game-section {
-    margin-top: 30px;
-}
-
-.game-section-divider {
-    margin-top: 40px; 
-    border-top: 1px solid var(--gray); 
-    padding-top: 20px;
-}
-
-/* --- UNIVERSAL EPISODE NAVIGATION --- */
 .nav-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
-
 .nav-item {
-    flex: 1; /* Forces perfectly equal thirds */
-    display: flex;
+  flex: 1; 
+  display: flex;
 }
-
 .nav-prev { justify-content: flex-start; }
 .nav-center { justify-content: center; }
 .nav-next { justify-content: flex-end; }
 
-/* --- EPISODE PILLS (GAME INDEX ARCHIVE) --- */
-.ep-pill-container {
-    display: flex; 
-    gap: 8px; 
-    flex-wrap: wrap; 
-    margin-top: 15px; 
-    margin-bottom: 40px;
-    align-items: center; 
-}
-
-.ep-pill {
-    background: #1a1a1a; 
-    color: var(--blue); 
-    padding: 6px 12px; 
-    border-radius: 6px; 
-    font-size: 0.9em; 
-    text-decoration: none !important; 
-    border: 1px solid #333; 
-    transition: all 0.2s;
-    font-weight: 500;
-}
-
-.ep-pill:hover { 
-    background: var(--blue); 
-    color: #fff !important; 
-    border-color: var(--blue); 
-    transform: translateY(-2px);
-}
-
-.ep-pill.ep-all { 
-    background: #222; 
-    border-color: var(--gray); 
-    color: var(--text-main) !important; 
-    font-weight: bold; 
-}
-
-.ep-pill.ep-all:hover { 
-    background: #333; 
-}
-
-.ep-dots { 
-    color: var(--gray); 
-    font-weight: bold; 
-    padding: 0 2px; 
-}
-
-/* --- EPISODE VIDEO CARD --- */
-.ep-card {
-    display: flex;
-    flex-direction: column;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 12px;
-    overflow: hidden;
-    margin: 30px 0;
-    text-decoration: none !important;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-
-.ep-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--blue);
-}
-
-.ep-card-thumb {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #000;
-}
-
-.ep-card-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.9;
-    transition: opacity 0.2s;
-}
-
-.ep-card:hover .ep-card-thumb img {
-    opacity: 1;
-}
-
-/* The Play Button Overlay */
-.ep-card-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    border: 2px solid #fff;
-    transition: all 0.2s;
-}
-
-.ep-card:hover .ep-card-play {
-    background: var(--blue);
-    border-color: var(--blue);
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-.ep-card-info {
-    padding: 15px 20px;
-}
-
-.ep-card-title {
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    line-height: 1.4;
-}
-
-.ep-card-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    color: var(--gray);
-    font-size: 0.9rem;
-}
-
-.ep-stat {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-@media (min-width: 768px) {
-    .ep-card {
-        flex-direction: row;
-        align-items: center;
-    }
-    .ep-card-thumb {
-        width: 40%;
-        max-width: 350px;
-    }
-    .ep-card-info {
-        width: 60%;
-        padding: 20px 30px;
-    }
-}
-
-.ep-stat {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* NEW: Aligns the Material Symbols beautifully in the card */
-.ep-stat .material-symbols-outlined {
-    font-size: 1.2em;
-    opacity: 0.9;
-}
-
-/* --- MATERIAL SYMBOL COLOR UTILITIES --- */
-/* (Added for updated automated episode cards) */
-
-.ep-stat .material-symbols-outlined {
-    font-size: 1.2em;
-    opacity: 0.9;
-}
-
-/* Specific colors requested for automated episode card icons */
-.ep-stat.gray   .material-symbols-outlined { color: var(--gray); }
-.ep-stat.gray { color: var(--gray); } /* Also gray out the date text */
-
-.ep-stat.purple .material-symbols-outlined { color: var(--purple); }
-.ep-stat.blue   .material-symbols-outlined { color: var(--blue); }
-.ep-stat.green  .material-symbols-outlined { color: var(--green); }
-
-/* Orange for comments, as it stands out well as an action color */
-.ep-stat.orange .material-symbols-outlined { color: #f39c12; }
-
-/* --- SEASON ARCHIVE GRID --- */
+/* ==========================================================================
+   6. GAME HUB ARCHIVE (SEASONS & PILLS)
+   ========================================================================== */
 .season-grid {
-    display: grid;
-    /* auto-fill stops a single season from stretching across the whole screen! */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 10px;
-    margin-top: 0; /* Removed the top margin */
-    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 0; 
+  width: 100%;
 }
 
 .season-block {
-    display: flex;
-    flex-direction: column;
-    background: #111113;
-    border: 1px solid #2a2a2a;
-    border-radius: 12px;
-    padding: 15px; 
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    max-width: 420px; /* Capped width for 1-season games */
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--gray);
+  border-radius: 12px;
+  padding: 15px; 
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  max-width: 420px; 
 }
 
-/* Force the playlist card to respect the block width, killing the 460px breakout */
 .season-block .game-card {
-    width: 100% !important;
-    max-width: 100%;
-    box-sizing: border-box;
-    margin: 0;
+  width: 100% !important;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 .season-block:hover {
-    transform: translateY(-3px);
-    border-color: var(--blue);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  transform: translateY(-3px);
+  border-color: var(--blue);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .season-header {
-    margin-bottom: 12px;
-    text-align: left;
+  margin-bottom: 12px;
+  text-align: left;
 }
 
-/* Tiny, sleek season label instead of a giant H2 */
 .season-label {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--blue);
-    font-weight: bold;
-    transition: color 0.2s;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue);
+  font-weight: bold;
+  transition: color 0.2s;
 }
 
 .season-block:hover .season-label {
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(135, 206, 235, 0.5);
+  color: var(--title);
 }
 
-/* --- MINIMALIST SINGLE-LINE PILLS --- */
+/* Minimalist Single-Line Pills */
 .season-block .ep-pill-container {
-    margin-top: 15px;
-    margin-bottom: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: nowrap; 
+  margin-top: 15px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap; 
 }
 
 .season-block .ep-pill {
-    padding: 5px 12px;
-    font-size: 0.85em;
-    white-space: nowrap; 
-    flex: 0 1 auto; /* Stops it from stretching */
-    text-align: center;
+  background: var(--bg);
+  color: var(--blue); 
+  border: 1px solid var(--gray); 
+  padding: 5px 12px;
+  font-size: 0.85em;
+  white-space: nowrap; 
+  flex: 0 1 auto; 
+  text-align: center;
+  border-radius: 6px; 
+  text-decoration: none !important; 
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.season-block .ep-pill:hover { 
+  background: var(--blue); 
+  color: var(--bg) !important; 
+  border-color: var(--blue); 
+  transform: translateY(-2px);
 }
 
 .season-block .ep-all {
-    /* Uses the exact same background and border as the regular pills now */
-    padding: 5px 16px; /* Just slightly wider padding than the numbered eps */
-    font-weight: 500; 
+  padding: 5px 16px; 
+  font-weight: bold; 
+  border-color: var(--blue);
 }
 
 .ep-delimiter {
-    color: #555;
-    font-size: 0.8em;
+  color: var(--gray);
+  font-size: 0.8em;
+}
+
+/* ==========================================================================
+   7. INDIVIDUAL EPISODE VIDEO CARDS
+   ========================================================================== */
+.ep-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--gray);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 30px 0;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.ep-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+}
+
+.ep-card-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.ep-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.ep-card:hover .ep-card-thumb img {
+  opacity: 1;
+}
+
+.ep-card-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  border: 2px solid #fff;
+  transition: all 0.2s;
+}
+
+.ep-card:hover .ep-card-play {
+  background: var(--blue);
+  border-color: var(--blue);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.ep-card-info {
+  padding: 15px 20px;
+}
+
+.ep-card-title {
+  color: var(--title);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.ep-card-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.ep-stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ep-stat .material-symbols-outlined {
+  font-size: 1.2em;
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .ep-card {
+      flex-direction: row;
+      align-items: center;
+  }
+  .ep-card-thumb {
+      width: 40%;
+      max-width: 350px;
+  }
+  .ep-card-info {
+      width: 60%;
+      padding: 20px 30px;
+  }
 }
