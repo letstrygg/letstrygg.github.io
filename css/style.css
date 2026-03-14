@@ -334,3 +334,22 @@ ul li::before { content: "•"; color: var(--green); margin-right: 0.8em; }
     font-size: 1.2em;
     opacity: 0.9;
 }
+
+/* --- MATERIAL SYMBOL COLOR UTILITIES --- */
+/* (Added for updated automated episode cards) */
+
+.ep-stat .material-symbols-outlined {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Specific colors requested for automated episode card icons */
+.ep-stat.gray   .material-symbols-outlined { color: var(--gray); }
+.ep-stat.gray { color: var(--gray); } /* Also gray out the date text */
+
+.ep-stat.purple .material-symbols-outlined { color: var(--purple); }
+.ep-stat.blue   .material-symbols-outlined { color: var(--blue); }
+.ep-stat.green  .material-symbols-outlined { color: var(--green); }
+
+/* Orange for comments, as it stands out well as an action color */
+.ep-stat.orange .material-symbols-outlined { color: #f39c12; }
