@@ -44,7 +44,9 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
       {%- assign event_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/events/'" -%}
       {%- for event in event_pages -%}
         {%- if event.url != '/game/slay-the-spire-2/events/' -%}
-          <a href="{{ event.url | relative_url }}">{{ event.title }}</a>
+          <a href="{{ event.url | relative_url }}">
+            {{ event.title | split: " -" | first | strip }}
+          </a>
         {%- endif -%}
       {%- endfor -%}
     </div>
@@ -56,7 +58,9 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
       {%- assign card_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/cards/'" -%}
       {%- for card in card_pages -%}
         {%- if card.url != '/game/slay-the-spire-2/cards/' -%}
-          <a href="{{ card.url | relative_url }}">{{ card.title }}</a>
+          <a href="{{ card.url | relative_url }}">
+            {{ card.title | split: " -" | first | strip }}
+          </a>
         {%- endif -%}
       {%- endfor -%}
     </div>
@@ -69,7 +73,7 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
       {%- for ep in ep_pages limit: 48 -%}
         {%- if ep.url != '/game/slay-the-spire-2/s1/episodes/' -%}
           <a href="{{ ep.url | relative_url }}">
-            {{ ep.title | remove: "Slay the Spire 2" | remove: "Slay The Spire 2" | strip }}
+            {{ ep.title | split: " " | first }}
           </a>
         {%- endif -%}
       {%- endfor -%}
