@@ -1,21 +1,21 @@
-/* Target the bare HTML tag directly */
+/* ==========================================================================
+   WATCH PAGE SPECIFIC STYLING
+   ========================================================================== */
+
 main {
     padding: 0 20px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.breadcrumbs {
-    margin-bottom: 0 !important; 
-}
-.breadcrumbs a {
-    text-decoration: none !important; 
-}
-.breadcrumbs a:hover {
-    color: var(--title);
-}
+/* Clean Breadcrumbs */
+.watch-breadcrumbs .site-breadcrumbs { margin-bottom: 0 !important; }
+.watch-breadcrumbs a { text-decoration: none !important; }
+.watch-breadcrumbs a:hover { color: var(--title); }
 
-/* Minimalist Video Overlay */
+/* ==========================================================================
+   MINIMALIST VIDEO OVERLAY
+   ========================================================================== */
 .video-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -25,6 +25,29 @@ main {
     transition: opacity 0.3s ease;
 }
 
+/* Vertical Stats Overlay (Top Left) */
+.overlay-stats {
+    position: absolute;
+    top: 60px; /* Safely below the native YouTube video title */
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+    pointer-events: none;
+}
+.overlay-stats .ep-stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.overlay-stats .material-symbols-outlined { font-size: 1.2rem; }
+
+
+/* Native-Style Overlay Buttons */
 .overlay-btn {
     pointer-events: auto; 
     background: transparent;
@@ -34,14 +57,39 @@ main {
     align-items: center; 
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+    position: relative;
 }
 
-.overlay-btn:hover { 
-    color: var(--blue); 
-    transform: scale(1.15); 
+/* The subtle YouTube-style "bump" animation (triggers on the icon only) */
+@keyframes yt-bump {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
+.overlay-btn:hover .material-symbols-outlined { 
+    animation: yt-bump 0.35s ease-out;
+}
+
+/* --- Instant Custom Tooltips --- */
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background: rgba(28, 28, 28, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+    z-index: 100;
+    font-family: 'Segoe UI', sans-serif;
+    text-shadow: none; /* Strip shadow from tooltip text */
+}
+[data-tooltip]:hover::after { opacity: 1; }
 
 /* Side Navigation Arrows */
 .overlay-side { 
@@ -51,28 +99,43 @@ main {
     padding: 20px; 
 }
 .overlay-side .material-symbols-outlined { font-size: 3rem; }
-.overlay-side:hover { transform: translateY(-50%) scale(1.15); }
 .overlay-left { left: 0px; }
 .overlay-right { right: 0px; }
+.overlay-side[data-tooltip]::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+}
 
 /* Bottom Center Controls */
 .overlay-bottom { 
     position: absolute; 
-    bottom: 60px; 
+    bottom: 50px; /* Sits right above the YT playback bar */
     left: 50%; 
     transform: translateX(-50%); 
     display: flex; 
     gap: 25px; 
 }
 .overlay-bottom .material-symbols-outlined { font-size: 2rem; }
+.overlay-bottom [data-tooltip]::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+}
 
-/* Minimalist Navigation Row */
+
+/* ==========================================================================
+   MINIMALIST NAVIGATION ROW
+   ========================================================================== */
 .watch-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 5px;
+    max-width: calc((100vh - 100px) * 1.7778); /* Matches video max-width */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .watch-nav a {
