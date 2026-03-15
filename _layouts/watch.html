@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+  <link rel="stylesheet" href="/css/watch.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0"/>
+
+  {% if page.custom_css %}
+    {% assign css_list = page.custom_css | join: ',' | split: ',' %}
+    {% for css in css_list %}
+      <link rel="stylesheet" href="{{ css }}">
+    {% endfor %}
+  {% endif %}
+</head>
+<body>
+
+<main class="site-container">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; margin-bottom: 20px;">
+    
+    <div style="margin: 0;" class="watch-breadcrumbs">
+        {% include breadcrumbs.html %}
+    </div>
+
+    <span id="theme-toggle" class="material-symbols-outlined" title="Toggle theme" style="position: static; cursor: pointer;"></span>
+  </div>
+
+  {{ content }}
+</main>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  const savedTheme = localStorage.getItem('theme');
+
+  const applyTheme = (isLight) => {
+    body.classList.toggle('light-theme', isLight);
+    toggle.textContent = isLight ? 'light_mode' : 'bedtime';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  };
+
+  applyTheme(savedTheme === 'light');
+
+  toggle.addEventListener('click', () => {
+    const isNowLight = !body.classList.contains('light-theme');
+    applyTheme(isNowLight);
+  });
+</script>
+
+</body>
+</html>

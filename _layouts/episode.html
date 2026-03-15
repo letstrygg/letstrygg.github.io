@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/episode.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0"/>
+  {% if page.custom_css %}
+    {% assign css_list = page.custom_css | join: ',' | split: ',' %}
+    {% for css in css_list %}
+      <link rel="stylesheet" href="{{ css }}">
+    {% endfor %}
+  {% endif %}
+  <style>
+    /* Minimalist Header specifically for the Watch pages */
+    .ep-top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--gray);
+        margin-bottom: 25px;
+    }
+    .ep-top-bar .site-breadcrumbs {
+        margin-bottom: 0; 
+        font-size: 0.95rem;
+    }
+    #theme-toggle-ep {
+        font-size: 1.4rem;
+        color: var(--purple);
+        cursor: pointer;
+        transition: color 0.3s ease;
+        font-variation-settings: 'FILL' 1;
+    }
+    .light-theme #theme-toggle-ep { color: var(--orange); }
+  </style>
+</head>
+<body>
+
+<main class="site-container">
+  
+  <div class="ep-top-bar">
+    {% include breadcrumbs.html %}
+    <span id="theme-toggle-ep" class="material-symbols-outlined" title="Toggle theme"></span>
+  </div>
+  
+  {{ content }}
+
+</main>
+
+<script>
+  const toggle = document.getElementById('theme-toggle-ep');
+  const body = document.body;
+  const savedTheme = localStorage.getItem('theme');
+
+  const applyTheme = (isLight) => {
+    body.classList.toggle('light-theme', isLight);
+    toggle.textContent = isLight ? 'light_mode' : 'bedtime';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  };
+
+  applyTheme(savedTheme === 'light');
+
+  toggle.addEventListener('click', () => {
+    const isNowLight = !body.classList.contains('light-theme');
+    applyTheme(isNowLight);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+/* ==========================================================================
+   9. VIDEO PLAYER OVERLAY CONTROLS
+   ========================================================================== */
+.video-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; /* Let clicks pass through to YouTube */
+  z-index: 20;
+  display: flex;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-btn {
+  pointer-events: auto; /* Buttons themselves ARE clickable */
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+  backdrop-filter: blur(4px);
+  text-decoration: none !important;
+}
+
+.overlay-btn:hover { 
+  background: var(--blue); 
+  border-color: var(--blue); 
+  transform: scale(1.05); 
+}
+
+/* Side Navigation Arrows */
+.overlay-side { 
+  position: absolute; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  width: 50px; 
+  height: 80px; 
+}
+.overlay-side:hover { transform: translateY(-50%) scale(1.1); }
+.overlay-left { left: 15px; }
+.overlay-right { right: 15px; }
+
+/* Bottom Center Controls */
+.overlay-bottom { 
+  position: absolute; 
+  bottom: 20px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  display: flex; 
+  gap: 15px; 
+}
+.overlay-bottom .overlay-btn { 
+  padding: 8px 16px; 
+  gap: 8px; 
+  font-weight: 500; 
+  font-size: 0.95em;
+}
+
+/* Quick override to clean up breadcrumbs in the new top bar */
+.watch-breadcrumbs .site-breadcrumbs { margin-bottom: 0 !important; }
