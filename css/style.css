@@ -153,7 +153,7 @@ header { text-align: center; padding: 20px 0; }
     transition: opacity 0.2s ease;
 }
 .breadcrumbs a:hover { opacity: 0.8; }
-.breadcrumb-current { color: var(--text); font-weight: normal; }
+.breadcrumb-current { color: var(--text); }
 
 .game-index-list { padding-left: 0; margin-top: 20px; }
 .game-index-list a {
