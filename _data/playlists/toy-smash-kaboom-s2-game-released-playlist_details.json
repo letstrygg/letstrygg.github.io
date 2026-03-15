@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5bR1QsBwwcjA9vU3InnyVX",
-  "title": "Toy Smash Kaboom! S2 - Game Released",
+  "slug": "toy-smash-kaboom-s2-game-released",
+  "title": "Toy Smash Kaboom S2 Game Released",
   "thumbnail": "https://i.ytimg.com/vi/wg6b3qmxBqU/maxresdefault.jpg",
   "published": "2025-12-16T04:57:53.922012Z",
   "updated": "2025-12-16T14:01:10Z",
-  "fetched": "2026-03-07T12:02:52.877Z",
+  "fetched": "2026-03-15T23:23:12.863Z",
   "episodes": 5,
   "duration": 23880,
-  "views": 1207,
-  "status": "Completed",
   "duration_formatted": "6h 38m",
+  "duration_short": "7h",
+  "views": 1212,
   "views_formatted": "1.2K",
-  "slug": "toy-smash-kaboom-s2-game-released",
+  "status": "Completed",
   "status_color": "blue"
 }

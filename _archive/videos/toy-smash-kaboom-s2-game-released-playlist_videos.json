@@ -7,8 +7,12 @@
       "videoId": "wg6b3qmxBqU",
       "videoPublishedAt": "2025-08-07T01:30:51Z",
       "durationInSeconds": 6035,
-      "viewCount": 526
-    }
+      "viewCount": 527
+    },
+    "title": "So Many Combinations! Toy Smash Kaboom!",
+    "thumbnail": "https://i.ytimg.com/vi/wg6b3qmxBqU/maxresdefault.jpg",
+    "likes": 10,
+    "comments": 11
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-08-12T14:01:26Z",
       "durationInSeconds": 6256,
       "viewCount": 382
-    }
+    },
+    "title": "New Character: Doll Chef! Toy Smash Kaboom S2E2",
+    "thumbnail": "https://i.ytimg.com/vi/v3chvmoCcaI/maxresdefault.jpg",
+    "likes": 9,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-10-10T12:00:30Z",
       "durationInSeconds": 3635,
       "viewCount": 44
-    }
+    },
+    "title": "New Update! Toy Smash Kaboom S2E3",
+    "thumbnail": "https://i.ytimg.com/vi/BFjSs-EaEwA/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -40,8 +52,12 @@
       "videoId": "5xTtOxC5tuY",
       "videoPublishedAt": "2025-12-04T21:23:00Z",
       "durationInSeconds": 4433,
-      "viewCount": 192
-    }
+      "viewCount": 196
+    },
+    "title": "Toy Smash Kaboom: Full-Game Release! Chaotic Toy Auto-Battler  S2E4",
+    "thumbnail": "https://i.ytimg.com/vi/5xTtOxC5tuY/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,6 +68,10 @@
       "videoPublishedAt": "2025-12-16T14:01:10Z",
       "durationInSeconds": 3521,
       "viewCount": 63
-    }
+    },
+    "title": "Hamsters & Bubbles: Toy Smash Kaboom S2E5",
+    "thumbnail": "https://i.ytimg.com/vi/djHZurVg-Ms/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   }
 ]
