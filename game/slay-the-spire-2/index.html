@@ -10,29 +10,37 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
   <h1 class="title">Slay the Spire 2</h1>
 
   <h2>Events</h2>
-  {%- assign event_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/events/'" -%}
-  {%- for event in event_pages -%}
-    {%- if event.url != '/game/slay-the-spire-2/events/' -%}
-      <a href="{{ event.url | relative_url }}" class="blue">
-        {{ event.title | split: " – " | first | split: " - " | first | strip }}
-      </a>
-    {%- endif -%}
-  {%- endfor -%}
+  <ul>
+    {%- assign event_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/events/'" -%}
+    {%- for event in event_pages -%}
+      {%- if event.url != '/game/slay-the-spire-2/events/' -%}
+        <li>
+          <a href="{{ event.url | relative_url }}" class="blue">
+            {{ event.title | split: " – " | first | split: " - " | first | strip }}
+          </a>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
   <a href="/game/slay-the-spire-2/events/" class="yellow">View All Events →</a>
 
   <h2>Cards</h2>
-  {%- assign card_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/cards/'" -%}
-  {%- for card in card_pages -%}
-    {%- if card.url != '/game/slay-the-spire-2/cards/' -%}
-      <a href="{{ card.url | relative_url }}" class="blue">
-        {{ card.title | split: " – " | first | split: " - " | first | strip }}
-      </a>
-    {%- endif -%}
-  {%- endfor -%}
+  <ul>
+    {%- assign card_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/cards/'" -%}
+    {%- for card in card_pages -%}
+      {%- if card.url != '/game/slay-the-spire-2/cards/' -%}
+        <li>
+          <a href="{{ card.url | relative_url }}" class="blue">
+            {{ card.title | split: " – " | first | split: " - " | first | strip }}
+          </a>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
   <a href="/game/slay-the-spire-2/cards/" class="yellow">View All Cards →</a>
 
   <h2>Season 1 Episodes</h2>
-  <div class="ep-text-grid">
+  <div class="ep-grid">
     {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" -%}
     {%- for ep in ep_pages limit: 48 -%}
       {%- if ep.url != '/game/slay-the-spire-2/s1/episodes/' -%}
@@ -42,12 +50,9 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
       {%- endif -%}
     {%- endfor -%}
   </div>
-  
-  
-  {% include_relative _steam_info.html %}
-  
   <a href="/game/slay-the-spire-2/s1/episodes/" class="yellow">View Full Season →</a>
 
+  {% include_relative _steam_info.html %}
   {% include_relative _seasons_auto.html %}
 
 </div>
