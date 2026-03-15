@@ -45,7 +45,8 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
       {%- for event in event_pages -%}
         {%- if event.url != '/game/slay-the-spire-2/events/' -%}
           <a href="{{ event.url | relative_url }}">
-            {{ event.title | split: " -" | first | strip }}
+            {%- comment -%} Pulls name from the URL slug: /events/crystal-sphere/ -> Crystal Sphere {%- endcomment -%}
+            {{ event.url | split: '/' | last | replace: '-', ' ' | capitalize }}
           </a>
         {%- endif -%}
       {%- endfor -%}
@@ -59,7 +60,7 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
       {%- for card in card_pages -%}
         {%- if card.url != '/game/slay-the-spire-2/cards/' -%}
           <a href="{{ card.url | relative_url }}">
-            {{ card.title | split: " -" | first | strip }}
+            {{ card.url | split: '/' | last | replace: '-', ' ' | capitalize }}
           </a>
         {%- endif -%}
       {%- endfor -%}
@@ -73,7 +74,8 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
       {%- for ep in ep_pages limit: 48 -%}
         {%- if ep.url != '/game/slay-the-spire-2/s1/episodes/' -%}
           <a href="{{ ep.url | relative_url }}">
-            {{ ep.title | split: " " | first }}
+             {%- comment -%} Just grabs the 3-digit number from the URL slug {%- endcomment -%}
+             {{ ep.url | split: '/' | last | split: '-' | last | split: '.' | first }}
           </a>
         {%- endif -%}
       {%- endfor -%}

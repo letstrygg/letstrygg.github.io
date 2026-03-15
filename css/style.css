@@ -92,7 +92,7 @@ header { text-align: center; padding: 20px 0; }
 }
 
 .game-section {
-  margin-top: 30px;
+/*  margin-top: 30px; DELETE .game-section!!!*/
 }
 
 .game-section-divider {
