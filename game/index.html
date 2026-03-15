@@ -9,11 +9,6 @@ permalink: /game/
   <h1 class="title">Game Library</h1>
   <p class="subtitle">Series, Guides, and Run Histories</p>
 
-  <p style="margin-top: 20px;">
-    Welcome to the full collection of games featured on <strong>LetsTryGG</strong>. 
-    Below you'll find every game that has a dedicated section on the site.
-  </p>
-
   <div style="display: flex; gap: 10px; margin-top: 30px; margin-bottom: 20px; align-items: center;">
     <input type="text" id="gameSearch" placeholder="Search games..." style="flex-grow: 1; max-width: 300px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--gray); background: var(--bg); color: var(--text);">
     <button class="btn btn-gray" onclick="toggleGameSort()" title="Sort Alphabetical" style="display: flex; align-items: center; justify-content: center; width: 40px; padding: 0;">
@@ -21,24 +16,20 @@ permalink: /game/
     </button>
   </div>
 
-  <div class="game-list-container">
-    {% assign all_pages = site.pages | sort: "title" %}
-    <ul id="gameList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; list-style: none; padding: 0; margin: 0;">
-    {% for item in all_pages %}
-      {% if item.url contains '/game/' %}
-        {% assign path_size = item.url | split: '/' | size %}
-        {% if path_size == 3 and item.url != '/game/' %}
-          {% assign clean_title = item.title | remove: " - LetsTryGG" | remove: " – LetsTryGG" %}
-          <li class="game-item" data-title="{{ clean_title | downcase }}" style="background: var(--card-bg); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--gray);">
-            <a href="{{ item.url | relative_url }}" class="blue" style="text-decoration: none; font-weight: 500; font-size: 1.1rem; display: block;">
-              {{ clean_title }}
-            </a>
+  <ul id="gameList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; list-style: none; padding: 0;">
+    {%- assign all_pages = site.pages | sort: "title" -%}
+    {%- for item in all_pages -%}
+      {%- if item.url contains '/game/' -%}
+        {%- assign path_size = item.url | split: '/' | size -%}
+        {%- if path_size == 3 and item.url != '/game/' -%}
+          {%- assign clean_title = item.title | remove: " - LetsTryGG" | remove: " – LetsTryGG" -%}
+          <li class="game-item" data-title="{{ clean_title | downcase }}">
+            <a href="{{ item.url | relative_url }}" class="blue">{{ clean_title }}</a>
           </li>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-    </ul>
-  </div>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
 </div>
 
 <script>
