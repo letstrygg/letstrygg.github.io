@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "IMPOPPABLE | Three Mines 'Round: Bloons TD6 S3E23",
-  "description": "Episode 23 of the Bloons Td 6 Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/WIMxUD4gWsg/maxresdefault.jpg",
-  "uploadDate": "2026-03-13T12:00:58Z",
-  "duration": "PT4003S",
-  "embedUrl": "https://www.youtube.com/embed/WIMxUD4gWsg"
+  "name": "010 Shapez 2 - Factory Automation Game",
+  "description": "Episode 10 of the Shapez 2 Let's Play series.",
+  "thumbnailUrl": "https://i.ytimg.com/vi/2kaU33gFkRk/maxresdefault.jpg",
+  "uploadDate": "2026-03-15T16:00:02Z",
+  "duration": "PT5675S",
+  "embedUrl": "https://www.youtube.com/embed/2kaU33gFkRk"
 }
 </script>
 
@@ -22,15 +22,15 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 13, 2026</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 6m 43s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 28</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 3</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 15, 2026</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 34m 35s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
                     </div>
 
-                    <button onclick="window.location.href='/game/bloons-td-6/s3/episodes/bt6-ep-22.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    <button onclick="window.location.href='/game/bloons-td-6/s3/episodes/bt6-ep-24.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    <button onclick="window.location.href='/game/shapez-2/s1/episodes/s2-ep-9.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
+                    
                     
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
@@ -46,9 +46,9 @@
             </div>
 
             <div class="watch-nav" style="padding-bottom: 10px;">
-                <a href="/game/bloons-td-6/s3/episodes/bt6-ep-22.html">← Ep 22</a>
-                <a href="/game/bloons-td-6/s3/episodes/">Episode List</a>
-                <a href="/game/bloons-td-6/s3/episodes/bt6-ep-24.html">Ep 24 →</a>
+                <a href="/game/shapez-2/s1/episodes/s2-ep-9.html">← Ep 9</a>
+                <a href="/game/shapez-2/s1/episodes/">Episode List</a>
+                <span></span>
             </div>
 
         </div>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_WIMxUD4gWsg';
+  var storageKey = 'yt_resume_2kaU33gFkRk';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'WIMxUD4gWsg',
+      videoId: '2kaU33gFkRk',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -92,7 +92,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/bloons-td-6/s3/episodes/bt6-ep-24.html";
+        const nextEpisodeUrl = "";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/WIMxUD4gWsg?t=" + t + "s";
+          const url = "https://youtu.be/2kaU33gFkRk?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

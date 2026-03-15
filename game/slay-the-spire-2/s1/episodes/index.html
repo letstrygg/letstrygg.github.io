@@ -6,6 +6,22 @@ permalink: /game/slay-the-spire-2/s1/episodes/
 custom_css: "/css/game/sts2-style.css"
 ---
 
+<style>
+  #epGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  #epGrid a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+  #epGrid a:hover {
+    color: var(--title);
+  }
+</style>
+
 <div class="game-page-wrapper">
   
   <div style="display: flex; justify-content: space-between; align-items: flex-end;">
@@ -21,7 +37,7 @@ custom_css: "/css/game/sts2-style.css"
   <div class="game-section">
     {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" -%}
     
-    <div id="epGrid" class="ep-grid">
+    <div id="epGrid">
     {%- for ep in ep_pages -%}
       {%- if ep.url != '/game/slay-the-spire-2/s1/episodes/' -%}
         <a href="{{ ep.url | relative_url }}">
