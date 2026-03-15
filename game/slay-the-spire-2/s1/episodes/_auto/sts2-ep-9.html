@@ -13,21 +13,7 @@
 
 <div class="game-section auto-generated-stats" style="margin-top: 0;">
     
-    <div class="ep-card-stats" style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 10px; font-size: 0.85em;">
-        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 11, 2026</span>
-        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 57m 2s</span>
-        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 33</span>
-        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 3</span>
-        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
-    </div>
-
-    <div class="watch-nav" style="margin-bottom: 10px;">
-        <a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-8.html">← Ep 8</a>
-        <a href="/game/slay-the-spire-2/s1/episodes/">Episode List</a>
-        <a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-10.html">Ep 10 →</a>
-    </div>
-
-    <div id="player-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: transparent; margin-bottom: 5px; transition: all 0.3s ease; z-index: 10;">
+    <div id="player-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: transparent; margin-bottom: 15px; transition: all 0.3s ease; z-index: 10;">
         
         <div id="video-overlay" class="video-overlay">
             <button onclick="window.location.href='/game/slay-the-spire-2/s1/episodes/sts2-ep-8.html'" class="overlay-btn overlay-side overlay-left" title="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -45,6 +31,21 @@
 
         <div id="ytplayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
     </div>
+
+    <div class="ep-card-stats" style="justify-content: center; margin-bottom: 10px;">
+        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 11, 2026</span>
+        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 57m 2s</span>
+        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 33</span>
+        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 3</span>
+        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+    </div>
+
+    <div class="watch-nav" style="margin-bottom: 20px; border-bottom: 1px solid var(--gray); padding-bottom: 20px;">
+        <a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-8.html">← Ep 8</a>
+        <a href="/game/slay-the-spire-2/s1/episodes/">Episode List</a>
+        <a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-10.html">Ep 10 →</a>
+    </div>
+
 </div>
 
 <script>
@@ -155,7 +156,7 @@
           wrapper.style.width = '100%';
           wrapper.style.height = '0';
           wrapper.style.paddingBottom = '56.25%'; 
-          wrapper.style.margin = '0 0 5px 0';
+          wrapper.style.margin = '0 0 15px 0';
           wrapper.style.zIndex = '10';
           document.body.style.overflow = '';
           
