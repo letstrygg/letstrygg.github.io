@@ -6,6 +6,22 @@ permalink: /game/slay-the-spire-2/s1/episodes/
 custom_css: "/css/game/sts2-style.css"
 ---
 
+<style>
+  /* Handle the layout and link colors once, right here */
+  #epGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 15px;
+  }
+  #epGrid a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+  #epGrid a:hover {
+    color: var(--title);
+  }
+</style>
+
 <div class="game-page-wrapper">
   
   <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--gray); padding-bottom: 10px; margin-bottom: 20px;">
@@ -13,23 +29,22 @@ custom_css: "/css/game/sts2-style.css"
       <h1 class="title" style="margin-bottom: 5px;">Season 1 Episodes</h1>
       <p class="subtitle" style="margin: 0;">Slay The Spire 2 Let's Play</p>
     </div>
-    <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order" style="display: flex; align-items: center; gap: 5px;">
+    <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order" style="display: flex; align-items: center; gap: 5px; padding: 6px 12px;">
       <span class="material-symbols-outlined" id="sortIcon">arrow_downward</span> Sort
     </button>
   </div>
 
   <div class="game-section">
-    {% assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" %}
+    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" -%}
     
-    <div id="epGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 10px;">
-    {% for ep in ep_pages %}
-      {% if ep.url != '/game/slay-the-spire-2/s1/episodes/' %}
-        {% assign ep_num_only = ep.title | remove: " Slay The Spire 2" | strip %}
-        <a href="{{ ep.url | relative_url }}" class="btn ep-item" style="text-align: center; font-weight: bold; font-size: 1.1rem; padding: 10px 5px;">
-          {{ ep_num_only }}
+    <div id="epGrid">
+    {%- for ep in ep_pages -%}
+      {%- if ep.url != '/game/slay-the-spire-2/s1/episodes/' -%}
+        <a href="{{ ep.url | relative_url }}">
+          {{ ep.title | remove: "Slay The Spire 2" | strip }}
         </a>
-      {% endif %}
-    {% endfor %}
+      {%- endif -%}
+    {%- endfor -%}
     </div>
   </div>
 </div>
@@ -43,8 +58,8 @@ custom_css: "/css/game/sts2-style.css"
     isAscending = !isAscending;
     sortIcon.innerText = isAscending ? 'arrow_downward' : 'arrow_upward';
     
-    // Jekyll renders them chronologically, so we just reverse the DOM nodes
-    const items = Array.from(document.querySelectorAll('.ep-item'));
+    // Target the children of the grid directly without needing extra classes
+    const items = Array.from(epGrid.children);
     items.reverse();
     
     epGrid.innerHTML = '';
