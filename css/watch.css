@@ -104,7 +104,7 @@ main {
 .overlay-bottom { 
     position: absolute; 
     /* 10px puts these perfectly in the center gap of the native YouTube controls */
-    bottom: 5px; 
+    bottom: 4px; 
     left: 50%; 
     transform: translateX(-50%); 
     display: flex; 
