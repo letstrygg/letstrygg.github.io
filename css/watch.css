@@ -8,7 +8,8 @@ main {
     box-sizing: border-box;
 }
 
-.breadcrumbs .site-breadcrumbs { margin-bottom: 0 !important; }
+/* Clean Breadcrumbs */
+.breadcrumbs { margin-bottom: 0 !important; }
 .breadcrumbs a { text-decoration: none !important; }
 .breadcrumbs a:hover { color: var(--title); }
 
@@ -27,7 +28,7 @@ main {
 /* Vertical Stats Overlay (Top Left) */
 .overlay-stats {
     position: absolute;
-    top: 60px; /* Safely below the native YouTube video title */
+    top: 60px;
     left: 20px;
     display: flex;
     flex-direction: column;
@@ -35,7 +36,6 @@ main {
     color: #fff;
     font-size: 0.9rem;
     font-weight: 500;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.9);
     pointer-events: none;
 }
 .overlay-stats .ep-stat {
@@ -43,10 +43,9 @@ main {
     align-items: center;
     gap: 8px;
 }
-.overlay-stats .material-symbols-outlined { font-size: 1.2rem; }
+.overlay-stats .material-symbols-outlined { font-size: 1.2rem; opacity: 0.9; }
 
-
-/* Native-Style Overlay Buttons */
+/* Native-Style Overlay Buttons (No shadows, no animations, no color changes) */
 .overlay-btn {
     pointer-events: auto; 
     background: transparent;
@@ -56,21 +55,10 @@ main {
     align-items: center; 
     justify-content: center;
     cursor: pointer;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
     position: relative;
 }
 
-/* The subtle YouTube-style "bump" animation (triggers on the icon only) */
-@keyframes yt-bump {
-    0%   { transform: scale(1); }
-    40%  { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-.overlay-btn:hover .material-symbols-outlined { 
-    animation: yt-bump 0.35s ease-out;
-}
-
-/* --- Instant Custom Tooltips --- */
+/* Instant Custom Tooltips */
 [data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -83,10 +71,8 @@ main {
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.1s ease;
     z-index: 100;
     font-family: 'Segoe UI', sans-serif;
-    text-shadow: none; /* Strip shadow from tooltip text */
 }
 [data-tooltip]:hover::after { opacity: 1; }
 
@@ -100,28 +86,33 @@ main {
 .overlay-side .material-symbols-outlined { font-size: 3rem; }
 .overlay-left { left: 0px; }
 .overlay-right { right: 0px; }
+
+/* Tooltips for side arrows (Centered BELOW the button) */
 .overlay-side[data-tooltip]::after {
     top: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(5px);
+    transform: translateX(-50%) translateY(8px);
 }
 
 /* Bottom Center Controls */
 .overlay-bottom { 
     position: absolute; 
-    bottom: 50px; /* Sits right above the YT playback bar */
+    /* 10px puts these perfectly in the center gap of the native YouTube controls */
+    bottom: 10px; 
     left: 50%; 
     transform: translateX(-50%); 
     display: flex; 
     gap: 25px; 
 }
-.overlay-bottom .material-symbols-outlined { font-size: 2rem; }
-.overlay-bottom [data-tooltip]::after {
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-10px);
-}
+.overlay-bottom .material-symbols-outlined { font-size: 1.8rem; }
 
+/* Tooltips for bottom buttons (Centered ABOVE the button) */
+.overlay-bottom .overlay-btn[data-tooltip]::after {
+    bottom: 100%;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(-12px);
+}
 
 /* ==========================================================================
    MINIMALIST NAVIGATION ROW
@@ -132,7 +123,7 @@ main {
     align-items: center;
     width: 100%;
     margin-top: 5px;
-    max-width: calc((100vh - 100px) * 1.7778); /* Matches video max-width */
+    max-width: calc((100vh - 100px) * 1.7778); 
     margin-left: auto;
     margin-right: auto;
 }
