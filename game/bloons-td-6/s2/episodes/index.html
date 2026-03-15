@@ -7,25 +7,17 @@ custom_css: "/css/game/bt6-style.css"
 ---
 
 <div class="game-page-wrapper">
-
   <h1 class="title">Season 2 Episodes</h1>
   <p class="subtitle">Bloons Td 6 Let's Play</p>
-
   <p>The master list for Season 2.</p>
-
   <div class="game-section">
-    
     {% assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/bloons-td-6/s2/episodes/'" | sort: "title" %}
-    
     {% for ep in ep_pages %}
       {% if ep.url != '/game/bloons-td-6/s2/episodes/' %}
         <div style="margin-top: 15px;">
-          <a href="{{ ep.url | relative_url }}" class="blue">
-            ▶ {{ ep.title }}
-          </a>
+          <a href="{{ ep.url | relative_url }}" class="blue">▶ {{ ep.title }}</a>
         </div>
       {% endif %}
     {% endfor %}
-    </div>
-
+  </div>
 </div>
