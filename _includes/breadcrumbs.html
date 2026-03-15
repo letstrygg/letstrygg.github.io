@@ -5,14 +5,56 @@
   {% assign current_path = "" %}
   
   {% for part in url_parts %}
-    {% if part != "" and part != "index.html" %}
+    {% comment %} Completely skip empty parts, index files, and the episodes folder {% endcomment %}
+    {% if part != "" and part != "index.html" and part != "episodes" %}
       {% assign current_path = current_path | append: "/" | append: part %}
       <span style="margin: 0 10px; opacity: 0.5;">/</span>
       
       {% if forloop.last %}
-        <strong class="breadcrumb-current">{{ page.title | split: " – " | first | split: " - " | first }}</strong>
+        <strong class="breadcrumb-current">
+          {% if part contains '-ep-' %}
+            {% comment %} Transform 'sts2-ep-7.html' -> 'STS2 Ep 007' {% endcomment %}
+            {% assign ep_slug = part | replace: ".html", "" %}
+            {% assign ep_pieces = ep_slug | split: "-ep-" %}
+            {% assign ep_prefix = ep_pieces[0] | upcase %}
+            {% assign ep_num = ep_pieces[1] %}
+            
+            {% comment %} Pad the number safely so 7 -> 007, but 10.5 stays 10.5 {% endcomment %}
+            {% assign ep_padded = ep_num %}
+            {% if ep_num.size == 1 %}
+              {% assign ep_padded = "00" | append: ep_num %}
+            {% elsif ep_num.size == 2 %}
+              {% assign ep_padded = "0" | append: ep_num %}
+            {% endif %}
+            
+            {{ ep_prefix }} Ep {{ ep_padded }}
+          {% else %}
+            {% comment %} Standard pages (Events, Cards, Game Roots) {% endcomment %}
+            {{ page.title | split: " – " | first | split: " - " | first | strip }}
+          {% endif %}
+        </strong>
       {% else %}
-        <a href="{{ current_path }}/" class="breadcrumb-link">{% if part == 'slay-the-spire-2' %}Slay the Spire 2{% else %}{{ part | replace: '-', ' ' | capitalize }}{% endif %}</a>
+        {% assign link_text = "" %}
+        
+        {% comment %} Safely check if this is a season folder (starts with 's' and only has numbers/underscores after) {% endcomment %}
+        {% assign first_char = part | slice: 0, 1 %}
+        {% assign remainder = part | remove_first: 's' | replace: '_', '' %}
+        {% assign check_chars = remainder | replace: '0','' | replace: '1','' | replace: '2','' | replace: '3','' | replace: '4','' | replace: '5','' | replace: '6','' | replace: '7','' | replace: '8','' | replace: '9','' %}
+        
+        {% if first_char == 's' and remainder != "" and check_chars == "" %}
+          {% assign s_num = part | remove_first: 's' | replace: '_', '.' %}
+          {% assign link_text = 'Season ' | append: s_num %}
+        {% else %}
+          {% comment %} Auto-Titleize folder names (e.g., 'slay-the-spire-2' -> 'Slay The Spire 2') {% endcomment %}
+          {% assign words = part | split: '-' %}
+          {% for word in words %}
+            {% assign cap_word = word | capitalize %}
+            {% assign link_text = link_text | append: cap_word | append: " " %}
+          {% endfor %}
+          {% assign link_text = link_text | strip %}
+        {% endif %}
+        
+        <a href="{{ current_path }}/" class="breadcrumb-link">{{ link_text }}</a>
       {% endif %}
     {% endif %}
   {% endfor %}
