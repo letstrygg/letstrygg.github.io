@@ -229,11 +229,11 @@
   {
     "id": "turnbound",
     "title": "Turnbound",
-    "thumbnail": "https://i.ytimg.com/vi/YE9_2-f55ao/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 2,
-    "views": 285,
-    "duration": 6657,
+    "thumbnail": "https://i.ytimg.com/vi/uEvpcM_tonk/maxresdefault.jpg",
+    "highest_season": 2,
+    "episodes": 5,
+    "views": 1025,
+    "duration": 16710,
     "tags": [
       "Auto Battler",
       "PVP",
@@ -241,12 +241,12 @@
     ],
     "status": "Completed",
     "status_color": "blue",
-    "updated": "2025-10-15T14:01:05Z",
-    "views_formatted": "285",
-    "duration_formatted": "1h 50m",
-    "duration_short": "2h",
-    "vpv": 143,
-    "vpv_formatted": "143"
+    "updated": "2025-12-16T12:01:52Z",
+    "views_formatted": "1K",
+    "duration_formatted": "4h 38m",
+    "duration_short": "5h",
+    "vpv": 205,
+    "vpv_formatted": "205"
   },
   {
     "id": "toy-smash-kaboom",
@@ -1046,28 +1046,6 @@
     "duration_short": "5h",
     "vpv": 70,
     "vpv_formatted": "70"
-  },
-  {
-    "id": "turnbound-s2",
-    "title": "Turnbound S2",
-    "thumbnail": "https://i.ytimg.com/vi/uEvpcM_tonk/maxresdefault.jpg",
-    "highest_season": 1,
-    "episodes": 3,
-    "views": 740,
-    "duration": 10053,
-    "tags": [
-      "Auto Battler",
-      "PVP",
-      "Inventory Management"
-    ],
-    "status": "Completed",
-    "status_color": "blue",
-    "updated": "2025-12-16T12:01:52Z",
-    "views_formatted": "740",
-    "duration_formatted": "2h 47m",
-    "duration_short": "3h",
-    "vpv": 247,
-    "vpv_formatted": "247"
   },
   {
     "id": "cloverpit",
@@ -3723,8 +3701,8 @@
     "vpv_formatted": "38"
   },
   {
-    "id": "fallout-shelter-vault-666",
-    "title": "Fallout Shelter Vault 666",
+    "id": "fallout-shelter",
+    "title": "Fallout Shelter",
     "thumbnail": "https://i.ytimg.com/vi/99865tWVcuU/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 5,
