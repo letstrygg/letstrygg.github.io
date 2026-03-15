@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-  <link rel="stylesheet" href="/css/watch.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/watch.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0"/>
 
   {% if page.custom_css %}
@@ -17,13 +17,11 @@
 </head>
 <body>
 
-<main class="site-container">
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; margin-bottom: 20px;">
-    
-    <div style="margin: 0;" class="watch-breadcrumbs">
+<main>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px; margin-bottom: 5px;">
+    <div class="watch-breadcrumbs">
         {% include breadcrumbs.html %}
     </div>
-
     <span id="theme-toggle" class="material-symbols-outlined" title="Toggle theme" style="position: static; cursor: pointer;"></span>
   </div>
 

@@ -13,43 +13,37 @@
 
 <div class="game-section auto-generated-stats" style="margin-top: 0;">
     
-    <div id="player-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--gray); background: #000; margin-bottom: 20px; transition: all 0.3s ease; z-index: 10;">
+    <div class="ep-card-stats" style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 10px; font-size: 0.85em;">
+        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 10, 2026</span>
+        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 4h 19m 55s</span>
+        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 37</span>
+        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 2</span>
+        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+    </div>
+
+    <div class="watch-nav" style="margin-bottom: 10px;">
+        <a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-7.html">← Ep 7</a>
+        <a href="/game/slay-the-spire-2/s1/episodes/">Episode List</a>
+        <a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-9.html">Ep 9 →</a>
+    </div>
+
+    <div id="player-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: transparent; margin-bottom: 5px; transition: all 0.3s ease; z-index: 10;">
         
         <div id="video-overlay" class="video-overlay">
-            <a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-7.html" class="overlay-btn overlay-side overlay-left" title="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></a>
-            <a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-9.html" class="overlay-btn overlay-side overlay-right" title="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></a>
+            <button onclick="window.location.href='/game/slay-the-spire-2/s1/episodes/sts2-ep-7.html'" class="overlay-btn overlay-side overlay-left" title="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
+            <button onclick="window.location.href='/game/slay-the-spire-2/s1/episodes/sts2-ep-9.html'" class="overlay-btn overlay-side overlay-right" title="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
             
             <div class="overlay-bottom">
                 <button id="theater-btn" class="overlay-btn" title="Toggle Theater Mode">
-                    <span class="material-symbols-outlined" id="theater-icon">width_full</span> <span id="theater-text">Theater Mode</span>
+                    <span class="material-symbols-outlined" id="theater-icon">width_full</span>
                 </button>
                 <button id="copy-time-btn" class="overlay-btn" title="Copy Current Timestamp">
-                    <span class="material-symbols-outlined">link</span> <span>Copy Timestamp</span>
+                    <span class="material-symbols-outlined" id="copy-icon">link</span>
                 </button>
             </div>
         </div>
 
         <div id="ytplayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-    </div>
-
-    <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 30px; border-bottom: 1px solid var(--gray); padding-bottom: 20px;">
-        
-        <div class="ep-card-stats" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-            <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 10, 2026</span>
-            <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 4h 19m 55s</span>
-            <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 37</span>
-            <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 2</span>
-            <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
-        </div>
-
-        <div class="nav-row">
-            <div class="nav-item nav-prev"><a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-7.html" class="btn">← Ep 7</a></div>
-            <div class="nav-item nav-center">
-                <a href="/game/slay-the-spire-2/s1/episodes/" class="btn">Episode List</a>
-            </div>
-            <div class="nav-item nav-next"><a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-9.html" class="btn">Ep 9 →</a></div>
-        </div>
-
     </div>
 </div>
 
@@ -118,9 +112,9 @@
   wrapper.addEventListener('mousemove', resetIdleTimer);
   wrapper.addEventListener('mouseleave', () => {
       clearTimeout(idleTimer);
-      overlay.style.opacity = '0'; // Hide immediately when mouse leaves wrapper
+      overlay.style.opacity = '0'; 
   });
-  resetIdleTimer(); // Init
+  resetIdleTimer();
 
   // Copy Timestamp Logic
   document.getElementById('copy-time-btn').addEventListener('click', function() {
@@ -128,17 +122,15 @@
           const t = Math.floor(player.getCurrentTime());
           const url = "https://youtu.be/l8Ih44aCOr8?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
-              const textSpan = this.querySelector('span:not(.material-symbols-outlined)');
-              const originalText = textSpan.innerText;
-              textSpan.innerText = 'Copied!';
-              setTimeout(() => { textSpan.innerText = originalText; }, 2000);
+              const icon = document.getElementById('copy-icon');
+              icon.innerText = 'check'; // Changes to a checkmark!
+              setTimeout(() => { icon.innerText = 'link'; }, 2000);
           });
       }
   });
 
   // Theater Mode Logic
   const tIcon = document.getElementById('theater-icon');
-  const tText = document.getElementById('theater-text');
 
   document.getElementById('theater-btn').addEventListener('click', function() {
       const isTheater = wrapper.classList.toggle('theater-active');
@@ -149,28 +141,26 @@
           wrapper.style.left = '0';
           wrapper.style.width = '100vw';
           wrapper.style.height = '100vh';
-          wrapper.style.paddingBottom = '0'; // Kill aspect ratio box
+          wrapper.style.paddingBottom = '0'; 
           wrapper.style.margin = '0';
-          wrapper.style.borderRadius = '0';
           wrapper.style.zIndex = '9999';
           document.body.style.overflow = 'hidden';
           
           tIcon.innerText = 'close_fullscreen';
-          tText.innerText = 'Exit Theater';
+          this.title = 'Exit Theater';
       } else {
           wrapper.style.position = 'relative';
           wrapper.style.top = 'auto';
           wrapper.style.left = 'auto';
           wrapper.style.width = '100%';
           wrapper.style.height = '0';
-          wrapper.style.paddingBottom = '56.25%'; // Restore aspect ratio
-          wrapper.style.margin = '0 0 20px 0';
-          wrapper.style.borderRadius = '12px';
+          wrapper.style.paddingBottom = '56.25%'; 
+          wrapper.style.margin = '0 0 5px 0';
           wrapper.style.zIndex = '10';
           document.body.style.overflow = '';
           
           tIcon.innerText = 'width_full';
-          tText.innerText = 'Theater Mode';
+          this.title = 'Toggle Theater Mode';
       }
   });
 </script>
