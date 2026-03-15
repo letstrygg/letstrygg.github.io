@@ -1,31 +1,136 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "009 Hang is Supa-Strong! Slay the Spire 2",
+  "description": "Episode 9 of the Slay The Spire 2 Let's Play series.",
+  "thumbnailUrl": "https://i.ytimg.com/vi/2qoivb017kw/maxresdefault.jpg",
+  "uploadDate": "2026-03-11T14:00:10Z",
+  "duration": "PT7022S",
+  "embedUrl": "https://www.youtube.com/embed/2qoivb017kw"
+}
+</script>
+
 <div class="game-section auto-generated-stats">
     
-    <a href="https://www.youtube.com/watch?v=2qoivb017kw" target="_blank" rel="noopener noreferrer" class="ep-card">
-        <div class="ep-card-thumb">
-            <img src="https://i.ytimg.com/vi/2qoivb017kw/maxresdefault.jpg" alt="Thumbnail for 009 Hang is Supa-Strong! Slay the Spire 2">
-            <div class="ep-card-play">▶</div>
+    <div id="player-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--gray); background: #000; margin: 30px 0; transition: all 0.3s ease; z-index: 10;">
+        <div id="ytplayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 15px;">
+        <button id="theater-btn" class="btn btn-gray">
+            <span class="material-symbols-outlined">width_full</span> Theater Mode
+        </button>
+        
+        <div class="ep-card-stats" style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 11, 2026</span>
+            <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 57m 2s</span>
+            <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 33</span>
+            <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 3</span>
+            <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
         </div>
-        <div class="ep-card-info">
-            <div class="ep-card-title">009 Hang is Supa-Strong! Slay the Spire 2</div>
-            <div class="ep-card-stats">
-                <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 11, 2026</span>
-                <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 57m 2s</span>
-                <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 33</span>
-                <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 3</span>
-                <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
-            </div>
-        </div>
-    </a>
+    </div>
 
 </div>
 
 <div class="game-section-divider">
     <h3>Series Navigation</h3>
     <div class="nav-row">
-        <div class="nav-item nav-prev"><a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-8.html" class="blue">← Ep 8</a></div>
+        <div class="nav-item nav-prev"><a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-8.html" class="btn">← Ep 8</a></div>
         <div class="nav-item nav-center">
-            <a href="/game/slay-the-spire-2/s1/episodes/" class="blue">Episode List</a>
+            <a href="/game/slay-the-spire-2/s1/episodes/" class="btn">Episode List</a>
         </div>
-        <div class="nav-item nav-next"><a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-10.html" class="blue">Ep 10 →</a></div>
+        <div class="nav-item nav-next"><a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-10.html" class="btn">Ep 10 →</a></div>
     </div>
 </div>
+
+<script>
+  var storageKey = 'yt_resume_2qoivb017kw';
+  var savedTime = localStorage.getItem(storageKey) || 0;
+
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  var saveInterval;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('ytplayer', {
+      videoId: '2qoivb017kw',
+      playerVars: {
+        'autoplay': 1,
+        'rel': 0,
+        'modestbranding': 1,
+        'fs': 1,
+        'start': Math.floor(savedTime)
+      },
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function onPlayerStateChange(event) {
+    if (event.data === 1) {
+        if (!saveInterval) {
+            saveInterval = setInterval(function() {
+                localStorage.setItem(storageKey, player.getCurrentTime());
+            }, 5000);
+        }
+    } else {
+        clearInterval(saveInterval);
+        saveInterval = null;
+    }
+
+    if (event.data === 0) {
+        localStorage.removeItem(storageKey);
+        const nextEpisodeUrl = "/game/slay-the-spire-2/s1/episodes/sts2-ep-10.html";
+        if (nextEpisodeUrl) {
+            window.location.href = nextEpisodeUrl;
+        }
+    }
+  }
+
+  document.getElementById('theater-btn').addEventListener('click', function() {
+      const wrapper = document.getElementById('player-wrapper');
+      const isTheater = wrapper.classList.toggle('theater-active');
+      
+      if (isTheater) {
+          wrapper.style.position = 'fixed';
+          wrapper.style.top = '0';
+          wrapper.style.left = '0';
+          wrapper.style.width = '100vw';
+          wrapper.style.height = '100vh';
+          wrapper.style.margin = '0';
+          wrapper.style.borderRadius = '0';
+          wrapper.style.zIndex = '9999';
+          document.body.style.overflow = 'hidden';
+          
+          this.innerHTML = '<span class="material-symbols-outlined">close_fullscreen</span> Exit Theater';
+          this.style.position = 'fixed';
+          this.style.bottom = '40px';
+          this.style.right = '40px';
+          this.style.zIndex = '10000';
+          this.style.background = 'var(--bg)';
+          this.style.opacity = '0.9';
+      } else {
+          wrapper.style.position = 'relative';
+          wrapper.style.top = 'auto';
+          wrapper.style.left = 'auto';
+          wrapper.style.width = '100%';
+          wrapper.style.height = '0';
+          wrapper.style.paddingBottom = '56.25%';
+          wrapper.style.margin = '30px 0';
+          wrapper.style.borderRadius = '12px';
+          wrapper.style.zIndex = '10';
+          document.body.style.overflow = '';
+          
+          this.innerHTML = '<span class="material-symbols-outlined">width_full</span> Theater Mode';
+          this.style.position = 'static';
+          this.style.background = 'transparent';
+          this.style.opacity = '1';
+      }
+  });
+</script>
