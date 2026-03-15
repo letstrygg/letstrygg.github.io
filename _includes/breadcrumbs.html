@@ -13,7 +13,7 @@
       {% if forloop.last %}
         <strong class="breadcrumb-current">
           {% if part contains '-ep-' %}
-            {% comment %} Transform 'sts2-ep-7.html' -> 'STS2 Ep 007' {% endcomment %}
+            {% comment %} Transform 'sts2-ep-7.html' -> 'Ep 007' {% endcomment %}
             {% assign ep_slug = part | replace: ".html", "" %}
             {% assign ep_pieces = ep_slug | split: "-ep-" %}
             {% assign ep_prefix = ep_pieces[0] | upcase %}
@@ -27,7 +27,8 @@
               {% assign ep_padded = "0" | append: ep_num %}
             {% endif %}
             
-            {{ ep_prefix }} Ep {{ ep_padded }}
+            {% comment %} To restore prefix, uncomment the variable below: {% endcomment %}
+            {% comment %}{{ ep_prefix }} {% endcomment %}Ep {{ ep_padded }}
           {% else %}
             {% comment %} Standard pages (Events, Cards, Game Roots) {% endcomment %}
             {{ page.title | split: " – " | first | split: " - " | first | strip }}
