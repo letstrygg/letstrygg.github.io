@@ -5,7 +5,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 12,
-    "views": 567,
+    "views": 601,
     "duration": 105231,
     "tags": [
       "Deck Builder"
@@ -13,11 +13,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-14T14:00:06Z",
-    "views_formatted": "567",
+    "views_formatted": "601",
     "duration_formatted": "29h 13m",
     "duration_short": "29h",
-    "vpv": 47,
-    "vpv_formatted": "47"
+    "vpv": 50,
+    "vpv_formatted": "50"
   },
   {
     "id": "oaken-tower",
@@ -212,7 +212,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 123,
-    "views": 6363,
+    "views": 6397,
     "duration": 301373,
     "tags": [
       "Tower Defense"
@@ -722,23 +722,23 @@
   {
     "id": "shapez-2",
     "title": "Shapez 2",
-    "thumbnail": "https://i.ytimg.com/vi/BaEJI_gxp3g/maxresdefault.jpg",
+    "thumbnail": "https://i.ytimg.com/vi/aY_7Ej0n5dY/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 8,
-    "views": 375,
-    "duration": 43084,
+    "episodes": 9,
+    "views": 383,
+    "duration": 48258,
     "tags": [
       "Automation",
       "Base Building"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-13T16:00:30Z",
-    "views_formatted": "375",
-    "duration_formatted": "11h 58m",
-    "duration_short": "12h",
-    "vpv": 47,
-    "vpv_formatted": "47"
+    "updated": "2026-03-14T23:00:01Z",
+    "views_formatted": "383",
+    "duration_formatted": "13h 24m",
+    "duration_short": "13h",
+    "vpv": 43,
+    "vpv_formatted": "43"
   },
   {
     "id": "wanderburg",
