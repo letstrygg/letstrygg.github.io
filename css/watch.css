@@ -8,10 +8,9 @@ main {
     box-sizing: border-box;
 }
 
-/* Clean Breadcrumbs */
-.watch-breadcrumbs .site-breadcrumbs { margin-bottom: 0 !important; }
-.watch-breadcrumbs a { text-decoration: none !important; }
-.watch-breadcrumbs a:hover { color: var(--title); }
+.breadcrumbs .site-breadcrumbs { margin-bottom: 0 !important; }
+.breadcrumbs a { text-decoration: none !important; }
+.breadcrumbs a:hover { color: var(--title); }
 
 /* ==========================================================================
    MINIMALIST VIDEO OVERLAY
