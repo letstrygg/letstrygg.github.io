@@ -1,0 +1,67 @@
+---
+layout: new
+title: Season 1 Episodes - Turnbound S2
+description: A complete list of episodes from Season 1 of the Turnbound S2 Let's Play.
+permalink: /game/turnbound-s2/s1/episodes/
+custom_css: "/css/game/ts-style.css"
+---
+
+<style>
+  #epGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  #epGrid a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+  #epGrid a:hover {
+    color: var(--title);
+  }
+</style>
+
+<div class="game-page-wrapper">
+  
+  <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+    <div>
+      <h1 class="title">Turnbound S2</h1>
+      <p class="subtitle">Season 1 Episodes</p>
+    </div>
+    <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order">
+      <span class="material-symbols-outlined" id="sortIcon">arrow_downward</span> Sort
+    </button>
+  </div>
+
+  <div class="game-section">
+    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/turnbound-s2/s1/episodes/'" | sort: "title" -%}
+    
+    <div id="epGrid">
+    {%- for ep in ep_pages -%}
+      {%- if ep.url != '/game/turnbound-s2/s1/episodes/' -%}
+        <a href="{{ ep.url | relative_url }}">
+          {{ ep.title | remove: "Turnbound S2" | strip }}
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  let isAscending = true;
+  const epGrid = document.getElementById('epGrid');
+  const sortIcon = document.getElementById('sortIcon');
+
+  function toggleEpSort() {
+    isAscending = !isAscending;
+    sortIcon.innerText = isAscending ? 'arrow_downward' : 'arrow_upward';
+    
+    const items = Array.from(epGrid.children);
+    items.reverse();
+    
+    epGrid.innerHTML = '';
+    items.forEach(item => epGrid.appendChild(item));
+  }
+</script>
