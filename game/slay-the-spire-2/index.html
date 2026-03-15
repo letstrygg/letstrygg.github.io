@@ -6,7 +6,6 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
 ---
 
 <style>
-  /* Slay the Spire 2 Manual Overrides */
   .sts2-content h1.title { color: var(--yellow) !important; }
   .sts2-content h2 { color: var(--blue) !important; margin-top: 30px; margin-bottom: 10px; }
   
@@ -43,16 +42,11 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
     <h2>Events</h2>
     <div class="wiki-list">
       {%- assign event_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/events/'" -%}
-      {%- for event in event_pages limit: 10 -%}
+      {%- for event in event_pages -%}
         {%- if event.url != '/game/slay-the-spire-2/events/' -%}
-          <a href="{{ event.url | relative_url }}">
-            {{ event.title | remove: " – Slay the Spire 2 Event" | remove: " - Slay the Spire 2 Event" }}
-          </a>
+          <a href="{{ event.url | relative_url }}">{{ event.title }}</a>
         {%- endif -%}
       {%- endfor -%}
-    </div>
-    <div style="margin-top: 15px;">
-      <a href="/game/slay-the-spire-2/events/" class="yellow" style="text-decoration: none; font-size: 0.9rem;">View All Events →</a>
     </div>
   </div>
 
@@ -60,16 +54,28 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
     <h2>Cards</h2>
     <div class="wiki-list">
       {%- assign card_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/cards/'" -%}
-      {%- for card in card_pages limit: 10 -%}
+      {%- for card in card_pages -%}
         {%- if card.url != '/game/slay-the-spire-2/cards/' -%}
-          <a href="{{ card.url | relative_url }}">
-            {{ card.title | remove: " – Slay the Spire 2 Card" | remove: " - Slay the Spire 2 Card" }}
+          <a href="{{ card.url | relative_url }}">{{ card.title }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div class="game-section">
+    <h2>Season 1 Episodes</h2>
+    <div class="ep-text-grid">
+      {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" -%}
+      {%- for ep in ep_pages limit: 48 -%}
+        {%- if ep.url != '/game/slay-the-spire-2/s1/episodes/' -%}
+          <a href="{{ ep.url | relative_url }}">
+            {{ ep.title | remove: "Slay the Spire 2" | remove: "Slay The Spire 2" | strip }}
           </a>
         {%- endif -%}
       {%- endfor -%}
     </div>
-    <div style="margin-top: 15px;">
-      <a href="/game/slay-the-spire-2/cards/" class="yellow" style="text-decoration: none; font-size: 0.9rem;">View All Cards →</a>
+    <div style="margin-top: 20px;">
+      <a href="/game/slay-the-spire-2/s1/episodes/" class="yellow" style="text-decoration: none; font-size: 0.9rem;">View Full Season →</a>
     </div>
   </div>
 
