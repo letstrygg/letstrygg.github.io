@@ -1,63 +1,85 @@
-/* ==========================================================================
-   9. VIDEO PLAYER OVERLAY CONTROLS
-   ========================================================================== */
+/* Target the bare HTML tag directly */
+main {
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Clean Breadcrumbs */
+.watch-breadcrumbs .site-breadcrumbs {
+    margin-bottom: 0 !important;
+}
+.watch-breadcrumbs a {
+    text-decoration: none !important;
+}
+.watch-breadcrumbs a:hover {
+    color: var(--title);
+}
+
+/* Minimalist Video Overlay */
 .video-overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  pointer-events: none; /* Let clicks pass through to YouTube */
-  z-index: 20;
-  display: flex;
-  transition: opacity 0.3s ease;
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 20;
+    display: flex;
+    transition: opacity 0.3s ease;
 }
 
 .overlay-btn {
-  pointer-events: auto; /* Buttons themselves ARE clickable */
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s, border-color 0.2s;
-  backdrop-filter: blur(4px);
-  text-decoration: none !important;
+    pointer-events: auto; 
+    background: transparent;
+    border: none;
+    color: #ffffff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 .overlay-btn:hover { 
-  background: var(--blue); 
-  border-color: var(--blue); 
-  transform: scale(1.05); 
+    color: var(--blue); 
+    transform: scale(1.15); 
 }
 
 /* Side Navigation Arrows */
 .overlay-side { 
-  position: absolute; 
-  top: 50%; 
-  transform: translateY(-50%); 
-  width: 50px; 
-  height: 80px; 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    padding: 20px; 
 }
-.overlay-side:hover { transform: translateY(-50%) scale(1.1); }
-.overlay-left { left: 15px; }
-.overlay-right { right: 15px; }
+.overlay-side .material-symbols-outlined { font-size: 3rem; }
+.overlay-side:hover { transform: translateY(-50%) scale(1.15); }
+.overlay-left { left: 0px; }
+.overlay-right { right: 0px; }
 
 /* Bottom Center Controls */
 .overlay-bottom { 
-  position: absolute; 
-  bottom: 20px; 
-  left: 50%; 
-  transform: translateX(-50%); 
-  display: flex; 
-  gap: 15px; 
+    position: absolute; 
+    bottom: 60px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+    gap: 25px; 
 }
-.overlay-bottom .overlay-btn { 
-  padding: 8px 16px; 
-  gap: 8px; 
-  font-weight: 500; 
-  font-size: 0.95em;
+.overlay-bottom .material-symbols-outlined { font-size: 2rem; }
+
+/* Minimalist Navigation Row */
+.watch-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
 }
 
-/* Quick override to clean up breadcrumbs in the new top bar */
-.watch-breadcrumbs .site-breadcrumbs { margin-bottom: 0 !important; }
+.watch-nav a {
+    color: var(--blue);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.watch-nav a:hover { color: var(--title); }
