@@ -45,7 +45,7 @@ main {
 }
 .overlay-stats .material-symbols-outlined { font-size: 1.2rem; opacity: 0.9; }
 
-/* Native-Style Overlay Buttons (No shadows, no animations, no color changes) */
+/* Native-Style Overlay Buttons */
 .overlay-btn {
     pointer-events: auto; 
     background: transparent;
@@ -56,6 +56,12 @@ main {
     justify-content: center;
     cursor: pointer;
     position: relative;
+    opacity: 0.85; /* Matches native YT dimness */
+    transition: opacity 0.2s ease;
+}
+
+.overlay-btn:hover { 
+    opacity: 1; /* Snaps to pure white */
 }
 
 /* Instant Custom Tooltips */
@@ -64,7 +70,7 @@ main {
     position: absolute;
     background: rgba(28, 28, 28, 0.95);
     color: #fff;
-    padding: 6px 10px;
+    padding: 4px 8px;
     font-size: 0.85rem;
     font-weight: 600;
     border-radius: 4px;
