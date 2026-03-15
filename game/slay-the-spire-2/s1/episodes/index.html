@@ -7,11 +7,11 @@ custom_css: "/css/game/sts2-style.css"
 ---
 
 <style>
-  /* Handle the layout and link colors once, right here */
   #epGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     gap: 15px;
+    margin-top: 20px;
   }
   #epGrid a {
     color: var(--blue);
@@ -24,12 +24,12 @@ custom_css: "/css/game/sts2-style.css"
 
 <div class="game-page-wrapper">
   
-  <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--gray); padding-bottom: 10px; margin-bottom: 20px;">
+  <div style="display: flex; justify-content: space-between; align-items: flex-end;">
     <div>
-      <h1 class="title" style="margin-bottom: 5px;">Season 1 Episodes</h1>
-      <p class="subtitle" style="margin: 0;">Slay The Spire 2 Let's Play</p>
+      <h1 class="title">Slay The Spire 2</h1>
+      <p class="subtitle">Season 1 Episodes</p>
     </div>
-    <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order" style="display: flex; align-items: center; gap: 5px; padding: 6px 12px;">
+    <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order">
       <span class="material-symbols-outlined" id="sortIcon">arrow_downward</span> Sort
     </button>
   </div>
@@ -58,7 +58,6 @@ custom_css: "/css/game/sts2-style.css"
     isAscending = !isAscending;
     sortIcon.innerText = isAscending ? 'arrow_downward' : 'arrow_upward';
     
-    // Target the children of the grid directly without needing extra classes
     const items = Array.from(epGrid.children);
     items.reverse();
     
