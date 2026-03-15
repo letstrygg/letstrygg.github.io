@@ -5,14 +5,13 @@ main {
     box-sizing: border-box;
 }
 
-/* Clean Breadcrumbs */
-.watch-breadcrumbs .site-breadcrumbs {
-    margin-bottom: 0 !important;
+.breadcrumbs {
+    margin-bottom: 0 !important; 
 }
-.watch-breadcrumbs a {
-    text-decoration: none !important;
+.breadcrumbs a {
+    text-decoration: none !important; 
 }
-.watch-breadcrumbs a:hover {
+.breadcrumbs a:hover {
     color: var(--title);
 }
 

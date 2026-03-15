@@ -142,19 +142,17 @@ header { text-align: center; padding: 20px 0; }
   color: var(--bg);
 }
 
-/* ==========================================================================
-   5. NAVIGATION & LISTS
-   ========================================================================== */
-.site-breadcrumbs { margin-bottom: 25px; font-size: 1.05rem; }
-.site-breadcrumbs a {
-  color: var(--blue);
-  font-weight: 500;
-  text-decoration: underline;
-  text-decoration-color: var(--underline);
-  text-underline-offset: 3px;
-  transition: opacity 0.2s ease;
+/* --- NAVIGATION & LISTS --- */
+.breadcrumbs { margin-bottom: 25px; font-size: 1.05rem; }
+.breadcrumbs a {
+    color: var(--blue);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--underline);
+    text-underline-offset: 3px;
+    transition: opacity 0.2s ease;
 }
-.site-breadcrumbs a:hover { opacity: 0.8; }
+.breadcrumbs a:hover { opacity: 0.8; }
 .breadcrumb-current { color: var(--text); font-weight: normal; }
 
 .game-index-list { padding-left: 0; margin-top: 20px; }
