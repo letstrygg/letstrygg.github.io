@@ -1,93 +1,99 @@
 ---
 layout: new
-title: Slay the Spire 2 - LetsTryGG
-description: Slay the Spire 2 has arrived. A new climb begins with fresh characters, new cards, and challenging encounters.
+title: Slay the Spire 2
 permalink: /game/slay-the-spire-2/
 custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
 ---
 
-<div class="game-page-wrapper">
+<style>
+  /* Header styling */
+  .sts2-content h2 { color: var(--blue); margin-top: 30px; margin-bottom: 10px; }
   
-  <h1 class="title">Slay the Spire 2</h1>
-  <p class="subtitle">The Roguelike Deckbuilder Returns</p>
-  <p class="gray" style="font-size: 0.9em;">Release Date: March 5, 2026 &nbsp;|&nbsp; Status: <strong class="green">Released</strong></p>
+  /* Wiki-style links: White text, blue on hover */
+  .wiki-list a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.2s ease;
+  }
+  .wiki-list a:hover { color: var(--blue); }
 
-  <p><strong>Slay the Spire 2</strong> brings back the iconic roguelike deckbuilder with a new Spire, new cards, and new challenges.</p>
+  /* Episode Grid: 4 rows max roughly */
+  .ep-text-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 12px;
+    margin-top: 15px;
+  }
+  .ep-text-grid a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .ep-text-grid a:hover { color: var(--blue); }
+</style>
 
-  <p>Join the climb on the <a href="https://www.youtube.com/letstrygg" class="blue">LetsTryGG YouTube Channel</a>. Watch the full journey, brutal decisions, and broken synergies in the <a href="https://www.youtube.com/playlist?list=PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3" class="blue">Slay the Spire 2 Playlist</a>.</p>
+<div class="game-page-wrapper sts2-content">
+  
+  {% include_relative _steam_info.html %}
+
+  <h1 class="title" style="color: var(--yellow);">Slay the Spire 2</h1>
 
   <div class="game-section">
-    <h2 class="yellow">Events & Encounters</h2>
-    <p>Documenting the strange and dangerous encounters found within the new Spire. Choose wisely:</p>
-    
-    {% assign event_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/events/'" %}
-    
-    {% for event in event_pages limit: 5 %}
-      {% if event.url != '/game/slay-the-spire-2/events/' %}
-        <div style="margin-top: 15px;">
-          <a href="{{ event.url | relative_url }}" class="blue">
-            ▶ {{ event.title | remove: " – Slay the Spire 2 Event" | remove: " - Slay the Spire 2 Event" }}
+    <h2>Events</h2>
+    <div class="wiki-list">
+      {%- assign event_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/events/'" -%}
+      {%- for event in event_pages limit: 10 -%}
+        {%- if event.url != '/game/slay-the-spire-2/events/' -%}
+          <a href="{{ event.url | relative_url }}">
+            {{ event.title | remove: " – Slay the Spire 2 Event" | remove: " - Slay the Spire 2 Event" }}
           </a>
-        </div>
-      {% endif %}
-    {% endfor %}
-
-    <div style="margin-top: 25px;">
-      <a href="/game/slay-the-spire-2/events/" class="yellow">
-        View All Events →
-      </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div style="margin-top: 15px;">
+      <a href="/game/slay-the-spire-2/events/" class="yellow" style="text-decoration: none; font-size: 0.9rem;">View All Events →</a>
     </div>
   </div>
 
   <div class="game-section">
-    <h2 class="yellow">Cards Database</h2>
-    <p>Documenting the deck. Discover card mechanics, upgrades, and synergies:</p>
-    
-    {% assign card_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/cards/'" %}
-    
-    {% for card in card_pages limit: 5 %}
-      {% if card.url != '/game/slay-the-spire-2/cards/' %}
-        <div style="margin-top: 15px;">
-          <a href="{{ card.url | relative_url }}" class="blue">
-            ▶ {{ card.title | remove: " – Slay the Spire 2 Card" | remove: " - Slay the Spire 2 Card" }}
+    <h2>Cards</h2>
+    <div class="wiki-list">
+      {%- assign card_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/cards/'" -%}
+      {%- for card in card_pages limit: 10 -%}
+        {%- if card.url != '/game/slay-the-spire-2/cards/' -%}
+          <a href="{{ card.url | relative_url }}">
+            {{ card.title | remove: " – Slay the Spire 2 Card" | remove: " - Slay the Spire 2 Card" }}
           </a>
-        </div>
-      {% endif %}
-    {% endfor %}
-
-    <div style="margin-top: 25px;">
-      <a href="/game/slay-the-spire-2/cards/" class="yellow">
-        View All Cards →
-      </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div style="margin-top: 15px;">
+      <a href="/game/slay-the-spire-2/cards/" class="yellow" style="text-decoration: none; font-size: 0.9rem;">View All Cards →</a>
     </div>
   </div>
 
   <div class="game-section">
-    <h2 class="yellow">Season 1 Episodes</h2>
-    
-    {% assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" | reverse %}
-    
-    {% for ep in ep_pages limit: 5 %}
-      {% if ep.url != '/game/slay-the-spire-2/s1/episodes/' %}
-        <div style="margin-top: 15px;">
-          <a href="{{ ep.url | relative_url }}" class="blue">
-            ▶ {{ ep.title }}
+    <h2>Season 1 Episodes</h2>
+    <div class="ep-text-grid">
+      {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" -%}
+      {%- for ep in ep_pages limit: 48 -%}
+        {%- if ep.url != '/game/slay-the-spire-2/s1/episodes/' -%}
+          <a href="{{ ep.url | relative_url }}">
+            {{ ep.title | remove: "Slay the Spire 2" | strip }}
           </a>
-        </div>
-      {% endif %}
-    {% endfor %}
-
-    <div style="margin-top: 25px;">
-      <a href="/game/slay-the-spire-2/s1/episodes/" class="yellow">
-        View All Episodes →
-      </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div style="margin-top: 20px;">
+      <a href="/game/slay-the-spire-2/s1/episodes/" class="yellow" style="text-decoration: none; font-size: 0.9rem;">View Full Season →</a>
     </div>
   </div>
 
   <div class="game-section">
-    <h2 class="yellow">Start the Series</h2>
+    <h2>Start the Series</h2>
     {% include_relative _playlists.html %}
   </div>
 
-  <p class="red" style="text-align: center; font-style: italic; margin-top: 40px;">"The Spire has awakened. A new climb begins."</p>
 </div>
