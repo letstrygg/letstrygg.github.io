@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <div class="watch-nav" style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--gray);">
+    <div class="watch-nav">
         <span></span>
         <a href="/game/slay-the-spire-2/s1/episodes/">Episode List</a>
         <a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-2.html">Ep 2 →</a>
@@ -100,7 +100,8 @@
   function resetIdleTimer() {
       overlay.style.opacity = '1';
       clearTimeout(idleTimer);
-      idleTimer = setTimeout(() => { overlay.style.opacity = '0'; }, 2500);
+      // Increased to 3.5 seconds to match YouTube's native fade
+      idleTimer = setTimeout(() => { overlay.style.opacity = '0'; }, 3500);
   }
 
   wrapper.addEventListener('mousemove', resetIdleTimer);
@@ -135,7 +136,7 @@
           wrapper.style.position = 'fixed';
           wrapper.style.top = '0'; wrapper.style.left = '0';
           wrapper.style.width = '100vw'; wrapper.style.height = '100vh';
-          wrapper.style.maxWidth = '100vw'; // Override the calc max-width
+          wrapper.style.maxWidth = '100vw'; 
           wrapper.style.zIndex = '9999'; document.body.style.overflow = 'hidden';
           tIcon.innerText = 'close_fullscreen'; tBtn.setAttribute('data-tooltip', 'Exit Theater');
       } else {
