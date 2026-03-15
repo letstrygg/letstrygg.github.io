@@ -5,85 +5,46 @@ permalink: /game/slay-the-spire-2/
 custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
 ---
 
-<style>
-  .sts2-content h1.title { color: var(--yellow) !important; }
-  .sts2-content h2 { color: var(--blue) !important; margin-top: 30px; margin-bottom: 10px; }
-  
-  .wiki-list a {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 8px;
-    transition: color 0.2s ease;
-  }
-  .wiki-list a:hover { color: var(--blue); }
-
-  .ep-text-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-    gap: 12px;
-    margin-top: 15px;
-  }
-  .ep-text-grid a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .ep-text-grid a:hover { color: var(--blue); }
-</style>
-
-<div class="game-page-wrapper sts2-content">
+<div class="game-page-wrapper">
   
   {% include_relative _steam_info.html %}
 
   <h1 class="title">Slay the Spire 2</h1>
 
-  <div class="game-section">
-    <h2>Events</h2>
-    <div class="wiki-list">
-      {%- assign event_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/events/'" -%}
-      {%- for event in event_pages -%}
-        {%- if event.url != '/game/slay-the-spire-2/events/' -%}
-          <a href="{{ event.url | relative_url }}">
-            {%- comment -%} Pulls name from the URL slug: /events/crystal-sphere/ -> Crystal Sphere {%- endcomment -%}
-            {{ event.url | split: '/' | last | replace: '-', ' ' | capitalize }}
-          </a>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  </div>
+  <h2>Events</h2>
+  {%- assign event_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/events/'" -%}
+  {%- for event in event_pages -%}
+    {%- if event.url != '/game/slay-the-spire-2/events/' -%}
+      <a href="{{ event.url | relative_url }}" class="blue">
+        {{ event.title | split: " – " | first | split: " - " | first | strip }}
+      </a>
+    {%- endif -%}
+  {%- endfor -%}
+  <a href="/game/slay-the-spire-2/events/" class="yellow">View All Events →</a>
 
-  <div class="game-section">
-    <h2>Cards</h2>
-    <div class="wiki-list">
-      {%- assign card_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/cards/'" -%}
-      {%- for card in card_pages -%}
-        {%- if card.url != '/game/slay-the-spire-2/cards/' -%}
-          <a href="{{ card.url | relative_url }}">
-            {{ card.url | split: '/' | last | replace: '-', ' ' | capitalize }}
-          </a>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  </div>
+  <h2>Cards</h2>
+  {%- assign card_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/cards/'" -%}
+  {%- for card in card_pages -%}
+    {%- if card.url != '/game/slay-the-spire-2/cards/' -%}
+      <a href="{{ card.url | relative_url }}" class="blue">
+        {{ card.title | split: " – " | first | split: " - " | first | strip }}
+      </a>
+    {%- endif -%}
+  {%- endfor -%}
+  <a href="/game/slay-the-spire-2/cards/" class="yellow">View All Cards →</a>
 
-  <div class="game-section">
-    <h2>Season 1 Episodes</h2>
-    <div class="ep-text-grid">
-      {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" -%}
-      {%- for ep in ep_pages limit: 48 -%}
-        {%- if ep.url != '/game/slay-the-spire-2/s1/episodes/' -%}
-          <a href="{{ ep.url | relative_url }}">
-             {%- comment -%} Just grabs the 3-digit number from the URL slug {%- endcomment -%}
-             {{ ep.url | split: '/' | last | split: '-' | last | split: '.' | first }}
-          </a>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-    <div style="margin-top: 20px;">
-      <a href="/game/slay-the-spire-2/s1/episodes/" class="yellow" style="text-decoration: none; font-size: 0.9rem;">View Full Season →</a>
-    </div>
+  <h2>Season 1 Episodes</h2>
+  <div class="ep-text-grid">
+    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" -%}
+    {%- for ep in ep_pages limit: 48 -%}
+      {%- if ep.url != '/game/slay-the-spire-2/s1/episodes/' -%}
+        <a href="{{ ep.url | relative_url }}" class="blue">
+          {{ ep.title | replace: "Slay the Spire 2", "" | replace: "Slay The Spire 2", "" | strip }}
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
   </div>
+  <a href="/game/slay-the-spire-2/s1/episodes/" class="yellow">View Full Season →</a>
 
   {% include_relative _seasons_auto.html %}
 
