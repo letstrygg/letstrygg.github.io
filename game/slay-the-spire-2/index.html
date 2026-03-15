@@ -7,8 +7,6 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
 
 <div class="game-page-wrapper">
   
-  {% include_relative _steam_info.html %}
-
   <h1 class="title">Slay the Spire 2</h1>
 
   <h2>Events</h2>
@@ -44,6 +42,10 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
       {%- endif -%}
     {%- endfor -%}
   </div>
+  
+  
+  {% include_relative _steam_info.html %}
+  
   <a href="/game/slay-the-spire-2/s1/episodes/" class="yellow">View Full Season →</a>
 
   {% include_relative _seasons_auto.html %}
