@@ -85,7 +85,8 @@
           </table>
         </div>
 
-        <script>
+        <script type="text/javascript">
+          <![CDATA[
           document.addEventListener('DOMContentLoaded', function() {
             const rawRows = document.querySelectorAll('#raw-data td');
             const urls = Array.from(rawRows).map(td => td.textContent.trim());
@@ -114,13 +115,13 @@
               for (const key in node) {
                 if (typeof node[key] === 'string') {
                   // It's a file
-                  html += `<a class="file-link" href="${node[key]}" target="_blank">${key}</a>`;
+                  html += '<a class="file-link" href="' + node[key] + '" target="_blank">' + key + '</a>';
                 } else {
                   // It's a folder
-                  html += `<details>`;
-                  html += `<summary>${key}</summary>`;
+                  html += '<details>';
+                  html += '<summary>' + key + '</summary>';
                   html += buildHTML(node[key]);
-                  html += `</details>`;
+                  html += '</details>';
                 }
               }
               return html;
@@ -130,9 +131,10 @@
             const container = document.getElementById('tree-container');
             const treeHTML = buildHTML(tree);
             
-            // Wrap the whole thing in a root folder
-            container.innerHTML = `<details open><summary>letstrygg.com</summary>${treeHTML}</details>`;
+            // Wrap the whole thing in a root folder (XML safe attributes!)
+            container.innerHTML = '<details open="open"><summary>letstrygg.com</summary>' + treeHTML + '</details>';
           });
+          ]]>
         </script>
       </body>
     </html>
