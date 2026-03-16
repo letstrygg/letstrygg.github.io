@@ -20,10 +20,10 @@ permalink: /chat/
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-  // Initialize Supabase
+  // Initialize Supabase (Using a different variable name to avoid collision!)
   const supabaseUrl = 'https://fnwmtytnltmqjaflfwyr.supabase.co';
   const supabaseKey = 'sb_publishable_y12qZF_dSbUPmV_aieiUgA_CibDsxQV';
-  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
   const sendBtn = document.getElementById('sendBtn');
   const chatInput = document.getElementById('chatInput');
@@ -37,7 +37,7 @@ permalink: /chat/
       statusMessage.textContent = "Sending...";
 
       // Insert the message into the database
-      const { data, error } = await supabase
+      const { data, error } = await supabaseClient
           .from('letstrygg_chat')
           .insert([
               { message: text }
