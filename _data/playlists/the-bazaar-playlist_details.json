@@ -1,16 +1,17 @@
 {
   "id": "PLkwYKQUqZEUV9H9lYDjk3Cn60Ad4qCP8g",
+  "slug": "the-bazaar",
   "title": "The Bazaar",
   "thumbnail": "https://i.ytimg.com/vi/9svjYTS495o/maxresdefault.jpg",
   "published": "2024-12-05T09:33:21.484222Z",
   "updated": "2025-12-24T23:45:00Z",
-  "fetched": "2026-03-07T11:46:38.761Z",
+  "fetched": "2026-03-16T00:51:18.428Z",
   "episodes": 19,
   "duration": 86781,
-  "views": 2907,
-  "status": "Completed",
   "duration_formatted": "24h 6m",
+  "duration_short": "24h",
+  "views": 2907,
   "views_formatted": "2.9K",
-  "slug": "the-bazaar",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -7,8 +7,12 @@
       "videoId": "kLoudfb1BxQ",
       "videoPublishedAt": "2025-07-20T16:01:14Z",
       "durationInSeconds": 2854,
-      "viewCount": 258
-    }
+      "viewCount": 264
+    },
+    "title": "Backpack Brawl 1",
+    "thumbnail": "https://i.ytimg.com/vi/kLoudfb1BxQ/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2025-07-22T16:01:04Z",
       "durationInSeconds": 1996,
       "viewCount": 107
-    }
+    },
+    "title": "Backpack Brawl 2",
+    "thumbnail": "https://i.ytimg.com/vi/_GM2CPBUsO0/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 7
   }
 ]

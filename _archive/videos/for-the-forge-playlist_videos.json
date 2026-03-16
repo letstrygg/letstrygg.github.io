@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-07-10T19:00:33Z",
       "durationInSeconds": 3685,
       "viewCount": 75
-    }
+    },
+    "title": "🎰🧪 Trying to Build a Potion Engine in For the Forge ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/PcXkfSgoKmc/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-07-11T16:00:17Z",
       "durationInSeconds": 2242,
       "viewCount": 41
-    }
+    },
+    "title": "New Char: Necro-Dwarf, For the Forge Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/EW2ZdAT-TD0/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-07-12T16:01:02Z",
       "durationInSeconds": 2866,
       "viewCount": 30
-    }
+    },
+    "title": "Need More Grave Stone, For the Forge Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/cQL85QLYiOI/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2025-07-13T16:00:26Z",
       "durationInSeconds": 2210,
       "viewCount": 41
-    }
+    },
+    "title": "Going For The Win, For the Forge 4",
+    "thumbnail": "https://i.ytimg.com/vi/8z7XVr0HG1A/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   }
 ]

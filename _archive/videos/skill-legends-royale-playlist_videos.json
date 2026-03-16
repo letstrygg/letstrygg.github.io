@@ -1,178 +1,32 @@
 [
   {
     "kind": "youtube#playlistItem",
-    "etag": "2DEA747Ehkv_NmA_QrqPe-5UutA",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC4yODlGNEE0NkRGMEEzMEQy",
-    "contentDetails": {
-      "videoId": "5g8JfM0Qk0g",
-      "videoPublishedAt": "2025-06-08T15:00:11Z",
-      "durationInSeconds": 2914,
-      "viewCount": 174
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "2lxAZX_FmJWtLs9Tx73TdVMbA0Q",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC4wMTcyMDhGQUE4NTIzM0Y5",
+    "etag": "Sevq7IyY7rw2GoMcQ6TRJwMGIyw",
+    "id": "UExRNElMNFVWZ1FrN0M4MUtodUxncktYaDVOVm1OR3ZoeS4yODlGNEE0NkRGMEEzMEQy",
     "contentDetails": {
       "videoId": "4X0YZG6Kzq0",
       "videoPublishedAt": "2025-06-09T17:00:06Z",
       "durationInSeconds": 3061,
       "viewCount": 29
-    }
+    },
+    "title": "002 Skill Legends Royale",
+    "thumbnail": "https://i.ytimg.com/vi/4X0YZG6Kzq0/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "ygyZ1tLwWrI3uDOlsFT5JjrdpFw",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC41NkI0NEY2RDEwNTU3Q0M2",
+    "etag": "6pBMex_-3vDUKsZ_7LbygxrZjLY",
+    "id": "UExRNElMNFVWZ1FrN0M4MUtodUxncktYaDVOVm1OR3ZoeS41NkI0NEY2RDEwNTU3Q0M2",
     "contentDetails": {
-      "videoId": "393uq2suTxw",
-      "videoPublishedAt": "2025-06-25T16:00:06Z",
-      "durationInSeconds": 2016,
-      "viewCount": 71
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "tHWAkBUVZWvFswmPRH951uL4p50",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC41MjE1MkI0OTQ2QzJGNzNG",
-    "contentDetails": {
-      "videoId": "Vej9nNObcIk",
-      "videoPublishedAt": "2025-06-29T16:00:47Z",
-      "durationInSeconds": 1444,
-      "viewCount": 58
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "MzQiuMnM7a5Xjp1uvWtcRujh6nU",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC4wOTA3OTZBNzVEMTUzOTMy",
-    "contentDetails": {
-      "videoId": "Fmyq-0wx0bc",
-      "videoPublishedAt": "2025-06-30T16:00:33Z",
-      "durationInSeconds": 1627,
-      "viewCount": 51
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "ikpSSCTzbLHmE0fDbkEzhpdoyo8",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC4xMkVGQjNCMUM1N0RFNEUx",
-    "contentDetails": {
-      "videoId": "lfsvj6hD54w",
-      "videoPublishedAt": "2025-07-01T14:01:27Z",
-      "durationInSeconds": 987,
-      "viewCount": 35
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "5O7k4dOexy0VZkVrdZjjF-9RyJ4",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC41MzJCQjBCNDIyRkJDN0VD",
-    "contentDetails": {
-      "videoId": "uwO6Bw-diYg",
-      "videoPublishedAt": "2025-07-01T16:01:43Z",
-      "durationInSeconds": 1622,
-      "viewCount": 46
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "RL3oxhmCBDph-urPIiHzGMMk6Pw",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC5DQUNERDQ2NkIzRUQxNTY1",
-    "contentDetails": {
-      "videoId": "cUGFE5sx2Xs",
-      "videoPublishedAt": "2025-07-02T16:01:12Z",
-      "durationInSeconds": 1524,
-      "viewCount": 33
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "j8rGT2_zHarHOy97MdtBmn4mkHs",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC45NDk1REZENzhEMzU5MDQz",
-    "contentDetails": {
-      "videoId": "8hOYm_K_abE",
-      "videoPublishedAt": "2025-07-03T14:00:14Z",
-      "durationInSeconds": 1530,
-      "viewCount": 38
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "AuogabJINwyLgepHP6LRvMKCxvE",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC5GNjNDRDREMDQxOThCMDQ2",
-    "contentDetails": {
-      "videoId": "tV7KRvmbLtM",
-      "videoPublishedAt": "2025-07-03T16:01:39Z",
-      "durationInSeconds": 31,
-      "viewCount": 18
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "qdbrEo2dQ_VWgw9K0k9E4kdUat4",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC40NzZCMERDMjVEN0RFRThB",
-    "contentDetails": {
-      "videoId": "yTxFBFGZvMs",
-      "videoPublishedAt": "2025-07-04T14:01:44Z",
-      "durationInSeconds": 1520,
-      "viewCount": 92
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "g1OkbKiCvn9XQNMLpx9K_glvuaY",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC5EMEEwRUY5M0RDRTU3NDJC",
-    "contentDetails": {
-      "videoId": "I4SQFzcAqew",
-      "videoPublishedAt": "2025-07-05T14:00:23Z",
-      "durationInSeconds": 1789,
-      "viewCount": 73
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "nZapub59XnTI8mmNjK3mjgmwlNU",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC45ODRDNTg0QjA4NkFBNkQy",
-    "contentDetails": {
-      "videoId": "O29efHcHiJA",
-      "videoPublishedAt": "2025-07-09T16:00:46Z",
-      "durationInSeconds": 1004,
-      "viewCount": 26
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "UGyyhzxJwnnwYiX7--siziW4M9A",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC4zMDg5MkQ5MEVDMEM1NTg2",
-    "contentDetails": {
-      "videoId": "Ot7d5cQhIPo",
-      "videoPublishedAt": "2025-07-24T14:00:41Z",
-      "durationInSeconds": 2183,
-      "viewCount": 37
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "cCitfmhtpL1P2oCoMCR1fd72bpg",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC41Mzk2QTAxMTkzNDk4MDhF",
-    "contentDetails": {
-      "videoId": "Zfyr5YWdDYI",
-      "videoPublishedAt": "2025-08-01T14:01:02Z",
-      "durationInSeconds": 1482,
-      "viewCount": 32
-    }
-  },
-  {
-    "kind": "youtube#playlistItem",
-    "etag": "9cOD3Kl8c67pvVAPI3T_bOJ6uFw",
-    "id": "UExrd1lLUVVxWkVVVW5aWnJRa0lhcU5TY3gzUFJFRzRTWC5EQUE1NTFDRjcwMDg0NEMz",
-    "contentDetails": {
-      "videoId": "S4jkWXdE0pY",
-      "videoPublishedAt": "2025-08-28T14:00:47Z",
-      "durationInSeconds": 1336,
-      "viewCount": 74
-    }
+      "videoId": "5g8JfM0Qk0g",
+      "videoPublishedAt": "2025-06-08T15:00:11Z",
+      "durationInSeconds": 2914,
+      "viewCount": 175
+    },
+    "title": "001 Skill Legends Royale: First Tournament",
+    "thumbnail": "https://i.ytimg.com/vi/5g8JfM0Qk0g/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   }
 ]

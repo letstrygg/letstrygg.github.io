@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5caZ-GSoVmARmOT43bHixk",
-  "title": "BALL x PIT - Full Demo Playthrough",
+  "slug": "ball-x-pit",
+  "title": "BALL x PIT",
   "thumbnail": "https://i.ytimg.com/vi/oEcKp4HLAf4/maxresdefault.jpg",
   "published": "2025-06-10T03:24:32.628099Z",
   "updated": "2025-10-07T12:00:35Z",
-  "fetched": "2026-03-07T11:42:19.703Z",
+  "fetched": "2026-03-16T00:51:16.560Z",
   "episodes": 16,
   "duration": 30715,
-  "views": 2289,
-  "status": "Completed",
   "duration_formatted": "8h 31m",
+  "duration_short": "9h",
+  "views": 2291,
   "views_formatted": "2.3K",
-  "slug": "ball-x-pit",
+  "status": "Completed",
   "status_color": "blue"
 }

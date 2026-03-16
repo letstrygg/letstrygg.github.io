@@ -2,7 +2,7 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 2",
+  "name": "002 Skill Legends Royale",
   "description": "Episode 2 of the Skill Legends Royale Let's Play series.",
   "thumbnailUrl": "https://i.ytimg.com/vi/4X0YZG6Kzq0/maxresdefault.jpg",
   "uploadDate": "2025-06-09T17:00:06Z",
@@ -26,11 +26,11 @@
                         <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 51m 1s</span>
                         <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 29</span>
                         <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
                     </div>
 
                     <button onclick="window.location.href='/game/skill-legends-royale/s1/episodes/slr-ep-1.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    <button onclick="window.location.href='/game/skill-legends-royale/s1/episodes/slr-ep-3.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    
                     
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
@@ -48,7 +48,7 @@
             <div class="watch-nav" style="padding-bottom: 10px;">
                 <a href="/game/skill-legends-royale/s1/episodes/slr-ep-1.html">← Ep 1</a>
                 <a href="/game/skill-legends-royale/s1">Episode List</a>
-                <a href="/game/skill-legends-royale/s1/episodes/slr-ep-3.html">Ep 3 →</a>
+                <span></span>
             </div>
 
         </div>
@@ -92,7 +92,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/skill-legends-royale/s1/episodes/slr-ep-3.html";
+        const nextEpisodeUrl = "";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }

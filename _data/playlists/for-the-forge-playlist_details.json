@@ -1,16 +1,17 @@
 {
   "id": "PLkwYKQUqZEUVeKKN7rE_agXX96tq1KB_6",
+  "slug": "for-the-forge",
   "title": "For the Forge",
   "thumbnail": "https://i.ytimg.com/vi/PcXkfSgoKmc/maxresdefault.jpg",
   "published": "2025-07-10T15:49:27.635758Z",
   "updated": "2025-07-13T16:00:26Z",
-  "fetched": "2026-03-07T11:46:47.900Z",
+  "fetched": "2026-03-16T00:51:21.055Z",
   "episodes": 4,
   "duration": 11003,
-  "views": 187,
-  "status": "Completed",
   "duration_formatted": "3h 3m",
+  "duration_short": "3h",
+  "views": 187,
   "views_formatted": "187",
-  "slug": "for-the-forge",
+  "status": "Completed",
   "status_color": "blue"
 }

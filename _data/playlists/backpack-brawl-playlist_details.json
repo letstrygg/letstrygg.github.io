@@ -1,16 +1,17 @@
 {
   "id": "PLkwYKQUqZEUXTadA9j5cDD15TGHkjUA9y",
-  "title": "Backpack Brawl, Mobile Game",
+  "slug": "backpack-brawl",
+  "title": "Backpack Brawl",
   "thumbnail": "https://i.ytimg.com/vi/kLoudfb1BxQ/maxresdefault.jpg",
   "published": "2025-07-20T06:50:04.784289Z",
   "updated": "2025-07-22T16:01:04Z",
-  "fetched": "2026-03-07T11:46:46.351Z",
+  "fetched": "2026-03-16T00:51:20.399Z",
   "episodes": 2,
   "duration": 4850,
-  "views": 365,
-  "status": "Completed",
   "duration_formatted": "1h 20m",
-  "views_formatted": "365",
-  "slug": "backpack-brawl",
+  "duration_short": "1h",
+  "views": 371,
+  "views_formatted": "371",
+  "status": "Completed",
   "status_color": "blue"
 }
