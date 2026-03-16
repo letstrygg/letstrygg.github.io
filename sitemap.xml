@@ -11,11 +11,15 @@ layout: null
       {% unless page.url contains '404' or page.sitemap == false %}
       <url>
         <loc>{{ page.url | absolute_url }}</loc>
-        {% if page.last_modified_at %}
-          <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
-        {% elsif page.date %}
-          <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
-        {% endif %}
+        <lastmod>
+        {%- if page.last_modified_at -%}
+          {{ page.last_modified_at | date_to_xmlschema }}
+        {%- elsif page.date -%}
+          {{ page.date | date_to_xmlschema }}
+        {%- else -%}
+          {{ site.time | date_to_xmlschema }}
+        {%- endif -%}
+        </lastmod>
       </url>
       {% endunless %}
     {% endif %}
