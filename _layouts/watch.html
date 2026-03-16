@@ -3,7 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+    
+  <title>{{ page.title }} | letstrygg</title>
+  <meta name="title" content="{{ page.title }}">
+  <meta name="description" content="{{ page.description }}">
+
+  <meta property="og:type" content="video.other">
+  <meta property="og:url" content="https://letstrygg.com{{ page.permalink }}">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  {% if page.thumbnail %}
+  <meta property="og:image" content="{{ page.thumbnail }}">
+  {% endif %}
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://letstrygg.com{{ page.permalink }}">
+  <meta property="twitter:title" content="{{ page.title }}">
+  <meta property="twitter:description" content="{{ page.description }}">
+  {% if page.thumbnail %}
+  <meta property="twitter:image" content="{{ page.thumbnail }}">
+  {% endif %}
+
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/watch.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0"/>
