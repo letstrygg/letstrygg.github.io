@@ -59,4 +59,34 @@ permalink: /chat/
 
       sendBtn.disabled = false;
   });
+  
+  const chatBox = document.getElementById('chatBox');
+
+async function loadMessages() {
+    const { data, error } = await supabaseClient
+        .from('letstrygg_chat')
+        .select('*')
+        .order('created_at', { ascending: true }); // Oldest at the top, newest at bottom
+    
+    if (error) {
+        console.error("Error loading messages:", error);
+        chatBox.innerHTML = '<span style="color: red;">Failed to load messages.</span>';
+        return;
+    }
+
+    chatBox.innerHTML = ''; // Clear the "Loading..." text
+    
+    data.forEach(row => {
+        const msgElement = document.createElement('div');
+        msgElement.style.marginBottom = '8px';
+        msgElement.textContent = row.message; // Eventually we will add usernames here!
+        chatBox.appendChild(msgElement);
+    });
+    
+    // Scroll to the bottom
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Call it immediately when the page loads
+loadMessages();
 </script>
