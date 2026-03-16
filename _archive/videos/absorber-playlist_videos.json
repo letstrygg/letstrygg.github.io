@@ -7,8 +7,12 @@
       "videoId": "-fDC66F_iLs",
       "videoPublishedAt": "2025-03-21T15:00:00Z",
       "durationInSeconds": 3075,
-      "viewCount": 475
-    }
+      "viewCount": 476
+    },
+    "title": "1 Absorber: Itch.io Incremental Game Now on Steam?",
+    "thumbnail": "https://i.ytimg.com/vi/-fDC66F_iLs/maxresdefault.jpg",
+    "likes": 15,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-03-22T15:00:00Z",
       "durationInSeconds": 3873,
       "viewCount": 194
-    }
+    },
+    "title": "2 Absorber",
+    "thumbnail": "https://i.ytimg.com/vi/049UNiz_zaw/maxresdefault.jpg",
+    "likes": 11,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-03-26T17:00:23Z",
       "durationInSeconds": 8050,
       "viewCount": 171
-    }
+    },
+    "title": "3 Absorber",
+    "thumbnail": "https://i.ytimg.com/vi/OzbRxesWAuk/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2025-03-28T17:00:24Z",
       "durationInSeconds": 5142,
       "viewCount": 200
-    }
+    },
+    "title": "4 Absorber",
+    "thumbnail": "https://i.ytimg.com/vi/EtccBPy4vdY/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 1
   }
 ]

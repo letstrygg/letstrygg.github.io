@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4qoAJk5JxP91NXUPoZJYN2",
-  "title": "He is Coming S2 - Game Release",
+  "slug": "he-is-coming-s2",
+  "title": "He is Coming s2",
   "thumbnail": "https://i.ytimg.com/vi/vp6KDfDSiX8/maxresdefault.jpg",
   "published": "2025-07-18T05:49:03.648051Z",
   "updated": "2025-09-30T12:01:54Z",
-  "fetched": "2026-03-07T11:35:55.752Z",
+  "fetched": "2026-03-16T04:08:46.431Z",
   "episodes": 78,
   "duration": 222051,
-  "views": 54857,
-  "status": "Completed",
   "duration_formatted": "61h 40m",
+  "duration_short": "62h",
+  "views": 54892,
   "views_formatted": "54.9K",
-  "slug": "he-is-coming-s2",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5IlM6uSUD06Dgt-84j6Ory",
+  "slug": "absorber",
   "title": "Absorber",
   "thumbnail": "https://i.ytimg.com/vi/-fDC66F_iLs/maxresdefault.jpg",
   "published": "2025-03-17T10:39:55.93783Z",
   "updated": "2025-03-28T17:00:24Z",
-  "fetched": "2026-03-07T12:03:07.894Z",
+  "fetched": "2026-03-16T04:08:44.025Z",
   "episodes": 4,
   "duration": 20140,
-  "views": 1040,
-  "status": "Completed",
   "duration_formatted": "5h 35m",
+  "duration_short": "6h",
+  "views": 1041,
   "views_formatted": "1K",
-  "slug": "absorber",
+  "status": "Completed",
   "status_color": "blue"
 }

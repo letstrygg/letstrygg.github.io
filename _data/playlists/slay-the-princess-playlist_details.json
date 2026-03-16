@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6FzApWYsN08TLDyJwQ6oMZ",
+  "slug": "slay-the-princess",
   "title": "Slay the Princess",
   "thumbnail": "https://i.ytimg.com/vi/6Gg1vfuVbNw/maxresdefault.jpg",
   "published": "2025-03-18T07:08:29.57499Z",
   "updated": "2025-03-22T17:00:12Z",
-  "fetched": "2026-03-07T12:03:07.388Z",
+  "fetched": "2026-03-16T04:08:42.559Z",
   "episodes": 3,
   "duration": 4504,
-  "views": 314,
-  "status": "Completed",
   "duration_formatted": "1h 15m",
+  "duration_short": "1h",
+  "views": 314,
   "views_formatted": "314",
-  "slug": "slay-the-princess",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7IQY5D6AVnwIBlTuy54jMt",
+  "slug": "ways-of-alchemy",
   "title": "Ways of Alchemy",
   "thumbnail": "https://i.ytimg.com/vi/DtL5umoecVw/maxresdefault.jpg",
   "published": "2025-03-24T03:44:49.378952Z",
   "updated": "2025-03-25T17:00:14Z",
-  "fetched": "2026-03-07T12:03:06.863Z",
+  "fetched": "2026-03-16T04:08:41.915Z",
   "episodes": 2,
   "duration": 5375,
-  "views": 399,
-  "status": "Completed",
   "duration_formatted": "1h 29m",
+  "duration_short": "1h",
+  "views": 399,
   "views_formatted": "399",
-  "slug": "ways-of-alchemy",
+  "status": "Completed",
   "status_color": "blue"
 }

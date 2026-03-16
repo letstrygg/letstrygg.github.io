@@ -5,7 +5,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 13,
-    "views": 688,
+    "views": 693,
     "duration": 110177,
     "tags": [
       "Deck Builder"
@@ -13,7 +13,7 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-15T14:01:08Z",
-    "views_formatted": "688",
+    "views_formatted": "693",
     "duration_formatted": "30h 36m",
     "duration_short": "31h",
     "vpv": 53,
@@ -25,7 +25,7 @@
     "thumbnail": "https://i.ytimg.com/vi/4LHX5Ojo07M/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 271,
-    "views": 54248,
+    "views": 54254,
     "duration": 573430,
     "tags": [
       "PVP",
@@ -34,7 +34,7 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-02T14:01:01Z",
-    "views_formatted": "54.2K",
+    "views_formatted": "54.3K",
     "duration_formatted": "159h 17m",
     "duration_short": "159h",
     "vpv": 200,
@@ -129,7 +129,7 @@
     "thumbnail": "https://i.ytimg.com/vi/vp6KDfDSiX8/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 90,
-    "views": 59789,
+    "views": 59824,
     "duration": 249918,
     "tags": [
       "Inventory Management",
@@ -141,8 +141,8 @@
     "views_formatted": "59.8K",
     "duration_formatted": "69h 25m",
     "duration_short": "69h",
-    "vpv": 664,
-    "vpv_formatted": "664"
+    "vpv": 665,
+    "vpv_formatted": "665"
   },
   {
     "id": "tower-dominion",
@@ -212,7 +212,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 124,
-    "views": 6435,
+    "views": 6438,
     "duration": 302950,
     "tags": [
       "Tower Defense"
@@ -359,7 +359,7 @@
     "thumbnail": "https://i.ytimg.com/vi/IBTj5ztoGV0/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 30,
-    "views": 5385,
+    "views": 5386,
     "duration": 97635,
     "tags": [
       "PVP",
@@ -725,7 +725,7 @@
     "thumbnail": "https://i.ytimg.com/vi/2kaU33gFkRk/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 10,
-    "views": 444,
+    "views": 453,
     "duration": 53933,
     "tags": [
       "Automation",
@@ -734,11 +734,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-15T16:00:02Z",
-    "views_formatted": "444",
+    "views_formatted": "453",
     "duration_formatted": "14h 58m",
     "duration_short": "15h",
-    "vpv": 44,
-    "vpv_formatted": "44"
+    "vpv": 45,
+    "vpv_formatted": "45"
   },
   {
     "id": "wanderburg",
@@ -1286,7 +1286,7 @@
     "thumbnail": "https://i.ytimg.com/vi/lTTXZxN5fac/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 8,
-    "views": 3797,
+    "views": 3873,
     "duration": 38370,
     "tags": [
       "Automation",
@@ -1295,11 +1295,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-10T12:00:54Z",
-    "views_formatted": "3.8K",
+    "views_formatted": "3.9K",
     "duration_formatted": "10h 39m",
     "duration_short": "11h",
-    "vpv": 475,
-    "vpv_formatted": "475"
+    "vpv": 484,
+    "vpv_formatted": "484"
   },
   {
     "id": "the-last-spell",
@@ -1555,7 +1555,7 @@
     "thumbnail": "https://i.ytimg.com/vi/-fDC66F_iLs/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
-    "views": 1040,
+    "views": 1041,
     "duration": 20140,
     "tags": [
       "Incremental"
@@ -1575,7 +1575,7 @@
     "thumbnail": "https://i.ytimg.com/vi/7XVb7HQ9cbA/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
-    "views": 464,
+    "views": 465,
     "duration": 9812,
     "tags": [
       "Bullet Heaven",
@@ -1584,7 +1584,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-03-19T15:00:10Z",
-    "views_formatted": "464",
+    "views_formatted": "465",
     "duration_formatted": "2h 43m",
     "duration_short": "3h",
     "vpv": 155,
@@ -1596,7 +1596,7 @@
     "thumbnail": "https://i.ytimg.com/vi/fc-vhjeo5fA/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 7,
-    "views": 4752,
+    "views": 4875,
     "duration": 26612,
     "tags": [
       "Puzzle"
@@ -1604,11 +1604,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-03-26T15:00:16Z",
-    "views_formatted": "4.8K",
+    "views_formatted": "4.9K",
     "duration_formatted": "7h 23m",
     "duration_short": "7h",
-    "vpv": 679,
-    "vpv_formatted": "679"
+    "vpv": 696,
+    "vpv_formatted": "696"
   },
   {
     "id": "die-in-the-dungeon",
@@ -1782,7 +1782,7 @@
     "thumbnail": "https://i.ytimg.com/vi/IYkG0cyki-Q/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
-    "views": 2433,
+    "views": 2438,
     "duration": 17928,
     "tags": [
       "Puzzle",
@@ -1795,8 +1795,8 @@
     "views_formatted": "2.4K",
     "duration_formatted": "4h 58m",
     "duration_short": "5h",
-    "vpv": 811,
-    "vpv_formatted": "811"
+    "vpv": 813,
+    "vpv_formatted": "813"
   },
   {
     "id": "dredge",
@@ -1804,7 +1804,7 @@
     "thumbnail": "https://i.ytimg.com/vi/7n5I-NmYjHY/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 16,
-    "views": 2209,
+    "views": 2215,
     "duration": 35506,
     "tags": [
       "Survival",
@@ -1867,7 +1867,7 @@
     "thumbnail": "https://i.ytimg.com/vi/N3pBhKWpS3s/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
-    "views": 370,
+    "views": 371,
     "duration": 20507,
     "tags": [
       "Tower Defense"
@@ -1875,7 +1875,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-09-06T13:00:30Z",
-    "views_formatted": "370",
+    "views_formatted": "371",
     "duration_formatted": "5h 41m",
     "duration_short": "6h",
     "vpv": 93,
@@ -1887,7 +1887,7 @@
     "thumbnail": "https://i.ytimg.com/vi/aYfBj6Yx1RM/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 627,
+    "views": 628,
     "duration": 5115,
     "tags": [
       "Tower Defense"
@@ -1895,7 +1895,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-08-26T13:00:04Z",
-    "views_formatted": "627",
+    "views_formatted": "628",
     "duration_formatted": "1h 25m",
     "duration_short": "1h",
     "vpv": 314,

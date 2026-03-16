@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4KQNkqtLN5CMDdLpp9HyEL",
+  "slug": "he-is-coming",
   "title": "He is Coming",
   "thumbnail": "https://i.ytimg.com/vi/41PuAR17Ff4/maxresdefault.jpg",
   "published": "2025-03-03T23:44:10.054657Z",
   "updated": "2025-03-20T15:00:09Z",
-  "fetched": "2026-03-07T12:03:10.672Z",
+  "fetched": "2026-03-16T04:08:46.966Z",
   "episodes": 12,
   "duration": 27867,
-  "views": 4932,
-  "status": "Completed",
   "duration_formatted": "7h 44m",
+  "duration_short": "8h",
+  "views": 4932,
   "views_formatted": "4.9K",
-  "slug": "he-is-coming",
+  "status": "Completed",
   "status_color": "blue"
 }

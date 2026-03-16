@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-03-25T17:00:14Z",
       "durationInSeconds": 2626,
       "viewCount": 91
-    }
+    },
+    "title": "2 Ways of Alchemy",
+    "thumbnail": "https://i.ytimg.com/vi/DtL5umoecVw/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2025-03-24T17:00:21Z",
       "durationInSeconds": 2749,
       "viewCount": 308
-    }
+    },
+    "title": "1 Ways of Alchemy",
+    "thumbnail": "https://i.ytimg.com/vi/JZ3pWyQgnZE/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 2
   }
 ]

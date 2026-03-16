@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 42",
+  "name": "Challenge: Test of Strength, He Is Coming S2E44",
   "description": "Episode 42 of the He Is Coming Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/xdNXLjL3JkY/maxresdefault.jpg",
-  "uploadDate": "2025-08-17T13:01:43Z",
-  "duration": "PT1868S",
-  "embedUrl": "https://www.youtube.com/embed/xdNXLjL3JkY"
+  "thumbnailUrl": "https://i.ytimg.com/vi/R0mhsg5Y8bQ/maxresdefault.jpg",
+  "uploadDate": "2025-08-19T12:00:54Z",
+  "duration": "PT3002S",
+  "embedUrl": "https://www.youtube.com/embed/R0mhsg5Y8bQ"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Aug 17, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 31m 8s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 571</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Aug 19, 2025</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 50m 2s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 515</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 21</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 9</span>
                     </div>
 
                     <button onclick="window.location.href='/game/he-is-coming/s2/episodes/hic-ep-41.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_xdNXLjL3JkY';
+  var storageKey = 'yt_resume_R0mhsg5Y8bQ';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'xdNXLjL3JkY',
+      videoId: 'R0mhsg5Y8bQ',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/xdNXLjL3JkY?t=" + t + "s";
+          const url = "https://youtu.be/R0mhsg5Y8bQ?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

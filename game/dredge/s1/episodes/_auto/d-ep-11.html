@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 11",
+  "name": "Eye Not Scare. Dredge 3.3",
   "description": "Episode 11 of the Dredge Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/SvPdHIgegGE/maxresdefault.jpg",
-  "uploadDate": "2025-01-23T13:00:38Z",
-  "duration": "PT1580S",
-  "embedUrl": "https://www.youtube.com/embed/SvPdHIgegGE"
+  "thumbnailUrl": "https://i.ytimg.com/vi/DU2lhz28uCA/maxresdefault.jpg",
+  "uploadDate": "2025-01-24T13:00:24Z",
+  "duration": "PT2112S",
+  "embedUrl": "https://www.youtube.com/embed/DU2lhz28uCA"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 23, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 26m 20s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 187</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 24, 2025</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 35m 12s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 111</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 8</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 5</span>
                     </div>
 
                     <button onclick="window.location.href='/game/dredge/s1/episodes/d-ep-10.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_SvPdHIgegGE';
+  var storageKey = 'yt_resume_DU2lhz28uCA';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'SvPdHIgegGE',
+      videoId: 'DU2lhz28uCA',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/SvPdHIgegGE?t=" + t + "s";
+          const url = "https://youtu.be/DU2lhz28uCA?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

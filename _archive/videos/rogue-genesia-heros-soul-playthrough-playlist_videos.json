@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-03-19T15:00:10Z",
       "durationInSeconds": 2576,
       "viewCount": 106
-    }
+    },
+    "title": "003 E-Rank 2: Rogue Genesia",
+    "thumbnail": "https://i.ytimg.com/vi/7XVb7HQ9cbA/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-03-18T15:00:15Z",
       "durationInSeconds": 3908,
       "viewCount": 151
-    }
+    },
+    "title": "002 E-Rank: Rogue Genesia",
+    "thumbnail": "https://i.ytimg.com/vi/63YWpVo6jIY/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -29,7 +37,11 @@
       "videoId": "iNT-EwZ8-Vo",
       "videoPublishedAt": "2025-03-16T17:00:44Z",
       "durationInSeconds": 3328,
-      "viewCount": 207
-    }
+      "viewCount": 208
+    },
+    "title": "001 It Begins: Rogue Genesia, Hero's Soul",
+    "thumbnail": "https://i.ytimg.com/vi/iNT-EwZ8-Vo/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 1
   }
 ]

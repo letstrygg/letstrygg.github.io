@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 73",
+  "name": "Looking at Development Roadmap, He Is Coming S2E77",
   "description": "Episode 73 of the He Is Coming Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/GkO3JRQBmLg/maxresdefault.jpg",
-  "uploadDate": "2025-09-17T17:45:01Z",
-  "duration": "PT4583S",
-  "embedUrl": "https://www.youtube.com/embed/GkO3JRQBmLg"
+  "thumbnailUrl": "https://i.ytimg.com/vi/B8vNokzlyGI/maxresdefault.jpg",
+  "uploadDate": "2025-09-23T12:00:18Z",
+  "duration": "PT2354S",
+  "embedUrl": "https://www.youtube.com/embed/B8vNokzlyGI"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Sep 17, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 16m 23s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 333</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Sep 23, 2025</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 39m 14s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 231</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 7</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 3</span>
                     </div>
 
                     <button onclick="window.location.href='/game/he-is-coming/s2/episodes/hic-ep-72.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_GkO3JRQBmLg';
+  var storageKey = 'yt_resume_B8vNokzlyGI';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'GkO3JRQBmLg',
+      videoId: 'B8vNokzlyGI',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/GkO3JRQBmLg?t=" + t + "s";
+          const url = "https://youtu.be/B8vNokzlyGI?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 
