@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-06-01T01:00:20Z",
       "durationInSeconds": 3898,
       "viewCount": 81
-    }
+    },
+    "title": "[Key GIVEAWAY] Konfronto, New Spaceship Autobattler",
+    "thumbnail": "https://i.ytimg.com/vi/LZdAMjxJfHk/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,8 +22,12 @@
       "videoId": "NH8F7UP-4hE",
       "videoPublishedAt": "2025-06-01T14:00:26Z",
       "durationInSeconds": 2497,
-      "viewCount": 36
-    }
+      "viewCount": 37
+    },
+    "title": "2 More Spaceship Game, Konfronto",
+    "thumbnail": "https://i.ytimg.com/vi/NH8F7UP-4hE/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-06-02T14:01:01Z",
       "durationInSeconds": 3701,
       "viewCount": 42
-    }
+    },
+    "title": "3 Pew-Pew, Konfronto",
+    "thumbnail": "https://i.ytimg.com/vi/cNN-d3U2BLo/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2025-06-04T14:01:04Z",
       "durationInSeconds": 5193,
       "viewCount": 52
-    }
+    },
+    "title": "4 Konfronto",
+    "thumbnail": "https://i.ytimg.com/vi/eU6ztBm6kMY/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   }
 ]

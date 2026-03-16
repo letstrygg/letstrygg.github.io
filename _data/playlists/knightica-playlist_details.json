@@ -1,16 +1,17 @@
 {
   "id": "PLkwYKQUqZEUUfzALYjZzrEvDqPEoyNr4g",
+  "slug": "knightica",
   "title": "Knightica",
   "thumbnail": "https://i.ytimg.com/vi/t_mpDmJhh30/maxresdefault.jpg",
   "published": "2025-03-28T03:36:45.913679Z",
   "updated": "2025-03-29T16:00:59Z",
-  "fetched": "2026-03-07T11:46:57.558Z",
+  "fetched": "2026-03-16T01:02:52.380Z",
   "episodes": 2,
   "duration": 7339,
-  "views": 1060,
-  "status": "Completed",
   "duration_formatted": "2h 2m",
+  "duration_short": "2h",
+  "views": 1060,
   "views_formatted": "1.1K",
-  "slug": "knightica",
+  "status": "Completed",
   "status_color": "blue"
 }

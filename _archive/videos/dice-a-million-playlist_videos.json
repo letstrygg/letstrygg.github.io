@@ -7,8 +7,12 @@
       "videoId": "b2jAfL21hK0",
       "videoPublishedAt": "2026-02-26T14:01:02Z",
       "durationInSeconds": 2553,
-      "viewCount": 245
-    }
+      "viewCount": 252
+    },
+    "title": "001 Dice A Million",
+    "thumbnail": "https://i.ytimg.com/vi/b2jAfL21hK0/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2026-02-26T16:01:03Z",
       "durationInSeconds": 2711,
       "viewCount": 76
-    }
+    },
+    "title": "002 Dice A Million",
+    "thumbnail": "https://i.ytimg.com/vi/fOK_QSRyhww/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -29,8 +37,12 @@
       "videoId": "kfIL7kSmDNc",
       "videoPublishedAt": "2026-02-27T16:01:14Z",
       "durationInSeconds": 7918,
-      "viewCount": 60
-    }
+      "viewCount": 61
+    },
+    "title": "003 Dice A Million",
+    "thumbnail": "https://i.ytimg.com/vi/kfIL7kSmDNc/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -40,8 +52,12 @@
       "videoId": "Lmk1FMVcWd0",
       "videoPublishedAt": "2026-02-28T16:00:25Z",
       "durationInSeconds": 6434,
-      "viewCount": 248
-    }
+      "viewCount": 250
+    },
+    "title": "004 Dice A Million",
+    "thumbnail": "https://i.ytimg.com/vi/Lmk1FMVcWd0/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2026-03-01T14:01:20Z",
       "durationInSeconds": 3885,
       "viewCount": 81
-    }
+    },
+    "title": "005 Dice A Million",
+    "thumbnail": "https://i.ytimg.com/vi/muUuHPssbUA/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,6 +83,10 @@
       "videoPublishedAt": "2026-03-02T16:00:07Z",
       "durationInSeconds": 5135,
       "viewCount": 133
-    }
+    },
+    "title": "006 Dice A Million",
+    "thumbnail": "https://i.ytimg.com/vi/5XQ-RrYbLIo/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   }
 ]

@@ -5,12 +5,13 @@
   "thumbnail": "https://i.ytimg.com/vi/b2jAfL21hK0/maxresdefault.jpg",
   "published": "2026-02-26T02:35:35.136592Z",
   "updated": "2026-03-02T16:00:07Z",
-  "fetched": "2026-03-13T21:39:27.811Z",
+  "fetched": "2026-03-16T01:08:12.485Z",
   "episodes": 6,
   "duration": 28636,
   "duration_formatted": "7h 57m",
-  "views": 843,
-  "views_formatted": "843",
+  "duration_short": "8h",
+  "views": 853,
+  "views_formatted": "853",
   "status": "Paused",
   "status_color": "purple"
 }

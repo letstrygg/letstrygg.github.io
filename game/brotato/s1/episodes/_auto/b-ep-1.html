@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 1",
+  "name": "Let's Play Brotato Ep 1 - Beta Branch Preview of Full 1.0 Release!",
   "description": "Episode 1 of the Brotato Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/A5lh3aaP5iw/maxresdefault.jpg",
-  "uploadDate": "2022-06-19T15:00:09Z",
-  "duration": "PT3283S",
-  "embedUrl": "https://www.youtube.com/embed/A5lh3aaP5iw"
+  "thumbnailUrl": "https://i.ytimg.com/vi/N860nuvw8kk/maxresdefault.jpg",
+  "uploadDate": "2023-06-22T00:00:12Z",
+  "duration": "PT2851S",
+  "embedUrl": "https://www.youtube.com/embed/N860nuvw8kk"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jun 19, 2022</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 54m 43s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 86</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jun 21, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 47m 31s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 294</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 7</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
                     </div>
 
                     
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_A5lh3aaP5iw';
+  var storageKey = 'yt_resume_N860nuvw8kk';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'A5lh3aaP5iw',
+      videoId: 'N860nuvw8kk',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/A5lh3aaP5iw?t=" + t + "s";
+          const url = "https://youtu.be/N860nuvw8kk?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

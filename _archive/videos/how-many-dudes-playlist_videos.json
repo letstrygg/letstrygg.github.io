@@ -7,8 +7,12 @@
       "videoId": "tO7mUxDKDLc",
       "videoPublishedAt": "2025-12-21T20:00:41Z",
       "durationInSeconds": 1746,
-      "viewCount": 179
-    }
+      "viewCount": 180
+    },
+    "title": "001 One Horse-Size-Duck or 75 Duck-Size-Horses? How Many Dudes!",
+    "thumbnail": "https://i.ytimg.com/vi/tO7mUxDKDLc/maxresdefault.jpg",
+    "likes": 11,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-12-21T21:00:03Z",
       "durationInSeconds": 1341,
       "viewCount": 148
-    }
+    },
+    "title": "002 We Are Legion, We Are Dude. How Many Dudes?",
+    "thumbnail": "https://i.ytimg.com/vi/1ozORLQ0aN0/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-12-22T12:01:15Z",
       "durationInSeconds": 1560,
       "viewCount": 124
-    }
+    },
+    "title": "003 Game is Wild! How Many Dudes?",
+    "thumbnail": "https://i.ytimg.com/vi/dm1lyzi0P_Q/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2025-12-22T14:00:18Z",
       "durationInSeconds": 1312,
       "viewCount": 182
-    }
+    },
+    "title": "004 Franks & Zombies: How Many Dudes?",
+    "thumbnail": "https://i.ytimg.com/vi/4OLgRjPpTQ8/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2025-12-22T16:01:37Z",
       "durationInSeconds": 498,
       "viewCount": 240
-    }
+    },
+    "title": "005 How Many Dudes?",
+    "thumbnail": "https://i.ytimg.com/vi/wVZmcohDctU/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2025-12-25T01:00:38Z",
       "durationInSeconds": 2264,
       "viewCount": 433
-    }
+    },
+    "title": "006 Best. Start. Ever. How Many Dudes?",
+    "thumbnail": "https://i.ytimg.com/vi/SILHd90hBzY/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2025-12-25T02:30:46Z",
       "durationInSeconds": 2464,
       "viewCount": 149
-    }
+    },
+    "title": "007 U.N.K.I.L.L.A.B.L.E. How Many Dudes?",
+    "thumbnail": "https://i.ytimg.com/vi/i_-KNehEOhc/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,6 +113,10 @@
       "videoPublishedAt": "2025-12-25T03:30:01Z",
       "durationInSeconds": 1610,
       "viewCount": 221
-    }
+    },
+    "title": "008 It All. Falls. Down. How Many Dudes?",
+    "thumbnail": "https://i.ytimg.com/vi/12603cLiDoY/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 10
   }
 ]

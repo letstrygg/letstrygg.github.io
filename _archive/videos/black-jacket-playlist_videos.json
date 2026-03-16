@@ -7,8 +7,12 @@
       "videoId": "O_56hJaSTeI",
       "videoPublishedAt": "2025-10-10T14:00:42Z",
       "durationInSeconds": 2840,
-      "viewCount": 410
-    }
+      "viewCount": 418
+    },
+    "title": "Can't Wait for Release! More Black Jacket Gameplay, Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/O_56hJaSTeI/maxresdefault.jpg",
+    "likes": 15,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,7 +22,11 @@
       "videoId": "P_iA_CdUg3o",
       "videoPublishedAt": "2025-10-09T12:00:47Z",
       "durationInSeconds": 1887,
-      "viewCount": 860
-    }
+      "viewCount": 880
+    },
+    "title": "This Game is So Good! Black Jacket 1",
+    "thumbnail": "https://i.ytimg.com/vi/P_iA_CdUg3o/maxresdefault.jpg",
+    "likes": 24,
+    "comments": 5
   }
 ]

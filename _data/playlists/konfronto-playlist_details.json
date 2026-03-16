@@ -1,16 +1,17 @@
 {
   "id": "PLkwYKQUqZEUUobkBKaIchoc7QgQZER40Q",
+  "slug": "konfronto",
   "title": "Konfronto",
   "thumbnail": "https://i.ytimg.com/vi/LZdAMjxJfHk/maxresdefault.jpg",
   "published": "2025-06-01T00:42:12.344736Z",
   "updated": "2025-06-04T14:01:04Z",
-  "fetched": "2026-03-07T11:46:56.337Z",
+  "fetched": "2026-03-16T01:02:51.727Z",
   "episodes": 4,
   "duration": 15289,
-  "views": 211,
-  "status": "Completed",
   "duration_formatted": "4h 14m",
-  "views_formatted": "211",
-  "slug": "konfronto",
+  "duration_short": "4h",
+  "views": 212,
+  "views_formatted": "212",
+  "status": "Completed",
   "status_color": "blue"
 }

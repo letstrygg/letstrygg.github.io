@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk420F950BVlg2Zhq0kTGXyU",
+  "slug": "the-last-spell",
   "title": "The Last Spell",
   "thumbnail": "https://i.ytimg.com/vi/FNxmFHXb2-A/maxresdefault.jpg",
   "published": "2025-07-10T04:51:57.361268Z",
   "updated": "2025-07-22T17:00:43Z",
-  "fetched": "2026-03-07T12:03:01.087Z",
+  "fetched": "2026-03-16T01:16:18.055Z",
   "episodes": 12,
   "duration": 67573,
-  "views": 785,
-  "status": "Completed",
   "duration_formatted": "18h 46m",
-  "views_formatted": "785",
-  "slug": "the-last-spell",
+  "duration_short": "19h",
+  "views": 787,
+  "views_formatted": "787",
+  "status": "Completed",
   "status_color": "blue"
 }

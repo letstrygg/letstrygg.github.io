@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 8",
+  "name": "Let's Play Brotato Ep 8",
   "description": "Episode 8 of the Brotato Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/URnM3k6u-eg/maxresdefault.jpg",
-  "uploadDate": "2023-06-25T12:35:24Z",
-  "duration": "PT3157S",
-  "embedUrl": "https://www.youtube.com/embed/URnM3k6u-eg"
+  "thumbnailUrl": "https://i.ytimg.com/vi/tL0e1HrAHPE/maxresdefault.jpg",
+  "uploadDate": "2023-06-28T22:00:29Z",
+  "duration": "PT6794S",
+  "embedUrl": "https://www.youtube.com/embed/tL0e1HrAHPE"
 }
 </script>
 
@@ -22,15 +22,15 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jun 25, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 52m 37s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 5</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jun 28, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 53m 14s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 60</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 2</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 5</span>
                     </div>
 
                     <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-7.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-9.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-14.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
@@ -48,7 +48,7 @@
             <div class="watch-nav" style="padding-bottom: 10px;">
                 <a href="/game/brotato/s1/episodes/b-ep-7.html">← Ep 7</a>
                 <a href="/game/brotato/s1">Episode List</a>
-                <a href="/game/brotato/s1/episodes/b-ep-9.html">Ep 9 →</a>
+                <a href="/game/brotato/s1/episodes/b-ep-14.html">Ep 14 →</a>
             </div>
 
         </div>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_URnM3k6u-eg';
+  var storageKey = 'yt_resume_tL0e1HrAHPE';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'URnM3k6u-eg',
+      videoId: 'tL0e1HrAHPE',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -92,7 +92,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/brotato/s1/episodes/b-ep-9.html";
+        const nextEpisodeUrl = "/game/brotato/s1/episodes/b-ep-14.html";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/URnM3k6u-eg?t=" + t + "s";
+          const url = "https://youtu.be/tL0e1HrAHPE?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

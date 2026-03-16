@@ -8,7 +8,11 @@
       "videoPublishedAt": "2022-04-27T13:00:02Z",
       "durationInSeconds": 1510,
       "viewCount": 151
-    }
+    },
+    "title": "Trigon Space Story Lets Play Ep 1 - FTL inspired tactical strategy space game with fancy graphics!",
+    "thumbnail": "https://i.ytimg.com/vi/44lss6lmUDA/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2022-04-29T13:00:31Z",
       "durationInSeconds": 2013,
       "viewCount": 33
-    }
+    },
+    "title": "Trigon Space Story Lets Play Ep 2 - FTL inspired space tactics game",
+    "thumbnail": "https://i.ytimg.com/vi/i7qu-FrARJM/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   }
 ]

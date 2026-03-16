@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7VR_8AcZb5efs_b2vuYSpd",
+  "slug": "black-jacket",
   "title": "Black Jacket",
   "thumbnail": "https://i.ytimg.com/vi/O_56hJaSTeI/maxresdefault.jpg",
   "published": "2025-10-09T02:29:31.244558Z",
   "updated": "2025-10-10T14:00:42Z",
-  "fetched": "2026-03-07T12:02:54.930Z",
+  "fetched": "2026-03-16T01:16:17.410Z",
   "episodes": 2,
   "duration": 4727,
-  "views": 1270,
-  "status": "Completed",
   "duration_formatted": "1h 18m",
+  "duration_short": "1h",
+  "views": 1298,
   "views_formatted": "1.3K",
-  "slug": "black-jacket",
+  "status": "Completed",
   "status_color": "blue"
 }

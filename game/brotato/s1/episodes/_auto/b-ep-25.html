@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 25",
+  "name": "Brotato 27",
   "description": "Episode 25 of the Brotato Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/5mpuUhYIw60/maxresdefault.jpg",
-  "uploadDate": "2023-07-01T10:52:16Z",
-  "duration": "PT3993S",
-  "embedUrl": "https://www.youtube.com/embed/5mpuUhYIw60"
+  "thumbnailUrl": "https://i.ytimg.com/vi/SWEMjUTMhHo/maxresdefault.jpg",
+  "uploadDate": "2023-07-02T11:36:22Z",
+  "duration": "PT1400S",
+  "embedUrl": "https://www.youtube.com/embed/SWEMjUTMhHo"
 }
 </script>
 
@@ -22,14 +22,14 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jul 1, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 6m 33s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jul 2, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 23m 20s</span>
                         <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 0</span>
                         <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
                         <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
                     </div>
 
-                    <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-24.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
+                    <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-22.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
                     <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-26.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     
                     <div class="overlay-bottom">
@@ -46,7 +46,7 @@
             </div>
 
             <div class="watch-nav" style="padding-bottom: 10px;">
-                <a href="/game/brotato/s1/episodes/b-ep-24.html">← Ep 24</a>
+                <a href="/game/brotato/s1/episodes/b-ep-22.html">← Ep 22</a>
                 <a href="/game/brotato/s1">Episode List</a>
                 <a href="/game/brotato/s1/episodes/b-ep-26.html">Ep 26 →</a>
             </div>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_5mpuUhYIw60';
+  var storageKey = 'yt_resume_SWEMjUTMhHo';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: '5mpuUhYIw60',
+      videoId: 'SWEMjUTMhHo',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/5mpuUhYIw60?t=" + t + "s";
+          const url = "https://youtu.be/SWEMjUTMhHo?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

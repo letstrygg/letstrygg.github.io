@@ -7,8 +7,12 @@
       "videoId": "3D8QJni7Fgg",
       "videoPublishedAt": "2024-10-20T14:00:02Z",
       "durationInSeconds": 1845,
-      "viewCount": 103
-    }
+      "viewCount": 105
+    },
+    "title": "Halls of Torment - First Swordsman Run - Let's Play Series Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/3D8QJni7Fgg/maxresdefault.jpg",
+    "likes": 10,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2024-10-20T16:00:28Z",
       "durationInSeconds": 1350,
       "viewCount": 81
-    }
+    },
+    "title": "Archer: Ember Grounds & Haunted Caverns - Halls of Torment Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/YyLbMP0qk3M/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2024-10-21T14:00:13Z",
       "durationInSeconds": 3563,
       "viewCount": 136
-    }
+    },
+    "title": "Warrior: Trying for 1st Win - Halls of Torment Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/FXjP-B9-APg/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2024-10-23T17:00:44Z",
       "durationInSeconds": 3527,
       "viewCount": 56
-    }
+    },
+    "title": "Fire, lots of Fire - Halls of Torment Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/pJA55Vhcb_8/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   }
 ]

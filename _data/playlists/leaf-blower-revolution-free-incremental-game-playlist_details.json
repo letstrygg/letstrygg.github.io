@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4VaNSTBDm16EOkiyXmg1Xv",
-  "title": "Leaf Blower Revolution, Free Incremental Game",
+  "slug": "leaf-blower-revolution-free-incremental-game",
+  "title": "Leaf Blower Revolution Free Incremental Game",
   "thumbnail": "https://i.ytimg.com/vi/oriT8VX4H-w/maxresdefault.jpg",
   "published": "2025-07-05T19:51:29.332573Z",
   "updated": "2025-07-11T15:01:02Z",
-  "fetched": "2026-03-07T12:03:01.588Z",
+  "fetched": "2026-03-16T01:16:18.784Z",
   "episodes": 4,
   "duration": 14822,
-  "views": 699,
-  "status": "Completed",
   "duration_formatted": "4h 7m",
+  "duration_short": "4h",
+  "views": 699,
   "views_formatted": "699",
-  "slug": "leaf-blower-revolution-free-incremental-game",
+  "status": "Completed",
   "status_color": "blue"
 }

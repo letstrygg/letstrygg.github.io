@@ -5,7 +5,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 13,
-    "views": 673,
+    "views": 683,
     "duration": 110177,
     "tags": [
       "Deck Builder"
@@ -13,11 +13,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-15T14:01:08Z",
-    "views_formatted": "673",
+    "views_formatted": "683",
     "duration_formatted": "30h 36m",
     "duration_short": "31h",
-    "vpv": 52,
-    "vpv_formatted": "52"
+    "vpv": 53,
+    "vpv_formatted": "53"
   },
   {
     "id": "oaken-tower",
@@ -191,7 +191,7 @@
     "thumbnail": "https://i.ytimg.com/vi/oEcKp4HLAf4/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 16,
-    "views": 2289,
+    "views": 2291,
     "duration": 30715,
     "tags": [
       "Bullet Heaven",
@@ -212,7 +212,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 124,
-    "views": 6420,
+    "views": 6433,
     "duration": 302950,
     "tags": [
       "Tower Defense"
@@ -336,9 +336,9 @@
     "title": "Backpack Battles",
     "thumbnail": "https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg",
     "highest_season": 5,
-    "episodes": 902,
-    "views": 263473,
-    "duration": 3233686,
+    "episodes": 874,
+    "views": 253858,
+    "duration": 3130204,
     "tags": [
       "PVP",
       "Auto Battler",
@@ -347,11 +347,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-04T12:00:51Z",
-    "views_formatted": "263.5K",
-    "duration_formatted": "898h 14m",
-    "duration_short": "898h",
-    "vpv": 292,
-    "vpv_formatted": "292"
+    "views_formatted": "253.9K",
+    "duration_formatted": "869h 30m",
+    "duration_short": "870h",
+    "vpv": 290,
+    "vpv_formatted": "290"
   },
   {
     "id": "monster-battles",
@@ -359,7 +359,7 @@
     "thumbnail": "https://i.ytimg.com/vi/IBTj5ztoGV0/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 30,
-    "views": 5342,
+    "views": 5385,
     "duration": 97635,
     "tags": [
       "PVP",
@@ -369,11 +369,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-25T14:01:08Z",
-    "views_formatted": "5.3K",
+    "views_formatted": "5.4K",
     "duration_formatted": "27h 7m",
     "duration_short": "27h",
-    "vpv": 178,
-    "vpv_formatted": "178"
+    "vpv": 180,
+    "vpv_formatted": "180"
   },
   {
     "id": "auto-rogue",
@@ -420,23 +420,23 @@
   {
     "id": "skill-legends-royale",
     "title": "Skill Legends Royale",
-    "thumbnail": "https://i.ytimg.com/vi/5g8JfM0Qk0g/maxresdefault.jpg",
+    "thumbnail": "https://i.ytimg.com/vi/4X0YZG6Kzq0/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 32,
-    "views": 1774,
-    "duration": 52140,
+    "episodes": 4,
+    "views": 408,
+    "duration": 11950,
     "tags": [
       "Auto Battler",
       "PVP"
     ],
     "status": "Completed",
     "status_color": "blue",
-    "updated": "2025-08-28T14:00:47Z",
-    "views_formatted": "1.8K",
-    "duration_formatted": "14h 29m",
-    "duration_short": "14h",
-    "vpv": 55,
-    "vpv_formatted": "55"
+    "updated": "2025-06-09T17:00:06Z",
+    "views_formatted": "408",
+    "duration_formatted": "3h 19m",
+    "duration_short": "3h",
+    "vpv": 102,
+    "vpv_formatted": "102"
   },
   {
     "id": "the-bazaar",
@@ -485,7 +485,7 @@
     "thumbnail": "https://i.ytimg.com/vi/kLoudfb1BxQ/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 365,
+    "views": 371,
     "duration": 4850,
     "tags": [
       "Inventory Management",
@@ -495,11 +495,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-07-22T16:01:04Z",
-    "views_formatted": "365",
+    "views_formatted": "371",
     "duration_formatted": "1h 20m",
     "duration_short": "1h",
-    "vpv": 183,
-    "vpv_formatted": "183"
+    "vpv": 186,
+    "vpv_formatted": "186"
   },
   {
     "id": "for-the-forge",
@@ -529,7 +529,7 @@
     "thumbnail": "https://i.ytimg.com/vi/IX24uMzbnso/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 21,
-    "views": 1785,
+    "views": 1788,
     "duration": 92554,
     "tags": [
       "Auto Battler",
@@ -572,7 +572,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LZdAMjxJfHk/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
-    "views": 211,
+    "views": 212,
     "duration": 15289,
     "tags": [
       "Inventory Management",
@@ -582,7 +582,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-06-04T14:01:04Z",
-    "views_formatted": "211",
+    "views_formatted": "212",
     "duration_formatted": "4h 14m",
     "duration_short": "4h",
     "vpv": 53,
@@ -616,7 +616,7 @@
     "thumbnail": "https://i.ytimg.com/vi/1IXqFBWstkY/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 18,
-    "views": 4422,
+    "views": 4426,
     "duration": 64088,
     "tags": [
       "Inventory Management",
@@ -660,7 +660,7 @@
     "thumbnail": "https://i.ytimg.com/vi/3D8QJni7Fgg/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
-    "views": 376,
+    "views": 378,
     "duration": 10285,
     "tags": [
       "Bullet Heaven",
@@ -669,11 +669,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2024-10-23T17:00:44Z",
-    "views_formatted": "376",
+    "views_formatted": "378",
     "duration_formatted": "2h 51m",
     "duration_short": "3h",
-    "vpv": 94,
-    "vpv_formatted": "94"
+    "vpv": 95,
+    "vpv_formatted": "95"
   },
   {
     "id": "card-draw",
@@ -681,7 +681,7 @@
     "thumbnail": "https://i.ytimg.com/vi/iOBBQuOrvRI/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 1874,
+    "views": 1876,
     "duration": 8191,
     "tags": [
       "Incremental",
@@ -694,17 +694,17 @@
     "views_formatted": "1.9K",
     "duration_formatted": "2h 16m",
     "duration_short": "2h",
-    "vpv": 937,
-    "vpv_formatted": "937"
+    "vpv": 938,
+    "vpv_formatted": "938"
   },
   {
     "id": "megaloot",
     "title": "Megaloot",
     "thumbnail": "https://i.ytimg.com/vi/NoX5R2yTIXU/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 10,
-    "views": 6196,
-    "duration": 66402,
+    "episodes": 16,
+    "views": 8724,
+    "duration": 113482,
     "tags": [
       "Inventory Management",
       "Auto Battler",
@@ -712,12 +712,12 @@
     ],
     "status": "Completed",
     "status_color": "blue",
-    "updated": "2024-09-14T16:00:34Z",
-    "views_formatted": "6.2K",
-    "duration_formatted": "18h 26m",
-    "duration_short": "18h",
-    "vpv": 620,
-    "vpv_formatted": "620"
+    "updated": "2024-09-16T15:00:00Z",
+    "views_formatted": "8.7K",
+    "duration_formatted": "31h 31m",
+    "duration_short": "32h",
+    "vpv": 545,
+    "vpv_formatted": "545"
   },
   {
     "id": "shapez-2",
@@ -725,7 +725,7 @@
     "thumbnail": "https://i.ytimg.com/vi/2kaU33gFkRk/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 10,
-    "views": 433,
+    "views": 444,
     "duration": 53933,
     "tags": [
       "Automation",
@@ -734,11 +734,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-15T16:00:02Z",
-    "views_formatted": "433",
+    "views_formatted": "444",
     "duration_formatted": "14h 58m",
     "duration_short": "15h",
-    "vpv": 43,
-    "vpv_formatted": "43"
+    "vpv": 44,
+    "vpv_formatted": "44"
   },
   {
     "id": "wanderburg",
@@ -746,7 +746,7 @@
     "thumbnail": "https://i.ytimg.com/vi/e-dBtCzI-74/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 265,
+    "views": 272,
     "duration": 4554,
     "tags": [
       "Bullet Heaven",
@@ -755,11 +755,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-03-01T13:01:09Z",
-    "views_formatted": "265",
+    "views_formatted": "272",
     "duration_formatted": "1h 15m",
     "duration_short": "1h",
-    "vpv": 133,
-    "vpv_formatted": "133"
+    "vpv": 136,
+    "vpv_formatted": "136"
   },
   {
     "id": "dice-a-million",
@@ -767,7 +767,7 @@
     "thumbnail": "https://i.ytimg.com/vi/b2jAfL21hK0/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 6,
-    "views": 843,
+    "views": 853,
     "duration": 28636,
     "tags": [
       "Incremental"
@@ -775,11 +775,11 @@
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-03-02T16:00:07Z",
-    "views_formatted": "843",
+    "views_formatted": "853",
     "duration_formatted": "7h 57m",
     "duration_short": "8h",
-    "vpv": 141,
-    "vpv_formatted": "141"
+    "vpv": 142,
+    "vpv_formatted": "142"
   },
   {
     "id": "factorio",
@@ -787,7 +787,7 @@
     "thumbnail": "https://i.ytimg.com/vi/d3jj_ARI3RQ/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 91,
-    "views": 9523,
+    "views": 9531,
     "duration": 373367,
     "tags": [
       "Automation",
@@ -808,7 +808,7 @@
     "thumbnail": "https://i.ytimg.com/vi/rF5aLrpu3WY/maxresdefault.jpg",
     "highest_season": 5,
     "episodes": 158,
-    "views": 15313,
+    "views": 15325,
     "duration": 460267,
     "tags": [
       "Horde Survival",
@@ -850,7 +850,7 @@
     "thumbnail": "https://i.ytimg.com/vi/4MH2hHEjErU/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 108,
+    "views": 112,
     "duration": 6126,
     "tags": [
       "Inventory Management",
@@ -859,11 +859,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-07T16:00:14Z",
-    "views_formatted": "108",
+    "views_formatted": "112",
     "duration_formatted": "1h 42m",
     "duration_short": "2h",
-    "vpv": 54,
-    "vpv_formatted": "54"
+    "vpv": 56,
+    "vpv_formatted": "56"
   },
   {
     "id": "lootbound",
@@ -871,7 +871,7 @@
     "thumbnail": "https://i.ytimg.com/vi/9XzbMRK5jC0/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
-    "views": 998,
+    "views": 1182,
     "duration": 7055,
     "tags": [
       "Inventory Management",
@@ -880,11 +880,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-07T12:01:33Z",
-    "views_formatted": "998",
+    "views_formatted": "1.2K",
     "duration_formatted": "1h 57m",
     "duration_short": "2h",
-    "vpv": 333,
-    "vpv_formatted": "333"
+    "vpv": 394,
+    "vpv_formatted": "394"
   },
   {
     "id": "skull-horde",
@@ -892,7 +892,7 @@
     "thumbnail": "https://i.ytimg.com/vi/vAc3BJZeuSw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 122,
+    "views": 123,
     "duration": 6085,
     "tags": [
       "Horde Survival"
@@ -900,11 +900,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-05T12:01:38Z",
-    "views_formatted": "122",
+    "views_formatted": "123",
     "duration_formatted": "1h 41m",
     "duration_short": "2h",
-    "vpv": 61,
-    "vpv_formatted": "61"
+    "vpv": 62,
+    "vpv_formatted": "62"
   },
   {
     "id": "roots-devour",
@@ -912,7 +912,7 @@
     "thumbnail": "https://i.ytimg.com/vi/MT8aNQ7TKOw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 519,
+    "views": 523,
     "duration": 4906,
     "tags": [
       "Puzzle"
@@ -920,11 +920,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-03T12:01:22Z",
-    "views_formatted": "519",
+    "views_formatted": "523",
     "duration_formatted": "1h 21m",
     "duration_short": "1h",
-    "vpv": 260,
-    "vpv_formatted": "260"
+    "vpv": 262,
+    "vpv_formatted": "262"
   },
   {
     "id": "plants-vs-zombies",
@@ -952,7 +952,7 @@
     "thumbnail": "https://i.ytimg.com/vi/5-v4weMsQe0/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 23,
-    "views": 6898,
+    "views": 6936,
     "duration": 87005,
     "tags": [
       "Auto Battler",
@@ -964,8 +964,8 @@
     "views_formatted": "6.9K",
     "duration_formatted": "24h 10m",
     "duration_short": "24h",
-    "vpv": 300,
-    "vpv_formatted": "300"
+    "vpv": 302,
+    "vpv_formatted": "302"
   },
   {
     "id": "fill-up-the-hole",
@@ -993,7 +993,7 @@
     "thumbnail": "https://i.ytimg.com/vi/pmCpEm70uR4/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 14,
-    "views": 3353,
+    "views": 3356,
     "duration": 32237,
     "tags": [
       "Horde Survival"
@@ -1013,7 +1013,7 @@
     "thumbnail": "https://i.ytimg.com/vi/tO7mUxDKDLc/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 8,
-    "views": 1676,
+    "views": 1677,
     "duration": 12795,
     "tags": [
       "Auto Battler"
@@ -1074,7 +1074,7 @@
     "thumbnail": "https://i.ytimg.com/vi/O_56hJaSTeI/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 1270,
+    "views": 1298,
     "duration": 4727,
     "tags": [
       "Deck Builder",
@@ -1086,8 +1086,8 @@
     "views_formatted": "1.3K",
     "duration_formatted": "1h 18m",
     "duration_short": "1h",
-    "vpv": 635,
-    "vpv_formatted": "635"
+    "vpv": 649,
+    "vpv_formatted": "649"
   },
   {
     "id": "machick-2",
@@ -1307,7 +1307,7 @@
     "thumbnail": "https://i.ytimg.com/vi/FNxmFHXb2-A/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 12,
-    "views": 785,
+    "views": 787,
     "duration": 67573,
     "tags": [
       "Turn-Based Tactics",
@@ -1316,11 +1316,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-07-22T17:00:43Z",
-    "views_formatted": "785",
+    "views_formatted": "787",
     "duration_formatted": "18h 46m",
     "duration_short": "19h",
-    "vpv": 65,
-    "vpv_formatted": "65"
+    "vpv": 66,
+    "vpv_formatted": "66"
   },
   {
     "id": "leaf-blower-revolution",

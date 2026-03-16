@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 3",
+  "name": "Let's Play Brotato Ep 3 - Full 1.0 Release Preview | Beta Branch",
   "description": "Episode 3 of the Brotato Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/k6dYCE8bc4c/maxresdefault.jpg",
-  "uploadDate": "2023-06-21T17:38:12Z",
-  "duration": "PT3995S",
-  "embedUrl": "https://www.youtube.com/embed/k6dYCE8bc4c"
+  "thumbnailUrl": "https://i.ytimg.com/vi/q9y2CQX4bzw/maxresdefault.jpg",
+  "uploadDate": "2023-06-23T22:00:34Z",
+  "duration": "PT3787S",
+  "embedUrl": "https://www.youtube.com/embed/q9y2CQX4bzw"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jun 21, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 6m 35s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 12</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jun 23, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 3m 7s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 173</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 5</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 3</span>
                     </div>
 
                     <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-2.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_k6dYCE8bc4c';
+  var storageKey = 'yt_resume_q9y2CQX4bzw';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'k6dYCE8bc4c',
+      videoId: 'q9y2CQX4bzw',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/k6dYCE8bc4c?t=" + t + "s";
+          const url = "https://youtu.be/q9y2CQX4bzw?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

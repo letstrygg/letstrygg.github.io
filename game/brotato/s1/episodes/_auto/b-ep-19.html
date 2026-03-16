@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 19",
+  "name": "Brotato 15",
   "description": "Episode 19 of the Brotato Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/YXkToxXpbmU/maxresdefault.jpg",
-  "uploadDate": "2023-06-29T21:55:20Z",
-  "duration": "PT1230S",
-  "embedUrl": "https://www.youtube.com/embed/YXkToxXpbmU"
+  "thumbnailUrl": "https://i.ytimg.com/vi/zG2GN1pQH6Y/maxresdefault.jpg",
+  "uploadDate": "2023-06-29T23:08:27Z",
+  "duration": "PT624S",
+  "embedUrl": "https://www.youtube.com/embed/zG2GN1pQH6Y"
 }
 </script>
 
@@ -23,7 +23,7 @@
                     
                     <div class="overlay-stats">
                         <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jun 29, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 20m 30s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 10m 24s</span>
                         <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 0</span>
                         <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
                         <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_YXkToxXpbmU';
+  var storageKey = 'yt_resume_zG2GN1pQH6Y';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'YXkToxXpbmU',
+      videoId: 'zG2GN1pQH6Y',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/YXkToxXpbmU?t=" + t + "s";
+          const url = "https://youtu.be/zG2GN1pQH6Y?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

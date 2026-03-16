@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 76",
+  "name": "Unlocking all the Things! Explorer: Danger 0 - Brotato Let's Play Ep 76",
   "description": "Episode 76 of the Brotato Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/suYiWti6jJs/maxresdefault.jpg",
-  "uploadDate": "2023-08-01T19:00:24Z",
-  "duration": "PT2599S",
-  "embedUrl": "https://www.youtube.com/embed/suYiWti6jJs"
+  "thumbnailUrl": "https://i.ytimg.com/vi/3kZbkkaJDsU/maxresdefault.jpg",
+  "uploadDate": "2023-09-01T19:00:02Z",
+  "duration": "PT4348S",
+  "embedUrl": "https://www.youtube.com/embed/3kZbkkaJDsU"
 }
 </script>
 
@@ -22,15 +22,15 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Aug 1, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 43m 19s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 59</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Sep 1, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 12m 28s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 80</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 2</span>
                         <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
                     </div>
 
-                    <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-75.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-77.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-73.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
+                    <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-78.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
@@ -46,9 +46,9 @@
             </div>
 
             <div class="watch-nav" style="padding-bottom: 10px;">
-                <a href="/game/brotato/s1/episodes/b-ep-75.html">← Ep 75</a>
+                <a href="/game/brotato/s1/episodes/b-ep-73.html">← Ep 73</a>
                 <a href="/game/brotato/s1">Episode List</a>
-                <a href="/game/brotato/s1/episodes/b-ep-77.html">Ep 77 →</a>
+                <a href="/game/brotato/s1/episodes/b-ep-78.html">Ep 78 →</a>
             </div>
 
         </div>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_suYiWti6jJs';
+  var storageKey = 'yt_resume_3kZbkkaJDsU';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'suYiWti6jJs',
+      videoId: '3kZbkkaJDsU',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -92,7 +92,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/brotato/s1/episodes/b-ep-77.html";
+        const nextEpisodeUrl = "/game/brotato/s1/episodes/b-ep-78.html";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/suYiWti6jJs?t=" + t + "s";
+          const url = "https://youtu.be/3kZbkkaJDsU?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

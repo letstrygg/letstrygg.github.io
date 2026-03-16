@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-03-29T16:00:59Z",
       "durationInSeconds": 4200,
       "viewCount": 169
-    }
+    },
+    "title": "Number Go Up Zombie Army Auto-Battler: Knightica, Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/t_mpDmJhh30/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2025-03-28T16:00:11Z",
       "durationInSeconds": 3139,
       "viewCount": 891
-    }
+    },
+    "title": "New Game is So Good! Knightica, Monster Army Auto-Battler Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/A39888rhSiE/maxresdefault.jpg",
+    "likes": 11,
+    "comments": 6
   }
 ]

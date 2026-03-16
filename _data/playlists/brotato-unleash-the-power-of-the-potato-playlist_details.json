@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4CneLAG3YE5ey1iC2cl7l0",
-  "title": "Brotato: Unleash the Power of the Potato!",
+  "slug": "brotato-unleash-the-power-of-the-potato",
+  "title": "Brotato Unleash the Power of the Potato",
   "thumbnail": "https://i.ytimg.com/vi/N860nuvw8kk/maxresdefault.jpg",
   "published": "2023-06-21T10:23:44.163145Z",
   "updated": "2024-06-02T14:30:04Z",
-  "fetched": "2026-03-07T12:04:05.159Z",
+  "fetched": "2026-03-16T01:08:20.871Z",
   "episodes": 84,
   "duration": 215866,
-  "views": 2996,
-  "status": "Completed",
   "duration_formatted": "59h 57m",
+  "duration_short": "60h",
+  "views": 2996,
   "views_formatted": "3K",
-  "slug": "brotato-unleash-the-power-of-the-potato",
+  "status": "Completed",
   "status_color": "blue"
 }

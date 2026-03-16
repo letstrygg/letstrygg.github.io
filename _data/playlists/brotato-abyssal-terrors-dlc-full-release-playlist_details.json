@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5S8tccG8Fx1aLhYT1CtzHO",
-  "title": "Brotato: Abyssal Terrors DLC - Full Release",
+  "slug": "brotato-abyssal-terrors-dlc-full-release",
+  "title": "Brotato Abyssal Terrors DLC Full Release",
   "thumbnail": "https://i.ytimg.com/vi/NFtt9kmaomE/maxresdefault.jpg",
   "published": "2024-10-26T09:20:58.284779Z",
   "updated": "2025-02-10T17:00:45Z",
-  "fetched": "2026-03-07T12:03:26.327Z",
+  "fetched": "2026-03-16T01:08:18.647Z",
   "episodes": 37,
   "duration": 120820,
-  "views": 4498,
-  "status": "Completed",
   "duration_formatted": "33h 33m",
+  "duration_short": "34h",
+  "views": 4498,
   "views_formatted": "4.5K",
-  "slug": "brotato-abyssal-terrors-dlc-full-release",
+  "status": "Completed",
   "status_color": "blue"
 }

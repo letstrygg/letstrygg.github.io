@@ -7,8 +7,12 @@
       "videoId": "MT8aNQ7TKOw",
       "videoPublishedAt": "2026-02-02T14:00:37Z",
       "durationInSeconds": 1906,
-      "viewCount": 433
-    }
+      "viewCount": 437
+    },
+    "title": "001 Roots Devour - What is This Game!??",
+    "thumbnail": "https://i.ytimg.com/vi/MT8aNQ7TKOw/maxresdefault.jpg",
+    "likes": 9,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2026-02-03T12:01:22Z",
       "durationInSeconds": 3000,
       "viewCount": 86
-    }
+    },
+    "title": "002 Roots Devour",
+    "thumbnail": "https://i.ytimg.com/vi/lUYYI7di5So/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   }
 ]

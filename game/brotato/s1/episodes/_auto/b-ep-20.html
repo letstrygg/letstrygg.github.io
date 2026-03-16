@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 20",
+  "name": "Brotato 20",
   "description": "Episode 20 of the Brotato Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/YesHP2Lwld0/maxresdefault.jpg",
-  "uploadDate": "2023-06-29T22:00:17Z",
-  "duration": "PT4753S",
-  "embedUrl": "https://www.youtube.com/embed/YesHP2Lwld0"
+  "thumbnailUrl": "https://i.ytimg.com/vi/fRmAhTT5PT8/maxresdefault.jpg",
+  "uploadDate": "2023-06-30T08:54:45Z",
+  "duration": "PT2255S",
+  "embedUrl": "https://www.youtube.com/embed/fRmAhTT5PT8"
 }
 </script>
 
@@ -22,9 +22,9 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jun 29, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 19m 13s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 101</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jun 30, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 37m 35s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 0</span>
                         <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
                         <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
                     </div>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_YesHP2Lwld0';
+  var storageKey = 'yt_resume_fRmAhTT5PT8';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'YesHP2Lwld0',
+      videoId: 'fRmAhTT5PT8',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/YesHP2Lwld0?t=" + t + "s";
+          const url = "https://youtu.be/fRmAhTT5PT8?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

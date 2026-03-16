@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 36",
+  "name": "Brotato 42",
   "description": "Episode 36 of the Brotato Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/TowDYJVvAag/maxresdefault.jpg",
-  "uploadDate": "2023-07-02T19:03:43Z",
-  "duration": "PT1048S",
-  "embedUrl": "https://www.youtube.com/embed/TowDYJVvAag"
+  "thumbnailUrl": "https://i.ytimg.com/vi/xEonTbR2X_8/maxresdefault.jpg",
+  "uploadDate": "2023-07-04T13:35:13Z",
+  "duration": "PT2143S",
+  "embedUrl": "https://www.youtube.com/embed/xEonTbR2X_8"
 }
 </script>
 
@@ -22,8 +22,8 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jul 2, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 17m 28s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jul 4, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 35m 43s</span>
                         <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 0</span>
                         <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
                         <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_TowDYJVvAag';
+  var storageKey = 'yt_resume_xEonTbR2X_8';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'TowDYJVvAag',
+      videoId: 'xEonTbR2X_8',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/TowDYJVvAag?t=" + t + "s";
+          const url = "https://youtu.be/xEonTbR2X_8?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

@@ -1,16 +1,17 @@
 {
   "id": "PLkwYKQUqZEUWk8Re-55JgiVlJa3kPXvdr",
+  "slug": "halls-of-torment",
   "title": "Halls of Torment",
   "thumbnail": "https://i.ytimg.com/vi/3D8QJni7Fgg/maxresdefault.jpg",
   "published": "2024-10-20T10:42:55.827461Z",
   "updated": "2024-10-23T17:00:44Z",
-  "fetched": "2026-03-07T11:47:26.331Z",
+  "fetched": "2026-03-16T01:02:55.637Z",
   "episodes": 4,
   "duration": 10285,
-  "views": 376,
-  "status": "Completed",
   "duration_formatted": "2h 51m",
-  "views_formatted": "376",
-  "slug": "halls-of-torment",
+  "duration_short": "3h",
+  "views": 378,
+  "views_formatted": "378",
+  "status": "Completed",
   "status_color": "blue"
 }

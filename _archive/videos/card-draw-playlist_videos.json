@@ -7,8 +7,12 @@
       "videoId": "iOBBQuOrvRI",
       "videoPublishedAt": "2024-11-13T14:00:47Z",
       "durationInSeconds": 5927,
-      "viewCount": 304
-    }
+      "viewCount": 305
+    },
+    "title": "Playing 1000 Hands: Card Draw – Episode 2",
+    "thumbnail": "https://i.ytimg.com/vi/iOBBQuOrvRI/maxresdefault.jpg",
+    "likes": 18,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,7 +22,11 @@
       "videoId": "2AsQhDh2GPo",
       "videoPublishedAt": "2024-11-12T14:00:03Z",
       "durationInSeconds": 2264,
-      "viewCount": 1570
-    }
+      "viewCount": 1571
+    },
+    "title": "Card Draw First Look: Chill Number-Go-Up Deckbuilder",
+    "thumbnail": "https://i.ytimg.com/vi/2AsQhDh2GPo/maxresdefault.jpg",
+    "likes": 43,
+    "comments": 8
   }
 ]

@@ -8,7 +8,11 @@
       "videoPublishedAt": "2026-01-25T16:00:30Z",
       "durationInSeconds": 1763,
       "viewCount": 51
-    }
+    },
+    "title": "001 Plants vs. Zombies - PvZ Tower Defense",
+    "thumbnail": "https://i.ytimg.com/vi/FnhPNqzY52U/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2026-01-26T16:01:07Z",
       "durationInSeconds": 1796,
       "viewCount": 51
-    }
+    },
+    "title": "002 Plants vs. Zombies - PvZ Tower Defense",
+    "thumbnail": "https://i.ytimg.com/vi/ihzKcjDAJsE/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2026-01-27T16:00:53Z",
       "durationInSeconds": 1811,
       "viewCount": 51
-    }
+    },
+    "title": "003 Plants vs. Zombies - PvZ Tower Defense",
+    "thumbnail": "https://i.ytimg.com/vi/bFrJDEKLov8/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2026-01-28T16:00:35Z",
       "durationInSeconds": 1792,
       "viewCount": 42
-    }
+    },
+    "title": "004 Plants vs. Zombies - PvZ Tower Defense",
+    "thumbnail": "https://i.ytimg.com/vi/JsJtrqGu40A/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2026-01-29T14:00:34Z",
       "durationInSeconds": 2153,
       "viewCount": 92
-    }
+    },
+    "title": "005 Plants vs. Zombies - PvZ Tower Defense",
+    "thumbnail": "https://i.ytimg.com/vi/Hm6czBCUmgk/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2026-01-30T20:30:09Z",
       "durationInSeconds": 2100,
       "viewCount": 69
-    }
+    },
+    "title": "006 Plants vs. Zombies - PvZ Tower Defense",
+    "thumbnail": "https://i.ytimg.com/vi/onySRMoYN60/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2026-01-31T22:30:08Z",
       "durationInSeconds": 1644,
       "viewCount": 56
-    }
+    },
+    "title": "007 Plants vs. Zombies - PvZ Tower Defense",
+    "thumbnail": "https://i.ytimg.com/vi/XKX-XdzEPno/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2026-02-01T14:00:46Z",
       "durationInSeconds": 2337,
       "viewCount": 34
-    }
+    },
+    "title": "008 Plants vs. Zombies - PvZ Tower Defense",
+    "thumbnail": "https://i.ytimg.com/vi/T8MV-vMNbic/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,7 +128,11 @@
       "videoPublishedAt": "2026-02-16T01:00:00Z",
       "durationInSeconds": 1339,
       "viewCount": 265
-    }
+    },
+    "title": "009 Plants vs. Zombies - PvZ Tower Defense",
+    "thumbnail": "https://i.ytimg.com/vi/-Oc40YRPZ7U/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -107,6 +143,10 @@
       "videoPublishedAt": "2026-02-16T19:00:02Z",
       "durationInSeconds": 1706,
       "viewCount": 147
-    }
+    },
+    "title": "010 Final Boss! Plants vs. Zombies - PvZ Tower Defense",
+    "thumbnail": "https://i.ytimg.com/vi/aeqBsg4H96o/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   }
 ]

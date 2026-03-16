@@ -1,16 +1,17 @@
 {
   "id": "PLkwYKQUqZEUVuFe3DPIHx0ZkCLTtq0KIj",
-  "title": "Tiny Auto Knights - Auto-battler Gamer",
+  "slug": "tiny-auto-knights",
+  "title": "Tiny Auto Knights",
   "thumbnail": "https://i.ytimg.com/vi/iEpun__RR6g/maxresdefault.jpg",
   "published": "2025-06-07T04:01:10.997871Z",
   "updated": "2025-06-10T16:01:16Z",
-  "fetched": "2026-03-07T11:46:54.731Z",
+  "fetched": "2026-03-16T01:02:51.111Z",
   "episodes": 4,
   "duration": 10085,
-  "views": 178,
-  "status": "Completed",
   "duration_formatted": "2h 48m",
+  "duration_short": "3h",
+  "views": 178,
   "views_formatted": "178",
-  "slug": "tiny-auto-knights",
+  "status": "Completed",
   "status_color": "blue"
 }

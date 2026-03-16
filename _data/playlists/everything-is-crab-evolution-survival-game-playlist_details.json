@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk620wGK1aQaUduiDW9qA3vb",
-  "title": "Everything is Crab - Evolution Survival Game",
+  "slug": "everything-is-crab-evolution-survival-game",
+  "title": "Everything is Crab Evolution Survival Game",
   "thumbnail": "https://i.ytimg.com/vi/pmCpEm70uR4/maxresdefault.jpg",
   "published": "2026-01-03T04:47:45.254257Z",
   "updated": "2026-01-19T12:00:05Z",
-  "fetched": "2026-03-07T12:02:51.319Z",
+  "fetched": "2026-03-16T01:16:16.168Z",
   "episodes": 14,
   "duration": 32237,
-  "views": 3353,
-  "status": "Completed",
   "duration_formatted": "8h 57m",
+  "duration_short": "9h",
+  "views": 3356,
   "views_formatted": "3.4K",
-  "slug": "everything-is-crab-evolution-survival-game",
+  "status": "Completed",
   "status_color": "blue"
 }

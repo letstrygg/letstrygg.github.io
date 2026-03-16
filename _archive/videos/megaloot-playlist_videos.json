@@ -1,57 +1,122 @@
 [
   {
     "kind": "youtube#playlistItem",
-    "etag": "zB1QcHtA0DXYfLL8aXmJHydC7Mw",
-    "id": "UExrd1lLUVVxWkVVVWxFUWtjbHRuSm94aFhqN2JfMnNxMS4wMTcyMDhGQUE4NTIzM0Y5",
+    "etag": "PXw9JUYQNiR7xVO1akwVpoTNvmc",
+    "id": "UExRNElMNFVWZ1FrNllIWDJadHA3Rk15X0NvR255MUJxWC41NkI0NEY2RDEwNTU3Q0M2",
     "contentDetails": {
       "videoId": "NoX5R2yTIXU",
       "videoPublishedAt": "2024-09-09T13:00:20Z",
       "durationInSeconds": 6394,
-      "viewCount": 598
-    }
+      "viewCount": 599
+    },
+    "title": "Megaloot, Demo is So Good!!",
+    "thumbnail": "https://i.ytimg.com/vi/NoX5R2yTIXU/maxresdefault.jpg",
+    "likes": 13,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "WGrTGdf4AbUZOvk5g0PjOw3oakc",
-    "id": "UExrd1lLUVVxWkVVVWxFUWtjbHRuSm94aFhqN2JfMnNxMS41NkI0NEY2RDEwNTU3Q0M2",
+    "etag": "XNaonkZaHlz8V2X_bEOlGh1Xn2g",
+    "id": "UExRNElMNFVWZ1FrNllIWDJadHA3Rk15X0NvR255MUJxWC4yODlGNEE0NkRGMEEzMEQy",
     "contentDetails": {
       "videoId": "mCtDfQfXLQs",
       "videoPublishedAt": "2024-09-10T12:01:01Z",
       "durationInSeconds": 5662,
       "viewCount": 1385
-    }
+    },
+    "title": "Megaloot Episode 1: The Ultimate Loot Adventure Begins!",
+    "thumbnail": "https://i.ytimg.com/vi/mCtDfQfXLQs/maxresdefault.jpg",
+    "likes": 21,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "hiCf8F3bMlMapLwVBTjz1GSDTNQ",
-    "id": "UExrd1lLUVVxWkVVVWxFUWtjbHRuSm94aFhqN2JfMnNxMS41MjE1MkI0OTQ2QzJGNzNG",
+    "etag": "DTQn_OvJUlie7WiLWsGg8r-7I-g",
+    "id": "UExRNElMNFVWZ1FrNllIWDJadHA3Rk15X0NvR255MUJxWC4wMTcyMDhGQUE4NTIzM0Y5",
     "contentDetails": {
       "videoId": "dWNwLwpVAHQ",
       "videoPublishedAt": "2024-09-11T13:00:44Z",
       "durationInSeconds": 5328,
-      "viewCount": 590
-    }
+      "viewCount": 591
+    },
+    "title": "Megaloot Episode 2: Demon Multi One-Shot Dodge Build",
+    "thumbnail": "https://i.ytimg.com/vi/dWNwLwpVAHQ/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "_f1ep8Hf2GORnkvkjhdvJy9oeLY",
-    "id": "UExrd1lLUVVxWkVVVWxFUWtjbHRuSm94aFhqN2JfMnNxMS4yODlGNEE0NkRGMEEzMEQy",
+    "etag": "X7WSNPOGr07EA1e58Daen1qq5IE",
+    "id": "UExRNElMNFVWZ1FrNllIWDJadHA3Rk15X0NvR255MUJxWC4wOTA3OTZBNzVEMTUzOTMy",
     "contentDetails": {
       "videoId": "NtqEofzjxNA",
       "videoPublishedAt": "2024-09-12T14:00:22Z",
       "durationInSeconds": 7067,
       "viewCount": 275
-    }
+    },
+    "title": "Glimmer Ethereal Armor Magic OP! Megaloot Episode 3",
+    "thumbnail": "https://i.ytimg.com/vi/NtqEofzjxNA/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
-    "etag": "dSUROzvKWjQNw-TMejRlGuMcBmg",
-    "id": "UExrd1lLUVVxWkVVVWxFUWtjbHRuSm94aFhqN2JfMnNxMS4wOTA3OTZBNzVEMTUzOTMy",
+    "etag": "41YTXIWYjE1d2KrEqVz-3KlRe7k",
+    "id": "UExRNElMNFVWZ1FrNllIWDJadHA3Rk15X0NvR255MUJxWC41MjE1MkI0OTQ2QzJGNzNG",
+    "contentDetails": {
+      "videoId": "0IQfhUrueko",
+      "videoPublishedAt": "2024-09-13T15:00:01Z",
+      "durationInSeconds": 8054,
+      "viewCount": 172
+    },
+    "title": "HP Vamp! Megaloot Episode 4",
+    "thumbnail": "https://i.ytimg.com/vi/0IQfhUrueko/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Xxu3f34ejR2EIK8BQS8SPduxWoY",
+    "id": "UExRNElMNFVWZ1FrNllIWDJadHA3Rk15X0NvR255MUJxWC5DQUNERDQ2NkIzRUQxNTY1",
     "contentDetails": {
       "videoId": "XJRVk8DIW3k",
       "videoPublishedAt": "2024-09-14T16:00:34Z",
       "durationInSeconds": 8750,
       "viewCount": 250
-    }
+    },
+    "title": "New Record: Megaloot 5",
+    "thumbnail": "https://i.ytimg.com/vi/XJRVk8DIW3k/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 0
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "1yJpd_QdKgM7uGAyyMVtZKtNl3c",
+    "id": "UExRNElMNFVWZ1FrNllIWDJadHA3Rk15X0NvR255MUJxWC4xMkVGQjNCMUM1N0RFNEUx",
+    "contentDetails": {
+      "videoId": "nnO1y9e0kFA",
+      "videoPublishedAt": "2024-09-15T15:00:56Z",
+      "durationInSeconds": 5053,
+      "viewCount": 143
+    },
+    "title": "Going for Greed, Megaloot Episode 6",
+    "thumbnail": "https://i.ytimg.com/vi/nnO1y9e0kFA/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "tKdn10XTLnqTY_XDCrwP6lZe6iU",
+    "id": "UExRNElMNFVWZ1FrNllIWDJadHA3Rk15X0NvR255MUJxWC41MzJCQjBCNDIyRkJDN0VD",
+    "contentDetails": {
+      "videoId": "-v9ts3tOjdk",
+      "videoPublishedAt": "2024-09-16T15:00:00Z",
+      "durationInSeconds": 10433,
+      "viewCount": 947
+    },
+    "title": "How Far Can We Go? Megaloot 7",
+    "thumbnail": "https://i.ytimg.com/vi/-v9ts3tOjdk/maxresdefault.jpg",
+    "likes": 11,
+    "comments": 8
   }
 ]

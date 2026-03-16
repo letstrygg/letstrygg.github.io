@@ -7,8 +7,12 @@
       "videoId": "FNxmFHXb2-A",
       "videoPublishedAt": "2025-07-10T17:00:32Z",
       "durationInSeconds": 3717,
-      "viewCount": 173
-    }
+      "viewCount": 175
+    },
+    "title": "New Series! The Last Spell Ep 1, Tutorial City",
+    "thumbnail": "https://i.ytimg.com/vi/FNxmFHXb2-A/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-07-11T17:00:57Z",
       "durationInSeconds": 4571,
       "viewCount": 63
-    }
+    },
+    "title": "The Last Spell Ep 2, Gildenberg Day 1-3",
+    "thumbnail": "https://i.ytimg.com/vi/ZHGtY0yoBYc/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-07-12T13:01:29Z",
       "durationInSeconds": 6534,
       "viewCount": 61
-    }
+    },
+    "title": "The Last Spell Ep 3, Gildenberg Day 3-5",
+    "thumbnail": "https://i.ytimg.com/vi/ouQPMO6g8y8/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2025-07-13T15:01:30Z",
       "durationInSeconds": 6392,
       "viewCount": 34
-    }
+    },
+    "title": "Final Battle! The Last Spell Ep 4, Gildenberg Day 5-7",
+    "thumbnail": "https://i.ytimg.com/vi/rzaQMmuM4O4/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2025-07-14T13:00:47Z",
       "durationInSeconds": 4885,
       "viewCount": 32
-    }
+    },
+    "title": "The Last Spell Ep 5, Lakeburg Day 1-2",
+    "thumbnail": "https://i.ytimg.com/vi/QRPdhTsXjlg/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2025-07-15T13:00:01Z",
       "durationInSeconds": 6009,
       "viewCount": 61
-    }
+    },
+    "title": "The Last Spell Ep 6, Lakeburg Day 2-5",
+    "thumbnail": "https://i.ytimg.com/vi/-CHbWRuD-hE/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2025-07-16T13:01:35Z",
       "durationInSeconds": 5038,
       "viewCount": 35
-    }
+    },
+    "title": "The Last Spell Ep 7, Lakeburg Day 5-6",
+    "thumbnail": "https://i.ytimg.com/vi/pY2biamUVUI/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2025-07-17T17:00:40Z",
       "durationInSeconds": 3476,
       "viewCount": 51
-    }
+    },
+    "title": "The Last Spell Ep 8, Lakeburg Day 6-7",
+    "thumbnail": "https://i.ytimg.com/vi/TO_-CewsZBs/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,7 +128,11 @@
       "videoPublishedAt": "2025-07-18T17:00:19Z",
       "durationInSeconds": 5129,
       "viewCount": 62
-    }
+    },
+    "title": "The Last Spell Ep 9, Lakeburg Day 7-8",
+    "thumbnail": "https://i.ytimg.com/vi/Ji5kQO6q_fo/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -107,7 +143,11 @@
       "videoPublishedAt": "2025-07-19T17:01:24Z",
       "durationInSeconds": 4590,
       "viewCount": 56
-    }
+    },
+    "title": "The Last Spell Ep 10, Lakeburg Day 8-9",
+    "thumbnail": "https://i.ytimg.com/vi/z4ORAXk4zlo/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -118,7 +158,11 @@
       "videoPublishedAt": "2025-07-20T15:00:34Z",
       "durationInSeconds": 9596,
       "viewCount": 71
-    }
+    },
+    "title": "The Last Spell Ep 11, Lakeburg Day 9-11",
+    "thumbnail": "https://i.ytimg.com/vi/HksamgXNEQQ/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -129,6 +173,10 @@
       "videoPublishedAt": "2025-07-22T17:00:43Z",
       "durationInSeconds": 7636,
       "viewCount": 86
-    }
+    },
+    "title": "Final Battle: The Last Spell Ep 12, Lakeburg Day 11",
+    "thumbnail": "https://i.ytimg.com/vi/SthMQUJ7oIo/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 0
   }
 ]

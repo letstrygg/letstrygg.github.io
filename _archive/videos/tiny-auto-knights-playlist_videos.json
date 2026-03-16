@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-06-07T16:01:06Z",
       "durationInSeconds": 1902,
       "viewCount": 78
-    }
+    },
+    "title": "Tiny Auto Knights 1",
+    "thumbnail": "https://i.ytimg.com/vi/iEpun__RR6g/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-06-08T16:00:13Z",
       "durationInSeconds": 2591,
       "viewCount": 30
-    }
+    },
+    "title": "Tiny Auto Knights 2",
+    "thumbnail": "https://i.ytimg.com/vi/8O9uAVPnAIY/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-06-09T16:01:37Z",
       "durationInSeconds": 2243,
       "viewCount": 28
-    }
+    },
+    "title": "Tiny Auto Knights 3",
+    "thumbnail": "https://i.ytimg.com/vi/ynCTsm1CDBY/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2025-06-10T16:01:16Z",
       "durationInSeconds": 3349,
       "viewCount": 42
-    }
+    },
+    "title": "Tiny Auto Knights 4",
+    "thumbnail": "https://i.ytimg.com/vi/my7MLK-l8lQ/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   }
 ]

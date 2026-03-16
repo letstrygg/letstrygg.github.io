@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4bvvGENfi0BR9YJdobiBLP",
-  "title": "Brotato S5 - Paws & Claws Update",
+  "slug": "brotato-s5-paws-claws-update",
+  "title": "Brotato S5 Paws Claws Update",
   "thumbnail": "https://i.ytimg.com/vi/rF5aLrpu3WY/maxresdefault.jpg",
   "published": "2026-02-12T00:07:20.525319Z",
   "updated": "2026-02-21T16:00:10Z",
-  "fetched": "2026-03-07T12:02:46.502Z",
+  "fetched": "2026-03-16T01:08:17.985Z",
   "episodes": 10,
   "duration": 17131,
-  "views": 292,
-  "status": "Paused",
   "duration_formatted": "4h 45m",
-  "views_formatted": "292",
-  "slug": "brotato-s5-paws-claws-update",
+  "duration_short": "5h",
+  "views": 299,
+  "views_formatted": "299",
+  "status": "Paused",
   "status_color": "purple"
 }

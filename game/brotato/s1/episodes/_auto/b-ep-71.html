@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 71",
+  "name": "Brotato Ep 71",
   "description": "Episode 71 of the Brotato Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/7S2H5cWppPM/maxresdefault.jpg",
-  "uploadDate": "2023-07-22T11:34:51Z",
-  "duration": "PT1806S",
-  "embedUrl": "https://www.youtube.com/embed/7S2H5cWppPM"
+  "thumbnailUrl": "https://i.ytimg.com/vi/u8j_wuWVdrw/maxresdefault.jpg",
+  "uploadDate": "2023-07-18T13:36:53Z",
+  "duration": "PT1748S",
+  "embedUrl": "https://www.youtube.com/embed/u8j_wuWVdrw"
 }
 </script>
 
@@ -22,15 +22,15 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jul 22, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 30m 6s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jul 18, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 29m 8s</span>
                         <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 0</span>
                         <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
                         <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
                     </div>
 
                     <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-70.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-72.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    <button onclick="window.location.href='/game/brotato/s1/episodes/b-ep-74.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
@@ -48,7 +48,7 @@
             <div class="watch-nav" style="padding-bottom: 10px;">
                 <a href="/game/brotato/s1/episodes/b-ep-70.html">← Ep 70</a>
                 <a href="/game/brotato/s1">Episode List</a>
-                <a href="/game/brotato/s1/episodes/b-ep-72.html">Ep 72 →</a>
+                <a href="/game/brotato/s1/episodes/b-ep-74.html">Ep 74 →</a>
             </div>
 
         </div>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_7S2H5cWppPM';
+  var storageKey = 'yt_resume_u8j_wuWVdrw';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: '7S2H5cWppPM',
+      videoId: 'u8j_wuWVdrw',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -92,7 +92,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/brotato/s1/episodes/b-ep-72.html";
+        const nextEpisodeUrl = "/game/brotato/s1/episodes/b-ep-74.html";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/7S2H5cWppPM?t=" + t + "s";
+          const url = "https://youtu.be/u8j_wuWVdrw?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

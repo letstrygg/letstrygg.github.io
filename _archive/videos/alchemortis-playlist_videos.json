@@ -7,8 +7,12 @@
       "videoId": "4MH2hHEjErU",
       "videoPublishedAt": "2026-02-07T14:00:07Z",
       "durationInSeconds": 3305,
-      "viewCount": 63
-    }
+      "viewCount": 66
+    },
+    "title": "001 Alchemortis: Game is Wild!",
+    "thumbnail": "https://i.ytimg.com/vi/4MH2hHEjErU/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,7 +22,11 @@
       "videoId": "AElYcc-jp-M",
       "videoPublishedAt": "2026-02-07T16:00:14Z",
       "durationInSeconds": 2821,
-      "viewCount": 45
-    }
+      "viewCount": 46
+    },
+    "title": "002 Alchemortis, Final Boss? - Full Demo Gameplay",
+    "thumbnail": "https://i.ytimg.com/vi/AElYcc-jp-M/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   }
 ]

@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-03-23T12:15:03Z",
       "durationInSeconds": 4003,
       "viewCount": 105
-    }
+    },
+    "title": "9 Kings Demo, Ep 6",
+    "thumbnail": "https://i.ytimg.com/vi/HV_y2oz0YRE/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-03-22T16:01:10Z",
       "durationInSeconds": 1404,
       "viewCount": 106
-    }
+    },
+    "title": "9 Kings Demo, Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/zIq9i4yjX6o/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-03-21T16:00:17Z",
       "durationInSeconds": 2713,
       "viewCount": 50
-    }
+    },
+    "title": "9 Kings Demo, Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/Egc2vpDzGBI/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2025-03-21T14:00:00Z",
       "durationInSeconds": 1383,
       "viewCount": 102
-    }
+    },
+    "title": "9 Kings Demo, Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/-Je7XguiotA/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2025-03-20T16:30:10Z",
       "durationInSeconds": 2997,
       "viewCount": 72
-    }
+    },
+    "title": "9 Kings Demo, Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/hbRIL91E_oc/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,6 +83,10 @@
       "videoPublishedAt": "2025-03-20T15:30:03Z",
       "durationInSeconds": 1720,
       "viewCount": 225
-    }
+    },
+    "title": "9 Kings: New Series, Free Demo Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/7SigSfj5-88/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 3
   }
 ]

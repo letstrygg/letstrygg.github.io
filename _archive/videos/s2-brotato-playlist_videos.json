@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-09-01T13:00:04Z",
       "durationInSeconds": 3196,
       "viewCount": 67
-    }
+    },
+    "title": "s2e13 Brotato",
+    "thumbnail": "https://i.ytimg.com/vi/4maVj5BU4s4/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2024-08-31T15:01:05Z",
       "durationInSeconds": 3597,
       "viewCount": 21
-    }
+    },
+    "title": "s2e12 Brotato",
+    "thumbnail": "https://i.ytimg.com/vi/zcy17KdPS74/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2024-08-31T13:00:50Z",
       "durationInSeconds": 3638,
       "viewCount": 22
-    }
+    },
+    "title": "s2e11 Brotato",
+    "thumbnail": "https://i.ytimg.com/vi/mZbaIgPw3ug/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2024-08-30T17:00:06Z",
       "durationInSeconds": 3578,
       "viewCount": 107
-    }
+    },
+    "title": "s2e10 Brotato, Sticks",
+    "thumbnail": "https://i.ytimg.com/vi/AeNWp0wC23c/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2024-08-30T15:00:12Z",
       "durationInSeconds": 1871,
       "viewCount": 90
-    }
+    },
+    "title": "s2e9 Brotato, Technomage",
+    "thumbnail": "https://i.ytimg.com/vi/6EiHeF4mWo8/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2024-08-28T17:00:03Z",
       "durationInSeconds": 4765,
       "viewCount": 140
-    }
+    },
+    "title": "s2e8 Brotato",
+    "thumbnail": "https://i.ytimg.com/vi/3DvOaz3XuEI/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2024-08-27T15:00:19Z",
       "durationInSeconds": 3921,
       "viewCount": 99
-    }
+    },
+    "title": "S2E7 Brotato, More Baby",
+    "thumbnail": "https://i.ytimg.com/vi/OXHroIxn0nU/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2024-08-27T13:01:07Z",
       "durationInSeconds": 2939,
       "viewCount": 141
-    }
+    },
+    "title": "S2E6 Brotato, Baby",
+    "thumbnail": "https://i.ytimg.com/vi/zYUb_3e9r44/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,7 +128,11 @@
       "videoPublishedAt": "2024-08-25T17:17:00Z",
       "durationInSeconds": 4807,
       "viewCount": 140
-    }
+    },
+    "title": "s2e5 Brotato: Vampire, New Character",
+    "thumbnail": "https://i.ytimg.com/vi/EQyPHnL97RM/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -107,7 +143,11 @@
       "videoPublishedAt": "2024-08-24T17:00:18Z",
       "durationInSeconds": 4517,
       "viewCount": 58
-    }
+    },
+    "title": "s2e4 Brotato: Technomage, New Character",
+    "thumbnail": "https://i.ytimg.com/vi/RNqKxgOYeMQ/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -118,7 +158,11 @@
       "videoPublishedAt": "2024-08-24T15:00:31Z",
       "durationInSeconds": 4541,
       "viewCount": 125
-    }
+    },
+    "title": "s2e3 Brotato: Vagabond, New Character",
+    "thumbnail": "https://i.ytimg.com/vi/O6nR_1lGCTQ/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -129,7 +173,11 @@
       "videoPublishedAt": "2024-08-24T13:00:19Z",
       "durationInSeconds": 4617,
       "viewCount": 563
-    }
+    },
+    "title": "s2e2 Brotato: Baby, New Character",
+    "thumbnail": "https://i.ytimg.com/vi/JovNKes_S8s/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -140,6 +188,10 @@
       "videoPublishedAt": "2024-08-23T17:15:01Z",
       "durationInSeconds": 5120,
       "viewCount": 171
-    }
+    },
+    "title": "s2e1 Brotato: Free Update, 4x New Characters",
+    "thumbnail": "https://i.ytimg.com/vi/IjCrLyXJ3dI/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 1
   }
 ]

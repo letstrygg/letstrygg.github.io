@@ -7,8 +7,12 @@
       "videoId": "9XzbMRK5jC0",
       "videoPublishedAt": "2026-02-06T00:37:00Z",
       "durationInSeconds": 2338,
-      "viewCount": 787
-    }
+      "viewCount": 965
+    },
+    "title": "001 Lootbound",
+    "thumbnail": "https://i.ytimg.com/vi/9XzbMRK5jC0/maxresdefault.jpg",
+    "likes": 18,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,8 +22,12 @@
       "videoId": "f2DpP9ROkcU",
       "videoPublishedAt": "2026-02-06T14:01:13Z",
       "durationInSeconds": 2806,
-      "viewCount": 144
-    }
+      "viewCount": 149
+    },
+    "title": "002 Lootbound",
+    "thumbnail": "https://i.ytimg.com/vi/f2DpP9ROkcU/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -29,7 +37,11 @@
       "videoId": "rmeHQjWGrkE",
       "videoPublishedAt": "2026-02-07T12:01:33Z",
       "durationInSeconds": 1911,
-      "viewCount": 67
-    }
+      "viewCount": 68
+    },
+    "title": "003 Lootbound",
+    "thumbnail": "https://i.ytimg.com/vi/rmeHQjWGrkE/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 0
   }
 ]

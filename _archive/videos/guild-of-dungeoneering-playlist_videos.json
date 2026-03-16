@@ -8,7 +8,11 @@
       "videoPublishedAt": "2021-11-21T19:00:30Z",
       "durationInSeconds": 1575,
       "viewCount": 51
-    }
+    },
+    "title": "FREE on the Epic Store Lets Try Guild of Dungeoneering 1 turn-based dungeon building dungeon crawler",
+    "thumbnail": "https://i.ytimg.com/vi/y29xRA7DvuQ/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2021-11-22T19:00:30Z",
       "durationInSeconds": 1521,
       "viewCount": 28
-    }
+    },
+    "title": "FREE to KEEP on the Epic Store Guild of Dungeoneering Ep 2 turn-based dungeon builder / crawler",
+    "thumbnail": "https://i.ytimg.com/vi/uhwzmeOxI24/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2021-11-23T19:00:31Z",
       "durationInSeconds": 1277,
       "viewCount": 24
-    }
+    },
+    "title": "FREE to KEEP on the Epic Store Guild of Dungeoneering Ep 3 turn-based dungeon builder / crawler",
+    "thumbnail": "https://i.ytimg.com/vi/y-uM1z99hIc/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2021-11-24T19:00:06Z",
       "durationInSeconds": 1418,
       "viewCount": 17
-    }
+    },
+    "title": "Last day to get FREE on Epic Store, Guild of Dungeoneering Ep 4 turn-based dungeon builder / crawler",
+    "thumbnail": "https://i.ytimg.com/vi/8rFvC3trWDU/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,6 +68,10 @@
       "videoPublishedAt": "2021-11-25T19:00:02Z",
       "durationInSeconds": 1317,
       "viewCount": 14
-    }
+    },
+    "title": "Guild of Dungeoneering Ep 5 turn-based dungeon builder / crawler",
+    "thumbnail": "https://i.ytimg.com/vi/8MkYW7c1k_w/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   }
 ]

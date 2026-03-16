@@ -8,7 +8,11 @@
       "videoPublishedAt": "2026-02-08T12:00:16Z",
       "durationInSeconds": 3533,
       "viewCount": 35
-    }
+    },
+    "title": "001 Zoominoes: Numba-Go-Up Perma-Scaling Fun!",
+    "thumbnail": "https://i.ytimg.com/vi/8xTx7x6Bra4/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2026-02-09T12:00:14Z",
       "durationInSeconds": 4046,
       "viewCount": 20
-    }
+    },
+    "title": "002 Zoominoes Numba-Go, Up, Up, Up!",
+    "thumbnail": "https://i.ytimg.com/vi/8IqBpn0QtOc/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   }
 ]
