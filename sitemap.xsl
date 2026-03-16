@@ -87,7 +87,8 @@
 
         <script type="text/javascript">
           <![CDATA[
-          document.addEventListener('DOMContentLoaded', function() {
+          // Execute immediately since XSLT bypasses standard DOMContentLoaded
+          (function() {
             const rawRows = document.querySelectorAll('#raw-data td');
             const urls = Array.from(rawRows).map(td => td.textContent.trim());
             
@@ -101,9 +102,21 @@
                 
                 let currentLevel = tree;
                 parts.forEach((part, index) => {
+                  const isLast = (index === parts.length - 1);
+                  
                   if (!currentLevel[part]) {
-                    currentLevel[part] = (index === parts.length - 1) ? url : {};
+                    // Create object for folder, string for file
+                    currentLevel[part] = isLast ? url : {};
+                  } else if (typeof currentLevel[part] === 'string' && !isLast) {
+                    // Collision: We thought it was a file, but it's a folder!
+                    // Save the file URL as _index and convert to object
+                    const existingUrl = currentLevel[part];
+                    currentLevel[part] = { '_index': existingUrl };
+                  } else if (typeof currentLevel[part] === 'object' && isLast) {
+                    // Collision: We already created the folder, but here is its root URL!
+                    currentLevel[part]['_index'] = url;
                   }
+
                   currentLevel = currentLevel[part];
                 });
               } catch(e) {}
@@ -113,13 +126,22 @@
             function buildHTML(node) {
               let html = '';
               for (const key in node) {
+                if (key === '_index') continue; // Handled inside the folder logic
+
                 if (typeof node[key] === 'string') {
                   // It's a file
                   html += '<a class="file-link" href="' + node[key] + '" target="_blank">' + key + '</a>';
                 } else {
                   // It's a folder
                   html += '<details>';
-                  html += '<summary>' + key + '</summary>';
+                  
+                  // If the folder has its own page, make the summary clickable
+                  if (node[key]['_index']) {
+                    html += '<summary><a href="' + node[key]['_index'] + '" style="color:inherit;text-decoration:none;" target="_blank">' + key + '</a></summary>';
+                  } else {
+                    html += '<summary>' + key + '</summary>';
+                  }
+                  
                   html += buildHTML(node[key]);
                   html += '</details>';
                 }
@@ -131,9 +153,8 @@
             const container = document.getElementById('tree-container');
             const treeHTML = buildHTML(tree);
             
-            // Wrap the whole thing in a root folder (XML safe attributes!)
             container.innerHTML = '<details open="open"><summary>letstrygg.com</summary>' + treeHTML + '</details>';
-          });
+          })();
           ]]>
         </script>
       </body>
