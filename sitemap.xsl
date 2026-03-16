@@ -35,14 +35,6 @@
           th { background-color: #333; color: #fff; text-align: left; padding: 12px 15px; }
           td { padding: 10px 15px; border-bottom: 1px solid #333; }
           tr:nth-child(even) td { background-color: #222; }
-          
-          details { padding: 10px 15px; background-color: #1f1f1f; border-bottom: 1px solid #333; }
-          summary { cursor: pointer; font-weight: bold; color: #0085e3; padding: 5px; outline: none; }
-          summary:hover { background-color: #2a2a2a; border-radius: 4px; }
-          
-          .inner-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-          .inner-table td { border-bottom: 1px solid #2a2a2a; padding: 8px 10px; font-size: 13px; }
-          .inner-table tr:nth-child(even) td { background-color: transparent; }
         </style>
       </head>
       <body>
@@ -51,7 +43,7 @@
           <p>
             This is an XML Sitemap, formatted for human readability. It contains <span style="font-weight:bold; color:#2ecc71;"><xsl:value-of select="count(sitemap:urlset/sitemap:url)"/></span> URLs.
           </p>
-          <table id="sitemap-table" cellpadding="3">
+          <table cellpadding="3">
             <thead>
               <tr>
                 <th width="80%">URL</th>
@@ -69,71 +61,6 @@
             </tbody>
           </table>
         </div>
-
-        <script type="text/javascript">
-          /* <![CDATA[ */
-          setTimeout(function() {
-            var tbody = document.querySelector("#sitemap-table tbody");
-            if (!tbody) return;
-            
-            var rows = Array.from(tbody.querySelectorAll("tr"));
-            var groups = {};
-            var standaloneRows = [];
-
-            // 1. Sort rows into game folders or leave them alone
-            rows.forEach(function(row) {
-              var a = row.querySelector("a");
-              if (!a) return;
-              var url = a.getAttribute("href");
-              
-              var parts = url.split("/game/");
-              if (parts.length > 1) {
-                var gameName = parts[1].split("/")[0]; // Grabs '20-minutes-till-dawn'
-                if (gameName) {
-                  if (!groups[gameName]) groups[gameName] = [];
-                  groups[gameName].push(row);
-                  return;
-                }
-              }
-              // If it's not a specific game page, keep it as a standalone row
-              standaloneRows.push(row);
-            });
-
-            // 2. Clear the table and rebuild it
-            tbody.innerHTML = "";
-
-            // Put standalone rows (like the root / or /game/) back first
-            standaloneRows.forEach(function(row) {
-              tbody.appendChild(row);
-            });
-
-            // Build the collapsible folders for each game
-            for (var game in groups) {
-              var tr = document.createElement("tr");
-              var td = document.createElement("td");
-              td.colSpan = 2;
-              td.style.padding = "0";
-
-              var details = document.createElement("details");
-              var summary = document.createElement("summary");
-              summary.textContent = "📁 " + game + " (" + groups[game].length + " pages)";
-              
-              var innerTable = document.createElement("table");
-              innerTable.className = "inner-table";
-              
-              groups[game].forEach(function(row) {
-                innerTable.appendChild(row);
-              });
-
-              details.appendChild(summary);
-              details.appendChild(innerTable);
-              td.appendChild(details);
-              tr.appendChild(td);
-              tbody.appendChild(tr);
-            }
-          }, 50);
-          /* ]]> */
-        </script>
       </body>
     </html>
   </xsl:template>
