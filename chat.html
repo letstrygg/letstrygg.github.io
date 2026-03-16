@@ -7,86 +7,107 @@ permalink: /chat/
 <div class="game-page-wrapper">
   <div class="manual-content">
       <h1 class="title">Chat Test</h1>
+
+      <div id="chatBox" style="height: 300px; max-width: 400px; overflow-y: auto; background: #111; border: 1px solid #444; padding: 10px; margin-bottom: 10px; color: #ccc; border-radius: 4px;">
+          <em>Loading messages...</em>
+      </div>
       
-	<div id="chatBox" style="height: 300px; width: 300px; overflow-y: scroll; background: #111; border: 1px solid #444; padding: 10px; margin-bottom: 10px; color: #ccc;">
-		<em>Loading messages...</em>
-	</div>
-	  
       <div style="margin-bottom: 20px;">
-          <input type="text" id="chatInput" placeholder="Type a message..." style="padding: 10px; width: 300px; background: #222; color: #fff; border: 1px solid #444; border-radius: 4px;">
-          <button id="sendBtn" class="btn btn-gray" style="padding: 10px 15px;">Send Hello World</button>
+          <input type="text" id="chatInput" placeholder="Type a message..." style="padding: 10px; width: 250px; background: #222; color: #fff; border: 1px solid #444; border-radius: 4px;">
+          <button id="sendBtn" class="btn btn-gray" style="padding: 10px 15px;">Send</button>
       </div>
 
-      <p id="statusMessage" style="color: #2ecc71;"></p>
+      <p id="statusMessage" style="color: #2ecc71; height: 20px; margin: 0;"></p>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-  // Initialize Supabase (Using a different variable name to avoid collision!)
-  const supabaseUrl = 'https://fnwmtytnltmqjaflfwyr.supabase.co';
-  const supabaseKey = 'sb_publishable_y12qZF_dSbUPmV_aieiUgA_CibDsxQV';
+  // 1. Initialize Supabase
+  const supabaseUrl = 'YOUR_SUPABASE_URL';
+  const supabaseKey = 'YOUR_ANON_KEY';
   const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-  const sendBtn = document.getElementById('sendBtn');
+  // 2. Grab DOM Elements safely
+  const chatBox = document.getElementById('chatBox');
   const chatInput = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
   const statusMessage = document.getElementById('statusMessage');
 
+  // 3. Fetch and Display Messages
+  async function loadMessages() {
+      const { data, error } = await supabaseClient
+          .from('letstrygg_chat')
+          .select('*')
+          .order('created_at', { ascending: true });
+      
+      if (error) {
+          console.error("Error loading messages:", error);
+          chatBox.innerHTML = '<span style="color: #e74c3c;">Failed to load messages. Check console.</span>';
+          return;
+      }
+
+      chatBox.innerHTML = ''; // Clear the box
+      
+      if (data.length === 0) {
+          chatBox.innerHTML = '<em>No messages yet.</em>';
+          return;
+      }
+
+      data.forEach(row => {
+          const msgElement = document.createElement('div');
+          msgElement.style.marginBottom = '8px';
+          msgElement.style.lineHeight = '1.4';
+          
+          // Temporary formatting until we add usernames
+          msgElement.innerHTML = `<strong style="color: #0085e3;">Anon:</strong> ${row.message}`;
+          chatBox.appendChild(msgElement);
+      });
+      
+      // Scroll to the bottom so the latest message is visible
+      chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  // 4. Handle Sending Messages
   sendBtn.addEventListener('click', async () => {
       const text = chatInput.value.trim();
       if (!text) return;
 
       sendBtn.disabled = true;
       statusMessage.textContent = "Sending...";
+      statusMessage.style.color = "#ccc";
 
-      // Insert the message into the database
-      const { data, error } = await supabaseClient
+      const { error } = await supabaseClient
           .from('letstrygg_chat')
-          .insert([
-              { message: text }
-          ]);
+          .insert([{ message: text }]);
 
       if (error) {
           console.error("Supabase Error:", error);
           statusMessage.textContent = "Error: " + error.message;
-          statusMessage.style.color = "#e74c3c"; // Red
+          statusMessage.style.color = "#e74c3c";
       } else {
-          statusMessage.textContent = "Message sent successfully!";
-          statusMessage.style.color = "#2ecc71"; // Green
-          chatInput.value = ""; // Clear the input
+          statusMessage.textContent = "Sent!";
+          statusMessage.style.color = "#2ecc71";
+          chatInput.value = ""; 
+          
+          // Reload messages instantly to show the new one!
+          await loadMessages();
+          
+          // Clear the success message after 2 seconds
+          setTimeout(() => statusMessage.textContent = "", 2000);
       }
 
       sendBtn.disabled = false;
   });
-  
-  const chatBox = document.getElementById('chatBox');
 
-async function loadMessages() {
-    const { data, error } = await supabaseClient
-        .from('letstrygg_chat')
-        .select('*')
-        .order('created_at', { ascending: true }); // Oldest at the top, newest at bottom
-    
-    if (error) {
-        console.error("Error loading messages:", error);
-        chatBox.innerHTML = '<span style="color: red;">Failed to load messages.</span>';
-        return;
-    }
+  // 5. Allow pressing 'Enter' to send
+  chatInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+          sendBtn.click();
+      }
+  });
 
-    chatBox.innerHTML = ''; // Clear the "Loading..." text
-    
-    data.forEach(row => {
-        const msgElement = document.createElement('div');
-        msgElement.style.marginBottom = '8px';
-        msgElement.textContent = row.message; // Eventually we will add usernames here!
-        chatBox.appendChild(msgElement);
-    });
-    
-    // Scroll to the bottom
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// Call it immediately when the page loads
-loadMessages();
+  // 6. Initial load
+  loadMessages();
 </script>
