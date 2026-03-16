@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-04-03T15:01:20Z",
       "durationInSeconds": 2802,
       "viewCount": 94
-    }
+    },
+    "title": "2 Heroes of Hammerwatch II",
+    "thumbnail": "https://i.ytimg.com/vi/siYB6qOuvX8/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2025-04-03T03:07:22Z",
       "durationInSeconds": 1523,
       "viewCount": 283
-    }
+    },
+    "title": "(Reupload, Sound Fix) 1 Heroes of Hammerwatch II",
+    "thumbnail": "https://i.ytimg.com/vi/AwWENMzpAmo/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   }
 ]

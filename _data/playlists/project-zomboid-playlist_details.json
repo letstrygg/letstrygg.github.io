@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4yLHj8RVyBypAcUMO4DyuB",
+  "slug": "project-zomboid",
   "title": "Project Zomboid",
   "thumbnail": "https://i.ytimg.com/vi/fdXiIgd8Il0/maxresdefault.jpg",
   "published": "2025-02-10T12:12:51.613378Z",
   "updated": "2025-02-13T15:00:34Z",
-  "fetched": "2026-03-07T12:03:17.586Z",
+  "fetched": "2026-03-16T01:39:22.008Z",
   "episodes": 5,
   "duration": 10575,
-  "views": 555,
-  "status": "Completed",
   "duration_formatted": "2h 56m",
+  "duration_short": "3h",
+  "views": 555,
   "views_formatted": "555",
-  "slug": "project-zomboid",
+  "status": "Completed",
   "status_color": "blue"
 }

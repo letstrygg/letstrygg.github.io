@@ -5,12 +5,13 @@
   "thumbnail": "https://i.ytimg.com/vi/2Cgu7XGB5PI/maxresdefault.jpg",
   "published": "2025-12-17T04:59:16.165886Z",
   "updated": "2025-12-19T12:00:30Z",
-  "fetched": "2026-03-10T04:10:46.960Z",
+  "fetched": "2026-03-16T01:39:29.876Z",
   "episodes": 5,
   "duration": 17801,
   "duration_formatted": "4h 56m",
-  "views": 351,
-  "views_formatted": "351",
+  "duration_short": "5h",
+  "views": 353,
+  "views_formatted": "353",
   "status": "Completed",
   "status_color": "blue"
 }

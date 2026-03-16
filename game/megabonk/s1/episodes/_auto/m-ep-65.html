@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 65",
+  "name": "065 Evasion Execute Ninja Testing, Megabonk",
   "description": "Episode 65 of the Megabonk Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/ZETehJ0O4hg/maxresdefault.jpg",
-  "uploadDate": "2025-10-25T16:01:04Z",
-  "duration": "PT3144S",
-  "embedUrl": "https://www.youtube.com/embed/ZETehJ0O4hg"
+  "thumbnailUrl": "https://i.ytimg.com/vi/lhg-F7OTsXY/maxresdefault.jpg",
+  "uploadDate": "2025-10-26T12:01:31Z",
+  "duration": "PT4308S",
+  "embedUrl": "https://www.youtube.com/embed/lhg-F7OTsXY"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Oct 25, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 52m 24s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 202</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Oct 26, 2025</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 11m 48s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 162</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 3</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
                     </div>
 
                     <button onclick="window.location.href='/game/megabonk/s1/episodes/m-ep-64.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_ZETehJ0O4hg';
+  var storageKey = 'yt_resume_lhg-F7OTsXY';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'ZETehJ0O4hg',
+      videoId: 'lhg-F7OTsXY',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/ZETehJ0O4hg?t=" + t + "s";
+          const url = "https://youtu.be/lhg-F7OTsXY?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

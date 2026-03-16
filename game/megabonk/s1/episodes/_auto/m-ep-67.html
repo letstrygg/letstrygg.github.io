@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 67",
+  "name": "067 More Record Attempts, Megabonk",
   "description": "Episode 67 of the Megabonk Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/fpKRfJgzea8/maxresdefault.jpg",
-  "uploadDate": "2025-10-26T14:01:03Z",
-  "duration": "PT1246S",
-  "embedUrl": "https://www.youtube.com/embed/fpKRfJgzea8"
+  "thumbnailUrl": "https://i.ytimg.com/vi/SxW3LUMR2CU/maxresdefault.jpg",
+  "uploadDate": "2025-10-26T16:00:49Z",
+  "duration": "PT4866S",
+  "embedUrl": "https://www.youtube.com/embed/SxW3LUMR2CU"
 }
 </script>
 
@@ -23,10 +23,10 @@
                     
                     <div class="overlay-stats">
                         <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Oct 26, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 20m 46s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 500</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 21m 6s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 57</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 2</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
                     </div>
 
                     <button onclick="window.location.href='/game/megabonk/s1/episodes/m-ep-66.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_fpKRfJgzea8';
+  var storageKey = 'yt_resume_SxW3LUMR2CU';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'fpKRfJgzea8',
+      videoId: 'SxW3LUMR2CU',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/fpKRfJgzea8?t=" + t + "s";
+          const url = "https://youtu.be/SxW3LUMR2CU?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

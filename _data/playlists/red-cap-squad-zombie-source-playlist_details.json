@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6QkGPrY2UZcfUZZdyDy4BK",
-  "title": "Red Cap Squad: Zombie Source",
+  "slug": "red-cap-squad-zombie-source",
+  "title": "Red Cap Squad Zombie Source",
   "thumbnail": "https://i.ytimg.com/vi/qpi3f10w2To/maxresdefault.jpg",
   "published": "2025-04-18T12:07:34.039923Z",
   "updated": "2025-04-19T15:01:18Z",
-  "fetched": "2026-03-07T12:03:05.259Z",
+  "fetched": "2026-03-16T01:39:19.499Z",
   "episodes": 2,
   "duration": 3965,
-  "views": 121,
-  "status": "Completed",
   "duration_formatted": "1h 6m",
+  "duration_short": "1h",
+  "views": 121,
   "views_formatted": "121",
-  "slug": "red-cap-squad-zombie-source",
+  "status": "Completed",
   "status_color": "blue"
 }

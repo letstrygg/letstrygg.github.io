@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-02-08T15:00:35Z",
       "durationInSeconds": 2165,
       "viewCount": 380
-    }
+    },
+    "title": "Base Builder, Resource Management, Tower Defense: Border Pioneer Episode 1",
+    "thumbnail": "https://i.ytimg.com/vi/Og_lCB8bBvE/maxresdefault.jpg",
+    "likes": 12,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2025-02-09T15:00:34Z",
       "durationInSeconds": 2522,
       "viewCount": 551
-    }
+    },
+    "title": "More Towers, More Soldiers, More Hunger! Border Pioneer Episode 2",
+    "thumbnail": "https://i.ytimg.com/vi/Q6vef25lZXg/maxresdefault.jpg",
+    "likes": 10,
+    "comments": 1
   }
 ]

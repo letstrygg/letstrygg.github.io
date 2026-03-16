@@ -1,16 +1,17 @@
 {
   "id": "PLkwYKQUqZEUWQaKeWvb2gVDZXmOPPLQ3F",
   "slug": "turnbound",
-  "title": "Turnbound",
+  "title": "turnbound",
   "thumbnail": "https://i.ytimg.com/vi/YE9_2-f55ao/maxresdefault.jpg",
   "published": "2025-10-15T04:54:10.925451Z",
   "updated": "2025-10-15T14:01:05Z",
-  "fetched": "2026-03-10T04:10:51.073Z",
+  "fetched": "2026-03-16T01:39:30.471Z",
   "episodes": 2,
   "duration": 6657,
   "duration_formatted": "1h 50m",
-  "views": 285,
-  "views_formatted": "285",
+  "duration_short": "2h",
+  "views": 286,
+  "views_formatted": "286",
   "status": "Completed",
   "status_color": "blue"
 }

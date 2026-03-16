@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 3",
+  "name": "3 Project Zomboid",
   "description": "Episode 3 of the Project Zomboid Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/PJX1xfW2QPI/maxresdefault.jpg",
-  "uploadDate": "2025-02-11T15:00:37Z",
-  "duration": "PT3540S",
-  "embedUrl": "https://www.youtube.com/embed/PJX1xfW2QPI"
+  "thumbnailUrl": "https://i.ytimg.com/vi/vaAjL6R0u4Q/maxresdefault.jpg",
+  "uploadDate": "2025-02-12T15:01:29Z",
+  "duration": "PT2480S",
+  "embedUrl": "https://www.youtube.com/embed/vaAjL6R0u4Q"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Feb 11, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 59m 0s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 162</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Feb 12, 2025</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 41m 20s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 56</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 4</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 2</span>
                     </div>
 
                     <button onclick="window.location.href='/game/project-zomboid/s1/episodes/pz-ep-2.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_PJX1xfW2QPI';
+  var storageKey = 'yt_resume_vaAjL6R0u4Q';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'PJX1xfW2QPI',
+      videoId: 'vaAjL6R0u4Q',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/PJX1xfW2QPI?t=" + t + "s";
+          const url = "https://youtu.be/vaAjL6R0u4Q?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

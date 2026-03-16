@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 117",
+  "name": "117 Speedrunner 3: Forest Tier 3 in Under 30min - Megabonk",
   "description": "Episode 117 of the Megabonk Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/PCtcDNb3JCQ/maxresdefault.jpg",
-  "uploadDate": "2025-11-16T12:00:53Z",
-  "duration": "PT2871S",
-  "embedUrl": "https://www.youtube.com/embed/PCtcDNb3JCQ"
+  "thumbnailUrl": "https://i.ytimg.com/vi/CD2DhpSACiU/maxresdefault.jpg",
+  "uploadDate": "2025-11-19T12:00:25Z",
+  "duration": "PT2672S",
+  "embedUrl": "https://www.youtube.com/embed/CD2DhpSACiU"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 16, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 47m 51s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 205</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 19, 2025</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 44m 32s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 249</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 2</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
                     </div>
 
                     <button onclick="window.location.href='/game/megabonk/s1/episodes/m-ep-116.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_PCtcDNb3JCQ';
+  var storageKey = 'yt_resume_CD2DhpSACiU';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'PCtcDNb3JCQ',
+      videoId: 'CD2DhpSACiU',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/PCtcDNb3JCQ?t=" + t + "s";
+          const url = "https://youtu.be/CD2DhpSACiU?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

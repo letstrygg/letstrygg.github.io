@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 2",
+  "name": "2 Project Zomboid",
   "description": "Episode 2 of the Project Zomboid Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/JnfEm2OSZK4/maxresdefault.jpg",
-  "uploadDate": "2025-02-10T15:00:23Z",
-  "duration": "PT1655S",
-  "embedUrl": "https://www.youtube.com/embed/JnfEm2OSZK4"
+  "thumbnailUrl": "https://i.ytimg.com/vi/PJX1xfW2QPI/maxresdefault.jpg",
+  "uploadDate": "2025-02-11T15:00:37Z",
+  "duration": "PT3540S",
+  "embedUrl": "https://www.youtube.com/embed/PJX1xfW2QPI"
 }
 </script>
 
@@ -22,10 +22,10 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Feb 10, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 27m 35s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 73</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Feb 11, 2025</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 59m 0s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 162</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 6</span>
                         <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
                     </div>
 
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_JnfEm2OSZK4';
+  var storageKey = 'yt_resume_PJX1xfW2QPI';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'JnfEm2OSZK4',
+      videoId: 'PJX1xfW2QPI',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/JnfEm2OSZK4?t=" + t + "s";
+          const url = "https://youtu.be/PJX1xfW2QPI?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

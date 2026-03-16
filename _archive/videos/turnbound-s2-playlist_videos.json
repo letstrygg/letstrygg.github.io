@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-12-16T12:01:52Z",
       "durationInSeconds": 3616,
       "viewCount": 99
-    }
+    },
+    "title": "Most Broken Build I've Ever Made! Alice is a MONSTER: Turnbound S2E3",
+    "thumbnail": "https://i.ytimg.com/vi/uEvpcM_tonk/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-12-15T18:01:09Z",
       "durationInSeconds": 3076,
       "viewCount": 406
-    }
+    },
+    "title": "Turnbound: New Duels Update!",
+    "thumbnail": "https://i.ytimg.com/vi/tk6eTIewh0c/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2025-12-11T12:01:40Z",
       "durationInSeconds": 3361,
       "viewCount": 235
-    }
+    },
+    "title": "Wukong: Gunblade + Modular Sword + Spikes, Turnbound",
+    "thumbnail": "https://i.ytimg.com/vi/kor1_1yjvKg/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 2
   }
 ]

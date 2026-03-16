@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-12-17T12:00:05Z",
       "durationInSeconds": 1399,
       "viewCount": 115
-    }
+    },
+    "title": "001 MineMogul: New Factory Automation Game?",
+    "thumbnail": "https://i.ytimg.com/vi/2Cgu7XGB5PI/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,8 +22,12 @@
       "videoId": "OlATncVrJDM",
       "videoPublishedAt": "2025-12-17T14:00:48Z",
       "durationInSeconds": 1984,
-      "viewCount": 96
-    }
+      "viewCount": 97
+    },
+    "title": "002 Now With Crushers: MineMogul",
+    "thumbnail": "https://i.ytimg.com/vi/OlATncVrJDM/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -29,8 +37,12 @@
       "videoId": "_TpWlfB404k",
       "videoPublishedAt": "2025-12-17T16:00:56Z",
       "durationInSeconds": 2569,
-      "viewCount": 63
-    }
+      "viewCount": 64
+    },
+    "title": "003 Diamonds & Bars: MineMogul",
+    "thumbnail": "https://i.ytimg.com/vi/_TpWlfB404k/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2025-12-18T12:00:33Z",
       "durationInSeconds": 3342,
       "viewCount": 38
-    }
+    },
+    "title": "004 A Beautiful Mess: MineMogul",
+    "thumbnail": "https://i.ytimg.com/vi/F7QbDPfhFwo/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,6 +68,10 @@
       "videoPublishedAt": "2025-12-19T12:00:30Z",
       "durationInSeconds": 8507,
       "viewCount": 39
-    }
+    },
+    "title": "005 Gold Plates, Diamonds & Consequences: MineMogul",
+    "thumbnail": "https://i.ytimg.com/vi/BNjNeRcFzO4/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 13
   }
 ]

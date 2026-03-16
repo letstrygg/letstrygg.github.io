@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 52",
+  "name": "052 Chaos Tome Record Attempt, Megabonk",
   "description": "Episode 52 of the Megabonk Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/DnUq9lidyqs/maxresdefault.jpg",
-  "uploadDate": "2025-10-19T16:00:32Z",
-  "duration": "PT4588S",
-  "embedUrl": "https://www.youtube.com/embed/DnUq9lidyqs"
+  "thumbnailUrl": "https://i.ytimg.com/vi/EVFwttTOgCo/maxresdefault.jpg",
+  "uploadDate": "2025-10-20T12:00:26Z",
+  "duration": "PT1645S",
+  "embedUrl": "https://www.youtube.com/embed/EVFwttTOgCo"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Oct 19, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 16m 28s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 127</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Oct 20, 2025</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 27m 25s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 199</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 3</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
                     </div>
 
                     <button onclick="window.location.href='/game/megabonk/s1/episodes/m-ep-51.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_DnUq9lidyqs';
+  var storageKey = 'yt_resume_EVFwttTOgCo';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'DnUq9lidyqs',
+      videoId: 'EVFwttTOgCo',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/DnUq9lidyqs?t=" + t + "s";
+          const url = "https://youtu.be/EVFwttTOgCo?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

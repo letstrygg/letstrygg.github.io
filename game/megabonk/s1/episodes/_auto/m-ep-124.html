@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 124",
+  "name": "124 New Updates are AMAZING!! Megabonk",
   "description": "Episode 124 of the Megabonk Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/78vIOKhmva0/maxresdefault.jpg",
-  "uploadDate": "2025-11-29T12:00:13Z",
-  "duration": "PT3120S",
-  "embedUrl": "https://www.youtube.com/embed/78vIOKhmva0"
+  "thumbnailUrl": "https://i.ytimg.com/vi/QRCNtOJQjiQ/maxresdefault.jpg",
+  "uploadDate": "2026-01-21T12:00:52Z",
+  "duration": "PT3313S",
+  "embedUrl": "https://www.youtube.com/embed/QRCNtOJQjiQ"
 }
 </script>
 
@@ -22,15 +22,15 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 29, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 52m 0s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 140</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 21, 2026</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 55m 13s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 141</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 4</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 5</span>
                     </div>
 
                     <button onclick="window.location.href='/game/megabonk/s1/episodes/m-ep-123.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    <button onclick="window.location.href='/game/megabonk/s1/episodes/m-ep-125.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    
                     
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
@@ -48,7 +48,7 @@
             <div class="watch-nav" style="padding-bottom: 10px;">
                 <a href="/game/megabonk/s1/episodes/m-ep-123.html">← Ep 123</a>
                 <a href="/game/megabonk/s1">Episode List</a>
-                <a href="/game/megabonk/s1/episodes/m-ep-125.html">Ep 125 →</a>
+                <span></span>
             </div>
 
         </div>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_78vIOKhmva0';
+  var storageKey = 'yt_resume_QRCNtOJQjiQ';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: '78vIOKhmva0',
+      videoId: 'QRCNtOJQjiQ',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -92,7 +92,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/megabonk/s1/episodes/m-ep-125.html";
+        const nextEpisodeUrl = "";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/78vIOKhmva0?t=" + t + "s";
+          const url = "https://youtu.be/QRCNtOJQjiQ?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

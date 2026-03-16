@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-02-10T13:00:53Z",
       "durationInSeconds": 1545,
       "viewCount": 156
-    }
+    },
+    "title": "0 Project Zomboid",
+    "thumbnail": "https://i.ytimg.com/vi/fdXiIgd8Il0/maxresdefault.jpg",
+    "likes": 10,
+    "comments": 10
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-02-10T15:00:23Z",
       "durationInSeconds": 1655,
       "viewCount": 73
-    }
+    },
+    "title": "1 Project Zomboid",
+    "thumbnail": "https://i.ytimg.com/vi/JnfEm2OSZK4/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-02-11T15:00:37Z",
       "durationInSeconds": 3540,
       "viewCount": 162
-    }
+    },
+    "title": "2 Project Zomboid",
+    "thumbnail": "https://i.ytimg.com/vi/PJX1xfW2QPI/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2025-02-12T15:01:29Z",
       "durationInSeconds": 2480,
       "viewCount": 56
-    }
+    },
+    "title": "3 Project Zomboid",
+    "thumbnail": "https://i.ytimg.com/vi/vaAjL6R0u4Q/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,6 +68,10 @@
       "videoPublishedAt": "2025-02-13T15:00:34Z",
       "durationInSeconds": 1355,
       "viewCount": 108
-    }
+    },
+    "title": "4 Project Zomboid",
+    "thumbnail": "https://i.ytimg.com/vi/P9hHKJj8DrQ/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 1
   }
 ]

@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-02-14T17:00:49Z",
       "durationInSeconds": 4057,
       "viewCount": 558
-    }
+    },
+    "title": "SHUT UP! Die In The Dungeon Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/b27azpRMBkU/maxresdefault.jpg",
+    "likes": 10,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-02-15T17:00:51Z",
       "durationInSeconds": 4669,
       "viewCount": 110
-    }
+    },
+    "title": "Dueling Dual Mantis' - Die In The Dungeon Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/nyK0GwjW-xI/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2025-02-16T19:00:13Z",
       "durationInSeconds": 5057,
       "viewCount": 139
-    }
+    },
+    "title": "The Run That Never En.. Die In The Dungeon Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/L-6ldlXZ6Es/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 0
   }
 ]

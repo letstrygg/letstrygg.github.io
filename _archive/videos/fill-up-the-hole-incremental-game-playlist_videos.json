@@ -8,7 +8,11 @@
       "videoPublishedAt": "2026-01-02T19:30:03Z",
       "durationInSeconds": 4240,
       "viewCount": 460
-    }
+    },
+    "title": "001 Fill Up The Hole - Chill Incremental Game",
+    "thumbnail": "https://i.ytimg.com/vi/65VOQoQFsOA/maxresdefault.jpg",
+    "likes": 18,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2026-01-04T14:00:33Z",
       "durationInSeconds": 4391,
       "viewCount": 123
-    }
+    },
+    "title": "002 Fill Up The Hole, Hole Must Be Fill",
+    "thumbnail": "https://i.ytimg.com/vi/FlzUVP2h_Aw/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   }
 ]

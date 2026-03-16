@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-01-25T15:00:58Z",
       "durationInSeconds": 1647,
       "viewCount": 260
-    }
+    },
+    "title": "SWORN Demo Gameplay: Action Roguelike",
+    "thumbnail": "https://i.ytimg.com/vi/kPGZqu4vJ2k/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 9
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-01-26T13:00:59Z",
       "durationInSeconds": 2257,
       "viewCount": 197
-    }
+    },
+    "title": "SWORN Gameplay Ep. 2: Bow Unlocked",
+    "thumbnail": "https://i.ytimg.com/vi/hXqxfKn-aTU/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-01-27T13:00:02Z",
       "durationInSeconds": 1493,
       "viewCount": 715
-    }
+    },
+    "title": "New Characters, Monk and Rook: Sworn 3",
+    "thumbnail": "https://i.ytimg.com/vi/2Fc8oq2WAU0/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2025-01-27T15:00:29Z",
       "durationInSeconds": 3075,
       "viewCount": 211
-    }
+    },
+    "title": "Rook too Strong, Broken Spell - Sworn 4",
+    "thumbnail": "https://i.ytimg.com/vi/QdlkaYhhweI/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,6 +68,10 @@
       "videoPublishedAt": "2025-01-28T17:00:06Z",
       "durationInSeconds": 2068,
       "viewCount": 181
-    }
+    },
+    "title": "More Sworn, ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/5w_8t-0N4Q8/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 6
   }
 ]

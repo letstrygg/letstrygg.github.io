@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 94",
+  "name": "094 3x Soul Harvester? Megabonk",
   "description": "Episode 94 of the Megabonk Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/e_p_lChpf3w/maxresdefault.jpg",
-  "uploadDate": "2025-11-06T14:01:10Z",
-  "duration": "PT722S",
-  "embedUrl": "https://www.youtube.com/embed/e_p_lChpf3w"
+  "thumbnailUrl": "https://i.ytimg.com/vi/ykXEQjR4V_4/maxresdefault.jpg",
+  "uploadDate": "2025-11-07T14:01:49Z",
+  "duration": "PT8179S",
+  "embedUrl": "https://www.youtube.com/embed/ykXEQjR4V_4"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 6, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 12m 2s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 31</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 7, 2025</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 2h 16m 19s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 69</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 2</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 2</span>
                     </div>
 
                     <button onclick="window.location.href='/game/megabonk/s1/episodes/m-ep-93.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_e_p_lChpf3w';
+  var storageKey = 'yt_resume_ykXEQjR4V_4';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'e_p_lChpf3w',
+      videoId: 'ykXEQjR4V_4',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/e_p_lChpf3w?t=" + t + "s";
+          const url = "https://youtu.be/ykXEQjR4V_4?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

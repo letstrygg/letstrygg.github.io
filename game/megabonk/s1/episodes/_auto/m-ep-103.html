@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 103",
+  "name": "103 New Best-Eva Record Run! Megabonk",
   "description": "Episode 103 of the Megabonk Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/aOoXqK5KryQ/maxresdefault.jpg",
-  "uploadDate": "2025-11-10T12:00:02Z",
-  "duration": "PT2212S",
-  "embedUrl": "https://www.youtube.com/embed/aOoXqK5KryQ"
+  "thumbnailUrl": "https://i.ytimg.com/vi/_lbbb1UgWvc/maxresdefault.jpg",
+  "uploadDate": "2025-11-11T14:00:59Z",
+  "duration": "PT9038S",
+  "embedUrl": "https://www.youtube.com/embed/_lbbb1UgWvc"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 10, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 36m 52s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 73</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 11, 2025</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 2h 30m 38s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 262</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 6</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 5</span>
                     </div>
 
                     <button onclick="window.location.href='/game/megabonk/s1/episodes/m-ep-102.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_aOoXqK5KryQ';
+  var storageKey = 'yt_resume__lbbb1UgWvc';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'aOoXqK5KryQ',
+      videoId: '_lbbb1UgWvc',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/aOoXqK5KryQ?t=" + t + "s";
+          const url = "https://youtu.be/_lbbb1UgWvc?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5kSoUjXrIw1xMbVlHbEc1f",
-  "title": "Theory of Magic - Incremental Web Browser Game",
+  "slug": "theory-of-magic-incremental-web-browser-game",
+  "title": "Theory of Magic Incremental Web Browser Game",
   "thumbnail": "https://i.ytimg.com/vi/cHlprxFlfws/maxresdefault.jpg",
   "published": "2025-06-19T07:54:04.576404Z",
   "updated": "2025-07-17T15:00:57Z",
-  "fetched": "2026-03-07T12:03:03.223Z",
+  "fetched": "2026-03-16T01:39:18.227Z",
   "episodes": 7,
   "duration": 39103,
-  "views": 1038,
-  "status": "Completed",
   "duration_formatted": "10h 51m",
+  "duration_short": "11h",
+  "views": 1047,
   "views_formatted": "1K",
-  "slug": "theory-of-magic-incremental-web-browser-game",
+  "status": "Completed",
   "status_color": "blue"
 }

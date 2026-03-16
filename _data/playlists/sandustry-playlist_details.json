@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4E24n11Y2u2WVGf9q16klE",
+  "slug": "sandustry",
   "title": "Sandustry",
   "thumbnail": "https://i.ytimg.com/vi/4FEcw4oeqEg/maxresdefault.jpg",
   "published": "2025-02-04T09:37:11.503164Z",
   "updated": "2025-02-06T13:00:12Z",
-  "fetched": "2026-03-07T12:03:18.641Z",
+  "fetched": "2026-03-16T01:39:23.165Z",
   "episodes": 3,
   "duration": 14422,
-  "views": 18887,
-  "status": "Completed",
   "duration_formatted": "4h 0m",
+  "duration_short": "4h",
+  "views": 18894,
   "views_formatted": "18.9K",
-  "slug": "sandustry",
+  "status": "Completed",
   "status_color": "blue"
 }

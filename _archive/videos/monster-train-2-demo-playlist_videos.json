@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-02-24T15:00:01Z",
       "durationInSeconds": 6217,
       "viewCount": 101
-    }
+    },
+    "title": "Dragon Clan, Full Greed: Monster Train 2 Demo 3",
+    "thumbnail": "https://i.ytimg.com/vi/0ra2F2gw09E/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-02-21T15:00:34Z",
       "durationInSeconds": 8628,
       "viewCount": 161
-    }
+    },
+    "title": "Run 2, Monster Train 2",
+    "thumbnail": "https://i.ytimg.com/vi/MCIsf2Se7NU/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2025-02-20T15:00:20Z",
       "durationInSeconds": 2677,
       "viewCount": 142
-    }
+    },
+    "title": "Monster Train 2, Demo Gameplay Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/IjZIkBPiWtQ/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 2
   }
 ]

@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 66",
+  "name": "066 Challenge: Speedrunner 2 - Forest Tier2, Megabonk",
   "description": "Episode 66 of the Megabonk Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/lhg-F7OTsXY/maxresdefault.jpg",
-  "uploadDate": "2025-10-26T12:01:31Z",
-  "duration": "PT4308S",
-  "embedUrl": "https://www.youtube.com/embed/lhg-F7OTsXY"
+  "thumbnailUrl": "https://i.ytimg.com/vi/fpKRfJgzea8/maxresdefault.jpg",
+  "uploadDate": "2025-10-26T14:01:03Z",
+  "duration": "PT1246S",
+  "embedUrl": "https://www.youtube.com/embed/fpKRfJgzea8"
 }
 </script>
 
@@ -23,10 +23,10 @@
                     
                     <div class="overlay-stats">
                         <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Oct 26, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 11m 48s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 161</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 20m 46s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 505</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 4</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 4</span>
                     </div>
 
                     <button onclick="window.location.href='/game/megabonk/s1/episodes/m-ep-65.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_lhg-F7OTsXY';
+  var storageKey = 'yt_resume_fpKRfJgzea8';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'lhg-F7OTsXY',
+      videoId: 'fpKRfJgzea8',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/lhg-F7OTsXY?t=" + t + "s";
+          const url = "https://youtu.be/fpKRfJgzea8?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

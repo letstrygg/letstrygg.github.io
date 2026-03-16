@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 71",
+  "name": "071 Testing Ogre Dmg Run, Megabonk",
   "description": "Episode 71 of the Megabonk Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/JsP4wzpisAE/maxresdefault.jpg",
-  "uploadDate": "2025-10-28T12:00:45Z",
-  "duration": "PT3257S",
-  "embedUrl": "https://www.youtube.com/embed/JsP4wzpisAE"
+  "thumbnailUrl": "https://i.ytimg.com/vi/LjAn51H15Eg/maxresdefault.jpg",
+  "uploadDate": "2025-10-28T14:00:42Z",
+  "duration": "PT6212S",
+  "embedUrl": "https://www.youtube.com/embed/LjAn51H15Eg"
 }
 </script>
 
@@ -23,10 +23,10 @@
                     
                     <div class="overlay-stats">
                         <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Oct 28, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 54m 17s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 112</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 43m 32s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 572</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 6</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 2</span>
                     </div>
 
                     <button onclick="window.location.href='/game/megabonk/s1/episodes/m-ep-70.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_JsP4wzpisAE';
+  var storageKey = 'yt_resume_LjAn51H15Eg';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'JsP4wzpisAE',
+      videoId: 'LjAn51H15Eg',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/JsP4wzpisAE?t=" + t + "s";
+          const url = "https://youtu.be/LjAn51H15Eg?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 
