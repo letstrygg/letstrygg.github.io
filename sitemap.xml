@@ -5,7 +5,8 @@ layout: null
 <?xml-stylesheet type="text/xsl" href="{{ '/sitemap.xsl' | relative_url }}"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {% for page in site.pages %}
-    {% if page.url contains '.html' or page.url endswith '/' %}
+    {% assign last_char = page.url | slice: -1 %}
+    {% if page.url contains '.html' or last_char == '/' %}
       {% unless page.url contains '404' or page.sitemap == false %}
       <url>
         <loc>{{ page.url | absolute_url }}</loc>
