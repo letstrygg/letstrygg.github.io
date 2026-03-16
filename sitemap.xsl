@@ -23,7 +23,6 @@
           a { color: #e67e22; text-decoration: none; }
           a:hover { text-decoration: underline; }
           
-          /* Tree Styles */
           #tree-container {
             margin-top: 20px;
             background-color: #1a1a1a;
@@ -31,35 +30,18 @@
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
           }
-          details {
-            margin-left: 20px;
-            padding: 2px 0;
-          }
+          details { margin-left: 20px; padding: 2px 0; }
           summary {
-            cursor: pointer;
-            font-weight: bold;
-            color: #fff;
-            padding: 4px;
-            border-radius: 4px;
-            transition: background 0.1s;
+            cursor: pointer; font-weight: bold; color: #fff;
+            padding: 4px; border-radius: 4px; transition: background 0.1s;
           }
           summary:hover { background-color: #333; }
           .file-link {
-            display: block;
-            margin-left: 24px;
-            padding: 4px 0;
-            color: #2ecc71;
+            display: block; margin-left: 24px; padding: 4px 0; color: #2ecc71;
           }
-          .file-link:before {
-            content: '📄 ';
-            font-size: 12px;
-          }
-          summary:before {
-            content: '📁 ';
-            font-size: 12px;
-          }
+          .file-link:before { content: '📄 '; font-size: 12px; }
+          summary:before { content: '📁 '; font-size: 12px; }
           
-          /* Hide the raw table used for data extraction */
           #raw-data { display: none; }
         </style>
       </head>
@@ -86,76 +68,66 @@
         </div>
 
         <script type="text/javascript">
-          <![CDATA[
-          // Execute immediately since XSLT bypasses standard DOMContentLoaded
+          /* <![CDATA[ */
           (function() {
-            const rawRows = document.querySelectorAll('#raw-data td');
-            const urls = Array.from(rawRows).map(td => td.textContent.trim());
-            
-            const tree = {};
+            try {
+              const rawRows = document.querySelectorAll('#raw-data td');
+              const urls = Array.from(rawRows).map(td => td.textContent.trim());
+              
+              const tree = {};
 
-            // 1. Parse URLs into a nested object
-            urls.forEach(url => {
-              try {
-                const urlObj = new URL(url);
-                const parts = urlObj.pathname.split('/').filter(p => p);
-                
-                let currentLevel = tree;
-                parts.forEach((part, index) => {
-                  const isLast = (index === parts.length - 1);
+              urls.forEach(url => {
+                try {
+                  const urlObj = new URL(url);
+                  const parts = urlObj.pathname.split('/').filter(p => p);
+                  if (parts.length === 0) return; // Skip the root domain URL
                   
-                  if (!currentLevel[part]) {
-                    // Create object for folder, string for file
-                    currentLevel[part] = isLast ? url : {};
-                  } else if (typeof currentLevel[part] === 'string' && !isLast) {
-                    // Collision: We thought it was a file, but it's a folder!
-                    // Save the file URL as _index and convert to object
-                    const existingUrl = currentLevel[part];
-                    currentLevel[part] = { '_index': existingUrl };
-                  } else if (typeof currentLevel[part] === 'object' && isLast) {
-                    // Collision: We already created the folder, but here is its root URL!
-                    currentLevel[part]['_index'] = url;
-                  }
+                  let currentLevel = tree;
+                  parts.forEach((part, index) => {
+                    const isLast = (index === parts.length - 1);
+                    
+                    if (!currentLevel[part]) {
+                      currentLevel[part] = isLast ? url : {};
+                    } else if (typeof currentLevel[part] === 'string' && !isLast) {
+                      const existingUrl = currentLevel[part];
+                      currentLevel[part] = { '_index': existingUrl };
+                    } else if (typeof currentLevel[part] === 'object' && isLast) {
+                      currentLevel[part]['_index'] = url;
+                    }
 
-                  currentLevel = currentLevel[part];
-                });
-              } catch(e) {}
-            });
+                    currentLevel = currentLevel[part];
+                  });
+                } catch(e) {}
+              });
 
-            // 2. Recursively build HTML details/summary blocks
-            function buildHTML(node) {
-              let html = '';
-              for (const key in node) {
-                if (key === '_index') continue; // Handled inside the folder logic
+              function buildHTML(node) {
+                let html = '';
+                for (const key in node) {
+                  if (key === '_index') continue;
 
-                if (typeof node[key] === 'string') {
-                  // It's a file
-                  html += '<a class="file-link" href="' + node[key] + '" target="_blank">' + key + '</a>';
-                } else {
-                  // It's a folder
-                  html += '<details>';
-                  
-                  // If the folder has its own page, make the summary clickable
-                  if (node[key]['_index']) {
-                    html += '<summary><a href="' + node[key]['_index'] + '" style="color:inherit;text-decoration:none;" target="_blank">' + key + '</a></summary>';
+                  if (typeof node[key] === 'string') {
+                    html += '<a class="file-link" href="' + node[key] + '" target="_blank">' + key + '</a>';
                   } else {
-                    html += '<summary>' + key + '</summary>';
+                    html += '<details>';
+                    if (node[key]['_index']) {
+                      html += '<summary><a href="' + node[key]['_index'] + '" style="color:inherit;text-decoration:none;" target="_blank">' + key + '</a></summary>';
+                    } else {
+                      html += '<summary>' + key + '</summary>';
+                    }
+                    html += buildHTML(node[key]);
+                    html += '</details>';
                   }
-                  
-                  html += buildHTML(node[key]);
-                  html += '</details>';
                 }
+                return html;
               }
-              return html;
-            }
 
-            // 3. Render it
-            const container = document.getElementById('tree-container');
-            const treeHTML = buildHTML(tree);
-            
-            container.innerHTML = '<details open="open"><summary>letstrygg.com</summary>' + treeHTML + '</details>';
+              const container = document.getElementById('tree-container');
+              container.innerHTML = '<details open="open"><summary>letstrygg.com</summary>' + buildHTML(tree) + '</details>';
+            } catch (err) {
+              document.getElementById('tree-container').innerHTML = '<span style="color:red;">Failed to build tree: ' + err.message + '</span>';
+            }
           })();
-          ]]>
+          /* ]]> */
         </script>
       </body>
     </html>
