@@ -464,11 +464,6 @@ header { text-align: center; padding: 20px 0; }
    ========================================= */
 
 /* --- Universal CSS Tooltips --- */
-/* Any element with a data-tooltip attribute gets this automatically */
-[data-tooltip] {
-    position: relative;
-}
-
 [data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -488,6 +483,13 @@ header { text-align: center; padding: 20px 0; }
     border: 1px solid #3a3a3d;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    
+    /* NEW: Forces the box to perfectly surround the text height/width */
+    display: block;
+    width: max-content;
+    height: max-content;
+    line-height: 1.4;
+    box-sizing: border-box;
 }
 
 [data-tooltip]:hover::after {
