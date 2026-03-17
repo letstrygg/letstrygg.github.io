@@ -132,7 +132,7 @@ toggleTimestamps.addEventListener('change', (e) => {
 
 // Setup Current Game & Filter Toggles
 let showGlobalChat = localStorage.getItem('showGlobalChat') !== 'false';
-let highlightChannelChat = localStorage.getItem('highlightChannelChat') !== 'false';
+let highlightChannelChat = localStorage.getItem('highlightChannelChat') !== 'true';
 
 let currentGame = 'general';
 const pathParts = window.location.pathname.split('/game/');
