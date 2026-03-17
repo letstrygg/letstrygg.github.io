@@ -64,53 +64,50 @@ permalink: /chat/
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-  const chatBox = document.getElementById('chatBox');
-  chatBox.innerHTML = ''; 
-
-  function logStep(msg) {
-      console.log(msg);
-      const logDiv = document.createElement('div');
-      logDiv.style.color = '#f1c40f';
-      logDiv.style.fontFamily = 'monospace';
-      logDiv.style.fontSize = '12px';
-      logDiv.style.marginBottom = '4px';
-      logDiv.textContent = `[DEBUG] ${msg}`;
-      chatBox.appendChild(logDiv);
-  }
-
-  window.onerror = function(msg, url, line) {
-      logStep(`CRITICAL JS CRASH: ${msg} at line ${line}`);
-      return false;
-  };
-
-  window.addEventListener('unhandledrejection', function(event) {
-      logStep(`SILENT PROMISE FAILURE: ${event.reason}`);
-  });
-
   const supabaseUrl = '{{ site.supabase_url }}';
   const supabaseKey = '{{ site.supabase_anon_key }}';
   const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
+  const chatBox = document.getElementById('chatBox');
+  const chatInput = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
+  const statusMessage = document.getElementById('statusMessage');
   const loginSection = document.getElementById('loginSection');
   const inputSection = document.getElementById('inputSection');
   const userNameDisplay = document.getElementById('userNameDisplay');
   const userColorPicker = document.getElementById('userColor');
   const toggleTimestamps = document.getElementById('toggleTimestamps');
   const toggleGameFilter = document.getElementById('toggleGameFilter');
-  const chatInput = document.getElementById('chatInput');
-  const sendBtn = document.getElementById('sendBtn');
-  const statusMessage = document.getElementById('statusMessage');
-
-  let currentGame = 'general';
-  const pathParts = window.location.pathname.split('/game/');
-  if (pathParts.length > 1) currentGame = pathParts[1].split('/')[0] || 'general';
+  const gameContextBadge = document.getElementById('gameContextBadge');
 
   let currentSession = null;
   let isAdmin = false;
 
-  async function login(provider) { await supabaseClient.auth.signInWithOAuth({ provider: provider, options: { redirectTo: window.location.origin + window.location.pathname }}); }
-  async function logout() { await supabaseClient.auth.signOut(); }
-  async function setDeletedState(id, state) { await supabaseClient.from('letstrygg_chat').update({ is_deleted: state }).eq('id', id); }
+  toggleTimestamps.checked = localStorage.getItem('showTimestamps') === 'true';
+  if (toggleTimestamps.checked) chatBox.classList.add('show-timestamps');
+  
+  toggleTimestamps.addEventListener('change', (e) => {
+      localStorage.setItem('showTimestamps', e.target.checked);
+      if (e.target.checked) {
+          chatBox.classList.add('show-timestamps');
+      } else {
+          chatBox.classList.remove('show-timestamps');
+      }
+  });
+
+  toggleGameFilter.checked = localStorage.getItem('filterGame') === 'true';
+  toggleGameFilter.addEventListener('change', (e) => {
+      localStorage.setItem('filterGame', e.target.checked);
+      loadMessages();
+  });
+
+  let currentGame = 'general';
+  const pathParts = window.location.pathname.split('/game/');
+  if (pathParts.length > 1) currentGame = pathParts[1].split('/')[0] || 'general';
+  if (gameContextBadge) {
+      gameContextBadge.textContent = currentGame;
+      if (currentGame !== 'general') gameContextBadge.style.display = 'inline-block';
+  }
 
   function formatTime(dateStr) {
       const d = new Date(dateStr);
@@ -121,49 +118,35 @@ permalink: /chat/
       return `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear().toString().slice(-2)} ${time}`;
   }
 
-  logStep("1. Script initializing. Setting up Auth Listener...");
+  async function login(provider) { await supabaseClient.auth.signInWithOAuth({ provider: provider, options: { redirectTo: window.location.origin + window.location.pathname }}); }
+  async function logout() { await supabaseClient.auth.signOut(); }
+  async function setDeletedState(id, state) { await supabaseClient.from('letstrygg_chat').update({ is_deleted: state }).eq('id', id); }
 
-  // The Fix: A debounce timer to prevent the double-fire crash
   let authTimeout = null;
-
   supabaseClient.auth.onAuthStateChange((event, session) => {
-      // If another event fires instantly, cancel the previous one
       clearTimeout(authTimeout);
-
-      // Wait 100ms to let Supabase finish throwing a tantrum before executing
       authTimeout = setTimeout(async () => {
-          logStep(`2. Auth Event Processed: ${event}. Session exists? ${!!session}`);
           currentSession = session;
-
           if (session) {
               loginSection.style.display = 'none';
               inputSection.style.display = 'block';
               isAdmin = session.user.email === 'letstrygg@gmail.com';
               
-              logStep(`3. Fetching profile for user ID: ${session.user.id}...`);
-              
-              const { data: profile, error } = await supabaseClient
+              const { data: profile } = await supabaseClient
                   .from('letstrygg_profiles')
                   .select('username, color')
                   .eq('user_id', session.user.id)
                   .maybeSingle();
 
-              if (error) {
-                  logStep(`🚨 PROFILE ERROR: ${error.message}`);
-              } else if (profile) {
-                  logStep(`4. Profile found! Username: ${profile.username}`);
+              if (profile) {
                   userNameDisplay.textContent = profile.username;
                   userColorPicker.value = profile.color;
-              } else {
-                  logStep("🚨 NO PROFILE ROW FOUND IN DATABASE.");
               }
           } else {
               loginSection.style.display = 'block';
               inputSection.style.display = 'none';
               isAdmin = false;
           }
-          
-          logStep("5. Attempting to load messages...");
           loadMessages(); 
       }, 100); 
   });
@@ -180,11 +163,9 @@ permalink: /chat/
       const { data, error } = await query;
       
       if (error) { 
-          logStep(`🚨 LOAD MESSAGES ERROR: ${error.message}`);
+          chatBox.innerHTML = `<span style="color:#e74c3c;">Failed to load messages.</span>`; 
           return; 
       }
-
-      logStep(`6. Messages loaded! Row count: ${data ? data.length : 0}`);
       
       if (data && data.length > 0) {
           chatBox.innerHTML = ''; 
@@ -192,18 +173,13 @@ permalink: /chat/
               if (row.is_deleted && !isAdmin) return;
 
               const msgDiv = document.createElement('div');
-              msgDiv.style.marginBottom = '8px';
-              msgDiv.style.lineHeight = '1.4';
-              msgDiv.style.display = 'flex';
-              msgDiv.style.alignItems = 'flex-start';
-              msgDiv.style.gap = '8px';
-              if (row.is_deleted) { msgDiv.style.opacity = '0.4'; msgDiv.style.textDecoration = 'line-through'; }
+              msgDiv.className = 'chat-msg' + (row.is_deleted ? ' msg-deleted' : '');
               
               let adminHtml = '';
               if (isAdmin) {
                   adminHtml = row.is_deleted 
-                      ? `<button style="background:none;border:none;cursor:pointer;opacity:0.5" onclick="setDeletedState(${row.id}, false)">♻️</button>`
-                      : `<button style="background:none;border:none;cursor:pointer;opacity:0.5" onclick="setDeletedState(${row.id}, true)">🗑️</button>`;
+                      ? `<button class="admin-btn" title="Restore" onclick="setDeletedState(${row.id}, false)">♻️</button>`
+                      : `<button class="admin-btn" title="Delete" onclick="setDeletedState(${row.id}, true)">🗑️</button>`;
               }
 
               const profile = row.letstrygg_profiles || {};
@@ -211,7 +187,7 @@ permalink: /chat/
               const displayColor = profile.color || '#ffffff';
 
               msgDiv.innerHTML = `
-                  <span style="font-size:11px; color:#666; margin-top:3px; display:${toggleTimestamps && toggleTimestamps.checked ? 'inline-block' : 'none'}">${formatTime(row.created_at)}</span>
+                  <span class="chat-timestamp">${formatTime(row.created_at)}</span>
                   <div style="flex-grow: 1;">
                       <strong style="color: ${displayColor};">${displayName}:</strong> 
                       ${row.message}
@@ -221,6 +197,8 @@ permalink: /chat/
               chatBox.appendChild(msgDiv);
           });
           chatBox.scrollTop = chatBox.scrollHeight;
+      } else {
+          chatBox.innerHTML = '<em>No messages found.</em>';
       }
   }
 
