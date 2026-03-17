@@ -68,6 +68,9 @@
 #chatBox::-webkit-scrollbar { width: 8px; }
 #chatBox::-webkit-scrollbar-track { background: transparent; }
 #chatBox::-webkit-scrollbar-thumb { background: #3a3a3d; border-radius: 4px; }
+/* Smoothly squish the page content */
+body { transition: padding-right 0.3s ease; }
+body.chat-open-squish { padding-right: 340px; }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -101,9 +104,11 @@ function updateChatVisibility() {
     if (isChatOpen) {
         chatSidebar.style.right = '0';
         openChatBtn.style.display = 'none';
+        document.body.classList.add('chat-open-squish'); // Pushes content left
     } else {
         chatSidebar.style.right = '-350px';
         openChatBtn.style.display = 'flex';
+        document.body.classList.remove('chat-open-squish'); // Relaxes content back
     }
     localStorage.setItem('chatOpen', isChatOpen);
 }
