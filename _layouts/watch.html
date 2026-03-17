@@ -8,7 +8,8 @@
   <meta name="title" content="{{ page.title }}">
   <meta name="description" content="{{ page.description }}">
   <link rel="canonical" href="https://letstrygg.com{{ page.permalink }}">
-  <meta name="theme-color" content="#e67e22"> <meta property="og:site_name" content="letstrygg">
+  <meta name="theme-color" content="#e67e22"> 
+  <meta property="og:site_name" content="letstrygg">
   <meta property="og:type" content="video.other">
   <meta property="og:url" content="https://letstrygg.com{{ page.permalink }}">
   <meta property="og:title" content="{{ page.title }}">
@@ -40,34 +41,16 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/styles/overlayscrollbars.min.css">
 <body data-overlayscrollbars-initialize>
 
+{% include theme_toggle.html %}
+
 <main>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px; margin-bottom: 5px;">
+  <div style="margin-top: 5px; margin-bottom: 5px;">
     {% include breadcrumbs.html %}
-    <span id="theme-toggle" class="material-symbols-outlined" title="Toggle theme" style="position: static; cursor: pointer;"></span>
   </div>
 
   {{ content }}
   
 </main>
-
-<script>
-  const toggle = document.getElementById('theme-toggle');
-  const body = document.body;
-  const savedTheme = localStorage.getItem('theme');
-
-  const applyTheme = (isLight) => {
-    body.classList.toggle('light-theme', isLight);
-    toggle.textContent = isLight ? 'light_mode' : 'bedtime';
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  };
-
-  applyTheme(savedTheme === 'light');
-
-  toggle.addEventListener('click', () => {
-    const isNowLight = !body.classList.contains('light-theme');
-    applyTheme(isNowLight);
-  });
-</script>
 
 {% include chat_widget.html %}
 
