@@ -70,63 +70,13 @@
 #chatBox::-webkit-scrollbar { width: 8px; }
 #chatBox::-webkit-scrollbar-track { background: transparent; }
 #chatBox::-webkit-scrollbar-thumb { background: #3a3a3d; border-radius: 4px; }
-/* Style the timestamp links */
 .yt-time-link { color: #e67e22; text-decoration: none; font-weight: 500; transition: opacity 0.2s; }
 .yt-time-link:hover { opacity: 0.8; text-decoration: underline; }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// --- YOUTUBE API SETUP ---
-let ytPlayer = null;
-const ytScript = document.createElement('script');
-ytScript.src = "https://www.youtube.com/iframe_api";
-const firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(ytScript, firstScriptTag);
-
-function onYouTubeIframeAPIReady() {
-    const iframe = document.querySelector('iframe[src*="youtube.com"]');
-    if (iframe) {
-        // Force the API parameter so the iframe will talk to us
-        if (!iframe.src.includes('enablejsapi=1')) {
-            iframe.src += (iframe.src.includes('?') ? '&' : '?') + 'enablejsapi=1';
-        }
-        ytPlayer = new YT.Player(iframe);
-    }
-}
-
-// Grab Timestamp Button Logic
-document.getElementById('grabTimeBtn').addEventListener('click', () => {
-    if (ytPlayer && typeof ytPlayer.getCurrentTime === 'function') {
-        const time = ytPlayer.getCurrentTime();
-        const h = Math.floor(time / 3600);
-        const m = Math.floor((time % 3600) / 60);
-        const s = Math.floor(time % 60);
-        
-        let timeStr = '';
-        if (h > 0) {
-            timeStr = `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-        } else {
-            timeStr = `${m}:${s.toString().padStart(2, '0')}`;
-        }
-        
-        const input = document.getElementById('chatInput');
-        // Add a space if there's already text
-        input.value += (input.value.length > 0 && !input.value.endsWith(' ') ? ' ' : '') + `(${timeStr}) `;
-        input.focus();
-    } else {
-        const statusMessage = document.getElementById('statusMessage');
-        statusMessage.textContent = "No active video found.";
-        statusMessage.style.color = "#e74c3c";
-        setTimeout(() => statusMessage.textContent = "", 2000);
-    }
-});
-
-// --- STANDARD CHAT SETUP ---
-const supabaseUrl = '{{ site.supabase_url }}';
-const supabaseKey = '{{ site.supabase_anon_key }}';
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-
+// 1. GUARANTEE UI VISIBILITY IMMEDIATELY
 const chatSidebar = document.getElementById('chatSidebar');
 const openChatBtn = document.getElementById('openChatBtn');
 const closeChatBtn = document.getElementById('closeChatBtn');
@@ -141,9 +91,7 @@ const userColorPicker = document.getElementById('userColor');
 const toggleTimestamps = document.getElementById('toggleTimestamps');
 const toggleGameFilter = document.getElementById('toggleGameFilter');
 const gameContextBadge = document.getElementById('gameContextBadge');
-
-let currentSession = null;
-let isAdmin = false;
+const grabTimeBtn = document.getElementById('grabTimeBtn');
 
 let isChatOpen = localStorage.getItem('chatOpen') !== 'false'; 
 function updateChatVisibility() {
@@ -161,6 +109,48 @@ function updateChatVisibility() {
 openChatBtn.addEventListener('click', () => { isChatOpen = true; updateChatVisibility(); });
 closeChatBtn.addEventListener('click', () => { isChatOpen = false; updateChatVisibility(); });
 updateChatVisibility();
+
+// 2. SAFE YOUTUBE API SETUP
+let ytPlayer = null;
+try {
+    window.onYouTubeIframeAPIReady = function() {
+        const iframe = document.querySelector('iframe[src*="youtube.com"]');
+        if (iframe) {
+            if (!iframe.src.includes('enablejsapi=1')) {
+                iframe.src += (iframe.src.includes('?') ? '&' : '?') + 'enablejsapi=1';
+            }
+            ytPlayer = new YT.Player(iframe);
+        }
+    };
+    const ytScript = document.createElement('script');
+    ytScript.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(ytScript); // Safe injection
+} catch (e) { console.error("YT API Error:", e); }
+
+grabTimeBtn.addEventListener('click', () => {
+    if (ytPlayer && typeof ytPlayer.getCurrentTime === 'function') {
+        const time = ytPlayer.getCurrentTime();
+        const h = Math.floor(time / 3600);
+        const m = Math.floor((time % 3600) / 60);
+        const s = Math.floor(time % 60);
+        
+        let timeStr = h > 0 ? `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}` : `${m}:${s.toString().padStart(2, '0')}`;
+        chatInput.value += (chatInput.value.length > 0 && !chatInput.value.endsWith(' ') ? ' ' : '') + `(${timeStr}) `;
+        chatInput.focus();
+    } else {
+        statusMessage.textContent = "Play video to grab time.";
+        statusMessage.style.color = "#e74c3c";
+        setTimeout(() => statusMessage.textContent = "", 2000);
+    }
+});
+
+// 3. STANDARD CHAT SETUP
+const supabaseUrl = '{{ site.supabase_url }}';
+const supabaseKey = '{{ site.supabase_anon_key }}';
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+let currentSession = null;
+let isAdmin = false;
 
 toggleTimestamps.checked = localStorage.getItem('showTimestamps') === 'true';
 if (toggleTimestamps.checked) chatBox.classList.add('show-timestamps');
@@ -250,18 +240,14 @@ async function loadMessages() {
             const displayName = profile.username || 'Anon';
             const displayColor = profile.color || '#ffffff';
 
-            // Render the small "Smart Display" icon linking to the URL
             const urlIconHtml = row.url ? `<a href="${row.url}" target="_blank" title="Go to page" style="color: #666; display: flex; align-items: center; text-decoration: none; margin-top: 1px;"><span class="material-symbols-outlined" style="font-size: 15px;">smart_display</span></a>` : '';
 
-            // Regex magic: Convert (1:04) or (1:04:22) into a link using the row's URL
             let formattedMessage = row.message;
             if (row.url) {
                 formattedMessage = formattedMessage.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, (match, timeStr) => {
                     let parts = timeStr.split(':').reverse();
                     let seconds = 0;
-                    for (let i = 0; i < parts.length; i++) {
-                        seconds += parseInt(parts[i]) * Math.pow(60, i);
-                    }
+                    for (let i = 0; i < parts.length; i++) seconds += parseInt(parts[i]) * Math.pow(60, i);
                     return `<a href="${row.url}?t=${seconds}" class="yt-time-link" target="_blank">(${timeStr})</a>`;
                 });
             }
@@ -293,7 +279,6 @@ sendBtn.addEventListener('click', async () => {
     if (!text || !currentSession) return;
     sendBtn.disabled = true;
     
-    // Add the current URL to the database insert!
     const { error } = await supabaseClient.from('letstrygg_chat').insert([{ 
         message: text, 
         user_id: currentSession.user.id, 
