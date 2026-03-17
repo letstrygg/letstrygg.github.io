@@ -147,19 +147,21 @@ header { text-align: center; padding: 20px 0; }
   color: var(--bg);
 }
 
-/* Custom Minimalist OverlayScrollbars Theme */
-.os-theme-custom {
-            --os-size: 10px;
-            --os-padding-perpendicular: 2px;
-            --os-padding-axis: 2px;
-            --os-track-bg: transparent;
-            --os-track-bg-hover: rgba(255, 255, 255, 0.05);
-            --os-track-bg-active: rgba(255, 255, 255, 0.1);
-            --os-track-border-radius: 10px;
-            --os-handle-bg: rgba(255, 255, 255, 0.2);
-            --os-handle-bg-hover: rgba(255, 255, 255, 0.4);
-            --os-handle-bg-active: rgba(230, 126, 34, 0.9); /* Turns orange when clicked */
-            --os-handle-border-radius: 10px;
+/* Custom Minimalist OverlayScrollbars Theme - High Specificity */
+.os-scrollbar.os-theme-custom {
+  --os-size: 8px;
+  --os-padding-perpendicular: 2px;
+  --os-padding-axis: 2px;
+  --os-track-bg: transparent;
+  --os-track-bg-hover: rgba(0, 0, 0, 0.1);
+  --os-track-bg-active: rgba(0, 0, 0, 0.2);
+  --os-track-border-radius: 10px;
+
+  /* Hooked into your site's variables so it contrasts perfectly */
+  --os-handle-bg: var(--gray); 
+  --os-handle-bg-hover: var(--subtitle); 
+  --os-handle-bg-active: var(--orange); 
+  --os-handle-border-radius: 10px;
 }
 
 /* --- NAVIGATION & LISTS --- */
