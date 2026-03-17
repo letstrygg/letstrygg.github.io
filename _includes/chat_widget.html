@@ -1,34 +1,95 @@
 <link rel="stylesheet" href="/css/chat.css">
 
-<button id="openChatBtn" style="position: fixed; top: 30px; right: 10px; z-index: 999; background: transparent; color: #efeff1; border: none; cursor: pointer; padding: 6px; border-radius: 4px; display: none; align-items: center; justify-content: center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'" title="Expand Chat">
+<style>
+.icon-btn {
+    position: relative;
+    cursor: pointer;
+    color: #888; /* Inactive Grey */
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+.icon-btn:hover { color: #ccc; }
+
+/* Active Colors */
+.icon-btn.active-green { color: #8dff8d; }
+.icon-btn.active-blue { color: #3498db; }
+.icon-btn.active-red { color: #e74c3c; }
+
+/* Disabled State */
+.icon-btn.disabled { opacity: 0.3; pointer-events: none; }
+
+/* Custom CSS Tooltip */
+.icon-btn::after, .chat-control-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 4px); /* Position just above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #18181b;
+    color: #efeff1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, bottom 0.2s ease;
+    border: 1px solid #3a3a3d;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+.icon-btn:hover::after, .chat-control-btn:hover::after {
+    opacity: 1;
+    bottom: calc(100% + 8px); /* Slight upward float on hover */
+}
+
+/* Base style for open/close buttons to inherit tooltips */
+.chat-control-btn {
+    background: transparent;
+    color: #efeff1;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+</style>
+
+<button id="openChatBtn" class="chat-control-btn" data-tooltip="Expand Chat" style="position: fixed; top: 30px; right: 10px; z-index: 999; display: none;">
   <span class="material-symbols-outlined" style="transform: scaleX(-1);">chat_bubble</span>
 </button>
 
 <div id="chatSidebar" style="position: fixed; top: 0; right: -350px; width: 340px; height: 100vh; background: #0e0e10; border-left: 1px solid #26262c; display: flex; flex-direction: column; transition: right 0.3s ease; z-index: 1000; box-shadow: -4px 0 15px rgba(0,0,0,0.5);">
   
   <div style="min-height: 50px; border-bottom: 1px solid #26262c; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; background: #0e0e10;">
-    <button id="closeChatBtn" style="background: transparent; color: #efeff1; border: none; cursor: pointer; padding: 6px; border-radius: 4px; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'" title="Collapse Chat">
+    <button id="closeChatBtn" class="chat-control-btn" data-tooltip="Collapse Chat">
       <span class="material-symbols-outlined">keyboard_tab</span>
     </button>
     <span style="font-weight: 600; font-size: 13px; color: #efeff1; text-transform: uppercase;">Live Chat</span>
     <div style="width: 36px;"></div>
   </div>
 
-  <div style="padding: 10px; border-bottom: 1px solid #26262c; font-size: 12px; color: #aaa; display: flex; justify-content: space-between; align-items: center; background: #18181b;">
-    <div style="display: flex; gap: 6px;">
-        <span id="timeToggle" class="chat-badge" title="Show Timestamps" style="padding: 4px; display: inline-flex; align-items: center; justify-content: center;">
-            <span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+  <div style="padding: 10px; border-bottom: 1px solid #26262c; display: flex; justify-content: space-between; align-items: center; background: #18181b;">
+    <div style="display: flex; gap: 8px;">
+        <span id="timeToggle" class="icon-btn" data-tooltip="Timestamps">
+            <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
         </span>
-        <span id="deletedToggle" class="chat-badge" title="Show Deleted Messages" style="display: none; padding: 4px; border-color: rgba(231, 76, 60, 0.4); align-items: center; justify-content: center;">
-            <span class="material-symbols-outlined" style="font-size: 16px;">delete</span>
+        <span id="deletedToggle" class="icon-btn" data-tooltip="Deleted Messages" style="display: none;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">delete</span>
         </span>
     </div>
-    <div style="display: flex; gap: 6px;">
-        <span id="globalChatToggle" class="chat-badge active" title="Toggle Global Chat" style="padding: 4px; display: inline-flex; align-items: center; justify-content: center;">
-            <span class="material-symbols-outlined" style="font-size: 16px;">public</span>
+    <div style="display: flex; gap: 8px;">
+        <span id="globalChatToggle" class="icon-btn active-green" data-tooltip="Global Chat">
+            <span class="material-symbols-outlined" style="font-size: 18px;">public</span>
         </span>
-        <span id="channelChatToggle" class="chat-badge active" title="Toggle Game Highlights" style="display: none; padding: 4px; align-items: center; justify-content: center;">
-            <span class="material-symbols-outlined" style="font-size: 16px;">sports_esports</span>
+        <span id="channelChatToggle" class="icon-btn disabled" data-tooltip="" style="display: none;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">sports_esports</span>
         </span>
     </div>
   </div>
@@ -56,7 +117,7 @@
               <input type="color" id="userColor" style="background: none; border: none; cursor: pointer; height: 20px; width: 20px; padding: 0;">
           </div>
           <div style="display: flex; gap: 8px; align-items: center;">
-              <button id="grabTimeBtn" class="btn" style="padding: 10px; background: #26262c; color: #aaa; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center;" title="Insert current video time">
+              <button id="grabTimeBtn" class="chat-control-btn" data-tooltip="Insert Video Time" style="padding: 10px; background: #26262c; color: #aaa; border-radius: 4px;">
                   <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
               </button>
               <input type="text" id="chatInput" placeholder="Send a message" style="padding: 10px; flex-grow: 1; background: #0e0e10; color: #fff; border: 1px solid #3a3a3d; border-radius: 4px; outline: none; transition: border 0.2s;">
@@ -69,6 +130,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+// Helper to Capitalize Title Case
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
+
 // 1. GUARANTEE UI VISIBILITY
 const chatSidebar = document.getElementById('chatSidebar');
 const openChatBtn = document.getElementById('openChatBtn');
@@ -108,13 +176,13 @@ updateChatVisibility();
 
 // 2. TIMESTAMPS & GRABBER
 let showTimestamps = localStorage.getItem('showTimestamps') === 'true';
-timeToggle.classList.toggle('active', showTimestamps);
+timeToggle.classList.toggle('active-blue', showTimestamps);
 if (showTimestamps) chatBox.classList.add('show-timestamps');
 
 timeToggle.addEventListener('click', () => {
     showTimestamps = !showTimestamps;
     localStorage.setItem('showTimestamps', showTimestamps);
-    timeToggle.classList.toggle('active', showTimestamps);
+    timeToggle.classList.toggle('active-blue', showTimestamps);
     showTimestamps ? chatBox.classList.add('show-timestamps') : chatBox.classList.remove('show-timestamps');
 });
 
@@ -148,14 +216,7 @@ let chatMessagesData = [];
 deletedToggle.addEventListener('click', () => {
     if (!isAdmin) return;
     showDeleted = !showDeleted;
-    
-    if (showDeleted) {
-        deletedToggle.style.background = 'rgba(231, 76, 60, 0.15)';
-        deletedToggle.style.color = '#e74c3c';
-    } else {
-        deletedToggle.style.background = '';
-        deletedToggle.style.color = '';
-    }
+    deletedToggle.classList.toggle('active-red', showDeleted);
     renderMessages();
 });
 
@@ -167,17 +228,15 @@ const pathParts = window.location.pathname.split('/game/');
 if (pathParts.length > 1) currentGame = pathParts[1].split('/')[0] || 'general';
 
 function updateToggleUI() {
-    globalToggle.classList.toggle('active', showGlobalChat);
+    globalToggle.classList.toggle('active-green', showGlobalChat);
     
     if (currentGame !== 'general') {
         if (!showGlobalChat) {
-            channelToggle.classList.remove('active');
-            channelToggle.style.opacity = '0.5';
-            channelToggle.style.pointerEvents = 'none';
+            channelToggle.classList.remove('active-green');
+            channelToggle.classList.add('disabled');
         } else {
-            channelToggle.classList.toggle('active', highlightChannelChat);
-            channelToggle.style.opacity = '1';
-            channelToggle.style.pointerEvents = 'auto';
+            channelToggle.classList.toggle('active-green', highlightChannelChat);
+            channelToggle.classList.remove('disabled');
         }
     }
 }
@@ -190,8 +249,8 @@ globalToggle.addEventListener('click', () => {
 });
 
 if (currentGame !== 'general') {
-    // Replaced textContent with setting the title for the tooltip
-    channelToggle.setAttribute('title', 'Highlight ' + currentGame.replace(/-/g, ' '));
+    const formattedGameName = toTitleCase(currentGame.replace(/-/g, ' '));
+    channelToggle.setAttribute('data-tooltip', 'Highlight ' + formattedGameName);
     channelToggle.style.display = 'inline-flex';
     
     channelToggle.addEventListener('click', () => {
@@ -306,14 +365,21 @@ function renderMessages() {
             const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-');
             const iconColor = isVideoUrl ? '#e74c3c' : '#888';
             const iconName = isVideoUrl ? 'smart_display' : 'article';
+            // Use standard browser title here since it's inline in the flowing chat text
             const tooltip = isVideoUrl ? 'Go to video' : 'Go to page';
             
-            urlIconHtml = `<a href="${row.url}" title="${tooltip}" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
+            // Re-added target="_blank" ONLY if the URL is external. Assuming internal if it starts with '/'
+            const isInternal = row.url.startsWith('/');
+            const targetAttr = isInternal ? '' : 'target="_blank"';
+
+            urlIconHtml = `<a href="${row.url}" ${targetAttr} title="${tooltip}" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
         }
 
         let formattedMessage = row.message;
         if (row.url) {
             const isCurrentPage = (row.url === window.location.pathname);
+            const isInternal = row.url.startsWith('/');
+            const targetAttr = isInternal ? '' : 'target="_blank"';
             
             formattedMessage = formattedMessage.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, (match, timeStr) => {
                 let parts = timeStr.split(':').reverse();
@@ -323,7 +389,7 @@ function renderMessages() {
                 if (isCurrentPage && typeof window.triggerInPageJump === 'function') {
                     return `<a href="#" onclick="window.triggerInPageJump(${seconds}); return false;" class="yt-time-link">${timeStr}</a>`;
                 } else {
-                    return `<a href="${row.url}?t=${seconds}" class="yt-time-link">${timeStr}</a>`;
+                    return `<a href="${row.url}?t=${seconds}" ${targetAttr} class="yt-time-link">${timeStr}</a>`;
                 }
             });
         }
