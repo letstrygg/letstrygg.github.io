@@ -15,6 +15,7 @@
   <meta property="og:url" content="https://letstrygg.com{{ page.permalink }}">
   <meta name="theme-color" content="#0085e3"> <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0"/>
+  
 
   {% if page.custom_css %}
     {% assign css_list = page.custom_css | join: ',' | split: ',' %}
@@ -22,6 +23,10 @@
       <link rel="stylesheet" href="{{ css }}">
     {% endfor %}
   {% endif %}
+  
+	<link type="text/css" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" rel="stylesheet" />
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es.min.js" defer></script>
+	
 </head>
 <body>
 
@@ -56,6 +61,23 @@
   toggle.addEventListener('click', () => {
     const isNowLight = !body.classList.contains('light-theme');
     applyTheme(isNowLight);
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Access the global variable provided by the CDN script
+    const { OverlayScrollbars } = OverlayScrollbarsGlobal;
+
+    // Initialize it on the body
+    OverlayScrollbars(document.body, {
+      scrollbars: {
+        theme: 'os-theme-minimal',
+        autoHide: 'leave', // Hides when the mouse leaves the screen/element
+        autoHideDelay: 300,
+      }
+    });
   });
 </script>
 
