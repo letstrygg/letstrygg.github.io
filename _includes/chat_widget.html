@@ -1,91 +1,13 @@
 <link rel="stylesheet" href="/css/chat.css">
 
-<style>
-.icon-btn {
-    position: relative;
-    cursor: pointer;
-    color: #888; /* Inactive Grey */
-    transition: color 0.2s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px;
-}
-.icon-btn:hover { color: #ccc; }
-
-/* Active Colors */
-.icon-btn.active-green { color: #8dff8d; }
-.icon-btn.active-blue { color: #3498db; }
-.icon-btn.active-red { color: #e74c3c; }
-
-/* Disabled State */
-.icon-btn.disabled { opacity: 0.3; pointer-events: none; }
-
-/* Custom CSS Tooltip - DEFAULT (Top Center) */
-.icon-btn::after, .chat-control-btn::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: calc(100% + 4px); 
-    left: 50%;
-    transform: translateX(-50%);
-    background: #18181b;
-    color: #efeff1;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease, bottom 0.2s ease, top 0.2s ease;
-    border: 1px solid #3a3a3d;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-.icon-btn:hover::after, .chat-control-btn:hover::after {
-    opacity: 1;
-    bottom: calc(100% + 8px); 
-}
-
-/* Modifier: Tooltip Bottom */
-.tooltip-bottom::after {
-    bottom: auto !important;
-    top: calc(100% + 4px) !important;
-}
-.tooltip-bottom:hover::after {
-    bottom: auto !important;
-    top: calc(100% + 8px) !important;
-}
-
-/* Modifier: Tooltip Right Edge (Prevents right-screen cutoff) */
-.tooltip-right-edge::after {
-    left: auto !important;
-    right: 0 !important;
-    transform: none !important;
-}
-
-/* Base style for open/close buttons to inherit tooltips */
-.chat-control-btn {
-    background: transparent;
-    color: #efeff1;
-    border: none;
-    cursor: pointer;
-    padding: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-</style>
-
-<button id="openChatBtn" class="chat-control-btn tooltip-bottom tooltip-right-edge" data-tooltip="Expand Chat" style="position: fixed; top: 30px; right: 10px; z-index: 999; display: none;">
+<button id="openChatBtn" class="floating-btn fixed-top-right tooltip-bottom tooltip-right-edge" data-tooltip="Expand Chat" style="top: 30px; display: none;">
   <span class="material-symbols-outlined" style="transform: scaleX(-1);">chat_bubble</span>
 </button>
 
 <div id="chatSidebar" style="position: fixed; top: 0; right: -350px; width: 340px; height: 100vh; background: #0e0e10; border-left: 1px solid #26262c; display: flex; flex-direction: column; transition: right 0.3s ease; z-index: 1000; box-shadow: -4px 0 15px rgba(0,0,0,0.5);">
   
   <div style="min-height: 50px; border-bottom: 1px solid #26262c; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; background: #0e0e10;">
-    <button id="closeChatBtn" class="chat-control-btn tooltip-bottom" data-tooltip="Collapse Chat">
+    <button id="closeChatBtn" class="floating-btn tooltip-bottom" data-tooltip="Collapse Chat">
       <span class="material-symbols-outlined">keyboard_tab</span>
     </button>
     <span style="font-weight: 600; font-size: 13px; color: #efeff1; text-transform: uppercase;">Live Chat</span>
@@ -134,7 +56,7 @@
               <input type="color" id="userColor" style="background: none; border: none; cursor: pointer; height: 20px; width: 20px; padding: 0;">
           </div>
           <div style="display: flex; gap: 8px; align-items: center;">
-              <button id="grabTimeBtn" class="chat-control-btn" data-tooltip="Insert Video Time" style="padding: 10px; background: #26262c; color: #aaa; border-radius: 4px;">
+              <button id="grabTimeBtn" class="floating-btn" data-tooltip="Insert Video Time" style="padding: 10px; background: #26262c; color: #aaa;">
                   <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
               </button>
               <input type="text" id="chatInput" placeholder="Send a message" style="padding: 10px; flex-grow: 1; background: #0e0e10; color: #fff; border: 1px solid #3a3a3d; border-radius: 4px; outline: none; transition: border 0.2s;">
@@ -387,7 +309,7 @@ function renderMessages() {
             const isInternal = row.url.startsWith('/');
             const targetAttr = isInternal ? '' : 'target="_blank"';
 
-            urlIconHtml = `<a href="${row.url}" ${targetAttr} title="${tooltip}" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
+            urlIconHtml = `<a href="${row.url}" ${targetAttr} data-tooltip="${tooltip}" class="tooltip-bottom" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
         }
 
         let formattedMessage = row.message;

@@ -458,3 +458,100 @@ header { text-align: center; padding: 20px 0; }
   .dur-short { display: inline-flex; } /* Changed from inline to inline-flex! */
   .card-row { font-size: 0.85em; } 
 }
+
+/* =========================================
+   GLOBAL UI COMPONENTS (Tooltips, Icons, Buttons)
+   ========================================= */
+
+/* --- Universal CSS Tooltips --- */
+/* Any element with a data-tooltip attribute gets this automatically */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 4px); /* Default: Top Center */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #18181b;
+    color: #efeff1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, bottom 0.2s ease, top 0.2s ease;
+    border: 1px solid #3a3a3d;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+    bottom: calc(100% + 8px); 
+}
+
+/* Tooltip Modifiers */
+.tooltip-bottom::after {
+    bottom: auto !important;
+    top: calc(100% + 4px) !important;
+}
+.tooltip-bottom:hover::after {
+    bottom: auto !important;
+    top: calc(100% + 8px) !important;
+}
+.tooltip-right-edge::after {
+    left: auto !important;
+    right: 0 !important;
+    transform: none !important;
+}
+
+/* --- Minimalist Icon Buttons --- */
+.icon-btn {
+    position: relative;
+    cursor: pointer;
+    color: #888; /* Inactive Grey */
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    background: transparent;
+    border: none;
+}
+.icon-btn:hover { color: #ccc; }
+
+/* Active Colors */
+.icon-btn.active-green { color: #8dff8d; }
+.icon-btn.active-blue { color: #3498db; }
+.icon-btn.active-red { color: #e74c3c; }
+.icon-btn.disabled { opacity: 0.3; pointer-events: none; }
+
+/* --- Floating Action Buttons (Theme, Chat Open/Close) --- */
+.floating-btn {
+    background: transparent;
+    color: #efeff1;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background 0.2s;
+}
+.floating-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Standardized edge alignment for floating corner buttons */
+.fixed-top-right {
+    position: fixed;
+    right: 15px; /* Ensures Chat and Theme toggles are identical distance from edge */
+    z-index: 999;
+}
