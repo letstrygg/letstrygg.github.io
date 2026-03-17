@@ -24,8 +24,7 @@
     {% endfor %}
   {% endif %}
   
-<link type="text/css" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/styles/overlayscrollbars.min.css" rel="stylesheet" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/browser/overlayscrollbars.browser.es6.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/styles/overlayscrollbars.min.css">
 	
 </head>
 <body data-overlayscrollbars-initialize>
@@ -65,15 +64,16 @@
 </script>
 
 
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/browser/overlayscrollbars.browser.es6.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const { OverlayScrollbars } = OverlayScrollbarsGlobal;
-
-    OverlayScrollbars(document.body, {
+    // Initialize on the whole body
+    OverlayScrollbarsGlobal.OverlayScrollbars(document.body, {
       scrollbars: {
-        theme: 'os-theme-light',
-        autoHide: 'leave',
-        autoHideDelay: 300
+        theme: 'os-theme-custom', // We will define this in style.css
+        autoHide: 'leave',        // Hides completely when not interacting
+        autoHideDelay: 300,
+        clickScroll: true
       }
     });
   });
