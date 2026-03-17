@@ -60,6 +60,10 @@
 </div>
 
 <style>
+/* Restored Squish Effect */
+body { transition: padding-right 0.3s ease; }
+body.chat-open-squish { padding-right: 340px; }
+
 #chatInput:focus { border-color: #e67e22 !important; }
 .chat-msg { margin-bottom: 8px; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; font-size: 13px; word-break: break-word; }
 .chat-timestamp { font-size: 11px; color: #adadb8; display: none; margin-top: 3px; white-space: nowrap; }
@@ -110,26 +114,11 @@ openChatBtn.addEventListener('click', () => { isChatOpen = true; updateChatVisib
 closeChatBtn.addEventListener('click', () => { isChatOpen = false; updateChatVisibility(); });
 updateChatVisibility();
 
-// 2. SAFE YOUTUBE API SETUP
-let ytPlayer = null;
-try {
-    window.onYouTubeIframeAPIReady = function() {
-        const iframe = document.querySelector('iframe[src*="youtube.com"]');
-        if (iframe) {
-            if (!iframe.src.includes('enablejsapi=1')) {
-                iframe.src += (iframe.src.includes('?') ? '&' : '?') + 'enablejsapi=1';
-            }
-            ytPlayer = new YT.Player(iframe);
-        }
-    };
-    const ytScript = document.createElement('script');
-    ytScript.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(ytScript); // Safe injection
-} catch (e) { console.error("YT API Error:", e); }
-
+// 2. TIMESTAMPS (Piggybacking on your existing global 'player' variable)
 grabTimeBtn.addEventListener('click', () => {
-    if (ytPlayer && typeof ytPlayer.getCurrentTime === 'function') {
-        const time = ytPlayer.getCurrentTime();
+    // Check if the watch layout's 'player' exists and is ready
+    if (typeof player !== 'undefined' && player && typeof player.getCurrentTime === 'function') {
+        const time = player.getCurrentTime();
         const h = Math.floor(time / 3600);
         const m = Math.floor((time % 3600) / 60);
         const s = Math.floor(time % 60);
