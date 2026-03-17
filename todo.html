@@ -31,7 +31,7 @@ permalink: /todo/
 </div>
 
 <style>
-/* Styling for the editable canvas to make links and lists look nice */
+/* Styling for the editable canvas */
 #todo-canvas[contenteditable="true"] {
     padding: 20px;
     border: 1px dashed var(--gray);
@@ -112,7 +112,7 @@ permalink: /todo/
             saveStatus.style.display = 'inline';
             saveStatus.textContent = 'Saving...';
 
-			const { error } = await supabaseClient
+            const { error } = await supabaseClient
                 .from('ltg_todo')
                 .update({ content: canvas.innerHTML })
                 .eq('id', 1);
@@ -121,7 +121,6 @@ permalink: /todo/
                 saveStatus.textContent = 'Saved!';
                 setTimeout(() => saveStatus.style.display = 'none', 2000);
             } else {
-                // Print the actual error to the console and the screen
                 console.error("Supabase Save Error:", error);
                 saveStatus.textContent = 'Error: ' + error.message;
                 saveStatus.style.color = 'red';
@@ -139,7 +138,6 @@ permalink: /todo/
         const url = prompt('Enter the link URL:');
         if (url) {
             document.execCommand('createLink', false, url);
-            // Ensure links open in a new tab
             const links = canvas.getElementsByTagName('a');
             for(let i=0; i<links.length; i++){
                 links[i].setAttribute('target', '_blank');
@@ -148,7 +146,7 @@ permalink: /todo/
         canvas.focus();
     }
     
-    // Disable clicking links while editing so you can put your cursor inside them
+    // Disable clicking links while editing
     canvas.addEventListener('click', function(e) {
         if (isEditing && e.target.tagName === 'A') {
             e.preventDefault(); 
