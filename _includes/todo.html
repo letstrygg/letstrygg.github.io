@@ -1,0 +1,155 @@
+---
+layout: new
+title: To-Do List
+permalink: /todo/
+---
+
+<div class="game-page-wrapper" style="max-width: 800px; margin: 0 auto; padding-top: 40px;">
+    
+    <div id="admin-controls" style="display: none; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 10px; background: var(--card-bg); border: 1px solid var(--blue); border-radius: 8px;">
+        
+        <div id="format-toolbar" style="display: none; gap: 8px;">
+            <button class="btn btn-gray" onclick="formatText('bold')" title="Bold"><span class="material-symbols-outlined" style="font-size: 18px;">format_bold</span></button>
+            <button class="btn btn-gray" onclick="formatText('insertUnorderedList')" title="Bullet List"><span class="material-symbols-outlined" style="font-size: 18px;">format_list_bulleted</span></button>
+            <button class="btn btn-gray" onclick="formatText('insertOrderedList')" title="Numbered List"><span class="material-symbols-outlined" style="font-size: 18px;">format_list_numbered</span></button>
+            <button class="btn btn-gray" onclick="insertLink()" title="Add Link"><span class="material-symbols-outlined" style="font-size: 18px;">link</span></button>
+            <button class="btn btn-gray" onclick="formatText('unlink')" title="Remove Link"><span class="material-symbols-outlined" style="font-size: 18px;">link_off</span></button>
+        </div>
+
+        <div style="margin-left: auto;">
+            <button id="edit-toggle-btn" class="btn" style="background: var(--orange); color: #fff; font-weight: bold;">
+                <span class="material-symbols-outlined" style="font-size: 18px;">edit</span> Edit Mode
+            </button>
+            <span id="save-status" style="margin-left: 10px; font-size: 12px; color: var(--green); display: none;">Saved!</span>
+        </div>
+    </div>
+
+    <div id="todo-canvas" style="min-height: 500px; outline: none; line-height: 1.6;">
+        <em style="color: var(--gray);">Loading...</em>
+    </div>
+
+</div>
+
+<style>
+/* Styling for the editable canvas to make links and lists look nice */
+#todo-canvas[contenteditable="true"] {
+    padding: 20px;
+    border: 1px dashed var(--gray);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+}
+#todo-canvas a {
+    color: var(--blue);
+    text-decoration: underline;
+}
+#todo-canvas ul, #todo-canvas ol {
+    margin-bottom: 15px;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    const supabaseUrl = '{{ site.supabase_url }}';
+    const supabaseKey = '{{ site.supabase_anon_key }}';
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+    const canvas = document.getElementById('todo-canvas');
+    const adminControls = document.getElementById('admin-controls');
+    const formatToolbar = document.getElementById('format-toolbar');
+    const editToggleBtn = document.getElementById('edit-toggle-btn');
+    const saveStatus = document.getElementById('save-status');
+
+    let isEditing = false;
+    let isAdmin = false;
+
+    // 1. Authenticate and check if Admin
+    supabaseClient.auth.onAuthStateChange((event, session) => {
+        if (session && session.user.email === 'letstrygg@gmail.com') {
+            isAdmin = true;
+            adminControls.style.display = 'flex';
+        } else {
+            isAdmin = false;
+            adminControls.style.display = 'none';
+        }
+    });
+
+    // 2. Load the content from Supabase
+    async function loadTodo() {
+        const { data, error } = await supabaseClient
+            .from('ltg_todo')
+            .select('content')
+            .eq('id', 1)
+            .single();
+
+        if (data) {
+            canvas.innerHTML = data.content;
+        } else {
+            canvas.innerHTML = '<em style="color: red;">Failed to load.</em>';
+        }
+    }
+    loadTodo();
+
+    // 3. Toggle Edit Mode
+    editToggleBtn.addEventListener('click', async () => {
+        if (!isAdmin) return;
+
+        isEditing = !isEditing;
+        
+        if (isEditing) {
+            // Enter Edit Mode
+            canvas.contentEditable = "true";
+            formatToolbar.style.display = 'flex';
+            editToggleBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">save</span> Save Changes';
+            editToggleBtn.style.background = 'var(--green)';
+            canvas.focus();
+        } else {
+            // Exit Edit Mode & Save
+            canvas.contentEditable = "false";
+            formatToolbar.style.display = 'none';
+            editToggleBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">edit</span> Edit Mode';
+            editToggleBtn.style.background = 'var(--orange)';
+            
+            saveStatus.style.display = 'inline';
+            saveStatus.textContent = 'Saving...';
+
+            const { error } = await supabaseClient
+                .from('ltg_todo')
+                .update({ content: canvas.innerHTML })
+                .eq('id', 1);
+
+            if (!error) {
+                saveStatus.textContent = 'Saved!';
+                setTimeout(() => saveStatus.style.display = 'none', 2000);
+            } else {
+                saveStatus.textContent = 'Error saving!';
+                saveStatus.style.color = 'red';
+            }
+        }
+    });
+
+    // 4. Formatting Commands
+    function formatText(command) {
+        document.execCommand(command, false, null);
+        canvas.focus();
+    }
+
+    function insertLink() {
+        const url = prompt('Enter the link URL:');
+        if (url) {
+            document.execCommand('createLink', false, url);
+            // Ensure links open in a new tab
+            const links = canvas.getElementsByTagName('a');
+            for(let i=0; i<links.length; i++){
+                links[i].setAttribute('target', '_blank');
+            }
+        }
+        canvas.focus();
+    }
+    
+    // Disable clicking links while editing so you can put your cursor inside them
+    canvas.addEventListener('click', function(e) {
+        if (isEditing && e.target.tagName === 'A') {
+            e.preventDefault(); 
+        }
+    });
+</script>
