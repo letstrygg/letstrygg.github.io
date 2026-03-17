@@ -112,7 +112,7 @@ permalink: /todo/
             saveStatus.style.display = 'inline';
             saveStatus.textContent = 'Saving...';
 
-            const { error } = await supabaseClient
+			const { error } = await supabaseClient
                 .from('ltg_todo')
                 .update({ content: canvas.innerHTML })
                 .eq('id', 1);
@@ -121,7 +121,9 @@ permalink: /todo/
                 saveStatus.textContent = 'Saved!';
                 setTimeout(() => saveStatus.style.display = 'none', 2000);
             } else {
-                saveStatus.textContent = 'Error saving!';
+                // Print the actual error to the console and the screen
+                console.error("Supabase Save Error:", error);
+                saveStatus.textContent = 'Error: ' + error.message;
                 saveStatus.style.color = 'red';
             }
         }
