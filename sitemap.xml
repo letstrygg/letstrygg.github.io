@@ -3,7 +3,8 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="{{ '/sitemap.xsl' | relative_url }}"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   {% assign sorted_pages = site.pages | sort: "url" %}
   {% for page in sorted_pages %}
     {% assign last_char = page.url | slice: -1 %}
@@ -20,6 +21,17 @@ layout: null
           {{ site.time | date_to_xmlschema }}
         {%- endif -%}
         </lastmod>
+        
+        {% if page.layout == 'watch' and page.thumbnail %}
+          {% assign video_id = page.thumbnail | split: '/vi/' | last | split: '/' | first %}
+          <video:video>
+            <video:thumbnail_loc>{{ page.thumbnail }}</video:thumbnail_loc>
+            <video:title>{{ page.title | xml_escape }}</video:title>
+            <video:description>{{ page.description | xml_escape }}</video:description>
+            <video:player_loc>https://www.youtube.com/embed/{{ video_id }}</video:player_loc>
+          </video:video>
+        {% endif %}
+
       </url>
       {% endunless %}
     {% endif %}
