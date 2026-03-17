@@ -45,6 +45,15 @@
   </div>
 
   {{ content }}
+  <details style="margin-top: 20px; margin-bottom: 20px; background: #1a1a1a; border: 1px solid #333; border-radius: 4px;">
+    <summary style="padding: 15px; cursor: pointer; font-weight: bold; color: #e67e22; font-size: 1.1em; user-select: none;">
+      <span class="material-symbols-outlined" style="vertical-align: middle; margin-right: 8px;">chat</span>
+      Live Chat & Community Notes
+    </summary>
+    <div style="padding: 0 15px 15px 15px;">
+      {% include chat_widget.html %}
+    </div>
+  </details>
 </main>
 
 <script>
