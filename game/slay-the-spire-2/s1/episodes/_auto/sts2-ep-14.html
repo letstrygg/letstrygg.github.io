@@ -21,13 +21,13 @@
                     <div class="overlay-stats">
                         <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 16, 2026</span>
                         <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 2h 7m 4s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 38</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 40</span>
                         <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 2</span>
                         <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
                     </div>
 
                     <button onclick="window.location.href='/game/slay-the-spire-2/s1/episodes/sts2-ep-13.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    
+                    <button onclick="window.location.href='/game/slay-the-spire-2/s1/episodes/sts2-ep-15.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     
                     <div style="position: absolute; bottom: 60px; left: 15px; z-index: 20;">
                         <style>
@@ -60,7 +60,7 @@
             <div class="watch-nav" style="padding-bottom: 10px;">
                 <a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-13.html">← Ep 13</a>
                 <a href="/game/slay-the-spire-2/s1">Episode List</a>
-                <span></span>
+                <a href="/game/slay-the-spire-2/s1/episodes/sts2-ep-15.html">Ep 15 →</a>
             </div>
 
         </div>
@@ -112,7 +112,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "";
+        const nextEpisodeUrl = "/game/slay-the-spire-2/s1/episodes/sts2-ep-15.html";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }

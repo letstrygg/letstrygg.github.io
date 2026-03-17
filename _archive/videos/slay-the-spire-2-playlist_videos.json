@@ -7,7 +7,7 @@
       "videoId": "_7Q5TVP3q24",
       "videoPublishedAt": "2026-03-05T22:00:38Z",
       "durationInSeconds": 10076,
-      "viewCount": 160
+      "viewCount": 161
     },
     "title": "001 It Begins, Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
@@ -82,7 +82,7 @@
       "videoId": "r9ynUjsCRZA",
       "videoPublishedAt": "2026-03-09T14:01:29Z",
       "durationInSeconds": 5637,
-      "viewCount": 60
+      "viewCount": 61
     },
     "title": "006 Pillage + Hellraiser, Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/r9ynUjsCRZA/maxresdefault.jpg",
@@ -97,7 +97,7 @@
       "videoId": "XUOXMskgRx4",
       "videoPublishedAt": "2026-03-09T16:00:53Z",
       "durationInSeconds": 10115,
-      "viewCount": 60
+      "viewCount": 61
     },
     "title": "007 First Card Prepared+? Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/XUOXMskgRx4/maxresdefault.jpg",
@@ -112,7 +112,7 @@
       "videoId": "l8Ih44aCOr8",
       "videoPublishedAt": "2026-03-10T14:01:15Z",
       "durationInSeconds": 15595,
-      "viewCount": 40
+      "viewCount": 41
     },
     "title": "008 Regent is BRUTAL. Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/l8Ih44aCOr8/maxresdefault.jpg",
@@ -142,7 +142,7 @@
       "videoId": "2kqRdH4ucmE",
       "videoPublishedAt": "2026-03-12T14:00:10Z",
       "durationInSeconds": 7836,
-      "viewCount": 40
+      "viewCount": 41
     },
     "title": "010 Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/2kqRdH4ucmE/maxresdefault.jpg",
@@ -172,7 +172,7 @@
       "videoId": "4jufiQdgxJY",
       "videoPublishedAt": "2026-03-14T14:00:06Z",
       "durationInSeconds": 6383,
-      "viewCount": 71
+      "viewCount": 74
     },
     "title": "012 Accelerant, Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/4jufiQdgxJY/maxresdefault.jpg",
@@ -202,10 +202,25 @@
       "videoId": "3Ojhhtw0q6E",
       "videoPublishedAt": "2026-03-16T14:00:06Z",
       "durationInSeconds": 7624,
-      "viewCount": 38
+      "viewCount": 40
     },
     "title": "014 Grave Warden, Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/3Ojhhtw0q6E/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "4-WKMGJAlDKMcX0fDhsLh4s_-cg",
+    "id": "UExRNElMNFVWZ1FrNmZoVlpMVmVRa3dTMnJGTmZvWDBlMy41Mzk2QTAxMTkzNDk4MDhF",
+    "contentDetails": {
+      "videoId": "7Wm87_u_poI",
+      "videoPublishedAt": "2026-03-17T14:00:13Z",
+      "durationInSeconds": 9917,
+      "viewCount": 2
+    },
+    "title": "015 Feral Claw, Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/7Wm87_u_poI/maxresdefault.jpg",
     "likes": 2,
     "comments": 0
   }

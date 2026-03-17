@@ -21,13 +21,13 @@
                     <div class="overlay-stats">
                         <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 16, 2026</span>
                         <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 28m 48s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 26</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 3</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 31</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 2</span>
                         <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
                     </div>
 
                     <button onclick="window.location.href='/game/bloons-td-6/s3/episodes/bt6-ep-25.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    
+                    <button onclick="window.location.href='/game/bloons-td-6/s3/episodes/bt6-ep-27.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     
                     <div style="position: absolute; bottom: 60px; left: 15px; z-index: 20;">
                         <style>
@@ -60,7 +60,7 @@
             <div class="watch-nav" style="padding-bottom: 10px;">
                 <a href="/game/bloons-td-6/s3/episodes/bt6-ep-25.html">← Ep 25</a>
                 <a href="/game/bloons-td-6/s3">Episode List</a>
-                <span></span>
+                <a href="/game/bloons-td-6/s3/episodes/bt6-ep-27.html">Ep 27 →</a>
             </div>
 
         </div>
@@ -112,7 +112,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "";
+        const nextEpisodeUrl = "/game/bloons-td-6/s3/episodes/bt6-ep-27.html";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }
