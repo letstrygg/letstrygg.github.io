@@ -15,9 +15,10 @@
   </div>
 
   <div style="padding: 10px; border-bottom: 1px solid #26262c; font-size: 12px; color: #aaa; display: flex; justify-content: space-between; align-items: center; background: #18181b;">
-    <label style="cursor: pointer; display: flex; align-items: center; gap: 4px; margin: 0;">
-        <input type="checkbox" id="toggleTimestamps"> Time
-    </label>
+    <div style="display: flex; gap: 6px;">
+        <span id="timeToggle" class="chat-badge">Time</span>
+        <span id="deletedToggle" class="chat-badge" style="display: none; border-color: rgba(231, 76, 60, 0.4);">Deleted</span>
+    </div>
     <div style="display: flex; gap: 6px;">
         <span id="globalChatToggle" class="chat-badge active">Global Chat</span>
         <span id="channelChatToggle" class="chat-badge active" style="display: none;"></span>
@@ -72,10 +73,12 @@ const loginSection = document.getElementById('loginSection');
 const inputSection = document.getElementById('inputSection');
 const userNameDisplay = document.getElementById('userNameDisplay');
 const userColorPicker = document.getElementById('userColor');
-const toggleTimestamps = document.getElementById('toggleTimestamps');
 const gameContextBadge = document.getElementById('gameContextBadge');
 const grabTimeBtn = document.getElementById('grabTimeBtn');
 
+// Filter Toggles
+const timeToggle = document.getElementById('timeToggle');
+const deletedToggle = document.getElementById('deletedToggle');
 const globalToggle = document.getElementById('globalChatToggle');
 const channelToggle = document.getElementById('channelChatToggle');
 
@@ -96,7 +99,18 @@ openChatBtn.addEventListener('click', () => { isChatOpen = true; updateChatVisib
 closeChatBtn.addEventListener('click', () => { isChatOpen = false; updateChatVisibility(); });
 updateChatVisibility();
 
-// 2. TIMESTAMPS
+// 2. TIMESTAMPS & GRABBER
+let showTimestamps = localStorage.getItem('showTimestamps') === 'true';
+timeToggle.classList.toggle('active', showTimestamps);
+if (showTimestamps) chatBox.classList.add('show-timestamps');
+
+timeToggle.addEventListener('click', () => {
+    showTimestamps = !showTimestamps;
+    localStorage.setItem('showTimestamps', showTimestamps);
+    timeToggle.classList.toggle('active', showTimestamps);
+    showTimestamps ? chatBox.classList.add('show-timestamps') : chatBox.classList.remove('show-timestamps');
+});
+
 grabTimeBtn.addEventListener('click', () => {
     if (typeof player !== 'undefined' && player && typeof player.getCurrentTime === 'function') {
         const time = player.getCurrentTime();
@@ -114,23 +128,31 @@ grabTimeBtn.addEventListener('click', () => {
     }
 });
 
-// 3. CHAT LOGIC & TOGGLES
+// 3. CHAT LOGIC & ROOM TOGGLES
 const supabaseUrl = '{{ site.supabase_url }}';
 const supabaseKey = '{{ site.supabase_anon_key }}';
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
 let currentSession = null;
 let isAdmin = false;
+let showDeleted = false; // Internal admin state
 let chatMessagesData = []; 
 
-toggleTimestamps.checked = localStorage.getItem('showTimestamps') === 'true';
-if (toggleTimestamps.checked) chatBox.classList.add('show-timestamps');
-toggleTimestamps.addEventListener('change', (e) => {
-    localStorage.setItem('showTimestamps', e.target.checked);
-    e.target.checked ? chatBox.classList.add('show-timestamps') : chatBox.classList.remove('show-timestamps');
+deletedToggle.addEventListener('click', () => {
+    if (!isAdmin) return;
+    showDeleted = !showDeleted;
+    
+    // Custom active style for the deleted badge (red)
+    if (showDeleted) {
+        deletedToggle.style.background = 'rgba(231, 76, 60, 0.15)';
+        deletedToggle.style.color = '#e74c3c';
+    } else {
+        deletedToggle.style.background = '';
+        deletedToggle.style.color = '';
+    }
+    renderMessages();
 });
 
-// Setup Current Game & Filter Toggles
 let showGlobalChat = localStorage.getItem('showGlobalChat') !== 'false';
 let highlightChannelChat = localStorage.getItem('highlightChannelChat') === 'true';
 
@@ -200,6 +222,11 @@ supabaseClient.auth.onAuthStateChange((event, session) => {
             inputSection.style.display = 'block';
             isAdmin = session.user.email === 'letstrygg@gmail.com';
             
+            // Show the deleted toggle ONLY for admins
+            if (isAdmin) {
+                deletedToggle.style.display = 'inline-block';
+            }
+            
             const { data: profile } = await supabaseClient.from('ltg_profiles').select('username, color').eq('user_id', session.user.id).maybeSingle();
             if (profile) {
                 userNameDisplay.textContent = profile.username;
@@ -209,6 +236,7 @@ supabaseClient.auth.onAuthStateChange((event, session) => {
             loginSection.style.display = 'block';
             inputSection.style.display = 'none';
             isAdmin = false;
+            deletedToggle.style.display = 'none';
         }
         loadMessages(); 
     }, 100); 
@@ -233,7 +261,10 @@ function renderMessages() {
     let visibleCount = 0;
 
     chatMessagesData.forEach(row => {
-        if (row.is_deleted && !isAdmin) return;
+        // Updated Delete Logic: Hide if not admin, OR if admin but toggle is off
+        if (row.is_deleted) {
+            if (!isAdmin || !showDeleted) return; 
+        }
         
         const isChannelMsg = (row.channel === currentGame);
 
@@ -272,7 +303,8 @@ function renderMessages() {
             const iconName = isVideoUrl ? 'smart_display' : 'article';
             const tooltip = isVideoUrl ? 'Go to video' : 'Go to page';
             
-            urlIconHtml = `<a href="${row.url}" target="_blank" title="${tooltip}" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
+            // Removed target="_blank"
+            urlIconHtml = `<a href="${row.url}" title="${tooltip}" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
         }
 
         let formattedMessage = row.message;
@@ -287,7 +319,8 @@ function renderMessages() {
                 if (isCurrentPage && typeof window.triggerInPageJump === 'function') {
                     return `<a href="#" onclick="window.triggerInPageJump(${seconds}); return false;" class="yt-time-link">${timeStr}</a>`;
                 } else {
-                    return `<a href="${row.url}?t=${seconds}" class="yt-time-link" target="_blank">${timeStr}</a>`;
+                    // Removed target="_blank" here as well
+                    return `<a href="${row.url}?t=${seconds}" class="yt-time-link">${timeStr}</a>`;
                 }
             });
         }
