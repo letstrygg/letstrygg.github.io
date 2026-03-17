@@ -142,6 +142,85 @@ header { text-align: center; padding: 20px 0; }
   color: var(--bg);
 }
 
+/* =========================================
+   CUSTOM OVERLAY SCROLLBAR
+   ========================================= */
+
+/* 1. Prevent page jumps between short/long pages */
+html {
+  overflow-y: overlay; /* Tells Webkit to float the scrollbar */
+  scrollbar-gutter: stable; /* Modern fallback: reserves space so layout never shifts */
+}
+
+/* Firefox Fallback (Firefox doesn't support the fancy Webkit hover tricks natively) */
+@supports (-moz-appearance:none) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  }
+}
+
+/* 2. Base Scrollbar Setup (Invisible Track) */
+::-webkit-scrollbar {
+  width: 14px; /* The total clickable area */
+  background: transparent;
+}
+
+/* 3. The Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 4. The Thumb (Thin State) - Uses background-clip magic */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0); /* Completely invisible by default */
+  border: 5px solid transparent; /* Squeezes the visible color into a thin 4px line */
+  background-clip: content-box;
+  border-radius: 10px;
+}
+
+/* Show the thin thumb when hovering anywhere on the page */
+body:hover ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.25); /* Dim white */
+}
+
+/* 5. The Thumb (Wide State) - Hovering the scrollbar itself */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Brighter white */
+  border: 3px solid transparent; /* Shrinks the border, expanding the thumb to 8px */
+}
+
+/* 6. Top/Bottom Arrows */
+::-webkit-scrollbar-button:single-button {
+  background-color: transparent;
+  display: block;
+  height: 0px; /* Hidden by default */
+  background-size: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Show arrows and give them space ONLY when hovering the scrollbar area */
+::-webkit-scrollbar:hover ::-webkit-scrollbar-button:single-button {
+  height: 14px;
+}
+
+/* Up Arrow SVG (Custom drawn) */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(150,150,150)'><polygon points='50,20 90,80 10,80'/></svg>");
+}
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(255,255,255)'><polygon points='50,20 90,80 10,80'/></svg>");
+}
+
+/* Down Arrow SVG (Custom drawn) */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(150,150,150)'><polygon points='10,20 90,20 50,80'/></svg>");
+}
+::-webkit-scrollbar-button:single-button:vertical:increment:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(255,255,255)'><polygon points='10,20 90,20 50,80'/></svg>");
+}
+
 /* --- NAVIGATION & LISTS --- */
 .breadcrumbs { margin-bottom: 25px; font-size: 1.05rem; }
 .breadcrumbs a {
