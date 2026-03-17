@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-overlayscrollbars-initialize>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrollbar Test</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/styles/overlayscrollbars.min.css">
+
+    <style>
+        /* 2. CRITICAL: html and body must be exactly 100% height for body scrolling to work */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%; 
+            background-color: #0e0e10;
+            color: #efeff1;
+            font-family: sans-serif;
+        }
+
+        /* Just a giant box to force the page to be scrollable */
+        .dummy-content {
+            padding: 50px;
+            height: 3000px;
+            background: linear-gradient(to bottom, #18181b, #e67e22, #18181b);
+        }
+
+        /* 3. The Custom Theme CSS Variables */
+        .os-theme-custom {
+            --os-size: 10px;
+            --os-padding-perpendicular: 2px;
+            --os-padding-axis: 2px;
+            --os-track-bg: transparent;
+            --os-track-bg-hover: rgba(255, 255, 255, 0.05);
+            --os-track-bg-active: rgba(255, 255, 255, 0.1);
+            --os-track-border-radius: 10px;
+            --os-handle-bg: rgba(255, 255, 255, 0.2);
+            --os-handle-bg-hover: rgba(255, 255, 255, 0.4);
+            --os-handle-bg-active: rgba(230, 126, 34, 0.9); /* Turns orange when clicked */
+            --os-handle-border-radius: 10px;
+        }
+    </style>
+</head>
+<body data-overlayscrollbars-initialize>
+
+    <div class="dummy-content">
+        <h1>Scroll Down</h1>
+        <p>If it works, the scrollbar on the right will be a floating, rounded pill that turns orange when you drag it.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/browser/overlayscrollbars.browser.es6.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Destructure the global object provided by the CDN
+            const { OverlayScrollbars } = OverlayScrollbarsGlobal;
+
+            // Initialize on the body
+            OverlayScrollbars(document.body, {
+                scrollbars: {
+                    theme: 'os-theme-custom',
+                    autoHide: 'leave',
+                    autoHideDelay: 300,
+                    clickScroll: true
+                }
+            });
+        });
+    </script>
+</body>
+</html>
