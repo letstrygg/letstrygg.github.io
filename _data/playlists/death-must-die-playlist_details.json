@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6NCSVbhS9ifG-CWmaIAGav",
+  "slug": "death-must-die",
   "title": "Death Must Die",
   "thumbnail": "https://i.ytimg.com/vi/gc6vfTFedqw/maxresdefault.jpg",
   "published": "2023-11-15T19:33:44.787962Z",
   "updated": "2023-11-18T13:00:03Z",
-  "fetched": "2026-03-07T12:03:52.454Z",
+  "fetched": "2026-03-17T09:23:11.504Z",
   "episodes": 2,
   "duration": 3501,
-  "views": 564,
-  "status": "Completed",
   "duration_formatted": "58m",
+  "duration_short": "58m",
+  "views": 564,
   "views_formatted": "564",
-  "slug": "death-must-die",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk42xh4CLndLDui-m2j19cAK",
+  "slug": "stuck-in-time",
   "title": "Stuck in Time",
   "thumbnail": "https://i.ytimg.com/vi/fIB5JcUaDKo/maxresdefault.jpg",
   "published": "2023-11-26T19:48:56.350102Z",
   "updated": "2023-12-23T19:00:04Z",
-  "fetched": "2026-03-07T12:03:51.342Z",
+  "fetched": "2026-03-17T09:23:10.251Z",
   "episodes": 21,
   "duration": 40129,
-  "views": 8723,
-  "status": "Completed",
   "duration_formatted": "11h 8m",
+  "duration_short": "11h",
+  "views": 8736,
   "views_formatted": "8.7K",
-  "slug": "stuck-in-time",
+  "status": "Completed",
   "status_color": "blue"
 }

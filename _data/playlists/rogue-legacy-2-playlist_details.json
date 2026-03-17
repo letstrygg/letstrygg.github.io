@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk58YUAy82PMAW-mqXilaNHv",
+  "slug": "rogue-legacy-2",
   "title": "Rogue Legacy 2",
   "thumbnail": "https://i.ytimg.com/vi/OXtfyOrKCLk/maxresdefault.jpg",
   "published": "2023-10-30T04:16:48.531684Z",
   "updated": "2023-11-14T19:00:02Z",
-  "fetched": "2026-03-07T12:03:53.025Z",
+  "fetched": "2026-03-17T09:23:12.140Z",
   "episodes": 9,
   "duration": 20007,
-  "views": 1601,
-  "status": "Completed",
   "duration_formatted": "5h 33m",
+  "duration_short": "6h",
+  "views": 1601,
   "views_formatted": "1.6K",
-  "slug": "rogue-legacy-2",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6wzkfg3Z33v3Sd9VwUn5p_",
-  "title": "Mind Over Magic: Wizard School Building Game",
+  "slug": "mind-over-magic-wizard-school-building-game",
+  "title": "Mind Over Magic Wizard School Building Game",
   "thumbnail": "https://i.ytimg.com/vi/Sai3Y2fK4Cs/maxresdefault.jpg",
   "published": "2023-10-24T06:33:22.128014Z",
   "updated": "2023-11-08T19:00:19Z",
-  "fetched": "2026-03-07T12:03:54.083Z",
+  "fetched": "2026-03-17T09:23:13.447Z",
   "episodes": 3,
   "duration": 5206,
-  "views": 823,
-  "status": "Completed",
   "duration_formatted": "1h 26m",
+  "duration_short": "1h",
+  "views": 823,
   "views_formatted": "823",
-  "slug": "mind-over-magic-wizard-school-building-game",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-08-03T17:00:51Z",
       "durationInSeconds": 3004,
       "viewCount": 282
-    }
+    },
+    "title": "New Game is Wild, Merge Maestro Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/k3SBRX-Y-LI/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2025-08-04T15:00:32Z",
       "durationInSeconds": 2229,
       "viewCount": 104
-    }
+    },
+    "title": "I Want To Ride My BICYCYLE! Merge Maestro Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/EPelMIzS-y8/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 6
   }
 ]

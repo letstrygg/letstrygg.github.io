@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-11-20T13:00:47Z",
       "durationInSeconds": 2657,
       "viewCount": 807
-    }
+    },
+    "title": "A New Deck, A New Farm: Terracards Gameplay & Possible Let's Play Series Episode 1",
+    "thumbnail": "https://i.ytimg.com/vi/zF73tXMZGSI/maxresdefault.jpg",
+    "likes": 19,
+    "comments": 16
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2023-11-22T13:00:17Z",
       "durationInSeconds": 2660,
       "viewCount": 353
-    }
+    },
+    "title": "New Day, New Island in Terra Cards: Let's Play Episode 2",
+    "thumbnail": "https://i.ytimg.com/vi/MZR5iuoyXX8/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 8
   }
 ]

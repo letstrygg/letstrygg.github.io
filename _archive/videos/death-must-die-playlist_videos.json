@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-11-15T20:00:30Z",
       "durationInSeconds": 1567,
       "viewCount": 384
-    }
+    },
+    "title": "Death Must Die Gameplay: Diablo RPG Vibe in Survivors Genre - Possible New Let's Play Series Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/gc6vfTFedqw/maxresdefault.jpg",
+    "likes": 13,
+    "comments": 12
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2023-11-18T13:00:03Z",
       "durationInSeconds": 1934,
       "viewCount": 180
-    }
+    },
+    "title": "Unlocking More in Death Must Die: Let's Play Gameplay Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/ahS6PHd0PRs/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 3
   }
 ]

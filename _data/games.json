@@ -212,7 +212,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 125,
-    "views": 6480,
+    "views": 6481,
     "duration": 304678,
     "tags": [
       "Tower Defense"
@@ -337,7 +337,7 @@
     "thumbnail": "https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg",
     "highest_season": 5,
     "episodes": 874,
-    "views": 253905,
+    "views": 253904,
     "duration": 3130204,
     "tags": [
       "PVP",
@@ -402,7 +402,7 @@
     "thumbnail": "https://i.ytimg.com/vi/CWsdz2TW51g/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
-    "views": 262,
+    "views": 263,
     "duration": 11900,
     "tags": [
       "Inventory Management",
@@ -411,7 +411,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-29T14:00:22Z",
-    "views_formatted": "262",
+    "views_formatted": "263",
     "duration_formatted": "3h 18m",
     "duration_short": "3h",
     "vpv": 66,
@@ -871,7 +871,7 @@
     "thumbnail": "https://i.ytimg.com/vi/9XzbMRK5jC0/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
-    "views": 1193,
+    "views": 1196,
     "duration": 7055,
     "tags": [
       "Inventory Management",
@@ -883,8 +883,8 @@
     "views_formatted": "1.2K",
     "duration_formatted": "1h 57m",
     "duration_short": "2h",
-    "vpv": 398,
-    "vpv_formatted": "398"
+    "vpv": 399,
+    "vpv_formatted": "399"
   },
   {
     "id": "skull-horde",
@@ -1178,7 +1178,7 @@
     "thumbnail": "https://i.ytimg.com/vi/tiwtPg-LWZg/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 619,
+    "views": 623,
     "duration": 8327,
     "tags": [
       "Bullet Heaven",
@@ -1187,11 +1187,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-18T13:30:38Z",
-    "views_formatted": "619",
+    "views_formatted": "623",
     "duration_formatted": "2h 18m",
     "duration_short": "2h",
-    "vpv": 310,
-    "vpv_formatted": "310"
+    "vpv": 312,
+    "vpv_formatted": "312"
   },
   {
     "id": "satisfactory",
@@ -1265,7 +1265,7 @@
     "thumbnail": "https://i.ytimg.com/vi/b1iNuQV-vuo/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 1,
-    "views": 263,
+    "views": 262,
     "duration": 4543,
     "tags": [
       "Turn-Based Tactics",
@@ -1274,11 +1274,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-01T15:01:11Z",
-    "views_formatted": "263",
+    "views_formatted": "262",
     "duration_formatted": "1h 15m",
     "duration_short": "1h",
-    "vpv": 263,
-    "vpv_formatted": "263"
+    "vpv": 262,
+    "vpv_formatted": "262"
   },
   {
     "id": "fakutori",
@@ -1657,7 +1657,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Y3XngIWFnxc/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 106,
-    "views": 21192,
+    "views": 21216,
     "duration": 606700,
     "tags": [
       "Tower Defense",
@@ -2413,7 +2413,7 @@
     "thumbnail": "https://i.ytimg.com/vi/fIB5JcUaDKo/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 21,
-    "views": 8723,
+    "views": 8736,
     "duration": 40129,
     "tags": [
       "Incremental",
@@ -2426,8 +2426,8 @@
     "views_formatted": "8.7K",
     "duration_formatted": "11h 8m",
     "duration_short": "11h",
-    "vpv": 415,
-    "vpv_formatted": "415"
+    "vpv": 416,
+    "vpv_formatted": "416"
   },
   {
     "id": "terra-cards",

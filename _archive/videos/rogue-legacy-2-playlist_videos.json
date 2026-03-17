@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-10-30T16:00:23Z",
       "durationInSeconds": 1633,
       "viewCount": 378
-    }
+    },
+    "title": "New Series! First Time Playing Rogue Legacy 2 - Gen1: Sir Judson - Lets Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/OXtfyOrKCLk/maxresdefault.jpg",
+    "likes": 12,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-10-31T16:00:22Z",
       "durationInSeconds": 1430,
       "viewCount": 132
-    }
+    },
+    "title": "Gen2 & 3: Dwarf Barbarian & GIANT Knight! Lets Play Rogue Legacy 2 Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/WJq1hROJUFA/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-11-01T16:00:08Z",
       "durationInSeconds": 2479,
       "viewCount": 105
-    }
+    },
+    "title": "Gen4 & 5: Paranoid Endomorph Ranger & Hoarder Ranger: Lets Play Rogue Legacy 2 Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/Dxphdd0FV68/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2023-11-03T19:00:03Z",
       "durationInSeconds": 2037,
       "viewCount": 149
-    }
+    },
+    "title": "Gen6 & 7: Justin, Just a Mage & Devin, Hypergonadism MonkeyPaw Ranger: Lets Play Rogue Legacy 2 Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/55I9dO3ms7g/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2023-11-05T19:00:05Z",
       "durationInSeconds": 1435,
       "viewCount": 202
-    }
+    },
+    "title": "Gen8: 8x Relics! OP Inter-Dimensional Ranger - Lets Play Rogue Legacy 2 Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/DegUjJLYn8s/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2023-11-09T19:00:32Z",
       "durationInSeconds": 4331,
       "viewCount": 127
-    }
+    },
+    "title": "Gen9 & 10: Minimalist Ranger & FND Dragon Fang Barbarian - Lets Play Rogue Legacy 2 Ep 6",
+    "thumbnail": "https://i.ytimg.com/vi/rFd0zxnPqQQ/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2023-11-11T19:00:18Z",
       "durationInSeconds": 1585,
       "viewCount": 176
-    }
+    },
+    "title": "Gen 11&12: Vegan Synesthesia Ranger & Crippling Intellect Mage - Lets Play Rogue Legacy 2 Ep 7",
+    "thumbnail": "https://i.ytimg.com/vi/eIs59ttOT3U/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 18
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2023-11-13T19:00:00Z",
       "durationInSeconds": 2487,
       "viewCount": 132
-    }
+    },
+    "title": "Gen 13: Chronic Fatigue Valkyrie - Lets Play Rogue Legacy 2 Ep 8",
+    "thumbnail": "https://i.ytimg.com/vi/-mCncU1ASJI/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,6 +128,10 @@
       "videoPublishedAt": "2023-11-14T19:00:02Z",
       "durationInSeconds": 2590,
       "viewCount": 200
-    }
+    },
+    "title": "Gen 14, 15, 16 & 17: Pacifist Mage, Assassin, Ranger, Knight - Lets Play Rogue Legacy 2 Ep 9",
+    "thumbnail": "https://i.ytimg.com/vi/3wrtMJsuQMw/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 1
   }
 ]

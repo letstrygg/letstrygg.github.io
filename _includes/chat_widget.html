@@ -64,7 +64,6 @@
 body { transition: padding-right 0.3s ease; }
 body.chat-open-squish { padding-right: 340px; }
 
-/* Filter Badges - Now with Light Green Active State */
 .chat-badge { background: #222; color: #888; padding: 4px 10px; border-radius: 12px; cursor: pointer; user-select: none; border: 1px solid #333; transition: all 0.2s; font-size: 11px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
 .chat-badge.active { background: rgba(141, 255, 141, 0.15); color: #8dff8d; border-color: rgba(141, 255, 141, 0.4); }
 
@@ -193,7 +192,7 @@ if (currentGame !== 'general') {
     channelToggle.style.display = 'inline-block';
     
     channelToggle.addEventListener('click', () => {
-        if (!showGlobalChat) return; // Prevent clicks if global is off
+        if (!showGlobalChat) return; 
         highlightChannelChat = !highlightChannelChat;
         localStorage.setItem('highlightChannelChat', highlightChannelChat);
         updateToggleUI();
@@ -202,7 +201,7 @@ if (currentGame !== 'general') {
 } else {
     channelToggle.style.display = 'none';
 }
-updateToggleUI(); // Init button visuals
+updateToggleUI(); 
 
 function formatTime(dateStr) {
     const d = new Date(dateStr);
@@ -264,10 +263,8 @@ function renderMessages() {
         
         const isChannelMsg = (row.game_context === currentGame);
 
-        // Visibility Logic
         if (currentGame !== 'general') {
-            if (!isChannelMsg && !showGlobalChat) return; // Hide global msgs if toggle is off
-            // Channel msgs are NEVER hidden
+            if (!isChannelMsg && !showGlobalChat) return; 
         } else {
             if (!showGlobalChat) return;
         }
@@ -277,9 +274,7 @@ function renderMessages() {
         const msgDiv = document.createElement('div');
         msgDiv.className = 'chat-msg' + (row.is_deleted ? ' msg-deleted' : '');
         
-        // Highlight Logic
         if (isChannelMsg && currentGame !== 'general') {
-            // Only highlight if BOTH Global Chat is on AND the Channel toggle is on
             if (highlightChannelChat && showGlobalChat) {
                 msgDiv.classList.add('msg-channel');
             }
@@ -296,20 +291,40 @@ function renderMessages() {
         const displayName = profile.username || 'Anon';
         const displayColor = profile.color || '#ffffff';
 
+        // NEW: Check if the message's URL is a video page
+        let urlIconHtml = '';
+        if (row.url) {
+            const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-');
+            const iconColor = isVideoUrl ? '#e74c3c' : '#888';
+            const iconName = isVideoUrl ? 'smart_display' : 'article';
+            const tooltip = isVideoUrl ? 'Go to video' : 'Go to page';
+            
+            urlIconHtml = `<a href="${row.url}" target="_blank" title="${tooltip}" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
+        }
+
+        // NEW: Check if the message belongs to the exact page the user is currently looking at
         let formattedMessage = row.message;
         if (row.url) {
+            const isCurrentPage = (row.url === window.location.pathname);
+            
             formattedMessage = formattedMessage.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, (match, timeStr) => {
                 let parts = timeStr.split(':').reverse();
                 let seconds = 0;
                 for (let i = 0; i < parts.length; i++) seconds += parseInt(parts[i]) * Math.pow(60, i);
-                return `<a href="${row.url}?t=${seconds}" class="yt-time-link" target="_blank">${timeStr}</a>`;
+                
+                // If it's the current page, trigger the in-page jump without reloading!
+                if (isCurrentPage && typeof window.triggerInPageJump === 'function') {
+                    return `<a href="#" onclick="window.triggerInPageJump(${seconds}); return false;" class="yt-time-link">${timeStr}</a>`;
+                } else {
+                    return `<a href="${row.url}?t=${seconds}" class="yt-time-link" target="_blank">${timeStr}</a>`;
+                }
             });
         }
 
         msgDiv.innerHTML = `
             <span class="chat-timestamp">${formatTime(row.created_at)}</span>
             <div style="flex-grow: 1;">
-                <strong style="color: ${displayColor};">${displayName}</strong>: 
+                <strong style="color: ${displayColor};">${displayName}</strong>${urlIconHtml}: 
                 ${formattedMessage}
             </div>
             ${adminHtml}

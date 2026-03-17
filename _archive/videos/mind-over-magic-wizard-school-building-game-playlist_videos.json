@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-10-24T19:00:20Z",
       "durationInSeconds": 2319,
       "viewCount": 270
-    }
+    },
+    "title": "Mind Over Magic: Wizard School Building Game! Let's Play Episode 1",
+    "thumbnail": "https://i.ytimg.com/vi/Sai3Y2fK4Cs/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-11-07T19:00:24Z",
       "durationInSeconds": 1510,
       "viewCount": 440
-    }
+    },
+    "title": "Mind Over Magic: Building a School for Witchcraft & Wizardry - New Series - v0.257 Lets Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/prZOlh9_wWU/maxresdefault.jpg",
+    "likes": 10,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2023-11-08T19:00:19Z",
       "durationInSeconds": 1377,
       "viewCount": 113
-    }
+    },
+    "title": "Day 2: Rainy Beds and Ghostly Construction - Mind Over Magic Beta v0.257 Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/dSBXw2uLWdc/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   }
 ]
