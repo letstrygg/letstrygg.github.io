@@ -9,7 +9,8 @@
       <span class="material-symbols-outlined">keyboard_tab</span>
     </button>
     <span style="font-weight: 600; font-size: 13px; color: #efeff1; text-transform: uppercase;">Stream Chat</span>
-    <div style="width: 36px;"></div> </div>
+    <div style="width: 36px;"></div>
+  </div>
 
   <div style="padding: 10px; border-bottom: 1px solid #26262c; font-size: 12px; color: #aaa; display: flex; justify-content: space-between; align-items: center; background: #18181b;">
     <div style="display: flex; gap: 12px;">
@@ -46,13 +47,15 @@
               </div>
               <input type="color" id="userColor" style="background: none; border: none; cursor: pointer; height: 20px; width: 20px; padding: 0;">
           </div>
-          <div style="display: flex; gap: 8px;">
+          <div style="display: flex; gap: 8px; align-items: center;">
+              <button id="grabTimeBtn" class="btn" style="padding: 10px; background: #26262c; color: #aaa; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center;" title="Insert current video time">
+                  <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
+              </button>
               <input type="text" id="chatInput" placeholder="Send a message" style="padding: 10px; flex-grow: 1; background: #0e0e10; color: #fff; border: 1px solid #3a3a3d; border-radius: 4px; outline: none; transition: border 0.2s;">
               <button id="sendBtn" class="btn btn-gray" style="padding: 10px 15px; background: #e67e22; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Chat</button>
           </div>
           <p id="statusMessage" style="color: #2ecc71; height: 16px; margin: 5px 0 0 0; font-size: 12px; text-align: center;"></p>
       </div>
-
   </div>
 </div>
 
@@ -64,17 +67,62 @@
 .admin-btn { background: none; border: none; cursor: pointer; font-size: 12px; opacity: 0.3; padding: 0 4px; }
 .admin-btn:hover { opacity: 1; }
 .msg-deleted { opacity: 0.4; text-decoration: line-through; }
-/* Clean scrollbar for chat box */
 #chatBox::-webkit-scrollbar { width: 8px; }
 #chatBox::-webkit-scrollbar-track { background: transparent; }
 #chatBox::-webkit-scrollbar-thumb { background: #3a3a3d; border-radius: 4px; }
-/* Smoothly squish the page content */
-body { transition: padding-right 0.3s ease; }
-body.chat-open-squish { padding-right: 340px; }
+/* Style the timestamp links */
+.yt-time-link { color: #e67e22; text-decoration: none; font-weight: 500; transition: opacity 0.2s; }
+.yt-time-link:hover { opacity: 0.8; text-decoration: underline; }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+// --- YOUTUBE API SETUP ---
+let ytPlayer = null;
+const ytScript = document.createElement('script');
+ytScript.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(ytScript, firstScriptTag);
+
+function onYouTubeIframeAPIReady() {
+    const iframe = document.querySelector('iframe[src*="youtube.com"]');
+    if (iframe) {
+        // Force the API parameter so the iframe will talk to us
+        if (!iframe.src.includes('enablejsapi=1')) {
+            iframe.src += (iframe.src.includes('?') ? '&' : '?') + 'enablejsapi=1';
+        }
+        ytPlayer = new YT.Player(iframe);
+    }
+}
+
+// Grab Timestamp Button Logic
+document.getElementById('grabTimeBtn').addEventListener('click', () => {
+    if (ytPlayer && typeof ytPlayer.getCurrentTime === 'function') {
+        const time = ytPlayer.getCurrentTime();
+        const h = Math.floor(time / 3600);
+        const m = Math.floor((time % 3600) / 60);
+        const s = Math.floor(time % 60);
+        
+        let timeStr = '';
+        if (h > 0) {
+            timeStr = `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        } else {
+            timeStr = `${m}:${s.toString().padStart(2, '0')}`;
+        }
+        
+        const input = document.getElementById('chatInput');
+        // Add a space if there's already text
+        input.value += (input.value.length > 0 && !input.value.endsWith(' ') ? ' ' : '') + `(${timeStr}) `;
+        input.focus();
+    } else {
+        const statusMessage = document.getElementById('statusMessage');
+        statusMessage.textContent = "No active video found.";
+        statusMessage.style.color = "#e74c3c";
+        setTimeout(() => statusMessage.textContent = "", 2000);
+    }
+});
+
+// --- STANDARD CHAT SETUP ---
 const supabaseUrl = '{{ site.supabase_url }}';
 const supabaseKey = '{{ site.supabase_anon_key }}';
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
@@ -97,26 +145,23 @@ const gameContextBadge = document.getElementById('gameContextBadge');
 let currentSession = null;
 let isAdmin = false;
 
-// Sidebar Open/Close Logic
 let isChatOpen = localStorage.getItem('chatOpen') !== 'false'; 
-
 function updateChatVisibility() {
     if (isChatOpen) {
         chatSidebar.style.right = '0';
         openChatBtn.style.display = 'none';
-        document.body.classList.add('chat-open-squish'); // Pushes content left
+        document.body.classList.add('chat-open-squish');
     } else {
         chatSidebar.style.right = '-350px';
         openChatBtn.style.display = 'flex';
-        document.body.classList.remove('chat-open-squish'); // Relaxes content back
+        document.body.classList.remove('chat-open-squish');
     }
     localStorage.setItem('chatOpen', isChatOpen);
 }
 openChatBtn.addEventListener('click', () => { isChatOpen = true; updateChatVisibility(); });
 closeChatBtn.addEventListener('click', () => { isChatOpen = false; updateChatVisibility(); });
-updateChatVisibility(); // Init
+updateChatVisibility();
 
-// Filters & Context
 toggleTimestamps.checked = localStorage.getItem('showTimestamps') === 'true';
 if (toggleTimestamps.checked) chatBox.classList.add('show-timestamps');
 toggleTimestamps.addEventListener('change', (e) => {
@@ -151,7 +196,6 @@ async function login(provider) { await supabaseClient.auth.signInWithOAuth({ pro
 async function logout() { await supabaseClient.auth.signOut(); }
 async function setDeletedState(id, state) { await supabaseClient.from('letstrygg_chat').update({ is_deleted: state }).eq('id', id); }
 
-// Auth & Realtime
 let authTimeout = null;
 supabaseClient.auth.onAuthStateChange((event, session) => {
     clearTimeout(authTimeout);
@@ -206,11 +250,28 @@ async function loadMessages() {
             const displayName = profile.username || 'Anon';
             const displayColor = profile.color || '#ffffff';
 
+            // Render the small "Smart Display" icon linking to the URL
+            const urlIconHtml = row.url ? `<a href="${row.url}" target="_blank" title="Go to page" style="color: #666; display: flex; align-items: center; text-decoration: none; margin-top: 1px;"><span class="material-symbols-outlined" style="font-size: 15px;">smart_display</span></a>` : '';
+
+            // Regex magic: Convert (1:04) or (1:04:22) into a link using the row's URL
+            let formattedMessage = row.message;
+            if (row.url) {
+                formattedMessage = formattedMessage.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, (match, timeStr) => {
+                    let parts = timeStr.split(':').reverse();
+                    let seconds = 0;
+                    for (let i = 0; i < parts.length; i++) {
+                        seconds += parseInt(parts[i]) * Math.pow(60, i);
+                    }
+                    return `<a href="${row.url}?t=${seconds}" class="yt-time-link" target="_blank">(${timeStr})</a>`;
+                });
+            }
+
             msgDiv.innerHTML = `
                 <span class="chat-timestamp">${formatTime(row.created_at)}</span>
+                ${urlIconHtml}
                 <div style="flex-grow: 1;">
                     <strong style="color: ${displayColor};">${displayName}:</strong> 
-                    ${row.message}
+                    ${formattedMessage}
                 </div>
                 ${adminHtml}
             `;
@@ -231,7 +292,15 @@ sendBtn.addEventListener('click', async () => {
     const text = chatInput.value.trim();
     if (!text || !currentSession) return;
     sendBtn.disabled = true;
-    const { error } = await supabaseClient.from('letstrygg_chat').insert([{ message: text, user_id: currentSession.user.id, game_context: currentGame }]);
+    
+    // Add the current URL to the database insert!
+    const { error } = await supabaseClient.from('letstrygg_chat').insert([{ 
+        message: text, 
+        user_id: currentSession.user.id, 
+        game_context: currentGame,
+        url: window.location.pathname 
+    }]);
+    
     if (!error) chatInput.value = ""; 
     sendBtn.disabled = false;
 });
