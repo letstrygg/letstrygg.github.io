@@ -143,7 +143,7 @@ header { text-align: center; padding: 20px 0; }
 }
 
 /* scrollbar */
-.os-theme-custom {
+.os-theme-light {
     --os-handle-bg: rgba(255, 255, 255, 0.85);
     --os-handle-bg-hover: rgba(255, 255, 255, 1);
     --os-handle-bg-active: rgba(255, 255, 255, 1);
