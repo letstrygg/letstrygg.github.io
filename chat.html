@@ -84,17 +84,7 @@ permalink: /chat/
   let currentSession = null;
   let isAdmin = false;
 
-  // 1. Setup Local Storage Preferences
-  let myColor = localStorage.getItem('chatColor');
-  if (!myColor) {
-      myColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
-      localStorage.setItem('chatColor', myColor);
-  }
-  userColorPicker.value = myColor;
-  userColorPicker.addEventListener('change', (e) => {
-      localStorage.setItem('chatColor', e.target.value);
-  });
-
+  // 1. Setup Local Preferences (Timestamps & Filters only now)
   toggleTimestamps.checked = localStorage.getItem('showTimestamps') === 'true';
   if (toggleTimestamps.checked) chatBox.classList.add('show-timestamps');
   
@@ -116,7 +106,7 @@ permalink: /chat/
       currentGame = pathParts[1].split('/')[0] || 'general';
   }
   gameContextBadge.textContent = currentGame;
-  gameContextBadge.style.display = 'inline-block';
+  if(currentGame !== 'general') gameContextBadge.style.display = 'inline-block';
 
   // 3. Date Formatter
   function formatTime(dateStr) {
@@ -129,8 +119,8 @@ permalink: /chat/
       return `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear().toString().slice(-2)} ${time}`;
   }
 
-  // 4. Auth State
-  supabaseClient.auth.onAuthStateChange((event, session) => {
+  // 4. Auth & Profile Management
+  supabaseClient.auth.onAuthStateChange(async (event, session) => {
       currentSession = session;
       if (session) {
           loginSection.style.display = 'none';
@@ -138,13 +128,44 @@ permalink: /chat/
           isAdmin = session.user.email === 'letstrygg@gmail.com';
           
           const meta = session.user.user_metadata;
-          userNameDisplay.textContent = meta.preferred_username || meta.full_name || meta.name || 'User';
+          const defaultName = meta.preferred_username || meta.full_name || meta.name || 'User';
+          
+          // Fetch or create user profile
+          const { data: profile } = await supabaseClient
+              .from('letstrygg_profiles')
+              .select('username, color')
+              .eq('user_id', session.user.id)
+              .single();
+
+          if (profile) {
+              userNameDisplay.textContent = profile.username;
+              userColorPicker.value = profile.color;
+          } else {
+              // First login: Create profile with random color
+              const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+              await supabaseClient.from('letstrygg_profiles').insert([{
+                  user_id: session.user.id,
+                  username: defaultName,
+                  color: randomColor
+              }]);
+              userNameDisplay.textContent = defaultName;
+              userColorPicker.value = randomColor;
+          }
       } else {
           loginSection.style.display = 'block';
           inputSection.style.display = 'none';
           isAdmin = false;
       }
-      loadMessages(); // Reload to show/hide admin controls
+      loadMessages(); 
+  });
+
+  // Handle Color Changes (Saves instantly to database)
+  userColorPicker.addEventListener('change', async (e) => {
+      if (!currentSession) return;
+      await supabaseClient
+          .from('letstrygg_profiles')
+          .update({ color: e.target.value })
+          .eq('user_id', currentSession.user.id);
   });
 
   async function login(provider) {
@@ -158,7 +179,12 @@ permalink: /chat/
   }
 
   async function loadMessages() {
-      let query = supabaseClient.from('letstrygg_chat').select('*').order('created_at', { ascending: true });
+      // JOIN the profiles table to get the live username and color for each message
+      let query = supabaseClient
+          .from('letstrygg_chat')
+          .select('*, letstrygg_profiles(username, color)')
+          .order('created_at', { ascending: true });
+          
       if (toggleGameFilter.checked) query = query.eq('game_context', currentGame);
 
       const { data, error } = await query;
@@ -168,7 +194,7 @@ permalink: /chat/
       if (data.length === 0) { chatBox.innerHTML = '<em>No messages found.</em>'; return; }
 
       data.forEach(row => {
-          if (row.is_deleted && !isAdmin) return; // Hide deleted for normal users
+          if (row.is_deleted && !isAdmin) return;
 
           const msgDiv = document.createElement('div');
           msgDiv.className = 'chat-msg' + (row.is_deleted ? ' msg-deleted' : '');
@@ -180,10 +206,15 @@ permalink: /chat/
                   : `<button class="admin-btn" title="Delete" onclick="setDeletedState(${row.id}, true)">🗑️</button>`;
           }
 
+          // Extract the joined profile data safely
+          const profile = row.letstrygg_profiles || {};
+          const displayName = profile.username || 'Anon';
+          const displayColor = profile.color || '#ffffff';
+
           msgDiv.innerHTML = `
               <span class="chat-timestamp">${formatTime(row.created_at)}</span>
               <div style="flex-grow: 1;">
-                  <strong style="color: ${row.color || '#e67e22'};">${row.username || 'Anon'}:</strong> 
+                  <strong style="color: ${displayColor};">${displayName}:</strong> 
                   ${row.message}
               </div>
               ${adminHtml}
@@ -193,13 +224,20 @@ permalink: /chat/
       chatBox.scrollTop = chatBox.scrollHeight;
   }
 
-  // 6. Realtime Listener (Auto-updates without refreshing)
-  supabaseClient
-    .channel('public:letstrygg_chat')
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'letstrygg_chat' }, payload => {
-        loadMessages(); 
-    })
-    .subscribe();
+  // 6. Realtime Listeners
+  const chatChannel = supabaseClient.channel('chat_updates');
+  
+  // Watch for new/deleted messages
+  chatChannel.on('postgres_changes', { event: '*', schema: 'public', table: 'letstrygg_chat' }, payload => {
+      loadMessages(); 
+  });
+  
+  // Watch for profile color changes
+  chatChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'letstrygg_profiles' }, payload => {
+      loadMessages(); 
+  });
+  
+  chatChannel.subscribe();
 
   // 7. Send Logic
   sendBtn.addEventListener('click', async () => {
@@ -207,13 +245,10 @@ permalink: /chat/
       if (!text || !currentSession) return;
 
       sendBtn.disabled = true;
-      const meta = currentSession.user.user_metadata;
       
       const { error } = await supabaseClient.from('letstrygg_chat').insert([{ 
           message: text,
           user_id: currentSession.user.id,
-          username: meta.preferred_username || meta.full_name || meta.name || 'User',
-          color: userColorPicker.value,
           game_context: currentGame
       }]);
 
