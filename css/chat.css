@@ -1,0 +1,31 @@
+/* css/chat.css */
+
+:root {
+    --chat-highlight: rgba(255, 235, 59, 0.15); 
+}
+
+body { transition: padding-right 0.3s ease; }
+body.chat-open-squish { padding-right: 340px; }
+
+.chat-badge { background: #222; color: #888; padding: 4px 10px; border-radius: 12px; cursor: pointer; user-select: none; border: 1px solid #333; transition: all 0.2s; font-size: 11px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
+.chat-badge.active { background: rgba(141, 255, 141, 0.15); color: #8dff8d; border-color: rgba(141, 255, 141, 0.4); }
+
+#chatInput:focus { border-color: #e67e22 !important; }
+.chat-msg { margin-bottom: 8px; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; font-size: 13px; word-break: break-word; border: 1px solid transparent; }
+
+.msg-channel { 
+    background-color: rgb(45, 42, 6); 
+    margin: 8px -10px; 
+    padding: 0px 10px; 
+}
+
+.chat-timestamp { font-size: 11px; color: #adadb8; display: none; margin-top: 3px; white-space: nowrap; }
+.show-timestamps .chat-timestamp { display: inline-block; }
+.admin-btn { background: none; border: none; cursor: pointer; font-size: 12px; opacity: 0.3; padding: 0 4px; }
+.admin-btn:hover { opacity: 1; }
+.msg-deleted { opacity: 0.4; text-decoration: line-through; }
+#chatBox::-webkit-scrollbar { width: 8px; }
+#chatBox::-webkit-scrollbar-track { background: transparent; }
+#chatBox::-webkit-scrollbar-thumb { background: #3a3a3d; border-radius: 4px; }
+.yt-time-link { color: #3498db; text-decoration: none; font-weight: 500; transition: opacity 0.2s; } 
+.yt-time-link:hover { opacity: 0.8; text-decoration: underline; }

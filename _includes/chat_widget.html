@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/css/chat.css">
+
 <button id="openChatBtn" style="position: fixed; top: 10px; right: 10px; z-index: 999; background: transparent; color: #efeff1; border: none; cursor: pointer; padding: 6px; border-radius: 4px; display: none; align-items: center; justify-content: center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'" title="Expand Chat">
   <span class="material-symbols-outlined" style="transform: scaleX(-1);">keyboard_tab</span>
 </button>
@@ -55,34 +57,6 @@
       </div>
   </div>
 </div>
-
-<style>
-:root {
-    --chat-highlight: rgba(255, 235, 59, 0.15); 
-}
-
-body { transition: padding-right 0.3s ease; }
-body.chat-open-squish { padding-right: 340px; }
-
-.chat-badge { background: #222; color: #888; padding: 4px 10px; border-radius: 12px; cursor: pointer; user-select: none; border: 1px solid #333; transition: all 0.2s; font-size: 11px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
-.chat-badge.active { background: rgba(141, 255, 141, 0.15); color: #8dff8d; border-color: rgba(141, 255, 141, 0.4); }
-
-#chatInput:focus { border-color: #e67e22 !important; }
-.chat-msg { margin-bottom: 8px; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; font-size: 13px; word-break: break-word; border: 1px solid transparent; }
-
-.msg-channel { background-color: var(--chat-highlight); border-radius: 4px; padding: 4px 8px; margin-left: -8px; width: calc(100% + 16px); }
-
-.chat-timestamp { font-size: 11px; color: #adadb8; display: none; margin-top: 3px; white-space: nowrap; }
-.show-timestamps .chat-timestamp { display: inline-block; }
-.admin-btn { background: none; border: none; cursor: pointer; font-size: 12px; opacity: 0.3; padding: 0 4px; }
-.admin-btn:hover { opacity: 1; }
-.msg-deleted { opacity: 0.4; text-decoration: line-through; }
-#chatBox::-webkit-scrollbar { width: 8px; }
-#chatBox::-webkit-scrollbar-track { background: transparent; }
-#chatBox::-webkit-scrollbar-thumb { background: #3a3a3d; border-radius: 4px; }
-.yt-time-link { color: #3498db; text-decoration: none; font-weight: 500; transition: opacity 0.2s; } 
-.yt-time-link:hover { opacity: 0.8; text-decoration: underline; }
-</style>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
@@ -291,7 +265,6 @@ function renderMessages() {
         const displayName = profile.username || 'Anon';
         const displayColor = profile.color || '#ffffff';
 
-        // NEW: Check if the message's URL is a video page
         let urlIconHtml = '';
         if (row.url) {
             const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-');
@@ -302,7 +275,6 @@ function renderMessages() {
             urlIconHtml = `<a href="${row.url}" target="_blank" title="${tooltip}" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
         }
 
-        // NEW: Check if the message belongs to the exact page the user is currently looking at
         let formattedMessage = row.message;
         if (row.url) {
             const isCurrentPage = (row.url === window.location.pathname);
@@ -312,7 +284,6 @@ function renderMessages() {
                 let seconds = 0;
                 for (let i = 0; i < parts.length; i++) seconds += parseInt(parts[i]) * Math.pow(60, i);
                 
-                // If it's the current page, trigger the in-page jump without reloading!
                 if (isCurrentPage && typeof window.triggerInPageJump === 'function') {
                     return `<a href="#" onclick="window.triggerInPageJump(${seconds}); return false;" class="yt-time-link">${timeStr}</a>`;
                 } else {
