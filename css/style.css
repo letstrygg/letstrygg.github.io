@@ -142,16 +142,12 @@ header { text-align: center; padding: 20px 0; }
   color: var(--bg);
 }
 
-  /* Define your custom minimalist theme */
-  .os-theme-minimal {
-    --os-size: 10px; /* Width of the scrollbar */
-    --os-padding-perpendicular: 2px;
-    --os-padding-axis: 2px;
-    --os-track-border-radius: 10px;
-    --os-handle-border-radius: 10px;
-    --os-handle-bg: rgba(255, 255, 255, 0.85); /* 85% white */
-    --os-handle-bg-hover: rgba(255, 255, 255, 1); /* Solid white on hover */
+/* scrollbar */
+.os-theme-custom {
+    --os-handle-bg: rgba(255, 255, 255, 0.85);
+    --os-handle-bg-hover: rgba(255, 255, 255, 1);
     --os-handle-bg-active: rgba(255, 255, 255, 1);
+    --os-handle-border-radius: 10px;
   }
 
 /* --- NAVIGATION & LISTS --- */

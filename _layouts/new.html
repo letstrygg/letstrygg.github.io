@@ -24,8 +24,8 @@
     {% endfor %}
   {% endif %}
   
-	<link type="text/css" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" rel="stylesheet" />
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" defer></script>
+<link type="text/css" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/styles/overlayscrollbars.min.css" rel="stylesheet" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/browser/overlayscrollbars.browser.es6.min.js" defer></script>
 	
 </head>
 <body>
@@ -67,15 +67,13 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // Access the global variable provided by the CDN script
     const { OverlayScrollbars } = OverlayScrollbarsGlobal;
 
-    // Initialize it on the body
     OverlayScrollbars(document.body, {
       scrollbars: {
-        theme: 'os-theme-minimal',
-        autoHide: 'leave', // Hides when the mouse leaves the screen/element
-        autoHideDelay: 300,
+        theme: 'os-theme-custom',
+        autoHide: 'leave',
+        autoHideDelay: 300
       }
     });
   });
