@@ -149,23 +149,17 @@ header { text-align: center; padding: 20px 0; }
 
 /* Custom Minimalist OverlayScrollbars Theme */
 .os-theme-custom {
-  /* Size of the scrollbar */
-  --os-size: 8px;
-  /* Padding around the scrollbar */
-  --os-padding-perpendicular: 2px;
-  --os-padding-axis: 2px;
-  
-  /* Track (Background) styling - totally transparent by default */
-  --os-track-bg: transparent;
-  --os-track-bg-hover: rgba(0, 0, 0, 0.2);
-  --os-track-bg-active: rgba(0, 0, 0, 0.3);
-  --os-track-border-radius: 10px;
-
-  /* Handle (Thumb) styling */
-  --os-handle-bg: rgba(255, 255, 255, 0.15);
-  --os-handle-bg-hover: rgba(255, 255, 255, 0.3);
-  --os-handle-bg-active: rgba(230, 126, 34, 0.8); /* Matches your orange accent on click */
-  --os-handle-border-radius: 10px;
+            --os-size: 10px;
+            --os-padding-perpendicular: 2px;
+            --os-padding-axis: 2px;
+            --os-track-bg: transparent;
+            --os-track-bg-hover: rgba(255, 255, 255, 0.05);
+            --os-track-bg-active: rgba(255, 255, 255, 0.1);
+            --os-track-border-radius: 10px;
+            --os-handle-bg: rgba(255, 255, 255, 0.2);
+            --os-handle-bg-hover: rgba(255, 255, 255, 0.4);
+            --os-handle-bg-active: rgba(230, 126, 34, 0.9); /* Turns orange when clicked */
+            --os-handle-border-radius: 10px;
 }
 
 /* --- NAVIGATION & LISTS --- */
