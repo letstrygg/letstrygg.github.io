@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk55_5kvpr7TPEh6029xHtXX",
+  "slug": "darkest-dungeon-2",
   "title": "Darkest Dungeon 2",
   "thumbnail": "https://i.ytimg.com/vi/oLGy4BjrM6o/maxresdefault.jpg",
   "published": "2023-05-10T00:38:57.826207Z",
   "updated": "2023-05-19T22:00:19Z",
-  "fetched": "2026-03-07T12:04:11.763Z",
+  "fetched": "2026-03-17T18:39:06.942Z",
   "episodes": 9,
   "duration": 24855,
-  "views": 689,
-  "status": "Completed",
   "duration_formatted": "6h 54m",
+  "duration_short": "7h",
+  "views": 689,
   "views_formatted": "689",
-  "slug": "darkest-dungeon-2",
+  "status": "Completed",
   "status_color": "blue"
 }

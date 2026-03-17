@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk67XVhCwa22wSTsjKnGknMl",
+  "slug": "tower-deck",
   "title": "Tower Deck",
   "thumbnail": "https://i.ytimg.com/vi/JjdzEVlQHXc/maxresdefault.jpg",
   "published": "2023-05-21T19:40:32.212153Z",
   "updated": "2023-05-21T22:00:14Z",
-  "fetched": "2026-03-07T12:04:10.753Z",
+  "fetched": "2026-03-17T18:07:02.797Z",
   "episodes": 2,
   "duration": 3401,
-  "views": 190,
-  "status": "Completed",
   "duration_formatted": "56m",
+  "duration_short": "56m",
+  "views": 190,
   "views_formatted": "190",
-  "slug": "tower-deck",
+  "status": "Completed",
   "status_color": "blue"
 }

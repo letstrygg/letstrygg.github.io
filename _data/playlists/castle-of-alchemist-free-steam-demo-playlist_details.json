@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6kxKmSIcD76ugLyZsAjA9H",
-  "title": "Castle of Alchemist, Free Steam Demo",
+  "slug": "castle-of-alchemist-free-steam-demo",
+  "title": "Castle of Alchemist Free Steam Demo",
   "thumbnail": "https://i.ytimg.com/vi/7PiH1Fmq2xo/maxresdefault.jpg",
   "published": "2023-04-22T01:08:22.412877Z",
   "updated": "2023-04-24T13:00:11Z",
-  "fetched": "2026-03-07T12:04:13.925Z",
+  "fetched": "2026-03-17T18:39:08.289Z",
   "episodes": 2,
   "duration": 3502,
-  "views": 1041,
-  "status": "Completed",
   "duration_formatted": "58m",
+  "duration_short": "58m",
+  "views": 1041,
   "views_formatted": "1K",
-  "slug": "castle-of-alchemist-free-steam-demo",
+  "status": "Completed",
   "status_color": "blue"
 }

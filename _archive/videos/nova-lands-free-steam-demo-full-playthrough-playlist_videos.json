@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-06-16T13:00:11Z",
       "durationInSeconds": 2329,
       "viewCount": 260
-    }
+    },
+    "title": "Nova Lands: Island Management in Space - First Look Demo Gameplay Playthrough - Free Steam Demo",
+    "thumbnail": "https://i.ytimg.com/vi/99cEmyfHrtw/maxresdefault.jpg",
+    "likes": 9,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-06-17T22:00:09Z",
       "durationInSeconds": 2441,
       "viewCount": 96
-    }
+    },
+    "title": "Angry Bees and New Friends, Nova Lands: FREE Demo | Full Playthrough Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/_OLfCJ-AC7Q/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2023-06-19T22:00:32Z",
       "durationInSeconds": 3124,
       "viewCount": 72
-    }
+    },
+    "title": "Nova Lands Free Steam Demo Full Playthrough Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/skdRxZUJFxI/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   }
 ]

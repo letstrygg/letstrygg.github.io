@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7SP5vIJV-tbfbVD7Wv5b0f",
+  "slug": "galactic-glitch",
   "title": "Galactic Glitch",
   "thumbnail": "https://i.ytimg.com/vi/SXZrJOpGwoU/maxresdefault.jpg",
   "published": "2023-05-26T21:03:38.441332Z",
   "updated": "2023-05-28T13:00:30Z",
-  "fetched": "2026-03-07T12:04:09.666Z",
+  "fetched": "2026-03-17T18:07:01.573Z",
   "episodes": 1,
   "duration": 1870,
-  "views": 95,
-  "status": "Completed",
   "duration_formatted": "31m",
+  "duration_short": "31m",
+  "views": 95,
   "views_formatted": "95",
-  "slug": "galactic-glitch",
+  "status": "Completed",
   "status_color": "blue"
 }

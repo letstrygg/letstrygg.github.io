@@ -7,8 +7,12 @@
       "videoId": "sOyjvRhsFjA",
       "videoPublishedAt": "2023-03-29T13:00:42Z",
       "durationInSeconds": 1276,
-      "viewCount": 88
-    }
+      "viewCount": 91
+    },
+    "title": "Let's Play Takara Cards Episode 1: Training Tutorial and Beginning Our Cosmic Gameplay Adventure!",
+    "thumbnail": "https://i.ytimg.com/vi/sOyjvRhsFjA/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-03-30T17:00:26Z",
       "durationInSeconds": 2069,
       "viewCount": 8
-    }
+    },
+    "title": "A New Journey Begins: Takara Cards Let's Play Episode 2 - Our First Taste of Deep Tactical Combat!",
+    "thumbnail": "https://i.ytimg.com/vi/rhIypia2Bh4/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-04-01T17:00:34Z",
       "durationInSeconds": 4302,
       "viewCount": 0
-    }
+    },
+    "title": "Hunting for Dragons: Takara Cards Let's Play Episode 3 Navigating Events and Factions in the Cosmos!",
+    "thumbnail": "https://i.ytimg.com/vi/sbp-FTFeNxk/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2023-04-03T17:00:21Z",
       "durationInSeconds": 1320,
       "viewCount": 3
-    }
+    },
+    "title": "The Quest to Defeat Dragons Continues: Takara Cards Let's Play Episode 4 Indie Roguelike Deckbuilder",
+    "thumbnail": "https://i.ytimg.com/vi/kNG_uQWi0qU/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   }
 ]

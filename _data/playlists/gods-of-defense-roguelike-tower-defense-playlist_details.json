@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk69fFHPCu0AQpQrhvqGELLx",
-  "title": "Gods of Defense: Roguelike Tower Defense",
+  "slug": "gods-of-defense-roguelike-tower-defense",
+  "title": "Gods of Defense Roguelike Tower Defense",
   "thumbnail": "https://i.ytimg.com/vi/aWFRI1vxodU/maxresdefault.jpg",
   "published": "2023-04-12T05:28:37.484532Z",
   "updated": "2023-04-13T15:00:02Z",
-  "fetched": "2026-03-07T12:04:14.397Z",
+  "fetched": "2026-03-17T18:39:08.886Z",
   "episodes": 1,
   "duration": 2294,
-  "views": 571,
-  "status": "Completed",
   "duration_formatted": "38m",
+  "duration_short": "38m",
+  "views": 571,
   "views_formatted": "571",
-  "slug": "gods-of-defense-roguelike-tower-defense",
+  "status": "Completed",
   "status_color": "blue"
 }

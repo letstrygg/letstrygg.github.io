@@ -7,8 +7,12 @@
       "videoId": "APyrylc2Bt8",
       "videoPublishedAt": "2023-04-26T13:00:08Z",
       "durationInSeconds": 1534,
-      "viewCount": 251
-    }
+      "viewCount": 252
+    },
+    "title": "Talking Heads and Delicious Mystery Meat: Our First Day in Graveyard Keeper Let's Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/APyrylc2Bt8/maxresdefault.jpg",
+    "likes": 14,
+    "comments": 22
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-04-28T13:00:12Z",
       "durationInSeconds": 1747,
       "viewCount": 92
-    }
+    },
+    "title": "Let's Play Graveyard Keeper Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/CSlcR4xmir8/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-04-30T13:00:23Z",
       "durationInSeconds": 2294,
       "viewCount": 70
-    }
+    },
+    "title": "Let's Play Graveyard Keeper Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/_rivZjQ0-zM/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 13
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2023-05-02T13:00:43Z",
       "durationInSeconds": 2459,
       "viewCount": 52
-    }
+    },
+    "title": "Let's Play Graveyard Keeper Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/ydlJcZof_TA/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2023-05-04T13:00:28Z",
       "durationInSeconds": 2734,
       "viewCount": 65
-    }
+    },
+    "title": "Let's Play Graveyard Keeper Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/pPsIhLN6zZo/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2023-05-06T13:00:25Z",
       "durationInSeconds": 3739,
       "viewCount": 59
-    }
+    },
+    "title": "Let's Play Graveyard Keeper Ep 6",
+    "thumbnail": "https://i.ytimg.com/vi/jRMeUAKNvkw/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 9
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2023-05-08T17:00:34Z",
       "durationInSeconds": 1569,
       "viewCount": 13
-    }
+    },
+    "title": "Let's Play Graveyard Keeper Ep 7",
+    "thumbnail": "https://i.ytimg.com/vi/vUom9ZDxYsk/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 9
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2023-05-10T17:00:10Z",
       "durationInSeconds": 2246,
       "viewCount": 22
-    }
+    },
+    "title": "Let's Play Graveyard Keeper Ep 8",
+    "thumbnail": "https://i.ytimg.com/vi/F4YTVdhhM_Q/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 9
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,7 +128,11 @@
       "videoPublishedAt": "2023-05-12T17:00:04Z",
       "durationInSeconds": 2040,
       "viewCount": 23
-    }
+    },
+    "title": "Let's Play Graveyard Keeper Ep 9",
+    "thumbnail": "https://i.ytimg.com/vi/ap_7PZtcrEY/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -107,7 +143,11 @@
       "videoPublishedAt": "2023-05-14T17:00:27Z",
       "durationInSeconds": 1276,
       "viewCount": 9
-    }
+    },
+    "title": "Let's Play Graveyard Keeper Ep 10",
+    "thumbnail": "https://i.ytimg.com/vi/XCTm9ZfrvLU/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -118,7 +158,11 @@
       "videoPublishedAt": "2023-05-16T17:00:13Z",
       "durationInSeconds": 1391,
       "viewCount": 9
-    }
+    },
+    "title": "Let's Play Graveyard Keeper Ep 11",
+    "thumbnail": "https://i.ytimg.com/vi/QwfSHKn_5ak/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -129,6 +173,10 @@
       "videoPublishedAt": "2023-05-18T17:00:02Z",
       "durationInSeconds": 1408,
       "viewCount": 20
-    }
+    },
+    "title": "Let's Play Graveyard Keeper Ep 12",
+    "thumbnail": "https://i.ytimg.com/vi/0dZ8ibu60Jw/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 5
   }
 ]

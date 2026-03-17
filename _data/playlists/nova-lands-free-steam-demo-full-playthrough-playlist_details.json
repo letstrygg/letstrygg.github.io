@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5fBpHuylfplAvDAFlrYHlO",
-  "title": "Nova Lands: FREE Steam Demo | Full Playthrough",
+  "slug": "nova-lands-free-steam-demo-full-playthrough",
+  "title": "Nova Lands FREE Steam Demo Full Playthrough",
   "thumbnail": "https://i.ytimg.com/vi/99cEmyfHrtw/maxresdefault.jpg",
   "published": "2023-06-17T08:06:14.066067Z",
   "updated": "2023-06-19T22:00:32Z",
-  "fetched": "2026-03-07T12:04:07.172Z",
+  "fetched": "2026-03-17T18:07:00.199Z",
   "episodes": 3,
   "duration": 7894,
-  "views": 428,
-  "status": "Completed",
   "duration_formatted": "2h 11m",
+  "duration_short": "2h",
+  "views": 428,
   "views_formatted": "428",
-  "slug": "nova-lands-free-steam-demo-full-playthrough",
+  "status": "Completed",
   "status_color": "blue"
 }

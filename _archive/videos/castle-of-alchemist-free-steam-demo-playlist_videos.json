@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-04-22T13:00:08Z",
       "durationInSeconds": 1668,
       "viewCount": 578
-    }
+    },
+    "title": "Roguelike Action Tower-Defense, Castle of Alchemists: Indie Game Free Steam Demo, Let's Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/7PiH1Fmq2xo/maxresdefault.jpg",
+    "likes": 16,
+    "comments": 12
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2023-04-24T13:00:11Z",
       "durationInSeconds": 1834,
       "viewCount": 463
-    }
+    },
+    "title": "Exploring Deeper into Castle of Alchemists: Let's Play the Roguelike Action TD Free Steam Demo! Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/KjIvsdWiaaI/maxresdefault.jpg",
+    "likes": 9,
+    "comments": 4
   }
 ]

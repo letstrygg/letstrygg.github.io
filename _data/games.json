@@ -4,20 +4,20 @@
     "title": "Slay The Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 14,
-    "views": 788,
-    "duration": 117801,
+    "episodes": 15,
+    "views": 800,
+    "duration": 127718,
     "tags": [
       "Deck Builder"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-16T14:00:06Z",
-    "views_formatted": "788",
-    "duration_formatted": "32h 43m",
-    "duration_short": "33h",
-    "vpv": 56,
-    "vpv_formatted": "56"
+    "updated": "2026-03-17T14:00:13Z",
+    "views_formatted": "800",
+    "duration_formatted": "35h 28m",
+    "duration_short": "35h",
+    "vpv": 53,
+    "vpv_formatted": "53"
   },
   {
     "id": "oaken-tower",
@@ -46,7 +46,7 @@
     "thumbnail": "https://i.ytimg.com/vi/L2v3gQDx4KA/maxresdefault.jpg",
     "highest_season": 1.1,
     "episodes": 132,
-    "views": 35950,
+    "views": 35946,
     "duration": 449147,
     "tags": [
       "Horde Survival",
@@ -56,7 +56,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-01-21T12:00:52Z",
-    "views_formatted": "36K",
+    "views_formatted": "35.9K",
     "duration_formatted": "124h 45m",
     "duration_short": "125h",
     "vpv": 272,
@@ -211,17 +211,17 @@
     "title": "Bloons Td 6",
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
-    "episodes": 125,
-    "views": 6481,
-    "duration": 304678,
+    "episodes": 126,
+    "views": 6497,
+    "duration": 306327,
     "tags": [
       "Tower Defense"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-16T12:01:06Z",
+    "updated": "2026-03-17T12:00:46Z",
     "views_formatted": "6.5K",
-    "duration_formatted": "84h 37m",
+    "duration_formatted": "85h 5m",
     "duration_short": "85h",
     "vpv": 52,
     "vpv_formatted": "52"
@@ -337,7 +337,7 @@
     "thumbnail": "https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg",
     "highest_season": 5,
     "episodes": 874,
-    "views": 253905,
+    "views": 253910,
     "duration": 3130204,
     "tags": [
       "PVP",
@@ -725,7 +725,7 @@
     "thumbnail": "https://i.ytimg.com/vi/V3fyjszKr4w/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 11,
-    "views": 495,
+    "views": 518,
     "duration": 61185,
     "tags": [
       "Automation",
@@ -734,11 +734,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-17T02:00:33Z",
-    "views_formatted": "495",
+    "views_formatted": "518",
     "duration_formatted": "16h 59m",
     "duration_short": "17h",
-    "vpv": 45,
-    "vpv_formatted": "45"
+    "vpv": 47,
+    "vpv_formatted": "47"
   },
   {
     "id": "wanderburg",
@@ -746,7 +746,7 @@
     "thumbnail": "https://i.ytimg.com/vi/e-dBtCzI-74/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 272,
+    "views": 273,
     "duration": 4554,
     "tags": [
       "Bullet Heaven",
@@ -755,11 +755,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-03-01T13:01:09Z",
-    "views_formatted": "272",
+    "views_formatted": "273",
     "duration_formatted": "1h 15m",
     "duration_short": "1h",
-    "vpv": 136,
-    "vpv_formatted": "136"
+    "vpv": 137,
+    "vpv_formatted": "137"
   },
   {
     "id": "dice-a-million",
@@ -787,7 +787,7 @@
     "thumbnail": "https://i.ytimg.com/vi/d3jj_ARI3RQ/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 91,
-    "views": 9537,
+    "views": 9539,
     "duration": 373367,
     "tags": [
       "Automation",
@@ -973,7 +973,7 @@
     "thumbnail": "https://i.ytimg.com/vi/65VOQoQFsOA/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 583,
+    "views": 584,
     "duration": 8631,
     "tags": [
       "Incremental"
@@ -981,7 +981,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-01-04T14:00:33Z",
-    "views_formatted": "583",
+    "views_formatted": "584",
     "duration_formatted": "2h 23m",
     "duration_short": "2h",
     "vpv": 292,
@@ -1074,7 +1074,7 @@
     "thumbnail": "https://i.ytimg.com/vi/O_56hJaSTeI/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 1298,
+    "views": 1300,
     "duration": 4727,
     "tags": [
       "Deck Builder",
@@ -1086,8 +1086,8 @@
     "views_formatted": "1.3K",
     "duration_formatted": "1h 18m",
     "duration_short": "1h",
-    "vpv": 649,
-    "vpv_formatted": "649"
+    "vpv": 650,
+    "vpv_formatted": "650"
   },
   {
     "id": "machick-2",
@@ -1286,7 +1286,7 @@
     "thumbnail": "https://i.ytimg.com/vi/lTTXZxN5fac/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 8,
-    "views": 3899,
+    "views": 3909,
     "duration": 38370,
     "tags": [
       "Automation",
@@ -1298,8 +1298,8 @@
     "views_formatted": "3.9K",
     "duration_formatted": "10h 39m",
     "duration_short": "11h",
-    "vpv": 487,
-    "vpv_formatted": "487"
+    "vpv": 489,
+    "vpv_formatted": "489"
   },
   {
     "id": "the-last-spell",
@@ -1432,7 +1432,7 @@
     "thumbnail": "https://i.ytimg.com/vi/e1AiLuBeoEc/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 24,
-    "views": 1670,
+    "views": 1684,
     "duration": 90846,
     "tags": [
       "Puzzle",
@@ -2768,7 +2768,7 @@
     "thumbnail": "https://i.ytimg.com/vi/F5DTpT0pdXE/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 15,
-    "views": 1024,
+    "views": 1026,
     "duration": 43815,
     "tags": [
       "Bullet Heaven",
@@ -2853,7 +2853,7 @@
     "thumbnail": "https://i.ytimg.com/vi/ABFKSvwAV9s/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 6,
-    "views": 2365,
+    "views": 2377,
     "duration": 5126,
     "tags": [
       "Tower Defense",
@@ -2865,8 +2865,8 @@
     "views_formatted": "2.4K",
     "duration_formatted": "1h 25m",
     "duration_short": "1h",
-    "vpv": 394,
-    "vpv_formatted": "394"
+    "vpv": 396,
+    "vpv_formatted": "396"
   },
   {
     "id": "tower-deck",
@@ -2895,7 +2895,7 @@
     "thumbnail": "https://i.ytimg.com/vi/moLQsdG_XE0/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
-    "views": 323,
+    "views": 324,
     "duration": 6251,
     "tags": [
       "Dungeon Crawler",
@@ -2904,7 +2904,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2023-05-20T22:00:03Z",
-    "views_formatted": "323",
+    "views_formatted": "324",
     "duration_formatted": "1h 44m",
     "duration_short": "2h",
     "vpv": 108,
@@ -2938,7 +2938,7 @@
     "thumbnail": "https://i.ytimg.com/vi/APyrylc2Bt8/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 12,
-    "views": 685,
+    "views": 686,
     "duration": 24437,
     "tags": [
       "Resource Management",
@@ -2948,7 +2948,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2023-05-18T17:00:02Z",
-    "views_formatted": "685",
+    "views_formatted": "686",
     "duration_formatted": "6h 47m",
     "duration_short": "7h",
     "vpv": 57,
@@ -3001,7 +3001,7 @@
     "thumbnail": "https://i.ytimg.com/vi/sOyjvRhsFjA/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 4,
-    "views": 99,
+    "views": 102,
     "duration": 8967,
     "tags": [
       "Deck Builder",
@@ -3010,11 +3010,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2023-04-03T17:00:21Z",
-    "views_formatted": "99",
+    "views_formatted": "102",
     "duration_formatted": "2h 29m",
     "duration_short": "2h",
-    "vpv": 25,
-    "vpv_formatted": "25"
+    "vpv": 26,
+    "vpv_formatted": "26"
   },
   {
     "id": "rain-world",
