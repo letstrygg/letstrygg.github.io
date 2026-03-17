@@ -21,11 +21,11 @@
 /* Disabled State */
 .icon-btn.disabled { opacity: 0.3; pointer-events: none; }
 
-/* Custom CSS Tooltip */
+/* Custom CSS Tooltip - DEFAULT (Top Center) */
 .icon-btn::after, .chat-control-btn::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: calc(100% + 4px); /* Position just above the button */
+    bottom: calc(100% + 4px); 
     left: 50%;
     transform: translateX(-50%);
     background: #18181b;
@@ -37,14 +37,31 @@
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease, bottom 0.2s ease;
+    transition: opacity 0.2s ease, bottom 0.2s ease, top 0.2s ease;
     border: 1px solid #3a3a3d;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 .icon-btn:hover::after, .chat-control-btn:hover::after {
     opacity: 1;
-    bottom: calc(100% + 8px); /* Slight upward float on hover */
+    bottom: calc(100% + 8px); 
+}
+
+/* Modifier: Tooltip Bottom */
+.tooltip-bottom::after {
+    bottom: auto !important;
+    top: calc(100% + 4px) !important;
+}
+.tooltip-bottom:hover::after {
+    bottom: auto !important;
+    top: calc(100% + 8px) !important;
+}
+
+/* Modifier: Tooltip Right Edge (Prevents right-screen cutoff) */
+.tooltip-right-edge::after {
+    left: auto !important;
+    right: 0 !important;
+    transform: none !important;
 }
 
 /* Base style for open/close buttons to inherit tooltips */
@@ -61,14 +78,14 @@
 }
 </style>
 
-<button id="openChatBtn" class="chat-control-btn" data-tooltip="Expand Chat" style="position: fixed; top: 30px; right: 10px; z-index: 999; display: none;">
+<button id="openChatBtn" class="chat-control-btn tooltip-bottom tooltip-right-edge" data-tooltip="Expand Chat" style="position: fixed; top: 30px; right: 10px; z-index: 999; display: none;">
   <span class="material-symbols-outlined" style="transform: scaleX(-1);">chat_bubble</span>
 </button>
 
 <div id="chatSidebar" style="position: fixed; top: 0; right: -350px; width: 340px; height: 100vh; background: #0e0e10; border-left: 1px solid #26262c; display: flex; flex-direction: column; transition: right 0.3s ease; z-index: 1000; box-shadow: -4px 0 15px rgba(0,0,0,0.5);">
   
   <div style="min-height: 50px; border-bottom: 1px solid #26262c; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; background: #0e0e10;">
-    <button id="closeChatBtn" class="chat-control-btn" data-tooltip="Collapse Chat">
+    <button id="closeChatBtn" class="chat-control-btn tooltip-bottom" data-tooltip="Collapse Chat">
       <span class="material-symbols-outlined">keyboard_tab</span>
     </button>
     <span style="font-weight: 600; font-size: 13px; color: #efeff1; text-transform: uppercase;">Live Chat</span>
@@ -88,7 +105,7 @@
         <span id="globalChatToggle" class="icon-btn active-green" data-tooltip="Global Chat">
             <span class="material-symbols-outlined" style="font-size: 18px;">public</span>
         </span>
-        <span id="channelChatToggle" class="icon-btn disabled" data-tooltip="" style="display: none;">
+        <span id="channelChatToggle" class="icon-btn disabled tooltip-right-edge" data-tooltip="" style="display: none;">
             <span class="material-symbols-outlined" style="font-size: 18px;">sports_esports</span>
         </span>
     </div>
@@ -365,10 +382,8 @@ function renderMessages() {
             const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-');
             const iconColor = isVideoUrl ? '#e74c3c' : '#888';
             const iconName = isVideoUrl ? 'smart_display' : 'article';
-            // Use standard browser title here since it's inline in the flowing chat text
             const tooltip = isVideoUrl ? 'Go to video' : 'Go to page';
             
-            // Re-added target="_blank" ONLY if the URL is external. Assuming internal if it starts with '/'
             const isInternal = row.url.startsWith('/');
             const targetAttr = isInternal ? '' : 'target="_blank"';
 
