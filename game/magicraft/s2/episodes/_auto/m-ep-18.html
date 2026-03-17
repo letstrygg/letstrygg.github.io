@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 18",
+  "name": "Black Holes, Lasers, Tentacles and Puzzles! Let's Play Magicraft Ep 18",
   "description": "Episode 18 of the Magicraft Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/x2Yh9nQcMWI/maxresdefault.jpg",
-  "uploadDate": "2023-11-15T14:30:17Z",
-  "duration": "PT3704S",
-  "embedUrl": "https://www.youtube.com/embed/x2Yh9nQcMWI"
+  "thumbnailUrl": "https://i.ytimg.com/vi/YgLnd9ZTNEU/maxresdefault.jpg",
+  "uploadDate": "2023-11-18T14:30:10Z",
+  "duration": "PT3661S",
+  "embedUrl": "https://www.youtube.com/embed/YgLnd9ZTNEU"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 15, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 1m 44s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 1,292</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 18, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 1m 1s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 1,150</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 28</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 11</span>
                     </div>
 
                     <button onclick="window.location.href='/game/magicraft/s2/episodes/m-ep-17.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_x2Yh9nQcMWI';
+  var storageKey = 'yt_resume_YgLnd9ZTNEU';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'x2Yh9nQcMWI',
+      videoId: 'YgLnd9ZTNEU',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/x2Yh9nQcMWI?t=" + t + "s";
+          const url = "https://youtu.be/YgLnd9ZTNEU?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

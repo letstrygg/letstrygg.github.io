@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-06-04T13:00:01Z",
       "durationInSeconds": 1443,
       "viewCount": 144
-    }
+    },
+    "title": "Squad Busters: Super Addicting PvP Auto-Battler Mobile Game?! Let's Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/2gByrdh3NLk/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2024-06-04T17:00:43Z",
       "durationInSeconds": 2869,
       "viewCount": 72
-    }
+    },
+    "title": "Click all the Things, Unlock all the Unlocks, Lootboxes!! Squad Busters Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/zl1QCic9lWk/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 8
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2024-06-05T13:00:35Z",
       "durationInSeconds": 1163,
       "viewCount": 39
-    }
+    },
+    "title": "Squad Busters Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/U1i4OgLE5cA/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2024-06-05T14:30:01Z",
       "durationInSeconds": 2716,
       "viewCount": 54
-    }
+    },
+    "title": "Squad Busters Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/5zIfctNPG6o/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2024-06-06T14:30:04Z",
       "durationInSeconds": 1811,
       "viewCount": 41
-    }
+    },
+    "title": "Squad Busters Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/5soNYFMDfZ4/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,6 +83,10 @@
       "videoPublishedAt": "2024-06-06T18:00:02Z",
       "durationInSeconds": 2814,
       "viewCount": 64
-    }
+    },
+    "title": "Squad Busters Ep 6",
+    "thumbnail": "https://i.ytimg.com/vi/6J2lLMaiq-Y/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 7
   }
 ]

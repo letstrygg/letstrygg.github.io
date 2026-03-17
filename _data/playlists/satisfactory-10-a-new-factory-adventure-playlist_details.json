@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4TCw9z7iX5bnPl_sNhnkjo",
-  "title": "Satisfactory 1.0: A New Factory Adventure!",
+  "slug": "satisfactory-10-a-new-factory-adventure",
+  "title": "Satisfactory 10 A New Factory Adventure",
   "thumbnail": "https://i.ytimg.com/vi/F1pVPsrkl5k/maxresdefault.jpg",
   "published": "2024-09-10T21:08:06.509189Z",
   "updated": "2024-12-20T13:01:02Z",
-  "fetched": "2026-03-07T12:03:28.661Z",
+  "fetched": "2026-03-17T01:34:41.238Z",
   "episodes": 72,
   "duration": 371530,
-  "views": 11738,
-  "status": "Completed",
   "duration_formatted": "103h 12m",
+  "duration_short": "103h",
+  "views": 11749,
   "views_formatted": "11.7K",
-  "slug": "satisfactory-10-a-new-factory-adventure",
+  "status": "Completed",
   "status_color": "blue"
 }

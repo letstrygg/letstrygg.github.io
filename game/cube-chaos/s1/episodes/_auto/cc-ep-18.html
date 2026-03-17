@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 18",
+  "name": "Chronomancer: Manipulating Time for Fun & Profit: Let's Play Cube Chaos Ep 18",
   "description": "Episode 18 of the Cube Chaos Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/oaAWtMBsZDU/maxresdefault.jpg",
-  "uploadDate": "2024-01-27T19:00:31Z",
-  "duration": "PT4491S",
-  "embedUrl": "https://www.youtube.com/embed/oaAWtMBsZDU"
+  "thumbnailUrl": "https://i.ytimg.com/vi/T9saHxzOvAQ/maxresdefault.jpg",
+  "uploadDate": "2024-01-28T19:00:13Z",
+  "duration": "PT2967S",
+  "embedUrl": "https://www.youtube.com/embed/T9saHxzOvAQ"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 27, 2024</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 14m 51s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 424</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 28, 2024</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 49m 27s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 538</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 17</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 7</span>
                     </div>
 
                     <button onclick="window.location.href='/game/cube-chaos/s1/episodes/cc-ep-17.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_oaAWtMBsZDU';
+  var storageKey = 'yt_resume_T9saHxzOvAQ';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'oaAWtMBsZDU',
+      videoId: 'T9saHxzOvAQ',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/oaAWtMBsZDU?t=" + t + "s";
+          const url = "https://youtu.be/T9saHxzOvAQ?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

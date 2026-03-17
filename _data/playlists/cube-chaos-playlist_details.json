@@ -1,16 +1,17 @@
 {
   "id": "PLkwYKQUqZEUVkpcABDk1mkMLgAvKJoWF3",
+  "slug": "cube-chaos",
   "title": "Cube Chaos",
   "thumbnail": "https://i.ytimg.com/vi/RcBtR76ZUX0/maxresdefault.jpg",
   "published": "2024-08-03T22:21:16.115234Z",
   "updated": "2024-09-11T14:00:09Z",
-  "fetched": "2026-03-07T11:47:31.044Z",
+  "fetched": "2026-03-17T01:34:37.850Z",
   "episodes": 16,
   "duration": 61314,
-  "views": 3890,
-  "status": "Completed",
   "duration_formatted": "17h 1m",
+  "duration_short": "17h",
+  "views": 3893,
   "views_formatted": "3.9K",
-  "slug": "cube-chaos",
+  "status": "Completed",
   "status_color": "blue"
 }

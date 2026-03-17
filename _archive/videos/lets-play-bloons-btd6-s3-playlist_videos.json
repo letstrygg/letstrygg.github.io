@@ -232,7 +232,7 @@
       "videoId": "7N_ThQ83dS8",
       "videoPublishedAt": "2026-03-06T14:00:12Z",
       "durationInSeconds": 3257,
-      "viewCount": 110
+      "viewCount": 111
     },
     "title": "Geared: Bloons TD6 S3E16",
     "thumbnail": "https://i.ytimg.com/vi/7N_ThQ83dS8/maxresdefault.jpg",
@@ -292,7 +292,7 @@
       "videoId": "0Dsw_u5Mu2c",
       "videoPublishedAt": "2026-03-10T12:00:00Z",
       "durationInSeconds": 2581,
-      "viewCount": 35
+      "viewCount": 39
     },
     "title": "Castle Revenge: Bloons TD6 S3E20",
     "thumbnail": "https://i.ytimg.com/vi/0Dsw_u5Mu2c/maxresdefault.jpg",
@@ -307,7 +307,7 @@
       "videoId": "rWBy3Uj4vu0",
       "videoPublishedAt": "2026-03-11T12:01:39Z",
       "durationInSeconds": 1210,
-      "viewCount": 69
+      "viewCount": 70
     },
     "title": "Three Mines 'Round: Bloons TD6 S3E21",
     "thumbnail": "https://i.ytimg.com/vi/rWBy3Uj4vu0/maxresdefault.jpg",
@@ -322,7 +322,7 @@
       "videoId": "Nzs1gTgBnMQ",
       "videoPublishedAt": "2026-03-12T12:00:45Z",
       "durationInSeconds": 2598,
-      "viewCount": 16
+      "viewCount": 17
     },
     "title": "Alternate Bloons | Three Mines 'Round: Bloons TD6 S3E22",
     "thumbnail": "https://i.ytimg.com/vi/Nzs1gTgBnMQ/maxresdefault.jpg",
@@ -337,7 +337,7 @@
       "videoId": "WIMxUD4gWsg",
       "videoPublishedAt": "2026-03-13T12:00:58Z",
       "durationInSeconds": 4003,
-      "viewCount": 29
+      "viewCount": 32
     },
     "title": "IMPOPPABLE | Three Mines 'Round: Bloons TD6 S3E23",
     "thumbnail": "https://i.ytimg.com/vi/WIMxUD4gWsg/maxresdefault.jpg",
@@ -352,7 +352,7 @@
       "videoId": "OIXaDJfwAZs",
       "videoPublishedAt": "2026-03-14T12:00:43Z",
       "durationInSeconds": 1785,
-      "viewCount": 27
+      "viewCount": 29
     },
     "title": "C.H.I.M.P.S. | Three Mines 'Round: Bloons TD6 S3E24",
     "thumbnail": "https://i.ytimg.com/vi/OIXaDJfwAZs/maxresdefault.jpg",
@@ -367,11 +367,26 @@
       "videoId": "KNjmV4Sxyoc",
       "videoPublishedAt": "2026-03-15T12:00:28Z",
       "durationInSeconds": 1577,
-      "viewCount": 16
+      "viewCount": 18
     },
     "title": "Ancient Portal: Bloons TD6 S3E25",
     "thumbnail": "https://i.ytimg.com/vi/KNjmV4Sxyoc/maxresdefault.jpg",
     "likes": 1,
+    "comments": 0
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "IpUVCIEDbsAt1IkkKkqLKEN2P-k",
+    "id": "UExRNElMNFVWZ1FrNUcyb3cycm44Q3dKYlBEbzBUU1B6ei5DMkU4NTY1QUFGQTYwMDE3",
+    "contentDetails": {
+      "videoId": "ZNiq8iuFSN8",
+      "videoPublishedAt": "2026-03-16T12:01:06Z",
+      "durationInSeconds": 1728,
+      "viewCount": 26
+    },
+    "title": "We're LOADED!!! Alternate Bloons | Spa Pits: Bloons TD6 S3E26",
+    "thumbnail": "https://i.ytimg.com/vi/ZNiq8iuFSN8/maxresdefault.jpg",
+    "likes": 3,
     "comments": 0
   }
 ]

@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-02-03T19:00:32Z",
       "durationInSeconds": 1953,
       "viewCount": 480
-    }
+    },
+    "title": "New Pew-Pew, Many Bullets, Very Satisfying! NIMRODS: GunCraft Survivor Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/zPU1WjQdFWM/maxresdefault.jpg",
+    "likes": 15,
+    "comments": 11
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2024-02-05T19:00:26Z",
       "durationInSeconds": 2417,
       "viewCount": 492
-    }
+    },
+    "title": "Nimrods 2",
+    "thumbnail": "https://i.ytimg.com/vi/bu056QQ21js/maxresdefault.jpg",
+    "likes": 10,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2024-02-07T14:30:07Z",
       "durationInSeconds": 1861,
       "viewCount": 203
-    }
+    },
+    "title": "Helix Triple-Tap Shotgun! Let's Play Nimrods Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/IIkCb_0CwQ0/maxresdefault.jpg",
+    "likes": 9,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2024-02-09T14:30:04Z",
       "durationInSeconds": 2828,
       "viewCount": 142
-    }
+    },
+    "title": "Nimrods 4",
+    "thumbnail": "https://i.ytimg.com/vi/6UumDnGZQwE/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2024-02-11T14:30:07Z",
       "durationInSeconds": 2734,
       "viewCount": 209
-    }
+    },
+    "title": "Bouncing Bullet Bubble! Let's Play Nimrods Ep 5 - Demo Gameplay",
+    "thumbnail": "https://i.ytimg.com/vi/QNjGX4hVac4/maxresdefault.jpg",
+    "likes": 12,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2024-02-13T14:30:08Z",
       "durationInSeconds": 2928,
       "viewCount": 175
-    }
+    },
+    "title": "Nimrods 6",
+    "thumbnail": "https://i.ytimg.com/vi/ECK5iZwomSQ/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,6 +98,10 @@
       "videoPublishedAt": "2024-02-15T14:30:15Z",
       "durationInSeconds": 2695,
       "viewCount": 124
-    }
+    },
+    "title": "Nimrods 7",
+    "thumbnail": "https://i.ytimg.com/vi/eZIkdYRHH58/maxresdefault.jpg",
+    "likes": 9,
+    "comments": 4
   }
 ]

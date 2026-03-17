@@ -7,8 +7,12 @@
       "videoId": "w4X_Ecf9_ng",
       "videoPublishedAt": "2025-02-26T17:01:22Z",
       "durationInSeconds": 3819,
-      "viewCount": 978
-    }
+      "viewCount": 979
+    },
+    "title": "Dungeon Warfare 3 Ep 1: 2025 Steam Next Fest, Free Demo",
+    "thumbnail": "https://i.ytimg.com/vi/w4X_Ecf9_ng/maxresdefault.jpg",
+    "likes": 21,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-02-28T15:00:18Z",
       "durationInSeconds": 5464,
       "viewCount": 1165
-    }
+    },
+    "title": "Dungeon Warfare 3 Ep 2: 2025 Steam Next Fest, Free Demo",
+    "thumbnail": "https://i.ytimg.com/vi/D_Y-E1SaZ6o/maxresdefault.jpg",
+    "likes": 18,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-03-02T17:00:02Z",
       "durationInSeconds": 6801,
       "viewCount": 485
-    }
+    },
+    "title": "Always Send All Waves, Dungeon Warfare 3 Ep 3: 2025 Steam Next Fest, Free Demo",
+    "thumbnail": "https://i.ytimg.com/vi/2GN8gdz-7Q0/maxresdefault.jpg",
+    "likes": 14,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -40,7 +52,11 @@
       "videoId": "ugkKDY2o3MQ",
       "videoPublishedAt": "2025-07-12T15:01:28Z",
       "durationInSeconds": 9792,
-      "viewCount": 701
-    }
+      "viewCount": 703
+    },
+    "title": "New Map is Brutal! Dungeon Warfare 3 Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/ugkKDY2o3MQ/maxresdefault.jpg",
+    "likes": 12,
+    "comments": 3
   }
 ]

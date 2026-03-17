@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk60RXcV8v3qYaDsLLlBnr1c",
+  "slug": "satisfactory",
   "title": "Satisfactory",
   "thumbnail": "https://i.ytimg.com/vi/GinsHvOuU1A/maxresdefault.jpg",
   "published": "2023-12-16T04:39:38.115228Z",
   "updated": "2024-08-18T13:00:10Z",
-  "fetched": "2026-03-07T12:03:48.884Z",
+  "fetched": "2026-03-17T01:34:42.334Z",
   "episodes": 80,
   "duration": 273740,
-  "views": 21146,
-  "status": "Completed",
   "duration_formatted": "76h 2m",
+  "duration_short": "76h",
+  "views": 21148,
   "views_formatted": "21.1K",
-  "slug": "satisfactory",
+  "status": "Completed",
   "status_color": "blue"
 }

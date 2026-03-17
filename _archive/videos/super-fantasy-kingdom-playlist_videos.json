@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-06-25T13:01:02Z",
       "durationInSeconds": 2947,
       "viewCount": 1214
-    }
+    },
+    "title": "Let's Try Super Fantasy Kingdom",
+    "thumbnail": "https://i.ytimg.com/vi/voBtbkCaSSY/maxresdefault.jpg",
+    "likes": 28,
+    "comments": 10
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2024-06-26T16:00:20Z",
       "durationInSeconds": 1921,
       "viewCount": 600
-    }
+    },
+    "title": "Super Fantasy Kingdom, Part 2",
+    "thumbnail": "https://i.ytimg.com/vi/QnQsv4hRSSI/maxresdefault.jpg",
+    "likes": 21,
+    "comments": 11
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2024-06-27T13:00:21Z",
       "durationInSeconds": 2292,
       "viewCount": 1008
-    }
+    },
+    "title": "Super Fantasy Kingdom, Part 3",
+    "thumbnail": "https://i.ytimg.com/vi/M4rPJ9L7sQU/maxresdefault.jpg",
+    "likes": 27,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2024-06-30T20:45:00Z",
       "durationInSeconds": 2366,
       "viewCount": 876
-    }
+    },
+    "title": "PROGRESS! Super Fantasy Kingdom, Part 4",
+    "thumbnail": "https://i.ytimg.com/vi/7jFaLEJOBQ0/maxresdefault.jpg",
+    "likes": 33,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2024-07-01T13:00:38Z",
       "durationInSeconds": 1257,
       "viewCount": 774
-    }
+    },
+    "title": "Super Fantasy Kingdom, Part 5",
+    "thumbnail": "https://i.ytimg.com/vi/ehobqpLc7Ns/maxresdefault.jpg",
+    "likes": 42,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2024-07-02T16:00:21Z",
       "durationInSeconds": 2345,
       "viewCount": 408
-    }
+    },
+    "title": "Super Fantasy Kingdom, Part 6",
+    "thumbnail": "https://i.ytimg.com/vi/R17zmd_Dbig/maxresdefault.jpg",
+    "likes": 20,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2024-07-03T13:00:22Z",
       "durationInSeconds": 1628,
       "viewCount": 569
-    }
+    },
+    "title": "Super Fantasy Kingdom, Part 7",
+    "thumbnail": "https://i.ytimg.com/vi/Od7zcDBmvbI/maxresdefault.jpg",
+    "likes": 19,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2024-07-07T13:00:49Z",
       "durationInSeconds": 3608,
       "viewCount": 701
-    }
+    },
+    "title": "Super Fantasy Kingdom Demo Playthrough, Part 8",
+    "thumbnail": "https://i.ytimg.com/vi/kJmVOX4Sx0Q/maxresdefault.jpg",
+    "likes": 19,
+    "comments": 16
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,6 +128,10 @@
       "videoPublishedAt": "2024-12-06T13:00:58Z",
       "durationInSeconds": 1632,
       "viewCount": 462
-    }
+    },
+    "title": "Super Fantasy Kingdom: Undead Kingdom Ep1",
+    "thumbnail": "https://i.ytimg.com/vi/l-Dee0f9QYU/maxresdefault.jpg",
+    "likes": 14,
+    "comments": 1
   }
 ]

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7Kyqlni3Bgd1tzQSq8-s_3",
-  "title": "Magicraft S4: 1.0 Release",
+  "slug": "magicraft-s4-10-release",
+  "title": "Magicraft S4 10 Release",
   "thumbnail": "https://i.ytimg.com/vi/P4MyZUB258E/maxresdefault.jpg",
   "published": "2024-11-07T08:48:51.195477Z",
   "updated": "2025-09-10T12:00:27Z",
-  "fetched": "2026-03-07T12:03:25.623Z",
+  "fetched": "2026-03-17T01:34:45.086Z",
   "episodes": 51,
   "duration": 313882,
-  "views": 62342,
-  "status": "Completed",
   "duration_formatted": "87h 11m",
+  "duration_short": "87h",
+  "views": 62348,
   "views_formatted": "62.3K",
-  "slug": "magicraft-s4-10-release",
+  "status": "Completed",
   "status_color": "blue"
 }

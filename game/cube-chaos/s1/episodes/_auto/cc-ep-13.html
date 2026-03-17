@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 13",
+  "name": "DEATH LASER BEAM: Cube Chaos Ep 13",
   "description": "Episode 13 of the Cube Chaos Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/0zqNjhMbEXo/maxresdefault.jpg",
-  "uploadDate": "2024-01-22T19:00:00Z",
-  "duration": "PT2993S",
-  "embedUrl": "https://www.youtube.com/embed/0zqNjhMbEXo"
+  "thumbnailUrl": "https://i.ytimg.com/vi/aXXZt2DjkMY/maxresdefault.jpg",
+  "uploadDate": "2024-01-23T19:00:01Z",
+  "duration": "PT3500S",
+  "embedUrl": "https://www.youtube.com/embed/aXXZt2DjkMY"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 22, 2024</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 49m 53s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 591</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 23, 2024</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 58m 20s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 534</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 21</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 7</span>
                     </div>
 
                     <button onclick="window.location.href='/game/cube-chaos/s1/episodes/cc-ep-12.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_0zqNjhMbEXo';
+  var storageKey = 'yt_resume_aXXZt2DjkMY';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: '0zqNjhMbEXo',
+      videoId: 'aXXZt2DjkMY',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/0zqNjhMbEXo?t=" + t + "s";
+          const url = "https://youtu.be/aXXZt2DjkMY?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

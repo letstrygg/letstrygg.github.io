@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6b7Pm8hZafK12XHfNwYime",
+  "slug": "nimrods-s2",
   "title": "Nimrods S2",
   "thumbnail": "https://i.ytimg.com/vi/Tf7PKxnBMrc/maxresdefault.jpg",
   "published": "2025-09-12T05:18:18.184249Z",
   "updated": "2025-09-29T14:01:09Z",
-  "fetched": "2026-03-07T12:02:56.109Z",
+  "fetched": "2026-03-17T01:34:35.896Z",
   "episodes": 12,
   "duration": 31615,
-  "views": 3042,
-  "status": "Completed",
   "duration_formatted": "8h 46m",
+  "duration_short": "9h",
+  "views": 3043,
   "views_formatted": "3K",
-  "slug": "nimrods-s2",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -7,8 +7,12 @@
       "videoId": "CbGJ0CNSNbg",
       "videoPublishedAt": "2025-08-24T12:00:32Z",
       "durationInSeconds": 8434,
-      "viewCount": 45
-    }
+      "viewCount": 46
+    },
+    "title": "Light Curves & Angles, Building in Satisfactory S3E8",
+    "thumbnail": "https://i.ytimg.com/vi/CbGJ0CNSNbg/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-08-23T13:02:00Z",
       "durationInSeconds": 2553,
       "viewCount": 102
-    }
+    },
+    "title": "Satisfactory S3E7",
+    "thumbnail": "https://i.ytimg.com/vi/zzn_7T4iiGk/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-08-22T14:00:28Z",
       "durationInSeconds": 9489,
       "viewCount": 28
-    }
+    },
+    "title": "Steel Today! Oh, Look a Mercer Sphere.. Satisfactory S3E6",
+    "thumbnail": "https://i.ytimg.com/vi/KLTQIFpMRfU/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2025-08-21T19:00:24Z",
       "durationInSeconds": 5557,
       "viewCount": 57
-    }
+    },
+    "title": "Not Getting Distracted! Steel & Foundations: Satisfactory S3E5",
+    "thumbnail": "https://i.ytimg.com/vi/O8pkiCbwyTg/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -51,8 +67,12 @@
       "videoId": "m6aqJr0xvlc",
       "videoPublishedAt": "2025-08-12T14:01:13Z",
       "durationInSeconds": 6627,
-      "viewCount": 60
-    }
+      "viewCount": 61
+    },
+    "title": "Satisfactory S3E4",
+    "thumbnail": "https://i.ytimg.com/vi/m6aqJr0xvlc/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2025-08-11T17:00:33Z",
       "durationInSeconds": 8721,
       "viewCount": 61
-    }
+    },
+    "title": "Satisfactory S3E3",
+    "thumbnail": "https://i.ytimg.com/vi/KZWwVUFWh3Y/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2025-08-09T15:00:10Z",
       "durationInSeconds": 8266,
       "viewCount": 114
-    }
+    },
+    "title": "Satisfactory S3E2",
+    "thumbnail": "https://i.ytimg.com/vi/6Hi59Vbr5lI/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,6 +113,10 @@
       "videoPublishedAt": "2025-08-08T15:01:33Z",
       "durationInSeconds": 15558,
       "viewCount": 128
-    }
+    },
+    "title": "Satisfactory S3E1",
+    "thumbnail": "https://i.ytimg.com/vi/ioBtTT5Ib-4/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 6
   }
 ]

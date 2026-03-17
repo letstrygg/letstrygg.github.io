@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4CFHCofor3VwkstqwEienl",
+  "slug": "satisfactory-s3",
   "title": "Satisfactory S3",
   "thumbnail": "https://i.ytimg.com/vi/CbGJ0CNSNbg/maxresdefault.jpg",
   "published": "2025-08-08T04:36:52.705804Z",
   "updated": "2025-08-24T12:00:32Z",
-  "fetched": "2026-03-07T12:02:58.423Z",
+  "fetched": "2026-03-17T01:34:39.995Z",
   "episodes": 8,
   "duration": 65205,
-  "views": 595,
-  "status": "Completed",
   "duration_formatted": "18h 6m",
-  "views_formatted": "595",
-  "slug": "satisfactory-s3",
+  "duration_short": "18h",
+  "views": 597,
+  "views_formatted": "597",
+  "status": "Completed",
   "status_color": "blue"
 }

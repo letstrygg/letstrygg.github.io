@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 3",
+  "name": "The End: Cube Chaos Run 9 Nm4, Part 3",
   "description": "Episode 3 of the Cube Chaos Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/2v2eNtFaSVs/maxresdefault.jpg",
-  "uploadDate": "2024-08-08T16:00:01Z",
-  "duration": "PT1671S",
-  "embedUrl": "https://www.youtube.com/embed/2v2eNtFaSVs"
+  "thumbnailUrl": "https://i.ytimg.com/vi/8DNygj7y-mo/maxresdefault.jpg",
+  "uploadDate": "2024-09-11T14:00:09Z",
+  "duration": "PT1476S",
+  "embedUrl": "https://www.youtube.com/embed/8DNygj7y-mo"
 }
 </script>
 
@@ -22,15 +22,15 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Aug 8, 2024</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 27m 51s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 128</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Sep 11, 2024</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 24m 36s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 124</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 5</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 4</span>
                     </div>
 
                     <button onclick="window.location.href='/game/cube-chaos/s2/episodes/cc-ep-2.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    <button onclick="window.location.href='/game/cube-chaos/s2/episodes/cc-ep-4.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    
                     
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
@@ -48,7 +48,7 @@
             <div class="watch-nav" style="padding-bottom: 10px;">
                 <a href="/game/cube-chaos/s2/episodes/cc-ep-2.html">← Ep 2</a>
                 <a href="/game/cube-chaos/s2">Episode List</a>
-                <a href="/game/cube-chaos/s2/episodes/cc-ep-4.html">Ep 4 →</a>
+                <span></span>
             </div>
 
         </div>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_2v2eNtFaSVs';
+  var storageKey = 'yt_resume_8DNygj7y-mo';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: '2v2eNtFaSVs',
+      videoId: '8DNygj7y-mo',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -92,7 +92,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/cube-chaos/s2/episodes/cc-ep-4.html";
+        const nextEpisodeUrl = "";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/2v2eNtFaSVs?t=" + t + "s";
+          const url = "https://youtu.be/8DNygj7y-mo?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

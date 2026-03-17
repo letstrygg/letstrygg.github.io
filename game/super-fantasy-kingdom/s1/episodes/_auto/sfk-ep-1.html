@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 1",
+  "name": "Super Fantasy Kingdom: Undead Kingdom Ep1",
   "description": "Episode 1 of the Super Fantasy Kingdom Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/voBtbkCaSSY/maxresdefault.jpg",
-  "uploadDate": "2024-06-25T13:01:02Z",
-  "duration": "PT2947S",
-  "embedUrl": "https://www.youtube.com/embed/voBtbkCaSSY"
+  "thumbnailUrl": "https://i.ytimg.com/vi/l-Dee0f9QYU/maxresdefault.jpg",
+  "uploadDate": "2024-12-06T13:00:58Z",
+  "duration": "PT1632S",
+  "embedUrl": "https://www.youtube.com/embed/l-Dee0f9QYU"
 }
 </script>
 
@@ -22,15 +22,15 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jun 25, 2024</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 49m 7s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 1,214</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Dec 6, 2024</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 27m 12s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 462</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 14</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
                     </div>
 
                     
-                    <button onclick="window.location.href='/game/super-fantasy-kingdom/s1/episodes/sfk-ep-2.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    
                     
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
@@ -48,7 +48,7 @@
             <div class="watch-nav" style="padding-bottom: 10px;">
                 <span></span>
                 <a href="/game/super-fantasy-kingdom/s1">Episode List</a>
-                <a href="/game/super-fantasy-kingdom/s1/episodes/sfk-ep-2.html">Ep 2 →</a>
+                <span></span>
             </div>
 
         </div>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_voBtbkCaSSY';
+  var storageKey = 'yt_resume_l-Dee0f9QYU';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'voBtbkCaSSY',
+      videoId: 'l-Dee0f9QYU',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -92,7 +92,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/super-fantasy-kingdom/s1/episodes/sfk-ep-2.html";
+        const nextEpisodeUrl = "";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/voBtbkCaSSY?t=" + t + "s";
+          const url = "https://youtu.be/l-Dee0f9QYU?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

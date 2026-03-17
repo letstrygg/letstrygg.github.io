@@ -2,7 +2,7 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 8",
+  "name": "Super Fantasy Kingdom Demo Playthrough, Part 8",
   "description": "Episode 8 of the Super Fantasy Kingdom Let's Play series.",
   "thumbnailUrl": "https://i.ytimg.com/vi/kJmVOX4Sx0Q/maxresdefault.jpg",
   "uploadDate": "2024-07-07T13:00:49Z",
@@ -25,12 +25,12 @@
                         <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jul 7, 2024</span>
                         <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 0m 8s</span>
                         <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 701</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 19</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 16</span>
                     </div>
 
                     <button onclick="window.location.href='/game/super-fantasy-kingdom/s1/episodes/sfk-ep-7.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    <button onclick="window.location.href='/game/super-fantasy-kingdom/s1/episodes/sfk-ep-9.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    
                     
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
@@ -48,7 +48,7 @@
             <div class="watch-nav" style="padding-bottom: 10px;">
                 <a href="/game/super-fantasy-kingdom/s1/episodes/sfk-ep-7.html">← Ep 7</a>
                 <a href="/game/super-fantasy-kingdom/s1">Episode List</a>
-                <a href="/game/super-fantasy-kingdom/s1/episodes/sfk-ep-9.html">Ep 9 →</a>
+                <span></span>
             </div>
 
         </div>
@@ -92,7 +92,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/super-fantasy-kingdom/s1/episodes/sfk-ep-9.html";
+        const nextEpisodeUrl = "";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }

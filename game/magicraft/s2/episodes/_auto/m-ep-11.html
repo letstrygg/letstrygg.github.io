@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 11",
+  "name": "Spellbreaker's Grace & Lightning-Fueled Race: Let's Play Magicraft Ep 11",
   "description": "Episode 11 of the Magicraft Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/7YIe9E4RZ10/maxresdefault.jpg",
-  "uploadDate": "2023-11-08T14:30:02Z",
-  "duration": "PT3135S",
-  "embedUrl": "https://www.youtube.com/embed/7YIe9E4RZ10"
+  "thumbnailUrl": "https://i.ytimg.com/vi/nqwF9UN8H4k/maxresdefault.jpg",
+  "uploadDate": "2023-11-11T14:30:25Z",
+  "duration": "PT2579S",
+  "embedUrl": "https://www.youtube.com/embed/nqwF9UN8H4k"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 8, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 52m 15s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 1,961</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 11, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 42m 59s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 1,416</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 36</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 22</span>
                     </div>
 
                     <button onclick="window.location.href='/game/magicraft/s2/episodes/m-ep-10.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_7YIe9E4RZ10';
+  var storageKey = 'yt_resume_nqwF9UN8H4k';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: '7YIe9E4RZ10',
+      videoId: 'nqwF9UN8H4k',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/7YIe9E4RZ10?t=" + t + "s";
+          const url = "https://youtu.be/nqwF9UN8H4k?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

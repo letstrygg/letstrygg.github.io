@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk522_hGV2JGZCs3XhVQ5Isc",
-  "title": "Magicraft S1: Steam Demo",
+  "slug": "magicraft-s1-steam-demo",
+  "title": "Magicraft S1 Steam Demo",
   "thumbnail": "https://i.ytimg.com/vi/4cNsvW3ACWY/maxresdefault.jpg",
   "published": "2023-10-18T02:47:01.268353Z",
   "updated": "2023-11-07T14:30:05Z",
-  "fetched": "2026-03-07T12:03:56.146Z",
+  "fetched": "2026-03-17T01:34:46.259Z",
   "episodes": 14,
   "duration": 37902,
-  "views": 49211,
-  "status": "Completed",
   "duration_formatted": "10h 31m",
+  "duration_short": "11h",
+  "views": 49219,
   "views_formatted": "49.2K",
-  "slug": "magicraft-s1-steam-demo",
+  "status": "Completed",
   "status_color": "blue"
 }

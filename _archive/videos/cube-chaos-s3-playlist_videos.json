@@ -7,8 +7,12 @@
       "videoId": "0CN-ICAUh3Q",
       "videoPublishedAt": "2025-08-26T16:00:02Z",
       "durationInSeconds": 2898,
-      "viewCount": 123
-    }
+      "viewCount": 124
+    },
+    "title": "Trash Fire & Jello, Cube Chaos S3E7",
+    "thumbnail": "https://i.ytimg.com/vi/0CN-ICAUh3Q/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-08-25T16:01:34Z",
       "durationInSeconds": 2791,
       "viewCount": 55
-    }
+    },
+    "title": "Greed Demon Arrival, Cube Chaos S3E6",
+    "thumbnail": "https://i.ytimg.com/vi/xNofN-WAXlQ/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-08-24T17:15:00Z",
       "durationInSeconds": 2119,
       "viewCount": 74
-    }
+    },
+    "title": "Warrior Leader & Neutral Knights, Cube Chaos S3E5",
+    "thumbnail": "https://i.ytimg.com/vi/4eJV9UPzncE/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2025-08-19T14:01:17Z",
       "durationInSeconds": 2720,
       "viewCount": 94
-    }
+    },
+    "title": "Lost in a Sea of Dwarves, Cube Chaos S3E4",
+    "thumbnail": "https://i.ytimg.com/vi/fr3T_RJWk2o/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2025-08-18T14:00:45Z",
       "durationInSeconds": 2285,
       "viewCount": 84
-    }
+    },
+    "title": "Ice, Rolly Pollies of Doom & DEATH INCARNATE, Cube Chaos S3E3",
+    "thumbnail": "https://i.ytimg.com/vi/VCB7EHgFi1w/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2025-08-17T17:45:00Z",
       "durationInSeconds": 2698,
       "viewCount": 146
-    }
+    },
+    "title": "I CAN'T MOVE!? Run 2 Map 1 - Cube Chaos S3E2",
+    "thumbnail": "https://i.ytimg.com/vi/Q1AOiU8pp40/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -73,7 +97,11 @@
       "videoId": "nqiWYhg1oiw",
       "videoPublishedAt": "2025-08-15T14:01:20Z",
       "durationInSeconds": 8724,
-      "viewCount": 292
-    }
+      "viewCount": 297
+    },
+    "title": "My Fav Auto-Battler got 1.0 Release! Dwarf Priest, Cube Chaos S3E1",
+    "thumbnail": "https://i.ytimg.com/vi/nqiWYhg1oiw/maxresdefault.jpg",
+    "likes": 16,
+    "comments": 6
   }
 ]

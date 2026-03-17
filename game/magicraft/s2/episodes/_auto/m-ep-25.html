@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 25",
+  "name": "2x the Magicraft! Poison Tentacle Books: Let's Play Magicraft Ep 25",
   "description": "Episode 25 of the Magicraft Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/bpzBTbUDIC0/maxresdefault.jpg",
-  "uploadDate": "2023-11-22T14:30:13Z",
-  "duration": "PT2751S",
-  "embedUrl": "https://www.youtube.com/embed/bpzBTbUDIC0"
+  "thumbnailUrl": "https://i.ytimg.com/vi/lasKVAgMdjs/maxresdefault.jpg",
+  "uploadDate": "2023-11-24T22:00:21Z",
+  "duration": "PT2724S",
+  "embedUrl": "https://www.youtube.com/embed/lasKVAgMdjs"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 22, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 45m 51s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 1,946</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Nov 24, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 45m 24s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 551</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 21</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 2</span>
                     </div>
 
                     <button onclick="window.location.href='/game/magicraft/s2/episodes/m-ep-24.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_bpzBTbUDIC0';
+  var storageKey = 'yt_resume_lasKVAgMdjs';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'bpzBTbUDIC0',
+      videoId: 'lasKVAgMdjs',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/bpzBTbUDIC0?t=" + t + "s";
+          const url = "https://youtu.be/lasKVAgMdjs?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4flJB-5QNGBUrEEf2MkLat",
+  "slug": "swarm-grinder",
   "title": "Swarm Grinder",
   "thumbnail": "https://i.ytimg.com/vi/a2Ep-U_ZOuo/maxresdefault.jpg",
   "published": "2024-04-12T11:53:22.38095Z",
   "updated": "2024-04-18T19:00:21Z",
-  "fetched": "2026-03-07T12:03:36.533Z",
+  "fetched": "2026-03-17T01:34:35.193Z",
   "episodes": 4,
   "duration": 7740,
-  "views": 1680,
-  "status": "Completed",
   "duration_formatted": "2h 9m",
+  "duration_short": "2h",
+  "views": 1680,
   "views_formatted": "1.7K",
-  "slug": "swarm-grinder",
+  "status": "Completed",
   "status_color": "blue"
 }

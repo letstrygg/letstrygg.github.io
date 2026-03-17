@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 24",
+  "name": "Sniping Bee's Nests, Exploring a Cave & Facing my Nemesis the Mega-Spider: Satisfactory Ep 24",
   "description": "Episode 24 of the Satisfactory Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/IootL4xaSAU/maxresdefault.jpg",
-  "uploadDate": "2024-01-28T13:00:12Z",
-  "duration": "PT3903S",
-  "embedUrl": "https://www.youtube.com/embed/IootL4xaSAU"
+  "thumbnailUrl": "https://i.ytimg.com/vi/_cydxGODf0Q/maxresdefault.jpg",
+  "uploadDate": "2024-01-30T13:00:35Z",
+  "duration": "PT3302S",
+  "embedUrl": "https://www.youtube.com/embed/_cydxGODf0Q"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 28, 2024</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 5m 3s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 63</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 30, 2024</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 55m 2s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 396</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 3</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
                     </div>
 
                     <button onclick="window.location.href='/game/satisfactory/s1/episodes/s-ep-23.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_IootL4xaSAU';
+  var storageKey = 'yt_resume__cydxGODf0Q';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'IootL4xaSAU',
+      videoId: '_cydxGODf0Q',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/IootL4xaSAU?t=" + t + "s";
+          const url = "https://youtu.be/_cydxGODf0Q?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

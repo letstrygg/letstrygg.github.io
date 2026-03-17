@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 41",
+  "name": "Speedrun 6: Let's Play Magicraft Ep 41",
   "description": "Episode 41 of the Magicraft Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/eceVvFis5pQ/maxresdefault.jpg",
-  "uploadDate": "2023-12-28T13:00:34Z",
-  "duration": "PT2528S",
-  "embedUrl": "https://www.youtube.com/embed/eceVvFis5pQ"
+  "thumbnailUrl": "https://i.ytimg.com/vi/8_qYVDlSEbk/maxresdefault.jpg",
+  "uploadDate": "2023-12-30T13:00:11Z",
+  "duration": "PT1525S",
+  "embedUrl": "https://www.youtube.com/embed/8_qYVDlSEbk"
 }
 </script>
 
@@ -22,15 +22,15 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Dec 28, 2023</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 42m 8s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 908</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Dec 30, 2023</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 25m 25s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 244</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 9</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 6</span>
                     </div>
 
                     <button onclick="window.location.href='/game/magicraft/s2/episodes/m-ep-40.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    <button onclick="window.location.href='/game/magicraft/s2/episodes/m-ep-42.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    <button onclick="window.location.href='/game/magicraft/s2/episodes/m-ep-43.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
@@ -48,7 +48,7 @@
             <div class="watch-nav" style="padding-bottom: 10px;">
                 <a href="/game/magicraft/s2/episodes/m-ep-40.html">← Ep 40</a>
                 <a href="/game/magicraft/s2">Episode List</a>
-                <a href="/game/magicraft/s2/episodes/m-ep-42.html">Ep 42 →</a>
+                <a href="/game/magicraft/s2/episodes/m-ep-43.html">Ep 43 →</a>
             </div>
 
         </div>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_eceVvFis5pQ';
+  var storageKey = 'yt_resume_8_qYVDlSEbk';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'eceVvFis5pQ',
+      videoId: '8_qYVDlSEbk',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -92,7 +92,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/magicraft/s2/episodes/m-ep-42.html";
+        const nextEpisodeUrl = "/game/magicraft/s2/episodes/m-ep-43.html";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/eceVvFis5pQ?t=" + t + "s";
+          const url = "https://youtu.be/8_qYVDlSEbk?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

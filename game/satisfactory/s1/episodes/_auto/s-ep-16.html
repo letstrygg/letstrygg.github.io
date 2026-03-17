@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 16",
+  "name": "Water is Hard. Satisfactory Ep 16",
   "description": "Episode 16 of the Satisfactory Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/2ICI34Ff4O0/maxresdefault.jpg",
-  "uploadDate": "2024-01-12T13:00:01Z",
-  "duration": "PT5383S",
-  "embedUrl": "https://www.youtube.com/embed/2ICI34Ff4O0"
+  "thumbnailUrl": "https://i.ytimg.com/vi/tppyJCSyNZU/maxresdefault.jpg",
+  "uploadDate": "2024-01-14T13:00:47Z",
+  "duration": "PT3290S",
+  "embedUrl": "https://www.youtube.com/embed/tppyJCSyNZU"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 12, 2024</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 29m 43s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 199</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 14, 2024</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 54m 50s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 127</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 5</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
                     </div>
 
                     <button onclick="window.location.href='/game/satisfactory/s1/episodes/s-ep-15.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_2ICI34Ff4O0';
+  var storageKey = 'yt_resume_tppyJCSyNZU';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: '2ICI34Ff4O0',
+      videoId: 'tppyJCSyNZU',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/2ICI34Ff4O0?t=" + t + "s";
+          const url = "https://youtu.be/tppyJCSyNZU?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

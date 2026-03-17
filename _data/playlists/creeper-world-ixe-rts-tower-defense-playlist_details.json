@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7y44_tSCnbNv1s9EfJWGG6",
-  "title": "Creeper World IXE: RTS Tower Defense",
+  "slug": "creeper-world-ixe-rts-tower-defense",
+  "title": "Creeper World IXE RTS Tower Defense",
   "thumbnail": "https://i.ytimg.com/vi/OAkGiWsnqLQ/maxresdefault.jpg",
   "published": "2024-11-26T09:17:09.849326Z",
   "updated": "2025-06-02T13:01:20Z",
-  "fetched": "2026-03-07T12:03:24.239Z",
+  "fetched": "2026-03-17T01:34:29.122Z",
   "episodes": 21,
   "duration": 111627,
-  "views": 9435,
-  "status": "Completed",
   "duration_formatted": "31h 0m",
-  "views_formatted": "9.4K",
-  "slug": "creeper-world-ixe-rts-tower-defense",
+  "duration_short": "31h",
+  "views": 9467,
+  "views_formatted": "9.5K",
+  "status": "Completed",
   "status_color": "blue"
 }

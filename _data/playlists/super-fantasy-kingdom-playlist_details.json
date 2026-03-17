@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5yRQPliEx7UJ-fx-2Zu9d8",
-  "title": "Super Fantasy Kingdom!",
+  "slug": "super-fantasy-kingdom",
+  "title": "Super Fantasy Kingdom",
   "thumbnail": "https://i.ytimg.com/vi/voBtbkCaSSY/maxresdefault.jpg",
   "published": "2024-06-25T04:50:04.915447Z",
   "updated": "2024-12-06T13:00:58Z",
-  "fetched": "2026-03-07T12:03:32.533Z",
+  "fetched": "2026-03-17T01:34:30.650Z",
   "episodes": 9,
   "duration": 19996,
-  "views": 6612,
-  "status": "Completed",
   "duration_formatted": "5h 33m",
+  "duration_short": "6h",
+  "views": 6612,
   "views_formatted": "6.6K",
-  "slug": "super-fantasy-kingdom",
+  "status": "Completed",
   "status_color": "blue"
 }

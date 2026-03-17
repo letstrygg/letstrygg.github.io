@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 2",
+  "name": "The Middle: Cube Chaos Run 9 Nm4, Part 2",
   "description": "Episode 2 of the Cube Chaos Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/NVVIWlog1tM/maxresdefault.jpg",
-  "uploadDate": "2024-08-07T16:00:20Z",
-  "duration": "PT2236S",
-  "embedUrl": "https://www.youtube.com/embed/NVVIWlog1tM"
+  "thumbnailUrl": "https://i.ytimg.com/vi/s69hEKq_jl8/maxresdefault.jpg",
+  "uploadDate": "2024-09-10T16:00:51Z",
+  "duration": "PT1386S",
+  "embedUrl": "https://www.youtube.com/embed/s69hEKq_jl8"
 }
 </script>
 
@@ -22,11 +22,11 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Aug 7, 2024</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 37m 16s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 153</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Sep 10, 2024</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 23m 6s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 109</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 6</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
                     </div>
 
                     <button onclick="window.location.href='/game/cube-chaos/s2/episodes/cc-ep-1.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_NVVIWlog1tM';
+  var storageKey = 'yt_resume_s69hEKq_jl8';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'NVVIWlog1tM',
+      videoId: 's69hEKq_jl8',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/NVVIWlog1tM?t=" + t + "s";
+          const url = "https://youtu.be/s69hEKq_jl8?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

@@ -2,12 +2,12 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 27",
+  "name": "The Quickest of Wire! Satisfactory Ep 27",
   "description": "Episode 27 of the Satisfactory Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/X-agpKFNvqw/maxresdefault.jpg",
-  "uploadDate": "2024-02-03T13:00:25Z",
-  "duration": "PT4962S",
-  "embedUrl": "https://www.youtube.com/embed/X-agpKFNvqw"
+  "thumbnailUrl": "https://i.ytimg.com/vi/YQb9HpSDfjM/maxresdefault.jpg",
+  "uploadDate": "2024-01-05T13:00:27Z",
+  "duration": "PT3012S",
+  "embedUrl": "https://www.youtube.com/embed/YQb9HpSDfjM"
 }
 </script>
 
@@ -22,14 +22,14 @@
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Feb 3, 2024</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 22m 42s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 113</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Jan 5, 2024</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 50m 12s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 49</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 1</span>
                         <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
                     </div>
 
-                    <button onclick="window.location.href='/game/satisfactory/s1/episodes/s-ep-26.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
+                    <button onclick="window.location.href='/game/satisfactory/s1/episodes/s-ep-11.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
                     <button onclick="window.location.href='/game/satisfactory/s1/episodes/s-ep-28.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     
                     <div class="overlay-bottom">
@@ -46,7 +46,7 @@
             </div>
 
             <div class="watch-nav" style="padding-bottom: 10px;">
-                <a href="/game/satisfactory/s1/episodes/s-ep-26.html">← Ep 26</a>
+                <a href="/game/satisfactory/s1/episodes/s-ep-11.html">← Ep 11</a>
                 <a href="/game/satisfactory/s1">Episode List</a>
                 <a href="/game/satisfactory/s1/episodes/s-ep-28.html">Ep 28 →</a>
             </div>
@@ -56,7 +56,7 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_X-agpKFNvqw';
+  var storageKey = 'yt_resume_YQb9HpSDfjM';
   var savedTime = localStorage.getItem(storageKey) || 0;
 
   var tag = document.createElement('script');
@@ -69,7 +69,7 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'X-agpKFNvqw',
+      videoId: 'YQb9HpSDfjM',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
         'start': Math.floor(savedTime)
@@ -118,7 +118,7 @@
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/X-agpKFNvqw?t=" + t + "s";
+          const url = "https://youtu.be/YQb9HpSDfjM?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 
