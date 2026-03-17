@@ -27,7 +27,6 @@
   </div>
 
   <div style="border-top: 1px solid #26262c; background: #18181b; padding: 15px 10px;">
-      
       <div id="loginSection" style="display: none;">
           <p style="margin-top: 0; margin-bottom: 10px; color: #aaa; font-size: 13px;">Log in to chat:</p>
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -59,21 +58,19 @@
 
 <style>
 :root {
-    --chat-highlight: rgba(255, 235, 59, 0.15); /* Default subtle yellow highlight */
+    --chat-highlight: rgba(255, 235, 59, 0.15); 
 }
 
-/* Squish Effect */
 body { transition: padding-right 0.3s ease; }
 body.chat-open-squish { padding-right: 340px; }
 
-/* Filter Badges */
-.chat-badge { background: #222; color: #888; padding: 3px 8px; border-radius: 12px; cursor: pointer; user-select: none; border: 1px solid transparent; transition: all 0.2s; font-size: 11px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
-.chat-badge.active { background: #333; color: #fff; border-color: #555; }
+/* Filter Badges - Now with Light Green Active State */
+.chat-badge { background: #222; color: #888; padding: 4px 10px; border-radius: 12px; cursor: pointer; user-select: none; border: 1px solid #333; transition: all 0.2s; font-size: 11px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
+.chat-badge.active { background: rgba(141, 255, 141, 0.15); color: #8dff8d; border-color: rgba(141, 255, 141, 0.4); }
 
 #chatInput:focus { border-color: #e67e22 !important; }
 .chat-msg { margin-bottom: 8px; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; font-size: 13px; word-break: break-word; border: 1px solid transparent; }
 
-/* Channel Highlight Class */
 .msg-channel { background-color: var(--chat-highlight); border-radius: 4px; padding: 4px 8px; margin-left: -8px; width: calc(100% + 16px); }
 
 .chat-timestamp { font-size: 11px; color: #adadb8; display: none; margin-top: 3px; white-space: nowrap; }
@@ -84,7 +81,7 @@ body.chat-open-squish { padding-right: 340px; }
 #chatBox::-webkit-scrollbar { width: 8px; }
 #chatBox::-webkit-scrollbar-track { background: transparent; }
 #chatBox::-webkit-scrollbar-thumb { background: #3a3a3d; border-radius: 4px; }
-.yt-time-link { color: #3498db; text-decoration: none; font-weight: 500; transition: opacity 0.2s; } /* Now Blue! */
+.yt-time-link { color: #3498db; text-decoration: none; font-weight: 500; transition: opacity 0.2s; } 
 .yt-time-link:hover { opacity: 0.8; text-decoration: underline; }
 </style>
 
@@ -151,7 +148,7 @@ const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
 let currentSession = null;
 let isAdmin = false;
-let chatMessagesData = []; // Local cache for instant toggling
+let chatMessagesData = []; 
 
 toggleTimestamps.checked = localStorage.getItem('showTimestamps') === 'true';
 if (toggleTimestamps.checked) chatBox.classList.add('show-timestamps');
@@ -162,35 +159,50 @@ toggleTimestamps.addEventListener('change', (e) => {
 
 // Setup Current Game & Filter Toggles
 let showGlobalChat = localStorage.getItem('showGlobalChat') !== 'false';
-let showChannelChat = localStorage.getItem('showChannelChat') !== 'false';
+let highlightChannelChat = localStorage.getItem('highlightChannelChat') !== 'false';
 
 let currentGame = 'general';
 const pathParts = window.location.pathname.split('/game/');
 if (pathParts.length > 1) currentGame = pathParts[1].split('/')[0] || 'general';
 
-globalToggle.classList.toggle('active', showGlobalChat);
+function updateToggleUI() {
+    globalToggle.classList.toggle('active', showGlobalChat);
+    
+    if (currentGame !== 'general') {
+        if (!showGlobalChat) {
+            channelToggle.classList.remove('active');
+            channelToggle.style.opacity = '0.5';
+            channelToggle.style.pointerEvents = 'none';
+        } else {
+            channelToggle.classList.toggle('active', highlightChannelChat);
+            channelToggle.style.opacity = '1';
+            channelToggle.style.pointerEvents = 'auto';
+        }
+    }
+}
+
 globalToggle.addEventListener('click', () => {
     showGlobalChat = !showGlobalChat;
     localStorage.setItem('showGlobalChat', showGlobalChat);
-    globalToggle.classList.toggle('active', showGlobalChat);
+    updateToggleUI();
     renderMessages();
 });
 
 if (currentGame !== 'general') {
-    channelToggle.textContent = currentGame.replace(/-/g, ' '); // Format nicely
+    channelToggle.textContent = currentGame.replace(/-/g, ' '); 
     channelToggle.style.display = 'inline-block';
-    channelToggle.classList.toggle('active', showChannelChat);
     
     channelToggle.addEventListener('click', () => {
-        showChannelChat = !showChannelChat;
-        localStorage.setItem('showChannelChat', showChannelChat);
-        channelToggle.classList.toggle('active', showChannelChat);
+        if (!showGlobalChat) return; // Prevent clicks if global is off
+        highlightChannelChat = !highlightChannelChat;
+        localStorage.setItem('highlightChannelChat', highlightChannelChat);
+        updateToggleUI();
         renderMessages();
     });
 } else {
-    // Hide channel toggle if on homepage/global level
     channelToggle.style.display = 'none';
 }
+updateToggleUI(); // Init button visuals
 
 function formatTime(dateStr) {
     const d = new Date(dateStr);
@@ -234,14 +246,9 @@ userColorPicker.addEventListener('change', async (e) => {
     await supabaseClient.from('letstrygg_profiles').update({ color: e.target.value }).eq('user_id', currentSession.user.id);
 });
 
-// Fetch all messages once, then render locally based on toggles
 async function loadMessages() {
-    const { data, error } = await supabaseClient
-        .from('letstrygg_chat')
-        .select('*, letstrygg_profiles(username, color)')
-        .order('created_at', { ascending: true })
-        .limit(100);
-
+    let query = supabaseClient.from('letstrygg_chat').select('*, letstrygg_profiles(username, color)').order('created_at', { ascending: true }).limit(100);
+    const { data, error } = await query;
     if (error) { chatBox.innerHTML = `<span style="color:#e74c3c;">Failed to load messages.</span>`; return; }
     
     chatMessagesData = data || [];
@@ -257,10 +264,10 @@ function renderMessages() {
         
         const isChannelMsg = (row.game_context === currentGame);
 
-        // Filter Check
+        // Visibility Logic
         if (currentGame !== 'general') {
-            if (isChannelMsg && !showChannelChat) return;
-            if (!isChannelMsg && !showGlobalChat) return;
+            if (!isChannelMsg && !showGlobalChat) return; // Hide global msgs if toggle is off
+            // Channel msgs are NEVER hidden
         } else {
             if (!showGlobalChat) return;
         }
@@ -270,9 +277,12 @@ function renderMessages() {
         const msgDiv = document.createElement('div');
         msgDiv.className = 'chat-msg' + (row.is_deleted ? ' msg-deleted' : '');
         
-        // Add Highlight Class
+        // Highlight Logic
         if (isChannelMsg && currentGame !== 'general') {
-            msgDiv.classList.add('msg-channel');
+            // Only highlight if BOTH Global Chat is on AND the Channel toggle is on
+            if (highlightChannelChat && showGlobalChat) {
+                msgDiv.classList.add('msg-channel');
+            }
         }
         
         let adminHtml = '';
@@ -286,10 +296,6 @@ function renderMessages() {
         const displayName = profile.username || 'Anon';
         const displayColor = profile.color || '#ffffff';
 
-        // Red Video Icon to the right of the username
-        const urlIconHtml = row.url ? `<a href="${row.url}" target="_blank" title="Go to page" style="color: #e74c3c; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">smart_display</span></a>` : '';
-
-        // Strip parenthesis and convert to link
         let formattedMessage = row.message;
         if (row.url) {
             formattedMessage = formattedMessage.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, (match, timeStr) => {
@@ -303,7 +309,7 @@ function renderMessages() {
         msgDiv.innerHTML = `
             <span class="chat-timestamp">${formatTime(row.created_at)}</span>
             <div style="flex-grow: 1;">
-                <strong style="color: ${displayColor};">${displayName}</strong>${urlIconHtml}<strong>:</strong> 
+                <strong style="color: ${displayColor};">${displayName}</strong>: 
                 ${formattedMessage}
             </div>
             ${adminHtml}
