@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-05-25T00:00:12Z",
       "durationInSeconds": 1989,
       "viewCount": 359
-    }
+    },
+    "title": "Antimatter Orb: 2x Incremental Playthrough Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/LSVlazuTHKw/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 9
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2024-05-25T19:25:00Z",
       "durationInSeconds": 2005,
       "viewCount": 290
-    }
+    },
+    "title": "Antimatter Orb 2x Incremental Playthrough Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/aHYy5hUYfl8/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2024-05-25T17:00:09Z",
       "durationInSeconds": 2807,
       "viewCount": 318
-    }
+    },
+    "title": "Antimatter Orb 2x Incremental Playthrough Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/IzIz2F-yH54/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   }
 ]

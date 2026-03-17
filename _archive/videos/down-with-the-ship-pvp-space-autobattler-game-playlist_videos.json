@@ -7,8 +7,12 @@
       "videoId": "xVOAqk4J8XM",
       "videoPublishedAt": "2025-09-12T12:02:03Z",
       "durationInSeconds": 3673,
-      "viewCount": 184
-    }
+      "viewCount": 187
+    },
+    "title": "This Game is Wild! Down With The Ship 3",
+    "thumbnail": "https://i.ytimg.com/vi/xVOAqk4J8XM/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 10
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-08-14T14:01:07Z",
       "durationInSeconds": 5910,
       "viewCount": 106
-    }
+    },
+    "title": "Turtle, Turtle, Turtle. Down With The Ship 2",
+    "thumbnail": "https://i.ytimg.com/vi/ibguOP_HI94/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2025-08-13T14:00:08Z",
       "durationInSeconds": 4683,
       "viewCount": 135
-    }
+    },
+    "title": "Another Amazing Demo!? Down With The Ship 1",
+    "thumbnail": "https://i.ytimg.com/vi/5VIfF1nTnec/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 1
   }
 ]

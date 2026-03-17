@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-02-01T14:30:23Z",
       "durationInSeconds": 2553,
       "viewCount": 133
-    }
+    },
+    "title": "First Run 410% Difficulty Lots of Pausing! They Are Billions Let's Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/eMXJSd2zhII/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2024-02-02T14:30:08Z",
       "durationInSeconds": 2864,
       "viewCount": 104
-    }
+    },
+    "title": "First Run Continued: 410% Difficulty - They Are Billions Gameplay Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/EBxbGhWLyBc/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2024-02-04T14:30:17Z",
       "durationInSeconds": 1820,
       "viewCount": 38
-    }
+    },
+    "title": "First Run Part3: 410% Difficulty - They Are Billions Let's Play Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/tvjDhcpncJQ/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   }
 ]

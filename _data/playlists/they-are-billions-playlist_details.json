@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4UkDc-assmo_HrImVJrH3m",
+  "slug": "they-are-billions",
   "title": "They Are Billions",
   "thumbnail": "https://i.ytimg.com/vi/eMXJSd2zhII/maxresdefault.jpg",
   "published": "2024-01-30T20:40:00.389501Z",
   "updated": "2024-02-04T14:30:17Z",
-  "fetched": "2026-03-07T12:03:44.048Z",
+  "fetched": "2026-03-17T09:15:39.173Z",
   "episodes": 3,
   "duration": 7237,
-  "views": 275,
-  "status": "Completed",
   "duration_formatted": "2h 0m",
+  "duration_short": "2h",
+  "views": 275,
   "views_formatted": "275",
-  "slug": "they-are-billions",
+  "status": "Completed",
   "status_color": "blue"
 }

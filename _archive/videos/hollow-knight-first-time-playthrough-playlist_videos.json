@@ -7,8 +7,12 @@
       "videoId": "TtUZKe46Emk",
       "videoPublishedAt": "2025-08-31T14:00:44Z",
       "durationInSeconds": 1330,
-      "viewCount": 131
-    }
+      "viewCount": 132
+    },
+    "title": "Hollow Knight First Time Playthrough Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/TtUZKe46Emk/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-08-31T16:01:26Z",
       "durationInSeconds": 2412,
       "viewCount": 46
-    }
+    },
+    "title": "False Knight, Hollow Knight First Playthrough Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/oVF48RIub0g/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -29,7 +37,11 @@
       "videoId": "1gCLez9Z7m4",
       "videoPublishedAt": "2025-09-01T12:00:05Z",
       "durationInSeconds": 2389,
-      "viewCount": 71
-    }
+      "viewCount": 73
+    },
+    "title": "Gruz Mother, Hollow Knight First Playthrough Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/1gCLez9Z7m4/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   }
 ]

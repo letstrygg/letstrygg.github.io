@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-01-17T14:30:08Z",
       "durationInSeconds": 3312,
       "viewCount": 388
-    }
+    },
+    "title": "First Time Playing Vault Hunters: Modded Minecraft Let's Play Series Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/Uz6CPHIa7XE/maxresdefault.jpg",
+    "likes": 17,
+    "comments": 20
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2024-01-19T14:30:16Z",
       "durationInSeconds": 4767,
       "viewCount": 108
-    }
+    },
+    "title": "Chromatic Iron Caving: Vault Hunters - Modded Minecraft Let's Play Series Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/tCQShoaisRQ/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2024-01-21T14:30:11Z",
       "durationInSeconds": 3991,
       "viewCount": 60
-    }
+    },
+    "title": "Deep Slate Caving: Vault Hunters - Modded Minecraft Let's Play Series Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/icXfwkOyX7c/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2024-01-23T14:30:16Z",
       "durationInSeconds": 4116,
       "viewCount": 71
-    }
+    },
+    "title": "Opening my first Vault Portal! Some things can't be Unlearned: Vault Hunters - Modded Minecraft Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/WWjioxTV9s4/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2024-01-25T14:30:15Z",
       "durationInSeconds": 4128,
       "viewCount": 71
-    }
+    },
+    "title": "Our First Vaults! Let's Play Vault Hunters - Modded Minecraft Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/vH0-AO-jKAw/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,6 +83,10 @@
       "videoPublishedAt": "2024-01-27T14:30:03Z",
       "durationInSeconds": 3338,
       "viewCount": 50
-    }
+    },
+    "title": "Giant Village of ALL THE THINGS! Let's Play Vault Hunters Modded Minecraft Ep 6",
+    "thumbnail": "https://i.ytimg.com/vi/7v7R36zqh_o/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   }
 ]

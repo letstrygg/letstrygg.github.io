@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5KIzUZSKQVNkvuhvKctvng",
-  "title": "Vault Hunters: Modded Minecraft",
+  "slug": "vault-hunters-modded-minecraft",
+  "title": "Vault Hunters Modded Minecraft",
   "thumbnail": "https://i.ytimg.com/vi/Uz6CPHIa7XE/maxresdefault.jpg",
   "published": "2024-01-17T03:31:29.762412Z",
   "updated": "2024-01-27T14:30:03Z",
-  "fetched": "2026-03-07T12:03:44.566Z",
+  "fetched": "2026-03-17T09:15:39.834Z",
   "episodes": 6,
   "duration": 23652,
-  "views": 748,
-  "status": "Completed",
   "duration_formatted": "6h 34m",
+  "duration_short": "7h",
+  "views": 748,
   "views_formatted": "748",
-  "slug": "vault-hunters-modded-minecraft",
+  "status": "Completed",
   "status_color": "blue"
 }

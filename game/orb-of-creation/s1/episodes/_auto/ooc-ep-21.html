@@ -2,7 +2,7 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 21",
+  "name": "Orb of Creation Ep 21",
   "description": "Episode 21 of the Orb Of Creation Let's Play series.",
   "thumbnailUrl": "https://i.ytimg.com/vi/swwry62CpkY/maxresdefault.jpg",
   "uploadDate": "2024-02-28T13:00:51Z",
@@ -12,11 +12,8 @@
 </script>
 
 <div class="game-section auto-generated-stats" style="margin-top: 0;">
-    
     <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-bottom: 20px;">
-        
         <div style="width: 100%; max-width: calc((100vh - 75px) * 16 / 9);">
-            
             <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; margin-bottom: 5px; transition: all 0.3s ease; z-index: 10;">
                 
                 <div id="video-overlay" class="video-overlay">
@@ -25,13 +22,20 @@
                         <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Feb 28, 2024</span>
                         <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 43m 19s</span>
                         <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 190</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 5</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 1</span>
                     </div>
 
                     <button onclick="window.location.href='/game/orb-of-creation/s1/episodes/ooc-ep-20.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
                     <button onclick="window.location.href='/game/orb-of-creation/s1/episodes/ooc-ep-22.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     
+                    <div style="position: absolute; bottom: 60px; left: 15px; z-index: 20;">
+                        <button id="resume-btn" class="overlay-btn" style="display: none; background: rgba(231, 76, 60, 0.9); padding: 4px 12px; border-radius: 4px; font-weight: bold; width: auto; flex-direction: row; gap: 4px; align-items: center;" data-tooltip="Return to your saved place">
+                            <span class="material-symbols-outlined" style="font-size: 18px;">fast_rewind</span>
+                            <span id="resume-time-text"></span>
+                        </button>
+                    </div>
+
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
                             <span class="material-symbols-outlined" id="theater-icon">width_full</span>
@@ -57,7 +61,13 @@
 
 <script>
   var storageKey = 'yt_resume_swwry62CpkY';
-  var savedTime = localStorage.getItem(storageKey) || 0;
+  var originalSavedTime = parseFloat(localStorage.getItem(storageKey)) || 0;
+  
+  var urlParams = new URLSearchParams(window.location.search);
+  var urlTime = urlParams.get('t') ? parseFloat(urlParams.get('t')) : null;
+  
+  var isPreviewing = urlTime !== null && originalSavedTime > 0 && Math.abs(urlTime - originalSavedTime) > 5;
+  var startTime = urlTime !== null ? urlTime : originalSavedTime;
 
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -72,7 +82,7 @@
       videoId: 'swwry62CpkY',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
-        'start': Math.floor(savedTime)
+        'start': Math.floor(startTime)
       },
       events: { 'onStateChange': onPlayerStateChange }
     });
@@ -82,7 +92,9 @@
     if (event.data === 1) {
         if (!saveInterval) {
             saveInterval = setInterval(function() {
-                localStorage.setItem(storageKey, player.getCurrentTime());
+                if (!isPreviewing) {
+                    localStorage.setItem(storageKey, player.getCurrentTime());
+                }
             }, 5000);
         }
     } else {
@@ -113,6 +125,24 @@
       overlay.style.opacity = '0'; 
   });
   resetIdleTimer();
+
+  const resumeBtn = document.getElementById('resume-btn');
+  const resumeText = document.getElementById('resume-time-text');
+  
+  if (isPreviewing) {
+      resumeBtn.style.display = 'inline-flex';
+      let h = Math.floor(originalSavedTime / 3600);
+      let m = Math.floor((originalSavedTime % 3600) / 60);
+      let s = Math.floor(originalSavedTime % 60);
+      resumeText.innerText = 'Resume ' + (h > 0 ? h + ':' + m.toString().padStart(2,'0') + ':' + s.toString().padStart(2,'0') : m + ':' + s.toString().padStart(2,'0'));
+      
+      resumeBtn.addEventListener('click', function() {
+          isPreviewing = false; 
+          player.seekTo(originalSavedTime, true);
+          resumeBtn.style.display = 'none';
+          history.replaceState(null, '', window.location.pathname); 
+      });
+  }
 
   const copyBtn = document.getElementById('copy-time-btn');
   copyBtn.addEventListener('click', function() {

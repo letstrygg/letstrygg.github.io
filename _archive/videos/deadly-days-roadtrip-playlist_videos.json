@@ -7,8 +7,12 @@
       "videoId": "z6_kWw_jUtA",
       "videoPublishedAt": "2025-10-01T14:01:43Z",
       "durationInSeconds": 3995,
-      "viewCount": 81
-    }
+      "viewCount": 82
+    },
+    "title": "Deadly Days: Roadtrip",
+    "thumbnail": "https://i.ytimg.com/vi/z6_kWw_jUtA/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2025-10-01T16:00:12Z",
       "durationInSeconds": 5231,
       "viewCount": 64
-    }
+    },
+    "title": "Deadly Days: Roadtrip Ep2",
+    "thumbnail": "https://i.ytimg.com/vi/6vKL_6IzGfc/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   }
 ]

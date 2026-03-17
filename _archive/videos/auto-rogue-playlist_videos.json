@@ -7,8 +7,12 @@
       "videoId": "woVrYxJjGiw",
       "videoPublishedAt": "2025-09-23T16:01:49Z",
       "durationInSeconds": 3050,
-      "viewCount": 122
-    }
+      "viewCount": 124
+    },
+    "title": "001 What is this Game!?! Auto Rogue!",
+    "thumbnail": "https://i.ytimg.com/vi/woVrYxJjGiw/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,7 +22,11 @@
       "videoId": "nJHlwSA26NY",
       "videoPublishedAt": "2025-09-24T16:01:27Z",
       "durationInSeconds": 5287,
-      "viewCount": 28
-    }
+      "viewCount": 29
+    },
+    "title": "002 Burn & Bomb, Auto Rogue",
+    "thumbnail": "https://i.ytimg.com/vi/nJHlwSA26NY/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   }
 ]

@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-11-30T14:30:18Z",
       "durationInSeconds": 8401,
       "viewCount": 522
-    }
+    },
+    "title": "Giveaway Completed: Lucky Hero - Slot Machine Tactics Gameplay - Lets Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/vdZJfU1cp14/maxresdefault.jpg",
+    "likes": 20,
+    "comments": 18
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-12-01T14:30:13Z",
       "durationInSeconds": 3581,
       "viewCount": 339
-    }
+    },
+    "title": "Longest First Run Continues! Let's Play Lucky Hero Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/esv-pHrE3Es/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-12-03T22:00:05Z",
       "durationInSeconds": 3808,
       "viewCount": 417
-    }
+    },
+    "title": "New Character: Assassin! Let's Play Lucky Hero Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/CbX0w3e-EtI/maxresdefault.jpg",
+    "likes": 9,
+    "comments": 10
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2023-12-04T14:30:24Z",
       "durationInSeconds": 3057,
       "viewCount": 95
-    }
+    },
+    "title": "Assassin Part 2: Let's Play Lucky Hero Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/lBIkSV8g9-g/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 1
   }
 ]

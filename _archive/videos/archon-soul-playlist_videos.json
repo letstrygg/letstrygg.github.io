@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-10-05T14:01:22Z",
       "durationInSeconds": 3017,
       "viewCount": 44
-    }
+    },
+    "title": "New Roguelike Dice-Builder, Archon Soul Part 1 of 3 - Demo Gameplay",
+    "thumbnail": "https://i.ytimg.com/vi/wQiOHruj7i0/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-10-06T12:00:47Z",
       "durationInSeconds": 2471,
       "viewCount": 35
-    }
+    },
+    "title": "I Am Grounded. Archon Soul 2",
+    "thumbnail": "https://i.ytimg.com/vi/OhdrQD-hJKQ/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2025-10-07T12:01:49Z",
       "durationInSeconds": 2140,
       "viewCount": 26
-    }
+    },
+    "title": "Avatar of the Soul, Archon Soul 3",
+    "thumbnail": "https://i.ytimg.com/vi/iASgsiEad2Q/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   }
 ]

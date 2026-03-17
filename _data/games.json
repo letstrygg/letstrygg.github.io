@@ -25,7 +25,7 @@
     "thumbnail": "https://i.ytimg.com/vi/4LHX5Ojo07M/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 271,
-    "views": 54254,
+    "views": 54258,
     "duration": 573430,
     "tags": [
       "PVP",
@@ -212,7 +212,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 125,
-    "views": 6481,
+    "views": 6480,
     "duration": 304678,
     "tags": [
       "Tower Defense"
@@ -316,7 +316,7 @@
     "thumbnail": "https://i.ytimg.com/vi/z6_kWw_jUtA/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 145,
+    "views": 146,
     "duration": 9226,
     "tags": [
       "Bullet Heaven",
@@ -325,7 +325,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-10-01T16:00:12Z",
-    "views_formatted": "145",
+    "views_formatted": "146",
     "duration_formatted": "2h 33m",
     "duration_short": "3h",
     "vpv": 73,
@@ -381,7 +381,7 @@
     "thumbnail": "https://i.ytimg.com/vi/woVrYxJjGiw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 150,
+    "views": 153,
     "duration": 8337,
     "tags": [
       "Inventory Management",
@@ -390,11 +390,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-24T16:01:27Z",
-    "views_formatted": "150",
+    "views_formatted": "153",
     "duration_formatted": "2h 18m",
     "duration_short": "2h",
-    "vpv": 75,
-    "vpv_formatted": "75"
+    "vpv": 77,
+    "vpv_formatted": "77"
   },
   {
     "id": "brawl-to-the-west",
@@ -1137,7 +1137,7 @@
     "thumbnail": "https://i.ytimg.com/vi/TtUZKe46Emk/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
-    "views": 248,
+    "views": 251,
     "duration": 6131,
     "tags": [
       "Platformer",
@@ -1146,11 +1146,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-01T12:00:05Z",
-    "views_formatted": "248",
+    "views_formatted": "251",
     "duration_formatted": "1h 42m",
     "duration_short": "2h",
-    "vpv": 83,
-    "vpv_formatted": "83"
+    "vpv": 84,
+    "vpv_formatted": "84"
   },
   {
     "id": "dungeon-warfare-3",
@@ -1286,7 +1286,7 @@
     "thumbnail": "https://i.ytimg.com/vi/lTTXZxN5fac/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 8,
-    "views": 3873,
+    "views": 3899,
     "duration": 38370,
     "tags": [
       "Automation",
@@ -1298,8 +1298,8 @@
     "views_formatted": "3.9K",
     "duration_formatted": "10h 39m",
     "duration_short": "11h",
-    "vpv": 484,
-    "vpv_formatted": "484"
+    "vpv": 487,
+    "vpv_formatted": "487"
   },
   {
     "id": "the-last-spell",
@@ -2013,7 +2013,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LSVlazuTHKw/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 25,
-    "views": 8005,
+    "views": 8012,
     "duration": 76941,
     "tags": [
       "Incremental"
@@ -2350,7 +2350,7 @@
     "thumbnail": "https://i.ytimg.com/vi/hDKoJDq6pjk/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 12,
-    "views": 8071,
+    "views": 8074,
     "duration": 24658,
     "tags": [
       "Bullet Heaven",
@@ -4459,7 +4459,7 @@
     "thumbnail": "https://i.ytimg.com/vi/xVOAqk4J8XM/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
-    "views": 425,
+    "views": 428,
     "duration": 14266,
     "tags": [
       "Auto Battler",
@@ -4469,11 +4469,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-12T12:02:03Z",
-    "views_formatted": "425",
+    "views_formatted": "428",
     "duration_formatted": "3h 57m",
     "duration_short": "4h",
-    "vpv": 142,
-    "vpv_formatted": "142"
+    "vpv": 143,
+    "vpv_formatted": "143"
   },
   {
     "id": "luck-be-a-landlord",

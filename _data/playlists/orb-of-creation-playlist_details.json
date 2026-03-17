@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4lvne6htN4ezZuVdVg95Y7",
+  "slug": "orb-of-creation",
   "title": "Orb of Creation",
   "thumbnail": "https://i.ytimg.com/vi/IkuhtH1mJpg/maxresdefault.jpg",
   "published": "2023-12-09T05:22:31.865957Z",
   "updated": "2024-03-13T13:00:29Z",
-  "fetched": "2026-03-07T12:03:49.544Z",
+  "fetched": "2026-03-17T09:15:42.448Z",
   "episodes": 22,
   "duration": 70140,
-  "views": 7038,
-  "status": "Completed",
   "duration_formatted": "19h 29m",
+  "duration_short": "19h",
+  "views": 7045,
   "views_formatted": "7K",
-  "slug": "orb-of-creation",
+  "status": "Completed",
   "status_color": "blue"
 }
