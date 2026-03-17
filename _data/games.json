@@ -46,7 +46,7 @@
     "thumbnail": "https://i.ytimg.com/vi/L2v3gQDx4KA/maxresdefault.jpg",
     "highest_season": 1.1,
     "episodes": 132,
-    "views": 35946,
+    "views": 35953,
     "duration": 449147,
     "tags": [
       "Horde Survival",
@@ -56,7 +56,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-01-21T12:00:52Z",
-    "views_formatted": "35.9K",
+    "views_formatted": "36K",
     "duration_formatted": "124h 45m",
     "duration_short": "125h",
     "vpv": 272,
@@ -129,7 +129,7 @@
     "thumbnail": "https://i.ytimg.com/vi/vp6KDfDSiX8/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 90,
-    "views": 59824,
+    "views": 59832,
     "duration": 249918,
     "tags": [
       "Inventory Management",
@@ -212,7 +212,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 126,
-    "views": 6508,
+    "views": 6513,
     "duration": 306327,
     "tags": [
       "Tower Defense"
@@ -254,7 +254,7 @@
     "thumbnail": "https://i.ytimg.com/vi/wg6b3qmxBqU/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 8,
-    "views": 2165,
+    "views": 2166,
     "duration": 39806,
     "tags": [
       "PVP",
@@ -725,7 +725,7 @@
     "thumbnail": "https://i.ytimg.com/vi/zc9Pj8Eb2Pw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 12,
-    "views": 526,
+    "views": 532,
     "duration": 67184,
     "tags": [
       "Automation",
@@ -734,7 +734,7 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-17T20:01:01Z",
-    "views_formatted": "526",
+    "views_formatted": "532",
     "duration_formatted": "18h 39m",
     "duration_short": "19h",
     "vpv": 44,
@@ -993,7 +993,7 @@
     "thumbnail": "https://i.ytimg.com/vi/pmCpEm70uR4/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 14,
-    "views": 3359,
+    "views": 3361,
     "duration": 32237,
     "tags": [
       "Horde Survival"
@@ -1013,7 +1013,7 @@
     "thumbnail": "https://i.ytimg.com/vi/tO7mUxDKDLc/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 8,
-    "views": 1677,
+    "views": 1680,
     "duration": 12795,
     "tags": [
       "Auto Battler"
@@ -1116,7 +1116,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Tf7PKxnBMrc/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 19,
-    "views": 4868,
+    "views": 4876,
     "duration": 49031,
     "tags": [
       "Horde Survival",
@@ -1128,8 +1128,8 @@
     "views_formatted": "4.9K",
     "duration_formatted": "13h 37m",
     "duration_short": "14h",
-    "vpv": 256,
-    "vpv_formatted": "256"
+    "vpv": 257,
+    "vpv_formatted": "257"
   },
   {
     "id": "hollow-knight",
@@ -1158,7 +1158,7 @@
     "thumbnail": "https://i.ytimg.com/vi/w4X_Ecf9_ng/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 25,
-    "views": 11841,
+    "views": 11842,
     "duration": 101654,
     "tags": [
       "Tower Defense"
@@ -1596,7 +1596,7 @@
     "thumbnail": "https://i.ytimg.com/vi/fc-vhjeo5fA/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 7,
-    "views": 4875,
+    "views": 4877,
     "duration": 26612,
     "tags": [
       "Puzzle"
@@ -1607,8 +1607,8 @@
     "views_formatted": "4.9K",
     "duration_formatted": "7h 23m",
     "duration_short": "7h",
-    "vpv": 696,
-    "vpv_formatted": "696"
+    "vpv": 697,
+    "vpv_formatted": "697"
   },
   {
     "id": "die-in-the-dungeon",
@@ -1847,7 +1847,7 @@
     "thumbnail": "https://i.ytimg.com/vi/OAkGiWsnqLQ/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 21,
-    "views": 9467,
+    "views": 9474,
     "duration": 111627,
     "tags": [
       "Tower Defense"
@@ -3299,7 +3299,7 @@
     "thumbnail": "https://i.ytimg.com/vi/famzjELa6A8/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 18,
-    "views": 943,
+    "views": 944,
     "duration": 58939,
     "tags": [
       "Turn-Based Tactics"
@@ -3307,7 +3307,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2022-09-11T14:00:15Z",
-    "views_formatted": "943",
+    "views_formatted": "944",
     "duration_formatted": "16h 22m",
     "duration_short": "16h",
     "vpv": 52,

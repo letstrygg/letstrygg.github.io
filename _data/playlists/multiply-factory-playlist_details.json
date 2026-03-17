@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5JROBaVOq-D-9Y3NDW4CtK",
+  "slug": "multiply-factory",
   "title": "Multiply Factory",
   "thumbnail": "https://i.ytimg.com/vi/pXwogEZM1Ls/maxresdefault.jpg",
   "published": "2022-07-28T03:42:07.213473Z",
   "updated": "2022-08-03T14:00:35Z",
-  "fetched": "2026-03-07T12:04:24.446Z",
+  "fetched": "2026-03-17T23:51:20.535Z",
   "episodes": 4,
   "duration": 6837,
-  "views": 1778,
-  "status": "Completed",
   "duration_formatted": "1h 53m",
+  "duration_short": "2h",
+  "views": 1778,
   "views_formatted": "1.8K",
-  "slug": "multiply-factory",
+  "status": "Completed",
   "status_color": "blue"
 }

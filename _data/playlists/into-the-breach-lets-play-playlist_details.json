@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6C6OAIfFcOZvW5mradRntC",
+  "slug": "into-the-breach-lets-play",
   "title": "Into the Breach Lets Play",
   "thumbnail": "https://i.ytimg.com/vi/famzjELa6A8/maxresdefault.jpg",
   "published": "2022-06-24T07:26:39.76103Z",
   "updated": "2022-09-11T14:00:15Z",
-  "fetched": "2026-03-07T12:04:26.119Z",
+  "fetched": "2026-03-17T23:51:21.885Z",
   "episodes": 18,
   "duration": 58939,
-  "views": 943,
-  "status": "Completed",
   "duration_formatted": "16h 22m",
-  "views_formatted": "943",
-  "slug": "into-the-breach-lets-play",
+  "duration_short": "16h",
+  "views": 944,
+  "views_formatted": "944",
+  "status": "Completed",
   "status_color": "blue"
 }

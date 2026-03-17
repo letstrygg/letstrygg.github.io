@@ -8,7 +8,11 @@
       "videoPublishedAt": "2022-06-16T15:00:24Z",
       "durationInSeconds": 2923,
       "viewCount": 70
-    }
+    },
+    "title": "Logicality Atmospheric Indie Puzzle Game Lets Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/dvSYC7oa6a0/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2022-06-18T15:00:10Z",
       "durationInSeconds": 4990,
       "viewCount": 16
-    }
+    },
+    "title": "Logicality Atmospheric Indie Puzzle Game Lets Play Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/PCMh-4ylOag/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   }
 ]

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5M8m2ECK8Y_aZNdqSiWiDe",
+  "slug": "ring-of-pain",
   "title": "Ring of Pain",
   "thumbnail": "https://i.ytimg.com/vi/JdoWUoWJxdc/maxresdefault.jpg",
   "published": "2022-08-28T03:53:45.246079Z",
   "updated": "2023-09-04T13:00:00Z",
-  "fetched": "2026-03-07T12:04:23.334Z",
+  "fetched": "2026-03-17T23:51:19.914Z",
   "episodes": 26,
   "duration": 96723,
-  "views": 634,
-  "status": "Completed",
   "duration_formatted": "26h 52m",
+  "duration_short": "27h",
+  "views": 634,
   "views_formatted": "634",
-  "slug": "ring-of-pain",
+  "status": "Completed",
   "status_color": "blue"
 }
