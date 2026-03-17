@@ -8,23 +8,21 @@
     <button id="closeChatBtn" style="background: transparent; color: #efeff1; border: none; cursor: pointer; padding: 6px; border-radius: 4px; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'" title="Collapse Chat">
       <span class="material-symbols-outlined">keyboard_tab</span>
     </button>
-    <span style="font-weight: 600; font-size: 13px; color: #efeff1; text-transform: uppercase;">Stream Chat</span>
+    <span style="font-weight: 600; font-size: 13px; color: #efeff1; text-transform: uppercase;">Live Chat</span>
     <div style="width: 36px;"></div>
   </div>
 
   <div style="padding: 10px; border-bottom: 1px solid #26262c; font-size: 12px; color: #aaa; display: flex; justify-content: space-between; align-items: center; background: #18181b;">
-    <div style="display: flex; gap: 12px;">
-        <label style="cursor: pointer; display: flex; align-items: center; gap: 4px;">
-            <input type="checkbox" id="toggleTimestamps"> Time
-        </label>
-        <label style="cursor: pointer; display: flex; align-items: center; gap: 4px;">
-            <input type="checkbox" id="toggleGameFilter"> Filter
-        </label>
+    <label style="cursor: pointer; display: flex; align-items: center; gap: 4px; margin: 0;">
+        <input type="checkbox" id="toggleTimestamps"> Time
+    </label>
+    <div style="display: flex; gap: 6px;">
+        <span id="globalChatToggle" class="chat-badge active">Global Chat</span>
+        <span id="channelChatToggle" class="chat-badge active" style="display: none;"></span>
     </div>
-    <span id="gameContextBadge" style="background: #333; padding: 2px 6px; border-radius: 4px; display: none;"></span>
   </div>
 
-  <div id="chatBox" style="flex-grow: 1; overflow-y: auto; padding: 10px; color: #efeff1; background: #0e0e10;">
+  <div id="chatBox" style="flex-grow: 1; overflow-y: auto; padding: 10px; color: #efeff1; background: #0e0e10; overflow-x: hidden;">
       <em>Loading messages...</em>
   </div>
 
@@ -60,12 +58,24 @@
 </div>
 
 <style>
-/* Restored Squish Effect */
+:root {
+    --chat-highlight: rgba(255, 235, 59, 0.15); /* Default subtle yellow highlight */
+}
+
+/* Squish Effect */
 body { transition: padding-right 0.3s ease; }
 body.chat-open-squish { padding-right: 340px; }
 
+/* Filter Badges */
+.chat-badge { background: #222; color: #888; padding: 3px 8px; border-radius: 12px; cursor: pointer; user-select: none; border: 1px solid transparent; transition: all 0.2s; font-size: 11px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
+.chat-badge.active { background: #333; color: #fff; border-color: #555; }
+
 #chatInput:focus { border-color: #e67e22 !important; }
-.chat-msg { margin-bottom: 8px; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; font-size: 13px; word-break: break-word; }
+.chat-msg { margin-bottom: 8px; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; font-size: 13px; word-break: break-word; border: 1px solid transparent; }
+
+/* Channel Highlight Class */
+.msg-channel { background-color: var(--chat-highlight); border-radius: 4px; padding: 4px 8px; margin-left: -8px; width: calc(100% + 16px); }
+
 .chat-timestamp { font-size: 11px; color: #adadb8; display: none; margin-top: 3px; white-space: nowrap; }
 .show-timestamps .chat-timestamp { display: inline-block; }
 .admin-btn { background: none; border: none; cursor: pointer; font-size: 12px; opacity: 0.3; padding: 0 4px; }
@@ -74,13 +84,13 @@ body.chat-open-squish { padding-right: 340px; }
 #chatBox::-webkit-scrollbar { width: 8px; }
 #chatBox::-webkit-scrollbar-track { background: transparent; }
 #chatBox::-webkit-scrollbar-thumb { background: #3a3a3d; border-radius: 4px; }
-.yt-time-link { color: #e67e22; text-decoration: none; font-weight: 500; transition: opacity 0.2s; }
+.yt-time-link { color: #3498db; text-decoration: none; font-weight: 500; transition: opacity 0.2s; } /* Now Blue! */
 .yt-time-link:hover { opacity: 0.8; text-decoration: underline; }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// 1. GUARANTEE UI VISIBILITY IMMEDIATELY
+// 1. GUARANTEE UI VISIBILITY
 const chatSidebar = document.getElementById('chatSidebar');
 const openChatBtn = document.getElementById('openChatBtn');
 const closeChatBtn = document.getElementById('closeChatBtn');
@@ -93,9 +103,11 @@ const inputSection = document.getElementById('inputSection');
 const userNameDisplay = document.getElementById('userNameDisplay');
 const userColorPicker = document.getElementById('userColor');
 const toggleTimestamps = document.getElementById('toggleTimestamps');
-const toggleGameFilter = document.getElementById('toggleGameFilter');
 const gameContextBadge = document.getElementById('gameContextBadge');
 const grabTimeBtn = document.getElementById('grabTimeBtn');
+
+const globalToggle = document.getElementById('globalChatToggle');
+const channelToggle = document.getElementById('channelChatToggle');
 
 let isChatOpen = localStorage.getItem('chatOpen') !== 'false'; 
 function updateChatVisibility() {
@@ -114,9 +126,8 @@ openChatBtn.addEventListener('click', () => { isChatOpen = true; updateChatVisib
 closeChatBtn.addEventListener('click', () => { isChatOpen = false; updateChatVisibility(); });
 updateChatVisibility();
 
-// 2. TIMESTAMPS (Piggybacking on your existing global 'player' variable)
+// 2. TIMESTAMPS
 grabTimeBtn.addEventListener('click', () => {
-    // Check if the watch layout's 'player' exists and is ready
     if (typeof player !== 'undefined' && player && typeof player.getCurrentTime === 'function') {
         const time = player.getCurrentTime();
         const h = Math.floor(time / 3600);
@@ -133,13 +144,14 @@ grabTimeBtn.addEventListener('click', () => {
     }
 });
 
-// 3. STANDARD CHAT SETUP
+// 3. CHAT LOGIC & TOGGLES
 const supabaseUrl = '{{ site.supabase_url }}';
 const supabaseKey = '{{ site.supabase_anon_key }}';
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
 let currentSession = null;
 let isAdmin = false;
+let chatMessagesData = []; // Local cache for instant toggling
 
 toggleTimestamps.checked = localStorage.getItem('showTimestamps') === 'true';
 if (toggleTimestamps.checked) chatBox.classList.add('show-timestamps');
@@ -148,18 +160,36 @@ toggleTimestamps.addEventListener('change', (e) => {
     e.target.checked ? chatBox.classList.add('show-timestamps') : chatBox.classList.remove('show-timestamps');
 });
 
-toggleGameFilter.checked = localStorage.getItem('filterGame') === 'true';
-toggleGameFilter.addEventListener('change', (e) => {
-    localStorage.setItem('filterGame', e.target.checked);
-    loadMessages();
-});
+// Setup Current Game & Filter Toggles
+let showGlobalChat = localStorage.getItem('showGlobalChat') !== 'false';
+let showChannelChat = localStorage.getItem('showChannelChat') !== 'false';
 
 let currentGame = 'general';
 const pathParts = window.location.pathname.split('/game/');
 if (pathParts.length > 1) currentGame = pathParts[1].split('/')[0] || 'general';
-if (gameContextBadge) {
-    gameContextBadge.textContent = currentGame;
-    if (currentGame !== 'general') gameContextBadge.style.display = 'inline-block';
+
+globalToggle.classList.toggle('active', showGlobalChat);
+globalToggle.addEventListener('click', () => {
+    showGlobalChat = !showGlobalChat;
+    localStorage.setItem('showGlobalChat', showGlobalChat);
+    globalToggle.classList.toggle('active', showGlobalChat);
+    renderMessages();
+});
+
+if (currentGame !== 'general') {
+    channelToggle.textContent = currentGame.replace(/-/g, ' '); // Format nicely
+    channelToggle.style.display = 'inline-block';
+    channelToggle.classList.toggle('active', showChannelChat);
+    
+    channelToggle.addEventListener('click', () => {
+        showChannelChat = !showChannelChat;
+        localStorage.setItem('showChannelChat', showChannelChat);
+        channelToggle.classList.toggle('active', showChannelChat);
+        renderMessages();
+    });
+} else {
+    // Hide channel toggle if on homepage/global level
+    channelToggle.style.display = 'none';
 }
 
 function formatTime(dateStr) {
@@ -204,57 +234,87 @@ userColorPicker.addEventListener('change', async (e) => {
     await supabaseClient.from('letstrygg_profiles').update({ color: e.target.value }).eq('user_id', currentSession.user.id);
 });
 
+// Fetch all messages once, then render locally based on toggles
 async function loadMessages() {
-    let query = supabaseClient.from('letstrygg_chat').select('*, letstrygg_profiles(username, color)').order('created_at', { ascending: true }).limit(50);
-    if (toggleGameFilter && toggleGameFilter.checked) query = query.eq('game_context', currentGame);
+    const { data, error } = await supabaseClient
+        .from('letstrygg_chat')
+        .select('*, letstrygg_profiles(username, color)')
+        .order('created_at', { ascending: true })
+        .limit(100);
 
-    const { data, error } = await query;
     if (error) { chatBox.innerHTML = `<span style="color:#e74c3c;">Failed to load messages.</span>`; return; }
     
-    if (data && data.length > 0) {
-        chatBox.innerHTML = ''; 
-        data.forEach(row => {
-            if (row.is_deleted && !isAdmin) return;
-            const msgDiv = document.createElement('div');
-            msgDiv.className = 'chat-msg' + (row.is_deleted ? ' msg-deleted' : '');
-            
-            let adminHtml = '';
-            if (isAdmin) {
-                adminHtml = row.is_deleted 
-                    ? `<button class="admin-btn" title="Restore" onclick="setDeletedState(${row.id}, false)">♻️</button>`
-                    : `<button class="admin-btn" title="Delete" onclick="setDeletedState(${row.id}, true)">🗑️</button>`;
-            }
+    chatMessagesData = data || [];
+    renderMessages();
+}
 
-            const profile = row.letstrygg_profiles || {};
-            const displayName = profile.username || 'Anon';
-            const displayColor = profile.color || '#ffffff';
+function renderMessages() {
+    chatBox.innerHTML = ''; 
+    let visibleCount = 0;
 
-            const urlIconHtml = row.url ? `<a href="${row.url}" target="_blank" title="Go to page" style="color: #666; display: flex; align-items: center; text-decoration: none; margin-top: 1px;"><span class="material-symbols-outlined" style="font-size: 15px;">smart_display</span></a>` : '';
+    chatMessagesData.forEach(row => {
+        if (row.is_deleted && !isAdmin) return;
+        
+        const isChannelMsg = (row.game_context === currentGame);
 
-            let formattedMessage = row.message;
-            if (row.url) {
-                formattedMessage = formattedMessage.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, (match, timeStr) => {
-                    let parts = timeStr.split(':').reverse();
-                    let seconds = 0;
-                    for (let i = 0; i < parts.length; i++) seconds += parseInt(parts[i]) * Math.pow(60, i);
-                    return `<a href="${row.url}?t=${seconds}" class="yt-time-link" target="_blank">(${timeStr})</a>`;
-                });
-            }
+        // Filter Check
+        if (currentGame !== 'general') {
+            if (isChannelMsg && !showChannelChat) return;
+            if (!isChannelMsg && !showGlobalChat) return;
+        } else {
+            if (!showGlobalChat) return;
+        }
 
-            msgDiv.innerHTML = `
-                <span class="chat-timestamp">${formatTime(row.created_at)}</span>
-                ${urlIconHtml}
-                <div style="flex-grow: 1;">
-                    <strong style="color: ${displayColor};">${displayName}:</strong> 
-                    ${formattedMessage}
-                </div>
-                ${adminHtml}
-            `;
-            chatBox.appendChild(msgDiv);
-        });
-        chatBox.scrollTop = chatBox.scrollHeight;
+        visibleCount++;
+
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'chat-msg' + (row.is_deleted ? ' msg-deleted' : '');
+        
+        // Add Highlight Class
+        if (isChannelMsg && currentGame !== 'general') {
+            msgDiv.classList.add('msg-channel');
+        }
+        
+        let adminHtml = '';
+        if (isAdmin) {
+            adminHtml = row.is_deleted 
+                ? `<button class="admin-btn" title="Restore" onclick="setDeletedState(${row.id}, false)">♻️</button>`
+                : `<button class="admin-btn" title="Delete" onclick="setDeletedState(${row.id}, true)">🗑️</button>`;
+        }
+
+        const profile = row.letstrygg_profiles || {};
+        const displayName = profile.username || 'Anon';
+        const displayColor = profile.color || '#ffffff';
+
+        // Red Video Icon to the right of the username
+        const urlIconHtml = row.url ? `<a href="${row.url}" target="_blank" title="Go to page" style="color: #e74c3c; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">smart_display</span></a>` : '';
+
+        // Strip parenthesis and convert to link
+        let formattedMessage = row.message;
+        if (row.url) {
+            formattedMessage = formattedMessage.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, (match, timeStr) => {
+                let parts = timeStr.split(':').reverse();
+                let seconds = 0;
+                for (let i = 0; i < parts.length; i++) seconds += parseInt(parts[i]) * Math.pow(60, i);
+                return `<a href="${row.url}?t=${seconds}" class="yt-time-link" target="_blank">${timeStr}</a>`;
+            });
+        }
+
+        msgDiv.innerHTML = `
+            <span class="chat-timestamp">${formatTime(row.created_at)}</span>
+            <div style="flex-grow: 1;">
+                <strong style="color: ${displayColor};">${displayName}</strong>${urlIconHtml}<strong>:</strong> 
+                ${formattedMessage}
+            </div>
+            ${adminHtml}
+        `;
+        chatBox.appendChild(msgDiv);
+    });
+
+    if (visibleCount === 0) {
+        chatBox.innerHTML = '<em style="color:#adadb8;">No messages found for selected filters.</em>';
     } else {
-        chatBox.innerHTML = '<em style="color:#adadb8;">Welcome to the chat room!</em>';
+        chatBox.scrollTop = chatBox.scrollHeight;
     }
 }
 
