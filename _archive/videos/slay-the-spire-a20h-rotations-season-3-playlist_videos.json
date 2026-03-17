@@ -7,8 +7,12 @@
       "videoId": "RTaBNoV8CQU",
       "videoPublishedAt": "2023-04-09T13:00:30Z",
       "durationInSeconds": 1454,
-      "viewCount": 120
-    }
+      "viewCount": 121
+    },
+    "title": "IronClad A20H - 0W 0L - Slay the Spire S3E1",
+    "thumbnail": "https://i.ytimg.com/vi/RTaBNoV8CQU/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-04-11T13:00:02Z",
       "durationInSeconds": 2074,
       "viewCount": 77
-    }
+    },
+    "title": "Silent A20H - 0W 0L - Slay the Spire S3E2",
+    "thumbnail": "https://i.ytimg.com/vi/2_etRC1PH1k/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-04-13T13:00:16Z",
       "durationInSeconds": 1603,
       "viewCount": 41
-    }
+    },
+    "title": "Defect A20H - 0W 0L - Slay the Spire S3E3",
+    "thumbnail": "https://i.ytimg.com/vi/PHGBeu9OoiQ/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2023-04-15T13:00:05Z",
       "durationInSeconds": 861,
       "viewCount": 32
-    }
+    },
+    "title": "IronClad A20H - 0W 1L - Slay the Spire S3E4",
+    "thumbnail": "https://i.ytimg.com/vi/83et5fJBxhI/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2023-04-15T15:00:33Z",
       "durationInSeconds": 2316,
       "viewCount": 45
-    }
+    },
+    "title": "Silent A20H - 0W 1L - Slay the Spire S3E5",
+    "thumbnail": "https://i.ytimg.com/vi/bEmS4ia8hmQ/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,6 +83,10 @@
       "videoPublishedAt": "2023-04-15T17:00:13Z",
       "durationInSeconds": 1516,
       "viewCount": 67
-    }
+    },
+    "title": "Defect A20H - 0W 1L - Slay the Spire S3E6",
+    "thumbnail": "https://i.ytimg.com/vi/UDsJEbnHsVM/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 4
   }
 ]

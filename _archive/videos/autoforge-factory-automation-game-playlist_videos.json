@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-04-09T13:00:36Z",
       "durationInSeconds": 2474,
       "viewCount": 1174
-    }
+    },
+    "title": "AutoForge, New Factory Automation Game - Early Access Let's Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/_tfsZpH4hJ0/maxresdefault.jpg",
+    "likes": 31,
+    "comments": 17
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,8 +22,12 @@
       "videoId": "twcHK5eX6nM",
       "videoPublishedAt": "2024-04-11T13:00:57Z",
       "durationInSeconds": 2640,
-      "viewCount": 700
-    }
+      "viewCount": 701
+    },
+    "title": "AutoForge: Combustion, Transport Tubes & Scaffolding | Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/twcHK5eX6nM/maxresdefault.jpg",
+    "likes": 27,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2024-04-13T13:00:01Z",
       "durationInSeconds": 2325,
       "viewCount": 560
-    }
+    },
+    "title": "Gears, Distillers and Folders: Autoforge Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/2219AfrqUlw/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 8
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2024-04-15T13:01:00Z",
       "durationInSeconds": 2282,
       "viewCount": 363
-    }
+    },
+    "title": "Automating Cranks, Autoforge Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/z7JnvJaVbuo/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2024-04-17T13:00:58Z",
       "durationInSeconds": 3233,
       "viewCount": 663
-    }
+    },
+    "title": "Major Expansion, Automate Everything! AutoForge Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/tEnuxClu5U8/maxresdefault.jpg",
+    "likes": 10,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2024-04-20T22:00:24Z",
       "durationInSeconds": 2392,
       "viewCount": 650
-    }
+    },
+    "title": "Mana Conduit, AutoForge Ep 6",
+    "thumbnail": "https://i.ytimg.com/vi/mgDap8eMOSA/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -73,8 +97,12 @@
       "videoId": "7_t7GD1mdM4",
       "videoPublishedAt": "2024-04-22T19:00:08Z",
       "durationInSeconds": 3191,
-      "viewCount": 348
-    }
+      "viewCount": 349
+    },
+    "title": "Invasion! & Magical Essense, AutoForge Ep 7",
+    "thumbnail": "https://i.ytimg.com/vi/7_t7GD1mdM4/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2024-04-24T19:00:18Z",
       "durationInSeconds": 2919,
       "viewCount": 222
-    }
+    },
+    "title": "MORE Mana! AutoForge Ep 8",
+    "thumbnail": "https://i.ytimg.com/vi/gRYr7_zF7Xo/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 8
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,6 +128,10 @@
       "videoPublishedAt": "2024-04-26T19:00:09Z",
       "durationInSeconds": 2394,
       "viewCount": 355
-    }
+    },
+    "title": "Exploration & Invasions, AutoForge Ep 9",
+    "thumbnail": "https://i.ytimg.com/vi/H0PcuAQKIkI/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 2
   }
 ]

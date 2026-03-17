@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk54WL4Wjr2o8EG5JFWVxaUG",
-  "title": "a land Goo's crazy",
+  "slug": "a-land-goos-crazy",
+  "title": "a land Goos crazy",
   "thumbnail": "https://i.ytimg.com/vi/0gDXWWyB5dw/maxresdefault.jpg",
   "published": "2024-02-19T01:52:00.55876Z",
   "updated": "2024-02-19T14:30:09Z",
-  "fetched": "2026-03-07T12:03:42.370Z",
+  "fetched": "2026-03-17T09:00:13.126Z",
   "episodes": 4,
   "duration": 7619,
-  "views": 531,
-  "status": "Completed",
   "duration_formatted": "2h 6m",
+  "duration_short": "2h",
+  "views": 531,
   "views_formatted": "531",
-  "slug": "a-land-goos-crazy",
+  "status": "Completed",
   "status_color": "blue"
 }

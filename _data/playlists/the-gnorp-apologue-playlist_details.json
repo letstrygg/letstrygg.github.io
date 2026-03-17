@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk767QcUqTLsOFb4zCSSde6a",
-  "title": "(the) GNORP Apologue",
+  "slug": "the-gnorp-apologue",
+  "title": "the GNORP Apologue",
   "thumbnail": "https://i.ytimg.com/vi/clPXpiDZzA8/maxresdefault.jpg",
   "published": "2024-03-07T04:31:20.493377Z",
   "updated": "2024-03-09T14:30:14Z",
-  "fetched": "2026-03-07T12:03:40.784Z",
+  "fetched": "2026-03-17T09:00:12.496Z",
   "episodes": 2,
   "duration": 9117,
-  "views": 248,
-  "status": "Completed",
   "duration_formatted": "2h 31m",
+  "duration_short": "3h",
+  "views": 248,
   "views_formatted": "248",
-  "slug": "the-gnorp-apologue",
+  "status": "Completed",
   "status_color": "blue"
 }

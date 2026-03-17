@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-10-11T12:01:30Z",
       "durationInSeconds": 2932,
       "viewCount": 194
-    }
+    },
+    "title": "1st Run, CloverPit",
+    "thumbnail": "https://i.ytimg.com/vi/q1LecEZbYo0/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2025-10-11T13:00:16Z",
       "durationInSeconds": 11859,
       "viewCount": 61
-    }
+    },
+    "title": "2nd Run, CloverPit",
+    "thumbnail": "https://i.ytimg.com/vi/6WyBxacUjEQ/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 4
   }
 ]

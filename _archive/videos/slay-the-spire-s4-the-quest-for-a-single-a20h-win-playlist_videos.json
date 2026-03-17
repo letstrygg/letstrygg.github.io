@@ -8,7 +8,11 @@
       "videoPublishedAt": "2025-11-08T16:01:22Z",
       "durationInSeconds": 6288,
       "viewCount": 22
-    }
+    },
+    "title": "S4E4 Silent - The Quest for a single A20H Win, Slay the Spire",
+    "thumbnail": "https://i.ytimg.com/vi/rzNVEWgDzSc/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2025-11-07T16:01:12Z",
       "durationInSeconds": 1548,
       "viewCount": 15
-    }
+    },
+    "title": "S4E3 Silent - The Quest for a single A20H Win, Slay the Spire",
+    "thumbnail": "https://i.ytimg.com/vi/j-z6inYw8EY/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2025-11-06T16:01:14Z",
       "durationInSeconds": 615,
       "viewCount": 64
-    }
+    },
+    "title": "S4E2 Ironclad - The Quest for a single A20H Win, Slay the Spire",
+    "thumbnail": "https://i.ytimg.com/vi/hSMkcZ3AOHw/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2025-11-05T16:00:13Z",
       "durationInSeconds": 2528,
       "viewCount": 25
-    }
+    },
+    "title": "S4E1 Ironclad - The Quest for a single A20H Win, Slay the Spire",
+    "thumbnail": "https://i.ytimg.com/vi/98_MQbw8hsY/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 1
   }
 ]

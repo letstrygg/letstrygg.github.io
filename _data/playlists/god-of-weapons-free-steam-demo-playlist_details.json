@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4aji2it2ivtJhM2OJy6gEf",
-  "title": "God of Weapons: Free Steam Demo",
+  "slug": "god-of-weapons-free-steam-demo",
+  "title": "God of Weapons Free Steam Demo",
   "thumbnail": "https://i.ytimg.com/vi/tnEAR2PCDQo/maxresdefault.jpg",
   "published": "2023-05-08T06:52:32.35033Z",
   "updated": "2023-09-15T00:00:09Z",
-  "fetched": "2026-03-07T12:04:12.316Z",
+  "fetched": "2026-03-17T09:00:15.032Z",
   "episodes": 15,
   "duration": 46041,
-  "views": 5031,
-  "status": "Completed",
   "duration_formatted": "12h 47m",
+  "duration_short": "13h",
+  "views": 5031,
   "views_formatted": "5K",
-  "slug": "god-of-weapons-free-steam-demo",
+  "status": "Completed",
   "status_color": "blue"
 }

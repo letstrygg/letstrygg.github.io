@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4F31xss7ikC5gEWcNEDhot",
-  "title": "Slay the Spire: A20H Rotations - Season 3",
+  "slug": "slay-the-spire-a20h-rotations-season-3",
+  "title": "Slay the Spire A20H Rotations Season 3",
   "thumbnail": "https://i.ytimg.com/vi/RTaBNoV8CQU/maxresdefault.jpg",
   "published": "2023-04-08T09:39:53.762587Z",
   "updated": "2023-04-15T17:00:13Z",
-  "fetched": "2026-03-07T12:04:14.984Z",
+  "fetched": "2026-03-17T09:00:16.387Z",
   "episodes": 6,
   "duration": 9824,
-  "views": 382,
-  "status": "Completed",
   "duration_formatted": "2h 43m",
-  "views_formatted": "382",
-  "slug": "slay-the-spire-a20h-rotations-season-3",
+  "duration_short": "3h",
+  "views": 383,
+  "views_formatted": "383",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-03-15T13:00:58Z",
       "durationInSeconds": 2637,
       "viewCount": 1424
-    }
+    },
+    "title": "50% Off Steam Sale! Break All The Signs: Let's Play Undermine Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/y4xdDJ1Lkng/maxresdefault.jpg",
+    "likes": 15,
+    "comments": 24
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2024-03-19T13:00:01Z",
       "durationInSeconds": 3126,
       "viewCount": 122
-    }
+    },
+    "title": "I Will Defeat this STUPID Rock! Let's Play Undermine Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/1V9OagfjZD4/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 11
   }
 ]

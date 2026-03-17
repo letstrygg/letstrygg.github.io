@@ -7,8 +7,12 @@
       "videoId": "usKoFsyPLmE",
       "videoPublishedAt": "2021-06-17T12:30:21Z",
       "durationInSeconds": 4666,
-      "viewCount": 354
-    }
+      "viewCount": 358
+    },
+    "title": "New Slay The Spire Starting Fresh! Let's Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/usKoFsyPLmE/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 19
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2021-06-18T12:30:01Z",
       "durationInSeconds": 4281,
       "viewCount": 48
-    }
+    },
+    "title": "On to SILENT! Slay The Spire, Let's Play Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/CB6o30YgkDM/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2021-06-19T12:00:08Z",
       "durationInSeconds": 1551,
       "viewCount": 22
-    }
+    },
+    "title": "Defect-ive Run. Slay the Spire Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/OM1yjd5PaRc/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2021-06-19T13:00:08Z",
       "durationInSeconds": 4518,
       "viewCount": 21
-    }
+    },
+    "title": "The REAL Defect Run. Slay the Spire Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/MaI0DSBmcr8/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 8
   },
   {
     "kind": "youtube#playlistItem",
@@ -51,8 +67,12 @@
       "videoId": "fm9jp6eab2c",
       "videoPublishedAt": "2021-06-20T12:00:30Z",
       "durationInSeconds": 2022,
-      "viewCount": 21
-    }
+      "viewCount": 22
+    },
+    "title": "Ascension 1 Ironclad EASY..ish. Slay the Spire Let's Play Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/fm9jp6eab2c/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2021-06-20T12:30:08Z",
       "durationInSeconds": 1624,
       "viewCount": 9
-    }
+    },
+    "title": "For Real EZ Ironclad! New Slay the Spire Ep 4b",
+    "thumbnail": "https://i.ytimg.com/vi/gAAdLlQq2kc/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2021-06-20T13:00:03Z",
       "durationInSeconds": 3803,
       "viewCount": 12
-    }
+    },
+    "title": "😶 IronClad Asc1 New Slay the Spire Ep 4C",
+    "thumbnail": "https://i.ytimg.com/vi/8aVQMSt5KUg/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2021-06-21T12:30:18Z",
       "durationInSeconds": 2549,
       "viewCount": 36
-    }
+    },
+    "title": "Ascension 2 Ironclad! New Slay the Spire Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/hsB4H3FzHx0/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,7 +128,11 @@
       "videoPublishedAt": "2021-06-22T12:30:12Z",
       "durationInSeconds": 4966,
       "viewCount": 17
-    }
+    },
+    "title": "FULL AGGRO HEART! Ascension 3 Ironclad, New Slay the Spire Ep 6",
+    "thumbnail": "https://i.ytimg.com/vi/WUE7oY-VvcI/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -107,7 +143,11 @@
       "videoPublishedAt": "2021-06-23T12:30:06Z",
       "durationInSeconds": 5208,
       "viewCount": 18
-    }
+    },
+    "title": "Ascension 4 Ironclad! New Slay the Spire Ep 7",
+    "thumbnail": "https://i.ytimg.com/vi/SnoSbycvfJQ/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -118,7 +158,11 @@
       "videoPublishedAt": "2021-06-24T12:30:00Z",
       "durationInSeconds": 4955,
       "viewCount": 24
-    }
+    },
+    "title": "Silent Climb Ascension 1 Heart Attempt New Slay the Spire Ep 8",
+    "thumbnail": "https://i.ytimg.com/vi/1zrjox1moCQ/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -129,7 +173,11 @@
       "videoPublishedAt": "2021-06-25T12:30:08Z",
       "durationInSeconds": 1797,
       "viewCount": 14
-    }
+    },
+    "title": "Silent Climb Continues! Ascension 2 New Slay the Spire Ep 9",
+    "thumbnail": "https://i.ytimg.com/vi/tAD7dsB2wnc/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -140,7 +188,11 @@
       "videoPublishedAt": "2021-06-25T13:00:19Z",
       "durationInSeconds": 5107,
       "viewCount": 15
-    }
+    },
+    "title": "Take 2 Silent Ascension 2 Heart Fight New Slay the Spire Ep 9b",
+    "thumbnail": "https://i.ytimg.com/vi/oZ_2A1hj_TY/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -151,7 +203,11 @@
       "videoPublishedAt": "2021-06-26T13:30:04Z",
       "durationInSeconds": 4110,
       "viewCount": 6
-    }
+    },
+    "title": "Silent Ascension 3 New Slay the Spire Ep 10",
+    "thumbnail": "https://i.ytimg.com/vi/AKrvSZ-JUdM/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -162,7 +218,11 @@
       "videoPublishedAt": "2021-06-26T14:30:06Z",
       "durationInSeconds": 5493,
       "viewCount": 10
-    }
+    },
+    "title": "Silent Ascension 3 Heart Fight New Slay the Spire Ep 10b",
+    "thumbnail": "https://i.ytimg.com/vi/TeJtgDf-ox8/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -173,7 +233,11 @@
       "videoPublishedAt": "2021-06-27T13:30:03Z",
       "durationInSeconds": 5634,
       "viewCount": 8
-    }
+    },
+    "title": "Going for Heart Fight Streak of 2 - Silent Ascension 4 New Slay the Spire Ep 11",
+    "thumbnail": "https://i.ytimg.com/vi/K-zbsEI8l9M/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -184,7 +248,11 @@
       "videoPublishedAt": "2021-06-28T12:30:11Z",
       "durationInSeconds": 5538,
       "viewCount": 5
-    }
+    },
+    "title": "Heart Streak 2 - Silent Ascension 5 New Slay the Spire Ep 12",
+    "thumbnail": "https://i.ytimg.com/vi/z8m2LJxwAFQ/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -195,7 +263,11 @@
       "videoPublishedAt": "2021-06-29T12:30:09Z",
       "durationInSeconds": 6404,
       "viewCount": 8
-    }
+    },
+    "title": "Heart Streak 3 - Silent Ascension 6 New Slay the Spire Ep 13",
+    "thumbnail": "https://i.ytimg.com/vi/or5bq15UByg/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -206,7 +278,11 @@
       "videoPublishedAt": "2021-06-30T12:30:06Z",
       "durationInSeconds": 7344,
       "viewCount": 5
-    }
+    },
+    "title": "Heart Streak 4 - Silent Ascension 7 New Slay the Spire Ep 14",
+    "thumbnail": "https://i.ytimg.com/vi/LwnFBWVEZAU/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -217,7 +293,11 @@
       "videoPublishedAt": "2021-07-01T12:30:01Z",
       "durationInSeconds": 4955,
       "viewCount": 9
-    }
+    },
+    "title": "Heart Streak 5 - Silent Ascension 8 New Slay the Spire Ep 15",
+    "thumbnail": "https://i.ytimg.com/vi/3IA3Z9Uwmfs/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -228,6 +308,10 @@
       "videoPublishedAt": "2021-07-02T12:30:02Z",
       "durationInSeconds": 4442,
       "viewCount": 13
-    }
+    },
+    "title": "RIP Heart Streak- Silent Ascension 8 New Slay the Spire Ep 16",
+    "thumbnail": "https://i.ytimg.com/vi/9ZY-dSbxN9w/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   }
 ]

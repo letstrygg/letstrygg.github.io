@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4svDq6wBd_QHWB7_ZO5JPI",
-  "title": "AutoForge, Factory Automation Game",
+  "slug": "autoforge-factory-automation-game",
+  "title": "AutoForge Factory Automation Game",
   "thumbnail": "https://i.ytimg.com/vi/_tfsZpH4hJ0/maxresdefault.jpg",
   "published": "2024-04-09T08:17:57.648781Z",
   "updated": "2024-04-26T19:00:09Z",
-  "fetched": "2026-03-07T12:03:37.734Z",
+  "fetched": "2026-03-17T09:00:09.974Z",
   "episodes": 9,
   "duration": 23850,
-  "views": 5035,
-  "status": "Completed",
   "duration_formatted": "6h 37m",
+  "duration_short": "7h",
+  "views": 5037,
   "views_formatted": "5K",
-  "slug": "autoforge-factory-automation-game",
+  "status": "Completed",
   "status_color": "blue"
 }

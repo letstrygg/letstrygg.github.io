@@ -1,16 +1,17 @@
 {
   "id": "PLkwYKQUqZEUUmTNrXSbgc0rbAR_Uo7UDQ",
-  "title": "Slay the Spire S4 - The Quest for a single A20H Win",
+  "slug": "slay-the-spire-s4-the-quest-for-a-single-a20h-win",
+  "title": "Slay the Spire S4 The Quest for a single A20H Win",
   "thumbnail": "https://i.ytimg.com/vi/rzNVEWgDzSc/maxresdefault.jpg",
   "published": "2025-11-04T20:14:05.99517Z",
   "updated": "2025-11-08T16:01:22Z",
-  "fetched": "2026-03-07T12:05:16.505Z",
+  "fetched": "2026-03-17T09:00:18.655Z",
   "episodes": 4,
   "duration": 10979,
-  "views": 126,
-  "status": "Completed",
   "duration_formatted": "3h 2m",
+  "duration_short": "3h",
+  "views": 126,
   "views_formatted": "126",
-  "slug": "slay-the-spire-s4-the-quest-for-a-single-a20h-win",
+  "status": "Completed",
   "status_color": "blue"
 }

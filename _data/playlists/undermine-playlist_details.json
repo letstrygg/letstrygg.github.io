@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7YUs1doh2wUal5fHB1wbD0",
+  "slug": "undermine",
   "title": "Undermine",
   "thumbnail": "https://i.ytimg.com/vi/y4xdDJ1Lkng/maxresdefault.jpg",
   "published": "2024-03-15T06:58:44.981291Z",
   "updated": "2024-03-19T13:00:01Z",
-  "fetched": "2026-03-07T12:03:39.770Z",
+  "fetched": "2026-03-17T09:00:11.259Z",
   "episodes": 2,
   "duration": 5763,
-  "views": 1546,
-  "status": "Completed",
   "duration_formatted": "1h 36m",
+  "duration_short": "2h",
+  "views": 1546,
   "views_formatted": "1.5K",
-  "slug": "undermine",
+  "status": "Completed",
   "status_color": "blue"
 }

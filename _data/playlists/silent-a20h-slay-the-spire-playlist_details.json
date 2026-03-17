@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7KZCOHjyu1CTHwDFHH5kW_",
-  "title": "Silent A20H - Slay the Spire",
+  "slug": "silent-a20h-slay-the-spire",
+  "title": "Silent A20H Slay the Spire",
   "thumbnail": "https://i.ytimg.com/vi/SMMsCdv64xs/maxresdefault.jpg",
   "published": "2024-06-26T04:09:57.507066Z",
   "updated": "2024-07-06T13:00:23Z",
-  "fetched": "2026-03-07T12:03:32.003Z",
+  "fetched": "2026-03-17T09:00:15.737Z",
   "episodes": 11,
   "duration": 48850,
-  "views": 985,
-  "status": "Completed",
   "duration_formatted": "13h 34m",
-  "views_formatted": "985",
-  "slug": "silent-a20h-slay-the-spire",
+  "duration_short": "14h",
+  "views": 986,
+  "views_formatted": "986",
+  "status": "Completed",
   "status_color": "blue"
 }

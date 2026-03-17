@@ -7,8 +7,12 @@
       "videoId": "fFi_QTIoqyM",
       "videoPublishedAt": "2024-03-11T14:30:16Z",
       "durationInSeconds": 2391,
-      "viewCount": 169
-    }
+      "viewCount": 170
+    },
+    "title": "GOOBIES: Demo into Full Game Buy! New Lets Play Series Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/fFi_QTIoqyM/maxresdefault.jpg",
+    "likes": 10,
+    "comments": 15
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2024-03-12T14:30:12Z",
       "durationInSeconds": 3248,
       "viewCount": 138
-    }
+    },
+    "title": "BIG AoE! Regurgitated Goo: Goobies Lets Play Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/ebXa7kJh4z0/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2024-03-13T14:30:05Z",
       "durationInSeconds": 2774,
       "viewCount": 114
-    }
+    },
+    "title": "Chaining Multi Slash and WORMS! Lets Play Ep Goobies 3",
+    "thumbnail": "https://i.ytimg.com/vi/DJ_e3fbk3Po/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 20
   }
 ]

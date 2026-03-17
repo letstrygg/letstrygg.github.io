@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-06-15T00:00:00Z",
       "durationInSeconds": 1549,
       "viewCount": 205
-    }
+    },
+    "title": "Embrace the Madness: A Land Goo's Crazy | Free Steam Demo Playthrough",
+    "thumbnail": "https://i.ytimg.com/vi/0gDXWWyB5dw/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 22
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-06-30T19:00:24Z",
       "durationInSeconds": 2203,
       "viewCount": 157
-    }
+    },
+    "title": "Steam Summer Sale! Looking at what's on sale then A Land Goo's Crazy! Currently 70% off :)",
+    "thumbnail": "https://i.ytimg.com/vi/uenZ3Vi4zg0/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 13
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-10-22T22:00:12Z",
       "durationInSeconds": 1973,
       "viewCount": 34
-    }
+    },
+    "title": "Madness, Goo, Zooming, Daggers and Cloaks, and a new Friend! Let's Play A Land Goo's Crazy",
+    "thumbnail": "https://i.ytimg.com/vi/WUZvxiLIQws/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2024-02-19T14:30:09Z",
       "durationInSeconds": 1894,
       "viewCount": 135
-    }
+    },
+    "title": "Craziness++ Let's Play a land Goo's crazy v1.3.20 Update",
+    "thumbnail": "https://i.ytimg.com/vi/HyWTyHEVlMI/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 4
   }
 ]

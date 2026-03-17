@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6_cb1oGZbfFnjTF2--bFS9",
+  "slug": "god-of-weapons-s2",
   "title": "God of Weapons S2",
   "thumbnail": "https://i.ytimg.com/vi/WM-EsyJ9cZg/maxresdefault.jpg",
   "published": "2025-05-10T07:58:31.834714Z",
   "updated": "2025-07-02T15:01:42Z",
-  "fetched": "2026-03-07T12:03:04.192Z",
+  "fetched": "2026-03-17T09:00:14.462Z",
   "episodes": 8,
   "duration": 31749,
-  "views": 508,
-  "status": "Completed",
   "duration_formatted": "8h 49m",
+  "duration_short": "9h",
+  "views": 508,
   "views_formatted": "508",
-  "slug": "god-of-weapons-s2",
+  "status": "Completed",
   "status_color": "blue"
 }

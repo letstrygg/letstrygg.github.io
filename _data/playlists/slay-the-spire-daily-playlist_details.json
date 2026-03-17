@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4fVl5qXicTPTepGPX8WVqG",
+  "slug": "slay-the-spire-daily",
   "title": "Slay the Spire Daily",
   "thumbnail": "https://i.ytimg.com/vi/2d-Goj5TH3M/maxresdefault.jpg",
   "published": "2020-05-03T07:08:04.909874Z",
   "updated": "2021-06-26T06:44:33Z",
-  "fetched": "2026-03-07T12:05:06.153Z",
+  "fetched": "2026-03-17T09:00:18.103Z",
   "episodes": 18,
   "duration": 140248,
-  "views": 521,
-  "status": "Completed",
   "duration_formatted": "38h 57m",
+  "duration_short": "39h",
+  "views": 521,
   "views_formatted": "521",
-  "slug": "slay-the-spire-daily",
+  "status": "Completed",
   "status_color": "blue"
 }

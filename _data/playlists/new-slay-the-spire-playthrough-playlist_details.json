@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6UCEQ-75FG53-z6cDIACd4",
+  "slug": "new-slay-the-spire-playthrough",
   "title": "New Slay the Spire Playthrough",
   "thumbnail": "https://i.ytimg.com/vi/usKoFsyPLmE/maxresdefault.jpg",
   "published": "2021-06-17T11:15:31.123933Z",
   "updated": "2021-07-02T12:30:02Z",
-  "fetched": "2026-03-07T12:04:55.777Z",
+  "fetched": "2026-03-17T09:00:17.014Z",
   "episodes": 21,
   "duration": 90967,
-  "views": 675,
-  "status": "Completed",
   "duration_formatted": "25h 16m",
-  "views_formatted": "675",
-  "slug": "new-slay-the-spire-playthrough",
+  "duration_short": "25h",
+  "views": 680,
+  "views_formatted": "680",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -8,7 +8,11 @@
       "videoPublishedAt": "2024-03-07T14:30:13Z",
       "durationInSeconds": 4934,
       "viewCount": 179
-    }
+    },
+    "title": "Slammers will Not be Ridiculed! Gnorp Apologue Gameplay - Let's Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/clPXpiDZzA8/maxresdefault.jpg",
+    "likes": 10,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2024-03-09T14:30:14Z",
       "durationInSeconds": 4183,
       "viewCount": 69
-    }
+    },
+    "title": "Gnorp Apologue Let's Play Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/VTfFlRMWj74/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 4
   }
 ]
