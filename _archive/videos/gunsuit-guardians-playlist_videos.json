@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-03-17T13:00:45Z",
       "durationInSeconds": 2266,
       "viewCount": 213
-    }
+    },
+    "title": "Gunsuit Guardians: New Indie Game in Vampire Survivors Action-Roguelite Genre Gameplay Lets Play Ep1",
+    "thumbnail": "https://i.ytimg.com/vi/xFkpKUOJh5Y/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,8 +22,12 @@
       "videoId": "IXb1DMA4Lv8",
       "videoPublishedAt": "2023-03-17T23:48:24Z",
       "durationInSeconds": 60,
-      "viewCount": 621
-    }
+      "viewCount": 624
+    },
+    "title": "Gunsuit Guardians: New Indie Roguelite Game in Vampire Survivors Action-Genre Gameplay",
+    "thumbnail": "https://i.ytimg.com/vi/IXb1DMA4Lv8/maxresdefault.jpg",
+    "likes": 14,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2023-03-19T13:00:03Z",
       "durationInSeconds": 2150,
       "viewCount": 153
-    }
+    },
+    "title": "Let's Play GunSuit Guardians Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/5Ms06k6vvIE/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 1
   }
 ]

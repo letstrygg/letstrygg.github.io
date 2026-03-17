@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk43xL5uA7lrn2CkN-WmAayO",
+  "slug": "gunsuit-guardians",
   "title": "GunSuit Guardians",
   "thumbnail": "https://i.ytimg.com/vi/xFkpKUOJh5Y/maxresdefault.jpg",
   "published": "2023-03-16T03:28:51.434471Z",
   "updated": "2023-03-19T13:00:03Z",
-  "fetched": "2026-03-07T12:04:17.642Z",
+  "fetched": "2026-03-17T23:34:47.975Z",
   "episodes": 3,
   "duration": 4476,
-  "views": 987,
-  "status": "Completed",
   "duration_formatted": "1h 14m",
-  "views_formatted": "987",
-  "slug": "gunsuit-guardians",
+  "duration_short": "1h",
+  "views": 990,
+  "views_formatted": "990",
+  "status": "Completed",
   "status_color": "blue"
 }

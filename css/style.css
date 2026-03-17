@@ -509,6 +509,10 @@ header { text-align: center; padding: 20px 0; }
     right: 0 !important;
     transform: none !important;
 }
+.tooltip-left-edge::after {
+    left: 0 !important;
+    transform: none !important;
+}
 
 /* --- Minimalist Icon Buttons --- */
 .icon-btn {

@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-12-27T14:30:00Z",
       "durationInSeconds": 1706,
       "viewCount": 202
-    }
+    },
+    "title": "Tiny Rogues: Between Heaven and Hell - 0.2.0 Update | Gameplay Let's Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/afWwdFLOmsA/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-12-28T14:30:11Z",
       "durationInSeconds": 3336,
       "viewCount": 220
-    }
+    },
+    "title": "Tiny Rogues: Between Heaven and Hell - 0.2.0 Update | Gameplay Let's Play Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/mAfsSFKUi2A/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-12-29T14:30:21Z",
       "durationInSeconds": 4447,
       "viewCount": 148
-    }
+    },
+    "title": "Tiny Rogues: Between Heaven and Hell - 0.2.0 Update | Gameplay Let's Play Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/l7iVsIMd9lU/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2023-12-30T14:30:22Z",
       "durationInSeconds": 2683,
       "viewCount": 75
-    }
+    },
+    "title": "0.2.1 Update! Tiny Rogues Between Heaven and Hell: Gameplay - Let's Play Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/jzgXjUSAM2o/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,6 +68,10 @@
       "videoPublishedAt": "2023-12-31T14:30:23Z",
       "durationInSeconds": 3627,
       "viewCount": 112
-    }
+    },
+    "title": "Fighting Death! Tiny Rogues Between Heaven and Hell   Gameplay Let's Play Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/vE7ztyCEfjc/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 2
   }
 ]

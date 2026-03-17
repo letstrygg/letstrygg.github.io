@@ -7,8 +7,12 @@
       "videoId": "oxi3JIwFytk",
       "videoPublishedAt": "2022-10-26T15:00:39Z",
       "durationInSeconds": 4103,
-      "viewCount": 3820
-    }
+      "viewCount": 3861
+    },
+    "title": "Idle Overload, all the Character Slots! Let's Play Melvor Idle Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/oxi3JIwFytk/maxresdefault.jpg",
+    "likes": 39,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,8 +22,12 @@
       "videoId": "jcwd-RRP06g",
       "videoPublishedAt": "2022-10-27T13:00:33Z",
       "durationInSeconds": 2546,
-      "viewCount": 426
-    }
+      "viewCount": 428
+    },
+    "title": "Day 2 Progress Bars are Progressing, Melvor Idle Let's Play Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/jcwd-RRP06g/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -29,8 +37,12 @@
       "videoId": "U8DFmgl7mc8",
       "videoPublishedAt": "2022-10-28T15:00:21Z",
       "durationInSeconds": 2706,
-      "viewCount": 409
-    }
+      "viewCount": 413
+    },
+    "title": "Can I AFK Cows? HC Combat Only Melvor Idle Let's Play Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/U8DFmgl7mc8/maxresdefault.jpg",
+    "likes": 9,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -40,8 +52,12 @@
       "videoId": "2JufB-9Jm5Y",
       "videoPublishedAt": "2022-10-29T15:00:03Z",
       "durationInSeconds": 2152,
-      "viewCount": 225
-    }
+      "viewCount": 231
+    },
+    "title": "Day 4 - Melvor Idle Let's Play Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/2JufB-9Jm5Y/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -51,8 +67,12 @@
       "videoId": "LmnpYLO2Fw0",
       "videoPublishedAt": "2022-10-31T15:00:14Z",
       "durationInSeconds": 1101,
-      "viewCount": 162
-    }
+      "viewCount": 165
+    },
+    "title": "Day 6 Rebuilding. Melvor Idle Let's Play Ep 6",
+    "thumbnail": "https://i.ytimg.com/vi/LmnpYLO2Fw0/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -62,8 +82,12 @@
       "videoId": "MZeLRQVZsb8",
       "videoPublishedAt": "2022-11-01T15:00:12Z",
       "durationInSeconds": 1007,
-      "viewCount": 118
-    }
+      "viewCount": 120
+    },
+    "title": "Day 7 Melvor Idle Let's Play Ep 7",
+    "thumbnail": "https://i.ytimg.com/vi/MZeLRQVZsb8/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -73,8 +97,12 @@
       "videoId": "q1AoEpTkoDo",
       "videoPublishedAt": "2022-11-02T15:00:36Z",
       "durationInSeconds": 1386,
-      "viewCount": 223
-    }
+      "viewCount": 225
+    },
+    "title": "Going for Rune - Day 8 - Melvor Idle Let's Play Ep 8",
+    "thumbnail": "https://i.ytimg.com/vi/q1AoEpTkoDo/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -84,8 +112,12 @@
       "videoId": "BQYmQi_Rj2c",
       "videoPublishedAt": "2022-11-05T15:00:07Z",
       "durationInSeconds": 1930,
-      "viewCount": 221
-    }
+      "viewCount": 223
+    },
+    "title": "Progress Update! Day 11 Melvor Idle Let's Play Ep 9",
+    "thumbnail": "https://i.ytimg.com/vi/BQYmQi_Rj2c/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -95,7 +127,11 @@
       "videoId": "QEB9n8Tp-Tg",
       "videoPublishedAt": "2022-11-10T15:00:26Z",
       "durationInSeconds": 1087,
-      "viewCount": 299
-    }
+      "viewCount": 300
+    },
+    "title": "Day 16 Melvor Idle Let's Play Ep 10",
+    "thumbnail": "https://i.ytimg.com/vi/QEB9n8Tp-Tg/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 6
   }
 ]

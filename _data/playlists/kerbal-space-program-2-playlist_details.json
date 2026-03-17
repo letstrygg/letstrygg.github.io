@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7x5P2_h4RgXhb_EIyfaQtp",
+  "slug": "kerbal-space-program-2",
   "title": "Kerbal Space Program 2",
   "thumbnail": "https://i.ytimg.com/vi/2GUabetD5Ro/maxresdefault.jpg",
   "published": "2023-02-24T22:54:34.520733Z",
   "updated": "2023-02-25T12:30:02Z",
-  "fetched": "2026-03-07T12:04:18.123Z",
+  "fetched": "2026-03-17T23:34:48.612Z",
   "episodes": 1,
   "duration": 2077,
-  "views": 111,
-  "status": "Completed",
   "duration_formatted": "34m",
+  "duration_short": "34m",
+  "views": 111,
   "views_formatted": "111",
-  "slug": "kerbal-space-program-2",
+  "status": "Completed",
   "status_color": "blue"
 }
