@@ -132,7 +132,7 @@ toggleTimestamps.addEventListener('change', (e) => {
 
 // Setup Current Game & Filter Toggles
 let showGlobalChat = localStorage.getItem('showGlobalChat') !== 'false';
-let highlightChannelChat = localStorage.getItem('highlightChannelChat') !== 'true';
+let highlightChannelChat = localStorage.getItem('highlightChannelChat') === 'true';
 
 let currentGame = 'general';
 const pathParts = window.location.pathname.split('/game/');
@@ -188,7 +188,7 @@ function formatTime(dateStr) {
 
 async function login(provider) { await supabaseClient.auth.signInWithOAuth({ provider: provider, options: { redirectTo: window.location.origin + window.location.pathname }}); }
 async function logout() { await supabaseClient.auth.signOut(); }
-async function setDeletedState(id, state) { await supabaseClient.from('letstrygg_chat').update({ is_deleted: state }).eq('id', id); }
+async function setDeletedState(id, state) { await supabaseClient.from('ltg_chat').update({ is_deleted: state }).eq('id', id); }
 
 let authTimeout = null;
 supabaseClient.auth.onAuthStateChange((event, session) => {
@@ -200,7 +200,7 @@ supabaseClient.auth.onAuthStateChange((event, session) => {
             inputSection.style.display = 'block';
             isAdmin = session.user.email === 'letstrygg@gmail.com';
             
-            const { data: profile } = await supabaseClient.from('letstrygg_profiles').select('username, color').eq('user_id', session.user.id).maybeSingle();
+            const { data: profile } = await supabaseClient.from('ltg_profiles').select('username, color').eq('user_id', session.user.id).maybeSingle();
             if (profile) {
                 userNameDisplay.textContent = profile.username;
                 userColorPicker.value = profile.color;
@@ -216,11 +216,11 @@ supabaseClient.auth.onAuthStateChange((event, session) => {
 
 userColorPicker.addEventListener('change', async (e) => {
     if (!currentSession) return;
-    await supabaseClient.from('letstrygg_profiles').update({ color: e.target.value }).eq('user_id', currentSession.user.id);
+    await supabaseClient.from('ltg_profiles').update({ color: e.target.value }).eq('user_id', currentSession.user.id);
 });
 
 async function loadMessages() {
-    let query = supabaseClient.from('letstrygg_chat').select('*, letstrygg_profiles(username, color)').order('created_at', { ascending: true }).limit(100);
+    let query = supabaseClient.from('ltg_chat').select('*, ltg_profiles(username, color)').order('created_at', { ascending: true }).limit(100);
     const { data, error } = await query;
     if (error) { chatBox.innerHTML = `<span style="color:#e74c3c;">Failed to load messages.</span>`; return; }
     
@@ -235,7 +235,7 @@ function renderMessages() {
     chatMessagesData.forEach(row => {
         if (row.is_deleted && !isAdmin) return;
         
-        const isChannelMsg = (row.game_context === currentGame);
+        const isChannelMsg = (row.channel === currentGame);
 
         if (currentGame !== 'general') {
             if (!isChannelMsg && !showGlobalChat) return; 
@@ -261,7 +261,7 @@ function renderMessages() {
                 : `<button class="admin-btn" title="Delete" onclick="setDeletedState(${row.id}, true)">🗑️</button>`;
         }
 
-        const profile = row.letstrygg_profiles || {};
+        const profile = row.ltg_profiles || {};
         const displayName = profile.username || 'Anon';
         const displayColor = profile.color || '#ffffff';
 
@@ -311,8 +311,8 @@ function renderMessages() {
 }
 
 const chatChannel = supabaseClient.channel('chat_updates');
-chatChannel.on('postgres_changes', { event: '*', schema: 'public', table: 'letstrygg_chat' }, payload => { loadMessages(); });
-chatChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'letstrygg_profiles' }, payload => { loadMessages(); });
+chatChannel.on('postgres_changes', { event: '*', schema: 'public', table: 'ltg_chat' }, payload => { loadMessages(); });
+chatChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_profiles' }, payload => { loadMessages(); });
 chatChannel.subscribe();
 
 sendBtn.addEventListener('click', async () => {
@@ -320,10 +320,10 @@ sendBtn.addEventListener('click', async () => {
     if (!text || !currentSession) return;
     sendBtn.disabled = true;
     
-    const { error } = await supabaseClient.from('letstrygg_chat').insert([{ 
+    const { error } = await supabaseClient.from('ltg_chat').insert([{ 
         message: text, 
         user_id: currentSession.user.id, 
-        game_context: currentGame,
+        channel: currentGame,
         url: window.location.pathname 
     }]);
     
