@@ -16,12 +16,20 @@
 
   <div style="padding: 10px; border-bottom: 1px solid #26262c; font-size: 12px; color: #aaa; display: flex; justify-content: space-between; align-items: center; background: #18181b;">
     <div style="display: flex; gap: 6px;">
-        <span id="timeToggle" class="chat-badge">Time</span>
-        <span id="deletedToggle" class="chat-badge" style="display: none; border-color: rgba(231, 76, 60, 0.4);">Deleted</span>
+        <span id="timeToggle" class="chat-badge" title="Show Timestamps" style="padding: 4px; display: inline-flex; align-items: center; justify-content: center;">
+            <span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+        </span>
+        <span id="deletedToggle" class="chat-badge" title="Show Deleted Messages" style="display: none; padding: 4px; border-color: rgba(231, 76, 60, 0.4); align-items: center; justify-content: center;">
+            <span class="material-symbols-outlined" style="font-size: 16px;">delete</span>
+        </span>
     </div>
     <div style="display: flex; gap: 6px;">
-        <span id="globalChatToggle" class="chat-badge active">Global Chat</span>
-        <span id="channelChatToggle" class="chat-badge active" style="display: none;"></span>
+        <span id="globalChatToggle" class="chat-badge active" title="Toggle Global Chat" style="padding: 4px; display: inline-flex; align-items: center; justify-content: center;">
+            <span class="material-symbols-outlined" style="font-size: 16px;">public</span>
+        </span>
+        <span id="channelChatToggle" class="chat-badge active" title="Toggle Game Highlights" style="display: none; padding: 4px; align-items: center; justify-content: center;">
+            <span class="material-symbols-outlined" style="font-size: 16px;">sports_esports</span>
+        </span>
     </div>
   </div>
 
@@ -73,7 +81,6 @@ const loginSection = document.getElementById('loginSection');
 const inputSection = document.getElementById('inputSection');
 const userNameDisplay = document.getElementById('userNameDisplay');
 const userColorPicker = document.getElementById('userColor');
-const gameContextBadge = document.getElementById('gameContextBadge');
 const grabTimeBtn = document.getElementById('grabTimeBtn');
 
 // Filter Toggles
@@ -135,14 +142,13 @@ const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
 let currentSession = null;
 let isAdmin = false;
-let showDeleted = false; // Internal admin state
+let showDeleted = false; 
 let chatMessagesData = []; 
 
 deletedToggle.addEventListener('click', () => {
     if (!isAdmin) return;
     showDeleted = !showDeleted;
     
-    // Custom active style for the deleted badge (red)
     if (showDeleted) {
         deletedToggle.style.background = 'rgba(231, 76, 60, 0.15)';
         deletedToggle.style.color = '#e74c3c';
@@ -184,8 +190,9 @@ globalToggle.addEventListener('click', () => {
 });
 
 if (currentGame !== 'general') {
-    channelToggle.textContent = currentGame.replace(/-/g, ' '); 
-    channelToggle.style.display = 'inline-block';
+    // Replaced textContent with setting the title for the tooltip
+    channelToggle.setAttribute('title', 'Highlight ' + currentGame.replace(/-/g, ' '));
+    channelToggle.style.display = 'inline-flex';
     
     channelToggle.addEventListener('click', () => {
         if (!showGlobalChat) return; 
@@ -222,9 +229,8 @@ supabaseClient.auth.onAuthStateChange((event, session) => {
             inputSection.style.display = 'block';
             isAdmin = session.user.email === 'letstrygg@gmail.com';
             
-            // Show the deleted toggle ONLY for admins
             if (isAdmin) {
-                deletedToggle.style.display = 'inline-block';
+                deletedToggle.style.display = 'inline-flex';
             }
             
             const { data: profile } = await supabaseClient.from('ltg_profiles').select('username, color').eq('user_id', session.user.id).maybeSingle();
@@ -261,7 +267,6 @@ function renderMessages() {
     let visibleCount = 0;
 
     chatMessagesData.forEach(row => {
-        // Updated Delete Logic: Hide if not admin, OR if admin but toggle is off
         if (row.is_deleted) {
             if (!isAdmin || !showDeleted) return; 
         }
@@ -303,7 +308,6 @@ function renderMessages() {
             const iconName = isVideoUrl ? 'smart_display' : 'article';
             const tooltip = isVideoUrl ? 'Go to video' : 'Go to page';
             
-            // Removed target="_blank"
             urlIconHtml = `<a href="${row.url}" title="${tooltip}" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
         }
 
@@ -319,7 +323,6 @@ function renderMessages() {
                 if (isCurrentPage && typeof window.triggerInPageJump === 'function') {
                     return `<a href="#" onclick="window.triggerInPageJump(${seconds}); return false;" class="yt-time-link">${timeStr}</a>`;
                 } else {
-                    // Removed target="_blank" here as well
                     return `<a href="${row.url}?t=${seconds}" class="yt-time-link">${timeStr}</a>`;
                 }
             });
