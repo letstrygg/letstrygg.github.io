@@ -6,3 +6,6 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-seo-tag
+  
+  supabase_url: "https://fnwmtytnltmqjaflfwyr.supabase.co"
+supabase_anon_key: "default sb_publishable_y12qZF_dSbUPmV_aieiUgA_CibDsxQV"
