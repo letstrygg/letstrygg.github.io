@@ -64,6 +64,13 @@ permalink: /chat/
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
+  // 0. AGGRESSIVE ERROR CATCHER - Prints background crashes to the screen
+  window.onerror = function(msg, url, lineNo, columnNo, error) {
+      document.getElementById('statusMessage').textContent = 'FATAL CRASH: ' + msg;
+      document.getElementById('statusMessage').style.color = '#e74c3c';
+      return false;
+  };
+
   const supabaseUrl = '{{ site.supabase_url }}';
   const supabaseKey = '{{ site.supabase_anon_key }}';
   const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
@@ -84,7 +91,6 @@ permalink: /chat/
   let currentSession = null;
   let isAdmin = false;
 
-  // 1. Setup Local Preferences
   toggleTimestamps.checked = localStorage.getItem('showTimestamps') === 'true';
   if (toggleTimestamps.checked) chatBox.classList.add('show-timestamps');
   
@@ -102,8 +108,10 @@ permalink: /chat/
   let currentGame = 'general';
   const pathParts = window.location.pathname.split('/game/');
   if (pathParts.length > 1) currentGame = pathParts[1].split('/')[0] || 'general';
-  gameContextBadge.textContent = currentGame;
-  if(currentGame !== 'general') gameContextBadge.style.display = 'inline-block';
+  if (gameContextBadge) {
+      gameContextBadge.textContent = currentGame;
+      if(currentGame !== 'general') gameContextBadge.style.display = 'inline-block';
+  }
 
   function formatTime(dateStr) {
       const d = new Date(dateStr);
@@ -122,19 +130,24 @@ permalink: /chat/
           inputSection.style.display = 'block';
           isAdmin = session.user.email === 'letstrygg@gmail.com';
           
-          // Only fetch the profile, rely on the SQL trigger to have created it!
+          // Debugging the profile fetch
           const { data: profile, error } = await supabaseClient
               .from('letstrygg_profiles')
               .select('username, color')
               .eq('user_id', session.user.id)
-              .single();
+              .maybeSingle(); // Prevents throwing a harsh error if the row is missing
 
           if (error) {
-              console.error("Profile fetch error:", error);
-              userNameDisplay.textContent = "Error loading profile";
+              userNameDisplay.textContent = "DB Error";
+              statusMessage.textContent = "Profile Error: " + error.message;
+              statusMessage.style.color = '#e74c3c';
           } else if (profile) {
               userNameDisplay.textContent = profile.username;
               userColorPicker.value = profile.color;
+          } else {
+              userNameDisplay.textContent = "No Profile Found";
+              statusMessage.textContent = "Error: Trigger failed to create profile.";
+              statusMessage.style.color = '#e74c3c';
           }
       } else {
           loginSection.style.display = 'block';
@@ -173,13 +186,12 @@ permalink: /chat/
       const { data, error } = await query;
       
       if (error) { 
-          console.error("Load messages error:", error);
           chatBox.innerHTML = `<span style="color:#e74c3c;">Failed to load messages: ${error.message}</span>`; 
           return; 
       }
 
       chatBox.innerHTML = ''; 
-      if (data.length === 0) { chatBox.innerHTML = '<em>No messages found.</em>'; return; }
+      if (!data || data.length === 0) { chatBox.innerHTML = '<em>No messages found.</em>'; return; }
 
       data.forEach(row => {
           if (row.is_deleted && !isAdmin) return;
@@ -233,7 +245,6 @@ permalink: /chat/
       }]);
 
       if (error) {
-          console.error("Send error:", error);
           statusMessage.textContent = "Error: " + error.message;
           statusMessage.style.color = "#e74c3c";
       } else {
