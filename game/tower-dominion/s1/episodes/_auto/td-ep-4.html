@@ -2,36 +2,48 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Episode 4",
+  "name": "4x Paths is Hard! Tower Dominion 5",
   "description": "Episode 4 of the Tower Dominion Let's Play series.",
-  "thumbnailUrl": "https://i.ytimg.com/vi/zAsL8m7c4dw/maxresdefault.jpg",
-  "uploadDate": "2025-03-15T17:01:10Z",
-  "duration": "PT3928S",
-  "embedUrl": "https://www.youtube.com/embed/zAsL8m7c4dw"
+  "thumbnailUrl": "https://i.ytimg.com/vi/L8j4fqOY4m4/maxresdefault.jpg",
+  "uploadDate": "2025-03-27T15:00:33Z",
+  "duration": "PT3399S",
+  "embedUrl": "https://www.youtube.com/embed/L8j4fqOY4m4"
 }
 </script>
 
 <div class="game-section auto-generated-stats" style="margin-top: 0;">
-    
     <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-bottom: 20px;">
-        
         <div style="width: 100%; max-width: calc((100vh - 75px) * 16 / 9);">
-            
             <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; margin-bottom: 5px; transition: all 0.3s ease; z-index: 10;">
                 
                 <div id="video-overlay" class="video-overlay">
                     
                     <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 15, 2025</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 1h 5m 28s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 797</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Mar 27, 2025</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 56m 39s</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 384</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 9</span>
+                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 6</span>
                     </div>
 
                     <button onclick="window.location.href='/game/tower-dominion/s1/episodes/td-ep-3.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    <button onclick="window.location.href='/game/tower-dominion/s1/episodes/td-ep-5.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    <button onclick="window.location.href='/game/tower-dominion/s1/episodes/td-ep-6.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     
+                    <div style="position: absolute; bottom: 60px; left: 15px; z-index: 20;">
+                        <style>
+                            /* Force the tooltip for this specific button to render higher */
+                            #resume-btn[data-tooltip]::after,
+                            #resume-btn[data-tooltip]::before {
+                                bottom: calc(100% + 12px) !important;
+                                top: auto !important;
+                            }
+                        </style>
+                        <button id="resume-btn" class="overlay-btn" style="position: relative; display: none; background: rgba(231, 76, 60, 0.9); padding: 4px 12px; border-radius: 4px; font-weight: bold; width: auto; flex-direction: row; gap: 4px; align-items: center;" data-tooltip="Return to your saved place">
+                            <span class="material-symbols-outlined" style="font-size: 18px;">fast_rewind</span>
+                            <span id="resume-time-text"></span>
+                        </button>
+                    </div>
+
                     <div class="overlay-bottom">
                         <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
                             <span class="material-symbols-outlined" id="theater-icon">width_full</span>
@@ -48,7 +60,7 @@
             <div class="watch-nav" style="padding-bottom: 10px;">
                 <a href="/game/tower-dominion/s1/episodes/td-ep-3.html">← Ep 3</a>
                 <a href="/game/tower-dominion/s1">Episode List</a>
-                <a href="/game/tower-dominion/s1/episodes/td-ep-5.html">Ep 5 →</a>
+                <a href="/game/tower-dominion/s1/episodes/td-ep-6.html">Ep 6 →</a>
             </div>
 
         </div>
@@ -56,8 +68,14 @@
 </div>
 
 <script>
-  var storageKey = 'yt_resume_zAsL8m7c4dw';
-  var savedTime = localStorage.getItem(storageKey) || 0;
+  var storageKey = 'yt_resume_L8j4fqOY4m4';
+  var originalSavedTime = parseFloat(localStorage.getItem(storageKey)) || 0;
+  
+  var urlParams = new URLSearchParams(window.location.search);
+  var urlTime = urlParams.get('t') ? parseFloat(urlParams.get('t')) : null;
+  
+  var isPreviewing = urlTime !== null && originalSavedTime > 0 && Math.abs(urlTime - originalSavedTime) > 5;
+  var startTime = urlTime !== null ? urlTime : originalSavedTime;
 
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -69,10 +87,10 @@
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer', {
-      videoId: 'zAsL8m7c4dw',
+      videoId: 'L8j4fqOY4m4',
       playerVars: {
         'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
-        'start': Math.floor(savedTime)
+        'start': Math.floor(startTime)
       },
       events: { 'onStateChange': onPlayerStateChange }
     });
@@ -82,7 +100,9 @@
     if (event.data === 1) {
         if (!saveInterval) {
             saveInterval = setInterval(function() {
-                localStorage.setItem(storageKey, player.getCurrentTime());
+                if (!isPreviewing) {
+                    localStorage.setItem(storageKey, player.getCurrentTime());
+                }
             }, 5000);
         }
     } else {
@@ -92,7 +112,7 @@
 
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/tower-dominion/s1/episodes/td-ep-5.html";
+        const nextEpisodeUrl = "/game/tower-dominion/s1/episodes/td-ep-6.html";
         if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
     }
   }
@@ -114,11 +134,47 @@
   });
   resetIdleTimer();
 
+  const resumeBtn = document.getElementById('resume-btn');
+  const resumeText = document.getElementById('resume-time-text');
+  
+  function updateResumeButtonUI(timeVal) {
+      resumeBtn.style.display = 'inline-flex';
+      let h = Math.floor(timeVal / 3600);
+      let m = Math.floor((timeVal % 3600) / 60);
+      let s = Math.floor(timeVal % 60);
+      resumeText.innerText = 'Resume ' + (h > 0 ? h + ':' + m.toString().padStart(2,'0') + ':' + s.toString().padStart(2,'0') : m + ':' + s.toString().padStart(2,'0'));
+  }
+
+  resumeBtn.addEventListener('click', function() {
+      isPreviewing = false; 
+      player.seekTo(originalSavedTime, true);
+      resumeBtn.style.display = 'none';
+      history.replaceState(null, '', window.location.pathname); 
+  });
+
+  if (isPreviewing) {
+      updateResumeButtonUI(originalSavedTime);
+  }
+
+  // NEW: Expose a global function so the chat widget can trigger in-page jumps
+  window.triggerInPageJump = function(targetSeconds) {
+      if (typeof player === 'undefined' || !player || typeof player.getCurrentTime !== 'function') return;
+      
+      // If we aren't already previewing a clip, save our current spot!
+      if (!isPreviewing) {
+          originalSavedTime = player.getCurrentTime();
+          isPreviewing = true;
+      }
+      
+      player.seekTo(targetSeconds, true);
+      updateResumeButtonUI(originalSavedTime);
+  };
+
   const copyBtn = document.getElementById('copy-time-btn');
   copyBtn.addEventListener('click', function() {
       if (player && player.getCurrentTime) {
           const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/zAsL8m7c4dw?t=" + t + "s";
+          const url = "https://youtu.be/L8j4fqOY4m4?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
               const icon = document.getElementById('copy-icon');
               icon.innerText = 'check'; 

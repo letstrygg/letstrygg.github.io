@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-07-19T17:30:01Z",
       "durationInSeconds": 1874,
       "viewCount": 382
-    }
+    },
+    "title": "Balatro: Free Demo Gameplay & First Look | Poker Roguelike Deckbuilder | Gameplay Lets Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/78xgbgELxzg/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-07-20T19:00:10Z",
       "durationInSeconds": 2755,
       "viewCount": 144
-    }
+    },
+    "title": "Balatro: Poker Roguelike Deckbuilder | Free Steam Demo Gameplay | Lets Play Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/MDkjFeh9pXQ/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-07-21T19:00:28Z",
       "durationInSeconds": 2614,
       "viewCount": 44
-    }
+    },
+    "title": "Balatro: Unleash Wild Synergies | Poker Roguelike Deckbuilder | Free Demo Gameplay | Episode 3",
+    "thumbnail": "https://i.ytimg.com/vi/R1wjXaaVlW4/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2023-07-22T19:00:18Z",
       "durationInSeconds": 2572,
       "viewCount": 402
-    }
+    },
+    "title": "Balatro: Facing Ante Level 10 | Poker Roguelike Deckbuilder | Free Demo Gameplay | Episode 4",
+    "thumbnail": "https://i.ytimg.com/vi/j-S4cKLnZCc/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   }
 ]

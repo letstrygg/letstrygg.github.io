@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6aKdHmELKrJxiQZ122Sshw",
+  "slug": "forager",
   "title": "Forager",
   "thumbnail": "https://i.ytimg.com/vi/3sZxG2B8_w4/maxresdefault.jpg",
   "published": "2023-08-06T00:02:25.49427Z",
   "updated": "2023-09-05T19:00:31Z",
-  "fetched": "2026-03-07T12:04:00.938Z",
+  "fetched": "2026-03-17T10:00:11.710Z",
   "episodes": 29,
   "duration": 45592,
-  "views": 3921,
-  "status": "Completed",
   "duration_formatted": "12h 39m",
+  "duration_short": "13h",
+  "views": 3929,
   "views_formatted": "3.9K",
-  "slug": "forager",
+  "status": "Completed",
   "status_color": "blue"
 }

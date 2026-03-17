@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4WQHASxw3qbB7c59kHw-YF",
-  "title": "FOUNDRY: Free Steam Next Fest Demo",
+  "slug": "foundry-free-steam-next-fest-demo",
+  "title": "FOUNDRY Free Steam Next Fest Demo",
   "thumbnail": "https://i.ytimg.com/vi/liPLc0hVP44/maxresdefault.jpg",
   "published": "2023-10-09T16:30:24.509346Z",
   "updated": "2023-10-21T22:00:08Z",
-  "fetched": "2026-03-07T12:03:57.501Z",
+  "fetched": "2026-03-17T10:00:10.192Z",
   "episodes": 15,
   "duration": 21759,
-  "views": 2774,
-  "status": "Completed",
   "duration_formatted": "6h 2m",
+  "duration_short": "6h",
+  "views": 2783,
   "views_formatted": "2.8K",
-  "slug": "foundry-free-steam-next-fest-demo",
+  "status": "Completed",
   "status_color": "blue"
 }

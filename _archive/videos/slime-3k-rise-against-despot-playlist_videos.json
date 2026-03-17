@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-10-19T16:00:29Z",
       "durationInSeconds": 1306,
       "viewCount": 303
-    }
+    },
+    "title": "Slime 3K Gameplay: Blob vs Puny Humans, Rise Against Despot - Free Steam Demo | Let's Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/bM_nrNzwUdM/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-10-20T19:00:17Z",
       "durationInSeconds": 2667,
       "viewCount": 158
-    }
+    },
+    "title": "Slime 3K: A Blaze of Fiery AoE Fury in a NEW Map! - Free Demo Gameplay | Let's Play Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/bEVLsVeUBMM/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-10-21T16:00:20Z",
       "durationInSeconds": 1967,
       "viewCount": 208
-    }
+    },
+    "title": "Slime 3K: Piercing Chaos - Full Upgrades! The Final Map: Free Demo Gameplay | Lets Play Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/SVI-JslwF5s/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2023-10-25T19:30:00Z",
       "durationInSeconds": 1803,
       "viewCount": 99
-    }
+    },
+    "title": "Slime 3K: Small Slimes and Springs - Let's Play Episode 4",
+    "thumbnail": "https://i.ytimg.com/vi/3CrtAP8pGE0/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   }
 ]

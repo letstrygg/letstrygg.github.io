@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7_jLDE6igjBReDHvyUjR8P",
-  "title": "Thronefall - Kingdom Tower Defense Game",
+  "slug": "thronefall-kingdom-tower-defense-game",
+  "title": "Thronefall Kingdom Tower Defense Game",
   "thumbnail": "https://i.ytimg.com/vi/jYZrzejEBEo/maxresdefault.jpg",
   "published": "2023-08-02T02:18:06.180692Z",
   "updated": "2024-03-11T13:00:21Z",
-  "fetched": "2026-03-07T12:04:01.434Z",
+  "fetched": "2026-03-17T10:00:12.439Z",
   "episodes": 4,
   "duration": 10489,
-  "views": 456,
-  "status": "Completed",
   "duration_formatted": "2h 54m",
-  "views_formatted": "456",
-  "slug": "thronefall-kingdom-tower-defense-game",
+  "duration_short": "3h",
+  "views": 459,
+  "views_formatted": "459",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5JfyfXyjB-RwNyHaJMblwm",
-  "title": "Balatro: Poker Roguelike Let's Play Series",
+  "slug": "balatro-poker-roguelike-lets-play-series",
+  "title": "Balatro Poker Roguelike Lets Play Series",
   "thumbnail": "https://i.ytimg.com/vi/0YoVG3cyfkU/maxresdefault.jpg",
   "published": "2024-02-27T05:21:36.831142Z",
   "updated": "2024-03-09T13:00:15Z",
-  "fetched": "2026-03-07T12:03:41.347Z",
+  "fetched": "2026-03-17T10:00:13.176Z",
   "episodes": 8,
   "duration": 34836,
-  "views": 671,
-  "status": "Completed",
   "duration_formatted": "9h 40m",
+  "duration_short": "10h",
+  "views": 671,
   "views_formatted": "671",
-  "slug": "balatro-poker-roguelike-lets-play-series",
+  "status": "Completed",
   "status_color": "blue"
 }

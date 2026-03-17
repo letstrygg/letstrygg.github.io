@@ -8,7 +8,11 @@
       "videoPublishedAt": "2023-09-11T17:00:22Z",
       "durationInSeconds": 1852,
       "viewCount": 125
-    }
+    },
+    "title": "Techtonica: Indie Factory Automation Game Lets Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/Rl13z7wU2nw/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-09-12T17:00:29Z",
       "durationInSeconds": 2207,
       "viewCount": 28
-    }
+    },
+    "title": "Techtonica Lets Play Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/tVEm1KTLFBM/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-09-13T17:00:11Z",
       "durationInSeconds": 2209,
       "viewCount": 20
-    }
+    },
+    "title": "Techtonica Lets Play Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/9akish3L_gA/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2023-09-14T17:00:33Z",
       "durationInSeconds": 2763,
       "viewCount": 21
-    }
+    },
+    "title": "Techtonica Lets Play Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/eDyLOofpW68/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 1
   }
 ]

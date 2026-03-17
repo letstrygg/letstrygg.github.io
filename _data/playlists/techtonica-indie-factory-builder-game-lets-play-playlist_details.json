@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6VRlVknLJ6CH-KRncHTanD",
-  "title": "Techtonica: Indie Factory Builder Game | Lets Play",
+  "slug": "techtonica-indie-factory-builder-game-lets-play",
+  "title": "Techtonica Indie Factory Builder Game Lets Play",
   "thumbnail": "https://i.ytimg.com/vi/Rl13z7wU2nw/maxresdefault.jpg",
   "published": "2023-09-10T22:44:56.842552Z",
   "updated": "2023-09-14T17:00:33Z",
-  "fetched": "2026-03-07T12:03:58.613Z",
+  "fetched": "2026-03-17T10:00:10.914Z",
   "episodes": 4,
   "duration": 9031,
-  "views": 194,
-  "status": "Completed",
   "duration_formatted": "2h 30m",
+  "duration_short": "3h",
+  "views": 194,
   "views_formatted": "194",
-  "slug": "techtonica-indie-factory-builder-game-lets-play",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -7,8 +7,12 @@
       "videoId": "jYZrzejEBEo",
       "videoPublishedAt": "2023-08-02T19:00:20Z",
       "durationInSeconds": 1588,
-      "viewCount": 200
-    }
+      "viewCount": 202
+    },
+    "title": "Let's Play Thronefall Ep 1 - Minimalist Indie Tower Defense Gameplay (Free Steam Demo)",
+    "thumbnail": "https://i.ytimg.com/vi/jYZrzejEBEo/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2023-08-03T19:00:25Z",
       "durationInSeconds": 2776,
       "viewCount": 62
-    }
+    },
+    "title": "Thronefall Ep 2 - Minimalist Indie Tower Defense Gameplay | Free Steam Demo",
+    "thumbnail": "https://i.ytimg.com/vi/oHysk7yW7jY/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2023-08-04T19:00:02Z",
       "durationInSeconds": 1823,
       "viewCount": 52
-    }
+    },
+    "title": "Thronefall Ep 3 - Overcoming the Zergling Onslaught & Difficult Mutators!",
+    "thumbnail": "https://i.ytimg.com/vi/2nGIe6hdt1s/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -40,7 +52,11 @@
       "videoId": "Pi5ZsldmeaU",
       "videoPublishedAt": "2024-03-11T13:00:21Z",
       "durationInSeconds": 4302,
-      "viewCount": 142
-    }
+      "viewCount": 143
+    },
+    "title": "Thronefall: Minimalist Tower Defense Army Real Time Strategy Game - Let's Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/Pi5ZsldmeaU/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 8
   }
 ]
