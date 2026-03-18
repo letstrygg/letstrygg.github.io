@@ -17,6 +17,7 @@ const inputSection = document.getElementById('inputSection');
 const userNameDisplay = document.getElementById('userNameDisplay');
 const userColorPicker = document.getElementById('userColor');
 const grabTimeBtn = document.getElementById('grabTimeBtn');
+const onlineBadge = document.getElementById('chat-online-count');
 
 // Filter Toggles
 const timeToggle = document.getElementById('timeToggle');
@@ -460,6 +461,33 @@ if (supabaseClient) {
     chatChannel.on('postgres_changes', { event: '*', schema: 'public', table: 'ltg_chat' }, payload => { loadMessages(); });
     chatChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_profiles' }, payload => { loadMessages(); });
     chatChannel.subscribe();
+
+    // === SUPABASE PRESENCE (LIVE VIEWER COUNT) ===
+    const presenceChannel = supabaseClient.channel('global_presence');
+    
+    presenceChannel.on('presence', { event: 'sync' }, () => {
+        const newState = presenceChannel.presenceState();
+        const totalOnline = Object.keys(newState).length;
+        
+        if (onlineBadge) {
+            if (totalOnline > 0) {
+                onlineBadge.innerText = totalOnline;
+                onlineBadge.style.display = 'inline-block';
+            } else {
+                onlineBadge.style.display = 'none';
+            }
+        }
+    });
+
+    presenceChannel.subscribe(async (status) => {
+        if (status === 'SUBSCRIBED') {
+            // Tracks the user's connection. 
+            // Anonymous users automatically get a unique UUID assigned by the websocket.
+            await presenceChannel.track({
+                online_at: new Date().toISOString()
+            });
+        }
+    });
 }
 
 if (sendBtn && chatInput) {
