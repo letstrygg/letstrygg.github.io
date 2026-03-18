@@ -15,6 +15,7 @@
   --red:         #ff6b6b;
   --gray:        #a0a0a0;
   --underline:   #ffffff;
+  --border:      #26262c;
 }
 
 .light-theme {
@@ -31,6 +32,7 @@
   --red:         #d10000;
   --gray:        #666666;
   --underline:   #2b2b2b;
+  --border:      #e5e5ea;
 }
 
 /* Universal Text & Icon Colors (Base level, easily overridden by game CSS) */

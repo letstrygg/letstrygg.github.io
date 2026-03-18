@@ -14,7 +14,7 @@
     <div style="width: 36px;"></div>
   </div>
 
-  <div style="padding: 10px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg-secondary);">
+  <div style="padding: 10px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--card-bg);">
     <div style="display: flex; gap: 8px;">
         <span id="timeToggle" class="icon-btn" data-tooltip="Timestamps">
             <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
@@ -37,9 +37,9 @@
       <em>Loading messages...</em>
   </div>
 
-  <div style="border-top: 1px solid var(--border); background: var(--bg-secondary); padding: 15px 10px;">
+  <div style="border-top: 1px solid var(--border); background: var(--card-bg); padding: 15px 10px;">
       <div id="loginSection" style="display: none;">
-          <p style="margin-top: 0; margin-bottom: 10px; color: var(--text-muted); font-size: 13px;">Log in to chat:</p>
+          <p style="margin-top: 0; margin-bottom: 10px; color: var(--gray); font-size: 13px;">Log in to chat:</p>
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
               <button onclick="login('twitch')" class="btn" style="flex: 1; background: #9146FF; color: white; border: none; padding: 8px; border-radius: 4px; font-size: 12px; cursor: pointer;">Twitch</button>
               <button onclick="login('discord')" class="btn" style="flex: 1; background: #5865F2; color: white; border: none; padding: 8px; border-radius: 4px; font-size: 12px; cursor: pointer;">Discord</button>
@@ -52,7 +52,7 @@
           {% include user_settings.html %}
 
           <div style="display: flex; gap: 8px; align-items: center;">
-              <button id="grabTimeBtn" class="floating-btn" data-tooltip="Insert Video Time" style="padding: 10px; background: var(--border); color: var(--text-muted);">
+              <button id="grabTimeBtn" class="floating-btn" data-tooltip="Insert Video Time" style="padding: 10px; background: var(--bg); color: var(--gray); border: 1px solid var(--border);">
                   <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
               </button>
               <input type="text" id="chatInput" placeholder="Send a message" style="padding: 10px; flex-grow: 1; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 4px; outline: none; transition: border 0.2s;">

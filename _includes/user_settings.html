@@ -1,23 +1,23 @@
-<div style="margin-bottom: 10px; font-size: 12px; color: var(--text-muted); position: relative;">
+<div style="margin-bottom: 10px; font-size: 12px; color: var(--gray); position: relative;">
     <div id="userSettingsBtn" style="display: inline-flex; align-items: center; gap: 4px; cursor: pointer; padding: 2px 4px; border-radius: 4px; margin-left: -4px; transition: background 0.2s;" onmouseover="this.style.background='rgba(128,128,128,0.15)'" onmouseout="this.style.background='transparent'">
         <strong id="userNameDisplay" style="color: var(--text); font-size: 13px;"></strong> 
         <span class="material-symbols-outlined" style="font-size: 16px;">settings</span>
     </div>
 
-    <div id="userSettingsMenu" style="display: none; position: absolute; bottom: calc(100% + 5px); left: 0; width: 220px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; padding: 12px; z-index: 1001; flex-direction: column; gap: 12px;">
+    <div id="userSettingsMenu" style="display: none; position: absolute; bottom: calc(100% + 5px); left: 0; width: 220px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 6px; padding: 12px; z-index: 1001; flex-direction: column; gap: 12px;">
         
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
             <span style="font-weight: bold; color: var(--text); font-size: 13px;">Chat Settings</span>
-            <span class="material-symbols-outlined" id="closeSettingsMenu" style="font-size: 16px; cursor: pointer; color: var(--text-muted); transition: color 0.2s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text-muted)'">close</span>
+            <span class="material-symbols-outlined" id="closeSettingsMenu" style="font-size: 16px; cursor: pointer; color: var(--gray); transition: color 0.2s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--gray)'">close</span>
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="color: var(--text-muted); font-size: 12px;">Name Color</span>
+            <span style="color: var(--gray); font-size: 12px;">Name Color</span>
             <input type="color" id="userColor" style="background: none; border: none; cursor: pointer; height: 24px; width: 24px; padding: 0;">
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="color: var(--text-muted); font-size: 12px;">Time Format</span>
+            <span style="color: var(--gray); font-size: 12px;">Time Format</span>
             <select id="timeFormatSelect" style="background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px; font-size: 12px; outline: none; cursor: pointer;">
                 <option value="24">24-Hour</option>
                 <option value="12">12-Hour</option>
@@ -25,7 +25,7 @@
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="color: var(--text-muted); font-size: 12px;">Timezone</span>
+            <span style="color: var(--gray); font-size: 12px;">Timezone</span>
             <div style="display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; overflow: hidden;">
                 <button id="tzLocalBtn" style="border: none; padding: 4px 8px; font-size: 11px; cursor: pointer; transition: all 0.2s;">Local</button>
                 <button id="tzLtgBtn" style="border: none; padding: 4px 8px; font-size: 11px; cursor: pointer; transition: all 0.2s;">LTG (UTC-7)</button>
