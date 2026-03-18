@@ -43,7 +43,7 @@
     padding: 10px 16px;
     font-size: 1rem;
     border-radius: 8px; 
-    border: 1px solid var(--gray);
+    border: 1px solid var(--border);
     background: var(--card-bg);
     color: var(--text);
     outline: none;
@@ -55,7 +55,7 @@
   display: flex;
   width: 100%;
   border-radius: 8px;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--border);
   overflow: hidden;
   background: var(--card-bg);
 }
@@ -72,7 +72,7 @@
   background: transparent;
   color: var(--text);
   border: none;
-  border-right: 1px solid var(--gray);
+  border-right: 1px solid var(--border);
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
   white-space: nowrap;
@@ -113,25 +113,25 @@
 .btn-tag {
     background: transparent;
     color: var(--text);
-    border: 1px solid var(--gray);
+    border: 1px solid var(--border);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.85em;
     cursor: pointer;
     transition: all 0.2s ease;
 }
-.btn-tag:hover { background: #333; border-color: #555; }
+.btn-tag:hover { background: #333; border-color: var(--border-active); }
 .btn-tag.active {
     background: var(--blue);
     color: var(--bg);
-    border-color: var(--blue);
+    border-color: var(--border-active);
 }
 
 .summary-info-box {
     background: var(--card-bg);
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid var(--blue);
+    border: 1px solid var(--border);
     color: var(--text);
     font-size: 0.9em;
 }
