@@ -1,7 +1,6 @@
 :root {
     /* Global Offsets & Spacing */
     --right-offset: 20px;
-    --header-height: 50px;
     
     /* Chat Widget Dimensions */
     --chat-width: 340px;
