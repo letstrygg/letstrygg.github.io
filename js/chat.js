@@ -23,10 +23,11 @@ const timeToggle = document.getElementById('timeToggle');
 const deletedToggle = document.getElementById('deletedToggle');
 const globalToggle = document.getElementById('globalChatToggle');
 const channelToggle = document.getElementById('channelChatToggle');
-const topicToggle = document.getElementById('topicChatToggle'); // New topic toggle
+const topicToggle = document.getElementById('topicChatToggle'); 
 
 let isChatOpen = localStorage.getItem('chatOpen') !== 'false'; 
 function updateChatVisibility() {
+    if (!chatSidebar || !openChatBtn) return; // Prevent crash if HTML is missing
     if (isChatOpen) {
         chatSidebar.style.right = '0';
         openChatBtn.style.display = 'none';
@@ -38,8 +39,8 @@ function updateChatVisibility() {
     }
     localStorage.setItem('chatOpen', isChatOpen);
 }
-openChatBtn.addEventListener('click', () => { isChatOpen = true; updateChatVisibility(); });
-closeChatBtn.addEventListener('click', () => { isChatOpen = false; updateChatVisibility(); });
+if (openChatBtn) openChatBtn.addEventListener('click', () => { isChatOpen = true; updateChatVisibility(); });
+if (closeChatBtn) closeChatBtn.addEventListener('click', () => { isChatOpen = false; updateChatVisibility(); });
 updateChatVisibility();
 
 // 2. SETTINGS POPUP MENU
@@ -47,16 +48,13 @@ const settingsBtn = document.getElementById('userSettingsBtn');
 const settingsMenu = document.getElementById('userSettingsMenu');
 const closeSettings = document.getElementById('closeSettingsMenu');
 
-// Toggle Menu
-if (settingsBtn) {
+if (settingsBtn && settingsMenu) {
     settingsBtn.addEventListener('click', (e) => {
         e.stopPropagation(); 
         settingsMenu.style.display = settingsMenu.style.display === 'none' ? 'flex' : 'none';
     });
 }
-
-// Close Menu
-if (closeSettings) {
+if (closeSettings && settingsMenu) {
     closeSettings.addEventListener('click', () => settingsMenu.style.display = 'none');
 }
 document.addEventListener('click', (e) => {
@@ -76,14 +74,14 @@ if (formatSelect) formatSelect.value = localStorage.getItem('chatTimeFormat') ||
 function updateTzToggleUI() {
     if (!tzLtgBtn || !tzLocalBtn) return;
     if (useLtgTime) {
-        tzLtgBtn.style.background = '#e67e22'; // LTG Orange
+        tzLtgBtn.style.background = '#e67e22'; 
         tzLtgBtn.style.color = '#fff';
         tzLtgBtn.style.fontWeight = 'bold';
         tzLocalBtn.style.background = 'transparent';
         tzLocalBtn.style.color = 'var(--text-muted)';
         tzLocalBtn.style.fontWeight = 'normal';
     } else {
-        tzLocalBtn.style.background = '#3498db'; // Local Blue
+        tzLocalBtn.style.background = '#3498db'; 
         tzLocalBtn.style.color = '#fff';
         tzLocalBtn.style.fontWeight = 'bold';
         tzLtgBtn.style.background = 'transparent';
@@ -93,7 +91,6 @@ function updateTzToggleUI() {
 }
 updateTzToggleUI();
 
-// Listeners instantly re-render timestamps
 if (tzLocalBtn) {
     tzLocalBtn.addEventListener('click', () => {
         useLtgTime = false;
@@ -117,26 +114,18 @@ if (formatSelect) {
     });
 }
 
-// The Master Format Engine
 function formatTime(dateStr) {
     const d = new Date(dateStr);
     const use24h = (localStorage.getItem('chatTimeFormat') || '24') === '24';
-    
-    // "America/Phoenix" permanently anchors to UTC-7 regardless of Daylight Savings
     const tz = useLtgTime ? 'America/Phoenix' : Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    // Get the localized date (M/D/YY)
     const dateOpts = { timeZone: tz, year: '2-digit', month: 'numeric', day: 'numeric' };
     const msgDate = new Intl.DateTimeFormat('en-US', dateOpts).format(d);
-    
-    // To check if it's "today", we also need to get "now" in the requested timezone
     const nowDate = new Intl.DateTimeFormat('en-US', dateOpts).format(new Date());
 
-    // Get the localized time
     const timeOpts = { timeZone: tz, hour: 'numeric', minute: '2-digit', hourCycle: use24h ? 'h23' : 'h12' };
     let timeStr = new Intl.DateTimeFormat('en-US', timeOpts).format(d);
 
-    // Aesthetics: pad 24h hours (e.g., "09:05" instead of "9:05")
     if (use24h) {
         let parts = timeStr.split(':');
         if (parts[0].length === 1) parts[0] = '0' + parts[0];
@@ -145,12 +134,11 @@ function formatTime(dateStr) {
 
     if (msgDate === nowDate) return timeStr;
     
-    // If not today, show "M/D" for current year, or "M/D/YY" for old years
     const msgYear = msgDate.split('/')[2];
     const nowYear = nowDate.split('/')[2];
     
     if (msgYear === nowYear) {
-        const md = msgDate.split('/').slice(0, 2).join('/'); // "M/D"
+        const md = msgDate.split('/').slice(0, 2).join('/'); 
         return `${md} ${timeStr}`;
     }
     return `${msgDate} ${timeStr}`;
@@ -158,38 +146,42 @@ function formatTime(dateStr) {
 
 // 4. TIMESTAMPS & GRABBER
 let showTimestamps = localStorage.getItem('showTimestamps') === 'true';
-timeToggle.classList.toggle('active-blue', showTimestamps);
-if (showTimestamps) chatBox.classList.add('show-timestamps');
-
-timeToggle.addEventListener('click', () => {
-    showTimestamps = !showTimestamps;
-    localStorage.setItem('showTimestamps', showTimestamps);
+if (timeToggle) {
     timeToggle.classList.toggle('active-blue', showTimestamps);
-    showTimestamps ? chatBox.classList.add('show-timestamps') : chatBox.classList.remove('show-timestamps');
-});
+    if (showTimestamps && chatBox) chatBox.classList.add('show-timestamps');
 
-grabTimeBtn.addEventListener('click', () => {
-    if (typeof player !== 'undefined' && player && typeof player.getCurrentTime === 'function') {
-        const time = player.getCurrentTime();
-        const h = Math.floor(time / 3600);
-        const m = Math.floor((time % 3600) / 60);
-        const s = Math.floor(time % 60);
-        
-        let timeStr = h > 0 ? `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}` : `${m}:${s.toString().padStart(2, '0')}`;
-        chatInput.value += (chatInput.value.length > 0 && !chatInput.value.endsWith(' ') ? ' ' : '') + `(${timeStr}) `;
-        chatInput.focus();
-    } else {
-        statusMessage.textContent = "Play video to grab time.";
-        statusMessage.style.color = "#e74c3c";
-        setTimeout(() => statusMessage.textContent = "", 2000);
-    }
-});
+    timeToggle.addEventListener('click', () => {
+        showTimestamps = !showTimestamps;
+        localStorage.setItem('showTimestamps', showTimestamps);
+        timeToggle.classList.toggle('active-blue', showTimestamps);
+        if (chatBox) showTimestamps ? chatBox.classList.add('show-timestamps') : chatBox.classList.remove('show-timestamps');
+    });
+}
+
+if (grabTimeBtn && chatInput) {
+    grabTimeBtn.addEventListener('click', () => {
+        if (typeof player !== 'undefined' && player && typeof player.getCurrentTime === 'function') {
+            const time = player.getCurrentTime();
+            const h = Math.floor(time / 3600);
+            const m = Math.floor((time % 3600) / 60);
+            const s = Math.floor(time % 60);
+            
+            let timeStr = h > 0 ? `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}` : `${m}:${s.toString().padStart(2, '0')}`;
+            chatInput.value += (chatInput.value.length > 0 && !chatInput.value.endsWith(' ') ? ' ' : '') + `(${timeStr}) `;
+            chatInput.focus();
+        } else if (statusMessage) {
+            statusMessage.textContent = "Play video to grab time.";
+            statusMessage.style.color = "#e74c3c";
+            setTimeout(() => statusMessage.textContent = "", 2000);
+        }
+    });
+}
 
 // 5. CHAT LOGIC & ROOM TOGGLES
-// Grab variables from window that were set by Jekyll
 const supabaseUrl = window.SUPABASE_URL;
 const supabaseKey = window.SUPABASE_ANON_KEY;
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+// Prevent crash if variables aren't loaded
+const supabaseClient = (supabaseUrl && supabaseKey) ? supabase.createClient(supabaseUrl, supabaseKey) : null;
 
 let currentSession = null;
 let isAdmin = false;
@@ -208,7 +200,7 @@ if (deletedToggle) {
 // --- DYNAMIC ROUTING & FILTERING STATE ---
 let currentGame = 'general';
 let currentTopic = null;
-let filterLevel = parseInt(localStorage.getItem('chatFilterLevel')) || 1; // 1=Global, 2=Channel, 3=Topic
+let filterLevel = parseInt(localStorage.getItem('chatFilterLevel')) || 1; 
 
 function parseRoute() {
     const path = window.location.pathname;
@@ -218,9 +210,9 @@ function parseRoute() {
         currentTopic = null;
     } else if (path.startsWith('/live')) {
         currentGame = 'live';
-        const hash = window.location.hash.substring(1); // e.g., "twitch/bobbooobpb"
+        const hash = window.location.hash.substring(1); 
         if (hash && hash.includes('/')) {
-            currentTopic = hash.split('/')[1]; // Extracts "bobbooobpb"
+            currentTopic = hash.split('/')[1]; 
         } else {
             currentTopic = null;
         }
@@ -231,39 +223,40 @@ function parseRoute() {
 }
 parseRoute();
 
-// Listen for dynamic platform/stream switches
 window.addEventListener('hashchange', () => {
     parseRoute();
     updateToggleUI();
     renderMessages();
 });
-window.addEventListener('topicChanged', (e) => { // Custom event triggered from live.html
+window.addEventListener('topicChanged', (e) => { 
     currentTopic = e.detail;
     updateToggleUI();
     renderMessages();
 });
 
 function updateToggleUI() {
-    globalToggle.classList.toggle('active-green', filterLevel === 1);
+    if (globalToggle) globalToggle.classList.toggle('active-green', filterLevel === 1);
     
-    // Tier 2: Channel Level (/game/ or /live)
-    if (currentGame !== 'general') {
-        channelToggle.style.display = 'inline-flex';
-        channelToggle.firstElementChild.textContent = currentGame === 'live' ? 'live_tv' : 'sports_esports';
-        channelToggle.setAttribute('data-tooltip', currentGame === 'live' ? 'All Live Streams' : 'Highlight ' + toTitleCase(currentGame.replace(/-/g, ' ')));
-        
-        if (filterLevel === 2) {
-            channelToggle.classList.add('active-green');
-            channelToggle.classList.remove('disabled');
+    if (channelToggle) {
+        if (currentGame !== 'general') {
+            channelToggle.style.display = 'inline-flex';
+            if (channelToggle.firstElementChild) {
+                channelToggle.firstElementChild.textContent = currentGame === 'live' ? 'live_tv' : 'sports_esports';
+            }
+            channelToggle.setAttribute('data-tooltip', currentGame === 'live' ? 'All Live Streams' : 'Highlight ' + toTitleCase(currentGame.replace(/-/g, ' ')));
+            
+            if (filterLevel === 2) {
+                channelToggle.classList.add('active-green');
+                channelToggle.classList.remove('disabled');
+            } else {
+                channelToggle.classList.remove('active-green');
+                channelToggle.classList.add(filterLevel === 1 ? 'disabled' : '');
+            }
         } else {
-            channelToggle.classList.remove('active-green');
-            channelToggle.classList.add(filterLevel === 1 ? 'disabled' : '');
+            channelToggle.style.display = 'none';
         }
-    } else {
-        channelToggle.style.display = 'none';
     }
 
-    // Tier 3: Topic Level (Specific streamer hash)
     if (topicToggle) {
         if (currentTopic) {
             topicToggle.style.display = 'inline-flex';
@@ -279,72 +272,72 @@ function updateToggleUI() {
         } else {
             topicToggle.style.display = 'none';
             if (filterLevel === 3) {
-                filterLevel = 2; // Fallback if hash is cleared
+                filterLevel = 2; 
                 localStorage.setItem('chatFilterLevel', filterLevel);
             }
         }
     }
 }
 
-globalToggle.addEventListener('click', () => { filterLevel = 1; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
-channelToggle.addEventListener('click', () => { filterLevel = 2; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
-if (topicToggle) {
-    topicToggle.addEventListener('click', () => { filterLevel = 3; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
-}
+if (globalToggle) globalToggle.addEventListener('click', () => { filterLevel = 1; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
+if (channelToggle) channelToggle.addEventListener('click', () => { filterLevel = 2; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
+if (topicToggle) topicToggle.addEventListener('click', () => { filterLevel = 3; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
 
 updateToggleUI(); 
 
-async function login(provider) { await supabaseClient.auth.signInWithOAuth({ provider: provider, options: { redirectTo: window.location.origin + window.location.pathname }}); }
-async function logout() { await supabaseClient.auth.signOut(); }
-async function setDeletedState(id, state) { await supabaseClient.from('ltg_chat').update({ is_deleted: state }).eq('id', id); }
+async function login(provider) { if(supabaseClient) await supabaseClient.auth.signInWithOAuth({ provider: provider, options: { redirectTo: window.location.origin + window.location.pathname }}); }
+async function logout() { if(supabaseClient) await supabaseClient.auth.signOut(); }
+async function setDeletedState(id, state) { if(supabaseClient) await supabaseClient.from('ltg_chat').update({ is_deleted: state }).eq('id', id); }
 
 let authTimeout = null;
-supabaseClient.auth.onAuthStateChange((event, session) => {
-    clearTimeout(authTimeout);
-    authTimeout = setTimeout(async () => {
-        currentSession = session;
-        if (session) {
-            loginSection.style.display = 'none';
-            inputSection.style.display = 'block';
-            isAdmin = session.user.email === 'letstrygg@gmail.com';
-            
-            if (isAdmin && deletedToggle) {
-                deletedToggle.style.display = 'inline-flex';
+if (supabaseClient) {
+    supabaseClient.auth.onAuthStateChange((event, session) => {
+        clearTimeout(authTimeout);
+        authTimeout = setTimeout(async () => {
+            currentSession = session;
+            if (session) {
+                if(loginSection) loginSection.style.display = 'none';
+                if(inputSection) inputSection.style.display = 'block';
+                isAdmin = session.user.email === 'letstrygg@gmail.com';
+                
+                if (isAdmin && deletedToggle) deletedToggle.style.display = 'inline-flex';
+                
+                const { data: profile } = await supabaseClient.from('ltg_profiles').select('username, color').eq('user_id', session.user.id).maybeSingle();
+                if (profile) {
+                    if(userNameDisplay) userNameDisplay.textContent = profile.username;
+                    if (userColorPicker) userColorPicker.value = profile.color;
+                }
+            } else {
+                if(loginSection) loginSection.style.display = 'block';
+                if(inputSection) inputSection.style.display = 'none';
+                isAdmin = false;
+                if (deletedToggle) deletedToggle.style.display = 'none';
             }
-            
-            const { data: profile } = await supabaseClient.from('ltg_profiles').select('username, color').eq('user_id', session.user.id).maybeSingle();
-            if (profile) {
-                userNameDisplay.textContent = profile.username;
-                if (userColorPicker) userColorPicker.value = profile.color;
-            }
-        } else {
-            loginSection.style.display = 'block';
-            inputSection.style.display = 'none';
-            isAdmin = false;
-            if (deletedToggle) deletedToggle.style.display = 'none';
-        }
-        loadMessages(); 
-    }, 100); 
-});
+            loadMessages(); 
+        }, 100); 
+    });
+}
 
 if (userColorPicker) {
     userColorPicker.addEventListener('change', async (e) => {
-        if (!currentSession) return;
+        if (!currentSession || !supabaseClient) return;
         await supabaseClient.from('ltg_profiles').update({ color: e.target.value }).eq('user_id', currentSession.user.id);
         renderMessages(); 
     });
 }
 
 async function loadMessages() {
+    if (!supabaseClient) return;
     let query = supabaseClient.from('ltg_chat').select('*, ltg_profiles(username, color)').order('created_at', { ascending: true }).limit(100);
     const { data, error } = await query;
-    if (error) { chatBox.innerHTML = `<span style="color:var(--text-muted);">Failed to load messages.</span>`; return; }
+    if (error && chatBox) { chatBox.innerHTML = `<span style="color:var(--text-muted);">Failed to load messages.</span>`; return; }
     
     chatMessagesData = data || [];
     renderMessages();
 }
 
 function renderMessages() {
+    if (!chatBox) return;
     chatBox.innerHTML = ''; 
     let visibleCount = 0;
 
@@ -360,7 +353,6 @@ function renderMessages() {
         const msgDiv = document.createElement('div');
         msgDiv.className = 'chat-msg' + (row.is_deleted ? ' msg-deleted' : '');
         
-        // Dynamic Highlighting based on what room the user is looking at
         if (filterLevel === 1) {
             if (currentTopic && row.topic === currentTopic) {
                 msgDiv.classList.add('msg-channel');
@@ -368,7 +360,6 @@ function renderMessages() {
                 msgDiv.classList.add('msg-channel');
             }
         } else if (filterLevel === 2 && currentTopic && row.topic === currentTopic) {
-            // Highlight specific topic messages even if viewing all of /live
             msgDiv.classList.add('msg-channel'); 
         }
         
@@ -386,7 +377,7 @@ function renderMessages() {
         let urlIconHtml = '';
         if (row.url) {
             const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-') || row.url.includes('/live');
-            const iconColor = isVideoUrl ? '#e74c3c' : 'var(--text-muted)';
+            const iconColor = isVideoUrl ? '#e74c3c' : 'var(--gray)';
             const iconName = isVideoUrl ? 'smart_display' : 'article';
             const tooltip = isVideoUrl ? 'Go to video' : 'Go to page';
             
@@ -427,37 +418,41 @@ function renderMessages() {
     });
 
     if (visibleCount === 0) {
-        chatBox.innerHTML = '<em style="color:var(--text-muted);">No messages found for selected filters.</em>';
+        chatBox.innerHTML = '<em style="color:var(--gray);">No messages found for selected filters.</em>';
     } else {
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 }
 
-const chatChannel = supabaseClient.channel('chat_updates');
-chatChannel.on('postgres_changes', { event: '*', schema: 'public', table: 'ltg_chat' }, payload => { loadMessages(); });
-chatChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_profiles' }, payload => { loadMessages(); });
-chatChannel.subscribe();
+if (supabaseClient) {
+    const chatChannel = supabaseClient.channel('chat_updates');
+    chatChannel.on('postgres_changes', { event: '*', schema: 'public', table: 'ltg_chat' }, payload => { loadMessages(); });
+    chatChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_profiles' }, payload => { loadMessages(); });
+    chatChannel.subscribe();
+}
 
-sendBtn.addEventListener('click', async () => {
-    const text = chatInput.value.trim();
-    if (!text || !currentSession) return;
-    sendBtn.disabled = true;
-    
-    // Check if we are on the live page and grab the hash so links resolve exactly
-    let msgUrl = window.location.pathname;
-    if (currentGame === 'live' && window.location.hash) {
-        msgUrl += window.location.hash;
-    }
+if (sendBtn && chatInput) {
+    sendBtn.addEventListener('click', async () => {
+        const text = chatInput.value.trim();
+        if (!text || !currentSession || !supabaseClient) return;
+        sendBtn.disabled = true;
+        
+        // Grab the hash on the live page so links resolve perfectly to the stream
+        let msgUrl = window.location.pathname;
+        if (currentGame === 'live' && window.location.hash) {
+            msgUrl += window.location.hash;
+        }
 
-    const { error } = await supabaseClient.from('ltg_chat').insert([{ 
-        message: text, 
-        user_id: currentSession.user.id, 
-        channel: currentGame,
-        topic: currentTopic,
-        url: msgUrl 
-    }]);
-    
-    if (!error) chatInput.value = ""; 
-    sendBtn.disabled = false;
-});
-chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendBtn.click(); });
+        const { error } = await supabaseClient.from('ltg_chat').insert([{ 
+            message: text, 
+            user_id: currentSession.user.id, 
+            channel: currentGame,
+            topic: currentTopic,
+            url: msgUrl 
+        }]);
+        
+        if (!error) chatInput.value = ""; 
+        sendBtn.disabled = false;
+    });
+    chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendBtn.click(); });
+}
