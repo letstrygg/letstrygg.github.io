@@ -378,31 +378,45 @@ function renderMessages() {
         const displayName = profile.username || 'Anon';
         const displayColor = profile.color || '#ffffff';
 
-let urlIconHtml = '';
-        if (row.url) {
-            const isTwitch = row.url.includes('#twitch') || row.url.toLowerCase().includes('twitch');
-            // ADDED /yt/ and /youtube/ TO THIS LIST
-            const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-') || row.url.includes('/live') || row.url.includes('/yt/') || row.url.includes('/youtube/');
-            
-            let iconColor = 'var(--gray)';
-            let iconName = 'article';
-            let tooltip = 'Go to page';
+		let urlIconHtml = '';
+		if (row.url) {
+			const url = row.url.toLowerCase();
+			
+			// 1. Categorize the URL
+			const isTwitch = url.includes('#twitch') || url.includes('twitch.tv');
+			const isKick = url.includes('#kick') || url.includes('kick.com');
+			const isYoutubeLive = url.includes('#youtube') || url.includes('/live');
+			const isVideo = url.includes('/episodes/') || url.includes('-ep-');
 
-            if (isTwitch) {
-                iconColor = '#9146FF'; 
-                iconName = 'sensors';  
-                tooltip = 'Go to stream';
-            } else if (isVideoUrl) {
-                iconColor = '#e74c3c'; 
-                iconName = 'smart_display';
-                tooltip = 'Go to video';
-            }
-            
-            const isInternal = row.url.startsWith('/');
-            const targetAttr = isInternal ? '' : 'target="_blank"';
+			// 2. Set Defaults
+			let iconColor = 'var(--gray)';
+			let iconName = 'article';
+			let tooltip = 'Go to page';
 
-            urlIconHtml = `<a href="${row.url}" ${targetAttr} data-tooltip="${tooltip}" class="tooltip-bottom" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
-        }
+			// 3. Apply Specific Branding
+			if (isTwitch) {
+				iconColor = 'var(--purple)';
+				iconName = 'sensors';
+				tooltip = 'Go to Twitch stream';
+			} else if (isKick) {
+				iconColor = 'var(--green)';
+				iconName = 'sensors';
+				tooltip = 'Go to Kick stream';
+			} else if (isYoutubeLive) {
+				iconColor = 'var(--red)';
+				iconName = 'sensors';
+				tooltip = 'Go to YouTube stream';
+			} else if (isVideo) {
+				iconColor = 'var(--red)';
+				iconName = 'smart_display';
+				tooltip = 'Go to video';
+			}
+			
+			const isInternal = row.url.startsWith('/');
+			const targetAttr = isInternal ? '' : 'target="_blank"';
+
+			urlIconHtml = `<a href="${row.url}" ${targetAttr} data-tooltip="${tooltip}" class="tooltip-bottom" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
+		}
 
         let formattedMessage = row.message;
         if (row.url) {
