@@ -23,14 +23,14 @@ permalink: /live/
                 </div>
             </div>
 
-            <div class="watch-nav" style="padding-bottom: 10px; display: flex; justify-content: center; gap: 15px;">
-                <button id="btn-twitch" class="btn" onclick="switchPlatform('twitch')" style="display: flex; align-items: center; gap: 6px; background: var(--bg-secondary); color: var(--text-muted); border: 1px solid var(--border);">
-                    <span class="material-symbols-outlined" style="font-size: 18px;">sensors</span> Twitch
-                </button>
-                <button id="btn-youtube" class="btn" onclick="switchPlatform('youtube')" style="display: flex; align-items: center; gap: 6px; background: var(--bg-secondary); color: var(--text-muted); border: 1px solid var(--border);">
-                    <span class="material-symbols-outlined" style="font-size: 18px;">play_circle</span> YouTube
-                </button>
-            </div>
+			<div id="platform-toggles" class="watch-nav" style="padding-bottom: 10px; display: none; justify-content: center; gap: 15px;">
+				<button id="btn-twitch" class="btn" onclick="switchPlatform('twitch')" style="display: flex; align-items: center; gap: 6px; background: var(--bg-secondary); color: var(--text-muted); border: 1px solid var(--border);">
+					<span class="material-symbols-outlined" style="font-size: 18px;">sensors</span> Twitch
+				</button>
+				<button id="btn-youtube" class="btn" onclick="switchPlatform('youtube')" style="display: flex; align-items: center; gap: 6px; background: var(--bg-secondary); color: var(--text-muted); border: 1px solid var(--border);">
+					<span class="material-symbols-outlined" style="font-size: 18px;">play_circle</span> YouTube
+				</button>
+			</div>
 
         </div>
     </div>
@@ -38,9 +38,30 @@ permalink: /live/
 
 <script>
 let currentPlatform = 'twitch';
-let activeStreamer = ''; // Renamed to prevent collision with chat.js
+let activeStreamer = ''; 
+let streamerData = null; // Store the DB result
 
-function loadStreamFromHash() {
+// 1. Fast, direct fetch to Supabase (using Jekyll vars to ensure it always works)
+async function fetchStreamerData(slug) {
+    const supabaseUrl = '{{ site.supabase_url }}';
+    const supabaseKey = '{{ site.supabase_anon_key }}';
+    
+    if (!supabaseUrl || !supabaseKey) return null;
+    try {
+        const response = await fetch(`${supabaseUrl}/rest/v1/ltg_streamers?slug=eq.${slug}&select=*`, {
+            headers: {
+                'apikey': supabaseKey,
+                'Authorization': `Bearer ${supabaseKey}`
+            }
+        });
+        const data = await response.json();
+        return data.length > 0 ? data[0] : null;
+    } catch (e) {
+        return null;
+    }
+}
+
+async function loadStreamFromHash() {
     const hash = window.location.hash.substring(1); 
     if (!hash) return;
 
@@ -48,15 +69,31 @@ function loadStreamFromHash() {
     if (parts.length >= 2) {
         currentPlatform = parts[0].toLowerCase();
         activeStreamer = parts[1];
+        
+        // 2. Fetch data before rendering
+        streamerData = await fetchStreamerData(activeStreamer);
+        
+        // 3. Toggle the UI buttons based on what exists in the DB
+        const togglesContainer = document.getElementById('platform-toggles');
+        const btnTwitch = document.getElementById('btn-twitch');
+        const btnYoutube = document.getElementById('btn-youtube');
+
+        if (streamerData && (streamerData.twitch_channel || streamerData.youtube_channel_id)) {
+            togglesContainer.style.display = 'flex'; // Unhide the container
+            btnTwitch.style.display = streamerData.twitch_channel ? 'flex' : 'none';
+            btnYoutube.style.display = streamerData.youtube_channel_id ? 'flex' : 'none';
+        } else {
+            togglesContainer.style.display = 'none'; // Keep hidden if no DB entry
+        }
+
         renderStream();
     }
 }
 
 function switchPlatform(platform) {
     if (!activeStreamer) return;
-    currentPlatform = platform;
+    // Changing the hash triggers the event listener, which re-runs loadStreamFromHash automatically
     window.location.hash = `${platform}/${activeStreamer}`;
-    renderStream();
 }
 
 function renderStream() {
@@ -73,19 +110,23 @@ function renderStream() {
         btnTwitch.style.color = '#9146FF'; 
         btnTwitch.style.borderColor = '#9146FF';
         
+        // Use DB value if it exists, otherwise fallback to the URL slug
+        const twitchId = (streamerData && streamerData.twitch_channel) ? streamerData.twitch_channel : activeStreamer;
         const hostname = window.location.hostname || 'letstrygg.com';
-        target.innerHTML = `<iframe src="https://player.twitch.tv/?channel=${activeStreamer}&parent=${hostname}&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>`;
+        target.innerHTML = `<iframe src="https://player.twitch.tv/?channel=${twitchId}&parent=${hostname}&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>`;
     } 
     else if (currentPlatform === 'youtube') {
         btnYoutube.style.color = '#e74c3c'; 
         btnYoutube.style.borderColor = '#e74c3c';
         
-        target.innerHTML = `<iframe src="https://www.youtube.com/embed/live_stream?channel=${activeStreamer}&autoplay=1" frameborder="0" allowfullscreen="true" height="100%" width="100%"></iframe>`;
+        // MUST use DB value for YouTube to work properly, fallback to slug just in case
+        const ytId = (streamerData && streamerData.youtube_channel_id) ? streamerData.youtube_channel_id : activeStreamer;
+        target.innerHTML = `<iframe src="https://www.youtube.com/embed/live_stream?channel=${ytId}&autoplay=1" frameborder="0" allowfullscreen="true" height="100%" width="100%"></iframe>`;
     }
 
-    // Ping the chat widget to update its topic filter
     window.dispatchEvent(new CustomEvent('topicChanged', { detail: activeStreamer }));
 }
+
 
 const wrapper = document.getElementById('player-wrapper');
 const tIcon = document.getElementById('theater-icon');
