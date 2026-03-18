@@ -8,5 +8,85 @@ permalink: /chat/
   <div class="manual-content">
       <h1 class="title">Live Chat</h1>
 	  {% include chat_widget.html %}
+	  
+	  
+	  <div class="box" style="padding: 20px; max-width: 600px; margin: 0 auto; text-align: center;">
+    <h3 style="margin-top: 0; color: var(--text); font-size: 16px;">Watch a Stream or Video</h3>
+    <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">Paste a Twitch channel or YouTube URL to open it in theater mode.</p>
+    
+    <form id="watchBarForm" style="display: flex; gap: 8px;">
+        <input type="text" id="watchUrlInput" class="input" placeholder="e.g., twitch.tv/jorbs or youtube.com/watch?v=..." style="flex-grow: 1;">
+        <button type="submit" class="btn" style="background: #e67e22; color: white; border: none; font-weight: bold;">Watch</button>
+    </form>
+    <p id="watchBarError" style="color: #e74c3c; font-size: 12px; height: 14px; margin: 8px 0 0 0; display: none;">Invalid URL format.</p>
+</div>
+
+<script>
+document.getElementById('watchBarForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const input = document.getElementById('watchUrlInput').value.trim();
+    const errorMsg = document.getElementById('watchBarError');
+    errorMsg.style.display = 'none';
+    
+    if (!input) return;
+
+    // 1. Check for Twitch Channel (e.g., twitch.tv/unreleasedsong)
+    const twitchMatch = input.match(/twitch\.tv\/([a-zA-Z0-9_]+)/i);
+    if (twitchMatch) {
+        window.location.href = `/live/#twitch/${twitchMatch[1]}`;
+        return;
+    }
+
+    // 2. Check for YouTube Video (Handles watch?v=, youtu.be/, and shorts/)
+    const ytVideoMatch = input.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i);
+    if (ytVideoMatch) {
+        const videoId = ytVideoMatch[1];
+        
+        // Try to extract a timestamp if they pasted one (e.g., &t=603s)
+        let timeParam = '';
+        const safeUrl = input.startsWith('http') ? input : 'https://' + input;
+        try {
+            const urlObj = new URL(safeUrl);
+            if (urlObj.searchParams.has('t')) {
+                // Strip the 's' off the end if YouTube added it
+                timeParam = urlObj.searchParams.get('t').replace('s', ''); 
+            }
+        } catch (err) {}
+
+        try {
+            // Check the Jekyll Dictionary
+            const response = await fetch('/api/youtube-map.json');
+            const videoMap = await response.json();
+            
+            if (videoMap[videoId]) {
+                // IT'S IN THE DATABASE! Redirect to the specific episode page
+                window.location.href = videoMap[videoId] + (timeParam ? `?t=${timeParam}` : '');
+            } else {
+                // NOT IN DATABASE: Route to the generic /yt/ player
+                window.location.href = `/yt/#${videoId}`;
+            }
+        } catch (err) {
+            // Failsafe: If the fetch fails for any reason, just send them to the player
+            window.location.href = `/yt/#${videoId}`;
+        }
+        return;
+    }
+
+    // 3. Check for YouTube Channel (Handles /channel/UC..., /@handle, /c/name)
+    const ytChannelMatch = input.match(/youtube\.com\/(?:channel\/|@|c\/|user\/)([a-zA-Z0-9_-]+)/i);
+    if (ytChannelMatch) {
+        let channelId = ytChannelMatch[1];
+        // If it was an @handle, it will just pass the handle. If it was a UC ID, it passes the ID.
+        window.location.href = `/live/#youtube/${channelId}`;
+        return;
+    }
+
+    // 4. Fallback Error
+    errorMsg.style.display = 'block';
+    errorMsg.textContent = "Could not recognize a valid Twitch or YouTube URL.";
+});
+</script>
+	  
   </div>
 </div>
