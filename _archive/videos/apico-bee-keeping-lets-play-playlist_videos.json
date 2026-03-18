@@ -8,7 +8,11 @@
       "videoPublishedAt": "2022-06-02T15:00:37Z",
       "durationInSeconds": 1552,
       "viewCount": 242
-    }
+    },
+    "title": "Apico Bee Keeping Game Lets Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/wR0oMM8ZwZQ/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,7 +22,11 @@
       "videoId": "ZSDhfBzpQ10",
       "videoPublishedAt": "2022-06-04T15:00:17Z",
       "durationInSeconds": 2641,
-      "viewCount": 73
-    }
+      "viewCount": 74
+    },
+    "title": "Apico Bee Keeping Game Lets Play Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/ZSDhfBzpQ10/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   }
 ]
