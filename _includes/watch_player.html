@@ -39,22 +39,6 @@
 
                 <div id="ytplayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
             </div>
-
-            <div class="watch-nav" style="padding-bottom: 10px;">
-                {% if include.prev_url != '' %}
-                    <a href="{{ include.prev_url }}">← Ep {{ include.prev_ep }}</a>
-                {% else %}
-                    <span></span>
-                {% endif %}
-                
-                <a href="/game/{{ include.game }}/{{ include.season_folder }}">Episode List</a>
-                
-                {% if include.next_url != '' %}
-                    <a href="{{ include.next_url }}">Ep {{ include.next_ep }} →</a>
-                {% else %}
-                    <span></span>
-                {% endif %}
-            </div>
         </div>
     </div>
 </div>
