@@ -1,0 +1,128 @@
+---
+layout: watch
+title: Live Streams
+permalink: /live/
+---
+
+<div class="game-section auto-generated-stats" style="margin-top: 0;">
+    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-bottom: 20px;">
+        <div style="width: 100%; max-width: calc((100vh - 75px) * 16 / 9);">
+            
+            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; margin-bottom: 5px; transition: all 0.3s ease; z-index: 10;">
+                
+                <div id="video-overlay" class="video-overlay" style="z-index: 20;">
+                    <div class="overlay-bottom">
+                        <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
+                            <span class="material-symbols-outlined" id="theater-icon">width_full</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="stream-embed-target" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
+                    Waiting for stream...
+                </div>
+            </div>
+
+            <div class="watch-nav" style="padding-bottom: 10px; display: flex; justify-content: center; gap: 15px;">
+                <button id="btn-twitch" class="btn" onclick="switchPlatform('twitch')" style="display: flex; align-items: center; gap: 6px; background: var(--bg-secondary); color: var(--text-muted); border: 1px solid var(--border);">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">sensors</span> Twitch
+                </button>
+                <button id="btn-youtube" class="btn" onclick="switchPlatform('youtube')" style="display: flex; align-items: center; gap: 6px; background: var(--bg-secondary); color: var(--text-muted); border: 1px solid var(--border);">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">play_circle</span> YouTube
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+let currentPlatform = 'twitch';
+let currentTopic = '';
+
+function loadStreamFromHash() {
+    const hash = window.location.hash.substring(1); 
+    if (!hash) return;
+
+    const parts = hash.split('/');
+    if (parts.length >= 2) {
+        currentPlatform = parts[0].toLowerCase();
+        currentTopic = parts[1];
+        renderStream();
+    }
+}
+
+function switchPlatform(platform) {
+    if (!currentTopic) return;
+    currentPlatform = platform;
+    window.location.hash = `${platform}/${currentTopic}`;
+    renderStream();
+}
+
+function renderStream() {
+    const target = document.getElementById('stream-embed-target');
+    const btnTwitch = document.getElementById('btn-twitch');
+    const btnYoutube = document.getElementById('btn-youtube');
+
+    // Reset buttons to standard site-wide CSS variables
+    btnTwitch.style.color = 'var(--text-muted)';
+    btnTwitch.style.borderColor = 'var(--border)';
+    btnYoutube.style.color = 'var(--text-muted)';
+    btnYoutube.style.borderColor = 'var(--border)';
+
+    if (currentPlatform === 'twitch') {
+        btnTwitch.style.color = '#9146FF'; 
+        btnTwitch.style.borderColor = '#9146FF';
+        
+        const hostname = window.location.hostname || 'letstrygg.com';
+        target.innerHTML = `<iframe src="https://player.twitch.tv/?channel=${currentTopic}&parent=${hostname}&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>`;
+    } 
+    else if (currentPlatform === 'youtube') {
+        btnYoutube.style.color = '#e74c3c'; 
+        btnYoutube.style.borderColor = '#e74c3c';
+        
+        target.innerHTML = `<iframe src="https://www.youtube.com/embed/live_stream?channel=${currentTopic}&autoplay=1" frameborder="0" allowfullscreen="true" height="100%" width="100%"></iframe>`;
+    }
+
+    // Ping the chat widget to update its topic filter
+    window.dispatchEvent(new CustomEvent('topicChanged', { detail: currentTopic }));
+}
+
+// Reuse the exact Theater Mode and Hover logic from your watch player
+const wrapper = document.getElementById('player-wrapper');
+const tIcon = document.getElementById('theater-icon');
+const tBtn = document.getElementById('theater-btn');
+
+if (tBtn) {
+    tBtn.addEventListener('click', function() {
+        const isTheater = wrapper.classList.toggle('theater-active');
+        if (isTheater) {
+            document.body.style.overflow = 'hidden';
+            tIcon.innerText = 'close_fullscreen'; 
+            tBtn.setAttribute('data-tooltip', 'Exit Theater');
+        } else {
+            document.body.style.overflow = '';
+            tIcon.innerText = 'width_full'; 
+            tBtn.setAttribute('data-tooltip', 'Theater Mode');
+        }
+    });
+}
+
+const overlay = document.getElementById('video-overlay');
+let idleTimer;
+function resetIdleTimer() {
+    overlay.style.opacity = '1';
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => { overlay.style.opacity = '0'; }, 3500);
+}
+wrapper.addEventListener('mousemove', resetIdleTimer);
+wrapper.addEventListener('mouseleave', () => {
+    clearTimeout(idleTimer);
+    overlay.style.opacity = '0'; 
+});
+resetIdleTimer();
+
+// Initialize
+window.addEventListener('load', loadStreamFromHash);
+window.addEventListener('hashchange', loadStreamFromHash);
+</script>
