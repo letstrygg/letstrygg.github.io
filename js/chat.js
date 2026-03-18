@@ -235,16 +235,20 @@ window.addEventListener('topicChanged', (e) => {
 });
 
 function updateToggleUI() {
+    // Tier 1: Global Level
     if (globalToggle) {
+        globalToggle.classList.remove('disabled'); // Ensure it's always clickable
         globalToggle.classList.toggle('active-green', filterLevel === 1);
-        globalToggle.classList.remove('disabled');
     }
     
+    // Tier 2: Channel Level (/game/ or /live)
     if (channelToggle) {
         if (currentGame !== 'general') {
             channelToggle.style.display = 'inline-flex';
-            channelToggle.classList.remove('disabled'); // <--- The fix: unlocks the button
-            channelToggle.classList.toggle('active-green', filterLevel === 2);
+            channelToggle.classList.remove('disabled'); // Ensure it's always clickable
+            
+            // CASCADING HIGHLIGHT: Active if Global (1) or Channel (2)
+            channelToggle.classList.toggle('active-green', filterLevel <= 2);
             
             if (channelToggle.firstElementChild) {
                 channelToggle.firstElementChild.textContent = currentGame === 'live' ? 'live_tv' : 'sports_esports';
@@ -255,11 +259,14 @@ function updateToggleUI() {
         }
     }
 
+    // Tier 3: Topic Level (Specific streamer hash)
     if (topicToggle) {
         if (currentTopic) {
             topicToggle.style.display = 'inline-flex';
-            topicToggle.classList.remove('disabled'); // <--- The fix: unlocks the button
-            topicToggle.classList.toggle('active-green', filterLevel === 3);
+            topicToggle.classList.remove('disabled'); // Ensure it's always clickable
+            
+            // CASCADING HIGHLIGHT: Active if Global (1), Channel (2), or Topic (3)
+            topicToggle.classList.toggle('active-green', filterLevel <= 3);
             
             topicToggle.setAttribute('data-tooltip', toTitleCase(currentTopic) + ' Chat');
         } else {
