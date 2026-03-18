@@ -5,7 +5,7 @@
     --chat-highlight: rgba(255, 235, 59, 0.15); 
     --chat-width: 340px;
     --chat-height: 50vh;
-    --ui-right-offset: 20px; /* Use this in style.css for your Theme Toggle! */
+    --right-offset: 20px;
 }
 
 .chat-badge { background: #222; color: #888; padding: 4px 10px; border-radius: 12px; cursor: pointer; user-select: none; border: 1px solid #333; transition: all 0.2s; font-size: 11px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
@@ -39,7 +39,7 @@
 #openChatBtn {
     position: fixed !important;
     top: 70px !important;
-    right: var(--ui-right-offset) !important; /* Uses the new variable */
+    right: var(--right-offset) !important; /* Uses the new variable */
     z-index: 1000;
 }
 
@@ -104,7 +104,7 @@ body.chat-open-squish .os-scrollbar-vertical {
     #openChatBtn {
         top: auto !important;
         bottom: 0 !important;
-        right: var(--ui-right-offset) !important;
+        right: var(--right-offset) !important;
         border-radius: 4px 4px 0 0;
     }
     
