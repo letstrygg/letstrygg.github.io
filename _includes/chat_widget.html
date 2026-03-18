@@ -55,7 +55,7 @@
                   <span class="material-symbols-outlined" style="font-size: 16px;">settings</span>
               </div>
 
-              <div id="userSettingsMenu" style="display: none; position: absolute; bottom: calc(100% + 5px); left: 0; width: 220px; background: #18181b; border: 1px solid #3a3a3d; border-radius: 6px; padding: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); z-index: 1001; flex-direction: column; gap: 12px;">
+              <div id="userSettingsMenu" style="display: none; position: absolute; bottom: calc(100% + 5px); left: 0; width: 220px; background: #18181b; border: 1px solid #3a3a3d; border-radius: 6px; padding: 12px; z-index: 1001; flex-direction: column; gap: 12px;">
                   
                   <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #26262c; padding-bottom: 6px;">
                       <span style="font-weight: bold; color: #efeff1; font-size: 13px;">Chat Settings</span>
@@ -75,10 +75,12 @@
                       </select>
                   </div>
 
-                  <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
                       <span style="color: #aaa; font-size: 12px;">Timezone</span>
-                      <select id="timezoneSelect" style="background: #0e0e10; color: #efeff1; border: 1px solid #3a3a3d; border-radius: 4px; padding: 4px; font-size: 12px; outline: none; width: 100%; cursor: pointer;">
-                          </select>
+                      <div style="display: flex; background: #0e0e10; border: 1px solid #3a3a3d; border-radius: 4px; overflow: hidden;">
+                          <button id="tzLocalBtn" style="border: none; padding: 4px 8px; font-size: 11px; cursor: pointer; transition: all 0.2s;">Local</button>
+                          <button id="tzLtgBtn" style="border: none; padding: 4px 8px; font-size: 11px; cursor: pointer; transition: all 0.2s;">LTG (UTC-7)</button>
+                      </div>
                   </div>
 
                   <button onclick="logout(); return false;" class="btn" style="width: 100%; background: rgba(231, 76, 60, 0.1); color: #e74c3c; border: 1px solid rgba(231, 76, 60, 0.4); padding: 6px; border-radius: 4px; font-size: 12px; cursor: pointer; margin-top: 4px; font-weight: bold; transition: background 0.2s;" onmouseover="this.style.background='rgba(231, 76, 60, 0.2)'" onmouseout="this.style.background='rgba(231, 76, 60, 0.1)'">Log Out</button>
@@ -163,34 +165,43 @@ document.addEventListener('click', (e) => {
 });
 
 // 3. TIMEZONE & FORMAT LOGIC
-const tzSelect = document.getElementById('timezoneSelect');
 const formatSelect = document.getElementById('timeFormatSelect');
+const tzLocalBtn = document.getElementById('tzLocalBtn');
+const tzLtgBtn = document.getElementById('tzLtgBtn');
 
-// Populate Timezone Dropdown
-const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-const ltgTz = 'America/Phoenix'; // UTC-07:00 permanently
-const allTz = Intl.supportedValuesOf('timeZone');
-
-let tzHtml = `<option value="${userTz}" style="color: #3498db; font-weight: bold;">Local (${userTz})</option>`;
-if (userTz !== ltgTz) {
-    tzHtml += `<option value="${ltgTz}" style="color: #e67e22; font-weight: bold;">LTG Time (${ltgTz})</option>`;
-}
-tzHtml += `<option disabled>──────────</option>`;
-allTz.forEach(tz => {
-    if (tz !== userTz && tz !== ltgTz) {
-        tzHtml += `<option value="${tz}">${tz}</option>`;
-    }
-});
-tzSelect.innerHTML = tzHtml;
-
-// Load saved preferences
-const savedTz = localStorage.getItem('chatTimezone');
-tzSelect.value = (savedTz && allTz.includes(savedTz)) ? savedTz : userTz;
+let useLtgTime = localStorage.getItem('chatUseLtgTime') === 'true';
 formatSelect.value = localStorage.getItem('chatTimeFormat') || '24';
 
+function updateTzToggleUI() {
+    if (useLtgTime) {
+        tzLtgBtn.style.background = '#e67e22'; // LTG Orange
+        tzLtgBtn.style.color = '#fff';
+        tzLtgBtn.style.fontWeight = 'bold';
+        tzLocalBtn.style.background = 'transparent';
+        tzLocalBtn.style.color = '#aaa';
+        tzLocalBtn.style.fontWeight = 'normal';
+    } else {
+        tzLocalBtn.style.background = '#3498db'; // Local Blue
+        tzLocalBtn.style.color = '#fff';
+        tzLocalBtn.style.fontWeight = 'bold';
+        tzLtgBtn.style.background = 'transparent';
+        tzLtgBtn.style.color = '#aaa';
+        tzLtgBtn.style.fontWeight = 'normal';
+    }
+}
+updateTzToggleUI();
+
 // Listeners instantly re-render timestamps
-tzSelect.addEventListener('change', (e) => {
-    localStorage.setItem('chatTimezone', e.target.value);
+tzLocalBtn.addEventListener('click', () => {
+    useLtgTime = false;
+    localStorage.setItem('chatUseLtgTime', 'false');
+    updateTzToggleUI();
+    renderMessages();
+});
+tzLtgBtn.addEventListener('click', () => {
+    useLtgTime = true;
+    localStorage.setItem('chatUseLtgTime', 'true');
+    updateTzToggleUI();
     renderMessages();
 });
 formatSelect.addEventListener('change', (e) => {
@@ -201,12 +212,16 @@ formatSelect.addEventListener('change', (e) => {
 // The Master Format Engine
 function formatTime(dateStr) {
     const d = new Date(dateStr);
-    const tz = localStorage.getItem('chatTimezone') || Intl.DateTimeFormat().resolvedOptions().timeZone;
     const use24h = (localStorage.getItem('chatTimeFormat') || '24') === '24';
+    
+    // "America/Phoenix" permanently anchors to UTC-7 regardless of Daylight Savings
+    const tz = useLtgTime ? 'America/Phoenix' : Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     // Get the localized date (M/D/YY)
     const dateOpts = { timeZone: tz, year: '2-digit', month: 'numeric', day: 'numeric' };
     const msgDate = new Intl.DateTimeFormat('en-US', dateOpts).format(d);
+    
+    // To check if it's "today", we also need to get "now" in the requested timezone
     const nowDate = new Intl.DateTimeFormat('en-US', dateOpts).format(new Date());
 
     // Get the localized time
@@ -360,6 +375,7 @@ supabaseClient.auth.onAuthStateChange((event, session) => {
 userColorPicker.addEventListener('change', async (e) => {
     if (!currentSession) return;
     await supabaseClient.from('ltg_profiles').update({ color: e.target.value }).eq('user_id', currentSession.user.id);
+    renderMessages(); // Instantly update the UI so they don't have to refresh to see their new color
 });
 
 async function loadMessages() {
