@@ -216,6 +216,9 @@ function parseRoute() {
         } else {
             currentTopic = null;
         }
+    } else if (path.startsWith('/yt') || path.startsWith('/youtube')) { // ADD THIS BLOCK
+        currentGame = 'youtube_vod'; 
+        currentTopic = window.location.hash.substring(1); // The topic is just the Video ID
     } else {
         currentGame = 'general';
         currentTopic = null;
@@ -377,18 +380,19 @@ function renderMessages() {
 let urlIconHtml = '';
         if (row.url) {
             const isTwitch = row.url.includes('#twitch') || row.url.toLowerCase().includes('twitch');
-            const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-') || row.url.includes('/live');
+            // ADDED /yt/ and /youtube/ TO THIS LIST
+            const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-') || row.url.includes('/live') || row.url.includes('/yt/') || row.url.includes('/youtube/');
             
             let iconColor = 'var(--gray)';
             let iconName = 'article';
             let tooltip = 'Go to page';
 
             if (isTwitch) {
-                iconColor = '#9146FF'; // Twitch Purple
-                iconName = 'sensors';  // Broadcast icon
+                iconColor = '#9146FF'; 
+                iconName = 'sensors';  
                 tooltip = 'Go to stream';
             } else if (isVideoUrl) {
-                iconColor = '#e74c3c'; // YouTube Red
+                iconColor = '#e74c3c'; 
                 iconName = 'smart_display';
                 tooltip = 'Go to video';
             }

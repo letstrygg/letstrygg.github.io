@@ -1,0 +1,89 @@
+---
+layout: watch
+title: YouTube VOD
+permalink: /yt/
+---
+
+<div class="game-section auto-generated-stats" style="margin-top: 0;">
+    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-bottom: 20px;">
+        <div style="width: 100%; max-width: calc((100vh - 75px) * 16 / 9);">
+            
+            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; margin-bottom: 5px; transition: all 0.3s ease; z-index: 10;">
+                
+                <div id="video-overlay" class="video-overlay" style="z-index: 20;">
+                    <div class="overlay-bottom">
+                        <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
+                            <span class="material-symbols-outlined" id="theater-icon">width_full</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="stream-embed-target" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
+                    Loading Video...
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+let currentVideoId = '';
+
+function loadVideoFromHash() {
+    const hash = window.location.hash.substring(1); 
+    if (!hash) return;
+
+    currentVideoId = hash;
+    renderVideo();
+}
+
+function renderVideo() {
+    const target = document.getElementById('stream-embed-target');
+    
+    // Standard YouTube VOD Embed (rel=0 stops unrelated recommended videos at the end)
+    target.innerHTML = `<iframe src="https://www.youtube.com/embed/${currentVideoId}?autoplay=1&rel=0" frameborder="0" allowfullscreen="true" height="100%" width="100%"></iframe>`;
+
+    // Ping the chat widget so it knows to filter chat to this specific video ID
+    window.dispatchEvent(new CustomEvent('topicChanged', { detail: currentVideoId }));
+}
+
+// Theater Mode Logic
+const wrapper = document.getElementById('player-wrapper');
+const tIcon = document.getElementById('theater-icon');
+const tBtn = document.getElementById('theater-btn');
+
+if (tBtn) {
+    tBtn.addEventListener('click', function() {
+        const isTheater = wrapper.classList.toggle('theater-active');
+        if (isTheater) {
+            document.body.style.overflow = 'hidden';
+            tIcon.innerText = 'close_fullscreen'; 
+            tBtn.setAttribute('data-tooltip', 'Exit Theater');
+        } else {
+            document.body.style.overflow = '';
+            tIcon.innerText = 'width_full'; 
+            tBtn.setAttribute('data-tooltip', 'Theater Mode');
+        }
+    });
+}
+
+// UI Overlay Hover Logic
+const overlay = document.getElementById('video-overlay');
+let idleTimer;
+function resetIdleTimer() {
+    overlay.style.opacity = '1';
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => { overlay.style.opacity = '0'; }, 3500);
+}
+wrapper.addEventListener('mousemove', resetIdleTimer);
+wrapper.addEventListener('mouseleave', () => {
+    clearTimeout(idleTimer);
+    overlay.style.opacity = '0'; 
+});
+resetIdleTimer();
+
+// Initialize on load and hash change
+window.addEventListener('load', loadVideoFromHash);
+window.addEventListener('hashchange', loadVideoFromHash);
+</script>
