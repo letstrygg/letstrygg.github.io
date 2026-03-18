@@ -30,23 +30,39 @@ permalink: /yt/
 <script>
 let currentVideoId = '';
 
-function loadVideoFromHash() {
+async function loadVideoFromHash() {
     const hash = window.location.hash.substring(1); 
     if (!hash) return;
-
+    
     currentVideoId = hash;
+
+    try {
+        // 1. Fetch the lightweight dictionary Jekyll built
+        const response = await fetch('/youtube-map.json');
+        const videoMap = await response.json();
+
+        // 2. Check if the ID exists in the dictionary
+        if (videoMap[currentVideoId]) {
+            // MATCH FOUND! Instantly redirect to the real episode page.
+            // Using replace() so hitting the 'Back' button doesn't trap them in a loop.
+            window.location.replace(videoMap[currentVideoId]);
+            return; // Stop running code on this page
+        }
+    } catch (e) {
+        console.error("Failed to load video map", e);
+    }
+
+    // 3. NO MATCH FOUND: Render the normal VOD embed
     renderVideo();
 }
 
 function renderVideo() {
     const target = document.getElementById('stream-embed-target');
-    
-    // Standard YouTube VOD Embed (rel=0 stops unrelated recommended videos at the end)
     target.innerHTML = `<iframe src="https://www.youtube.com/embed/${currentVideoId}?autoplay=1&rel=0" frameborder="0" allowfullscreen="true" height="100%" width="100%"></iframe>`;
-
-    // Ping the chat widget so it knows to filter chat to this specific video ID
     window.dispatchEvent(new CustomEvent('topicChanged', { detail: currentVideoId }));
 }
+
+// ... [Keep Theater Mode and Overlay logic below this] ...
 
 // Theater Mode Logic
 const wrapper = document.getElementById('player-wrapper');
