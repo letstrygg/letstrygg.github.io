@@ -14,7 +14,8 @@
     <div style="width: 36px;"></div>
   </div>
 
-  <div style="padding: 10px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg2);">
+<div style="padding: 10px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg2);">
+    
     <div style="display: flex; gap: 8px;">
         <span id="timeToggle" class="icon-btn tooltip-left-edge" data-tooltip="Timestamps">
             <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
@@ -23,17 +24,8 @@
             <span class="material-symbols-outlined" style="font-size: 18px;">delete</span>
         </span>
     </div>
+
     <div style="display: flex; gap: 8px;">
-        <span id="globalChatToggle" class="icon-btn active-green tooltip-right-edge" data-tooltip="Global Chat">
-            <span class="material-symbols-outlined" style="font-size: 18px;">public</span>
-        </span>
-        <span id="channelChatToggle" class="icon-btn disabled tooltip-right-edge" data-tooltip="" style="display: none;">
-            <span class="material-symbols-outlined" style="font-size: 18px;">sports_esports</span>
-        </span>
-    </div>
-  </div>
-  
-  <div style="display: flex; gap: 8px;">
         <span id="globalChatToggle" class="icon-btn active-green tooltip-right-edge" data-tooltip="Global Chat">
             <span class="material-symbols-outlined" style="font-size: 18px;">public</span>
         </span>
@@ -44,6 +36,7 @@
             <span class="material-symbols-outlined" style="font-size: 18px;">record_voice_over</span>
         </span>
     </div>
+  </div>
 
   <div id="chatBox" style="flex-grow: 1; overflow-y: auto; padding: 10px; color: var(--text); background: var(--bg); overflow-x: hidden;">
       <em>Loading messages...</em>
