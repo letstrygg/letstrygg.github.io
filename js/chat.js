@@ -23,6 +23,7 @@ const timeToggle = document.getElementById('timeToggle');
 const deletedToggle = document.getElementById('deletedToggle');
 const globalToggle = document.getElementById('globalChatToggle');
 const channelToggle = document.getElementById('channelChatToggle');
+const topicToggle = document.getElementById('topicChatToggle'); // New topic toggle
 
 let isChatOpen = localStorage.getItem('chatOpen') !== 'false'; 
 function updateChatVisibility() {
@@ -47,15 +48,19 @@ const settingsMenu = document.getElementById('userSettingsMenu');
 const closeSettings = document.getElementById('closeSettingsMenu');
 
 // Toggle Menu
-settingsBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); 
-    settingsMenu.style.display = settingsMenu.style.display === 'none' ? 'flex' : 'none';
-});
+if (settingsBtn) {
+    settingsBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); 
+        settingsMenu.style.display = settingsMenu.style.display === 'none' ? 'flex' : 'none';
+    });
+}
 
 // Close Menu
-closeSettings.addEventListener('click', () => settingsMenu.style.display = 'none');
+if (closeSettings) {
+    closeSettings.addEventListener('click', () => settingsMenu.style.display = 'none');
+}
 document.addEventListener('click', (e) => {
-    if (!settingsMenu.contains(e.target) && !settingsBtn.contains(e.target)) {
+    if (settingsMenu && settingsBtn && !settingsMenu.contains(e.target) && !settingsBtn.contains(e.target)) {
         settingsMenu.style.display = 'none';
     }
 });
@@ -66,9 +71,10 @@ const tzLocalBtn = document.getElementById('tzLocalBtn');
 const tzLtgBtn = document.getElementById('tzLtgBtn');
 
 let useLtgTime = localStorage.getItem('chatUseLtgTime') === 'true';
-formatSelect.value = localStorage.getItem('chatTimeFormat') || '24';
+if (formatSelect) formatSelect.value = localStorage.getItem('chatTimeFormat') || '24';
 
 function updateTzToggleUI() {
+    if (!tzLtgBtn || !tzLocalBtn) return;
     if (useLtgTime) {
         tzLtgBtn.style.background = '#e67e22'; // LTG Orange
         tzLtgBtn.style.color = '#fff';
@@ -88,22 +94,28 @@ function updateTzToggleUI() {
 updateTzToggleUI();
 
 // Listeners instantly re-render timestamps
-tzLocalBtn.addEventListener('click', () => {
-    useLtgTime = false;
-    localStorage.setItem('chatUseLtgTime', 'false');
-    updateTzToggleUI();
-    renderMessages();
-});
-tzLtgBtn.addEventListener('click', () => {
-    useLtgTime = true;
-    localStorage.setItem('chatUseLtgTime', 'true');
-    updateTzToggleUI();
-    renderMessages();
-});
-formatSelect.addEventListener('change', (e) => {
-    localStorage.setItem('chatTimeFormat', e.target.value);
-    renderMessages();
-});
+if (tzLocalBtn) {
+    tzLocalBtn.addEventListener('click', () => {
+        useLtgTime = false;
+        localStorage.setItem('chatUseLtgTime', 'false');
+        updateTzToggleUI();
+        renderMessages();
+    });
+}
+if (tzLtgBtn) {
+    tzLtgBtn.addEventListener('click', () => {
+        useLtgTime = true;
+        localStorage.setItem('chatUseLtgTime', 'true');
+        updateTzToggleUI();
+        renderMessages();
+    });
+}
+if (formatSelect) {
+    formatSelect.addEventListener('change', (e) => {
+        localStorage.setItem('chatTimeFormat', e.target.value);
+        renderMessages();
+    });
+}
 
 // The Master Format Engine
 function formatTime(dateStr) {
@@ -184,56 +196,102 @@ let isAdmin = false;
 let showDeleted = false; 
 let chatMessagesData = []; 
 
-deletedToggle.addEventListener('click', () => {
-    if (!isAdmin) return;
-    showDeleted = !showDeleted;
-    deletedToggle.classList.toggle('active-red', showDeleted);
-    renderMessages();
-});
-
-let showGlobalChat = localStorage.getItem('showGlobalChat') !== 'false';
-let highlightChannelChat = localStorage.getItem('highlightChannelChat') === 'true';
-
-let currentGame = 'general';
-const pathParts = window.location.pathname.split('/game/');
-if (pathParts.length > 1) currentGame = pathParts[1].split('/')[0] || 'general';
-
-function updateToggleUI() {
-    globalToggle.classList.toggle('active-green', showGlobalChat);
-    
-    if (currentGame !== 'general') {
-        if (!showGlobalChat) {
-            channelToggle.classList.remove('active-green');
-            channelToggle.classList.add('disabled');
-        } else {
-            channelToggle.classList.toggle('active-green', highlightChannelChat);
-            channelToggle.classList.remove('disabled');
-        }
-    }
+if (deletedToggle) {
+    deletedToggle.addEventListener('click', () => {
+        if (!isAdmin) return;
+        showDeleted = !showDeleted;
+        deletedToggle.classList.toggle('active-red', showDeleted);
+        renderMessages();
+    });
 }
 
-globalToggle.addEventListener('click', () => {
-    showGlobalChat = !showGlobalChat;
-    localStorage.setItem('showGlobalChat', showGlobalChat);
+// --- DYNAMIC ROUTING & FILTERING STATE ---
+let currentGame = 'general';
+let currentTopic = null;
+let filterLevel = parseInt(localStorage.getItem('chatFilterLevel')) || 1; // 1=Global, 2=Channel, 3=Topic
+
+function parseRoute() {
+    const path = window.location.pathname;
+    if (path.startsWith('/game/')) {
+        const pathParts = path.split('/game/');
+        if (pathParts.length > 1) currentGame = pathParts[1].split('/')[0] || 'general';
+        currentTopic = null;
+    } else if (path.startsWith('/live')) {
+        currentGame = 'live';
+        const hash = window.location.hash.substring(1); // e.g., "twitch/bobbooobpb"
+        if (hash && hash.includes('/')) {
+            currentTopic = hash.split('/')[1]; // Extracts "bobbooobpb"
+        } else {
+            currentTopic = null;
+        }
+    } else {
+        currentGame = 'general';
+        currentTopic = null;
+    }
+}
+parseRoute();
+
+// Listen for dynamic platform/stream switches
+window.addEventListener('hashchange', () => {
+    parseRoute();
+    updateToggleUI();
+    renderMessages();
+});
+window.addEventListener('topicChanged', (e) => { // Custom event triggered from live.html
+    currentTopic = e.detail;
     updateToggleUI();
     renderMessages();
 });
 
-if (currentGame !== 'general') {
-    const formattedGameName = toTitleCase(currentGame.replace(/-/g, ' '));
-    channelToggle.setAttribute('data-tooltip', 'Highlight ' + formattedGameName);
-    channelToggle.style.display = 'inline-flex';
+function updateToggleUI() {
+    globalToggle.classList.toggle('active-green', filterLevel === 1);
     
-    channelToggle.addEventListener('click', () => {
-        if (!showGlobalChat) return; 
-        highlightChannelChat = !highlightChannelChat;
-        localStorage.setItem('highlightChannelChat', highlightChannelChat);
-        updateToggleUI();
-        renderMessages();
-    });
-} else {
-    channelToggle.style.display = 'none';
+    // Tier 2: Channel Level (/game/ or /live)
+    if (currentGame !== 'general') {
+        channelToggle.style.display = 'inline-flex';
+        channelToggle.firstElementChild.textContent = currentGame === 'live' ? 'live_tv' : 'sports_esports';
+        channelToggle.setAttribute('data-tooltip', currentGame === 'live' ? 'All Live Streams' : 'Highlight ' + toTitleCase(currentGame.replace(/-/g, ' ')));
+        
+        if (filterLevel === 2) {
+            channelToggle.classList.add('active-green');
+            channelToggle.classList.remove('disabled');
+        } else {
+            channelToggle.classList.remove('active-green');
+            channelToggle.classList.add(filterLevel === 1 ? 'disabled' : '');
+        }
+    } else {
+        channelToggle.style.display = 'none';
+    }
+
+    // Tier 3: Topic Level (Specific streamer hash)
+    if (topicToggle) {
+        if (currentTopic) {
+            topicToggle.style.display = 'inline-flex';
+            topicToggle.setAttribute('data-tooltip', 'Highlight ' + toTitleCase(currentTopic));
+            
+            if (filterLevel === 3) {
+                topicToggle.classList.add('active-green');
+                topicToggle.classList.remove('disabled');
+            } else {
+                topicToggle.classList.remove('active-green');
+                topicToggle.classList.add('disabled');
+            }
+        } else {
+            topicToggle.style.display = 'none';
+            if (filterLevel === 3) {
+                filterLevel = 2; // Fallback if hash is cleared
+                localStorage.setItem('chatFilterLevel', filterLevel);
+            }
+        }
+    }
 }
+
+globalToggle.addEventListener('click', () => { filterLevel = 1; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
+channelToggle.addEventListener('click', () => { filterLevel = 2; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
+if (topicToggle) {
+    topicToggle.addEventListener('click', () => { filterLevel = 3; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
+}
+
 updateToggleUI(); 
 
 async function login(provider) { await supabaseClient.auth.signInWithOAuth({ provider: provider, options: { redirectTo: window.location.origin + window.location.pathname }}); }
@@ -250,30 +308,32 @@ supabaseClient.auth.onAuthStateChange((event, session) => {
             inputSection.style.display = 'block';
             isAdmin = session.user.email === 'letstrygg@gmail.com';
             
-            if (isAdmin) {
+            if (isAdmin && deletedToggle) {
                 deletedToggle.style.display = 'inline-flex';
             }
             
             const { data: profile } = await supabaseClient.from('ltg_profiles').select('username, color').eq('user_id', session.user.id).maybeSingle();
             if (profile) {
                 userNameDisplay.textContent = profile.username;
-                userColorPicker.value = profile.color;
+                if (userColorPicker) userColorPicker.value = profile.color;
             }
         } else {
             loginSection.style.display = 'block';
             inputSection.style.display = 'none';
             isAdmin = false;
-            deletedToggle.style.display = 'none';
+            if (deletedToggle) deletedToggle.style.display = 'none';
         }
         loadMessages(); 
     }, 100); 
 });
 
-userColorPicker.addEventListener('change', async (e) => {
-    if (!currentSession) return;
-    await supabaseClient.from('ltg_profiles').update({ color: e.target.value }).eq('user_id', currentSession.user.id);
-    renderMessages(); 
-});
+if (userColorPicker) {
+    userColorPicker.addEventListener('change', async (e) => {
+        if (!currentSession) return;
+        await supabaseClient.from('ltg_profiles').update({ color: e.target.value }).eq('user_id', currentSession.user.id);
+        renderMessages(); 
+    });
+}
 
 async function loadMessages() {
     let query = supabaseClient.from('ltg_chat').select('*, ltg_profiles(username, color)').order('created_at', { ascending: true }).limit(100);
@@ -289,27 +349,27 @@ function renderMessages() {
     let visibleCount = 0;
 
     chatMessagesData.forEach(row => {
-        if (row.is_deleted) {
-            if (!isAdmin || !showDeleted) return; 
-        }
+        if (row.is_deleted && (!isAdmin || !showDeleted)) return; 
         
-        const isChannelMsg = (row.channel === currentGame);
-
-        if (currentGame !== 'general') {
-            if (!isChannelMsg && !showGlobalChat) return; 
-        } else {
-            if (!showGlobalChat) return;
-        }
+        // Tiered Filtering
+        if (filterLevel === 2 && row.channel !== currentGame) return;
+        if (filterLevel === 3 && (row.channel !== currentGame || row.topic !== currentTopic)) return;
 
         visibleCount++;
 
         const msgDiv = document.createElement('div');
         msgDiv.className = 'chat-msg' + (row.is_deleted ? ' msg-deleted' : '');
         
-        if (isChannelMsg && currentGame !== 'general') {
-            if (highlightChannelChat && showGlobalChat) {
+        // Dynamic Highlighting based on what room the user is looking at
+        if (filterLevel === 1) {
+            if (currentTopic && row.topic === currentTopic) {
+                msgDiv.classList.add('msg-channel');
+            } else if (!currentTopic && currentGame !== 'general' && row.channel === currentGame) {
                 msgDiv.classList.add('msg-channel');
             }
+        } else if (filterLevel === 2 && currentTopic && row.topic === currentTopic) {
+            // Highlight specific topic messages even if viewing all of /live
+            msgDiv.classList.add('msg-channel'); 
         }
         
         let adminHtml = '';
@@ -325,7 +385,7 @@ function renderMessages() {
 
         let urlIconHtml = '';
         if (row.url) {
-            const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-');
+            const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-') || row.url.includes('/live');
             const iconColor = isVideoUrl ? '#e74c3c' : 'var(--text-muted)';
             const iconName = isVideoUrl ? 'smart_display' : 'article';
             const tooltip = isVideoUrl ? 'Go to video' : 'Go to page';
@@ -338,7 +398,7 @@ function renderMessages() {
 
         let formattedMessage = row.message;
         if (row.url) {
-            const isCurrentPage = (row.url === window.location.pathname);
+            const isCurrentPage = (row.url.split('#')[0] === window.location.pathname);
             const isInternal = row.url.startsWith('/');
             const targetAttr = isInternal ? '' : 'target="_blank"';
             
@@ -383,11 +443,18 @@ sendBtn.addEventListener('click', async () => {
     if (!text || !currentSession) return;
     sendBtn.disabled = true;
     
+    // Check if we are on the live page and grab the hash so links resolve exactly
+    let msgUrl = window.location.pathname;
+    if (currentGame === 'live' && window.location.hash) {
+        msgUrl += window.location.hash;
+    }
+
     const { error } = await supabaseClient.from('ltg_chat').insert([{ 
         message: text, 
         user_id: currentSession.user.id, 
         channel: currentGame,
-        url: window.location.pathname 
+        topic: currentTopic,
+        url: msgUrl 
     }]);
     
     if (!error) chatInput.value = ""; 
