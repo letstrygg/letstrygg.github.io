@@ -11,144 +11,17 @@
 }
 </script>
 
-<div class="game-section auto-generated-stats" style="margin-top: 0;">
-    
-    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-bottom: 20px;">
-        
-        <div style="width: 100%; max-width: calc((100vh - 75px) * 16 / 9);">
-            
-            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; margin-bottom: 5px; transition: all 0.3s ease; z-index: 10;">
-                
-                <div id="video-overlay" class="video-overlay">
-                    
-                    <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> Dec 26, 2022</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> 32m 11s</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> 495</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> 0</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> 0</span>
-                    </div>
-
-                    <button onclick="window.location.href='/game/noita/s1/episodes/n-ep-172.html'" class="overlay-btn overlay-side overlay-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    <button onclick="window.location.href='/game/noita/s1/episodes/n-ep-174.html'" class="overlay-btn overlay-side overlay-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
-                    
-                    <div class="overlay-bottom">
-                        <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
-                            <span class="material-symbols-outlined" id="theater-icon">width_full</span>
-                        </button>
-                        <button id="copy-time-btn" class="overlay-btn" data-tooltip="Copy Timestamp">
-                            <span class="material-symbols-outlined" id="copy-icon">link</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div id="ytplayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-            </div>
-
-            <div class="watch-nav" style="padding-bottom: 10px;">
-                <a href="/game/noita/s1/episodes/n-ep-172.html">← Ep 172</a>
-                <a href="/game/noita/s1">Episode List</a>
-                <a href="/game/noita/s1/episodes/n-ep-174.html">Ep 174 →</a>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<script>
-  var storageKey = 'yt_resume_K80MrDcSpDU';
-  var savedTime = localStorage.getItem(storageKey) || 0;
-
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  var player;
-  var saveInterval;
-
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('ytplayer', {
-      videoId: 'K80MrDcSpDU',
-      playerVars: {
-        'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
-        'start': Math.floor(savedTime)
-      },
-      events: { 'onStateChange': onPlayerStateChange }
-    });
-  }
-
-  function onPlayerStateChange(event) {
-    if (event.data === 1) {
-        if (!saveInterval) {
-            saveInterval = setInterval(function() {
-                localStorage.setItem(storageKey, player.getCurrentTime());
-            }, 5000);
-        }
-    } else {
-        clearInterval(saveInterval);
-        saveInterval = null;
-    }
-
-    if (event.data === 0) {
-        localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "/game/noita/s1/episodes/n-ep-174.html";
-        if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
-    }
-  }
-
-  const wrapper = document.getElementById('player-wrapper');
-  const overlay = document.getElementById('video-overlay');
-  let idleTimer;
-
-  function resetIdleTimer() {
-      overlay.style.opacity = '1';
-      clearTimeout(idleTimer);
-      idleTimer = setTimeout(() => { overlay.style.opacity = '0'; }, 3500);
-  }
-
-  wrapper.addEventListener('mousemove', resetIdleTimer);
-  wrapper.addEventListener('mouseleave', () => {
-      clearTimeout(idleTimer);
-      overlay.style.opacity = '0'; 
-  });
-  resetIdleTimer();
-
-  const copyBtn = document.getElementById('copy-time-btn');
-  copyBtn.addEventListener('click', function() {
-      if (player && player.getCurrentTime) {
-          const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/K80MrDcSpDU?t=" + t + "s";
-          navigator.clipboard.writeText(url).then(() => {
-              const icon = document.getElementById('copy-icon');
-              icon.innerText = 'check'; 
-              copyBtn.setAttribute('data-tooltip', 'Copied!');
-              setTimeout(() => { 
-                  icon.innerText = 'link'; 
-                  copyBtn.setAttribute('data-tooltip', 'Copy Timestamp');
-              }, 2000);
-          });
-      }
-  });
-
-  const tIcon = document.getElementById('theater-icon');
-  const tBtn = document.getElementById('theater-btn');
-  tBtn.addEventListener('click', function() {
-      const isTheater = wrapper.classList.toggle('theater-active');
-      if (isTheater) {
-          wrapper.style.position = 'fixed';
-          wrapper.style.top = '0'; wrapper.style.left = '0';
-          wrapper.style.width = '100vw'; wrapper.style.height = '100vh';
-          wrapper.style.maxWidth = '100vw'; 
-          wrapper.style.zIndex = '9999'; document.body.style.overflow = 'hidden';
-          tIcon.innerText = 'close_fullscreen'; tBtn.setAttribute('data-tooltip', 'Exit Theater');
-      } else {
-          wrapper.style.position = 'relative';
-          wrapper.style.top = 'auto'; wrapper.style.left = 'auto';
-          wrapper.style.width = '100%'; wrapper.style.height = 'auto';
-          wrapper.style.maxWidth = 'none'; 
-          wrapper.style.zIndex = '10'; document.body.style.overflow = '';
-          tIcon.innerText = 'width_full'; tBtn.setAttribute('data-tooltip', 'Theater Mode');
-      }
-  });
-</script>
+{% include watch_player.html 
+    video_id="K80MrDcSpDU"
+    published="Dec 26, 2022"
+    duration="32m 11s"
+    views="495"
+    likes="0"
+    comments="0"
+    prev_url="/game/noita/s1/episodes/n-ep-172.html"
+    next_url="/game/noita/s1/episodes/n-ep-174.html"
+    prev_ep="172"
+    next_ep="174"
+    game="noita"
+    season_folder="s1"
+%}
