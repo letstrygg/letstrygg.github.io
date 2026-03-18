@@ -540,7 +540,7 @@ header { text-align: center; padding: 20px 0; }
 /* --- Floating Action Buttons (Theme, Chat Open/Close) --- */
 .floating-btn {
     background: transparent;
-    color: #efeff1;
+    color: var(--text);
     border: none;
     cursor: pointer;
     padding: 6px;
