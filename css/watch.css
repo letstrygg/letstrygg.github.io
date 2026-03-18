@@ -16,15 +16,28 @@ main {
 /* ==========================================================================
    MINIMALIST VIDEO OVERLAY
    ========================================================================== */
+
+/* The Main Overlay Container (Crucial for fade and click-through) */
+.video-overlay {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    pointer-events: none; /* Lets mouse clicks pass through to YouTube */
+    transition: opacity 0.3s ease;
+    z-index: 20;
+}
+
 /* --- Video Overlay Stats Box --- */
 .overlay-stats {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    bottom: 60px; /* Moved to sit exactly above the YouTube playback bar */
+    right: 15px;  /* Moved to the bottom right edge */
     
     /* The Glass Panel Look */
-    background: rgba(14, 14, 16, 0.85); /* Matches your dark background */
-    backdrop-filter: blur(4px);         /* Softens the video underneath */
+    background: rgba(14, 14, 16, 0.85); 
+    backdrop-filter: blur(4px);         
     -webkit-backdrop-filter: blur(4px);
     
     /* Borders and Shadows */
@@ -42,7 +55,6 @@ main {
     color: #efeff1;
     font-size: 13px;
     font-weight: 500;
-    z-index: 20;
 }
 
 /* Ensure the icons and text align perfectly inside the box */
@@ -52,14 +64,15 @@ main {
     gap: 5px;
 }
 
-/* Optional: Size down the material icons slightly so they fit the 13px text */
+/* Size down the material icons slightly so they fit the 13px text */
 .ep-stat .material-symbols-outlined {
     font-size: 16px; 
 }
 
 /* Native-Style Overlay Buttons */
 .overlay-btn {
-    pointer-events: auto; 
+    position: relative;   /* Crucial: anchors the global CSS tooltips */
+    pointer-events: auto; /* Makes the buttons clickable again */
     background: transparent;
     border: none;
     color: #ffffff; 
@@ -67,36 +80,17 @@ main {
     align-items: center; 
     justify-content: center;
     cursor: pointer;
-    position: relative;
-    opacity: 0.85; /* Matches native YT dimness */
+    opacity: 0.85; 
     transition: opacity 0.2s ease;
 }
 
 .overlay-btn:hover { 
-    opacity: 1; /* Snaps to pure white */
+    opacity: 1; 
 }
-
-/* Instant Custom Tooltips */
-[data-tooltip]::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    background: rgba(28, 28, 28, 0.95);
-    color: #fff;
-    padding: 4px 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 100;
-    font-family: 'Segoe UI', sans-serif;
-}
-[data-tooltip]:hover::after { opacity: 1; }
 
 /* Side Navigation Arrows */
 .overlay-side { 
-    position: absolute; 
+    position: absolute; /* Overrides relative positioning for side layout */
     top: 50%; 
     transform: translateY(-50%); 
     padding: 20px; 
@@ -105,32 +99,19 @@ main {
 .overlay-left { left: 0px; }
 .overlay-right { right: 0px; }
 
-/* Tooltips for side arrows (Centered BELOW the button) */
-.overlay-side[data-tooltip]::after {
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(8px);
-}
 
 /* Bottom Center Controls */
 .overlay-bottom { 
     position: absolute; 
-    /* 10px puts these perfectly in the center gap of the native YouTube controls */
     bottom: 4px; 
     left: 50%; 
     transform: translateX(-50%); 
     display: flex; 
     gap: 25px; 
+    pointer-events: auto; /* Ensure this flexbox catches hover states */
 }
 .overlay-bottom .material-symbols-outlined { font-size: 1.8rem; }
 
-/* Tooltips for bottom buttons (Centered ABOVE the button) */
-.overlay-bottom .overlay-btn[data-tooltip]::after {
-    bottom: 100%;
-    top: auto;
-    left: 50%;
-    transform: translateX(-50%) translateY(-12px);
-}
 
 /* ==========================================================================
    MINIMALIST NAVIGATION ROW
