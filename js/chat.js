@@ -374,12 +374,24 @@ function renderMessages() {
         const displayName = profile.username || 'Anon';
         const displayColor = profile.color || '#ffffff';
 
-        let urlIconHtml = '';
+let urlIconHtml = '';
         if (row.url) {
+            const isTwitch = row.url.includes('#twitch') || row.url.toLowerCase().includes('twitch');
             const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-') || row.url.includes('/live');
-            const iconColor = isVideoUrl ? '#e74c3c' : 'var(--gray)';
-            const iconName = isVideoUrl ? 'smart_display' : 'article';
-            const tooltip = isVideoUrl ? 'Go to video' : 'Go to page';
+            
+            let iconColor = 'var(--gray)';
+            let iconName = 'article';
+            let tooltip = 'Go to page';
+
+            if (isTwitch) {
+                iconColor = '#9146FF'; // Twitch Purple
+                iconName = 'sensors';  // Broadcast icon
+                tooltip = 'Go to stream';
+            } else if (isVideoUrl) {
+                iconColor = '#e74c3c'; // YouTube Red
+                iconName = 'smart_display';
+                tooltip = 'Go to video';
+            }
             
             const isInternal = row.url.startsWith('/');
             const targetAttr = isInternal ? '' : 'target="_blank"';
