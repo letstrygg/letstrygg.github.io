@@ -14,7 +14,7 @@ body.chat-open-squish { padding-right: 340px; }
 .chat-msg { margin-bottom: 8px; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; font-size: 13px; word-break: break-word; border: 1px solid transparent; }
 
 .msg-channel { 
-    background-color: rgb(45, 42, 6); 
+    background-color: #252525; 
     margin: 0px -10px 8px;
     padding: 0px 10px; 
 }
