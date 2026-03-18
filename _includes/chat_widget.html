@@ -30,6 +30,9 @@
         <span id="channelChatToggle" class="icon-btn disabled tooltip-right-edge" data-tooltip="" style="display: none;">
             <span class="material-symbols-outlined" style="font-size: 18px;">sports_esports</span>
         </span>
+        <span id="topicChatToggle" class="icon-btn disabled tooltip-right-edge" data-tooltip="" style="display: none;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">record_voice_over</span>
+        </span>
     </div>
   </div>
 
@@ -101,7 +104,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// Helper to Capitalize Title Case
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt){
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -127,6 +129,7 @@ const timeToggle = document.getElementById('timeToggle');
 const deletedToggle = document.getElementById('deletedToggle');
 const globalToggle = document.getElementById('globalChatToggle');
 const channelToggle = document.getElementById('channelChatToggle');
+const topicToggle = document.getElementById('topicChatToggle');
 
 let isChatOpen = localStorage.getItem('chatOpen') !== 'false'; 
 function updateChatVisibility() {
@@ -150,13 +153,11 @@ const settingsBtn = document.getElementById('userSettingsBtn');
 const settingsMenu = document.getElementById('userSettingsMenu');
 const closeSettings = document.getElementById('closeSettingsMenu');
 
-// Toggle Menu
 settingsBtn.addEventListener('click', (e) => {
     e.stopPropagation(); 
     settingsMenu.style.display = settingsMenu.style.display === 'none' ? 'flex' : 'none';
 });
 
-// Close Menu
 closeSettings.addEventListener('click', () => settingsMenu.style.display = 'none');
 document.addEventListener('click', (e) => {
     if (!settingsMenu.contains(e.target) && !settingsBtn.contains(e.target)) {
@@ -174,14 +175,14 @@ formatSelect.value = localStorage.getItem('chatTimeFormat') || '24';
 
 function updateTzToggleUI() {
     if (useLtgTime) {
-        tzLtgBtn.style.background = '#e67e22'; // LTG Orange
+        tzLtgBtn.style.background = '#e67e22'; 
         tzLtgBtn.style.color = '#fff';
         tzLtgBtn.style.fontWeight = 'bold';
         tzLocalBtn.style.background = 'transparent';
         tzLocalBtn.style.color = 'var(--text-muted)';
         tzLocalBtn.style.fontWeight = 'normal';
     } else {
-        tzLocalBtn.style.background = '#3498db'; // Local Blue
+        tzLocalBtn.style.background = '#3498db'; 
         tzLocalBtn.style.color = '#fff';
         tzLocalBtn.style.fontWeight = 'bold';
         tzLtgBtn.style.background = 'transparent';
@@ -191,7 +192,6 @@ function updateTzToggleUI() {
 }
 updateTzToggleUI();
 
-// Listeners instantly re-render timestamps
 tzLocalBtn.addEventListener('click', () => {
     useLtgTime = false;
     localStorage.setItem('chatUseLtgTime', 'false');
@@ -209,26 +209,18 @@ formatSelect.addEventListener('change', (e) => {
     renderMessages();
 });
 
-// The Master Format Engine
 function formatTime(dateStr) {
     const d = new Date(dateStr);
     const use24h = (localStorage.getItem('chatTimeFormat') || '24') === '24';
-    
-    // "America/Phoenix" permanently anchors to UTC-7 regardless of Daylight Savings
     const tz = useLtgTime ? 'America/Phoenix' : Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    // Get the localized date (M/D/YY)
     const dateOpts = { timeZone: tz, year: '2-digit', month: 'numeric', day: 'numeric' };
     const msgDate = new Intl.DateTimeFormat('en-US', dateOpts).format(d);
-    
-    // To check if it's "today", we also need to get "now" in the requested timezone
     const nowDate = new Intl.DateTimeFormat('en-US', dateOpts).format(new Date());
 
-    // Get the localized time
     const timeOpts = { timeZone: tz, hour: 'numeric', minute: '2-digit', hourCycle: use24h ? 'h23' : 'h12' };
     let timeStr = new Intl.DateTimeFormat('en-US', timeOpts).format(d);
 
-    // Aesthetics: pad 24h hours (e.g., "09:05" instead of "9:05")
     if (use24h) {
         let parts = timeStr.split(':');
         if (parts[0].length === 1) parts[0] = '0' + parts[0];
@@ -237,12 +229,11 @@ function formatTime(dateStr) {
 
     if (msgDate === nowDate) return timeStr;
     
-    // If not today, show "M/D" for current year, or "M/D/YY" for old years
     const msgYear = msgDate.split('/')[2];
     const nowYear = nowDate.split('/')[2];
     
     if (msgYear === nowYear) {
-        const md = msgDate.split('/').slice(0, 2).join('/'); // "M/D"
+        const md = msgDate.split('/').slice(0, 2).join('/'); 
         return `${md} ${timeStr}`;
     }
     return `${msgDate} ${timeStr}`;
@@ -294,50 +285,77 @@ deletedToggle.addEventListener('click', () => {
     renderMessages();
 });
 
-let showGlobalChat = localStorage.getItem('showGlobalChat') !== 'false';
-let highlightChannelChat = localStorage.getItem('highlightChannelChat') === 'true';
-
+// Dynamic Routing & Filtering State
 let currentGame = 'general';
-const pathParts = window.location.pathname.split('/game/');
-if (pathParts.length > 1) currentGame = pathParts[1].split('/')[0] || 'general';
+let currentTopic = null;
+let filterLevel = parseInt(localStorage.getItem('chatFilterLevel')) || 1; // 1=Global, 2=Channel, 3=Topic
 
-function updateToggleUI() {
-    globalToggle.classList.toggle('active-green', showGlobalChat);
-    
-    if (currentGame !== 'general') {
-        if (!showGlobalChat) {
-            channelToggle.classList.remove('active-green');
-            channelToggle.classList.add('disabled');
-        } else {
-            channelToggle.classList.toggle('active-green', highlightChannelChat);
-            channelToggle.classList.remove('disabled');
-        }
+const path = window.location.pathname;
+if (path.startsWith('/game/')) {
+    const pathParts = path.split('/game/');
+    if (pathParts.length > 1) currentGame = pathParts[1].split('/')[0] || 'general';
+} else if (path.startsWith('/live')) {
+    currentGame = 'live';
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+        const hashParts = hash.split('/');
+        if (hashParts.length > 1) currentTopic = hashParts[1];
     }
 }
 
-globalToggle.addEventListener('click', () => {
-    showGlobalChat = !showGlobalChat;
-    localStorage.setItem('showGlobalChat', showGlobalChat);
+// Listen for platform/stream switches
+window.addEventListener('topicChanged', (e) => {
+    currentTopic = e.detail;
     updateToggleUI();
     renderMessages();
 });
 
-if (currentGame !== 'general') {
-    const formattedGameName = toTitleCase(currentGame.replace(/-/g, ' '));
-    channelToggle.setAttribute('data-tooltip', 'Highlight ' + formattedGameName);
-    channelToggle.style.display = 'inline-flex';
+function updateToggleUI() {
+    globalToggle.classList.toggle('active-green', filterLevel === 1);
     
-    channelToggle.addEventListener('click', () => {
-        if (!showGlobalChat) return; 
-        highlightChannelChat = !highlightChannelChat;
-        localStorage.setItem('highlightChannelChat', highlightChannelChat);
-        updateToggleUI();
-        renderMessages();
-    });
-} else {
-    channelToggle.style.display = 'none';
+    // Channel Level setup (/game/ or /live)
+    if (currentGame !== 'general') {
+        channelToggle.style.display = 'inline-flex';
+        channelToggle.firstElementChild.textContent = currentGame === 'live' ? 'live_tv' : 'sports_esports';
+        channelToggle.setAttribute('data-tooltip', 'Highlight ' + toTitleCase(currentGame.replace(/-/g, ' ')));
+        
+        if (filterLevel === 2) {
+            channelToggle.classList.add('active-green');
+            channelToggle.classList.remove('disabled');
+        } else {
+            channelToggle.classList.remove('active-green');
+            channelToggle.classList.add(filterLevel === 1 ? 'disabled' : '');
+        }
+    } else {
+        channelToggle.style.display = 'none';
+    }
+
+    // Topic Level setup (Specific streamer hash)
+    if (currentTopic) {
+        topicToggle.style.display = 'inline-flex';
+        topicToggle.setAttribute('data-tooltip', 'Highlight ' + toTitleCase(currentTopic));
+        
+        if (filterLevel === 3) {
+            topicToggle.classList.add('active-green');
+            topicToggle.classList.remove('disabled');
+        } else {
+            topicToggle.classList.remove('active-green');
+            topicToggle.classList.add('disabled');
+        }
+    } else {
+        topicToggle.style.display = 'none';
+        if (filterLevel === 3) {
+            filterLevel = 2; // Fallback if hash is cleared
+            localStorage.setItem('chatFilterLevel', filterLevel);
+        }
+    }
 }
-updateToggleUI(); 
+
+globalToggle.addEventListener('click', () => { filterLevel = 1; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
+channelToggle.addEventListener('click', () => { filterLevel = 2; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
+topicToggle.addEventListener('click', () => { filterLevel = 3; localStorage.setItem('chatFilterLevel', filterLevel); updateToggleUI(); renderMessages(); });
+
+updateToggleUI();
 
 async function login(provider) { await supabaseClient.auth.signInWithOAuth({ provider: provider, options: { redirectTo: window.location.origin + window.location.pathname }}); }
 async function logout() { await supabaseClient.auth.signOut(); }
@@ -392,27 +410,27 @@ function renderMessages() {
     let visibleCount = 0;
 
     chatMessagesData.forEach(row => {
-        if (row.is_deleted) {
-            if (!isAdmin || !showDeleted) return; 
-        }
+        if (row.is_deleted && (!isAdmin || !showDeleted)) return; 
         
-        const isChannelMsg = (row.channel === currentGame);
-
-        if (currentGame !== 'general') {
-            if (!isChannelMsg && !showGlobalChat) return; 
-        } else {
-            if (!showGlobalChat) return;
-        }
+        // Tiered Filtering
+        if (filterLevel === 2 && row.channel !== currentGame) return;
+        if (filterLevel === 3 && (row.channel !== currentGame || row.topic !== currentTopic)) return;
 
         visibleCount++;
 
         const msgDiv = document.createElement('div');
         msgDiv.className = 'chat-msg' + (row.is_deleted ? ' msg-deleted' : '');
         
-        if (isChannelMsg && currentGame !== 'general') {
-            if (highlightChannelChat && showGlobalChat) {
+        // Dynamic Highlighting based on what room the user is currently looking at
+        if (filterLevel === 1) {
+            if (currentTopic && row.topic === currentTopic) {
+                msgDiv.classList.add('msg-channel');
+            } else if (!currentTopic && currentGame !== 'general' && row.channel === currentGame) {
                 msgDiv.classList.add('msg-channel');
             }
+        } else if (filterLevel === 2 && currentTopic && row.topic === currentTopic) {
+            // Highlight specific topic messages even if viewing all of /live
+            msgDiv.classList.add('msg-channel'); 
         }
         
         let adminHtml = '';
@@ -428,7 +446,7 @@ function renderMessages() {
 
         let urlIconHtml = '';
         if (row.url) {
-            const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-');
+            const isVideoUrl = row.url.includes('/episodes/') || row.url.includes('-ep-') || row.url.includes('/live');
             const iconColor = isVideoUrl ? '#e74c3c' : 'var(--text-muted)';
             const iconName = isVideoUrl ? 'smart_display' : 'article';
             const tooltip = isVideoUrl ? 'Go to video' : 'Go to page';
@@ -441,7 +459,7 @@ function renderMessages() {
 
         let formattedMessage = row.message;
         if (row.url) {
-            const isCurrentPage = (row.url === window.location.pathname);
+            const isCurrentPage = (row.url.split('#')[0] === window.location.pathname);
             const isInternal = row.url.startsWith('/');
             const targetAttr = isInternal ? '' : 'target="_blank"';
             
@@ -486,11 +504,15 @@ sendBtn.addEventListener('click', async () => {
     if (!text || !currentSession) return;
     sendBtn.disabled = true;
     
+    // Concatenate hash if it exists to ensure links point exactly to the stream
+    const fullUrl = window.location.pathname + window.location.hash;
+
     const { error } = await supabaseClient.from('ltg_chat').insert([{ 
         message: text, 
         user_id: currentSession.user.id, 
         channel: currentGame,
-        url: window.location.pathname 
+        topic: currentTopic,
+        url: fullUrl
     }]);
     
     if (!error) chatInput.value = ""; 
