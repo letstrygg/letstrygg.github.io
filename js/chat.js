@@ -462,12 +462,28 @@ if (supabaseClient) {
     chatChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_profiles' }, payload => { loadMessages(); });
     chatChannel.subscribe();
 
-    // === SUPABASE PRESENCE (LIVE VIEWER COUNT) ===
+// === SUPABASE PRESENCE (LIVE VIEWER COUNT) ===
     const presenceChannel = supabaseClient.channel('global_presence');
     
+    // Create a persistent browser ID for anonymous users so multiple tabs = 1 viewer
+    let deviceId = localStorage.getItem('ltg_device_id');
+    if (!deviceId) {
+        deviceId = Math.random().toString(36).substring(2, 15);
+        localStorage.setItem('ltg_device_id', deviceId);
+    }
+
     presenceChannel.on('presence', { event: 'sync' }, () => {
         const newState = presenceChannel.presenceState();
-        const totalOnline = Object.keys(newState).length;
+        const uniqueUsers = new Set();
+        
+        // Loop through all active connections and extract the unique IDs
+        for (const key in newState) {
+            newState[key].forEach(state => {
+                if (state.user_id) uniqueUsers.add(state.user_id);
+            });
+        }
+        
+        const totalOnline = uniqueUsers.size; // Only counts unique IDs
         
         if (onlineBadge) {
             if (totalOnline > 0) {
@@ -481,9 +497,9 @@ if (supabaseClient) {
 
     presenceChannel.subscribe(async (status) => {
         if (status === 'SUBSCRIBED') {
-            // Tracks the user's connection. 
-            // Anonymous users automatically get a unique UUID assigned by the websocket.
             await presenceChannel.track({
+                // Use Supabase user ID if logged in, otherwise use local browser ID
+                user_id: currentSession ? currentSession.user.id : deviceId,
                 online_at: new Date().toISOString()
             });
         }
