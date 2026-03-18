@@ -44,7 +44,7 @@
     font-size: 1rem;
     border-radius: 8px; 
     border: 1px solid var(--border);
-    background: var(--card-bg);
+    background: var(--bg2);
     color: var(--text);
     outline: none;
     transition: border-color 0.2s ease;
@@ -57,7 +57,7 @@
   border-radius: 8px;
   border: 1px solid var(--border);
   overflow: hidden;
-  background: var(--card-bg);
+  background: var(--bg2);
 }
 
 .segment-btn {
@@ -128,7 +128,7 @@
 }
 
 .summary-info-box {
-    background: var(--card-bg);
+    background: var(--bg2);
     padding: 20px;
     border-radius: 8px;
     border: 1px solid var(--border);

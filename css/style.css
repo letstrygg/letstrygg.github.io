@@ -2,8 +2,8 @@
    1. VARIABLES, THEMES, & COLOR UTILITIES
    ========================================================================== */
 :root {
-  --bg:          #111111;
-  --card-bg:     #18181b;
+	--bg:					#111111;
+	--bg2:					#18181b;
   --text:        #e3e3e3;
   --title:       #ffffff;
   --subtitle:    #00e8ff;
@@ -20,8 +20,8 @@
 }
 
 .light-theme {
-  --bg:          #ffffff;
-  --card-bg:     #d5d5d5;
+	--bg:					#ffffff;
+	--bg2:					#d5d5d5;
   --text:        #111111;
   --title:       #06cfff;
   --subtitle:    #898989;
@@ -219,7 +219,7 @@ header { text-align: center; padding: 20px 0; }
 .season-block {
   display: flex;
   flex-direction: column;
-  background: var(--card-bg);
+  background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 15px; 
@@ -273,7 +273,7 @@ header { text-align: center; padding: 20px 0; }
 .ep-card {
   display: flex;
   flex-direction: column;
-  background: var(--card-bg);
+  background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
@@ -390,7 +390,7 @@ header { text-align: center; padding: 20px 0; }
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
-  background: var(--card-bg);
+  background: var(--bg2);
   color: var(--text);
   transition: transform 0.2s ease, border-color 0.2s ease;
   /* NEW: Turns every card into a responsive container! */
