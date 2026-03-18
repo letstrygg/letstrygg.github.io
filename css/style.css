@@ -3,7 +3,7 @@
    ========================================================================== */
 :root {
   --bg:          #111111;
-  --card-bg:     #111723;
+  --card-bg:     #18181b;
   --text:        #e3e3e3;
   --title:       #ffffff;
   --subtitle:    #00e8ff;
@@ -20,7 +20,7 @@
 
 .light-theme {
   --bg:          #ffffff;
-  --card-bg:     #daefff;
+  --card-bg:     #d5d5d5;
   --text:        #111111;
   --title:       #06cfff;
   --subtitle:    #898989;
