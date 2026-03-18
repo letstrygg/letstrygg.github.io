@@ -5,7 +5,7 @@ function toTitleCase(str) {
 }
 
 // 1. GUARANTEE UI VISIBILITY
-const chatSidebar = document.getElementById('chatSidebar');
+const chatPanel = document.getElementById('chatPanel');
 const openChatBtn = document.getElementById('openChatBtn');
 const closeChatBtn = document.getElementById('closeChatBtn');
 const chatBox = document.getElementById('chatBox');
@@ -26,19 +26,20 @@ const channelToggle = document.getElementById('channelChatToggle');
 const topicToggle = document.getElementById('topicChatToggle'); 
 
 let isChatOpen = localStorage.getItem('chatOpen') !== 'false'; 
+
 function updateChatVisibility() {
-    if (!chatSidebar || !openChatBtn) return; // Prevent crash if HTML is missing
+    if (!chatPanel || !openChatBtn) return;
+    
     if (isChatOpen) {
-        chatSidebar.style.right = '0';
-        openChatBtn.style.display = 'none';
         document.body.classList.add('chat-open-squish');
+        openChatBtn.style.display = 'none';
     } else {
-        chatSidebar.style.right = '-350px';
-        openChatBtn.style.display = 'flex';
         document.body.classList.remove('chat-open-squish');
+        openChatBtn.style.display = 'flex';
     }
     localStorage.setItem('chatOpen', isChatOpen);
 }
+
 if (openChatBtn) openChatBtn.addEventListener('click', () => { isChatOpen = true; updateChatVisibility(); });
 if (closeChatBtn) closeChatBtn.addEventListener('click', () => { isChatOpen = false; updateChatVisibility(); });
 updateChatVisibility();

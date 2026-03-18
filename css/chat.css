@@ -42,3 +42,37 @@ body.chat-open-squish { padding-right: 340px; }
 body.chat-open-squish .os-scrollbar-vertical {
     right: 340px !important;
 }
+
+/* --- DESKTOP (SIDEBAR) --- */
+.chat-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: calc(var(--chat-width) * -1); 
+    width: var(--chat-width);
+    height: 100vh;
+    transition: right 0.3s ease, bottom 0.3s ease;
+}
+
+body.chat-open-squish .chat-panel {
+    right: 0;
+}
+
+/* --- MOBILE (BOTTOM BAR) --- */
+@media (max-aspect-ratio: 1/1), (max-width: 768px) {
+    .chat-panel {
+        top: auto;
+        right: 0;
+        left: 0;
+        bottom: calc(var(--chat-height) * -1); 
+        width: 100%;
+        height: var(--chat-height);
+        border-left: none !important;
+        border-top: 1px solid var(--border);
+    }
+
+    body.chat-open-squish .chat-panel {
+        bottom: 0;
+        right: 0; 
+    }
+}
