@@ -1,4 +1,4 @@
-<button id="themeToggleBtn" class="floating-btn fixed-top-right tooltip-bottom tooltip-right-edge" data-tooltip="Toggle Theme" style="top: 30px; z-index: 999;">
+<button id="themeToggleBtn" class="floating-btn fixed-top-right tooltip-bottom tooltip-right-edge" data-tooltip="Toggle Theme" style="top: 70px; z-index: 999;">
     <span id="theme-toggle-icon" class="material-symbols-outlined">bedtime</span>
 </button>
 
@@ -11,7 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const applyTheme = (isLight) => {
         body.classList.toggle('light-theme', isLight);
-        toggleIcon.textContent = isLight ? 'light_mode' : 'bedtime';
+        
+        if (isLight) {
+            toggleIcon.textContent = 'light_mode';
+            toggleIcon.classList.add('orange');
+            toggleIcon.classList.remove('purple');
+        } else {
+            toggleIcon.textContent = 'bedtime';
+            toggleIcon.classList.add('purple');
+            toggleIcon.classList.remove('orange');
+        }
+        
         localStorage.setItem('theme', isLight ? 'light' : 'dark');
     };
 
