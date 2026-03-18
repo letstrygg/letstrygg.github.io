@@ -29,3 +29,16 @@ body.chat-open-squish { padding-right: 340px; }
 #chatBox::-webkit-scrollbar-thumb { background: #3a3a3d; border-radius: 4px; }
 .yt-time-link { color: #3498db; text-decoration: none; font-weight: 500; transition: opacity 0.2s; } 
 .yt-time-link:hover { opacity: 0.8; text-decoration: underline; }
+
+/* ==========================================================================
+   DYNAMIC SCROLLBAR POSITIONING
+   ========================================================================== */
+/* Add a smooth transition so it slides exactly at the same speed as the chat */
+.os-scrollbar-vertical {
+    transition: right 0.3s ease, transform 0.3s ease, opacity 0.3s ease !important;
+}
+
+/* When the chat is open, physically push the scrollbar 340px left */
+body.chat-open-squish .os-scrollbar-vertical {
+    right: 340px !important;
+}
