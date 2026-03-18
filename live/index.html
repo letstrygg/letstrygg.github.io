@@ -30,6 +30,9 @@ permalink: /live/
 				<button id="btn-youtube" class="btn" onclick="switchPlatform('youtube')" style="display: flex; align-items: center; gap: 6px;">
 					<span class="material-symbols-outlined" style="font-size: 18px;">play_circle</span> YouTube
 				</button>
+				<button id="btn-kick" class="btn" onclick="switchPlatform('kick')" style="display: flex; align-items: center; gap: 6px;">
+					<span class="material-symbols-outlined" style="font-size: 18px;">bolt</span> Kick
+				</button>
 			</div>
 
         </div>
@@ -70,20 +73,29 @@ async function loadStreamFromHash() {
         currentPlatform = parts[0].toLowerCase();
         activeStreamer = parts[1];
         
-        // 2. Fetch data before rendering
         streamerData = await fetchStreamerData(activeStreamer);
         
-        // 3. Toggle the UI buttons based on what exists in the DB
         const togglesContainer = document.getElementById('platform-toggles');
         const btnTwitch = document.getElementById('btn-twitch');
         const btnYoutube = document.getElementById('btn-youtube');
+        const btnKick = document.getElementById('btn-kick');
 
-        if (streamerData && (streamerData.twitch_channel || streamerData.youtube_channel_id)) {
-            togglesContainer.style.display = 'flex'; // Unhide the container
+        // Count how many valid platform IDs we actually have
+        let platformCount = 0;
+        if (streamerData) {
+            if (streamerData.twitch_channel) platformCount++;
+            if (streamerData.youtube_channel_id) platformCount++;
+            if (streamerData.kick_channel) platformCount++;
+        }
+
+        // Only show the bar if 2 or more platforms exist
+        if (platformCount >= 2) {
+            togglesContainer.style.display = 'flex';
             btnTwitch.style.display = streamerData.twitch_channel ? 'flex' : 'none';
             btnYoutube.style.display = streamerData.youtube_channel_id ? 'flex' : 'none';
+            btnKick.style.display = streamerData.kick_channel ? 'flex' : 'none';
         } else {
-            togglesContainer.style.display = 'none'; // Keep hidden if no DB entry
+            togglesContainer.style.display = 'none';
         }
 
         renderStream();
@@ -98,30 +110,36 @@ function switchPlatform(platform) {
 
 function renderStream() {
     const target = document.getElementById('stream-embed-target');
-    const btnTwitch = document.getElementById('btn-twitch');
-    const btnYoutube = document.getElementById('btn-youtube');
+    const btns = {
+        twitch: document.getElementById('btn-twitch'),
+        youtube: document.getElementById('btn-youtube'),
+        kick: document.getElementById('btn-kick')
+    };
 
-    btnTwitch.style.color = 'var(--text-muted)';
-    btnTwitch.style.borderColor = 'var(--border)';
-    btnYoutube.style.color = 'var(--text-muted)';
-    btnYoutube.style.borderColor = 'var(--border)';
+    // Reset all buttons to standard theme
+    Object.values(btns).forEach(btn => {
+        btn.style.color = 'var(--text)';
+        btn.style.borderColor = 'var(--border)';
+    });
 
     if (currentPlatform === 'twitch') {
-        btnTwitch.style.color = '#9146FF'; 
-        btnTwitch.style.borderColor = '#9146FF';
-        
-        // Use DB value if it exists, otherwise fallback to the URL slug
+        btns.twitch.style.color = 'var(--purple)'; 
+        btns.twitch.style.borderColor = 'var(--purple)';
         const twitchId = (streamerData && streamerData.twitch_channel) ? streamerData.twitch_channel : activeStreamer;
         const hostname = window.location.hostname || 'letstrygg.com';
         target.innerHTML = `<iframe src="https://player.twitch.tv/?channel=${twitchId}&parent=${hostname}&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>`;
     } 
     else if (currentPlatform === 'youtube') {
-        btnYoutube.style.color = '#e74c3c'; 
-        btnYoutube.style.borderColor = '#e74c3c';
-        
-        // MUST use DB value for YouTube to work properly, fallback to slug just in case
+        btns.youtube.style.color = 'var(--red)'; 
+        btns.youtube.style.borderColor = 'var(--red)';
         const ytId = (streamerData && streamerData.youtube_channel_id) ? streamerData.youtube_channel_id : activeStreamer;
         target.innerHTML = `<iframe src="https://www.youtube.com/embed/live_stream?channel=${ytId}&autoplay=1" frameborder="0" allowfullscreen="true" height="100%" width="100%"></iframe>`;
+    }
+    else if (currentPlatform === 'kick') {
+        btns.kick.style.color = 'var(--green)'; 
+        btns.kick.style.borderColor = 'var(--green)';
+        const kickId = (streamerData && streamerData.kick_channel) ? streamerData.kick_channel : activeStreamer;
+        target.innerHTML = `<iframe src="https://player.kick.com/${kickId}" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>`;
     }
 
     window.dispatchEvent(new CustomEvent('topicChanged', { detail: activeStreamer }));
