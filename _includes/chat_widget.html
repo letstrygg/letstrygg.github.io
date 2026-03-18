@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/css/chat.css">
 
-<button id="openChatBtn" class="floating-btn fixed-top-right tooltip-bottom tooltip-right-edge" data-tooltip="Expand Chat" style="top: 70px; display: none;">
+<button id="openChatBtn" class="floating-btn fixed-top-right tooltip-bottom tooltip-right-edge" data-tooltip="Expand Chat" style="top: 30px; display: none;">
   <span class="material-symbols-outlined" style="transform: scaleX(-1);">chat_bubble</span>
 </button>
 
@@ -48,13 +48,43 @@
       </div>
 
       <div id="inputSection" style="display: none;">
-          <div style="margin-bottom: 10px; font-size: 12px; color: #aaa; display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                  <strong id="userNameDisplay" style="color: #fff;"></strong> 
-                  <a href="#" onclick="logout(); return false;" style="color: #e74c3c; margin-left: 5px; text-decoration: none;">[Logout]</a>
+          
+          <div style="margin-bottom: 10px; font-size: 12px; color: #aaa; position: relative;">
+              <div id="userSettingsBtn" style="display: inline-flex; align-items: center; gap: 4px; cursor: pointer; padding: 2px 4px; border-radius: 4px; margin-left: -4px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.background='transparent'">
+                  <strong id="userNameDisplay" style="color: #fff; font-size: 13px;"></strong> 
+                  <span class="material-symbols-outlined" style="font-size: 16px;">settings</span>
               </div>
-              <input type="color" id="userColor" style="background: none; border: none; cursor: pointer; height: 20px; width: 20px; padding: 0;">
+
+              <div id="userSettingsMenu" style="display: none; position: absolute; bottom: calc(100% + 5px); left: 0; width: 220px; background: #18181b; border: 1px solid #3a3a3d; border-radius: 6px; padding: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); z-index: 1001; flex-direction: column; gap: 12px;">
+                  
+                  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #26262c; padding-bottom: 6px;">
+                      <span style="font-weight: bold; color: #efeff1; font-size: 13px;">Chat Settings</span>
+                      <span class="material-symbols-outlined" id="closeSettingsMenu" style="font-size: 16px; cursor: pointer; color: #888; transition: color 0.2s;" onmouseover="this.style.color='#efeff1'" onmouseout="this.style.color='#888'">close</span>
+                  </div>
+
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span style="color: #aaa; font-size: 12px;">Name Color</span>
+                      <input type="color" id="userColor" style="background: none; border: none; cursor: pointer; height: 24px; width: 24px; padding: 0;">
+                  </div>
+
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span style="color: #aaa; font-size: 12px;">Time Format</span>
+                      <select id="timeFormatSelect" style="background: #0e0e10; color: #efeff1; border: 1px solid #3a3a3d; border-radius: 4px; padding: 4px; font-size: 12px; outline: none; cursor: pointer;">
+                          <option value="24">24-Hour</option>
+                          <option value="12">12-Hour</option>
+                      </select>
+                  </div>
+
+                  <div style="display: flex; flex-direction: column; gap: 4px;">
+                      <span style="color: #aaa; font-size: 12px;">Timezone</span>
+                      <select id="timezoneSelect" style="background: #0e0e10; color: #efeff1; border: 1px solid #3a3a3d; border-radius: 4px; padding: 4px; font-size: 12px; outline: none; width: 100%; cursor: pointer;">
+                          </select>
+                  </div>
+
+                  <button onclick="logout(); return false;" class="btn" style="width: 100%; background: rgba(231, 76, 60, 0.1); color: #e74c3c; border: 1px solid rgba(231, 76, 60, 0.4); padding: 6px; border-radius: 4px; font-size: 12px; cursor: pointer; margin-top: 4px; font-weight: bold; transition: background 0.2s;" onmouseover="this.style.background='rgba(231, 76, 60, 0.2)'" onmouseout="this.style.background='rgba(231, 76, 60, 0.1)'">Log Out</button>
+              </div>
           </div>
+
           <div style="display: flex; gap: 8px; align-items: center;">
               <button id="grabTimeBtn" class="floating-btn" data-tooltip="Insert Video Time" style="padding: 10px; background: #26262c; color: #aaa;">
                   <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
@@ -113,7 +143,97 @@ openChatBtn.addEventListener('click', () => { isChatOpen = true; updateChatVisib
 closeChatBtn.addEventListener('click', () => { isChatOpen = false; updateChatVisibility(); });
 updateChatVisibility();
 
-// 2. TIMESTAMPS & GRABBER
+// 2. SETTINGS POPUP MENU
+const settingsBtn = document.getElementById('userSettingsBtn');
+const settingsMenu = document.getElementById('userSettingsMenu');
+const closeSettings = document.getElementById('closeSettingsMenu');
+
+// Toggle Menu
+settingsBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); 
+    settingsMenu.style.display = settingsMenu.style.display === 'none' ? 'flex' : 'none';
+});
+
+// Close Menu
+closeSettings.addEventListener('click', () => settingsMenu.style.display = 'none');
+document.addEventListener('click', (e) => {
+    if (!settingsMenu.contains(e.target) && !settingsBtn.contains(e.target)) {
+        settingsMenu.style.display = 'none';
+    }
+});
+
+// 3. TIMEZONE & FORMAT LOGIC
+const tzSelect = document.getElementById('timezoneSelect');
+const formatSelect = document.getElementById('timeFormatSelect');
+
+// Populate Timezone Dropdown
+const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const ltgTz = 'America/Phoenix'; // UTC-07:00 permanently
+const allTz = Intl.supportedValuesOf('timeZone');
+
+let tzHtml = `<option value="${userTz}" style="color: #3498db; font-weight: bold;">Local (${userTz})</option>`;
+if (userTz !== ltgTz) {
+    tzHtml += `<option value="${ltgTz}" style="color: #e67e22; font-weight: bold;">LTG Time (${ltgTz})</option>`;
+}
+tzHtml += `<option disabled>──────────</option>`;
+allTz.forEach(tz => {
+    if (tz !== userTz && tz !== ltgTz) {
+        tzHtml += `<option value="${tz}">${tz}</option>`;
+    }
+});
+tzSelect.innerHTML = tzHtml;
+
+// Load saved preferences
+const savedTz = localStorage.getItem('chatTimezone');
+tzSelect.value = (savedTz && allTz.includes(savedTz)) ? savedTz : userTz;
+formatSelect.value = localStorage.getItem('chatTimeFormat') || '24';
+
+// Listeners instantly re-render timestamps
+tzSelect.addEventListener('change', (e) => {
+    localStorage.setItem('chatTimezone', e.target.value);
+    renderMessages();
+});
+formatSelect.addEventListener('change', (e) => {
+    localStorage.setItem('chatTimeFormat', e.target.value);
+    renderMessages();
+});
+
+// The Master Format Engine
+function formatTime(dateStr) {
+    const d = new Date(dateStr);
+    const tz = localStorage.getItem('chatTimezone') || Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const use24h = (localStorage.getItem('chatTimeFormat') || '24') === '24';
+
+    // Get the localized date (M/D/YY)
+    const dateOpts = { timeZone: tz, year: '2-digit', month: 'numeric', day: 'numeric' };
+    const msgDate = new Intl.DateTimeFormat('en-US', dateOpts).format(d);
+    const nowDate = new Intl.DateTimeFormat('en-US', dateOpts).format(new Date());
+
+    // Get the localized time
+    const timeOpts = { timeZone: tz, hour: 'numeric', minute: '2-digit', hourCycle: use24h ? 'h23' : 'h12' };
+    let timeStr = new Intl.DateTimeFormat('en-US', timeOpts).format(d);
+
+    // Aesthetics: pad 24h hours (e.g., "09:05" instead of "9:05")
+    if (use24h) {
+        let parts = timeStr.split(':');
+        if (parts[0].length === 1) parts[0] = '0' + parts[0];
+        timeStr = parts.join(':');
+    }
+
+    if (msgDate === nowDate) return timeStr;
+    
+    // If not today, show "M/D" for current year, or "M/D/YY" for old years
+    const msgYear = msgDate.split('/')[2];
+    const nowYear = nowDate.split('/')[2];
+    
+    if (msgYear === nowYear) {
+        const md = msgDate.split('/').slice(0, 2).join('/'); // "M/D"
+        return `${md} ${timeStr}`;
+    }
+    return `${msgDate} ${timeStr}`;
+}
+
+// 4. TIMESTAMPS & GRABBER
 let showTimestamps = localStorage.getItem('showTimestamps') === 'true';
 timeToggle.classList.toggle('active-blue', showTimestamps);
 if (showTimestamps) chatBox.classList.add('show-timestamps');
@@ -142,7 +262,7 @@ grabTimeBtn.addEventListener('click', () => {
     }
 });
 
-// 3. CHAT LOGIC & ROOM TOGGLES
+// 5. CHAT LOGIC & ROOM TOGGLES
 const supabaseUrl = '{{ site.supabase_url }}';
 const supabaseKey = '{{ site.supabase_anon_key }}';
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
@@ -203,15 +323,6 @@ if (currentGame !== 'general') {
     channelToggle.style.display = 'none';
 }
 updateToggleUI(); 
-
-function formatTime(dateStr) {
-    const d = new Date(dateStr);
-    const now = new Date();
-    const time = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
-    if (d.toDateString() === now.toDateString()) return time;
-    if (d.getFullYear() === now.getFullYear()) return `${d.getMonth()+1}/${d.getDate()} ${time}`;
-    return `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear().toString().slice(-2)} ${time}`;
-}
 
 async function login(provider) { await supabaseClient.auth.signInWithOAuth({ provider: provider, options: { redirectTo: window.location.origin + window.location.pathname }}); }
 async function logout() { await supabaseClient.auth.signOut(); }
