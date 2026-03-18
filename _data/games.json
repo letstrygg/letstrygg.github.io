@@ -5,7 +5,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 15,
-    "views": 817,
+    "views": 823,
     "duration": 127718,
     "tags": [
       "Deck Builder"
@@ -13,11 +13,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-17T14:00:13Z",
-    "views_formatted": "817",
+    "views_formatted": "823",
     "duration_formatted": "35h 28m",
     "duration_short": "35h",
-    "vpv": 54,
-    "vpv_formatted": "54"
+    "vpv": 55,
+    "vpv_formatted": "55"
   },
   {
     "id": "oaken-tower",
@@ -212,7 +212,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 126,
-    "views": 6510,
+    "views": 6515,
     "duration": 306327,
     "tags": [
       "Tower Defense"
@@ -725,7 +725,7 @@
     "thumbnail": "https://i.ytimg.com/vi/zc9Pj8Eb2Pw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 12,
-    "views": 533,
+    "views": 536,
     "duration": 67184,
     "tags": [
       "Automation",
@@ -734,11 +734,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-17T20:01:01Z",
-    "views_formatted": "533",
+    "views_formatted": "536",
     "duration_formatted": "18h 39m",
     "duration_short": "19h",
-    "vpv": 44,
-    "vpv_formatted": "44"
+    "vpv": 45,
+    "vpv_formatted": "45"
   },
   {
     "id": "wanderburg",
@@ -808,7 +808,7 @@
     "thumbnail": "https://i.ytimg.com/vi/rF5aLrpu3WY/maxresdefault.jpg",
     "highest_season": 5,
     "episodes": 158,
-    "views": 15328,
+    "views": 15330,
     "duration": 460267,
     "tags": [
       "Horde Survival",
@@ -871,7 +871,7 @@
     "thumbnail": "https://i.ytimg.com/vi/9XzbMRK5jC0/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
-    "views": 1198,
+    "views": 1199,
     "duration": 7055,
     "tags": [
       "Inventory Management",
@@ -883,8 +883,8 @@
     "views_formatted": "1.2K",
     "duration_formatted": "1h 57m",
     "duration_short": "2h",
-    "vpv": 399,
-    "vpv_formatted": "399"
+    "vpv": 400,
+    "vpv_formatted": "400"
   },
   {
     "id": "skull-horde",
@@ -3553,7 +3553,7 @@
     "thumbnail": "https://i.ytimg.com/vi/jZ0JgFvL6PA/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 9,
-    "views": 3642,
+    "views": 3648,
     "duration": 21486,
     "tags": [
       "Automation",
@@ -3596,7 +3596,7 @@
     "thumbnail": "https://i.ytimg.com/vi/WyJZUuPSHKc/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
-    "views": 6608,
+    "views": 6644,
     "duration": 8497,
     "tags": [
       "Incremental",
@@ -3611,7 +3611,7 @@
     "views_formatted": "6.6K",
     "duration_formatted": "2h 21m",
     "duration_short": "2h",
-    "vpv": 2203,
+    "vpv": 2215,
     "vpv_formatted": "2.2K"
   },
   {
@@ -3620,7 +3620,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Qouncj1g43I/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 14,
-    "views": 6512,
+    "views": 6534,
     "duration": 25775,
     "tags": [
       "Resource Management",
@@ -3633,8 +3633,8 @@
     "views_formatted": "6.5K",
     "duration_formatted": "7h 9m",
     "duration_short": "7h",
-    "vpv": 465,
-    "vpv_formatted": "465"
+    "vpv": 467,
+    "vpv_formatted": "467"
   },
   {
     "id": "increlution",
@@ -4481,7 +4481,7 @@
     "thumbnail": "https://i.ytimg.com/vi/ixI4-OLD6J8/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 24,
-    "views": 1996,
+    "views": 1997,
     "duration": 60300,
     "tags": [
       "Incremental",

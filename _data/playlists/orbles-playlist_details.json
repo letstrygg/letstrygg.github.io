@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk53rKq_Bj6yoDcVGLU4kJ90",
+  "slug": "orbles",
   "title": "Orbles",
   "thumbnail": "https://i.ytimg.com/vi/TKm9iYoZj48/maxresdefault.jpg",
   "published": "2022-04-11T10:29:35.072653Z",
   "updated": "2022-04-11T10:18:33Z",
-  "fetched": "2026-03-07T12:04:32.579Z",
+  "fetched": "2026-03-18T02:31:21.853Z",
   "episodes": 1,
   "duration": 2744,
-  "views": 66,
-  "status": "Completed",
   "duration_formatted": "45m",
+  "duration_short": "45m",
+  "views": 66,
   "views_formatted": "66",
-  "slug": "orbles",
+  "status": "Completed",
   "status_color": "blue"
 }

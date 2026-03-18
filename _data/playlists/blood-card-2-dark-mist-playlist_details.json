@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk70bTYQorkHIPSmi4apQkDI",
-  "title": "Blood Card 2: Dark Mist",
+  "slug": "blood-card-2-dark-mist",
+  "title": "Blood Card 2 Dark Mist",
   "thumbnail": "https://i.ytimg.com/vi/nmdRDd2Yebw/maxresdefault.jpg",
   "published": "2022-05-09T06:54:42.061787Z",
   "updated": "2022-05-09T13:00:23Z",
-  "fetched": "2026-03-07T12:04:30.841Z",
+  "fetched": "2026-03-18T02:31:20.491Z",
   "episodes": 1,
   "duration": 8309,
-  "views": 511,
-  "status": "Completed",
   "duration_formatted": "2h 18m",
+  "duration_short": "2h",
+  "views": 511,
   "views_formatted": "511",
-  "slug": "blood-card-2-dark-mist",
+  "status": "Completed",
   "status_color": "blue"
 }

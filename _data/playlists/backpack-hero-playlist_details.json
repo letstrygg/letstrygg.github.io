@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4s-KW5jIv75uDZzaPHC5Vp",
+  "slug": "backpack-hero",
   "title": "Backpack Hero",
   "thumbnail": "https://i.ytimg.com/vi/ROPDM8aNQfU/maxresdefault.jpg",
   "published": "2022-04-12T11:21:07.103047Z",
   "updated": "2022-06-18T14:00:10Z",
-  "fetched": "2026-03-07T12:04:32.054Z",
+  "fetched": "2026-03-18T02:31:21.228Z",
   "episodes": 19,
   "duration": 51316,
-  "views": 822,
-  "status": "Completed",
   "duration_formatted": "14h 15m",
+  "duration_short": "14h",
+  "views": 822,
   "views_formatted": "822",
-  "slug": "backpack-hero",
+  "status": "Completed",
   "status_color": "blue"
 }

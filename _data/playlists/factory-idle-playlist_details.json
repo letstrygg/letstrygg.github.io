@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6Pa3QHnu9xrX53RPou2hSM",
+  "slug": "factory-idle",
   "title": "Factory Idle",
   "thumbnail": "https://i.ytimg.com/vi/jZ0JgFvL6PA/maxresdefault.jpg",
   "published": "2022-04-11T05:50:29.76259Z",
   "updated": "2022-04-20T15:00:25Z",
-  "fetched": "2026-03-07T12:04:33.092Z",
+  "fetched": "2026-03-18T02:31:22.454Z",
   "episodes": 9,
   "duration": 21486,
-  "views": 3642,
-  "status": "Completed",
   "duration_formatted": "5h 58m",
+  "duration_short": "6h",
+  "views": 3648,
   "views_formatted": "3.6K",
-  "slug": "factory-idle",
+  "status": "Completed",
   "status_color": "blue"
 }

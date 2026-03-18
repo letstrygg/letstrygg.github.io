@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6zg_QNbp8b3T4Z2satPtL7",
+  "slug": "incremancer",
   "title": "Incremancer",
   "thumbnail": "https://i.ytimg.com/vi/Qouncj1g43I/maxresdefault.jpg",
   "published": "2022-03-19T00:47:46.034715Z",
   "updated": "2022-04-01T15:00:30Z",
-  "fetched": "2026-03-07T12:04:34.847Z",
+  "fetched": "2026-03-18T02:31:23.752Z",
   "episodes": 14,
   "duration": 25775,
-  "views": 6512,
-  "status": "Completed",
   "duration_formatted": "7h 9m",
+  "duration_short": "7h",
+  "views": 6534,
   "views_formatted": "6.5K",
-  "slug": "incremancer",
+  "status": "Completed",
   "status_color": "blue"
 }
