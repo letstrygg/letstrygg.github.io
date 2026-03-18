@@ -1,7 +1,7 @@
 <div class="game-section auto-generated-stats" style="margin-top: 0;">
     <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-bottom: 20px;">
         <div style="width: 100%; max-width: calc((100vh - 75px) * 16 / 9);">
-            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; margin-bottom: 5px; transition: all 0.3s ease; z-index: 10;">
+            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; margin-bottom: 5px; z-index: 10;">
                 
                 <div id="video-overlay" class="video-overlay" style="z-index: 20;">
                     <div class="overlay-stats">
@@ -161,24 +161,18 @@
       }
   });
 
-  const tIcon = document.getElementById('theater-icon');
+const tIcon = document.getElementById('theater-icon');
   const tBtn = document.getElementById('theater-btn');
   tBtn.addEventListener('click', function() {
       const isTheater = wrapper.classList.toggle('theater-active');
       if (isTheater) {
-          wrapper.style.position = 'fixed';
-          wrapper.style.top = '0'; wrapper.style.left = '0';
-          wrapper.style.width = '100vw'; wrapper.style.height = '100vh';
-          wrapper.style.maxWidth = '100vw'; 
-          wrapper.style.zIndex = '9999'; document.body.style.overflow = 'hidden';
-          tIcon.innerText = 'close_fullscreen'; tBtn.setAttribute('data-tooltip', 'Exit Theater');
+          document.body.style.overflow = 'hidden';
+          tIcon.innerText = 'close_fullscreen'; 
+          tBtn.setAttribute('data-tooltip', 'Exit Theater');
       } else {
-          wrapper.style.position = 'relative';
-          wrapper.style.top = 'auto'; wrapper.style.left = 'auto';
-          wrapper.style.width = '100%'; wrapper.style.height = 'auto';
-          wrapper.style.maxWidth = 'none'; 
-          wrapper.style.zIndex = '10'; document.body.style.overflow = '';
-          tIcon.innerText = 'width_full'; tBtn.setAttribute('data-tooltip', 'Theater Mode');
+          document.body.style.overflow = '';
+          tIcon.innerText = 'width_full'; 
+          tBtn.setAttribute('data-tooltip', 'Theater Mode');
       }
   });
 </script>
