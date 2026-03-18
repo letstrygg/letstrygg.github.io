@@ -7,8 +7,12 @@
       "videoId": "HhAFq-8PUKw",
       "videoPublishedAt": "2023-06-08T00:00:08Z",
       "durationInSeconds": 1151,
-      "viewCount": 939
-    }
+      "viewCount": 941
+    },
+    "title": "Squirrel Edition: Idle Loops | Addictive Time-Looping Incremental Idle Game S3E1 Free Web Browser",
+    "thumbnail": "https://i.ytimg.com/vi/HhAFq-8PUKw/maxresdefault.jpg",
+    "likes": 16,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,8 +22,12 @@
       "videoId": "FNhzjtRhrZc",
       "videoPublishedAt": "2023-06-10T00:00:15Z",
       "durationInSeconds": 1982,
-      "viewCount": 395
-    }
+      "viewCount": 396
+    },
+    "title": "Idle Loops: Squirrel Edition S3E2 | Addictive Time-Looping Incremental Idle Free Web Browser Game",
+    "thumbnail": "https://i.ytimg.com/vi/FNhzjtRhrZc/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -29,8 +37,12 @@
       "videoId": "LuTHOl-mJrI",
       "videoPublishedAt": "2023-06-12T00:00:11Z",
       "durationInSeconds": 2216,
-      "viewCount": 196
-    }
+      "viewCount": 198
+    },
+    "title": "Idle Loops Squirrel Edition Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/LuTHOl-mJrI/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -40,8 +52,12 @@
       "videoId": "ij_Gf28m768",
       "videoPublishedAt": "2023-06-14T00:00:13Z",
       "durationInSeconds": 2021,
-      "viewCount": 159
-    }
+      "viewCount": 160
+    },
+    "title": "Idle Loops Squirrel Edition Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/ij_Gf28m768/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2023-06-16T00:00:17Z",
       "durationInSeconds": 2100,
       "viewCount": 162
-    }
+    },
+    "title": "Idle Loops Squirrel Edition Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/S-9hnW54Hl0/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,6 +83,10 @@
       "videoPublishedAt": "2023-06-18T00:00:24Z",
       "durationInSeconds": 3145,
       "viewCount": 189
-    }
+    },
+    "title": "Idle Loops Squirrel Edition Ep 6",
+    "thumbnail": "https://i.ytimg.com/vi/cAsC6Y0Ra1E/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 5
   }
 ]

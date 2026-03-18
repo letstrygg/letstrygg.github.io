@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5IO3sAOIjPdI4kn4XfryT3",
+  "slug": "crystal-clash",
   "title": "Crystal Clash",
   "thumbnail": "https://i.ytimg.com/vi/Zu9PL8n8bIk/maxresdefault.jpg",
   "published": "2022-01-29T06:45:43.266Z",
   "updated": "2022-02-09T17:00:30Z",
-  "fetched": "2026-03-07T12:04:38.977Z",
+  "fetched": "2026-03-18T07:32:10.315Z",
   "episodes": 5,
   "duration": 10753,
-  "views": 391,
-  "status": "Completed",
   "duration_formatted": "2h 59m",
-  "views_formatted": "391",
-  "slug": "crystal-clash",
+  "duration_short": "3h",
+  "views": 393,
+  "views_formatted": "393",
+  "status": "Completed",
   "status_color": "blue"
 }

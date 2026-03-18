@@ -7,8 +7,12 @@
       "videoId": "tkGgzkmPCHg",
       "videoPublishedAt": "2022-02-27T17:00:28Z",
       "durationInSeconds": 3550,
-      "viewCount": 1799
-    }
+      "viewCount": 1805
+    },
+    "title": "Increlution Ep 1 - Minimalist Incremental / Idle Indie Game - Progress Bars and Time Management",
+    "thumbnail": "https://i.ytimg.com/vi/tkGgzkmPCHg/maxresdefault.jpg",
+    "likes": 40,
+    "comments": 13
   },
   {
     "kind": "youtube#playlistItem",
@@ -18,7 +22,11 @@
       "videoId": "eT6lVjIyTUk",
       "videoPublishedAt": "2022-02-28T17:00:20Z",
       "durationInSeconds": 3337,
-      "viewCount": 737
-    }
+      "viewCount": 738
+    },
+    "title": "Increlution Ep 2 - Minimalist Incremental / Idle Indie Game - Progress Bars and Time Management",
+    "thumbnail": "https://i.ytimg.com/vi/eT6lVjIyTUk/maxresdefault.jpg",
+    "likes": 28,
+    "comments": 6
   }
 ]

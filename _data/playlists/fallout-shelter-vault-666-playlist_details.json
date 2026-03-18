@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7ktDLQnHOt45AHpvqm0Ijd",
-  "title": "Fallout Shelter: Vault 666",
+  "slug": "fallout-shelter-vault-666",
+  "title": "fallout shelter vault 666",
   "thumbnail": "https://i.ytimg.com/vi/99865tWVcuU/maxresdefault.jpg",
   "published": "2022-02-02T08:01:00.11428Z",
   "updated": "2022-02-06T17:00:43Z",
-  "fetched": "2026-03-07T12:04:38.379Z",
+  "fetched": "2026-03-18T07:32:09.698Z",
   "episodes": 5,
   "duration": 10241,
-  "views": 509,
-  "status": "Completed",
   "duration_formatted": "2h 50m",
-  "views_formatted": "509",
-  "slug": "fallout-shelter-vault-666",
+  "duration_short": "3h",
+  "views": 510,
+  "views_formatted": "510",
+  "status": "Completed",
   "status_color": "blue"
 }

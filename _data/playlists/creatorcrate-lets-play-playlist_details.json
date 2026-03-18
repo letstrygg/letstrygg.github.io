@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5VbiiOVy9EzNIVzi-DHTBb",
-  "title": "CreatorCrate Let's Play",
+  "slug": "creatorcrate-lets-play",
+  "title": "CreatorCrate Lets Play",
   "thumbnail": "https://i.ytimg.com/vi/pzlSY1T_ct4/maxresdefault.jpg",
   "published": "2022-02-21T02:15:39.438707Z",
   "updated": "2022-02-22T17:00:15Z",
-  "fetched": "2026-03-07T12:04:37.844Z",
+  "fetched": "2026-03-18T07:32:09.049Z",
   "episodes": 2,
   "duration": 3392,
-  "views": 76,
-  "status": "Completed",
   "duration_formatted": "56m",
+  "duration_short": "56m",
+  "views": 76,
   "views_formatted": "76",
-  "slug": "creatorcrate-lets-play",
+  "status": "Completed",
   "status_color": "blue"
 }

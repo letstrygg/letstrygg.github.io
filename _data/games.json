@@ -5,7 +5,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 15,
-    "views": 823,
+    "views": 838,
     "duration": 127718,
     "tags": [
       "Deck Builder"
@@ -13,11 +13,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-17T14:00:13Z",
-    "views_formatted": "823",
+    "views_formatted": "838",
     "duration_formatted": "35h 28m",
     "duration_short": "35h",
-    "vpv": 55,
-    "vpv_formatted": "55"
+    "vpv": 56,
+    "vpv_formatted": "56"
   },
   {
     "id": "oaken-tower",
@@ -46,7 +46,7 @@
     "thumbnail": "https://i.ytimg.com/vi/L2v3gQDx4KA/maxresdefault.jpg",
     "highest_season": 1.1,
     "episodes": 132,
-    "views": 35953,
+    "views": 35964,
     "duration": 449147,
     "tags": [
       "Horde Survival",
@@ -212,7 +212,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 126,
-    "views": 6515,
+    "views": 6518,
     "duration": 306327,
     "tags": [
       "Tower Defense"
@@ -337,7 +337,7 @@
     "thumbnail": "https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg",
     "highest_season": 5,
     "episodes": 874,
-    "views": 253916,
+    "views": 253921,
     "duration": 3130204,
     "tags": [
       "PVP",
@@ -725,7 +725,7 @@
     "thumbnail": "https://i.ytimg.com/vi/zc9Pj8Eb2Pw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 12,
-    "views": 536,
+    "views": 554,
     "duration": 67184,
     "tags": [
       "Automation",
@@ -734,11 +734,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-17T20:01:01Z",
-    "views_formatted": "536",
+    "views_formatted": "554",
     "duration_formatted": "18h 39m",
     "duration_short": "19h",
-    "vpv": 45,
-    "vpv_formatted": "45"
+    "vpv": 46,
+    "vpv_formatted": "46"
   },
   {
     "id": "wanderburg",
@@ -767,7 +767,7 @@
     "thumbnail": "https://i.ytimg.com/vi/b2jAfL21hK0/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 6,
-    "views": 858,
+    "views": 859,
     "duration": 28636,
     "tags": [
       "Incremental"
@@ -775,7 +775,7 @@
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-03-02T16:00:07Z",
-    "views_formatted": "858",
+    "views_formatted": "859",
     "duration_formatted": "7h 57m",
     "duration_short": "8h",
     "vpv": 143,
@@ -952,7 +952,7 @@
     "thumbnail": "https://i.ytimg.com/vi/5-v4weMsQe0/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 23,
-    "views": 6949,
+    "views": 6952,
     "duration": 87005,
     "tags": [
       "Auto Battler",
@@ -961,7 +961,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2026-02-02T12:01:20Z",
-    "views_formatted": "6.9K",
+    "views_formatted": "7K",
     "duration_formatted": "24h 10m",
     "duration_short": "24h",
     "vpv": 302,
@@ -993,7 +993,7 @@
     "thumbnail": "https://i.ytimg.com/vi/pmCpEm70uR4/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 14,
-    "views": 3361,
+    "views": 3362,
     "duration": 32237,
     "tags": [
       "Horde Survival"
@@ -1095,7 +1095,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Jf0FmH5u3Ec/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 512,
+    "views": 515,
     "duration": 3648,
     "tags": [
       "Bullet Heaven",
@@ -1104,11 +1104,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-20T12:00:52Z",
-    "views_formatted": "512",
+    "views_formatted": "515",
     "duration_formatted": "1h 0m",
     "duration_short": "1h",
-    "vpv": 256,
-    "vpv_formatted": "256"
+    "vpv": 258,
+    "vpv_formatted": "258"
   },
   {
     "id": "nimrods",
@@ -1178,7 +1178,7 @@
     "thumbnail": "https://i.ytimg.com/vi/tiwtPg-LWZg/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 623,
+    "views": 624,
     "duration": 8327,
     "tags": [
       "Bullet Heaven",
@@ -1187,7 +1187,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-08-18T13:30:38Z",
-    "views_formatted": "623",
+    "views_formatted": "624",
     "duration_formatted": "2h 18m",
     "duration_short": "2h",
     "vpv": 312,
@@ -2789,7 +2789,7 @@
     "thumbnail": "https://i.ytimg.com/vi/HhAFq-8PUKw/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 20,
-    "views": 18626,
+    "views": 18683,
     "duration": 53806,
     "tags": [
       "Resource Management",
@@ -2799,11 +2799,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2023-06-18T00:00:24Z",
-    "views_formatted": "18.6K",
+    "views_formatted": "18.7K",
     "duration_formatted": "14h 56m",
     "duration_short": "15h",
-    "vpv": 931,
-    "vpv_formatted": "931"
+    "vpv": 934,
+    "vpv_formatted": "934"
   },
   {
     "id": "vampire-survivors",
@@ -3642,7 +3642,7 @@
     "thumbnail": "https://i.ytimg.com/vi/tkGgzkmPCHg/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 2,
-    "views": 2536,
+    "views": 2543,
     "duration": 6887,
     "tags": [
       "Resource Management",
@@ -3655,7 +3655,7 @@
     "views_formatted": "2.5K",
     "duration_formatted": "1h 54m",
     "duration_short": "2h",
-    "vpv": 1268,
+    "vpv": 1272,
     "vpv_formatted": "1.3K"
   },
   {
@@ -3706,7 +3706,7 @@
     "thumbnail": "https://i.ytimg.com/vi/99865tWVcuU/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 5,
-    "views": 509,
+    "views": 510,
     "duration": 10241,
     "tags": [
       "Resource Management",
@@ -3716,7 +3716,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2022-02-06T17:00:43Z",
-    "views_formatted": "509",
+    "views_formatted": "510",
     "duration_formatted": "2h 50m",
     "duration_short": "3h",
     "vpv": 102,
@@ -3728,7 +3728,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Zu9PL8n8bIk/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 5,
-    "views": 391,
+    "views": 393,
     "duration": 10753,
     "tags": [
       "PVP",
@@ -3738,11 +3738,11 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2022-02-09T17:00:30Z",
-    "views_formatted": "391",
+    "views_formatted": "393",
     "duration_formatted": "2h 59m",
     "duration_short": "3h",
-    "vpv": 78,
-    "vpv_formatted": "78"
+    "vpv": 79,
+    "vpv_formatted": "79"
   },
   {
     "id": "organs-please",
@@ -4459,7 +4459,7 @@
     "thumbnail": "https://i.ytimg.com/vi/xVOAqk4J8XM/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 3,
-    "views": 428,
+    "views": 429,
     "duration": 14266,
     "tags": [
       "Auto Battler",
@@ -4469,7 +4469,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2025-09-12T12:02:03Z",
-    "views_formatted": "428",
+    "views_formatted": "429",
     "duration_formatted": "3h 57m",
     "duration_short": "4h",
     "vpv": 143,

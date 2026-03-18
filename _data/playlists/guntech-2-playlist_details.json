@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6hB88KRAoHVk7ZUJC7jbRL",
+  "slug": "guntech-2",
   "title": "Guntech 2",
   "thumbnail": "https://i.ytimg.com/vi/Fxd3uW__OUI/maxresdefault.jpg",
   "published": "2022-02-24T09:51:44.390921Z",
   "updated": "2022-02-25T17:00:06Z",
-  "fetched": "2026-03-07T12:04:37.263Z",
+  "fetched": "2026-03-18T07:32:08.398Z",
   "episodes": 2,
   "duration": 3313,
-  "views": 52,
-  "status": "Completed",
   "duration_formatted": "55m",
+  "duration_short": "55m",
+  "views": 52,
   "views_formatted": "52",
-  "slug": "guntech-2",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4I-AjHoQh4CsrcV82o9qaj",
-  "title": "Idle Loops (Web Browser Game)",
+  "slug": "idle-loops-web-browser-game",
+  "title": "Idle Loops Web Browser Game",
   "thumbnail": "https://i.ytimg.com/vi/cH9-evSX-uI/maxresdefault.jpg",
   "published": "2022-03-01T09:26:02.260833Z",
   "updated": "2022-08-26T15:00:16Z",
-  "fetched": "2026-03-07T12:04:36.181Z",
+  "fetched": "2026-03-18T07:32:07.100Z",
   "episodes": 14,
   "duration": 41191,
-  "views": 16586,
-  "status": "Completed",
   "duration_formatted": "11h 26m",
+  "duration_short": "11h",
+  "views": 16637,
   "views_formatted": "16.6K",
-  "slug": "idle-loops-web-browser-game",
+  "status": "Completed",
   "status_color": "blue"
 }

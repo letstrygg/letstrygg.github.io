@@ -8,7 +8,11 @@
       "videoPublishedAt": "2022-02-24T17:00:21Z",
       "durationInSeconds": 1768,
       "viewCount": 39
-    }
+    },
+    "title": "Let's Try Guntech 2 - Space Based Gunship Shooter Game Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/Fxd3uW__OUI/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2022-02-25T17:00:06Z",
       "durationInSeconds": 1545,
       "viewCount": 13
-    }
+    },
+    "title": "Can we beat the tutorial?? Guntech 2 Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/Abh23XgD0XU/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   }
 ]
