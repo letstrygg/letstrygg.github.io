@@ -8,7 +8,11 @@
       "videoPublishedAt": "2021-12-30T03:17:27Z",
       "durationInSeconds": 1636,
       "viewCount": 65
-    }
+    },
+    "title": "FREE Game! Free until 12/30/21 at 9am - Salt and Sanctuary Ep 1 - 2D RPG with excellent artwork.",
+    "thumbnail": "https://i.ytimg.com/vi/ZMzgHa6ylb0/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2022-01-09T17:00:23Z",
       "durationInSeconds": 1962,
       "viewCount": 21
-    }
+    },
+    "title": "Progressing!! Salt and Sanctuary Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/HW5J1CNlFXA/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   }
 ]

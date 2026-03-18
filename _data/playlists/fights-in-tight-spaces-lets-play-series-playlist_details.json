@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7EtwRqUeAKq2wcEEz-92Dd",
+  "slug": "fights-in-tight-spaces-lets-play-series",
   "title": "Fights in Tight Spaces Lets Play Series",
   "thumbnail": "https://i.ytimg.com/vi/rUje5J4LOeU/maxresdefault.jpg",
   "published": "2022-01-07T11:29:28.615482Z",
   "updated": "2022-01-09T13:00:04Z",
-  "fetched": "2026-03-07T12:04:44.251Z",
+  "fetched": "2026-03-18T19:01:58.463Z",
   "episodes": 2,
   "duration": 6858,
-  "views": 65,
-  "status": "Completed",
   "duration_formatted": "1h 54m",
+  "duration_short": "2h",
+  "views": 65,
   "views_formatted": "65",
-  "slug": "fights-in-tight-spaces-lets-play-series",
+  "status": "Completed",
   "status_color": "blue"
 }

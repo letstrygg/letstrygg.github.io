@@ -8,7 +8,11 @@
       "videoPublishedAt": "2022-01-07T13:00:27Z",
       "durationInSeconds": 4458,
       "viewCount": 52
-    }
+    },
+    "title": "Fights in Tight Spaces Lets Play Ep 1 Turn-based Action Strategy, Deck Builder, Roguelike Indie Game",
+    "thumbnail": "https://i.ytimg.com/vi/rUje5J4LOeU/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2022-01-09T13:00:04Z",
       "durationInSeconds": 2400,
       "viewCount": 13
-    }
+    },
+    "title": "Fights in Tight Spaces Lets Play Ep 2 Turn-based Action Strategy, Deck Builder, Roguelike Indie Game",
+    "thumbnail": "https://i.ytimg.com/vi/3ePIdg1N558/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 5
   }
 ]

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5llNdzYPHPHbY7jMSvajOZ",
-  "title": "Vampire Survivors S2 Daily Let's Play Series",
+  "slug": "vampire-survivors-s2-daily-lets-play-series",
+  "title": "Vampire Survivors S2 Daily Lets Play Series",
   "thumbnail": "https://i.ytimg.com/vi/-QQVksvbGjI/maxresdefault.jpg",
   "published": "2023-05-29T20:07:49.617617Z",
   "updated": "2023-12-23T14:30:10Z",
-  "fetched": "2026-03-07T12:04:09.116Z",
+  "fetched": "2026-03-18T19:01:56.792Z",
   "episodes": 43,
   "duration": 96436,
-  "views": 4261,
-  "status": "Completed",
   "duration_formatted": "26h 47m",
+  "duration_short": "27h",
+  "views": 4268,
   "views_formatted": "4.3K",
-  "slug": "vampire-survivors-s2-daily-lets-play-series",
+  "status": "Completed",
   "status_color": "blue"
 }

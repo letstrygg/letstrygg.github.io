@@ -4,20 +4,20 @@
     "title": "Slay The Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
-    "episodes": 15,
-    "views": 838,
-    "duration": 127718,
+    "episodes": 16,
+    "views": 877,
+    "duration": 132561,
     "tags": [
       "Deck Builder"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-17T14:00:13Z",
-    "views_formatted": "838",
-    "duration_formatted": "35h 28m",
-    "duration_short": "35h",
-    "vpv": 56,
-    "vpv_formatted": "56"
+    "updated": "2026-03-18T14:01:11Z",
+    "views_formatted": "877",
+    "duration_formatted": "36h 49m",
+    "duration_short": "37h",
+    "vpv": 55,
+    "vpv_formatted": "55"
   },
   {
     "id": "oaken-tower",
@@ -25,7 +25,7 @@
     "thumbnail": "https://i.ytimg.com/vi/4LHX5Ojo07M/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 271,
-    "views": 54258,
+    "views": 54262,
     "duration": 573430,
     "tags": [
       "PVP",
@@ -150,7 +150,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_E_3N4RtJEw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 17,
-    "views": 13211,
+    "views": 13213,
     "duration": 47862,
     "tags": [
       "Tower Defense"
@@ -211,18 +211,18 @@
     "title": "Bloons Td 6",
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
-    "episodes": 126,
-    "views": 6518,
-    "duration": 306327,
+    "episodes": 127,
+    "views": 6543,
+    "duration": 307845,
     "tags": [
       "Tower Defense"
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-17T12:00:46Z",
+    "updated": "2026-03-18T12:00:25Z",
     "views_formatted": "6.5K",
-    "duration_formatted": "85h 5m",
-    "duration_short": "85h",
+    "duration_formatted": "85h 30m",
+    "duration_short": "86h",
     "vpv": 52,
     "vpv_formatted": "52"
   },
@@ -337,7 +337,7 @@
     "thumbnail": "https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg",
     "highest_season": 5,
     "episodes": 874,
-    "views": 253921,
+    "views": 253932,
     "duration": 3130204,
     "tags": [
       "PVP",
@@ -725,7 +725,7 @@
     "thumbnail": "https://i.ytimg.com/vi/zc9Pj8Eb2Pw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 12,
-    "views": 554,
+    "views": 580,
     "duration": 67184,
     "tags": [
       "Automation",
@@ -734,11 +734,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-17T20:01:01Z",
-    "views_formatted": "554",
+    "views_formatted": "580",
     "duration_formatted": "18h 39m",
     "duration_short": "19h",
-    "vpv": 46,
-    "vpv_formatted": "46"
+    "vpv": 48,
+    "vpv_formatted": "48"
   },
   {
     "id": "wanderburg",
@@ -1286,7 +1286,7 @@
     "thumbnail": "https://i.ytimg.com/vi/lTTXZxN5fac/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 8,
-    "views": 3914,
+    "views": 3924,
     "duration": 38370,
     "tags": [
       "Automation",
@@ -1298,8 +1298,8 @@
     "views_formatted": "3.9K",
     "duration_formatted": "10h 39m",
     "duration_short": "11h",
-    "vpv": 489,
-    "vpv_formatted": "489"
+    "vpv": 491,
+    "vpv_formatted": "491"
   },
   {
     "id": "the-last-spell",
@@ -1657,7 +1657,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Y3XngIWFnxc/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 106,
-    "views": 21216,
+    "views": 21217,
     "duration": 606700,
     "tags": [
       "Tower Defense",
@@ -2811,7 +2811,7 @@
     "thumbnail": "https://i.ytimg.com/vi/-QQVksvbGjI/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 125,
-    "views": 65786,
+    "views": 65806,
     "duration": 310870,
     "tags": [
       "Bullet Heaven",

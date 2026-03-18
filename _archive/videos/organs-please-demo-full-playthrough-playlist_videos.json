@@ -8,7 +8,11 @@
       "videoPublishedAt": "2022-01-21T19:00:23Z",
       "durationInSeconds": 1224,
       "viewCount": 94
-    }
+    },
+    "title": "Organs Please Demo Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/V-hoTUZe50I/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2022-01-22T19:00:17Z",
       "durationInSeconds": 1044,
       "viewCount": 31
-    }
+    },
+    "title": "Organs Please Demo Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/xJqQlHOcZoM/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2022-01-23T19:00:06Z",
       "durationInSeconds": 1972,
       "viewCount": 28
-    }
+    },
+    "title": "Organs Please Demo Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/BeMrar4lrZ0/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2022-01-24T19:00:13Z",
       "durationInSeconds": 1351,
       "viewCount": 21
-    }
+    },
+    "title": "Organs Please Demo Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/EVm76GJLf3w/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 2
   }
 ]

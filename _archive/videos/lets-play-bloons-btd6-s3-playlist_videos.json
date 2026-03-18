@@ -307,7 +307,7 @@
       "videoId": "rWBy3Uj4vu0",
       "videoPublishedAt": "2026-03-11T12:01:39Z",
       "durationInSeconds": 1210,
-      "viewCount": 73
+      "viewCount": 74
     },
     "title": "Three Mines 'Round: Bloons TD6 S3E21",
     "thumbnail": "https://i.ytimg.com/vi/rWBy3Uj4vu0/maxresdefault.jpg",
@@ -352,7 +352,7 @@
       "videoId": "OIXaDJfwAZs",
       "videoPublishedAt": "2026-03-14T12:00:43Z",
       "durationInSeconds": 1785,
-      "viewCount": 33
+      "viewCount": 34
     },
     "title": "C.H.I.M.P.S. | Three Mines 'Round: Bloons TD6 S3E24",
     "thumbnail": "https://i.ytimg.com/vi/OIXaDJfwAZs/maxresdefault.jpg",
@@ -367,7 +367,7 @@
       "videoId": "KNjmV4Sxyoc",
       "videoPublishedAt": "2026-03-15T12:00:28Z",
       "durationInSeconds": 1577,
-      "viewCount": 20
+      "viewCount": 21
     },
     "title": "Ancient Portal: Bloons TD6 S3E25",
     "thumbnail": "https://i.ytimg.com/vi/KNjmV4Sxyoc/maxresdefault.jpg",
@@ -382,7 +382,7 @@
       "videoId": "ZNiq8iuFSN8",
       "videoPublishedAt": "2026-03-16T12:01:06Z",
       "durationInSeconds": 1728,
-      "viewCount": 40
+      "viewCount": 46
     },
     "title": "We're LOADED!!! Alternate Bloons | Spa Pits: Bloons TD6 S3E26",
     "thumbnail": "https://i.ytimg.com/vi/ZNiq8iuFSN8/maxresdefault.jpg",
@@ -397,11 +397,26 @@
       "videoId": "R0_ivn8CEZI",
       "videoPublishedAt": "2026-03-17T12:00:46Z",
       "durationInSeconds": 1649,
-      "viewCount": 14
+      "viewCount": 16
     },
     "title": "We're LOADED!!! IMPOPPABLE | Spa Pits: Bloons TD6 S3E27",
     "thumbnail": "https://i.ytimg.com/vi/R0_ivn8CEZI/maxresdefault.jpg",
     "likes": 2,
     "comments": 0
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "rxJQZbmVDbKXyEPKAtCGt45hlek",
+    "id": "UExRNElMNFVWZ1FrNUcyb3cycm44Q3dKYlBEbzBUU1B6ei4zRjM0MkVCRTg0MkYyQTM0",
+    "contentDetails": {
+      "videoId": "F0l0euC-f5g",
+      "videoPublishedAt": "2026-03-18T12:00:25Z",
+      "durationInSeconds": 1518,
+      "viewCount": 14
+    },
+    "title": "C.H.I.M.P.S. | Spa Pits: Bloons TD6 S3E28",
+    "thumbnail": "https://i.ytimg.com/vi/F0l0euC-f5g/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   }
 ]

@@ -8,7 +8,11 @@
       "videoPublishedAt": "2021-12-28T13:00:06Z",
       "durationInSeconds": 1718,
       "viewCount": 103
-    }
+    },
+    "title": "Loop Hero Lets Play Ep 1 Expedition 1 Indie RPG Strategy Adventure Idle Roguelike",
+    "thumbnail": "https://i.ytimg.com/vi/DKYNWzUINdw/maxresdefault.jpg",
+    "likes": 9,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2021-12-30T13:00:15Z",
       "durationInSeconds": 1564,
       "viewCount": 41
-    }
+    },
+    "title": "Loop Hero Lets Play Ep 2 Expedition 2 Indie RPG Strategy Adventure Idle Roguelike",
+    "thumbnail": "https://i.ytimg.com/vi/IM0gIdeMwkQ/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2022-01-01T13:00:31Z",
       "durationInSeconds": 1817,
       "viewCount": 30
-    }
+    },
+    "title": "Loop Hero Lets Play Ep 3 Expedition 3 Indie RPG Strategy Adventure Idle Roguelike",
+    "thumbnail": "https://i.ytimg.com/vi/ox-ySj6GSVo/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2022-01-03T13:00:00Z",
       "durationInSeconds": 1724,
       "viewCount": 39
-    }
+    },
+    "title": "Loop Hero Lets Play Ep 4 Expedition 4 Indie RPG Strategy Adventure Idle Roguelike",
+    "thumbnail": "https://i.ytimg.com/vi/-Ou1NbV-Gzc/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,6 +68,10 @@
       "videoPublishedAt": "2022-01-05T13:00:24Z",
       "durationInSeconds": 2139,
       "viewCount": 36
-    }
+    },
+    "title": "Loop Hero Lets Play Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/o2dn5yAyVwc/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   }
 ]

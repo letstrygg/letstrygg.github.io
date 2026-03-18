@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4cYVDhxfSybx_4H2tn1UHV",
-  "title": "Loop Hero Let's Play Series",
+  "slug": "loop-hero-lets-play-series",
+  "title": "Loop Hero Lets Play Series",
   "thumbnail": "https://i.ytimg.com/vi/DKYNWzUINdw/maxresdefault.jpg",
   "published": "2021-12-27T12:21:32.944123Z",
   "updated": "2022-01-05T13:00:24Z",
-  "fetched": "2026-03-07T12:04:45.293Z",
+  "fetched": "2026-03-18T19:01:59.757Z",
   "episodes": 5,
   "duration": 8962,
-  "views": 249,
-  "status": "Completed",
   "duration_formatted": "2h 29m",
+  "duration_short": "2h",
+  "views": 249,
   "views_formatted": "249",
-  "slug": "loop-hero-lets-play-series",
+  "status": "Completed",
   "status_color": "blue"
 }
