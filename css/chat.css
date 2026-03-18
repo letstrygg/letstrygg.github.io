@@ -1,11 +1,11 @@
-/* css/chat.css */
-
+/* ==========================================================================
+   BASE VARIABLES & CORE CHAT STYLES
+   ========================================================================== */
 :root {
     --chat-highlight: rgba(255, 235, 59, 0.15); 
+    --chat-width: 340px;
+    --chat-height: 50vh;
 }
-
-body { transition: padding-right 0.3s ease; }
-body.chat-open-squish { padding-right: 340px; }
 
 .chat-badge { background: #222; color: #888; padding: 4px 10px; border-radius: 12px; cursor: pointer; user-select: none; border: 1px solid #333; transition: all 0.2s; font-size: 11px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
 .chat-badge.active { background: rgba(141, 255, 141, 0.15); color: #8dff8d; border-color: rgba(141, 255, 141, 0.4); }
@@ -31,48 +31,128 @@ body.chat-open-squish { padding-right: 340px; }
 .yt-time-link:hover { opacity: 0.8; text-decoration: underline; }
 
 /* ==========================================================================
-   DYNAMIC SCROLLBAR POSITIONING
+   LAYOUT, ANIMATIONS & RESPONSIVE DESIGN
    ========================================================================== */
-/* Add a smooth transition so it slides exactly at the same speed as the chat */
-.os-scrollbar-vertical {
-    transition: right 0.3s ease, transform 0.3s ease, opacity 0.3s ease !important;
+
+/* --- THE EXPAND BUTTON --- */
+#openChatBtn {
+    position: fixed !important;
+    top: 70px !important;
+    right: 0 !important;
+    z-index: 1000;
 }
 
-/* When the chat is open, physically push the scrollbar 340px left */
-body.chat-open-squish .os-scrollbar-vertical {
-    right: 340px !important;
+/* Base icon rotations */
+#openChatBtn .material-symbols-outlined {
+    transform: scaleX(-1); /* Points left */
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+#closeChatBtn .material-symbols-outlined {
+    display: inline-block;
+    transition: transform 0.3s ease;
 }
 
 /* --- DESKTOP (SIDEBAR) --- */
 .chat-panel {
     position: fixed;
     top: 0;
+    right: 0; 
     bottom: 0;
-    right: calc(var(--chat-width) * -1); 
-    width: var(--chat-width);
-    height: 100vh;
-    transition: right 0.3s ease, bottom 0.3s ease;
+    
+    /* Lock the width so content can NEVER resize it */
+    width: var(--chat-width) !important;
+    min-width: var(--chat-width) !important;
+    max-width: var(--chat-width) !important;
+    height: 100vh !important;
+    
+    background: var(--bg);
+    z-index: 1000;
+    
+    /* Slide off-screen exactly its own width */
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Open state (Desktop) */
 body.chat-open-squish .chat-panel {
-    right: 0;
+    transform: translateX(0);
 }
 
-/* --- MOBILE (BOTTOM BAR) --- */
+body {
+    transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.chat-open-squish {
+    padding-right: var(--chat-width) !important; 
+}
+
+/* Smoothly shift OverlayScrollbars using Transform so it doesn't jump */
+.os-scrollbar-vertical {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s ease !important;
+    transform: translateX(0);
+}
+body.chat-open-squish .os-scrollbar-vertical {
+    transform: translateX(calc(var(--chat-width) * -1)) !important;
+}
+
+
+/* --- MOBILE (VERTICAL/PORTRAIT) --- */
 @media (max-aspect-ratio: 1/1), (max-width: 768px) {
-    .chat-panel {
-        top: auto;
-        right: 0;
-        left: 0;
-        bottom: calc(var(--chat-height) * -1); 
-        width: 100%;
-        height: var(--chat-height);
-        border-left: none !important;
-        border-top: 1px solid var(--border);
+    
+    /* Move Expand Button to Bottom Edge, Right Side */
+    #openChatBtn {
+        top: auto !important;
+        bottom: 0 !important;
+        right: 20px !important;
+        border-radius: 4px 4px 0 0;
+    }
+    
+    /* Spin the expand bubble so it points UP */
+    #openChatBtn .material-symbols-outlined {
+        transform: scaleX(-1) rotate(90deg) !important; 
     }
 
+    /* Spin the collapse arrow so it points DOWN */
+    #closeChatBtn .material-symbols-outlined {
+        transform: rotate(90deg) !important;
+    }
+
+    /* Bottom Sheet Chat Panel */
+    .chat-panel {
+        top: auto !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        
+        /* Lock the height so content can NEVER resize it */
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        height: var(--chat-height) !important;
+        min-height: var(--chat-height) !important;
+        max-height: var(--chat-height) !important;
+        
+        border-left: none !important;
+        border-top: 1px solid var(--border);
+        
+        /* Slide off-screen exactly its own height */
+        transform: translateY(100%);
+    }
+
+    /* Open state (Mobile) */
     body.chat-open-squish .chat-panel {
-        bottom: 0;
-        right: 0; 
+        transform: translateY(0);
+    }
+    
+    /* This handles the vertical squish perfectly */
+    body.chat-open-squish {
+        padding-right: 0 !important; 
+        padding-bottom: var(--chat-height) !important; 
+    }
+
+    /* This fixes the OverlayScrollbars for Mobile */
+    body.chat-open-squish .os-scrollbar-vertical {
+        transform: none !important; /* Reset the desktop left-shift */
+        height: calc(100% - var(--chat-height)) !important; /* Shorten the track so it doesn't overlap chat */
     }
 }
