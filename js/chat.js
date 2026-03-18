@@ -235,23 +235,21 @@ window.addEventListener('topicChanged', (e) => {
 });
 
 function updateToggleUI() {
-    if (globalToggle) globalToggle.classList.toggle('active-green', filterLevel === 1);
+    if (globalToggle) {
+        globalToggle.classList.toggle('active-green', filterLevel === 1);
+        globalToggle.classList.remove('disabled');
+    }
     
     if (channelToggle) {
         if (currentGame !== 'general') {
             channelToggle.style.display = 'inline-flex';
+            channelToggle.classList.remove('disabled'); // <--- The fix: unlocks the button
+            channelToggle.classList.toggle('active-green', filterLevel === 2);
+            
             if (channelToggle.firstElementChild) {
                 channelToggle.firstElementChild.textContent = currentGame === 'live' ? 'live_tv' : 'sports_esports';
             }
-            channelToggle.setAttribute('data-tooltip', currentGame === 'live' ? 'All Live Streams' : 'Highlight ' + toTitleCase(currentGame.replace(/-/g, ' ')));
-            
-            if (filterLevel === 2) {
-                channelToggle.classList.add('active-green');
-                channelToggle.classList.remove('disabled');
-            } else {
-                channelToggle.classList.remove('active-green');
-                channelToggle.classList.add(filterLevel === 1 ? 'disabled' : '');
-            }
+            channelToggle.setAttribute('data-tooltip', currentGame === 'live' ? 'All Live Streams' : toTitleCase(currentGame.replace(/-/g, ' ')) + ' Chat');
         } else {
             channelToggle.style.display = 'none';
         }
@@ -260,19 +258,14 @@ function updateToggleUI() {
     if (topicToggle) {
         if (currentTopic) {
             topicToggle.style.display = 'inline-flex';
-            topicToggle.setAttribute('data-tooltip', 'Highlight ' + toTitleCase(currentTopic));
+            topicToggle.classList.remove('disabled'); // <--- The fix: unlocks the button
+            topicToggle.classList.toggle('active-green', filterLevel === 3);
             
-            if (filterLevel === 3) {
-                topicToggle.classList.add('active-green');
-                topicToggle.classList.remove('disabled');
-            } else {
-                topicToggle.classList.remove('active-green');
-                topicToggle.classList.add('disabled');
-            }
+            topicToggle.setAttribute('data-tooltip', toTitleCase(currentTopic) + ' Chat');
         } else {
             topicToggle.style.display = 'none';
             if (filterLevel === 3) {
-                filterLevel = 2; 
+                filterLevel = 2; // Fallback if hash is cleared
                 localStorage.setItem('chatFilterLevel', filterLevel);
             }
         }
