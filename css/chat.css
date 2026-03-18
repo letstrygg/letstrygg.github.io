@@ -5,6 +5,7 @@
     --chat-highlight: rgba(255, 235, 59, 0.15); 
     --chat-width: 340px;
     --chat-height: 50vh;
+    --ui-right-offset: 20px; /* Use this in style.css for your Theme Toggle! */
 }
 
 .chat-badge { background: #222; color: #888; padding: 4px 10px; border-radius: 12px; cursor: pointer; user-select: none; border: 1px solid #333; transition: all 0.2s; font-size: 11px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
@@ -38,7 +39,7 @@
 #openChatBtn {
     position: fixed !important;
     top: 70px !important;
-    right: 0 !important;
+    right: var(--ui-right-offset) !important; /* Uses the new variable */
     z-index: 1000;
 }
 
@@ -99,22 +100,27 @@ body.chat-open-squish .os-scrollbar-vertical {
 /* --- MOBILE (VERTICAL/PORTRAIT) --- */
 @media (max-aspect-ratio: 1/1), (max-width: 768px) {
     
-    /* Move Expand Button to Bottom Edge, Right Side */
+    /* Move Expand Button to Bottom Edge, aligned with the offset */
     #openChatBtn {
         top: auto !important;
         bottom: 0 !important;
-        right: 20px !important;
+        right: var(--ui-right-offset) !important;
         border-radius: 4px 4px 0 0;
     }
     
-    /* Spin the expand bubble so it points UP */
+    /* KEEP BUBBLE NORMAL: Removed the 90deg rotation */
     #openChatBtn .material-symbols-outlined {
-        transform: scaleX(-1) rotate(90deg) !important; 
+        transform: scaleX(-1) !important; 
     }
 
     /* Spin the collapse arrow so it points DOWN */
     #closeChatBtn .material-symbols-outlined {
         transform: rotate(90deg) !important;
+    }
+
+    /* MAGIC SWAP: Moves the Close button to the right side of the header */
+    .chat-header {
+        flex-direction: row-reverse !important;
     }
 
     /* Bottom Sheet Chat Panel */
@@ -152,7 +158,7 @@ body.chat-open-squish .os-scrollbar-vertical {
 
     /* This fixes the OverlayScrollbars for Mobile */
     body.chat-open-squish .os-scrollbar-vertical {
-        transform: none !important; /* Reset the desktop left-shift */
-        height: calc(100% - var(--chat-height)) !important; /* Shorten the track so it doesn't overlap chat */
+        transform: none !important; 
+        height: calc(100% - var(--chat-height)) !important; 
     }
 }

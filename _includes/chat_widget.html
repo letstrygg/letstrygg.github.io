@@ -6,13 +6,14 @@
 
 <div id="chatPanel" class="chat-panel" style="background: var(--bg); border-left: 1px solid var(--border); display: flex; flex-direction: column; z-index: 1000;">
   
-  <div style="min-height: 50px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 10px; background: var(--bg);">
+<div class="chat-header" style="min-height: 50px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 10px; background: var(--bg);">
     <button id="closeChatBtn" class="floating-btn tooltip-bottom tooltip-left-edge" data-tooltip="Collapse Chat">
-      <span class="material-symbols-outlined">keyboard_tab</span>
+        <span class="material-symbols-outlined desktop-icon">keyboard_tab</span>
+        <span class="material-symbols-outlined mobile-icon" style="display: none;">keyboard_double_arrow_down</span>
     </button>
     <span style="font-weight: 600; font-size: 13px; color: var(--text); text-transform: uppercase;">Live Chat</span>
     <div style="width: 36px;"></div>
-  </div>
+</div>
 
 <div style="padding: 10px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg2);">
     
