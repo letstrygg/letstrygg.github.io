@@ -174,7 +174,6 @@ body.chat-open-squish .os-scrollbar-vertical {
     padding: 2px 6px;
     border-radius: 12px;
     border: 2px solid var(--bg); /* Creates a cutout effect against the background */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     z-index: 2;
     pointer-events: none; /* So it doesn't block button clicks */
 }
