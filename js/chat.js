@@ -34,6 +34,11 @@ function updateChatVisibility() {
     if (isChatOpen) {
         document.body.classList.add('chat-open-squish');
         openChatBtn.style.display = 'none';
+        
+        // ADD THIS: Clear the unread dot when chat opens
+        const unreadDot = document.getElementById('chat-unread-dot');
+        if (unreadDot) unreadDot.style.display = 'none';
+        
     } else {
         document.body.classList.remove('chat-open-squish');
         openChatBtn.style.display = 'flex';
@@ -458,7 +463,15 @@ function renderMessages() {
 
 if (supabaseClient) {
     const chatChannel = supabaseClient.channel('chat_updates');
-    chatChannel.on('postgres_changes', { event: '*', schema: 'public', table: 'ltg_chat' }, payload => { loadMessages(); });
+    chatChannel.on('postgres_changes', { event: '*', schema: 'public', table: 'ltg_chat' }, payload => { 
+		loadMessages(); 
+		
+		// If a new message arrives AND the chat is closed, show the red dot
+		if (payload.eventType === 'INSERT' && !isChatOpen) {
+			const unreadDot = document.getElementById('chat-unread-dot');
+			if (unreadDot) unreadDot.style.display = 'block';
+		}
+	});
     chatChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_profiles' }, payload => { loadMessages(); });
     chatChannel.subscribe();
 
