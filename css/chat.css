@@ -152,7 +152,7 @@ body.chat-open-squish .os-scrollbar-vertical {
 /* 1. Centered number inside the chat bubble */
 .chat-viewer-count {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -55%); /* -55% visually centers it inside the bubble icon */
     color: var(--text);
