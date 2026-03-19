@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4JMxKFjXb-_-aVVTu3KuM7",
-  "title": "Hadean Tactics Let's Play",
+  "slug": "hadean-tactics-lets-play",
+  "title": "Hadean Tactics Lets Play",
   "thumbnail": "https://i.ytimg.com/vi/W4bi2QrcLak/maxresdefault.jpg",
   "published": "2021-09-17T03:31:15.650215Z",
   "updated": "2021-09-18T19:00:09Z",
-  "fetched": "2026-03-07T12:04:49.870Z",
+  "fetched": "2026-03-19T03:28:19.100Z",
   "episodes": 3,
   "duration": 6328,
-  "views": 332,
-  "status": "Completed",
   "duration_formatted": "1h 45m",
+  "duration_short": "2h",
+  "views": 332,
   "views_formatted": "332",
-  "slug": "hadean-tactics-lets-play",
+  "status": "Completed",
   "status_color": "blue"
 }

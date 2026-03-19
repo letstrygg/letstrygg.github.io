@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6tNrI9xEtQw-zSzDOBiA6s",
+  "slug": "arkos",
   "title": "Arkos",
   "thumbnail": "https://i.ytimg.com/vi/g6rcTqjQzK4/maxresdefault.jpg",
   "published": "2021-11-07T06:58:28.956465Z",
   "updated": "2021-11-07T19:00:19Z",
-  "fetched": "2026-03-07T12:04:48.135Z",
+  "fetched": "2026-03-19T03:28:18.491Z",
   "episodes": 1,
   "duration": 1279,
-  "views": 29,
-  "status": "Completed",
   "duration_formatted": "21m",
+  "duration_short": "21m",
+  "views": 29,
   "views_formatted": "29",
-  "slug": "arkos",
+  "status": "Completed",
   "status_color": "blue"
 }

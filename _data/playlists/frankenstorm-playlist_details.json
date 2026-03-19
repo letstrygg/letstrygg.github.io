@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5cye1s7v_2WuoYOZKVZWT9",
+  "slug": "frankenstorm",
   "title": "FrankenStorm",
   "thumbnail": "https://i.ytimg.com/vi/7S8DaI2JeC0/maxresdefault.jpg",
   "published": "2021-11-20T10:54:41.69671Z",
   "updated": "2022-02-25T19:00:06Z",
-  "fetched": "2026-03-07T12:04:47.055Z",
+  "fetched": "2026-03-19T03:28:17.844Z",
   "episodes": 20,
   "duration": 62612,
-  "views": 1575,
-  "status": "Completed",
   "duration_formatted": "17h 23m",
+  "duration_short": "17h",
+  "views": 1575,
   "views_formatted": "1.6K",
-  "slug": "frankenstorm",
+  "status": "Completed",
   "status_color": "blue"
 }

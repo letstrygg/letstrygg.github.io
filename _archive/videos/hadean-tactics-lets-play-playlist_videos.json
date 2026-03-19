@@ -8,7 +8,11 @@
       "videoPublishedAt": "2021-09-17T19:00:16Z",
       "durationInSeconds": 3336,
       "viewCount": 205
-    }
+    },
+    "title": "Hadean Tactics Roguelike Deckbuilding Auto-Battler! Let's Play Episode 1",
+    "thumbnail": "https://i.ytimg.com/vi/W4bi2QrcLak/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2021-09-18T19:00:09Z",
       "durationInSeconds": 2914,
       "viewCount": 70
-    }
+    },
+    "title": "ACT 2! Hadean Tactics Roguelike Deckbuilding Auto-Battler! Let's Play Episode 1",
+    "thumbnail": "https://i.ytimg.com/vi/egDt20fCSZA/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2021-09-17T19:30:03Z",
       "durationInSeconds": 78,
       "viewCount": 57
-    }
+    },
+    "title": "45.9k Damage! HIGHLIGHT from my first run of Hadean Tactics",
+    "thumbnail": "https://i.ytimg.com/vi/iTBHdGdjTeo/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   }
 ]

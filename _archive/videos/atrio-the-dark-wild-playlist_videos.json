@@ -8,7 +8,11 @@
       "videoPublishedAt": "2021-08-16T17:00:23Z",
       "durationInSeconds": 1580,
       "viewCount": 161
-    }
+    },
+    "title": "Atrio the Dark Wild, Factorio meets Portal, Post-Apocalyptic Survival Base-Building Game, Episode 1",
+    "thumbnail": "https://i.ytimg.com/vi/bCXJveUqd2w/maxresdefault.jpg",
+    "likes": 8,
+    "comments": 8
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2021-08-17T22:38:01Z",
       "durationInSeconds": 1584,
       "viewCount": 48
-    }
+    },
+    "title": "It's EASY! Atrio the Dark Wild Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/NoW5lGGeCaA/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2021-08-18T22:30:07Z",
       "durationInSeconds": 1921,
       "viewCount": 27
-    }
+    },
+    "title": "Atrio the Dark Wild Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/j98c5T4VoS8/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2021-08-19T22:30:01Z",
       "durationInSeconds": 1496,
       "viewCount": 37
-    }
+    },
+    "title": "Atrio the Dark Wild Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/YLUJ7MCIpmc/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   }
 ]

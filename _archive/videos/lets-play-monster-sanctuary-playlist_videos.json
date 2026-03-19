@@ -8,7 +8,11 @@
       "videoPublishedAt": "2021-08-23T15:00:30Z",
       "durationInSeconds": 1600,
       "viewCount": 36
-    }
+    },
+    "title": "Choosing my Starting Monster - Monster Sanctuary Let's Play Episode 1",
+    "thumbnail": "https://i.ytimg.com/vi/f_fVSRhaTGg/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2021-08-27T15:00:25Z",
       "durationInSeconds": 1357,
       "viewCount": 11
-    }
+    },
+    "title": "Monster Sanctuary Episode 2",
+    "thumbnail": "https://i.ytimg.com/vi/RKi3wbMrL40/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2021-08-28T15:00:16Z",
       "durationInSeconds": 1754,
       "viewCount": 10
-    }
+    },
+    "title": "Monster Sanctuary Let's Play Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/fPECtGXTvGM/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,6 +53,10 @@
       "videoPublishedAt": "2021-08-29T15:00:03Z",
       "durationInSeconds": 2162,
       "viewCount": 10
-    }
+    },
+    "title": "Monster Sanctuary Let's Play Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/B3Ij1HJuOq0/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   }
 ]

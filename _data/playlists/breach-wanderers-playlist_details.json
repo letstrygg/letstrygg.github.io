@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk66vo8MeefM8WICBHHOlrWT",
+  "slug": "breach-wanderers",
   "title": "Breach Wanderers",
   "thumbnail": "https://i.ytimg.com/vi/MIHrJ-O6XCw/maxresdefault.jpg",
   "published": "2021-09-03T18:38:41.304361Z",
   "updated": "2023-06-10T13:00:03Z",
-  "fetched": "2026-03-07T12:04:51.005Z",
+  "fetched": "2026-03-19T03:28:20.797Z",
   "episodes": 75,
   "duration": 253599,
-  "views": 2889,
-  "status": "Completed",
   "duration_formatted": "70h 26m",
+  "duration_short": "70h",
+  "views": 2890,
   "views_formatted": "2.9K",
-  "slug": "breach-wanderers",
+  "status": "Completed",
   "status_color": "blue"
 }

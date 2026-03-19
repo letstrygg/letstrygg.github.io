@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk71GBDJvQx_HjGjOOml2o77",
-  "title": "Let's Play Monster Sanctuary",
+  "slug": "lets-play-monster-sanctuary",
+  "title": "Lets Play Monster Sanctuary",
   "thumbnail": "https://i.ytimg.com/vi/f_fVSRhaTGg/maxresdefault.jpg",
   "published": "2021-08-27T07:11:14.589343Z",
   "updated": "2021-08-29T15:00:03Z",
-  "fetched": "2026-03-07T12:04:51.581Z",
+  "fetched": "2026-03-19T03:28:21.438Z",
   "episodes": 4,
   "duration": 6873,
-  "views": 67,
-  "status": "Completed",
   "duration_formatted": "1h 54m",
+  "duration_short": "2h",
+  "views": 67,
   "views_formatted": "67",
-  "slug": "lets-play-monster-sanctuary",
+  "status": "Completed",
   "status_color": "blue"
 }
