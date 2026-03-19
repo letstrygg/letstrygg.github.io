@@ -33,13 +33,6 @@
    ========================================================================== */
 
 /* --- THE EXPAND BUTTON --- */
-#openChatBtn {
-    position: fixed !important;
-    top: 70px !important;
-    right: var(--right-offset) !important; /* Uses the new variable */
-    z-index: 1000;
-}
-
 /* Base icon rotations */
 #openChatBtn .material-symbols-outlined {
     transform: scaleX(-1); /* Points left */
