@@ -1,8 +1,22 @@
 :root {
     /* Global Offsets & Spacing */
-    --right-offset: 20px;
+	--top-offset: 30px;
+	--right-offset: 20px;
+	--gap-md: 15px;
     
     /* Chat Widget Dimensions */
     --chat-width: 340px;
     --chat-height: 50vh;
+}
+
+/* --- POSITIONING UTILITIES --- */
+.fixed-layer { position: fixed; z-index: 1000; }
+.pin-top     { top: var(--top-offset); }
+.pin-right   { right: var(--right-offset); }
+
+/* --- LAYOUT UTILITIES --- */
+.flex-col-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
 }
