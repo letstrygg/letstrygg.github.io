@@ -8,7 +8,11 @@
       "videoPublishedAt": "2020-09-24T17:00:10Z",
       "durationInSeconds": 1499,
       "viewCount": 71
-    }
+    },
+    "title": "Against the Moon, New Release, Turn-Based Strategy Game Ep 1 - Gameplay",
+    "thumbnail": "https://i.ytimg.com/vi/isb0L6X1oKk/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 8
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,6 +23,10 @@
       "videoPublishedAt": "2020-09-25T17:00:08Z",
       "durationInSeconds": 1399,
       "viewCount": 20
-    }
+    },
+    "title": "Against the Moon, Prologue Continued Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/dLMtQDhnI-I/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   }
 ]

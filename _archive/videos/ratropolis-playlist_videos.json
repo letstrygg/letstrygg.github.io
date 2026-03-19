@@ -8,7 +8,11 @@
       "videoPublishedAt": "2021-08-11T15:00:27Z",
       "durationInSeconds": 1685,
       "viewCount": 103
-    }
+    },
+    "title": "Ratropolis Let's Play Episode 1",
+    "thumbnail": "https://i.ytimg.com/vi/W08tJg34ge8/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2021-08-14T15:00:32Z",
       "durationInSeconds": 4061,
       "viewCount": 35
-    }
+    },
+    "title": "Ratropolis Let's Play Episode 2",
+    "thumbnail": "https://i.ytimg.com/vi/bAtiIb8QAy8/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2021-08-16T15:00:30Z",
       "durationInSeconds": 3099,
       "viewCount": 19
-    }
+    },
+    "title": "Ratropolis Episode 3",
+    "thumbnail": "https://i.ytimg.com/vi/chOAs5dkmJo/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2021-12-30T17:00:44Z",
       "durationInSeconds": 4229,
       "viewCount": 34
-    }
+    },
+    "title": "Ratropolis Update! New Cards? Trying to remember how to play this game Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/rq97Juav0ak/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2022-01-01T17:00:03Z",
       "durationInSeconds": 4507,
       "viewCount": 33
-    }
+    },
+    "title": "Scientist Coast Ratropolis Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/ChGeCe0dV18/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2022-01-03T17:00:28Z",
       "durationInSeconds": 3465,
       "viewCount": 27
-    }
+    },
+    "title": "Ratropolis Ep 6 Negotiator Coast",
+    "thumbnail": "https://i.ytimg.com/vi/VhrNE159KiU/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2022-01-05T17:00:29Z",
       "durationInSeconds": 4247,
       "viewCount": 15
-    }
+    },
+    "title": "Ratropolis Ep 7 Merchant Coast",
+    "thumbnail": "https://i.ytimg.com/vi/u_GA612jhYs/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,6 +113,10 @@
       "videoPublishedAt": "2022-01-07T17:00:02Z",
       "durationInSeconds": 5422,
       "viewCount": 20
-    }
+    },
+    "title": "Ratropolis Ep 8 Merchant Coast",
+    "thumbnail": "https://i.ytimg.com/vi/3Hcul2YdUfY/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   }
 ]

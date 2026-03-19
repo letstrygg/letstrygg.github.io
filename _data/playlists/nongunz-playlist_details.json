@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7Z9-q_Z83eXFtEfV-AkeAw",
+  "slug": "nongunz",
   "title": "Nongunz",
   "thumbnail": "https://i.ytimg.com/vi/6a2QX1xmCYc/maxresdefault.jpg",
   "published": "2020-08-01T15:44:26.300031Z",
   "updated": "2020-08-01T17:03:24Z",
-  "fetched": "2026-03-07T12:04:58.452Z",
+  "fetched": "2026-03-19T17:36:48.841Z",
   "episodes": 1,
   "duration": 1344,
-  "views": 31,
-  "status": "Completed",
   "duration_formatted": "22m",
+  "duration_short": "22m",
+  "views": 31,
   "views_formatted": "31",
-  "slug": "nongunz",
+  "status": "Completed",
   "status_color": "blue"
 }

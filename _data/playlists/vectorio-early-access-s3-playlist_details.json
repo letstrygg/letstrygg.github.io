@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6-ekcx64D71CzBokX3OdpU",
-  "title": "Vectorio - Early Access S3",
+  "slug": "vectorio-early-access-s3",
+  "title": "Vectorio Early Access S3",
   "thumbnail": "https://i.ytimg.com/vi/aQ1CHA9YpzE/maxresdefault.jpg",
   "published": "2023-09-06T19:32:22.349717Z",
   "updated": "2023-09-09T19:00:01Z",
-  "fetched": "2026-03-07T12:03:59.183Z",
+  "fetched": "2026-03-19T17:36:44.483Z",
   "episodes": 4,
   "duration": 8069,
-  "views": 386,
-  "status": "Completed",
   "duration_formatted": "2h 14m",
-  "views_formatted": "386",
-  "slug": "vectorio-early-access-s3",
+  "duration_short": "2h",
+  "views": 387,
+  "views_formatted": "387",
+  "status": "Completed",
   "status_color": "blue"
 }

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4IFZ6KVAoCBhLhmRC9vcUS",
+  "slug": "against-the-moon",
   "title": "Against the Moon",
   "thumbnail": "https://i.ytimg.com/vi/isb0L6X1oKk/maxresdefault.jpg",
   "published": "2020-09-24T06:08:11.188391Z",
   "updated": "2020-09-25T17:00:08Z",
-  "fetched": "2026-03-07T12:04:56.832Z",
+  "fetched": "2026-03-19T17:36:47.647Z",
   "episodes": 2,
   "duration": 2898,
-  "views": 91,
-  "status": "Completed",
   "duration_formatted": "48m",
+  "duration_short": "48m",
+  "views": 91,
   "views_formatted": "91",
-  "slug": "against-the-moon",
+  "status": "Completed",
   "status_color": "blue"
 }

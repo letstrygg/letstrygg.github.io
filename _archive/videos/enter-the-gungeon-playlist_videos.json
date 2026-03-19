@@ -8,7 +8,11 @@
       "videoPublishedAt": "2020-08-23T22:45:01Z",
       "durationInSeconds": 1163,
       "viewCount": 116
-    }
+    },
+    "title": "FREE this Week! Enter the Gungeon Ep 1 Roguelite, Bullet Hell, Dungeon Crawler, Shoot n' Loot!",
+    "thumbnail": "https://i.ytimg.com/vi/pcj1j02KTxg/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 14
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2020-08-24T20:00:01Z",
       "durationInSeconds": 1450,
       "viewCount": 43
-    }
+    },
+    "title": "Still FREE! Enter the Gungeon Ep 2 Roguelite, Bullet Hell, Dungeon Crawler, Shoot n' Loot!",
+    "thumbnail": "https://i.ytimg.com/vi/Ea3ucy6cOoE/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 11
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2020-08-25T20:00:00Z",
       "durationInSeconds": 1528,
       "viewCount": 33
-    }
+    },
+    "title": "FREE Game! Enter the Gungeon Ep 3 Roguelite, Bullet Hell, Dungeon Crawler, Shoot n' Loot!",
+    "thumbnail": "https://i.ytimg.com/vi/83BU9lLXqcU/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2020-08-26T20:00:01Z",
       "durationInSeconds": 1713,
       "viewCount": 22
-    }
+    },
+    "title": "Last day to get Enter the Gungeon FREE! Ep 4 Roguelite, Bullet Hell, Dungeon Crawler, Shoot n' Loot!",
+    "thumbnail": "https://i.ytimg.com/vi/6tbUegM-_bU/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2020-08-27T20:00:06Z",
       "durationInSeconds": 1685,
       "viewCount": 48
-    }
+    },
+    "title": "GOLD JUNK! Enter the Gungeon Ep 5 Roguelite, Bullet Hell, Dungeon Crawler, Shoot n' Loot!",
+    "thumbnail": "https://i.ytimg.com/vi/bukbgfDSK6k/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,6 +83,10 @@
       "videoPublishedAt": "2020-08-28T20:00:08Z",
       "durationInSeconds": 1735,
       "viewCount": 19
-    }
+    },
+    "title": "Stupidness Continued! Enter the Gungeon Ep 6 Roguelite, Bullet Hell, Dungeon Crawler, Shoot n' Loot",
+    "thumbnail": "https://i.ytimg.com/vi/Yieoq2tFLU0/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 1
   }
 ]

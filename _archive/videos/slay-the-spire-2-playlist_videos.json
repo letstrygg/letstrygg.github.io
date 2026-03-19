@@ -7,7 +7,7 @@
       "videoId": "_7Q5TVP3q24",
       "videoPublishedAt": "2026-03-05T22:00:38Z",
       "durationInSeconds": 10076,
-      "viewCount": 163
+      "viewCount": 164
     },
     "title": "001 It Begins, Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
@@ -22,7 +22,7 @@
       "videoId": "Kv4hcCFQzW8",
       "videoPublishedAt": "2026-03-06T12:00:42Z",
       "durationInSeconds": 9471,
-      "viewCount": 33
+      "viewCount": 36
     },
     "title": "002 You think you are so Sly, Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/Kv4hcCFQzW8/maxresdefault.jpg",
@@ -172,7 +172,7 @@
       "videoId": "4jufiQdgxJY",
       "videoPublishedAt": "2026-03-14T14:00:06Z",
       "durationInSeconds": 6383,
-      "viewCount": 97
+      "viewCount": 98
     },
     "title": "012 Accelerant, Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/4jufiQdgxJY/maxresdefault.jpg",
@@ -187,7 +187,7 @@
       "videoId": "iH2Jo9JmvQA",
       "videoPublishedAt": "2026-03-15T14:01:08Z",
       "durationInSeconds": 4946,
-      "viewCount": 28
+      "viewCount": 29
     },
     "title": "013 Radiate, Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/iH2Jo9JmvQA/maxresdefault.jpg",
@@ -202,7 +202,7 @@
       "videoId": "3Ojhhtw0q6E",
       "videoPublishedAt": "2026-03-16T14:00:06Z",
       "durationInSeconds": 7624,
-      "viewCount": 56
+      "viewCount": 57
     },
     "title": "014 Grave Warden, Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/3Ojhhtw0q6E/maxresdefault.jpg",
@@ -217,7 +217,7 @@
       "videoId": "7Wm87_u_poI",
       "videoPublishedAt": "2026-03-17T14:00:13Z",
       "durationInSeconds": 9917,
-      "viewCount": 27
+      "viewCount": 31
     },
     "title": "015 Feral Claw, Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/7Wm87_u_poI/maxresdefault.jpg",
@@ -232,11 +232,26 @@
       "videoId": "fmUFIfdWFco",
       "videoPublishedAt": "2026-03-18T14:01:11Z",
       "durationInSeconds": 4843,
-      "viewCount": 26
+      "viewCount": 36
     },
     "title": "016 Slay the Spire 2",
     "thumbnail": "https://i.ytimg.com/vi/fmUFIfdWFco/maxresdefault.jpg",
     "likes": 4,
     "comments": 1
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "d0pqE74v4mRVI34bgDk0HWYcVxY",
+    "id": "UExRNElMNFVWZ1FrNmZoVlpMVmVRa3dTMnJGTmZvWDBlMy41QTY1Q0UxMTVCODczNThE",
+    "contentDetails": {
+      "videoId": "5b861ZbgHE4",
+      "videoPublishedAt": "2026-03-19T14:00:08Z",
+      "durationInSeconds": 5092,
+      "viewCount": 0
+    },
+    "title": "017 Nightmare still Breaks things, Slay the Spire 2",
+    "thumbnail": "https://i.ytimg.com/vi/5b861ZbgHE4/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   }
 ]

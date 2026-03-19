@@ -7,8 +7,12 @@
       "videoId": "xoLUqR4k5cs",
       "videoPublishedAt": "2021-08-13T15:00:36Z",
       "durationInSeconds": 1330,
-      "viewCount": 647
-    }
+      "viewCount": 648
+    },
+    "title": "Vectorio Survival Base-Building Tower Defense Game = Rimworld + Mindustry + Shapes.io Lets Play Ep 1",
+    "thumbnail": "https://i.ytimg.com/vi/xoLUqR4k5cs/maxresdefault.jpg",
+    "likes": 13,
+    "comments": 9
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2021-08-15T15:00:33Z",
       "durationInSeconds": 1372,
       "viewCount": 236
-    }
+    },
+    "title": "Vectorio Episode 2 -  THE REVENANT my First Guardian",
+    "thumbnail": "https://i.ytimg.com/vi/tZyqymxMI7w/maxresdefault.jpg",
+    "likes": 6,
+    "comments": 11
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2021-08-17T15:00:34Z",
       "durationInSeconds": 1490,
       "viewCount": 44
-    }
+    },
+    "title": "Vectorio Episode 3 - Rebuilding Smarter! Better! Faster! ..ish?",
+    "thumbnail": "https://i.ytimg.com/vi/xPVf2ymIBWM/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2021-08-18T15:00:35Z",
       "durationInSeconds": 1589,
       "viewCount": 30
-    }
+    },
+    "title": "Round 2, FIGHT! Vectorio Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/v4KRfsWUI58/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2021-08-19T15:00:05Z",
       "durationInSeconds": 1263,
       "viewCount": 38
-    }
+    },
+    "title": "REBUILDING, Biggerer, Betterer - Vectorio Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/8UzSEwwOLFs/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2021-08-20T15:00:26Z",
       "durationInSeconds": 1232,
       "viewCount": 78
-    }
+    },
+    "title": "Third Try's the Charm? Vectorio Episode 6 The Revenant Re-Rematch",
+    "thumbnail": "https://i.ytimg.com/vi/WdpOoPDFOcQ/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2021-08-22T15:00:32Z",
       "durationInSeconds": 1347,
       "viewCount": 42
-    }
+    },
+    "title": "Game Trailers then VECTORIO ep 7!",
+    "thumbnail": "https://i.ytimg.com/vi/kD3CYKQuhBI/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,7 +113,11 @@
       "videoPublishedAt": "2021-08-24T15:00:18Z",
       "durationInSeconds": 1263,
       "viewCount": 48
-    }
+    },
+    "title": "Vectorio Ep 8",
+    "thumbnail": "https://i.ytimg.com/vi/kN0ZgoGQ5SQ/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -96,6 +128,10 @@
       "videoPublishedAt": "2021-08-26T15:00:20Z",
       "durationInSeconds": 1255,
       "viewCount": 55
-    }
+    },
+    "title": "Vectorio Ep 9",
+    "thumbnail": "https://i.ytimg.com/vi/jU4hD4PvJuI/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 4
   }
 ]

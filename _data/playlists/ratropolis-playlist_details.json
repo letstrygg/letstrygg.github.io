@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7-l0tIBMr3imIHiKTydqYp",
+  "slug": "ratropolis",
   "title": "Ratropolis",
   "thumbnail": "https://i.ytimg.com/vi/W08tJg34ge8/maxresdefault.jpg",
   "published": "2021-08-11T09:38:57.974636Z",
   "updated": "2022-01-07T17:00:02Z",
-  "fetched": "2026-03-07T12:04:53.622Z",
+  "fetched": "2026-03-19T17:36:46.285Z",
   "episodes": 8,
   "duration": 30715,
-  "views": 286,
-  "status": "Completed",
   "duration_formatted": "8h 31m",
+  "duration_short": "9h",
+  "views": 286,
   "views_formatted": "286",
-  "slug": "ratropolis",
+  "status": "Completed",
   "status_color": "blue"
 }
