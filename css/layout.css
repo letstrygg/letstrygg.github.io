@@ -1,12 +1,10 @@
 :root {
-    /* Global Offsets & Spacing */
-	--top-offset: 30px;
-	--right-offset: 20px;
-	--gap-md: 15px;
-    
-    /* Chat Widget Dimensions */
+    --top-offset: 30px;
+    --right-offset: 20px;
+    --bottom-offset: 20px;
     --chat-width: 340px;
     --chat-height: 50vh;
+    --gap-md: 15px;
 }
 
 /* --- POSITIONING UTILITIES --- */
@@ -19,4 +17,16 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-md);
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT UTILITIES
+   ========================================================================== */
+@media (max-aspect-ratio: 1/1), (max-width: 768px) {
+    .mobile-pin-bottom-right {
+        position: fixed;
+        top: auto; 
+        bottom: var(--bottom-offset);
+        right: var(--right-offset);
+    }
 }
