@@ -1,6 +1,6 @@
 :root {
-    --top-offset: 0px;
-    --right-offset: 20px;
+    --top-offset: 5px;
+    --right-offset: 8px;
     --bottom-offset: 20px;
     --chat-width: 340px;
     --chat-height: 50vh;
