@@ -36,8 +36,8 @@
                         </button>
                     </div>
                 </div>
-
-                <div id="ytplayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
+				<iframe id="ytplayer" src="https://www.youtube.com/embed/{{ include.video_id }}?enablejsapi=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></iframe>
+               <!-- <div id="ytplayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>-->
             </div>
         </div>
     </div>
@@ -62,12 +62,13 @@
   var saveInterval;
 
   function onYouTubeIframeAPIReady() {
+    var iframe = document.getElementById('ytplayer');
+    
+    // Inject the dynamic start time and autoplay before the API takes over
+    iframe.src = "https://www.youtube.com/embed/{{ include.video_id }}?enablejsapi=1&rel=0&modestbranding=1&fs=1&autoplay=1&start=" + Math.floor(startTime);
+
+    // Bind the YouTube API to the existing iframe
     player = new YT.Player('ytplayer', {
-      videoId: '{{ include.video_id }}',
-      playerVars: {
-        'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'fs': 1,
-        'start': Math.floor(startTime)
-      },
       events: { 'onStateChange': onPlayerStateChange }
     });
   }
