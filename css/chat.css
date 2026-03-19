@@ -165,8 +165,8 @@ body.chat-open-squish .os-scrollbar-vertical {
 /* 2. Small red dot for unread messages */
 .chat-unread-dot {
     position: absolute;
-    top: -2px;
-    right: -2px;
+    top: 2px;
+    right: 2px;
     width: 10px;
     height: 10px;
     background-color: var(--red); /* Assuming you have --red, otherwise use #e74c3c */
