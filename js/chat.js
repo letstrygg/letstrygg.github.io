@@ -30,6 +30,21 @@ const topicToggle = document.getElementById('topicChatToggle');
 
 let isChatOpen = localStorage.getItem('chatOpen') !== 'false'; 
 
+// --- PREVENT RESIZE LAYOUT SHIFT ANIMATION ---
+let resizeTimer;
+window.addEventListener('resize', () => {
+    // 1. Instantly kill the transition via inline style (overrides CSS without !important)
+    if (chatPanel) chatPanel.style.transition = 'none';
+    
+    // 2. Clear the timer if they are still dragging the window
+    clearTimeout(resizeTimer);
+    
+    // 3. Put the transition back 150ms after they stop resizing
+    resizeTimer = setTimeout(() => {
+        if (chatPanel) chatPanel.style.transition = ''; 
+    }, 150); 
+});
+
 function updateChatVisibility() {
     if (!chatPanel || !openChatBtn) return;
     
