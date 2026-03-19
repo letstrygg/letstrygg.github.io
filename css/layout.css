@@ -27,6 +27,6 @@
         position: fixed;
         top: auto; 
         bottom: var(--bottom-offset);
-        right: var(--right-offset);
+/*        right: var(--right-offset);*/
     }
 }
