@@ -18,6 +18,8 @@ const userNameDisplay = document.getElementById('userNameDisplay');
 const userColorPicker = document.getElementById('userColor');
 const grabTimeBtn = document.getElementById('grabTimeBtn');
 const onlineBadge = document.getElementById('chat-online-count');
+const onlineBadgeExpanded = document.getElementById('chat-online-count-expanded');
+const expandedOnlineContainer = document.getElementById('expanded-online-container');
 
 // Filter Toggles
 const timeToggle = document.getElementById('timeToggle');
@@ -485,25 +487,35 @@ if (supabaseClient) {
         localStorage.setItem('ltg_device_id', deviceId);
     }
 
-    presenceChannel.on('presence', { event: 'sync' }, () => {
+presenceChannel.on('presence', { event: 'sync' }, () => {
         const newState = presenceChannel.presenceState();
         const uniqueUsers = new Set();
         
-        // Loop through all active connections and extract the unique IDs
         for (const key in newState) {
             newState[key].forEach(state => {
                 if (state.user_id) uniqueUsers.add(state.user_id);
             });
         }
         
-        const totalOnline = uniqueUsers.size; // Only counts unique IDs
+        const totalOnline = uniqueUsers.size; 
         
+        // 1. Update the collapsed bubble badge
         if (onlineBadge) {
             if (totalOnline > 0) {
                 onlineBadge.innerText = totalOnline;
                 onlineBadge.style.display = 'inline-block';
             } else {
                 onlineBadge.style.display = 'none';
+            }
+        }
+
+        // 2. Update the expanded chat bottom-right tracker
+        if (onlineBadgeExpanded && expandedOnlineContainer) {
+            if (totalOnline > 0) {
+                onlineBadgeExpanded.innerText = totalOnline;
+                expandedOnlineContainer.style.display = 'flex';
+            } else {
+                expandedOnlineContainer.style.display = 'none';
             }
         }
     });

@@ -62,7 +62,20 @@
           </div>
           <p id="statusMessage" style="color: #2ecc71; height: 16px; margin: 5px 0 0 0; font-size: 12px; text-align: center;"></p>
       </div>
-  </div>
+	  
+	<div style="border-top: 1px solid var(--border); background: var(--bg2); padding: 15px 10px;">
+		  <div id="loginSection" style="display: none;">
+			  </div>
+
+		  <div id="inputSection" style="display: none;">
+			  </div>
+
+		  <div id="expanded-online-container" style="display: none; justify-content: flex-end; align-items: center; gap: 4px; margin-top: 5px;">
+			  <span class="material-symbols-outlined" style="font-size: 16px; color: var(--gray);">group</span>
+			  <span id="chat-online-count-expanded" style="color: var(--green); font-weight: bold; font-size: 13px;">0</span>
+		  </div>
+	  </div>
+	</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
