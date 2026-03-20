@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
+    // 1. Initialize Supabase correctly
+    const supabase = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+
     const viewContainer = document.getElementById('viewModeContainer');
     const editContainer = document.getElementById('editModeContainer');
     const toggleBtn = document.getElementById('toggleEditBtn');
@@ -12,8 +15,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     let myFollows = [];
     let isEditing = false;
 
-    // Check Auth
-    const { data: { session } } = await window.supabase.auth.getSession();
+    // Check Auth using the initialized client
+    const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
         feedStatus.innerText = "Please log in.";
         return; 
@@ -41,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Fetch from Supabase
     async function loadFollows() {
-        const { data, error } = await window.supabase
+        const { data, error } = await supabase
             .from('ltg_streamers_followed')
             .select('id, sort_order, streamer_slug, ltg_streamers ( display_name )')
             .eq('user_id', currentUser.id)
@@ -64,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         const newOrder = myFollows.length; 
         
-        const { error } = await window.supabase
+        const { error } = await supabase
             .from('ltg_streamers_followed')
             .insert({ user_id: currentUser.id, streamer_slug: slug, sort_order: newOrder });
 
@@ -79,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Delete from Supabase
     window.removeFollow = async (id) => {
-        const { error } = await window.supabase
+        const { error } = await supabase
             .from('ltg_streamers_followed')
             .delete()
             .eq('id', id);
