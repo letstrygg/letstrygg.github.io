@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    // 1. Initialize Supabase correctly
     const supabase = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
 
     const viewContainer = document.getElementById('viewModeContainer');
@@ -15,15 +14,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     let myFollows = [];
     let isEditing = false;
 
-    // Check Auth using the initialized client
+    // Check Auth
     const { data: { session } } = await supabase.auth.getSession();
+    
     if (!session) {
         feedStatus.innerText = "Please log in.";
         return; 
     }
     
+    // If logged in:
     currentUser = session.user;
-    toggleBtn.style.display = 'block';
+    toggleBtn.style.display = 'inline-block';
     await loadFollows();
 
     // Toggle Modes
