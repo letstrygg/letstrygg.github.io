@@ -6,22 +6,23 @@ Deno.serve(async (req) => {
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
     try {
-        const { data: streamers, error: fetchError } = await supabase
-            .from('ltg_streamers')
+        // UPDATED: Pointing to ltg_channels
+        const { data: channels, error: fetchError } = await supabase
+            .from('ltg_channels')
             .select('slug, twitch_channel, youtube_channel_id, kick_channel');
 
         if (fetchError) throw fetchError;
-        if (!streamers || streamers.length === 0) return new Response("No streamers found.", { status: 200 });
+        if (!channels || channels.length === 0) return new Response("No channels found.", { status: 200 });
 
         const twitchToken = await getTwitchToken();
 
         // Run checks concurrently
-        const operations = streamers.map(async (streamer) => {
+        const operations = channels.map(async (channel) => {
             const checks = [];
             
-            if (streamer.twitch_channel) checks.push(checkTwitch(streamer.twitch_channel, twitchToken));
-            if (streamer.kick_channel) checks.push(checkKick(streamer.kick_channel));
-            if (streamer.youtube_channel_id) checks.push(checkYouTube(streamer.youtube_channel_id));
+            if (channel.twitch_channel) checks.push(checkTwitch(channel.twitch_channel, twitchToken));
+            if (channel.kick_channel) checks.push(checkKick(channel.kick_channel));
+            if (channel.youtube_channel_id) checks.push(checkYouTube(channel.youtube_channel_id));
 
             const results = await Promise.all(checks);
             const activeStreams = results.filter(r => r.isLive);
@@ -33,15 +34,16 @@ Deno.serve(async (req) => {
                 last_checked: new Date().toISOString()
             };
 
+            // UPDATED: Pointing to ltg_channels
             return supabase
-                .from('ltg_streamers')
+                .from('ltg_channels')
                 .update({ live_data: liveDataPayload })
-                .eq('slug', streamer.slug);
+                .eq('slug', channel.slug);
         });
 
         await Promise.all(operations);
 
-        return new Response(JSON.stringify({ success: true, updated: streamers.length }), {
+        return new Response(JSON.stringify({ success: true, updated: channels.length }), {
             headers: { 'Content-Type': 'application/json' },
             status: 200
         });
