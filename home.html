@@ -1,0 +1,22 @@
+---
+layout: default
+title: Home
+permalink: /home/
+---
+
+<h1>My Feed</h1>
+<p id="feedStatus">Loading...</p>
+
+<button id="toggleEditBtn" style="display: none;">Edit List</button>
+
+<div id="viewModeContainer">
+    <div id="streamerGrid"></div>
+</div>
+
+<div id="editModeContainer" style="display: none;">
+    <input type="text" id="newStreamerInput" placeholder="Enter handle">
+    <button id="addStreamerBtn">Add</button>
+    <div id="editStreamerList"></div>
+</div>
+
+<script src="/js/home-feed.js"></script>
