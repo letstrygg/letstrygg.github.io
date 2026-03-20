@@ -1,0 +1,177 @@
+/* ==========================================================================
+   BASE VARIABLES & CORE CHAT STYLES
+   ========================================================================== */
+:root {
+    --chat-highlight: rgba(255, 235, 59, 0.15); 
+}
+
+.chat-badge { background: #222; color: #888; padding: 4px 10px; border-radius: 12px; cursor: pointer; user-select: none; border: 1px solid #333; transition: all 0.2s; font-size: 11px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
+.chat-badge.active { background: rgba(141, 255, 141, 0.15); color: #8dff8d; border-color: rgba(141, 255, 141, 0.4); }
+
+#chatInput:focus { border-color: #e67e22 !important; }
+.chat-msg { margin-bottom: 8px; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; font-size: 13px; word-break: break-word; border: 1px solid transparent; }
+
+.msg-channel { 
+    background-color: #252525; 
+    margin: 0px -10px 8px;
+    padding: 0px 10px; 
+}
+
+.chat-timestamp { font-size: 11px; color: #adadb8; display: none; margin-top: 3px; white-space: nowrap; }
+.show-timestamps .chat-timestamp { display: inline-block; }
+.admin-btn { background: none; border: none; cursor: pointer; font-size: 12px; opacity: 0.3; padding: 0 4px; }
+.admin-btn:hover { opacity: 1; }
+.msg-deleted { opacity: 0.4; text-decoration: line-through; }
+#chatBox::-webkit-scrollbar { width: 8px; }
+#chatBox::-webkit-scrollbar-track { background: transparent; }
+#chatBox::-webkit-scrollbar-thumb { background: #3a3a3d; border-radius: 4px; }
+.yt-time-link { color: #3498db; text-decoration: none; font-weight: 500; transition: opacity 0.2s; } 
+.yt-time-link:hover { opacity: 0.8; text-decoration: underline; }
+
+/* ==========================================================================
+   LAYOUT, ANIMATIONS & RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* --- THE EXPAND BUTTON --- */
+/* Base icon rotations */
+#openChatBtn .material-symbols-outlined {
+    transform: scaleX(-1); /* Points left */
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+#closeChatBtn .material-symbols-outlined {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* --- DESKTOP (SIDEBAR) --- */
+.chat-panel {
+    position: fixed;
+    top: 0;
+    right: 0; 
+    bottom: 0;
+    
+    /* Lock the width so content can NEVER resize it */
+    width: var(--chat-width) !important;
+    min-width: var(--chat-width) !important;
+    max-width: var(--chat-width) !important;
+    height: 100vh !important;
+    
+    background: var(--bg);
+    z-index: 1000;
+    
+    /* Slide off-screen exactly its own width */
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Open state (Desktop) */
+body.chat-open-squish .chat-panel {
+    transform: translateX(0);
+}
+
+body {
+    transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.chat-open-squish {
+    padding-right: var(--chat-width) !important; 
+}
+
+/* Smoothly shift OverlayScrollbars using Transform so it doesn't jump */
+.os-scrollbar-vertical {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s ease !important;
+    transform: translateX(0);
+}
+body.chat-open-squish .os-scrollbar-vertical {
+    transform: translateX(calc(var(--chat-width) * -1)) !important;
+}
+
+
+/* --- MOBILE (VERTICAL/PORTRAIT) --- */
+@media (max-aspect-ratio: 1/1), (max-width: 768px) {
+    
+    /* KEEP BUBBLE NORMAL: Removed the 90deg rotation */
+    #openChatBtn .material-symbols-outlined {
+        transform: scaleX(-1) !important; 
+    }
+
+    /* Spin the collapse arrow so it points DOWN */
+    #closeChatBtn .material-symbols-outlined {
+        transform: rotate(90deg) !important;
+    }
+
+    /* MAGIC SWAP: Moves the Close button to the right side of the header */
+    .chat-header {
+        flex-direction: row-reverse !important;
+    }
+
+    /* Bottom Sheet Chat Panel */
+    .chat-panel {
+        top: auto !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        
+        /* Lock the height so content can NEVER resize it */
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        height: var(--chat-height) !important;
+        min-height: var(--chat-height) !important;
+        max-height: var(--chat-height) !important;
+        
+        border-left: none !important;
+        border-top: 1px solid var(--border);
+        
+        /* Slide off-screen exactly its own height */
+        transform: translateY(100%);
+    }
+
+    /* Open state (Mobile) */
+    body.chat-open-squish .chat-panel {
+        transform: translateY(0);
+    }
+    
+    /* This handles the vertical squish perfectly */
+    body.chat-open-squish {
+        padding-right: 0 !important; 
+        padding-bottom: var(--chat-height) !important; 
+    }
+
+    /* This fixes the OverlayScrollbars for Mobile */
+    body.chat-open-squish .os-scrollbar-vertical {
+        transform: none !important; 
+        height: calc(100% - var(--chat-height)) !important; 
+    }
+}
+
+/* ==========================================================================
+   CHAT BUTTON BADGES & INDICATORS
+   ========================================================================== */
+
+/* 1. Centered number inside the chat bubble */
+.chat-viewer-count {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -55%); /* -55% visually centers it inside the bubble icon */
+    color: var(--text);
+    font-size: 11px;
+    font-weight: 800;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* 2. Small red dot for unread messages */
+.chat-unread-dot {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--red); /* Assuming you have --red, otherwise use #e74c3c */
+    border-radius: 50%;
+    border: 2px solid var(--bg); /* Keeps the cutout effect */
+    z-index: 3;
+    pointer-events: none;
+}

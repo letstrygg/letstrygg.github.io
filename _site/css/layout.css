@@ -1,0 +1,32 @@
+:root {
+    --top-offset: 5px;
+    --right-offset: 8px;
+    --bottom-offset: 20px;
+    --chat-width: 340px;
+    --chat-height: 50vh;
+    --gap-md: 15px;
+}
+
+/* --- POSITIONING UTILITIES --- */
+.fixed-layer { position: fixed; z-index: 1000; }
+.pin-top     { top: var(--top-offset); }
+.pin-right   { right: var(--right-offset); }
+
+/* --- LAYOUT UTILITIES --- */
+.flex-col-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT UTILITIES
+   ========================================================================== */
+@media (max-aspect-ratio: 1/1), (max-width: 768px) {
+    .mobile-pin-bottom-right {
+        position: fixed;
+        top: auto; 
+        bottom: var(--bottom-offset);
+/*        right: var(--right-offset);*/
+    }
+}

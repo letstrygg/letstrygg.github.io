@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        window.SUPABASE_URL = 'https://fnwmtytnltmqjaflfwyr.supabase.co';
+        window.SUPABASE_ANON_KEY = 'sb_publishable_y12qZF_dSbUPmV_aieiUgA_CibDsxQV';
+    </script>
+</head>
+<body>
+    <p id="feedStatus">Loading...</p>
+
+<button id="toggleEditBtn" style="display: none;">Edit List</button>
+
+<div id="viewModeContainer">
+    <div id="streamerGrid"></div>
+</div>
+
+<div id="editModeContainer" style="display: none;">
+    <input type="text" id="newStreamerInput" placeholder="Enter handle">
+    <button id="addStreamerBtn">Add</button>
+    <div id="editStreamerList"></div>
+</div>
+
+<script src="/js/home-feed.js"></script>
+</body>
+</html>

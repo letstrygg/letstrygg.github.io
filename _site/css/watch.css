@@ -1,0 +1,144 @@
+/* ==========================================================================
+   WATCH PAGE SPECIFIC STYLING
+   ========================================================================== */
+
+main {
+    padding: 0 45px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Clean Breadcrumbs */
+.breadcrumbs { margin-bottom: 0 !important; }
+.breadcrumbs a { text-decoration: none !important; }
+.breadcrumbs a:hover { color: var(--title); }
+
+/* ==========================================================================
+   MINIMALIST VIDEO OVERLAY
+   ========================================================================== */
+
+/* The Main Overlay Container (Crucial for fade and click-through) */
+.video-overlay {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    pointer-events: none; /* Lets mouse clicks pass through to YouTube */
+    transition: opacity 0.3s ease;
+    z-index: 20;
+}
+
+/* --- Video Overlay Stats Box --- */
+.overlay-stats {
+    position: absolute;
+    bottom: 60px; /* Moved to sit exactly above the YouTube playback bar */
+    right: 15px;  /* Moved to the bottom right edge */
+    
+    /* The Glass Panel Look */
+    background: rgba(14, 14, 16, 0.85); 
+    backdrop-filter: blur(4px);         
+    -webkit-backdrop-filter: blur(4px);
+    
+    /* Borders and Shadows */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    
+    /* Layout */
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 8px 14px;
+    
+    /* Text Styling */
+    color: #efeff1;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Ensure the icons and text align perfectly inside the box */
+.ep-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Size down the material icons slightly so they fit the 13px text */
+.ep-stat .material-symbols-outlined {
+    font-size: 16px; 
+}
+
+/* Native-Style Overlay Buttons */
+.overlay-btn {
+    position: relative;   /* Crucial: anchors the global CSS tooltips */
+    pointer-events: auto; /* Makes the buttons clickable again */
+    background: transparent;
+    border: none;
+    color: #ffffff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.85; 
+    transition: opacity 0.2s ease;
+}
+
+.overlay-btn:hover { 
+    opacity: 1; 
+}
+
+/* Side Navigation Arrows */
+.overlay-side { 
+    position: absolute; /* Overrides relative positioning for side layout */
+    top: 50%; 
+    transform: translateY(-50%); 
+    padding: 20px; 
+}
+.overlay-side .material-symbols-outlined { font-size: 3rem; }
+.overlay-left { left: 0px; }
+.overlay-right { right: 0px; }
+
+
+/* Bottom Center Controls */
+.overlay-bottom { 
+    position: absolute; 
+    bottom: 4px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+    gap: 25px; 
+    pointer-events: auto; /* Ensure this flexbox catches hover states */
+}
+.overlay-bottom .material-symbols-outlined { font-size: 1.8rem; }
+
+/* ==========================================================================
+   THEATER MODE (Responsive to Chat)
+   ========================================================================== */
+#player-wrapper.theater-active {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    
+    /* Default Full Screen */
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    
+    /* Sits just underneath the chat panel (z-index: 1000) */
+    z-index: 999 !important; 
+    margin: 0 !important;
+}
+
+/* --- DESKTOP: Chat is on the Right --- */
+body.chat-open-squish #player-wrapper.theater-active {
+    width: calc(100vw - var(--chat-width)) !important;
+}
+
+/* --- MOBILE: Chat is on the Bottom --- */
+@media (max-aspect-ratio: 1/1), (max-width: 768px) {
+    body.chat-open-squish #player-wrapper.theater-active {
+        width: 100vw !important; /* Restore full width */
+        height: calc(100vh - var(--chat-height)) !important; /* Avoid the bottom chat */
+    }
+}
