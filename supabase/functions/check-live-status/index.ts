@@ -87,14 +87,46 @@ async function checkTwitch(handle, token) {
     return { isLive: false, platform: 'twitch' };
 }
 
-async function checkYouTube(handle) {
+async function checkYouTube(channelId) {
     try {
-        const res = await fetch(`https://www.youtube.com/@${handle}/live`);
-        const html = await res.text();
-        if (html.includes('rel="canonical" href="https://www.youtube.com/watch?v=') && html.includes('"isLiveNow":true')) {
-            return { isLive: true, viewers: 0, platform: 'youtube' }; // YouTube scraping doesn't easily expose exact viewer count
+        // 1. Check if they accidentally put a handle in, otherwise use the proper /channel/ URL
+        let url = '';
+        if (channelId.startsWith('UC') && channelId.length === 24) {
+            url = `https://www.youtube.com/channel/${channelId}/live`;
+        } else {
+            // Fallback just in case you do have handles like '@destiny' stored
+            const cleanHandle = channelId.startsWith('@') ? channelId : `@${channelId}`;
+            url = `https://www.youtube.com/${cleanHandle}/live`;
         }
-    } catch (e) { console.error(`YouTube error for ${handle}:`, e); }
+        
+        // 2. Disguise the request
+        const res = await fetch(url, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept-Language': 'en-US,en;q=0.9'
+            }
+        });
+        
+        // 3. If they are offline, YouTube redirects to /streams or their main channel page
+        if (!res.url.includes('/watch') && !res.url.includes('/live')) {
+            return { isLive: false, platform: 'youtube' };
+        }
+
+        const html = await res.text();
+
+        // 4. Broaden the search to catch multiple variations of YouTube's live flags
+        const isLive = html.includes('itemprop="isLiveBroadcast"') || 
+                       html.includes('"isLiveNow":true') || 
+                       html.includes('isLiveContent');
+
+        if (isLive) {
+            const viewerMatch = html.match(/"viewCount":"(\d+)"/);
+            const viewers = viewerMatch ? parseInt(viewerMatch[1], 10) : 0;
+            return { isLive: true, viewers: viewers, platform: 'youtube' };
+        }
+    } catch (e) { 
+        console.error(`YouTube error for ${channelId}:`, e); 
+    }
     return { isLive: false, platform: 'youtube' };
 }
 
