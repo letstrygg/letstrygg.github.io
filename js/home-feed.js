@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             const { data, error } = await supabase.from('top_streamers').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel, live_data').limit(12);
             
             if (error) {
-                // Fallback to ltg_streamers if view fails
-                const fallback = await supabase.from('ltg_streamers').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel, live_data').limit(12);
+                // Fallback to ltg_channels if view fails
+                const fallback = await supabase.from('ltg_channels').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel, live_data').limit(12);
                 masterList = fallback.data || [];
             } else {
                 masterList = data || [];
@@ -41,11 +41,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Logged In: Fetch full library and user follows
         const [mRes, fRes] = await Promise.all([
-            supabase.from('ltg_streamers').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel, live_data'),
+            supabase.from('ltg_channels').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel, live_data'),
             supabase.from('ltg_streamers_followed').select('streamer_slug').eq('user_id', session.user.id)
         ]);
         
-        if (mRes.error) console.error("Streamers Fetch Error:", mRes.error.message);
+        if (mRes.error) console.error("Channels Fetch Error:", mRes.error.message);
         
         masterList = mRes.data || [];
         currentFollows = (fRes.data || []).map(f => f.streamer_slug);
@@ -193,8 +193,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         render();
     });
-	
-	// --- REALTIME: Listen for live_data updates ---
+    
+    // --- REALTIME: Listen for live_data updates ---
     const streamerSubscription = supabase
         .channel('schema-db-changes')
         .on(
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             { 
                 event: 'UPDATE', 
                 schema: 'public', 
-                table: 'ltg_streamers' 
+                table: 'ltg_channels' 
             }, 
             (payload) => {
                 const updatedStreamer = payload.new;
