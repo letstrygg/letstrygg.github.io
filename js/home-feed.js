@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             
             // Fallback just in case you haven't run the SQL view creation yet
             if (error) {
-                const fallback = await supabase.from('ltg_streamers').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel').limit(12);
+                const fallback = await supabase.from('ltg_streamers').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel, live_data').limit(12);
                 masterList = fallback.data || [];
             } else {
                 masterList = data || [];
