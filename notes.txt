@@ -2,3 +2,5 @@ local jekyll
 _config.yml exclude game
 C:\GitHub\letstrygg
 bundle exec jekyll serve --livereload --limit_posts 20
+
+supabase login

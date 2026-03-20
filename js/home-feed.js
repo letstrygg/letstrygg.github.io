@@ -94,10 +94,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         return "add";
     }
 
-    function buildSubBtn(platform, handle, colorClass) {
+	// --- UPDATED HELPER: Build Tray Buttons with Live Detection ---
+    function buildSubBtn(platform, handle, colorClass, liveData) {
         const icons = { twitch: 'tv', youtube: 'smart_display', kick: 'sports_esports' };
         const icon = icons[platform];
         
+        // 1. Check if this specific platform is in the live_data platforms array
+        const isLiveOnThisPlatform = liveData && 
+                                     liveData.is_live && 
+                                     liveData.platforms && 
+                                     liveData.platforms.includes(platform);
+
         if (!handle) {
             return `<button class="btn btn-gray" style="opacity: 0.3; pointer-events: none;">
                         <span class="material-symbols-outlined">${icon}</span>
@@ -105,14 +112,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         if (isEditing) {
-            return `<button class="btn btn-${colorClass} btn-static">
+            // Keep the 'active' class here if they are live, so they stay lit in edit mode
+            const activeClass = isLiveOnThisPlatform ? "active" : "";
+            return `<button class="btn btn-${colorClass} ${activeClass} btn-static">
                         <span class="material-symbols-outlined">${icon}</span>
                     </button>`;
         } else {
+            // VIEW MODE: Light up (active) if live, otherwise standard
+            const activeClass = isLiveOnThisPlatform ? "active" : "";
+            
             return `<a href="https://letstrygg.com/live/#${platform}/${handle}" 
                        target="_blank" 
-                       class="btn btn-${colorClass}" 
-                       data-tooltip="${platform}">
+                       class="btn btn-${colorClass} ${activeClass}" 
+                       data-tooltip="${isLiveOnThisPlatform ? 'LIVE - ' + platform : platform}">
                         <span class="material-symbols-outlined">${icon}</span>
                     </a>`;
         }
@@ -137,27 +149,21 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>`;
     }
 
-    function render() {
+	function render() {
         display.innerHTML = '';
         let html = '';
 
-        // STATE 1: User is completely logged out
-        if (isLoggedOut) {
-            html += `<div style="width: 100%; margin-bottom: 12px; color: var(--gray);">Trending Streamers. Log in to follow your favorites.</div>`;
-            masterList.forEach(s => html += buildCard(s, "btn-static", ""));
-        } 
-        // STATE 2: Logged in, not editing, but hasn't followed anyone
-        else if (!isEditing && currentFollows.length === 0) {
-            html += `<div style="width: 100%; margin-bottom: 12px; color: var(--gray);">You aren't following anyone yet. Click Edit to add some, or check out these popular channels:</div>`;
-            // Just display the first 12 from the master list as a suggestion
-            masterList.slice(0, 12).forEach(s => html += buildCard(s, "btn-static", ""));
-        } 
-        // STATE 3: Editing, or viewing an active list of follows
-        else {
-            const visibleItems = isEditing 
-                ? masterList 
-                : masterList.filter(s => currentFollows.includes(s.slug));
+        const visibleItems = isEditing 
+            ? masterList 
+            : masterList.filter(s => currentFollows.includes(s.slug));
 
+        if (visibleItems.length === 0) {
+            if (isEditing) {
+                html += "<div>No items found in database.</div>";
+            } else {
+                html += "<div>No items followed.</div>";
+            }
+        } else {
             visibleItems.forEach(s => {
                 let topBtnAttr = "";
                 let stateClass = "";
@@ -171,10 +177,24 @@ document.addEventListener("DOMContentLoaded", async () => {
                     topBtnAttr = ``;
                 }
 
-                html += buildCard(s, stateClass, topBtnAttr);
+                // Pass the live_data object from the database into the button builder
+                const sub1 = buildSubBtn('twitch', s.twitch_channel, 'purple', s.live_data);
+                const sub2 = buildSubBtn('youtube', s.youtube_channel_id, 'red', s.live_data);
+                const sub3 = buildSubBtn('kick', s.kick_channel, 'green', s.live_data);
+
+                html += `
+                <div class="multi-btn">
+                    <button class="btn ${stateClass} btn-main" ${topBtnAttr}>
+                        ${s.display_name || s.slug}
+                    </button>
+                    <div class="btn-tray">
+                        ${sub1}
+                        ${sub2}
+                        ${sub3}
+                    </div>
+                </div>`;
             });
         }
-        
         display.innerHTML = html;
     }
 
