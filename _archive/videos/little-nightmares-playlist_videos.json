@@ -8,7 +8,11 @@
       "videoPublishedAt": "2020-07-25T16:30:14Z",
       "durationInSeconds": 2456,
       "viewCount": 26
-    }
+    },
+    "title": "Let's Try Little Nightmares! Ep 1 of FULL Lets Play Series, Atmospheric Horror Puzzle Platformer?",
+    "thumbnail": "https://i.ytimg.com/vi/MstUTP47JM4/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2020-07-27T16:30:04Z",
       "durationInSeconds": 3010,
       "viewCount": 13
-    }
+    },
+    "title": "Little Nightmares Ep 2 FULL Lets Play Series, Atmospheric Horror Puzzle Platformer Gamer",
+    "thumbnail": "https://i.ytimg.com/vi/dycM96FXofg/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2020-07-29T16:30:01Z",
       "durationInSeconds": 2613,
       "viewCount": 12
-    }
+    },
+    "title": "Little Nightmares Ep 3 FULL Lets Play Series, Atmospheric Horror Puzzle Platformer Gamer",
+    "thumbnail": "https://i.ytimg.com/vi/A4gyL7zDx58/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2020-07-31T16:40:59Z",
       "durationInSeconds": 2428,
       "viewCount": 8
-    }
+    },
+    "title": "Little Nightmares Ep 4 FULL Lets Play Series, Atmospheric Horror Puzzle Platformer Gamer",
+    "thumbnail": "https://i.ytimg.com/vi/YIX19lTBpKE/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 6
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,6 +68,10 @@
       "videoPublishedAt": "2020-08-02T16:30:02Z",
       "durationInSeconds": 1142,
       "viewCount": 7
-    }
+    },
+    "title": "Little Nightmares Ep 5 FULL Lets Play Series, Atmospheric Horror Puzzle Platformer Gamer",
+    "thumbnail": "https://i.ytimg.com/vi/gvaoAp7F3x4/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 3
   }
 ]

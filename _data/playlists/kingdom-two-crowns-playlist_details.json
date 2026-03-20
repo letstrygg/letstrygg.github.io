@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5bEmDmBqA71sJVNvsOr3PL",
-  "title": "Kingdom: Two Crowns",
+  "slug": "kingdom-two-crowns",
+  "title": "Kingdom Two Crowns",
   "thumbnail": "https://i.ytimg.com/vi/Mh_x2MIzqWg/maxresdefault.jpg",
   "published": "2020-07-13T15:39:23.555432Z",
   "updated": "2020-07-15T20:00:07Z",
-  "fetched": "2026-03-07T12:05:02.203Z",
+  "fetched": "2026-03-20T09:15:19.374Z",
   "episodes": 3,
   "duration": 4098,
-  "views": 93,
-  "status": "Completed",
   "duration_formatted": "1h 8m",
+  "duration_short": "1h",
+  "views": 93,
   "views_formatted": "93",
-  "slug": "kingdom-two-crowns",
+  "status": "Completed",
   "status_color": "blue"
 }

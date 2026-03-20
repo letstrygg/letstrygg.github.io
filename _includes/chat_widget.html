@@ -3,7 +3,7 @@
 <div id="chatPanel" class="chat-panel" style="background: var(--bg); border-left: 1px solid var(--border); display: flex; flex-direction: column; z-index: 1000;">
   
 <div class="chat-header" style="min-height: 50px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 10px; background: var(--bg);">
-    <button id="closeChatBtn" class="floating-btn tooltip-bottom tooltip-left-edge" data-tooltip="Collapse Chat">
+    <button id="closeChatBtn" class="floating-btn tooltip-bottom tooltip-left" data-tooltip="Collapse Chat">
         <span class="material-symbols-outlined desktop-icon">keyboard_tab</span>
         <span class="material-symbols-outlined mobile-icon" style="display: none;">keyboard_double_arrow_down</span>
     </button>
@@ -14,7 +14,7 @@
 <div style="padding: 10px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg2);">
     
     <div style="display: flex; gap: 8px;">
-        <span id="timeToggle" class="icon-btn tooltip-left-edge" data-tooltip="Timestamps">
+        <span id="timeToggle" class="icon-btn tooltip-left" data-tooltip="Timestamps">
             <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
         </span>
         <span id="deletedToggle" class="icon-btn" data-tooltip="Deleted Messages" style="display: none;">
@@ -23,13 +23,13 @@
     </div>
 
     <div style="display: flex; gap: 8px;">
-        <span id="globalChatToggle" class="icon-btn active-green tooltip-right-edge" data-tooltip="Global Chat">
+        <span id="globalChatToggle" class="icon-btn active-green tooltip-right" data-tooltip="Global Chat">
             <span class="material-symbols-outlined" style="font-size: 18px;">public</span>
         </span>
-        <span id="channelChatToggle" class="icon-btn disabled tooltip-right-edge" data-tooltip="" style="display: none;">
+        <span id="channelChatToggle" class="icon-btn disabled tooltip-right" data-tooltip="" style="display: none;">
             <span class="material-symbols-outlined" style="font-size: 18px;">sports_esports</span>
         </span>
-        <span id="topicChatToggle" class="icon-btn disabled tooltip-right-edge" data-tooltip="" style="display: none;">
+        <span id="topicChatToggle" class="icon-btn disabled tooltip-right" data-tooltip="" style="display: none;">
             <span class="material-symbols-outlined" style="font-size: 18px;">record_voice_over</span>
         </span>
     </div>
@@ -54,7 +54,7 @@
           {% include user_settings.html %}
 
           <div style="display: flex; gap: 8px; align-items: center;">
-              <button id="grabTimeBtn" class="floating-btn tooltip-left-edge" data-tooltip="Insert Video Time" style="padding: 10px; background: var(--bg); color: var(--gray); border: 1px solid var(--border);">
+              <button id="grabTimeBtn" class="floating-btn tooltip-left" data-tooltip="Insert Video Time" style="padding: 10px; background: var(--bg); color: var(--gray); border: 1px solid var(--border);">
                   <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
               </button>
               <input type="text" id="chatInput" placeholder="Send a message" style="padding: 10px; flex-grow: 1; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 4px; outline: none; transition: border 0.2s;">
@@ -71,11 +71,5 @@
           </div>
       </div>
   </div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-    window.SUPABASE_URL = '{{ site.supabase_url }}';
-    window.SUPABASE_ANON_KEY = '{{ site.supabase_anon_key }}';
-</script>
+  
 <script src="/js/chat.js"></script>

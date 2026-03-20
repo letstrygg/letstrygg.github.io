@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4NYqO3AQV5dxG6AwXEuIiN",
+  "slug": "ageless",
   "title": "Ageless",
   "thumbnail": "https://i.ytimg.com/vi/X2EM1PZ7MSM/maxresdefault.jpg",
   "published": "2020-07-30T16:15:43.012322Z",
   "updated": "2020-07-30T16:19:04Z",
-  "fetched": "2026-03-07T12:04:58.974Z",
+  "fetched": "2026-03-20T09:15:15.711Z",
   "episodes": 1,
   "duration": 2020,
-  "views": 63,
-  "status": "Completed",
   "duration_formatted": "33m",
+  "duration_short": "33m",
+  "views": 63,
   "views_formatted": "63",
-  "slug": "ageless",
+  "status": "Completed",
   "status_color": "blue"
 }

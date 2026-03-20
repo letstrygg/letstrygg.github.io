@@ -14,6 +14,14 @@
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}letstrygg{% endif %}">
   <meta property="og:url" content="https://letstrygg.com{{ page.permalink }}">
   <meta name="theme-color" content="#0085e3"> 
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script>
+		window.SUPABASE_URL = '{{ site.supabase_url }}';
+		window.SUPABASE_ANON_KEY = '{{ site.supabase_anon_key }}';
+	</script>
+  
+  <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/layout.css">
   <link rel="stylesheet" href="/css/colors.css">

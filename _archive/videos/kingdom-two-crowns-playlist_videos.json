@@ -8,7 +8,11 @@
       "videoPublishedAt": "2020-07-13T20:00:02Z",
       "durationInSeconds": 1348,
       "viewCount": 61
-    }
+    },
+    "title": "Let's Try Kingdom Two Crowns, Co-op! Ep 1 Beautiful Side-Scrolling Village Building Game! First Play",
+    "thumbnail": "https://i.ytimg.com/vi/Mh_x2MIzqWg/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2020-07-14T20:00:03Z",
       "durationInSeconds": 1329,
       "viewCount": 17
-    }
+    },
+    "title": "Kingdom Two Crowns, Co-op w/ Cherry! Ep 2 Beautiful Side-Scrolling Village Building Game! Lets Play",
+    "thumbnail": "https://i.ytimg.com/vi/LHJogiN2bUc/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2020-07-15T20:00:07Z",
       "durationInSeconds": 1421,
       "viewCount": 15
-    }
+    },
+    "title": "Kingdom Two Crowns, Co-op w/ Cherry Ep 3 Beautiful Side-Scrolling Village Building Game! First Play",
+    "thumbnail": "https://i.ytimg.com/vi/PITuDePITxM/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 3
   }
 ]

@@ -5,7 +5,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_7Q5TVP3q24/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 17,
-    "views": 921,
+    "views": 965,
     "duration": 137653,
     "tags": [
       "Deck Builder"
@@ -13,11 +13,11 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-19T14:00:08Z",
-    "views_formatted": "921",
+    "views_formatted": "965",
     "duration_formatted": "38h 14m",
     "duration_short": "38h",
-    "vpv": 54,
-    "vpv_formatted": "54"
+    "vpv": 57,
+    "vpv_formatted": "57"
   },
   {
     "id": "oaken-tower",
@@ -25,7 +25,7 @@
     "thumbnail": "https://i.ytimg.com/vi/4LHX5Ojo07M/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 271,
-    "views": 54262,
+    "views": 54266,
     "duration": 573430,
     "tags": [
       "PVP",
@@ -46,7 +46,7 @@
     "thumbnail": "https://i.ytimg.com/vi/L2v3gQDx4KA/maxresdefault.jpg",
     "highest_season": 1.1,
     "episodes": 132,
-    "views": 35964,
+    "views": 36039,
     "duration": 449147,
     "tags": [
       "Horde Survival",
@@ -59,8 +59,8 @@
     "views_formatted": "36K",
     "duration_formatted": "124h 45m",
     "duration_short": "125h",
-    "vpv": 272,
-    "vpv_formatted": "272"
+    "vpv": 273,
+    "vpv_formatted": "273"
   },
   {
     "id": "monster-train-2",
@@ -212,7 +212,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LjPAuRoQjds/maxresdefault.jpg",
     "highest_season": 3,
     "episodes": 128,
-    "views": 6581,
+    "views": 6617,
     "duration": 309397,
     "tags": [
       "Tower Defense"
@@ -223,8 +223,8 @@
     "views_formatted": "6.6K",
     "duration_formatted": "85h 56m",
     "duration_short": "86h",
-    "vpv": 51,
-    "vpv_formatted": "51"
+    "vpv": 52,
+    "vpv_formatted": "52"
   },
   {
     "id": "turnbound",
@@ -336,9 +336,9 @@
     "title": "Backpack Battles",
     "thumbnail": "https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg",
     "highest_season": 5,
-    "episodes": 874,
-    "views": 253955,
-    "duration": 3130204,
+    "episodes": 875,
+    "views": 253975,
+    "duration": 3135511,
     "tags": [
       "PVP",
       "Auto Battler",
@@ -346,12 +346,12 @@
     ],
     "status": "Ongoing",
     "status_color": "green",
-    "updated": "2026-03-04T12:00:51Z",
+    "updated": "2026-03-19T22:30:05Z",
     "views_formatted": "254K",
-    "duration_formatted": "869h 30m",
-    "duration_short": "870h",
-    "vpv": 291,
-    "vpv_formatted": "291"
+    "duration_formatted": "870h 58m",
+    "duration_short": "871h",
+    "vpv": 290,
+    "vpv_formatted": "290"
   },
   {
     "id": "monster-battles",
@@ -725,7 +725,7 @@
     "thumbnail": "https://i.ytimg.com/vi/zc9Pj8Eb2Pw/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 12,
-    "views": 619,
+    "views": 628,
     "duration": 67184,
     "tags": [
       "Automation",
@@ -734,7 +734,7 @@
     "status": "Ongoing",
     "status_color": "green",
     "updated": "2026-03-17T20:01:01Z",
-    "views_formatted": "619",
+    "views_formatted": "628",
     "duration_formatted": "18h 39m",
     "duration_short": "19h",
     "vpv": 52,
@@ -767,7 +767,7 @@
     "thumbnail": "https://i.ytimg.com/vi/b2jAfL21hK0/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 6,
-    "views": 860,
+    "views": 863,
     "duration": 28636,
     "tags": [
       "Incremental"
@@ -775,11 +775,11 @@
     "status": "Paused",
     "status_color": "purple",
     "updated": "2026-03-02T16:00:07Z",
-    "views_formatted": "860",
+    "views_formatted": "863",
     "duration_formatted": "7h 57m",
     "duration_short": "8h",
-    "vpv": 143,
-    "vpv_formatted": "143"
+    "vpv": 144,
+    "vpv_formatted": "144"
   },
   {
     "id": "factorio",
@@ -1286,7 +1286,7 @@
     "thumbnail": "https://i.ytimg.com/vi/lTTXZxN5fac/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 8,
-    "views": 3924,
+    "views": 3934,
     "duration": 38370,
     "tags": [
       "Automation",
@@ -1298,8 +1298,8 @@
     "views_formatted": "3.9K",
     "duration_formatted": "10h 39m",
     "duration_short": "11h",
-    "vpv": 491,
-    "vpv_formatted": "491"
+    "vpv": 492,
+    "vpv_formatted": "492"
   },
   {
     "id": "the-last-spell",
@@ -1432,7 +1432,7 @@
     "thumbnail": "https://i.ytimg.com/vi/e1AiLuBeoEc/maxresdefault.jpg",
     "highest_season": 1,
     "episodes": 24,
-    "views": 1684,
+    "views": 1708,
     "duration": 90846,
     "tags": [
       "Puzzle",
@@ -1444,8 +1444,8 @@
     "views_formatted": "1.7K",
     "duration_formatted": "25h 14m",
     "duration_short": "25h",
-    "vpv": 70,
-    "vpv_formatted": "70"
+    "vpv": 71,
+    "vpv_formatted": "71"
   },
   {
     "id": "red-cap-squad-zombie-source",
@@ -4130,7 +4130,7 @@
     "thumbnail": "https://i.ytimg.com/vi/m5kY6k9GnSU/maxresdefault.jpg",
     "highest_season": 2,
     "episodes": 26,
-    "views": 539,
+    "views": 540,
     "duration": 40473,
     "tags": [
       "Sandbox",
@@ -4141,7 +4141,7 @@
     "status": "Completed",
     "status_color": "blue",
     "updated": "2020-08-23T19:00:05Z",
-    "views_formatted": "539",
+    "views_formatted": "540",
     "duration_formatted": "11h 14m",
     "duration_short": "11h",
     "vpv": 21,

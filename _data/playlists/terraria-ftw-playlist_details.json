@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk7FbQNlhThkPipoZI1Y9-0K",
+  "slug": "terraria-ftw",
   "title": "Terraria FTW",
   "thumbnail": "https://i.ytimg.com/vi/m5kY6k9GnSU/maxresdefault.jpg",
   "published": "2020-08-21T15:25:07.730382Z",
   "updated": "2020-08-23T19:00:05Z",
-  "fetched": "2026-03-07T12:04:57.958Z",
+  "fetched": "2026-03-20T09:15:18.138Z",
   "episodes": 3,
   "duration": 5719,
-  "views": 142,
-  "status": "Completed",
   "duration_formatted": "1h 35m",
+  "duration_short": "2h",
+  "views": 142,
   "views_formatted": "142",
-  "slug": "terraria-ftw",
+  "status": "Completed",
   "status_color": "blue"
 }

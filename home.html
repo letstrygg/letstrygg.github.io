@@ -1,21 +1,11 @@
 ---
-layout: default
+layout: new
 title: Home
 permalink: /home/
 ---
+<link rel="stylesheet" href="/css/global.css">
 
-<p id="feedStatus">Loading...</p>
-
-<button id="toggleEditBtn" style="display: none;">Edit List</button>
-
-<div id="viewModeContainer">
-    <div id="streamerGrid"></div>
-</div>
-
-<div id="editModeContainer" style="display: none;">
-    <input type="text" id="newStreamerInput" placeholder="Enter handle">
-    <button id="addStreamerBtn">Add</button>
-    <div id="editStreamerList"></div>
-</div>
+<div id="display"></div>
+<button id="modeBtn" class="btn">Edit</button>
 
 <script src="/js/home-feed.js"></script>

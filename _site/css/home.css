@@ -50,7 +50,7 @@
     transition: border-color 0.2s ease;
 }
 #gameSearch:focus { border-color: var(--blue); }
-
+/*
 .segmented-control {
   display: flex;
   width: 100%;
@@ -79,7 +79,7 @@
 }
 
 .segment-btn:last-child { border-right: none; }
-.segment-btn:hover { background: #333; }
+.segment-btn:hover { background: var(--bg3); }
 
 #btn-recent.active { background: var(--green); color: var(--bg); }
 #btn-popular.active { background: var(--blue); color: var(--bg); }
@@ -98,7 +98,7 @@
       padding: 8px 2px;
   }
   .segment-btn .material-symbols-outlined { font-size: 1.4em; }
-}
+}*/
 
 /* =========================================
    TAG FILTERING & INFO BOX

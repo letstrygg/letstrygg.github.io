@@ -4,6 +4,7 @@
 :root {
 	--bg:					#111111;
 	--bg2:					#18181b;
+	--bg3:					#333333;
   --text:        #e3e3e3;
   --title:       #ffffff;
   --subtitle:    #00e8ff;
@@ -23,6 +24,7 @@
 .light-theme {
 	--bg:					#ffffff;
 	--bg2:					#d5d5d5;
+	--bg3:					#b9b9b9;
   --text:        #111111;
   --title:       #06cfff;
   --subtitle:    #898989;

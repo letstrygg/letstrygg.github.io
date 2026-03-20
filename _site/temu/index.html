@@ -14,6 +14,14 @@
   <meta property="og:title" content="Temu Deals – Are They Legit or a Scam?">
   <meta property="og:url" content="https://letstrygg.com">
   <meta name="theme-color" content="#0085e3"> 
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script>
+		window.SUPABASE_URL = 'https://fnwmtytnltmqjaflfwyr.supabase.co';
+		window.SUPABASE_ANON_KEY = 'sb_publishable_y12qZF_dSbUPmV_aieiUgA_CibDsxQV';
+	</script>
+  
+  <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/layout.css">
   <link rel="stylesheet" href="/css/colors.css">
@@ -31,11 +39,11 @@
 </header>
 
 <div class="fixed-layer pin-top pin-right flex-col-stack">
-    <button id="themeToggleBtn" class="floating-btn tooltip-right-edge" data-tooltip="Toggle Theme">
+    <button id="themeToggleBtn" class="floating-btn tooltip-right" data-tooltip="Toggle Theme">
         <span id="theme-toggle-icon" class="material-symbols-outlined">bedtime</span>
     </button>
 
-	<button id="openChatBtn" class="floating-btn tooltip-right-edge mobile-pin-bottom-right" data-tooltip="Expand Chat" style="display: none;">
+	<button id="openChatBtn" class="floating-btn tooltip-right mobile-pin-bottom-right" data-tooltip="Expand Chat" style="display: none;">
         <span class="material-symbols-outlined">chat_bubble</span>
         <span id="chat-online-count" class="chat-viewer-count" style="display: none;">0</span>
         <span id="chat-unread-dot" class="chat-unread-dot" style="display: none;"></span>
@@ -202,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div id="chatPanel" class="chat-panel" style="background: var(--bg); border-left: 1px solid var(--border); display: flex; flex-direction: column; z-index: 1000;">
   
 <div class="chat-header" style="min-height: 50px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 10px; background: var(--bg);">
-    <button id="closeChatBtn" class="floating-btn tooltip-bottom tooltip-left-edge" data-tooltip="Collapse Chat">
+    <button id="closeChatBtn" class="floating-btn tooltip-bottom tooltip-left" data-tooltip="Collapse Chat">
         <span class="material-symbols-outlined desktop-icon">keyboard_tab</span>
         <span class="material-symbols-outlined mobile-icon" style="display: none;">keyboard_double_arrow_down</span>
     </button>
@@ -213,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div style="padding: 10px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg2);">
     
     <div style="display: flex; gap: 8px;">
-        <span id="timeToggle" class="icon-btn tooltip-left-edge" data-tooltip="Timestamps">
+        <span id="timeToggle" class="icon-btn tooltip-left" data-tooltip="Timestamps">
             <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
         </span>
         <span id="deletedToggle" class="icon-btn" data-tooltip="Deleted Messages" style="display: none;">
@@ -222,13 +230,13 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 
     <div style="display: flex; gap: 8px;">
-        <span id="globalChatToggle" class="icon-btn active-green tooltip-right-edge" data-tooltip="Global Chat">
+        <span id="globalChatToggle" class="icon-btn active-green tooltip-right" data-tooltip="Global Chat">
             <span class="material-symbols-outlined" style="font-size: 18px;">public</span>
         </span>
-        <span id="channelChatToggle" class="icon-btn disabled tooltip-right-edge" data-tooltip="" style="display: none;">
+        <span id="channelChatToggle" class="icon-btn disabled tooltip-right" data-tooltip="" style="display: none;">
             <span class="material-symbols-outlined" style="font-size: 18px;">sports_esports</span>
         </span>
-        <span id="topicChatToggle" class="icon-btn disabled tooltip-right-edge" data-tooltip="" style="display: none;">
+        <span id="topicChatToggle" class="icon-btn disabled tooltip-right" data-tooltip="" style="display: none;">
             <span class="material-symbols-outlined" style="font-size: 18px;">record_voice_over</span>
         </span>
     </div>
@@ -289,7 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
           <div style="display: flex; gap: 8px; align-items: center;">
-              <button id="grabTimeBtn" class="floating-btn tooltip-left-edge" data-tooltip="Insert Video Time" style="padding: 10px; background: var(--bg); color: var(--gray); border: 1px solid var(--border);">
+              <button id="grabTimeBtn" class="floating-btn tooltip-left" data-tooltip="Insert Video Time" style="padding: 10px; background: var(--bg); color: var(--gray); border: 1px solid var(--border);">
                   <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
               </button>
               <input type="text" id="chatInput" placeholder="Send a message" style="padding: 10px; flex-grow: 1; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 4px; outline: none; transition: border 0.2s;">
@@ -306,13 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
       </div>
   </div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-    window.SUPABASE_URL = 'https://fnwmtytnltmqjaflfwyr.supabase.co';
-    window.SUPABASE_ANON_KEY = 'sb_publishable_y12qZF_dSbUPmV_aieiUgA_CibDsxQV';
-</script>
+  
 <script src="/js/chat.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/browser/overlayscrollbars.browser.es6.min.js"></script>

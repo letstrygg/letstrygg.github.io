@@ -9,3 +9,6 @@ plugins:
   
 supabase_url: "https://fnwmtytnltmqjaflfwyr.supabase.co"
 supabase_anon_key: "sb_publishable_y12qZF_dSbUPmV_aieiUgA_CibDsxQV"
+
+exclude:
+#    - game

@@ -1,122 +1,194 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    // 1. Initialize Supabase correctly
+    const display = document.getElementById('display');
+    const modeBtn = document.getElementById('modeBtn');
     const supabase = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
 
-    const viewContainer = document.getElementById('viewModeContainer');
-    const editContainer = document.getElementById('editModeContainer');
-    const toggleBtn = document.getElementById('toggleEditBtn');
-    const streamerGrid = document.getElementById('streamerGrid');
-    const editList = document.getElementById('editStreamerList');
-    const addBtn = document.getElementById('addStreamerBtn');
-    const addInput = document.getElementById('newStreamerInput');
-    const feedStatus = document.getElementById('feedStatus');
-
-    let currentUser = null;
-    let myFollows = [];
     let isEditing = false;
+    let masterList = [];      
+    let currentFollows = [];  
+    let pendingAdds = [];     
+    let pendingRemoves = [];  
+    let session = null;
+    let isLoggedOut = false;
 
-    // Check Auth using the initialized client
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-        feedStatus.innerText = "Please log in.";
-        return; 
-    }
+    const { data: authData } = await supabase.auth.getSession();
+    session = authData.session;
     
-    currentUser = session.user;
-    toggleBtn.style.display = 'block';
-    await loadFollows();
+    if (!session) {
+        isLoggedOut = true;
+        modeBtn.style.display = 'none'; // Hide the edit button if they can't use it
+    }
 
-    // Toggle Modes
-    toggleBtn.addEventListener('click', () => {
-        isEditing = !isEditing;
+    await syncData();
+
+    async function syncData() {
+        if (isLoggedOut) {
+            // Logged Out: Fetch the top 12 from the view (or fallback to the main table if the view doesn't exist yet)
+            const { data, error } = await supabase.from('top_streamers').select('*').limit(12);
+            
+            // Fallback just in case you haven't run the SQL view creation yet
+            if (error) {
+                const fallback = await supabase.from('ltg_streamers').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel').limit(12);
+                masterList = fallback.data || [];
+            } else {
+                masterList = data || [];
+            }
+            render();
+            return;
+        }
+
+        // Logged In: Normal fetch
+        const [mRes, fRes] = await Promise.all([
+            supabase.from('ltg_streamers').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel'),
+            supabase.from('ltg_streamers_followed').select('streamer_slug').eq('user_id', session.user.id)
+        ]);
+        
+        if (mRes.error) console.error("Streamers Fetch Error:", mRes.error.message);
+        if (fRes.error) console.error("Follows Fetch Error:", fRes.error.message);
+
+        masterList = mRes.data || [];
+        currentFollows = (fRes.data || []).map(f => f.streamer_slug);
+        render();
+    }
+
+    function getBtnState(slug) {
+        if (pendingRemoves.includes(slug)) return "btn-red active";
+        if (pendingAdds.includes(slug) || currentFollows.includes(slug)) return "btn-green active";
+        return "";
+    }
+
+    function toggleState(slug) {
+        const isFollowed = currentFollows.includes(slug);
+        if (isFollowed) {
+            pendingRemoves = pendingRemoves.includes(slug) 
+                ? pendingRemoves.filter(s => s !== slug) 
+                : [...pendingRemoves, slug];
+        } else {
+            pendingAdds = pendingAdds.includes(slug) 
+                ? pendingAdds.filter(s => s !== slug) 
+                : [...pendingAdds, slug];
+        }
+        render();
+    }
+
+    async function commitChanges() {
+        if (pendingRemoves.length > 0) {
+            await supabase.from('ltg_streamers_followed').delete().eq('user_id', session.user.id).in('streamer_slug', pendingRemoves);
+        }
+        if (pendingAdds.length > 0) {
+            const batch = pendingAdds.map(slug => ({ user_id: session.user.id, streamer_slug: slug }));
+            await supabase.from('ltg_streamers_followed').insert(batch);
+        }
+        pendingAdds = [];
+        pendingRemoves = [];
+        await syncData();
+    }
+
+    function getTooltipText(slug) {
+        const isFollowed = currentFollows.includes(slug);
+        const isPendingAdd = pendingAdds.includes(slug);
+        const isPendingRemove = pendingRemoves.includes(slug);
+
+        if (isPendingRemove || isPendingAdd) return "";
+        if (isFollowed) return "remove";
+        return "add";
+    }
+
+    function buildSubBtn(platform, handle, colorClass) {
+        const icons = { twitch: 'tv', youtube: 'smart_display', kick: 'sports_esports' };
+        const icon = icons[platform];
+        
+        if (!handle) {
+            return `<button class="btn btn-gray" style="opacity: 0.3; pointer-events: none;">
+                        <span class="material-symbols-outlined">${icon}</span>
+                    </button>`;
+        }
+
         if (isEditing) {
-            viewContainer.style.display = 'none';
-            editContainer.style.display = 'block';
-            toggleBtn.innerText = "Done";
-            renderEditList();
+            return `<button class="btn btn-${colorClass} btn-static">
+                        <span class="material-symbols-outlined">${icon}</span>
+                    </button>`;
         } else {
-            editContainer.style.display = 'none';
-            viewContainer.style.display = 'block';
-            toggleBtn.innerText = "Edit List";
-            renderViewGrid();
+            return `<a href="https://letstrygg.com/live/#${platform}/${handle}" 
+                       target="_blank" 
+                       class="btn btn-${colorClass}" 
+                       data-tooltip="${platform}">
+                        <span class="material-symbols-outlined">${icon}</span>
+                    </a>`;
         }
-    });
-
-    // Fetch from Supabase
-    async function loadFollows() {
-        const { data, error } = await supabase
-            .from('ltg_streamers_followed')
-            .select('id, sort_order, streamer_slug, ltg_streamers ( display_name )')
-            .eq('user_id', currentUser.id)
-            .order('sort_order', { ascending: true });
-
-        if (error) {
-            console.error(error);
-            return;
-        }
-
-        myFollows = data;
-        feedStatus.innerText = `Tracking ${myFollows.length} streamers.`;
-        if (!isEditing) renderViewGrid();
     }
 
-    // Insert to Supabase
-    addBtn.addEventListener('click', async () => {
-        const slug = addInput.value.trim().toLowerCase();
-        if (!slug) return;
-        
-        const newOrder = myFollows.length; 
-        
-        const { error } = await supabase
-            .from('ltg_streamers_followed')
-            .insert({ user_id: currentUser.id, streamer_slug: slug, sort_order: newOrder });
+    // --- NEW HELPER: Assembles the HTML for a single card ---
+    function buildCard(s, stateClass, topBtnAttr) {
+        const sub1 = buildSubBtn('twitch', s.twitch_channel, 'purple');
+        const sub2 = buildSubBtn('youtube', s.youtube_channel_id, 'red');
+        const sub3 = buildSubBtn('kick', s.kick_channel, 'green');
 
-        if (error) {
-            console.error(error);
+        return `
+        <div class="multi-btn">
+            <button class="btn ${stateClass} btn-main" ${topBtnAttr}>
+                ${s.display_name || s.slug}
+            </button>
+            <div class="btn-tray">
+                ${sub1}
+                ${sub2}
+                ${sub3}
+            </div>
+        </div>`;
+    }
+
+    function render() {
+        display.innerHTML = '';
+        let html = '';
+
+        // STATE 1: User is completely logged out
+        if (isLoggedOut) {
+            html += `<div style="width: 100%; margin-bottom: 12px; color: var(--gray);">Trending Streamers. Log in to follow your favorites.</div>`;
+            masterList.forEach(s => html += buildCard(s, "btn-static", ""));
+        } 
+        // STATE 2: Logged in, not editing, but hasn't followed anyone
+        else if (!isEditing && currentFollows.length === 0) {
+            html += `<div style="width: 100%; margin-bottom: 12px; color: var(--gray);">You aren't following anyone yet. Click Edit to add some, or check out these popular channels:</div>`;
+            // Just display the first 12 from the master list as a suggestion
+            masterList.slice(0, 12).forEach(s => html += buildCard(s, "btn-static", ""));
+        } 
+        // STATE 3: Editing, or viewing an active list of follows
+        else {
+            const visibleItems = isEditing 
+                ? masterList 
+                : masterList.filter(s => currentFollows.includes(s.slug));
+
+            visibleItems.forEach(s => {
+                let topBtnAttr = "";
+                let stateClass = "";
+
+                if (isEditing) {
+                    stateClass = getBtnState(s.slug);
+                    const tip = getTooltipText(s.slug);
+                    topBtnAttr = tip ? `data-tooltip="${tip}" onclick="window.uiClick('${s.slug}')"` : `onclick="window.uiClick('${s.slug}')"`;
+                } else {
+                    stateClass = "btn-static";
+                    topBtnAttr = ``;
+                }
+
+                html += buildCard(s, stateClass, topBtnAttr);
+            });
+        }
+        
+        display.innerHTML = html;
+    }
+
+    window.uiClick = (slug) => toggleState(slug);
+
+    modeBtn.addEventListener('click', async () => {
+        if (isEditing) {
+            await commitChanges(); 
+            isEditing = false;     
+            modeBtn.innerText = "Edit";
         } else {
-            addInput.value = '';
-            await loadFollows();
-            renderEditList();
+            isEditing = true;
+            modeBtn.innerText = "Save";
         }
+        render();
     });
-
-    // Delete from Supabase
-    window.removeFollow = async (id) => {
-        const { error } = await supabase
-            .from('ltg_streamers_followed')
-            .delete()
-            .eq('id', id);
-
-        if (!error) {
-            await loadFollows();
-            renderEditList();
-        }
-    };
-
-    // Render basic text nodes
-    function renderViewGrid() {
-        streamerGrid.innerHTML = '';
-        if (myFollows.length === 0) {
-            streamerGrid.innerHTML = '<p>No follows yet.</p>';
-            return;
-        }
-
-        myFollows.forEach(follow => {
-            const name = follow.ltg_streamers?.display_name || follow.streamer_slug;
-            streamerGrid.innerHTML += `<div>${name} - Checking live status...</div>`;
-        });
-    }
-
-    function renderEditList() {
-        editList.innerHTML = '';
-        myFollows.forEach(follow => {
-            const name = follow.ltg_streamers?.display_name || follow.streamer_slug;
-            editList.innerHTML += `
-                <div>
-                    <span>${name} (${follow.streamer_slug})</span>
-                    <button onclick="removeFollow('${follow.id}')">Delete</button>
-                </div>
-            `;
-        });
-    }
 });

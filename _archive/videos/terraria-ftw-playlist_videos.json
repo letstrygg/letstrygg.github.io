@@ -8,7 +8,11 @@
       "videoPublishedAt": "2020-08-21T19:00:18Z",
       "durationInSeconds": 2075,
       "viewCount": 80
-    }
+    },
+    "title": "Terraria - For the Worthy - Master Mode - Ep 1 Getting Started!",
+    "thumbnail": "https://i.ytimg.com/vi/m5kY6k9GnSU/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 7
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2020-08-22T19:00:01Z",
       "durationInSeconds": 1969,
       "viewCount": 24
-    }
+    },
+    "title": "Terraria - For the Worthy - Master Mode - Ep 2 - First Room??",
+    "thumbnail": "https://i.ytimg.com/vi/A7OlkrVYCFA/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2020-08-23T19:00:05Z",
       "durationInSeconds": 1675,
       "viewCount": 38
-    }
+    },
+    "title": "Terraria - For the Worthy - Master Mode - Ep 3 Surface Living!",
+    "thumbnail": "https://i.ytimg.com/vi/UF2zoMbczUY/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   }
 ]

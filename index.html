@@ -15,32 +15,33 @@ custom_css: "/css/home.css"
 -->
 
 <div class="controls-wrapper">
-	<div class="controls-top-row">
+    <div class="controls-top-row">
         <input type="text" id="gameSearch" placeholder="Search Games">
         <div class="top-row-buttons">
-            <button class="btn btn-gray" id="btn-tags-toggle" onclick="toggleTagPanel()">
-                <span class="material-symbols-outlined gray">sell</span> Tags
+            <button class="btn" id="btn-tags-toggle" onclick="toggleTagPanel()">
+                <span class="material-symbols-outlined">sell</span> Tags
             </button>
-            <button class="btn btn-gray" id="btn-info" onclick="toggleInfo()">
-                <span class="material-symbols-outlined gray">info</span> Info
+            <button class="btn" id="btn-info" onclick="toggleInfo()">
+                <span class="material-symbols-outlined">info</span> Info
             </button>
         </div>
     </div>
 
-    <div class="segmented-control">
-        <button class="segment-btn active" id="btn-recent" onclick="sortGrid('recent')">
-            <span class="material-symbols-outlined green">psychiatry</span> New
+    <div class="btn-group">
+        <button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')">
+            <span class="material-symbols-outlined">psychiatry</span> New
         </button>
-        <button class="segment-btn" id="btn-popular" onclick="sortGrid('popular')">
-            <span class="material-symbols-outlined blue">visibility</span> Views
+        <button class="btn btn-blue" id="btn-popular" onclick="sortGrid('popular')">
+            <span class="material-symbols-outlined">visibility</span> Views
         </button>
-        <button class="segment-btn" id="btn-length" onclick="sortGrid('length')">
-            <span class="material-symbols-outlined purple">schedule</span> Duration
+        <button class="btn btn-purple" id="btn-length" onclick="sortGrid('length')">
+            <span class="material-symbols-outlined">schedule</span> Duration
         </button>
-        <button class="segment-btn" id="btn-vpv" onclick="sortGrid('vpv')">
-            <span class="material-symbols-outlined orange">mode_heat</span> VPV
+        <button class="btn btn-orange" id="btn-vpv" onclick="sortGrid('vpv')">
+            <span class="material-symbols-outlined">mode_heat</span> VPV
         </button>
     </div>
+</div>
 
     <div id="tag-filters" class="tag-filters"></div>
 
@@ -187,7 +188,7 @@ function updateVPVVisibility() {
 // --- Sorting Logic ---
 function sortGrid(type) {
     currentSort = type;
-    document.querySelectorAll('.segment-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.btn-group .btn').forEach(btn => btn.classList.remove('active'));
     
     const clickedBtn = document.getElementById(`btn-${type}`);
     if (clickedBtn) clickedBtn.classList.add('active');

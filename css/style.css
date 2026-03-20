@@ -78,7 +78,7 @@ header { text-align: center; padding: 20px 0; }
 }
 .light-theme #theme-toggle { color: var(--orange); }
 
-/* Buttons */
+/* Buttons 
 .btn {
   display: inline-flex;
   align-items: center;
@@ -100,7 +100,7 @@ header { text-align: center; padding: 20px 0; }
   background: var(--text);
   border-color: var(--text);
   color: var(--bg);
-}
+}*/
 
 /* Custom Minimalist OverlayScrollbars Theme - High Specificity */
 .os-scrollbar.os-theme-custom {
@@ -418,11 +418,11 @@ header { text-align: center; padding: 20px 0; }
    GLOBAL UI COMPONENTS (Tooltips, Icons, Buttons)
    ========================================= */
 
-/* --- Universal CSS Tooltips --- */
+/* --- Universal CSS Tooltips ---
 [data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: calc(100% + 4px); /* Default: Top Center */
+    bottom: calc(100% + 4px); 
     left: 50%;
     transform: translateX(-50%);
     background: #18181b;
@@ -439,7 +439,6 @@ header { text-align: center; padding: 20px 0; }
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     
-    /* NEW: Forces the box to perfectly surround the text height/width */
     display: block;
     width: max-content;
     height: max-content;
@@ -452,7 +451,7 @@ header { text-align: center; padding: 20px 0; }
     bottom: calc(100% + 8px); 
 }
 
-/* Tooltip Modifiers */
+
 .tooltip-bottom::after {
     bottom: auto !important;
     top: calc(100% + 4px) !important;
@@ -461,15 +460,15 @@ header { text-align: center; padding: 20px 0; }
     bottom: auto !important;
     top: calc(100% + 8px) !important;
 }
-.tooltip-right-edge::after {
+.tooltip-right::after {
     left: auto !important;
     right: 0 !important;
     transform: none !important;
 }
-.tooltip-left-edge::after {
+.tooltip-left::after {
     left: 0 !important;
     transform: none !important;
-}
+}*/
 
 /* --- Minimalist Icon Buttons --- */
 .icon-btn {
