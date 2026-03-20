@@ -193,4 +193,32 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         render();
     });
+	
+	// --- REALTIME: Listen for live_data updates ---
+    const streamerSubscription = supabase
+        .channel('schema-db-changes')
+        .on(
+            'postgres_changes', 
+            { 
+                event: 'UPDATE', 
+                schema: 'public', 
+                table: 'ltg_streamers' 
+            }, 
+            (payload) => {
+                const updatedStreamer = payload.new;
+                
+                // Find the streamer in our local list and update their live_data
+                const index = masterList.findIndex(s => s.slug === updatedStreamer.slug);
+                if (index !== -1) {
+                    masterList[index].live_data = updatedStreamer.live_data;
+                    
+                    // Only re-render if we are NOT currently in Edit Mode 
+                    // (To prevent UI jumping while the user is clicking things)
+                    if (!isEditing) {
+                        render();
+                    }
+                }
+            }
+        )
+        .subscribe();
 });
