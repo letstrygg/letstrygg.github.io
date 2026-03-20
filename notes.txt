@@ -4,3 +4,6 @@ C:\GitHub\letstrygg
 bundle exec jekyll serve --livereload --limit_posts 20
 
 supabase login
+supabase functions deploy check-live-status --no-verify-jwt
+
+C:\GitHub\letstrygg\supabase\functions\check-live-status\index.ts

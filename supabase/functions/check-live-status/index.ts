@@ -15,24 +15,21 @@ Deno.serve(async (req) => {
 
         const twitchToken = await getTwitchToken();
 
-        const updatePromises = streamers.map(async (streamer) => {
-            // Fire all checks at the exact same time
+        // Run checks concurrently
+        const operations = streamers.map(async (streamer) => {
             const checks = [];
             
             if (streamer.twitch_channel) checks.push(checkTwitch(streamer.twitch_channel, twitchToken));
-            if (streamer.youtube_channel_id) checks.push(checkYouTube(streamer.youtube_channel_id));
             if (streamer.kick_channel) checks.push(checkKick(streamer.kick_channel));
+            if (streamer.youtube_channel_id) checks.push(checkYouTube(streamer.youtube_channel_id));
 
-            // Wait for all three platforms to respond
             const results = await Promise.all(checks);
-            
-            // Filter down to only the platforms where they are currently live
             const activeStreams = results.filter(r => r.isLive);
             
             const liveDataPayload = {
                 is_live: activeStreams.length > 0,
-                platforms: activeStreams.map(r => r.platform), // e.g., ['twitch', 'youtube']
-                viewers: activeStreams.reduce((max, r) => Math.max(max, r.viewers || 0), 0), // Keeps highest viewer count
+                platforms: activeStreams.map(r => r.platform),
+                viewers: activeStreams.reduce((max, r) => Math.max(max, r.viewers || 0), 0),
                 last_checked: new Date().toISOString()
             };
 
@@ -42,7 +39,7 @@ Deno.serve(async (req) => {
                 .eq('slug', streamer.slug);
         });
 
-        await Promise.all(updatePromises);
+        await Promise.all(operations);
 
         return new Response(JSON.stringify({ success: true, updated: streamers.length }), {
             headers: { 'Content-Type': 'application/json' },
@@ -63,7 +60,6 @@ async function getTwitchToken() {
     const clientId = Deno.env.get('TWITCH_CLIENT_ID');
     const clientSecret = Deno.env.get('TWITCH_CLIENT_SECRET');
     if (!clientId || !clientSecret) return null;
-
     try {
         const res = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${clientId}&client_secret=${clientSecret}&grant_type=client_credentials`, { method: 'POST' });
         const data = await res.json();
@@ -74,60 +70,14 @@ async function getTwitchToken() {
 async function checkTwitch(handle, token) {
     if (!token) return { isLive: false, platform: 'twitch' };
     const clientId = Deno.env.get('TWITCH_CLIENT_ID');
-    
     try {
         const res = await fetch(`https://api.twitch.tv/helix/streams?user_login=${handle}`, {
             headers: { 'Client-ID': clientId, 'Authorization': `Bearer ${token}` }
         });
         const data = await res.json();
-        if (data.data && data.data.length > 0) {
-            return { isLive: true, viewers: data.data[0].viewer_count, platform: 'twitch' };
-        }
-    } catch (e) { console.error(`Twitch error for ${handle}:`, e); }
+        if (data.data && data.data.length > 0) return { isLive: true, viewers: data.data[0].viewer_count, platform: 'twitch' };
+    } catch (e) {}
     return { isLive: false, platform: 'twitch' };
-}
-
-async function checkYouTube(channelId) {
-    try {
-        // 1. Check if they accidentally put a handle in, otherwise use the proper /channel/ URL
-        let url = '';
-        if (channelId.startsWith('UC') && channelId.length === 24) {
-            url = `https://www.youtube.com/channel/${channelId}/live`;
-        } else {
-            // Fallback just in case you do have handles like '@destiny' stored
-            const cleanHandle = channelId.startsWith('@') ? channelId : `@${channelId}`;
-            url = `https://www.youtube.com/${cleanHandle}/live`;
-        }
-        
-        // 2. Disguise the request
-        const res = await fetch(url, {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Accept-Language': 'en-US,en;q=0.9'
-            }
-        });
-        
-        // 3. If they are offline, YouTube redirects to /streams or their main channel page
-        if (!res.url.includes('/watch') && !res.url.includes('/live')) {
-            return { isLive: false, platform: 'youtube' };
-        }
-
-        const html = await res.text();
-
-        // 4. Broaden the search to catch multiple variations of YouTube's live flags
-        const isLive = html.includes('itemprop="isLiveBroadcast"') || 
-                       html.includes('"isLiveNow":true') || 
-                       html.includes('isLiveContent');
-
-        if (isLive) {
-            const viewerMatch = html.match(/"viewCount":"(\d+)"/);
-            const viewers = viewerMatch ? parseInt(viewerMatch[1], 10) : 0;
-            return { isLive: true, viewers: viewers, platform: 'youtube' };
-        }
-    } catch (e) { 
-        console.error(`YouTube error for ${channelId}:`, e); 
-    }
-    return { isLive: false, platform: 'youtube' };
 }
 
 async function checkKick(handle) {
@@ -135,10 +85,52 @@ async function checkKick(handle) {
         const res = await fetch(`https://kick.com/api/v2/channels/${handle}`);
         if (res.ok) {
             const data = await res.json();
-            if (data && data.livestream !== null) {
-                return { isLive: true, viewers: data.livestream.viewer_count, platform: 'kick' };
-            }
+            if (data && data.livestream !== null) return { isLive: true, viewers: data.livestream.viewer_count, platform: 'kick' };
         }
-    } catch (e) { console.error(`Kick error for ${handle}:`, e); }
+    } catch (e) {}
     return { isLive: false, platform: 'kick' };
+}
+
+// ==========================================
+// YOUTUBE (DOUBLE-GOOGLEBOT METHOD)
+// ==========================================
+async function checkYouTube(channelId) {
+    try {
+        if (!channelId.startsWith('UC') || channelId.length !== 24) {
+            return { isLive: false, platform: 'youtube' };
+        }
+
+        const botHeaders = {
+            'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+            'Accept': 'text/html',
+            'Accept-Language': 'en-US,en;q=0.9'
+        };
+
+        // 1. Get the Canonical URL to find the active Video ID
+        const liveUrl = `https://www.youtube.com/channel/${channelId}/live`;
+        const botRes = await fetch(liveUrl, { headers: botHeaders });
+        const botHtml = await botRes.text();
+
+        const canonicalMatch = botHtml.match(/<link rel="canonical" href="(.*?)">/);
+        const canonicalStr = canonicalMatch ? canonicalMatch[1] : "";
+
+        if (!canonicalStr.includes('/watch?v=')) {
+            return { isLive: false, platform: 'youtube' };
+        }
+
+        // 2. Fetch the watch page directly to read the SEO live tags
+        const videoRes = await fetch(canonicalStr, { headers: botHeaders });
+        const videoHtml = await videoRes.text();
+
+        if (videoHtml.includes('isLiveBroadcast":true') || 
+            videoHtml.includes('"isLiveNow":true') || 
+            videoHtml.includes('itemprop="isLiveBroadcast"')) {
+            return { isLive: true, viewers: 0, platform: 'youtube' };
+        }
+
+    } catch (e) { 
+        console.error(`YouTube error for ${channelId}:`, e); 
+    }
+    
+    return { isLive: false, platform: 'youtube' };
 }
