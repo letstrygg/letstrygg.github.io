@@ -11,23 +11,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     let session = null;
     let isLoggedOut = false;
 
+    // Check Authentication
     const { data: authData } = await supabase.auth.getSession();
     session = authData.session;
     
     if (!session) {
         isLoggedOut = true;
-        modeBtn.style.display = 'none'; // Hide the edit button if they can't use it
+        modeBtn.style.display = 'none'; 
     }
 
     await syncData();
 
+    // --- DATA SYNCING ---
     async function syncData() {
         if (isLoggedOut) {
-            // Logged Out: Fetch the top 12 from the view (or fallback to the main table if the view doesn't exist yet)
-            const { data, error } = await supabase.from('top_streamers').select('*').limit(12);
+            // Fetch from the top_streamers view (Includes live_data)
+            const { data, error } = await supabase.from('top_streamers').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel, live_data').limit(12);
             
-            // Fallback just in case you haven't run the SQL view creation yet
             if (error) {
+                // Fallback to ltg_streamers if view fails
                 const fallback = await supabase.from('ltg_streamers').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel, live_data').limit(12);
                 masterList = fallback.data || [];
             } else {
@@ -37,20 +39,20 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        // Logged In: Normal fetch
+        // Logged In: Fetch full library and user follows
         const [mRes, fRes] = await Promise.all([
-            supabase.from('ltg_streamers').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel'),
+            supabase.from('ltg_streamers').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel, live_data'),
             supabase.from('ltg_streamers_followed').select('streamer_slug').eq('user_id', session.user.id)
         ]);
         
         if (mRes.error) console.error("Streamers Fetch Error:", mRes.error.message);
-        if (fRes.error) console.error("Follows Fetch Error:", fRes.error.message);
-
+        
         masterList = mRes.data || [];
         currentFollows = (fRes.data || []).map(f => f.streamer_slug);
         render();
     }
 
+    // --- BUTTON STATE HELPERS ---
     function getBtnState(slug) {
         if (pendingRemoves.includes(slug)) return "btn-red active";
         if (pendingAdds.includes(slug) || currentFollows.includes(slug)) return "btn-green active";
@@ -88,22 +90,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         const isFollowed = currentFollows.includes(slug);
         const isPendingAdd = pendingAdds.includes(slug);
         const isPendingRemove = pendingRemoves.includes(slug);
-
         if (isPendingRemove || isPendingAdd) return "";
-        if (isFollowed) return "remove";
-        return "add";
+        return isFollowed ? "remove" : "add";
     }
 
-	// --- UPDATED HELPER: Build Tray Buttons with Live Detection ---
+    // --- HTML BUILDERS ---
+
+    // Build the sub-buttons (Twitch, YT, Kick)
     function buildSubBtn(platform, handle, colorClass, liveData) {
         const icons = { twitch: 'tv', youtube: 'smart_display', kick: 'sports_esports' };
         const icon = icons[platform];
         
-        // 1. Check if this specific platform is in the live_data platforms array
-        const isLiveOnThisPlatform = liveData && 
-                                     liveData.is_live && 
-                                     liveData.platforms && 
-                                     liveData.platforms.includes(platform);
+        const isLive = liveData && liveData.is_live && liveData.platforms && liveData.platforms.includes(platform);
+        const activeClass = isLive ? "active" : "";
 
         if (!handle) {
             return `<button class="btn btn-gray" style="opacity: 0.3; pointer-events: none;">
@@ -112,29 +111,36 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         if (isEditing) {
-            // Keep the 'active' class here if they are live, so they stay lit in edit mode
-            const activeClass = isLiveOnThisPlatform ? "active" : "";
             return `<button class="btn btn-${colorClass} ${activeClass} btn-static">
                         <span class="material-symbols-outlined">${icon}</span>
                     </button>`;
         } else {
-            // VIEW MODE: Light up (active) if live, otherwise standard
-            const activeClass = isLiveOnThisPlatform ? "active" : "";
-            
             return `<a href="https://letstrygg.com/live/#${platform}/${handle}" 
                        target="_blank" 
                        class="btn btn-${colorClass} ${activeClass}" 
-                       data-tooltip="${isLiveOnThisPlatform ? 'LIVE - ' + platform : platform}">
+                       data-tooltip="${isLive ? 'LIVE - ' + platform : platform}">
                         <span class="material-symbols-outlined">${icon}</span>
                     </a>`;
         }
     }
 
-    // --- NEW HELPER: Assembles the HTML for a single card ---
-    function buildCard(s, stateClass, topBtnAttr) {
-        const sub1 = buildSubBtn('twitch', s.twitch_channel, 'purple');
-        const sub2 = buildSubBtn('youtube', s.youtube_channel_id, 'red');
-        const sub3 = buildSubBtn('kick', s.kick_channel, 'green');
+    // Build the whole multi-button card
+    function buildCard(s, isEditMode) {
+        let topBtnAttr = "";
+        let stateClass = "";
+
+        if (isEditMode) {
+            stateClass = getBtnState(s.slug);
+            const tip = getTooltipText(s.slug);
+            topBtnAttr = tip ? `data-tooltip="${tip}" onclick="window.uiClick('${s.slug}')"` : `onclick="window.uiClick('${s.slug}')"`;
+        } else {
+            stateClass = "btn-static";
+            topBtnAttr = "";
+        }
+
+        const sub1 = buildSubBtn('twitch', s.twitch_channel, 'purple', s.live_data);
+        const sub2 = buildSubBtn('youtube', s.youtube_channel_id, 'red', s.live_data);
+        const sub3 = buildSubBtn('kick', s.kick_channel, 'green', s.live_data);
 
         return `
         <div class="multi-btn">
@@ -149,55 +155,31 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>`;
     }
 
-	function render() {
+    // --- RENDER LOOP ---
+    function render() {
         display.innerHTML = '';
         let html = '';
 
-        const visibleItems = isEditing 
-            ? masterList 
-            : masterList.filter(s => currentFollows.includes(s.slug));
+        if (isLoggedOut) {
+            html += `<div style="width: 100%; margin-bottom: 12px; color: var(--gray);">Trending Streamers. Log in to follow.</div>`;
+            masterList.forEach(s => html += buildCard(s, false));
+        } 
+        else if (!isEditing && currentFollows.length === 0) {
+            html += `<div style="width: 100%; margin-bottom: 12px; color: var(--gray);">You aren't following anyone yet. Popular channels:</div>`;
+            masterList.slice(0, 12).forEach(s => html += buildCard(s, false));
+        } 
+        else {
+            const visibleItems = isEditing 
+                ? masterList 
+                : masterList.filter(s => currentFollows.includes(s.slug));
 
-        if (visibleItems.length === 0) {
-            if (isEditing) {
-                html += "<div>No items found in database.</div>";
-            } else {
-                html += "<div>No items followed.</div>";
-            }
-        } else {
-            visibleItems.forEach(s => {
-                let topBtnAttr = "";
-                let stateClass = "";
-
-                if (isEditing) {
-                    stateClass = getBtnState(s.slug);
-                    const tip = getTooltipText(s.slug);
-                    topBtnAttr = tip ? `data-tooltip="${tip}" onclick="window.uiClick('${s.slug}')"` : `onclick="window.uiClick('${s.slug}')"`;
-                } else {
-                    stateClass = "btn-static";
-                    topBtnAttr = ``;
-                }
-
-                // Pass the live_data object from the database into the button builder
-                const sub1 = buildSubBtn('twitch', s.twitch_channel, 'purple', s.live_data);
-                const sub2 = buildSubBtn('youtube', s.youtube_channel_id, 'red', s.live_data);
-                const sub3 = buildSubBtn('kick', s.kick_channel, 'green', s.live_data);
-
-                html += `
-                <div class="multi-btn">
-                    <button class="btn ${stateClass} btn-main" ${topBtnAttr}>
-                        ${s.display_name || s.slug}
-                    </button>
-                    <div class="btn-tray">
-                        ${sub1}
-                        ${sub2}
-                        ${sub3}
-                    </div>
-                </div>`;
-            });
+            visibleItems.forEach(s => html += buildCard(s, isEditing));
         }
+        
         display.innerHTML = html;
     }
 
+    // --- EVENT LISTENERS ---
     window.uiClick = (slug) => toggleState(slug);
 
     modeBtn.addEventListener('click', async () => {
