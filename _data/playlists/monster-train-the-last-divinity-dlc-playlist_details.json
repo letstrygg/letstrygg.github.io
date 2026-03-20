@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk4eoh2fpr3Zc5Ogt3SX6UNY",
+  "slug": "monster-train-the-last-divinity-dlc",
   "title": "Monster Train The Last Divinity DLC",
   "thumbnail": "https://i.ytimg.com/vi/bhzZypJt4vw/maxresdefault.jpg",
   "published": "2022-04-06T09:31:19.052396Z",
   "updated": "2022-04-15T15:00:06Z",
-  "fetched": "2026-03-07T12:04:33.688Z",
+  "fetched": "2026-03-20T23:04:56.509Z",
   "episodes": 9,
   "duration": 52261,
-  "views": 184,
-  "status": "Completed",
   "duration_formatted": "14h 31m",
+  "duration_short": "15h",
+  "views": 184,
   "views_formatted": "184",
-  "slug": "monster-train-the-last-divinity-dlc",
+  "status": "Completed",
   "status_color": "blue"
 }

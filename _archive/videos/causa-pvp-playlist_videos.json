@@ -8,7 +8,11 @@
       "videoPublishedAt": "2020-05-28T16:00:32Z",
       "durationInSeconds": 1409,
       "viewCount": 48
-    }
+    },
+    "title": "Causa, Voices of the Dusk PvP w/ Cherry Round 1 FIGHT!",
+    "thumbnail": "https://i.ytimg.com/vi/mrdD3lzquL0/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2020-05-29T17:00:09Z",
       "durationInSeconds": 952,
       "viewCount": 12
-    }
+    },
+    "title": "Causa, Voices of the Dusk PvP w Cherry Round 2!",
+    "thumbnail": "https://i.ytimg.com/vi/JA_E473bPjg/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2020-05-30T17:00:31Z",
       "durationInSeconds": 876,
       "viewCount": 13
-    }
+    },
+    "title": "Causa, Voices of the Dusk PvP w Cherry Round 3!",
+    "thumbnail": "https://i.ytimg.com/vi/zolR_JbeYts/maxresdefault.jpg",
+    "likes": 4,
+    "comments": 4
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2020-05-31T17:00:21Z",
       "durationInSeconds": 802,
       "viewCount": 21
-    }
+    },
+    "title": "Custom Deck PvP - Causa, Voices of the Dusk - Round 4!",
+    "thumbnail": "https://i.ytimg.com/vi/hblROHQuQxU/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2020-06-01T17:00:09Z",
       "durationInSeconds": 1001,
       "viewCount": 15
-    }
+    },
+    "title": "Custom Deck PvP - Causa, Voices of the Dusk - Round 5!",
+    "thumbnail": "https://i.ytimg.com/vi/S20u7I5VskI/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2020-06-02T17:00:14Z",
       "durationInSeconds": 1079,
       "viewCount": 10
-    }
+    },
+    "title": "Custom Deck PvP - Causa, Voices of the Dusk - Round 6!",
+    "thumbnail": "https://i.ytimg.com/vi/dEqxG4r4yfM/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,7 +98,11 @@
       "videoPublishedAt": "2020-06-03T17:00:22Z",
       "durationInSeconds": 1492,
       "viewCount": 6
-    }
+    },
+    "title": "PvP Round 7! Causa, Voices of the Dusk",
+    "thumbnail": "https://i.ytimg.com/vi/TBQ8tdm3KfQ/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -85,6 +113,10 @@
       "videoPublishedAt": "2020-06-04T17:00:27Z",
       "durationInSeconds": 1572,
       "viewCount": 16
-    }
+    },
+    "title": "PvP Round 8! Causa, Voices of the Dusk",
+    "thumbnail": "https://i.ytimg.com/vi/vyOXJFYBgE0/maxresdefault.jpg",
+    "likes": 5,
+    "comments": 2
   }
 ]

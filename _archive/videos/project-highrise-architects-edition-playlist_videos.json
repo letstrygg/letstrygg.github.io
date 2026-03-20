@@ -8,7 +8,11 @@
       "videoPublishedAt": "2020-04-10T23:30:01Z",
       "durationInSeconds": 1345,
       "viewCount": 368
-    }
+    },
+    "title": "Project Highrise Ep 1 First Scenario! Marquette Buliding - Architect's Edition Let's Play",
+    "thumbnail": "https://i.ytimg.com/vi/JP15GJ7qFRM/maxresdefault.jpg",
+    "likes": 7,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2020-04-12T00:30:01Z",
       "durationInSeconds": 1361,
       "viewCount": 14
-    }
+    },
+    "title": "Cash Crunch! Project Highrise Ep 2 Marquette Buliding Architect's Edition Let's Play",
+    "thumbnail": "https://i.ytimg.com/vi/84tuQzTxmM0/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,6 +38,10 @@
       "videoPublishedAt": "2020-04-13T00:30:01Z",
       "durationInSeconds": 1609,
       "viewCount": 10
-    }
+    },
+    "title": "Play Through Finale!!! Project Highrise Ep 3 Marquette Buliding Architect's Edition Let's Play",
+    "thumbnail": "https://i.ytimg.com/vi/9lzcwDQCu6I/maxresdefault.jpg",
+    "likes": 0,
+    "comments": 0
   }
 ]

@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk5zCZEfN6iHyTjaJ2P-wfVI",
+  "slug": "monster-train",
   "title": "Monster Train",
   "thumbnail": "https://i.ytimg.com/vi/eMScngbviyU/maxresdefault.jpg",
   "published": "2020-05-25T09:33:09.677413Z",
   "updated": "2021-10-14T19:00:31Z",
-  "fetched": "2026-03-07T12:05:05.004Z",
+  "fetched": "2026-03-20T23:04:57.248Z",
   "episodes": 27,
   "duration": 123965,
-  "views": 465,
-  "status": "Completed",
   "duration_formatted": "34h 26m",
+  "duration_short": "34h",
+  "views": 465,
   "views_formatted": "465",
-  "slug": "monster-train",
+  "status": "Completed",
   "status_color": "blue"
 }

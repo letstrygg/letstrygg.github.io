@@ -8,7 +8,11 @@
       "videoPublishedAt": "2020-05-31T16:00:25Z",
       "durationInSeconds": 2408,
       "viewCount": 29
-    }
+    },
+    "title": "Let's Try Darkest Dungeon Ep 1 - Free Game Steam Weekend Sale 5/31",
+    "thumbnail": "https://i.ytimg.com/vi/tlmjWYO9Viw/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -19,7 +23,11 @@
       "videoPublishedAt": "2020-06-02T19:00:07Z",
       "durationInSeconds": 2082,
       "viewCount": 14
-    }
+    },
+    "title": "Darkest Dungeon Ep 2",
+    "thumbnail": "https://i.ytimg.com/vi/WmOUBBl_aRM/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 5
   },
   {
     "kind": "youtube#playlistItem",
@@ -30,7 +38,11 @@
       "videoPublishedAt": "2020-06-04T19:00:07Z",
       "durationInSeconds": 3444,
       "viewCount": 17
-    }
+    },
+    "title": "Darkest Dungeon Ep 3",
+    "thumbnail": "https://i.ytimg.com/vi/pVxfuLuuK0o/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -41,7 +53,11 @@
       "videoPublishedAt": "2020-06-06T19:00:14Z",
       "durationInSeconds": 2491,
       "viewCount": 16
-    }
+    },
+    "title": "Darkest Dungeon Ep 4",
+    "thumbnail": "https://i.ytimg.com/vi/ftUdQPiaS6k/maxresdefault.jpg",
+    "likes": 3,
+    "comments": 0
   },
   {
     "kind": "youtube#playlistItem",
@@ -52,7 +68,11 @@
       "videoPublishedAt": "2020-06-08T19:00:12Z",
       "durationInSeconds": 1861,
       "viewCount": 12
-    }
+    },
+    "title": "Darkest Dungeon Ep 5",
+    "thumbnail": "https://i.ytimg.com/vi/jRlL3dIFB_s/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 3
   },
   {
     "kind": "youtube#playlistItem",
@@ -63,7 +83,11 @@
       "videoPublishedAt": "2020-06-10T18:00:10Z",
       "durationInSeconds": 2344,
       "viewCount": 9
-    }
+    },
+    "title": "Darkest Dungeon Ep 6",
+    "thumbnail": "https://i.ytimg.com/vi/ig9TakID7vk/maxresdefault.jpg",
+    "likes": 1,
+    "comments": 1
   },
   {
     "kind": "youtube#playlistItem",
@@ -74,6 +98,10 @@
       "videoPublishedAt": "2020-06-12T18:00:08Z",
       "durationInSeconds": 1944,
       "viewCount": 9
-    }
+    },
+    "title": "Darkest Dungeon Ep 7",
+    "thumbnail": "https://i.ytimg.com/vi/RYaSo0H7Ors/maxresdefault.jpg",
+    "likes": 2,
+    "comments": 2
   }
 ]

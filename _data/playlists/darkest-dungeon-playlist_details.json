@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk69Jh-FZbg5IcSxILyQCOb8",
+  "slug": "darkest-dungeon",
   "title": "Darkest Dungeon",
   "thumbnail": "https://i.ytimg.com/vi/tlmjWYO9Viw/maxresdefault.jpg",
   "published": "2020-05-31T10:44:44.041028Z",
   "updated": "2020-06-12T18:00:08Z",
-  "fetched": "2026-03-07T12:05:03.302Z",
+  "fetched": "2026-03-20T23:04:54.487Z",
   "episodes": 7,
   "duration": 16574,
-  "views": 106,
-  "status": "Completed",
   "duration_formatted": "4h 36m",
+  "duration_short": "5h",
+  "views": 106,
   "views_formatted": "106",
-  "slug": "darkest-dungeon",
+  "status": "Completed",
   "status_color": "blue"
 }

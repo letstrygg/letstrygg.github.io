@@ -1,16 +1,17 @@
 {
   "id": "PLQ4IL4UVgQk6liaFTXcYzzRZ2xY1VwxUk",
+  "slug": "poly-bridge-2",
   "title": "Poly Bridge 2",
   "thumbnail": "https://i.ytimg.com/vi/c8nraAXozwU/maxresdefault.jpg",
   "published": "2020-05-28T05:46:07.401394Z",
   "updated": "2020-10-15T20:00:02Z",
-  "fetched": "2026-03-07T12:05:03.844Z",
+  "fetched": "2026-03-20T23:04:55.223Z",
   "episodes": 20,
   "duration": 30291,
-  "views": 1453,
-  "status": "Completed",
   "duration_formatted": "8h 24m",
+  "duration_short": "8h",
+  "views": 1453,
   "views_formatted": "1.5K",
-  "slug": "poly-bridge-2",
+  "status": "Completed",
   "status_color": "blue"
 }
