@@ -1,192 +1,82 @@
-<div class="game-section" style="margin-top: 0; padding: 0; border: none; background: transparent;">
-    <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-        
-        <div style="width: 100%; max-width: calc((100vh - 140px) * 16 / 9);">
-            
-            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 8px 8px 0 0; overflow: hidden; z-index: 10;">
-                
-                <div id="theater-exit-overlay" style="display: none; position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); z-index: 30;">
-                    <button id="theater-exit-btn" class="icon-btn tooltip-top" data-tooltip="Exit Theater" style="background: rgba(0, 0, 0, 0.75); color: white; border: 1px solid rgba(255, 255, 255, 0.2); padding: 8px 20px; border-radius: 30px; display: flex; align-items: center; gap: 8px; cursor: pointer; backdrop-filter: blur(4px);">
-                        <span class="material-symbols-outlined" style="font-size: 20px;">close_fullscreen</span>
-                        <span style="font-size: 14px; font-weight: bold; letter-spacing: 0.5px;">Exit Theater</span>
-                    </button>
-                </div>
-
-                <iframe id="ytplayer" src="https://www.youtube.com/embed/{{ include.video_id }}?enablejsapi=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></iframe>
-            </div>
-            
-            <div class="video-control-bar" style="display: flex; align-items: center; justify-content: space-between; background: var(--bg2); padding: 10px 15px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; margin-bottom: 20px; gap: 15px; flex-wrap: wrap;">
-                
-                <div style="display: flex; flex: 1; min-width: 250px; gap: 15px; align-items: center;">
-                    {% if include.prev_url != '' and include.prev_url != null %}
-                        <button onclick="window.location.href='{{ include.prev_url }}'" class="icon-btn tooltip-top" data-tooltip="Previous Episode" style="flex-shrink: 0;"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    {% else %}
-                        <button class="icon-btn" style="opacity: 0.3; cursor: default; flex-shrink: 0;"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    {% endif %}
-
-                    <div style="display: flex; gap: 12px; font-size: 13px; color: var(--gray); flex-wrap: wrap; align-items: center;">
-                        <span style="display: flex; align-items: center; gap: 4px;" title="Published"><span class="material-symbols-outlined yellow" style="font-size: 16px;">calendar_month</span> {{ include.published }}</span>
-                        <span style="display: flex; align-items: center; gap: 4px;" title="Duration"><span class="material-symbols-outlined purple" style="font-size: 16px;">schedule</span> {{ include.duration }}</span>
-                        <span style="display: flex; align-items: center; gap: 4px;" title="Views"><span class="material-symbols-outlined blue" style="font-size: 16px;">visibility</span> {{ include.views }}</span>
-                        <span style="display: flex; align-items: center; gap: 4px;" title="Likes"><span class="material-symbols-outlined green" style="font-size: 16px;">thumb_up</span> {{ include.likes }}</span>
-                        <span style="display: flex; align-items: center; gap: 4px;" title="Comments"><span class="material-symbols-outlined orange" style="font-size: 16px;">chat_bubble</span> {{ include.comments }}</span>
-                    </div>
-                </div>
-
-                <div style="display: flex; gap: 8px; align-items: center; justify-content: center;">
-                    <button id="resume-btn" class="btn" style="display: none; background: rgba(231, 76, 60, 0.1); color: #e74c3c; border: 1px solid rgba(231, 76, 60, 0.4); padding: 4px 10px; border-radius: 4px; font-weight: bold; align-items: center; gap: 4px; cursor: pointer; transition: background 0.2s;" data-tooltip="Return to saved place">
-                        <span class="material-symbols-outlined" style="font-size: 16px;">fast_rewind</span>
-                        <span id="resume-time-text" style="font-size: 12px;"></span>
-                    </button>
-                    <button id="theater-btn" class="icon-btn tooltip-top" data-tooltip="Theater Mode">
-                        <span class="material-symbols-outlined" id="theater-icon">width_full</span>
-                    </button>
-                    <button id="copy-time-btn" class="icon-btn tooltip-top" data-tooltip="Copy Timestamp">
-                        <span class="material-symbols-outlined" id="copy-icon">link</span>
-                    </button>
-                </div>
-
-                <div style="display: flex; flex: 1; align-items: center; justify-content: flex-end;">
-                    {% if include.next_url != '' and include.next_url != null %}
-                        <button onclick="window.location.href='{{ include.next_url }}'" class="icon-btn tooltip-top" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
-                    {% else %}
-                        <button class="icon-btn" style="opacity: 0.3; cursor: default;"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
-                    {% endif %}
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-  var storageKey = 'yt_resume_{{ include.video_id }}';
-  var originalSavedTime = parseFloat(localStorage.getItem(storageKey)) || 0;
-  
-  var urlParams = new URLSearchParams(window.location.search);
-  var urlTime = urlParams.get('t') ? parseFloat(urlParams.get('t')) : null;
-  
-  var isPreviewing = urlTime !== null && originalSavedTime > 0 && Math.abs(urlTime - originalSavedTime) > 5;
-  var startTime = urlTime !== null ? urlTime : originalSavedTime;
-
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  var player;
-  var saveInterval;
-
-  function onYouTubeIframeAPIReady() {
-    var iframe = document.getElementById('ytplayer');
+<!DOCTYPE html>
+<html lang="en" data-overlayscrollbars-initialize>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    // Inject the dynamic start time and autoplay before the API takes over
-    iframe.src = "https://www.youtube.com/embed/{{ include.video_id }}?enablejsapi=1&rel=0&modestbranding=1&fs=1&autoplay=1&start=" + Math.floor(startTime);
+  <title>{{ page.title }} | letstrygg</title>
+  <meta name="title" content="{{ page.title }}">
+  <meta name="description" content="{{ page.description }}">
+  <link rel="canonical" href="https://letstrygg.com{{ page.permalink }}">
+  <meta name="theme-color" content="#e67e22"> 
+  <meta property="og:site_name" content="letstrygg">
+  <meta property="og:type" content="video.other">
+  <meta property="og:url" content="https://letstrygg.com{{ page.permalink }}">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  {% if page.thumbnail %}
+  <meta property="og:image" content="{{ page.thumbnail }}">
+  {% endif %}
 
-    // Bind the YouTube API to the existing iframe
-    player = new YT.Player('ytplayer', {
-      events: { 'onStateChange': onPlayerStateChange }
-    });
-  }
-
-  function onPlayerStateChange(event) {
-    if (event.data === 1) {
-        if (!saveInterval) {
-            saveInterval = setInterval(function() {
-                if (!isPreviewing) {
-                    localStorage.setItem(storageKey, player.getCurrentTime());
-                }
-            }, 5000);
-        }
-    } else {
-        clearInterval(saveInterval);
-        saveInterval = null;
-    }
-
-    if (event.data === 0) {
-        localStorage.removeItem(storageKey);
-        const nextEpisodeUrl = "{{ include.next_url }}";
-        if (nextEpisodeUrl && nextEpisodeUrl.trim() !== "") {
-             window.location.href = nextEpisodeUrl;
-        }
-    }
-  }
-
-  const resumeBtn = document.getElementById('resume-btn');
-  const resumeText = document.getElementById('resume-time-text');
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://letstrygg.com{{ page.permalink }}">
+  <meta property="twitter:title" content="{{ page.title }}">
+  <meta property="twitter:description" content="{{ page.description }}">
+  {% if page.thumbnail %}
+  <meta property="twitter:image" content="{{ page.thumbnail }}">
+  {% endif %}
   
-  function updateResumeButtonUI(timeVal) {
-      resumeBtn.style.display = 'inline-flex';
-      let h = Math.floor(timeVal / 3600);
-      let m = Math.floor((timeVal % 3600) / 60);
-      let s = Math.floor(timeVal % 60);
-      resumeText.innerText = 'Resume ' + (h > 0 ? h + ':' + m.toString().padStart(2,'0') + ':' + s.toString().padStart(2,'0') : m + ':' + s.toString().padStart(2,'0'));
-  }
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script>
+		window.SUPABASE_URL = '{{ site.supabase_url }}';
+		window.SUPABASE_ANON_KEY = '{{ site.supabase_anon_key }}';
+	</script>
 
-  resumeBtn.addEventListener('click', function() {
-      isPreviewing = false; 
-      player.seekTo(originalSavedTime, true);
-      resumeBtn.style.display = 'none';
-      history.replaceState(null, '', window.location.pathname); 
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/colors.css">
+  <link rel="stylesheet" href="/css/watch.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0"/>
+
+  {% if page.custom_css %}
+    {% assign css_list = page.custom_css | join: ',' | split: ',' %}
+    {% for css in css_list %}
+      <link rel="stylesheet" href="{{ css }}">
+    {% endfor %}
+  {% endif %}
+</head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/styles/overlayscrollbars.min.css">
+<body data-overlayscrollbars-initialize>
+
+{% include ui.html %}
+{% include theme_toggle.html %}
+
+<main>
+  <div style="margin-top: 5px; margin-bottom: 5px;">
+    {% include breadcrumbs.html %}
+  </div>
+
+  {{ content }}
+  
+</main>
+
+{% include chat_widget.html %}
+
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/browser/overlayscrollbars.browser.es6.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Initialize on the whole body
+    OverlayScrollbarsGlobal.OverlayScrollbars(document.body, {
+      scrollbars: {
+        theme: 'os-theme-custom', // We will define this in style.css
+        autoHide: 'leave',        // Hides completely when not interacting
+        autoHideDelay: 300,
+        clickScroll: true
+      }
+    });
   });
-
-  if (isPreviewing) {
-      updateResumeButtonUI(originalSavedTime);
-  }
-
-  window.triggerInPageJump = function(targetSeconds) {
-      if (typeof player === 'undefined' || !player || typeof player.getCurrentTime !== 'function') return;
-      
-      if (!isPreviewing) {
-          originalSavedTime = player.getCurrentTime();
-          isPreviewing = true;
-      }
-      
-      player.seekTo(targetSeconds, true);
-      updateResumeButtonUI(originalSavedTime);
-  };
-
-  const copyBtn = document.getElementById('copy-time-btn');
-  copyBtn.addEventListener('click', function() {
-      if (player && player.getCurrentTime) {
-          const t = Math.floor(player.getCurrentTime());
-          const url = "https://youtu.be/{{ include.video_id }}?t=" + t + "s";
-          navigator.clipboard.writeText(url).then(() => {
-              const icon = document.getElementById('copy-icon');
-              icon.innerText = 'check'; 
-              copyBtn.setAttribute('data-tooltip', 'Copied!');
-              setTimeout(() => { 
-                  icon.innerText = 'link'; 
-                  copyBtn.setAttribute('data-tooltip', 'Copy Timestamp');
-              }, 2000);
-          });
-      }
-  });
-
-  // Theater Mode Logic
-  const wrapper = document.getElementById('player-wrapper');
-  const tIcon = document.getElementById('theater-icon');
-  const tBtn = document.getElementById('theater-btn');
-  const tExitOverlay = document.getElementById('theater-exit-overlay');
-  const tExitBtn = document.getElementById('theater-exit-btn');
-
-  function toggleTheater() {
-      const isTheater = wrapper.classList.toggle('theater-active');
-      if (isTheater) {
-          document.body.style.overflow = 'hidden';
-          tIcon.innerText = 'close_fullscreen'; 
-          tBtn.setAttribute('data-tooltip', 'Exit Theater');
-          tExitOverlay.style.display = 'block'; // Show overlay button
-      } else {
-          document.body.style.overflow = '';
-          tIcon.innerText = 'width_full'; 
-          tBtn.setAttribute('data-tooltip', 'Theater Mode');
-          tExitOverlay.style.display = 'none'; // Hide overlay button
-      }
-  }
-
-  // Bind the toggle to both buttons
-  tBtn.addEventListener('click', toggleTheater);
-  tExitBtn.addEventListener('click', toggleTheater);
-
 </script>
+</body>
+</html>
