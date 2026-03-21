@@ -1,63 +1,12 @@
 /* ==========================================================================
-   VIDEO CONTAINER & QUASI-THEATER MODE
-   ========================================================================== */
-
-/* 1. Default Video Constraints (Centered, Max-Height restricted) */
-.responsive-video-container {
-    width: 100%;
-    max-width: calc((100vh - 140px) * 16 / 9);
-    margin: 0 auto; 
-    transition: max-width 0.3s ease;
-}
-
-/* 2. Smooth transition for the main container padding */
-main {
-    transition: padding 0.3s ease;
-}
-
-/* 3. QUASI-THEATER TRIGGERS: Chat Open OR Mobile Screen */
-body.chat-open-squish main,
-@media (max-aspect-ratio: 1/1), (max-width: 768px) {
-    
-    /* Strip the 45px padding from the main container so the video goes edge-to-edge */
-    main {
-        padding: 0 !important; 
-    }
-
-    /* Allow the video to break its height constraint and fill the width */
-    .responsive-video-container {
-        max-width: 100% !important;
-    }
-
-    /* Flatten the rounded corners since they are now touching the screen/chat edge */
-    body.chat-open-squish #player-wrapper,
-    #player-wrapper {
-        border-radius: 0 !important;
-    }
-    
-    /* Flatten the control bar and remove side borders */
-    body.chat-open-squish .video-control-bar,
-    .video-control-bar {
-        border-radius: 0 !important;
-        border-left: none !important;
-        border-right: none !important;
-    }
-
-    /* Protect the text elements below/above the video from hitting the edge */
-    .breadcrumbs, 
-    .manual-content {
-        padding: 0 15px; 
-    }
-}
-
-/* ==========================================================================
-   WATCH PAGE SPECIFIC STYLING
+   WATCH PAGE BASE STYLING
    ========================================================================== */
 
 main {
     padding: 0 45px;
     width: 100%;
     box-sizing: border-box;
+    transition: padding 0.3s ease; /* Smooth padding shifts */
 }
 
 /* Clean Breadcrumbs */
@@ -66,107 +15,21 @@ main {
 .breadcrumbs a:hover { color: var(--title); }
 
 /* ==========================================================================
-   MINIMALIST VIDEO OVERLAY
+   VIDEO CONTAINER DEFAULTS
    ========================================================================== */
 
-/* The Main Overlay Container (Crucial for fade and click-through) */
-.video-overlay {
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    pointer-events: none; /* Lets mouse clicks pass through to YouTube */
-    transition: opacity 0.3s ease;
-    z-index: 20;
+/* Centered, Max-Height restricted */
+.video-max-container {
+    width: 100%;
+    max-width: calc((100vh - 140px) * 16 / 9);
+    margin: 0 auto; 
+    transition: max-width 0.3s ease;
 }
-
-/* --- Video Overlay Stats Box --- */
-.overlay-stats {
-    position: absolute;
-    bottom: 60px; /* Moved to sit exactly above the YouTube playback bar */
-    right: 15px;  /* Moved to the bottom right edge */
-    
-    /* The Glass Panel Look */
-    background: rgba(14, 14, 16, 0.85); 
-    backdrop-filter: blur(4px);         
-    -webkit-backdrop-filter: blur(4px);
-    
-    /* Borders and Shadows */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    
-    /* Layout */
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 8px 14px;
-    
-    /* Text Styling */
-    color: #efeff1;
-    font-size: 13px;
-    font-weight: 500;
-}
-
-/* Ensure the icons and text align perfectly inside the box */
-.ep-stat {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* Size down the material icons slightly so they fit the 13px text */
-.ep-stat .material-symbols-outlined {
-    font-size: 16px; 
-}
-
-/* Native-Style Overlay Buttons */
-.overlay-btn {
-    position: relative;   /* Crucial: anchors the global CSS tooltips */
-    pointer-events: auto; /* Makes the buttons clickable again */
-    background: transparent;
-    border: none;
-    color: #ffffff; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0.85; 
-    transition: opacity 0.2s ease;
-}
-
-.overlay-btn:hover { 
-    opacity: 1; 
-}
-
-/* Side Navigation Arrows */
-.overlay-side { 
-    position: absolute; /* Overrides relative positioning for side layout */
-    top: 50%; 
-    transform: translateY(-50%); 
-    padding: 20px; 
-}
-.overlay-side .material-symbols-outlined { font-size: 3rem; }
-.overlay-left { left: 0px; }
-.overlay-right { right: 0px; }
-
-
-/* Bottom Center Controls */
-.overlay-bottom { 
-    position: absolute; 
-    bottom: 4px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    display: flex; 
-    gap: 25px; 
-    pointer-events: auto; /* Ensure this flexbox catches hover states */
-}
-.overlay-bottom .material-symbols-outlined { font-size: 1.8rem; }
 
 /* ==========================================================================
-   THEATER MODE (Responsive to Chat)
+   THEATER MODE (True Full Screen)
    ========================================================================== */
+
 #player-wrapper.theater-active {
     position: fixed !important;
     top: 0 !important;
@@ -180,6 +43,7 @@ main {
     /* Sits just underneath the chat panel (z-index: 1000) */
     z-index: 999 !important; 
     margin: 0 !important;
+    border-radius: 0 !important;
 }
 
 /* --- DESKTOP: Chat is on the Right --- */
@@ -192,5 +56,39 @@ body.chat-open-squish #player-wrapper.theater-active {
     body.chat-open-squish #player-wrapper.theater-active {
         width: 100vw !important; /* Restore full width */
         height: calc(100vh - var(--chat-height)) !important; /* Avoid the bottom chat */
+    }
+}
+
+/* ==========================================================================
+   QUASI-THEATER MODE (Edge-to-Edge with Chat/Mobile)
+   ========================================================================== */
+
+/* Trigger when Chat is Open OR on Mobile/Vertical screens */
+body.chat-open-squish main,
+@media (max-aspect-ratio: 1/1), (max-width: 768px) {
+    
+    /* 1. Strip the 45px padding from the main container */
+    main {
+        padding: 0 !important; 
+    }
+
+    /* 2. Let the video break its max-width constraint */
+    .video-max-container {
+        max-width: 100% !important;
+    }
+
+    /* 3. Flatten the borders so they sit flush against the edge */
+    #player-wrapper,
+    .video-control-bar {
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+
+    /* 4. Protect text elements from hitting the monitor edge */
+    .breadcrumbs, 
+    .manual-content {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
