@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 2. Resolve the path to C:\GitHub\.env (Up 3 levels: utils -> ssg -> letstrygg -> GitHub)
+// 2. Resolve the path to C:\GitHub\.env
 const envPath = path.resolve(__dirname, '../../../.env');
 
 // 3. Load the environment variables explicitly
@@ -45,4 +45,30 @@ export async function getFullEpisodeContext(videoId) {
 
     if (error) throw error;
     return data;
+}
+
+// Helper to find the Prev/Next episodes in the same playlist
+export async function getAdjacentEpisodes(playlistId, currentSortOrder) {
+    const { data: prevData } = await supabase
+        .from('ltg_playlist_videos')
+        .select('video_id, sort_order')
+        .eq('playlist_id', playlistId)
+        .lt('sort_order', currentSortOrder)
+        .order('sort_order', { ascending: false })
+        .limit(1)
+        .single();
+
+    const { data: nextData } = await supabase
+        .from('ltg_playlist_videos')
+        .select('video_id, sort_order')
+        .eq('playlist_id', playlistId)
+        .gt('sort_order', currentSortOrder)
+        .order('sort_order', { ascending: true })
+        .limit(1)
+        .single();
+
+    return { 
+        prevSortOrder: prevData?.sort_order || null, 
+        nextSortOrder: nextData?.sort_order || null 
+    };
 }

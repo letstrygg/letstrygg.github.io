@@ -26,3 +26,7 @@ export function writeStaticPage(urlPath, htmlContent) {
     // Print a clean, readable path to the console
     console.log(`✅ Wrote page: ${urlPath}`);
 }
+
+export function checkFileExists(urlPath) {
+    return fs.existsSync(path.resolve(PROJECT_ROOT, urlPath));
+}
