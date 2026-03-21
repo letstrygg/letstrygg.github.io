@@ -27,7 +27,7 @@ main {
 .responsive-video-container {
     width: 100%;
     /* This allows the video to be massive, but stops it from growing taller than your screen */
-    max-width: calc((100vh - 140px) * 16 / 9);
+    max-width: calc((100vh - 90px) * 16 / 9);
     margin: 0 auto; 
     transition: max-width 0.3s ease;
 }
