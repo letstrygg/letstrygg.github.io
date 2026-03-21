@@ -42,13 +42,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Logged In: Fetch full library and user follows
         const [mRes, fRes] = await Promise.all([
             supabase.from('ltg_channels').select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel, live_data'),
-            supabase.from('ltg_streamers_followed').select('streamer_slug').eq('user_id', session.user.id)
+            supabase.from('ltg_channels_followed').select('channel_slug').eq('user_id', session.user.id) // <-- CHANGED
         ]);
         
         if (mRes.error) console.error("Channels Fetch Error:", mRes.error.message);
         
         masterList = mRes.data || [];
-        currentFollows = (fRes.data || []).map(f => f.streamer_slug);
+        currentFollows = (fRes.data || []).map(f => f.channel_slug);
         render();
     }
 
@@ -75,11 +75,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     async function commitChanges() {
         if (pendingRemoves.length > 0) {
-            await supabase.from('ltg_streamers_followed').delete().eq('user_id', session.user.id).in('streamer_slug', pendingRemoves);
+            await supabase.from('ltg_channels_followed').delete().eq('user_id', session.user.id).in('channel_slug', pendingRemoves);
         }
         if (pendingAdds.length > 0) {
-            const batch = pendingAdds.map(slug => ({ user_id: session.user.id, streamer_slug: slug }));
-            await supabase.from('ltg_streamers_followed').insert(batch);
+            const batch = pendingAdds.map(slug => ({ user_id: session.user.id, channel_slug: slug }));
+            await supabase.from('ltg_channels_followed').insert(batch);
         }
         pendingAdds = [];
         pendingRemoves = [];
