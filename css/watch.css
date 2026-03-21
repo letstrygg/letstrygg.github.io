@@ -6,7 +6,13 @@ main {
     padding: 0 45px;
     width: 100%;
     box-sizing: border-box;
-    transition: padding 0.3s ease; /* Smooth padding shifts */
+    transition: padding 0.3s ease;
+}
+
+/* OVERRIDE: Break out of the global layout constraints so the video can grow */
+.game-page-wrapper {
+    max-width: none !important; 
+    width: 100%;
 }
 
 /* Clean Breadcrumbs */
@@ -18,9 +24,9 @@ main {
    VIDEO CONTAINER DEFAULTS
    ========================================================================== */
 
-/* Centered, Max-Height restricted */
-.video-max-container {
+.responsive-video-container {
     width: 100%;
+    /* This allows the video to be massive, but stops it from growing taller than your screen */
     max-width: calc((100vh - 140px) * 16 / 9);
     margin: 0 auto; 
     transition: max-width 0.3s ease;
@@ -54,8 +60,8 @@ body.chat-open-squish #player-wrapper.theater-active {
 /* --- MOBILE: Chat is on the Bottom --- */
 @media (max-aspect-ratio: 1/1), (max-width: 768px) {
     body.chat-open-squish #player-wrapper.theater-active {
-        width: 100vw !important; /* Restore full width */
-        height: calc(100vh - var(--chat-height)) !important; /* Avoid the bottom chat */
+        width: 100vw !important; 
+        height: calc(100vh - var(--chat-height)) !important; 
     }
 }
 
@@ -63,29 +69,33 @@ body.chat-open-squish #player-wrapper.theater-active {
    QUASI-THEATER MODE (Edge-to-Edge with Chat/Mobile)
    ========================================================================== */
 
-/* Trigger when Chat is Open OR on Mobile/Vertical screens */
-body.chat-open-squish main,
+/* 1. DESKTOP: Triggered ONLY when chat is open */
+body.chat-open-squish main { padding: 0 !important; }
+body.chat-open-squish .responsive-video-container { max-width: 100% !important; }
+body.chat-open-squish #player-wrapper,
+body.chat-open-squish .video-control-bar {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+body.chat-open-squish .breadcrumbs, 
+body.chat-open-squish .manual-content {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* 2. MOBILE / VERTICAL: Triggered automatically based on screen size */
 @media (max-aspect-ratio: 1/1), (max-width: 768px) {
+    main { padding: 0 !important; }
+    .responsive-video-container { max-width: 100% !important; }
     
-    /* 1. Strip the 45px padding from the main container */
-    main {
-        padding: 0 !important; 
-    }
-
-    /* 2. Let the video break its max-width constraint */
-    .video-max-container {
-        max-width: 100% !important;
-    }
-
-    /* 3. Flatten the borders so they sit flush against the edge */
     #player-wrapper,
     .video-control-bar {
         border-radius: 0 !important;
         border-left: none !important;
         border-right: none !important;
     }
-
-    /* 4. Protect text elements from hitting the monitor edge */
+    
     .breadcrumbs, 
     .manual-content {
         padding-left: 15px;
