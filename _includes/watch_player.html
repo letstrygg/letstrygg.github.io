@@ -1,44 +1,50 @@
-<div class="game-section auto-generated-stats" style="margin-top: 0;">
+<div class="game-section" style="margin-top: 0; padding: 0; border: none; background: transparent;">
     <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-        <div style="width: 100%; max-width: calc((100vh - 75px) * 16 / 9);">
-            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; margin-bottom: 5px; z-index: 10;">
-                
-                <div id="video-overlay" class="video-overlay" style="z-index: 20;">
-                    <div class="overlay-stats">
-                        <span class="ep-stat"><span class="material-symbols-outlined yellow">calendar_month</span> {{ include.published }}</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined purple">schedule</span> {{ include.duration }}</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined blue">visibility</span> {{ include.views }}</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined green">thumb_up</span> {{ include.likes }}</span>
-                        <span class="ep-stat"><span class="material-symbols-outlined orange">chat_bubble</span> {{ include.comments }}</span>
-                    </div>
-
-                    {% if include.prev_url != '' %}
-                    <button onclick="window.location.href='{{ include.prev_url }}'" class="overlay-btn overlay-side overlay-left tooltip-left" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
-                    {% endif %}
-                    
-                    {% if include.next_url != '' %}
-                    <button onclick="window.location.href='{{ include.next_url }}'" class="overlay-btn overlay-side overlay-right tooltip-right" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
-                    {% endif %}
-                    
-                    <div style="position: absolute; bottom: 60px; left: 15px; z-index: 20;">
-                        <button id="resume-btn" class="overlay-btn tooltip-left" style="display: none; background: rgba(231, 76, 60, 0.9); padding: 4px 12px; border-radius: 4px; font-weight: bold; width: auto; flex-direction: row; gap: 4px; align-items: center;" data-tooltip="Return to your saved place">
-                            <span class="material-symbols-outlined" style="font-size: 18px;">fast_rewind</span>
-                            <span id="resume-time-text"></span>
-                        </button>
-                    </div>
-
-                    <div class="overlay-bottom">
-                        <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
-                            <span class="material-symbols-outlined" id="theater-icon">width_full</span>
-                        </button>
-                        <button id="copy-time-btn" class="overlay-btn" data-tooltip="Copy Timestamp">
-                            <span class="material-symbols-outlined" id="copy-icon">link</span>
-                        </button>
-                    </div>
-                </div>
-				<iframe id="ytplayer" src="https://www.youtube.com/embed/{{ include.video_id }}?enablejsapi=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></iframe>
-               <!-- <div id="ytplayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>-->
+        
+        <div style="width: 100%; max-width: calc((100vh - 140px) * 16 / 9);">
+            
+            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 8px 8px 0 0; overflow: hidden; z-index: 10;">
+                <iframe id="ytplayer" src="https://www.youtube.com/embed/{{ include.video_id }}?enablejsapi=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></iframe>
             </div>
+            
+            <div class="video-control-bar" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; background: var(--bg2); padding: 10px 15px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; margin-bottom: 20px; gap: 10px;">
+                
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    {% if include.prev_url != '' and include.prev_url != null %}
+                        <button onclick="window.location.href='{{ include.prev_url }}'" class="icon-btn tooltip-top" data-tooltip="Previous Episode"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
+                    {% else %}
+                        <button class="icon-btn" style="opacity: 0.3; cursor: default;"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
+                    {% endif %}
+
+                    {% if include.next_url != '' and include.next_url != null %}
+                        <button onclick="window.location.href='{{ include.next_url }}'" class="icon-btn tooltip-top" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    {% else %}
+                        <button class="icon-btn" style="opacity: 0.3; cursor: default;"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                    {% endif %}
+                </div>
+
+                <div style="display: flex; gap: 15px; font-size: 13px; color: var(--gray); flex-wrap: wrap; justify-content: center; align-items: center;">
+                    <span style="display: flex; align-items: center; gap: 4px;" title="Published"><span class="material-symbols-outlined yellow" style="font-size: 16px;">calendar_month</span> {{ include.published }}</span>
+                    <span style="display: flex; align-items: center; gap: 4px;" title="Duration"><span class="material-symbols-outlined purple" style="font-size: 16px;">schedule</span> {{ include.duration }}</span>
+                    <span style="display: flex; align-items: center; gap: 4px;" title="Views"><span class="material-symbols-outlined blue" style="font-size: 16px;">visibility</span> {{ include.views }}</span>
+                    <span style="display: flex; align-items: center; gap: 4px;" title="Likes"><span class="material-symbols-outlined green" style="font-size: 16px;">thumb_up</span> {{ include.likes }}</span>
+                    <span style="display: flex; align-items: center; gap: 4px;" title="Comments"><span class="material-symbols-outlined orange" style="font-size: 16px;">chat_bubble</span> {{ include.comments }}</span>
+                </div>
+
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button id="resume-btn" class="btn" style="display: none; background: rgba(231, 76, 60, 0.1); color: #e74c3c; border: 1px solid rgba(231, 76, 60, 0.4); padding: 4px 10px; border-radius: 4px; font-weight: bold; align-items: center; gap: 4px; cursor: pointer; transition: background 0.2s;" data-tooltip="Return to saved place">
+                        <span class="material-symbols-outlined" style="font-size: 16px;">fast_rewind</span>
+                        <span id="resume-time-text" style="font-size: 12px;"></span>
+                    </button>
+                    <button id="theater-btn" class="icon-btn tooltip-top" data-tooltip="Theater Mode">
+                        <span class="material-symbols-outlined" id="theater-icon">width_full</span>
+                    </button>
+                    <button id="copy-time-btn" class="icon-btn tooltip-top" data-tooltip="Copy Timestamp">
+                        <span class="material-symbols-outlined" id="copy-icon">link</span>
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -90,26 +96,11 @@
     if (event.data === 0) {
         localStorage.removeItem(storageKey);
         const nextEpisodeUrl = "{{ include.next_url }}";
-        if (nextEpisodeUrl) window.location.href = nextEpisodeUrl;
+        if (nextEpisodeUrl && nextEpisodeUrl.trim() !== "") {
+             window.location.href = nextEpisodeUrl;
+        }
     }
   }
-
-  const wrapper = document.getElementById('player-wrapper');
-  const overlay = document.getElementById('video-overlay');
-  let idleTimer;
-
-  function resetIdleTimer() {
-      overlay.style.opacity = '1';
-      clearTimeout(idleTimer);
-      idleTimer = setTimeout(() => { overlay.style.opacity = '0'; }, 3500);
-  }
-
-  wrapper.addEventListener('mousemove', resetIdleTimer);
-  wrapper.addEventListener('mouseleave', () => {
-      clearTimeout(idleTimer);
-      overlay.style.opacity = '0'; 
-  });
-  resetIdleTimer();
 
   const resumeBtn = document.getElementById('resume-btn');
   const resumeText = document.getElementById('resume-time-text');
@@ -162,7 +153,8 @@
       }
   });
 
-const tIcon = document.getElementById('theater-icon');
+  const wrapper = document.getElementById('player-wrapper');
+  const tIcon = document.getElementById('theater-icon');
   const tBtn = document.getElementById('theater-btn');
   tBtn.addEventListener('click', function() {
       const isTheater = wrapper.classList.toggle('theater-active');
