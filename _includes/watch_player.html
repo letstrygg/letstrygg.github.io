@@ -1,3 +1,15 @@
+<style>
+/* Animation for the Resume button to pulse green once */
+@keyframes pulseGreen {
+    0% { border-color: #2ecc71; box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); color: #2ecc71; }
+    70% { box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); color: var(--text); border-color: var(--border); }
+    100% { border-color: var(--border); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); color: var(--text); }
+}
+.pulse-once {
+    animation: pulseGreen 1.5s ease-out forwards;
+}
+</style>
+
 <div class="game-section" style="margin-top: 0; padding: 0; border: none; background: transparent;">
     <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
         
@@ -5,10 +17,9 @@
             
             <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 8px 8px 0 0; overflow: hidden; z-index: 10;">
                 
-                <div id="theater-exit-overlay" style="display: none; position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); z-index: 30;">
-                    <button id="theater-exit-btn" class="icon-btn tooltip-top" data-tooltip="Exit Theater" style="background: rgba(0, 0, 0, 0.75); color: white; border: 1px solid rgba(255, 255, 255, 0.2); padding: 8px 20px; border-radius: 30px; display: flex; align-items: center; gap: 8px; cursor: pointer; backdrop-filter: blur(4px);">
-                        <span class="material-symbols-outlined" style="font-size: 20px;">close_fullscreen</span>
-                        <span style="font-size: 14px; font-weight: bold; letter-spacing: 0.5px;">Exit Theater</span>
+                <div id="theater-exit-overlay" style="display: none; opacity: 0; position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); z-index: 30; transition: opacity 0.3s ease-in-out;">
+                    <button id="theater-exit-btn" class="icon-btn" data-tooltip="Exit Theater" style="background: rgba(0, 0, 0, 0.6); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(4px);">
+                        <span class="material-symbols-outlined" style="font-size: 28px;">close_fullscreen</span>
                     </button>
                 </div>
 
@@ -34,10 +45,6 @@
                 </div>
 
                 <div style="display: flex; gap: 8px; align-items: center; justify-content: center;">
-                    <button id="resume-btn" class="btn" style="display: none; background: rgba(231, 76, 60, 0.1); color: #e74c3c; border: 1px solid rgba(231, 76, 60, 0.4); padding: 4px 10px; border-radius: 4px; font-weight: bold; align-items: center; gap: 4px; cursor: pointer; transition: background 0.2s;" data-tooltip="Return to saved place">
-                        <span class="material-symbols-outlined" style="font-size: 16px;">fast_rewind</span>
-                        <span id="resume-time-text" style="font-size: 12px;"></span>
-                    </button>
                     <button id="theater-btn" class="icon-btn tooltip-top" data-tooltip="Theater Mode">
                         <span class="material-symbols-outlined" id="theater-icon">width_full</span>
                     </button>
@@ -46,7 +53,12 @@
                     </button>
                 </div>
 
-                <div style="display: flex; flex: 1; align-items: center; justify-content: flex-end;">
+                <div style="display: flex; flex: 1; align-items: center; justify-content: flex-end; gap: 12px;">
+                    <button id="resume-btn" class="btn" style="display: none; background: var(--bg); color: var(--text); border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; font-weight: bold; align-items: center; gap: 4px; cursor: pointer; transition: background 0.2s;" data-tooltip="Return to saved place">
+                        <span class="material-symbols-outlined" style="font-size: 16px;">fast_rewind</span>
+                        <span id="resume-time-text" style="font-size: 12px;"></span>
+                    </button>
+
                     {% if include.next_url != '' and include.next_url != null %}
                         <button onclick="window.location.href='{{ include.next_url }}'" class="icon-btn tooltip-top" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     {% else %}
@@ -83,7 +95,6 @@
     // Inject the dynamic start time and autoplay before the API takes over
     iframe.src = "https://www.youtube.com/embed/{{ include.video_id }}?enablejsapi=1&rel=0&modestbranding=1&fs=1&autoplay=1&start=" + Math.floor(startTime);
 
-    // Bind the YouTube API to the existing iframe
     player = new YT.Player('ytplayer', {
       events: { 'onStateChange': onPlayerStateChange }
     });
@@ -117,6 +128,12 @@
   
   function updateResumeButtonUI(timeVal) {
       resumeBtn.style.display = 'inline-flex';
+      
+      // Trigger the green pulse animation
+      resumeBtn.classList.remove('pulse-once');
+      void resumeBtn.offsetWidth; // Trigger reflow to restart animation if needed
+      resumeBtn.classList.add('pulse-once');
+
       let h = Math.floor(timeVal / 3600);
       let m = Math.floor((timeVal % 3600) / 60);
       let s = Math.floor(timeVal % 60);
@@ -163,12 +180,36 @@
       }
   });
 
-  // Theater Mode Logic
+  // Theater Mode & Auto-Hide Logic
   const wrapper = document.getElementById('player-wrapper');
   const tIcon = document.getElementById('theater-icon');
   const tBtn = document.getElementById('theater-btn');
   const tExitOverlay = document.getElementById('theater-exit-overlay');
   const tExitBtn = document.getElementById('theater-exit-btn');
+  
+  let idleTimer;
+
+  function resetIdleTimer() {
+      if (wrapper.classList.contains('theater-active')) {
+          tExitOverlay.style.opacity = '1';
+          clearTimeout(idleTimer);
+          idleTimer = setTimeout(() => { 
+              tExitOverlay.style.opacity = '0'; 
+          }, 3000); // Fades out after 3 seconds of inactivity
+      }
+  }
+
+  // Wake up the button on mouse move or screen tap
+  wrapper.addEventListener('mousemove', resetIdleTimer);
+  wrapper.addEventListener('touchstart', resetIdleTimer);
+  
+  // Hide it immediately if the mouse leaves the video area
+  wrapper.addEventListener('mouseleave', () => {
+      clearTimeout(idleTimer);
+      if (wrapper.classList.contains('theater-active')) {
+          tExitOverlay.style.opacity = '0'; 
+      }
+  });
 
   function toggleTheater() {
       const isTheater = wrapper.classList.toggle('theater-active');
@@ -176,16 +217,26 @@
           document.body.style.overflow = 'hidden';
           tIcon.innerText = 'close_fullscreen'; 
           tBtn.setAttribute('data-tooltip', 'Exit Theater');
-          tExitOverlay.style.display = 'block'; // Show overlay button
+          
+          tExitOverlay.style.display = 'block';
+          // Small delay to allow display:block to apply before changing opacity
+          setTimeout(() => {
+              tExitOverlay.style.opacity = '1';
+              resetIdleTimer();
+          }, 10);
       } else {
           document.body.style.overflow = '';
           tIcon.innerText = 'width_full'; 
           tBtn.setAttribute('data-tooltip', 'Theater Mode');
-          tExitOverlay.style.display = 'none'; // Hide overlay button
+          
+          tExitOverlay.style.opacity = '0';
+          setTimeout(() => {
+              tExitOverlay.style.display = 'none';
+          }, 300); // Wait for fade transition to finish before hiding
+          clearTimeout(idleTimer);
       }
   }
 
-  // Bind the toggle to both buttons
   tBtn.addEventListener('click', toggleTheater);
   tExitBtn.addEventListener('click', toggleTheater);
 
