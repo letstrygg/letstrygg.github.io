@@ -1,4 +1,56 @@
 /* ==========================================================================
+   VIDEO CONTAINER & QUASI-THEATER MODE
+   ========================================================================== */
+
+/* 1. Default Video Constraints (Centered, Max-Height restricted) */
+.responsive-video-container {
+    width: 100%;
+    max-width: calc((100vh - 140px) * 16 / 9);
+    margin: 0 auto; 
+    transition: max-width 0.3s ease;
+}
+
+/* 2. Smooth transition for the main container padding */
+main {
+    transition: padding 0.3s ease;
+}
+
+/* 3. QUASI-THEATER TRIGGERS: Chat Open OR Mobile Screen */
+body.chat-open-squish main,
+@media (max-aspect-ratio: 1/1), (max-width: 768px) {
+    
+    /* Strip the 45px padding from the main container so the video goes edge-to-edge */
+    main {
+        padding: 0 !important; 
+    }
+
+    /* Allow the video to break its height constraint and fill the width */
+    .responsive-video-container {
+        max-width: 100% !important;
+    }
+
+    /* Flatten the rounded corners since they are now touching the screen/chat edge */
+    body.chat-open-squish #player-wrapper,
+    #player-wrapper {
+        border-radius: 0 !important;
+    }
+    
+    /* Flatten the control bar and remove side borders */
+    body.chat-open-squish .video-control-bar,
+    .video-control-bar {
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+
+    /* Protect the text elements below/above the video from hitting the edge */
+    .breadcrumbs, 
+    .manual-content {
+        padding: 0 15px; 
+    }
+}
+
+/* ==========================================================================
    WATCH PAGE SPECIFIC STYLING
    ========================================================================== */
 
