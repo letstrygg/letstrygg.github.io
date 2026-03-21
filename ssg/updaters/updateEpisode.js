@@ -28,7 +28,7 @@ export async function updateEpisode(videoId) {
         return `PT${h > 0 ? h + 'H' : ''}${m > 0 ? m + 'M' : ''}${s}S`;
     };
 
-    const shortPrefix = series.slug.split('-').map(w => w[0]).join(''); 
+    const shortPrefix = series.slug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
     const fileName = `${shortPrefix}-ep-${junction.sort_order}.html`;
     const basePath = `yt/${channelSlug}/${gameSlug}/s${Math.floor(playlist.season)}`;
 
