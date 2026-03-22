@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         let html = '';
 
         if (isLoggedOut) {
-            html += `<div style="width: 100%; margin-bottom: 12px; color: var(--gray);">Trending Streamers. Log in to follow.</div>`;
+            html += `<div style="width: 100%; margin-bottom: 12px; color: var(--gray);">Live Streamers. Log in to customize.</div>`;
             masterList.forEach(s => html += buildCard(s, false));
         } 
         else if (!isEditing && currentFollows.length === 0) {
