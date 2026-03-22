@@ -48,7 +48,12 @@
 
 <main class="{% if page.url != '/' and page.url != '/index.html' %}site-container{% endif %}">
   {% if page.url != '/' and page.url != '/index.html' %}
-    {% include breadcrumbs.html %}
+	<div class="top-nav-wrapper" style="margin-top: 5px; margin-bottom: 5px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+		<div style="flex: 1; min-width: 250px;">
+			{% include breadcrumbs.html %}
+		</div>
+	{% include search.html %}
+	</div>
   {% endif %}
   
   {{ content }}
