@@ -6,7 +6,7 @@
 }
 .pulse-once { animation: pulseGreen 1.5s ease-out forwards; }
 
-/* --- NEW: Speed Overlay Visual Feedback --- */
+/* --- Speed Overlay Visual Feedback --- */
 @keyframes speedFadeOut {
     0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
     15% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
@@ -22,11 +22,20 @@
 }
 .speed-change-visual.show { animation: speedFadeOut 0.8s ease-out forwards; }
 
+/* --- NEW: Accumulating Seek Overlays --- */
+.seek-visual {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6); color: white; padding: 12px 20px; border-radius: 30px;
+    z-index: 25; pointer-events: none; font-size: 1.2rem; font-weight: bold; 
+    opacity: 0; transition: opacity 0.15s ease-in-out; backdrop-filter: blur(4px);
+}
+.seek-visual.show { opacity: 1; }
+.seek-left { left: 15%; }
+.seek-right { right: 15%; }
+
 /* --- Minimalist Speed Slider --- */
 .speed-track {
-    display: flex; align-items: center; 
-    gap: 16px; /* Increased to 16px */
-    position: relative;
+    display: flex; align-items: center; gap: 16px; position: relative;
 }
 .speed-track::before {
     content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px;
@@ -35,27 +44,16 @@
 .speed-dot {
     width: 8px; height: 8px; border-radius: 50%;
     border: none; padding: 0; cursor: pointer; transition: all 0.15s ease-in-out;
-    z-index: 1; opacity: 0.5; /* Baseline fading */
-    position: relative; /* Crucial for static tooltip anchoring */
+    z-index: 1; opacity: 0.5; position: relative;
 }
 .speed-dot:hover { opacity: 1; transform: scale(1.2) !important; }
-
-/* - BASE COLORING (Faded) - */
-.speed-dot[data-speed="0.5"] { background: #e74c3c; } /* Faded Red */
-.speed-dot[data-speed="1"] { background: var(--gray); width: 10px; height: 10px; opacity: 0.3; } /* Default large, extra faded */
-.speed-dot[data-speed="1.25"], .speed-dot[data-speed="1.5"], .speed-dot[data-speed="2"] { background: #2ecc71; } /* Faded Green */
-
-/* - ACTIVE COLORING (Bright) - */
+.speed-dot[data-speed="0.5"] { background: #e74c3c; } 
+.speed-dot[data-speed="1"] { background: var(--gray); width: 10px; height: 10px; opacity: 0.3; } 
+.speed-dot[data-speed="1.25"], .speed-dot[data-speed="1.5"], .speed-dot[data-speed="2"] { background: #2ecc71; } 
 .speed-dot.active { opacity: 1; transform: scale(1.3); }
-
-/* 0.5x Active = Bright Red */
 .speed-dot[data-speed="0.5"].active { box-shadow: 0 0 5px rgba(231, 76, 60, 0.4); }
-/* 1.0x Active = Bright White, Scales Up */
 .speed-dot[data-speed="1"].active { background: #fff !important; transform: scale(1.4); } 
-/* 1.25, 1.5, 2x Active = Bright Green */
-.speed-dot[data-speed="1.25"].active, 
-.speed-dot[data-speed="1.5"].active, 
-.speed-dot[data-speed="2"].active { box-shadow: 0 0 5px rgba(46, 204, 113, 0.4); }
+.speed-dot[data-speed="1.25"].active, .speed-dot[data-speed="1.5"].active, .speed-dot[data-speed="2"].active { box-shadow: 0 0 5px rgba(46, 204, 113, 0.4); }
 </style>
 
 <div class="game-section" style="margin-top: 0; padding: 0; border: none; background: transparent;">
@@ -68,6 +66,9 @@
                     <span id="speed-overlay-icon" class="material-symbols-outlined" style="font-size: 2rem;">fast_forward</span>
                     <span id="speed-overlay-text">1.5x</span>
                 </div>
+
+                <div id="seek-overlay-left" class="seek-visual seek-left">< -5</div>
+                <div id="seek-overlay-right" class="seek-visual seek-right">+5 ></div>
 
                 <div id="theater-exit-overlay" style="display: none; opacity: 0; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 30; transition: opacity 0.3s ease-in-out;">
                     <button id="theater-exit-btn" class="icon-btn" data-tooltip="Exit Theater" style="background: rgba(0, 0, 0, 0.6); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(4px);">
@@ -129,7 +130,7 @@
                         {% if include.next_url != '' and include.next_url != null %}
                             <button onclick="window.location.href='{{ include.next_url }}'" class="icon-btn tooltip-top" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                         {% else %}
-                            <button class="icon-btn" style="opacity: 0.3; cursor: default; flex-shrink: 0;"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                            <button class="icon-btn" style="opacity: 0.3; cursor: default;"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                         {% endif %}
                     {% endif %}
                 </div>
@@ -140,7 +141,6 @@
 </div>
 
 <script>
-  // Setup logic
   var templateVideoId = '{{ include.video_id }}';
   var isDynamicPage = (templateVideoId === '');
   var activeVideoId = templateVideoId;
@@ -153,38 +153,27 @@
 
   function updateSpeedUI() {
       document.querySelectorAll('.speed-dot').forEach(dot => {
-          if (parseFloat(dot.getAttribute('data-speed')) === currentSpeed) {
-              dot.classList.add('active');
-          } else {
-              dot.classList.remove('active');
-          }
+          if (parseFloat(dot.getAttribute('data-speed')) === currentSpeed) dot.classList.add('active');
+          else dot.classList.remove('active');
       });
   }
 
-  // Visual Overlay Elements
   const speedOverlay = document.getElementById('speed-overlay');
   const speedOverlayIcon = document.getElementById('speed-overlay-icon');
   const speedOverlayText = document.getElementById('speed-overlay-text');
 
   function applySpeed(speed) {
-      // Determine if speeding up or slowing down for the visual overlay
       let isSpeedingUp = (speed > currentSpeed);
-      
       currentSpeed = speed;
       localStorage.setItem('yt_playback_speed', currentSpeed);
       updateSpeedUI();
       
-      if (player && typeof player.setPlaybackRate === 'function') {
-          player.setPlaybackRate(currentSpeed);
-      }
+      if (player && typeof player.setPlaybackRate === 'function') player.setPlaybackRate(currentSpeed);
 
-      // Handle Visual Overlay
       speedOverlayIcon.innerText = isSpeedingUp ? 'fast_forward' : 'fast_rewind';
       speedOverlayText.innerText = currentSpeed + 'x';
-      
-      // Reset animation
       speedOverlay.classList.remove('show');
-      void speedOverlay.offsetWidth; // Trigger reflow
+      void speedOverlay.offsetWidth; 
       speedOverlay.classList.add('show');
   }
 
@@ -192,28 +181,60 @@
       dot.addEventListener('click', function() { applySpeed(parseFloat(this.getAttribute('data-speed'))); });
   });
 
-   // --- Global Keyboard Listener ---
-  document.addEventListener('keydown', function(e) {
-      // 1. Check if the user is typing in any text box or chat
-      const activeElement = document.activeElement;
-      const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
-      
-      if (isInput) return; // Do nothing if typing
+  // --- NEW: Accumulating Seek Logic ---
+  let seekAccumulator = 0;
+  let seekTimeout;
+  const seekOverlayLeft = document.getElementById('seek-overlay-left');
+  const seekOverlayRight = document.getElementById('seek-overlay-right');
 
-      // 2. Spacebar for Play/Pause
-      if (e.code === 'Space') {
-          e.preventDefault(); // Prevents the webpage from scrolling down
-          if (player && typeof player.getPlayerState === 'function') {
-              if (player.getPlayerState() === 1) {
-                  player.pauseVideo();
-              } else {
-                  player.playVideo();
-              }
-          }
-          return;
+  function handleSeek(seconds) {
+      if (!player || typeof player.getCurrentTime !== 'function') return;
+
+      // Reset accumulator if they suddenly switch directions
+      if (Math.sign(seconds) !== Math.sign(seekAccumulator) && seekAccumulator !== 0) {
+          seekAccumulator = 0;
+      }
+      seekAccumulator += seconds;
+
+      // Calculate bounds
+      let newTime = player.getCurrentTime() + seconds;
+      if (newTime < 0) newTime = 0;
+      if (newTime > player.getDuration()) newTime = player.getDuration();
+      
+      player.seekTo(newTime, true);
+
+      // UI Update
+      if (seekAccumulator > 0) {
+          seekOverlayRight.innerText = '+' + seekAccumulator + ' >';
+          seekOverlayRight.classList.add('show');
+          seekOverlayLeft.classList.remove('show');
+      } else {
+          seekOverlayLeft.innerText = '< ' + seekAccumulator;
+          seekOverlayLeft.classList.add('show');
+          seekOverlayRight.classList.remove('show');
       }
 
-      // 3. Shift + > / < for Speed
+      // Hide UI after they stop mashing
+      clearTimeout(seekTimeout);
+      seekTimeout = setTimeout(() => {
+          seekAccumulator = 0;
+          seekOverlayLeft.classList.remove('show');
+          seekOverlayRight.classList.remove('show');
+      }, 750);
+  }
+
+  // --- REBUILT: Global Keyboard Listeners ---
+  document.addEventListener('keydown', function(e) {
+      const activeElement = document.activeElement;
+      const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
+      if (isInput) return; 
+
+      // Prevent window scrolling when using media keys
+      if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
+          e.preventDefault(); 
+      }
+
+      // 1. Shift Controls (Speed)
       if (e.shiftKey) {
           if (e.key === '>' || e.key === '.') {
               let idx = allowedSpeeds.indexOf(currentSpeed);
@@ -223,11 +244,54 @@
               let idx = allowedSpeeds.indexOf(currentSpeed);
               if (idx > 0) applySpeed(allowedSpeeds[idx - 1]);
           }
+          return;
+      }
+
+      // 2. Native YouTube Replicas
+      if (!player || typeof player.getPlayerState !== 'function') return;
+
+      switch(e.key.toLowerCase()) {
+          case ' ':
+          case 'k':
+              player.getPlayerState() === 1 ? player.pauseVideo() : player.playVideo();
+              break;
+          case 'arrowleft':
+              handleSeek(-5);
+              break;
+          case 'arrowright':
+              handleSeek(5);
+              break;
+          case 'j':
+              handleSeek(-10);
+              break;
+          case 'l':
+              handleSeek(10);
+              break;
+          case 'm':
+              player.isMuted() ? player.unMute() : player.mute();
+              break;
+          case 'f':
+              toggleTheater();
+              break;
+          case 'arrowup':
+              player.setVolume(Math.min(player.getVolume() + 5, 100));
+              break;
+          case 'arrowdown':
+              player.setVolume(Math.max(player.getVolume() - 5, 0));
+              break;
+          default:
+              // 0-9 percentage jumps
+              if (e.key >= '0' && e.key <= '9') {
+                  const duration = player.getDuration();
+                  if (duration) player.seekTo(duration * (parseInt(e.key) / 10), true);
+              }
+              break;
       }
   });
 
   updateSpeedUI();
 
+  // --- API Injection & Player Setup ---
   function setupPlayerData(vidId) {
       activeVideoId = vidId;
       storageKey = 'yt_resume_' + activeVideoId;
@@ -267,15 +331,13 @@
   }
 
   function onPlayerStateChange(event) {
-    // RESTORED: FOCUS BOUNCE 
-    // Rip focus away from the iframe so our global hotkeys keep working
+    // FOCUS BOUNCE: Ensures custom keyboard listeners always fire
     if (document.activeElement && document.activeElement.tagName === 'IFRAME') {
         window.focus();
         document.activeElement.blur();
     }
 
     if (event.data === 1) { 
-        // Force saved speed on play
         player.setPlaybackRate(currentSpeed);
         if (!saveInterval) {
             saveInterval = setInterval(function() {
@@ -296,6 +358,7 @@
     }
   }
 
+  // --- Resume Button & Page Interactivity ---
   const resumeBtn = document.getElementById('resume-btn');
   const resumeText = document.getElementById('resume-time-text');
   
@@ -346,7 +409,7 @@
       }
   });
 
-  // Theater Mode Logic
+  // --- Theater Mode ---
   const wrapper = document.getElementById('player-wrapper');
   const tIcon = document.getElementById('theater-icon');
   const tBtn = document.getElementById('theater-btn');
