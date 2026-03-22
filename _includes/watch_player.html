@@ -248,6 +248,13 @@
   }
 
   function onPlayerStateChange(event) {
+    // RESTORED: FOCUS BOUNCE 
+    // Rip focus away from the iframe so our global hotkeys keep working
+    if (document.activeElement && document.activeElement.tagName === 'IFRAME') {
+        window.focus();
+        document.activeElement.blur();
+    }
+
     if (event.data === 1) { 
         // Force saved speed on play
         player.setPlaybackRate(currentSpeed);
