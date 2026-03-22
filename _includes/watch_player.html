@@ -192,9 +192,28 @@
       dot.addEventListener('click', function() { applySpeed(parseFloat(this.getAttribute('data-speed'))); });
   });
 
-  // Hotkey listener for Shift + > and Shift + <
+   // --- Global Keyboard Listener ---
   document.addEventListener('keydown', function(e) {
-      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+      // 1. Check if the user is typing in any text box or chat
+      const activeElement = document.activeElement;
+      const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
+      
+      if (isInput) return; // Do nothing if typing
+
+      // 2. Spacebar for Play/Pause
+      if (e.code === 'Space') {
+          e.preventDefault(); // Prevents the webpage from scrolling down
+          if (player && typeof player.getPlayerState === 'function') {
+              if (player.getPlayerState() === 1) {
+                  player.pauseVideo();
+              } else {
+                  player.playVideo();
+              }
+          }
+          return;
+      }
+
+      // 3. Shift + > / < for Speed
       if (e.shiftKey) {
           if (e.key === '>' || e.key === '.') {
               let idx = allowedSpeeds.indexOf(currentSpeed);
