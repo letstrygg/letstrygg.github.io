@@ -1,0 +1,41 @@
+<div style="position: relative; max-width: 300px; width: 100%;">
+  <span class="material-symbols-outlined" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 18px; pointer-events: none;">link</span>
+  <input type="text" id="quickJumpInput" placeholder="Paste YouTube or Twitch URL..." autocomplete="off" style="width: 100%; padding: 6px 10px 6px 34px; background: var(--bg2); color: var(--text); border: 1px solid var(--border); border-radius: 6px; font-size: 13px; outline: none; box-sizing: border-box; transition: border-color 0.2s, box-shadow 0.2s;" onfocus="this.style.borderColor='#e67e22'; this.style.boxShadow='0 0 5px rgba(230,126,34,0.3)';" onblur="this.style.borderColor='var(--border)'; this.style.boxShadow='none';">
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const quickJump = document.getElementById('quickJumpInput');
+      if (quickJump) {
+          quickJump.addEventListener('keypress', function(e) {
+              if (e.key === 'Enter') {
+                  const url = this.value.trim();
+                  if (!url) return;
+
+                  // 1. YouTube Matcher (Catches youtube.com/watch, youtu.be, and live links)
+                  const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|shorts\/)([^"&?\/\s]{11})/i);
+                  if (ytMatch && ytMatch[1]) {
+                      window.location.href = '/yt/#' + ytMatch[1];
+                      return;
+                  }
+
+                  // 2. Twitch Matcher
+                  const twitchMatch = url.match(/(?:twitch\.tv\/)([a-zA-Z0-9_]+)/i);
+                  if (twitchMatch && twitchMatch[1]) {
+                      window.location.href = '/live/#twitch/' + twitchMatch[1];
+                      return;
+                  }
+
+                  // Visual feedback for failure
+                  this.style.borderColor = '#e74c3c';
+                  this.value = '';
+                  this.placeholder = 'Invalid URL... Try again';
+                  setTimeout(() => {
+                      this.style.borderColor = 'var(--border)';
+                      this.placeholder = 'Paste YouTube or Twitch URL...';
+                  }, 2000);
+              }
+          });
+      }
+  });
+</script>
