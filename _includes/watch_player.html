@@ -56,6 +56,14 @@
 .speed-dot[data-speed="0.25"].active, .speed-dot[data-speed="0.5"].active { box-shadow: 0 0 5px rgba(231, 76, 60, 0.4); }
 .speed-dot[data-speed="1"].active { background: #fff !important; transform: scale(1.4); } 
 .speed-dot[data-speed="1.25"].active, .speed-dot[data-speed="1.5"].active, .speed-dot[data-speed="2"].active { box-shadow: 0 0 5px rgba(46, 204, 113, 0.4); }
+
+/* --- Shortcuts Overlay Grid --- */
+.shortcut-row {
+    display: flex; justify-content: space-between; align-items: center; gap: 40px;
+    padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.shortcut-row:last-child { border-bottom: none; }
+.shortcut-key { color: #e67e22; font-weight: bold; font-family: monospace; font-size: 1.1em; }
 </style>
 
 <div class="game-section" style="margin-top: 0; padding: 0; border: none; background: transparent;">
@@ -64,6 +72,28 @@
         <div class="responsive-video-container">
             <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 8px 8px 0 0; overflow: hidden; z-index: 10;">
                 
+                <div id="shortcuts-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(14, 14, 16, 0.85); z-index: 40; flex-direction: column; align-items: center; justify-content: center; backdrop-filter: blur(8px); color: #efeff1;">
+                    <button id="close-shortcuts-btn" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: white; cursor: pointer; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                        <span class="material-symbols-outlined" style="font-size: 32px;">close</span>
+                    </button>
+                    <h2 style="margin-top: 0; margin-bottom: 25px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; color: white;">Keyboard Shortcuts</h2>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; font-size: 14px; width: 80%; max-width: 600px;">
+                        <div>
+                            <div class="shortcut-row"><span>Play / Pause</span> <span class="shortcut-key">Space / K</span></div>
+                            <div class="shortcut-row"><span>Mute / Unmute</span> <span class="shortcut-key">M</span></div>
+                            <div class="shortcut-row"><span>Volume ±5%</span> <span class="shortcut-key">&uarr; &darr;</span></div>
+                            <div class="shortcut-row"><span>Jump to %</span> <span class="shortcut-key">0 - 9</span></div>
+                        </div>
+                        <div>
+                            <div class="shortcut-row"><span>Seek ±5s</span> <span class="shortcut-key">&larr; &rarr;</span></div>
+                            <div class="shortcut-row"><span>Seek ±10s</span> <span class="shortcut-key">J / L</span></div>
+                            <div class="shortcut-row"><span>Playback Speed</span> <span class="shortcut-key">Shift + < / ></span></div>
+                            <div class="shortcut-row"><span>Theater Mode</span> <span class="shortcut-key">F</span></div>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="action-overlay" class="action-visual">
                     <span id="action-overlay-icon" class="material-symbols-outlined" style="font-size: 2rem;"></span>
                     <span id="action-overlay-text"></span>
@@ -81,7 +111,7 @@
                 <iframe id="ytplayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></iframe>
             </div>
             
-            <div class="video-control-bar" style="display: flex; align-items: center; justify-content: space-between; background: var(--bg2); padding: 10px 15px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; margin-bottom: 20px; gap: 15px; flex-wrap: wrap;">
+            <div class="video-control-bar" style="position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; background: var(--bg2); padding: 10px 15px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; margin-bottom: 20px; gap: 15px; flex-wrap: wrap;">
                 
                 <div style="display: flex; flex: 1; min-width: 250px; gap: 15px; align-items: center;">
                     {% if include.video_id %}
@@ -113,7 +143,11 @@
                 <div style="display: flex; flex: 1; align-items: center; justify-content: flex-end; gap: 12px;">
                     
                     <div style="display: flex; align-items: center; gap: 8px; margin-right: 8px; border-right: 1px solid var(--border); padding-right: 12px;">
-                        <span class="material-symbols-outlined tooltip-top" data-tooltip="Playback Speed" style="font-size: 16px; color: var(--gray); opacity: 0.4; cursor: default;">speed</span>
+                        
+                        <div class="tooltip-top" data-tooltip="Playback Speed" style="display: flex; align-items: center; cursor: default;">
+                            <span class="material-symbols-outlined" style="font-size: 16px; color: var(--gray); opacity: 0.4;">speed</span>
+                        </div>
+                        
                         <div class="speed-track">
                             <button class="speed-dot tooltip-top" data-speed="0.25" data-tooltip="0.25x"></button>
                             <button class="speed-dot tooltip-top" data-speed="0.5" data-tooltip="0.5x"></button>
@@ -123,6 +157,10 @@
                             <button class="speed-dot tooltip-top" data-speed="2" data-tooltip="2.0x"></button>
                         </div>
                     </div>
+
+                    <button id="controls-btn" class="icon-btn tooltip-top" data-tooltip="Shortcuts 'C'" style="margin-right: 4px;">
+                        <span class="material-symbols-outlined">keyboard</span>
+                    </button>
 
                     <button id="resume-btn" class="btn" style="display: none; background: var(--bg); color: var(--text); border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; font-weight: bold; align-items: center; gap: 4px; cursor: pointer; transition: background 0.2s;" data-tooltip="Return to saved place">
                         <span class="material-symbols-outlined" style="font-size: 16px;">fast_rewind</span>
@@ -149,7 +187,7 @@
   var activeVideoId = templateVideoId;
   var storageKey, originalSavedTime, urlParams, urlTime, isPreviewing, startTime, player, saveInterval;
 
-  // --- REBUILT: Universal Action Overlay (Smooth timeout) ---
+  // --- Universal Action Overlay ---
   const actionOverlay = document.getElementById('action-overlay');
   const actionOverlayIcon = document.getElementById('action-overlay-icon');
   const actionOverlayText = document.getElementById('action-overlay-text');
@@ -164,14 +202,30 @@
           actionOverlayText.style.display = 'none';
       }
       
-      // Keep it visible as long as the function is called
       actionOverlay.classList.add('show');
-      
       clearTimeout(actionTimeout);
-      actionTimeout = setTimeout(() => {
-          actionOverlay.classList.remove('show');
-      }, 800);
+      actionTimeout = setTimeout(() => { actionOverlay.classList.remove('show'); }, 800);
   }
+
+  // --- Shortcuts Modal Logic ---
+  const shortcutsOverlay = document.getElementById('shortcuts-overlay');
+  const controlsBtn = document.getElementById('controls-btn');
+  const closeShortcutsBtn = document.getElementById('close-shortcuts-btn');
+
+  function toggleShortcuts() {
+      if (shortcutsOverlay.style.display === 'none' || shortcutsOverlay.style.display === '') {
+          shortcutsOverlay.style.display = 'flex';
+      } else {
+          shortcutsOverlay.style.display = 'none';
+      }
+  }
+
+  controlsBtn.addEventListener('click', toggleShortcuts);
+  closeShortcutsBtn.addEventListener('click', toggleShortcuts);
+  // Clicking anywhere on the dark background closes it
+  shortcutsOverlay.addEventListener('click', function(e) {
+      if (e.target === shortcutsOverlay) toggleShortcuts();
+  });
 
   // --- Speed Control Logic ---
   var allowedSpeeds = [0.25, 0.5, 1, 1.25, 1.5, 2];
@@ -199,20 +253,15 @@
       dot.addEventListener('click', function() { applySpeed(parseFloat(this.getAttribute('data-speed'))); });
   });
 
-  // --- NEW: Custom Volume Logic ---
+  // --- Custom Volume Logic ---
   function handleVolume(delta) {
       if (!player || typeof player.getVolume !== 'function') return;
-      
-      // Auto-unmute if they try to change the volume
       if (player.isMuted()) player.unMute();
 
-      // Calculate the math ourselves to prevent API lag
       let newVol = player.getVolume() + delta;
       newVol = Math.max(0, Math.min(newVol, 100)); 
       
       player.setVolume(newVol);
-      
-      // Show the instantly calculated volume
       showActionOverlay(delta > 0 ? 'volume_up' : 'volume_down', Math.round(newVol) + '%');
   }
 
@@ -264,7 +313,6 @@
           e.preventDefault(); 
       }
 
-      // 1. Shift Controls (Speed)
       if (e.shiftKey) {
           if (e.key === '>' || e.key === '.') {
               let idx = allowedSpeeds.indexOf(currentSpeed);
@@ -277,10 +325,12 @@
           return;
       }
 
-      // 2. Native YouTube Replicas
       if (!player || typeof player.getPlayerState !== 'function') return;
 
       switch(e.key.toLowerCase()) {
+          case 'c':
+              toggleShortcuts();
+              break;
           case ' ':
           case 'k':
               player.getPlayerState() === 1 ? player.pauseVideo() : player.playVideo();
