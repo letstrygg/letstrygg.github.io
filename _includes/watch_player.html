@@ -34,7 +34,6 @@
     gap: 6px; 
     position: relative;
 }
-/* Invisible track line behind the dots for aesthetics */
 .speed-track::before {
     content: '';
     position: absolute;
@@ -127,14 +126,12 @@
 </div>
 
 <script>
-  // Setup logic
   var templateVideoId = '{{ include.video_id }}';
   var isDynamicPage = (templateVideoId === '');
   var activeVideoId = templateVideoId;
-
   var storageKey, originalSavedTime, urlParams, urlTime, isPreviewing, startTime, player, saveInterval;
 
-  // --- NEW: Speed Control Logic ---
+  // --- Speed Control Logic ---
   var allowedSpeeds = [0.5, 1, 1.25, 1.5, 2];
   var currentSpeed = parseFloat(localStorage.getItem('yt_playback_speed')) || 1;
   if (!allowedSpeeds.includes(currentSpeed)) currentSpeed = 1;
@@ -159,48 +156,53 @@
       }
   }
 
-  // Bind clicks to the dots
   document.querySelectorAll('.speed-dot').forEach(dot => {
-      dot.addEventListener('click', function() {
-          applySpeed(parseFloat(this.getAttribute('data-speed')));
-      });
+      dot.addEventListener('click', function() { applySpeed(parseFloat(this.getAttribute('data-speed'))); });
   });
 
-  // Hotkey listener for Shift + > and Shift + <
+  // --- Global Keyboard Listener (Inputs Blocked) ---
   document.addEventListener('keydown', function(e) {
-      // Prevent hotkeys from firing if the user is typing in the chat or a search bar
-      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+      // 1. Check if the user is typing in any text box or chat
+      const activeElement = document.activeElement;
+      const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
+      
+      if (isInput) return; // Do nothing if typing
 
+      // 2. Spacebar for Play/Pause
+      if (e.code === 'Space') {
+          e.preventDefault(); // Prevents the webpage from scrolling down
+          if (player && typeof player.getPlayerState === 'function') {
+              if (player.getPlayerState() === 1) {
+                  player.pauseVideo();
+              } else {
+                  player.playVideo();
+              }
+          }
+          return;
+      }
+
+      // 3. Shift + > / < for Speed
       if (e.shiftKey) {
-          // Check for > or . (which outputs > with shift)
           if (e.key === '>' || e.key === '.') {
               let idx = allowedSpeeds.indexOf(currentSpeed);
-              if (idx >= 0 && idx < allowedSpeeds.length - 1) {
-                  applySpeed(allowedSpeeds[idx + 1]);
-              }
+              if (idx >= 0 && idx < allowedSpeeds.length - 1) applySpeed(allowedSpeeds[idx + 1]);
           } 
-          // Check for < or , (which outputs < with shift)
           else if (e.key === '<' || e.key === ',') {
               let idx = allowedSpeeds.indexOf(currentSpeed);
-              if (idx > 0) {
-                  applySpeed(allowedSpeeds[idx - 1]);
-              }
+              if (idx > 0) applySpeed(allowedSpeeds[idx - 1]);
           }
       }
   });
 
-  // Initialize UI on load
+  // --- Initialization ---
   updateSpeedUI();
-  // --------------------------------
 
   function setupPlayerData(vidId) {
       activeVideoId = vidId;
       storageKey = 'yt_resume_' + activeVideoId;
       originalSavedTime = parseFloat(localStorage.getItem(storageKey)) || 0;
-      
       urlParams = new URLSearchParams(window.location.search);
       urlTime = urlParams.get('t') ? parseFloat(urlParams.get('t')) : null;
-      
       isPreviewing = urlTime !== null && originalSavedTime > 0 && Math.abs(urlTime - originalSavedTime) > 5;
       startTime = urlTime !== null ? urlTime : originalSavedTime;
   }
@@ -229,24 +231,22 @@
   function onYouTubeIframeAPIReady() {
     if (!activeVideoId) return;
     var iframe = document.getElementById('ytplayer');
-    
     iframe.src = "https://www.youtube.com/embed/" + activeVideoId + "?enablejsapi=1&rel=0&modestbranding=1&fs=1&autoplay=1&start=" + Math.floor(startTime);
-
-    player = new YT.Player('ytplayer', {
-      events: { 'onStateChange': onPlayerStateChange }
-    });
+    player = new YT.Player('ytplayer', { events: { 'onStateChange': onPlayerStateChange } });
   }
 
   function onPlayerStateChange(event) {
-    if (event.data === 1) { // 1 = Playing
-        // Force the player to respect the user's saved speed right when the video starts playing
+    // FOCUS BOUNCE: Rip focus away from the iframe so our global hotkeys keep working
+    if (document.activeElement && document.activeElement.tagName === 'IFRAME') {
+        window.focus();
+        document.activeElement.blur();
+    }
+
+    if (event.data === 1) { 
         player.setPlaybackRate(currentSpeed);
-        
         if (!saveInterval) {
             saveInterval = setInterval(function() {
-                if (!isPreviewing) {
-                    localStorage.setItem(storageKey, player.getCurrentTime());
-                }
+                if (!isPreviewing) localStorage.setItem(storageKey, player.getCurrentTime());
             }, 5000);
         }
     } else {
@@ -254,7 +254,7 @@
         saveInterval = null;
     }
 
-    if (event.data === 0) { // 0 = Ended
+    if (event.data === 0) { 
         localStorage.removeItem(storageKey);
         const nextEpisodeUrl = "{{ include.next_url }}";
         if (!isDynamicPage && nextEpisodeUrl && nextEpisodeUrl.trim() !== "") {
@@ -268,11 +268,9 @@
   
   function updateResumeButtonUI(timeVal) {
       resumeBtn.style.display = 'inline-flex';
-      
       resumeBtn.classList.remove('pulse-once');
       void resumeBtn.offsetWidth; 
       resumeBtn.classList.add('pulse-once');
-
       let h = Math.floor(timeVal / 3600);
       let m = Math.floor((timeVal % 3600) / 60);
       let s = Math.floor(timeVal % 60);
@@ -286,9 +284,7 @@
       history.replaceState(null, '', window.location.pathname); 
   });
 
-  if (isPreviewing) {
-      updateResumeButtonUI(originalSavedTime);
-  }
+  if (isPreviewing) updateResumeButtonUI(originalSavedTime);
 
   window.triggerInPageJump = function(targetSeconds) {
       if (typeof player === 'undefined' || !player || typeof player.getCurrentTime !== 'function') return;
@@ -317,7 +313,7 @@
       }
   });
 
-  // Theater Mode & Auto-Hide Logic
+  // Theater Mode Logic
   const wrapper = document.getElementById('player-wrapper');
   const tIcon = document.getElementById('theater-icon');
   const tBtn = document.getElementById('theater-btn');
@@ -336,12 +332,9 @@
 
   wrapper.addEventListener('mousemove', resetIdleTimer);
   wrapper.addEventListener('touchstart', resetIdleTimer);
-  
   wrapper.addEventListener('mouseleave', () => {
       clearTimeout(idleTimer);
-      if (wrapper.classList.contains('theater-active')) {
-          tExitOverlay.style.opacity = '0'; 
-      }
+      if (wrapper.classList.contains('theater-active')) tExitOverlay.style.opacity = '0'; 
   });
 
   function toggleTheater() {
@@ -350,7 +343,6 @@
           document.body.style.overflow = 'hidden';
           tIcon.innerText = 'close_fullscreen'; 
           tBtn.setAttribute('data-tooltip', 'Exit Theater');
-          
           tExitOverlay.style.display = 'block';
           setTimeout(() => {
               tExitOverlay.style.opacity = '1';
@@ -360,7 +352,6 @@
           document.body.style.overflow = '';
           tIcon.innerText = 'width_full'; 
           tBtn.setAttribute('data-tooltip', 'Theater Mode');
-          
           tExitOverlay.style.opacity = '0';
           setTimeout(() => { tExitOverlay.style.display = 'none'; }, 300); 
           clearTimeout(idleTimer);
