@@ -78,18 +78,20 @@
                     </button>
                     <h2 style="margin-top: 0; margin-bottom: 25px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; color: white;">Keyboard Shortcuts</h2>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; font-size: 14px; width: 80%; max-width: 600px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; font-size: 14px; width: 80%; max-width: 650px;">
                         <div>
                             <div class="shortcut-row"><span>Play / Pause</span> <span class="shortcut-key">Space / K</span></div>
                             <div class="shortcut-row"><span>Mute / Unmute</span> <span class="shortcut-key">M</span></div>
                             <div class="shortcut-row"><span>Volume ±5%</span> <span class="shortcut-key">&uarr; &darr;</span></div>
                             <div class="shortcut-row"><span>Jump to %</span> <span class="shortcut-key">0 - 9</span></div>
+                            <div class="shortcut-row"><span>Toggle Chat</span> <span class="shortcut-key">C</span></div>
                         </div>
                         <div>
                             <div class="shortcut-row"><span>Seek ±5s</span> <span class="shortcut-key">&larr; &rarr;</span></div>
                             <div class="shortcut-row"><span>Seek ±10s</span> <span class="shortcut-key">J / L</span></div>
                             <div class="shortcut-row"><span>Playback Speed</span> <span class="shortcut-key">Shift + < / ></span></div>
                             <div class="shortcut-row"><span>Theater Mode</span> <span class="shortcut-key">F</span></div>
+                            <div class="shortcut-row"><span>Shortcuts Menu</span> <span class="shortcut-key">S</span></div>
                         </div>
                     </div>
                 </div>
@@ -158,7 +160,7 @@
                         </div>
                     </div>
 
-                    <button id="controls-btn" class="icon-btn tooltip-top" data-tooltip="Shortcuts 'C'" style="margin-right: 4px;">
+                    <button id="controls-btn" class="icon-btn tooltip-top" data-tooltip="Shortcuts 'S'" style="margin-right: 4px;">
                         <span class="material-symbols-outlined">keyboard</span>
                     </button>
 
@@ -222,7 +224,6 @@
 
   controlsBtn.addEventListener('click', toggleShortcuts);
   closeShortcutsBtn.addEventListener('click', toggleShortcuts);
-  // Clicking anywhere on the dark background closes it
   shortcutsOverlay.addEventListener('click', function(e) {
       if (e.target === shortcutsOverlay) toggleShortcuts();
   });
@@ -328,8 +329,18 @@
       if (!player || typeof player.getPlayerState !== 'function') return;
 
       switch(e.key.toLowerCase()) {
-          case 'c':
+          case 's':
               toggleShortcuts();
+              break;
+          case 'c':
+              // Interacts directly with the existing Chat buttons
+              const chatOpenBtn = document.getElementById('openChatBtn');
+              const chatCloseBtn = document.getElementById('closeChatBtn');
+              if (document.body.classList.contains('chat-open-squish')) {
+                  if (chatCloseBtn) chatCloseBtn.click();
+              } else {
+                  if (chatOpenBtn) chatOpenBtn.click();
+              }
               break;
           case ' ':
           case 'k':
