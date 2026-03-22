@@ -5,6 +5,48 @@
     100% { border-color: var(--border); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); color: var(--text); }
 }
 .pulse-once { animation: pulseGreen 1.5s ease-out forwards; }
+
+/* Minimalist Speed Slider */
+.speed-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gray);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.4;
+}
+.speed-dot:hover { 
+    opacity: 1; 
+    transform: scale(1.2); 
+}
+.speed-dot.active {
+    background: #e67e22; /* Theme Orange */
+    opacity: 1;
+    transform: scale(1.4);
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
+}
+.speed-track {
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+    position: relative;
+}
+/* Invisible track line behind the dots for aesthetics */
+.speed-track::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(128, 128, 128, 0.2);
+    transform: translateY(-50%);
+    z-index: 0;
+}
+.speed-dot { z-index: 1; }
 </style>
 
 <div class="game-section" style="margin-top: 0; padding: 0; border: none; background: transparent;">
@@ -52,6 +94,19 @@
                 </div>
 
                 <div style="display: flex; flex: 1; align-items: center; justify-content: flex-end; gap: 12px;">
+                    
+                    <div style="display: flex; align-items: center; gap: 8px; margin-right: 8px; border-right: 1px solid var(--border); padding-right: 12px;">
+                        <span class="material-symbols-outlined tooltip-top" data-tooltip="Playback Speed" style="font-size: 16px; color: var(--gray); cursor: default;">speed</span>
+                        <div class="speed-track">
+                            <button class="speed-dot" data-speed="0.5" title="0.5x"></button>
+                            <button class="speed-dot active" data-speed="1" title="1.0x"></button>
+                            <button class="speed-dot" data-speed="1.25" title="1.25x"></button>
+                            <button class="speed-dot" data-speed="1.5" title="1.5x"></button>
+                            <button class="speed-dot" data-speed="2" title="2.0x"></button>
+                        </div>
+                        <span id="speed-label" style="font-size: 12px; color: var(--gray); width: 28px; text-align: right; font-weight: bold;">1x</span>
+                    </div>
+
                     <button id="resume-btn" class="btn" style="display: none; background: var(--bg); color: var(--text); border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; font-weight: bold; align-items: center; gap: 4px; cursor: pointer; transition: background 0.2s;" data-tooltip="Return to saved place">
                         <span class="material-symbols-outlined" style="font-size: 16px;">fast_rewind</span>
                         <span id="resume-time-text" style="font-size: 12px;"></span>
@@ -72,12 +127,71 @@
 </div>
 
 <script>
-  // Setup logic so both Auto-Generated pages AND Dynamic VOD pages can use this script seamlessly
+  // Setup logic
   var templateVideoId = '{{ include.video_id }}';
   var isDynamicPage = (templateVideoId === '');
   var activeVideoId = templateVideoId;
 
   var storageKey, originalSavedTime, urlParams, urlTime, isPreviewing, startTime, player, saveInterval;
+
+  // --- NEW: Speed Control Logic ---
+  var allowedSpeeds = [0.5, 1, 1.25, 1.5, 2];
+  var currentSpeed = parseFloat(localStorage.getItem('yt_playback_speed')) || 1;
+  if (!allowedSpeeds.includes(currentSpeed)) currentSpeed = 1;
+
+  function updateSpeedUI() {
+      document.querySelectorAll('.speed-dot').forEach(dot => {
+          if (parseFloat(dot.getAttribute('data-speed')) === currentSpeed) {
+              dot.classList.add('active');
+          } else {
+              dot.classList.remove('active');
+          }
+      });
+      document.getElementById('speed-label').innerText = currentSpeed + 'x';
+  }
+
+  function applySpeed(speed) {
+      currentSpeed = speed;
+      localStorage.setItem('yt_playback_speed', currentSpeed);
+      updateSpeedUI();
+      if (player && typeof player.setPlaybackRate === 'function') {
+          player.setPlaybackRate(currentSpeed);
+      }
+  }
+
+  // Bind clicks to the dots
+  document.querySelectorAll('.speed-dot').forEach(dot => {
+      dot.addEventListener('click', function() {
+          applySpeed(parseFloat(this.getAttribute('data-speed')));
+      });
+  });
+
+  // Hotkey listener for Shift + > and Shift + <
+  document.addEventListener('keydown', function(e) {
+      // Prevent hotkeys from firing if the user is typing in the chat or a search bar
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+      if (e.shiftKey) {
+          // Check for > or . (which outputs > with shift)
+          if (e.key === '>' || e.key === '.') {
+              let idx = allowedSpeeds.indexOf(currentSpeed);
+              if (idx >= 0 && idx < allowedSpeeds.length - 1) {
+                  applySpeed(allowedSpeeds[idx + 1]);
+              }
+          } 
+          // Check for < or , (which outputs < with shift)
+          else if (e.key === '<' || e.key === ',') {
+              let idx = allowedSpeeds.indexOf(currentSpeed);
+              if (idx > 0) {
+                  applySpeed(allowedSpeeds[idx - 1]);
+              }
+          }
+      }
+  });
+
+  // Initialize UI on load
+  updateSpeedUI();
+  // --------------------------------
 
   function setupPlayerData(vidId) {
       activeVideoId = vidId;
@@ -91,13 +205,11 @@
       startTime = urlTime !== null ? urlTime : originalSavedTime;
   }
 
-  // 1. If this is an auto-generated episode page, boot up instantly
   if (!isDynamicPage) {
       setupPlayerData(templateVideoId);
       injectYouTubeAPI();
   }
 
-  // 2. Expose this function globally so `/yt/index.html` can call it when the hash loads
   window.startDynamicPlayer = function(vidId) {
       setupPlayerData(vidId);
       injectYouTubeAPI();
@@ -126,7 +238,10 @@
   }
 
   function onPlayerStateChange(event) {
-    if (event.data === 1) {
+    if (event.data === 1) { // 1 = Playing
+        // Force the player to respect the user's saved speed right when the video starts playing
+        player.setPlaybackRate(currentSpeed);
+        
         if (!saveInterval) {
             saveInterval = setInterval(function() {
                 if (!isPreviewing) {
@@ -139,7 +254,7 @@
         saveInterval = null;
     }
 
-    if (event.data === 0) {
+    if (event.data === 0) { // 0 = Ended
         localStorage.removeItem(storageKey);
         const nextEpisodeUrl = "{{ include.next_url }}";
         if (!isDynamicPage && nextEpisodeUrl && nextEpisodeUrl.trim() !== "") {
