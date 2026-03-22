@@ -4,47 +4,26 @@ title: Live Streams
 permalink: /live/
 ---
 
-<div class="game-section auto-generated-stats" style="margin-top: 0;">
-    <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-        <div style="width: 100%; max-width: calc((100vh - 75px) * 16 / 9);">
-            
-            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; margin-bottom: 0px; z-index: 10;">
-                
-                <div id="video-overlay" class="video-overlay" style="z-index: 20;">
-                    <div class="overlay-bottom">
-                        <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
-                            <span class="material-symbols-outlined" id="theater-icon">width_full</span>
-                        </button>
-                    </div>
-                </div>
+{% include watch_player.html %}
 
-                <div id="stream-embed-target" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
-                    Waiting for stream...
-                </div>
-            </div>
-
-			<div id="platform-toggles" style="padding-bottom: 10px; display: none; justify-content: center; gap: 15px;">
-				<button id="btn-twitch" class="btn" onclick="switchPlatform('twitch')" style="display: flex; align-items: center; gap: 6px;">
-					<span class="material-symbols-outlined" style="font-size: 18px;">sensors</span> Twitch
-				</button>
-				<button id="btn-youtube" class="btn" onclick="switchPlatform('youtube')" style="display: flex; align-items: center; gap: 6px;">
-					<span class="material-symbols-outlined" style="font-size: 18px;">play_circle</span> YouTube
-				</button>
-				<button id="btn-kick" class="btn" onclick="switchPlatform('kick')" style="display: flex; align-items: center; gap: 6px;">
-					<span class="material-symbols-outlined" style="font-size: 18px;">bolt</span> Kick
-				</button>
-			</div>
-
-        </div>
-    </div>
+<div id="platform-toggles" style="padding-bottom: 20px; display: none; justify-content: center; gap: 15px; margin-top: -10px;">
+    <button id="btn-twitch" class="btn" onclick="switchPlatform('twitch')" style="display: flex; align-items: center; gap: 6px;">
+        <span class="material-symbols-outlined" style="font-size: 18px;">sensors</span> Twitch
+    </button>
+    <button id="btn-youtube" class="btn" onclick="switchPlatform('youtube')" style="display: flex; align-items: center; gap: 6px;">
+        <span class="material-symbols-outlined" style="font-size: 18px;">play_circle</span> YouTube
+    </button>
+    <button id="btn-kick" class="btn" onclick="switchPlatform('kick')" style="display: flex; align-items: center; gap: 6px;">
+        <span class="material-symbols-outlined" style="font-size: 18px;">bolt</span> Kick
+    </button>
 </div>
 
 <script>
 let currentPlatform = 'twitch';
 let activeStreamer = ''; 
-let streamerData = null; // Store the DB result
+let streamerData = null;
 
-// 1. Fast, direct fetch to Supabase (using Jekyll vars to ensure it always works)
+// Direct fetch to Supabase
 async function fetchStreamerData(slug) {
     const supabaseUrl = '{{ site.supabase_url }}';
     const supabaseKey = '{{ site.supabase_anon_key }}';
@@ -52,16 +31,11 @@ async function fetchStreamerData(slug) {
     if (!supabaseUrl || !supabaseKey) return null;
     try {
         const response = await fetch(`${supabaseUrl}/rest/v1/ltg_streamers?slug=eq.${slug}&select=*`, {
-            headers: {
-                'apikey': supabaseKey,
-                'Authorization': `Bearer ${supabaseKey}`
-            }
+            headers: { 'apikey': supabaseKey, 'Authorization': `Bearer ${supabaseKey}` }
         });
         const data = await response.json();
         return data.length > 0 ? data[0] : null;
-    } catch (e) {
-        return null;
-    }
+    } catch (e) { return null; }
 }
 
 async function loadStreamFromHash() {
@@ -80,7 +54,6 @@ async function loadStreamFromHash() {
         const btnYoutube = document.getElementById('btn-youtube');
         const btnKick = document.getElementById('btn-kick');
 
-        // Count how many valid platform IDs we actually have
         let platformCount = 0;
         if (streamerData) {
             if (streamerData.twitch_channel) platformCount++;
@@ -88,7 +61,6 @@ async function loadStreamFromHash() {
             if (streamerData.kick_channel) platformCount++;
         }
 
-        // Only show the bar if 2 or more platforms exist
         if (platformCount >= 2) {
             togglesContainer.style.display = 'flex';
             btnTwitch.style.display = streamerData.twitch_channel ? 'flex' : 'none';
@@ -104,80 +76,46 @@ async function loadStreamFromHash() {
 
 function switchPlatform(platform) {
     if (!activeStreamer) return;
-    // Changing the hash triggers the event listener, which re-runs loadStreamFromHash automatically
     window.location.hash = `${platform}/${activeStreamer}`;
 }
 
 function renderStream() {
-    const target = document.getElementById('stream-embed-target');
     const btns = {
         twitch: document.getElementById('btn-twitch'),
         youtube: document.getElementById('btn-youtube'),
         kick: document.getElementById('btn-kick')
     };
 
-    // Reset all buttons to standard theme
     Object.values(btns).forEach(btn => {
         btn.style.color = 'var(--text)';
         btn.style.borderColor = 'var(--border)';
     });
 
+    let targetId = activeStreamer;
+
     if (currentPlatform === 'twitch') {
         btns.twitch.style.color = 'var(--purple)'; 
         btns.twitch.style.borderColor = 'var(--purple)';
-        const twitchId = (streamerData && streamerData.twitch_channel) ? streamerData.twitch_channel : activeStreamer;
-        const hostname = window.location.hostname || 'letstrygg.com';
-        target.innerHTML = `<iframe src="https://player.twitch.tv/?channel=${twitchId}&parent=${hostname}&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>`;
+        targetId = (streamerData && streamerData.twitch_channel) ? streamerData.twitch_channel : activeStreamer;
     } 
     else if (currentPlatform === 'youtube') {
         btns.youtube.style.color = 'var(--red)'; 
         btns.youtube.style.borderColor = 'var(--red)';
-        const ytId = (streamerData && streamerData.youtube_channel_id) ? streamerData.youtube_channel_id : activeStreamer;
-        target.innerHTML = `<iframe src="https://www.youtube.com/embed/live_stream?channel=${ytId}&autoplay=1" frameborder="0" allowfullscreen="true" height="100%" width="100%"></iframe>`;
+        targetId = (streamerData && streamerData.youtube_channel_id) ? streamerData.youtube_channel_id : activeStreamer;
     }
     else if (currentPlatform === 'kick') {
         btns.kick.style.color = 'var(--green)'; 
         btns.kick.style.borderColor = 'var(--green)';
-        const kickId = (streamerData && streamerData.kick_channel) ? streamerData.kick_channel : activeStreamer;
-        target.innerHTML = `<iframe src="https://player.kick.com/${kickId}" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>`;
+        targetId = (streamerData && streamerData.kick_channel) ? streamerData.kick_channel : activeStreamer;
     }
 
     window.dispatchEvent(new CustomEvent('topicChanged', { detail: activeStreamer }));
+    
+    // Call the universal player API we are exposing in watch_player.html
+    if (typeof window.startDynamicLivePlayer === 'function') {
+        window.startDynamicLivePlayer(currentPlatform, targetId);
+    }
 }
-
-
-const wrapper = document.getElementById('player-wrapper');
-const tIcon = document.getElementById('theater-icon');
-const tBtn = document.getElementById('theater-btn');
-
-if (tBtn) {
-    tBtn.addEventListener('click', function() {
-        const isTheater = wrapper.classList.toggle('theater-active');
-        if (isTheater) {
-            document.body.style.overflow = 'hidden';
-            tIcon.innerText = 'close_fullscreen'; 
-            tBtn.setAttribute('data-tooltip', 'Exit Theater');
-        } else {
-            document.body.style.overflow = '';
-            tIcon.innerText = 'width_full'; 
-            tBtn.setAttribute('data-tooltip', 'Theater Mode');
-        }
-    });
-}
-
-const overlay = document.getElementById('video-overlay');
-let idleTimer;
-function resetIdleTimer() {
-    overlay.style.opacity = '1';
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(() => { overlay.style.opacity = '0'; }, 3500);
-}
-wrapper.addEventListener('mousemove', resetIdleTimer);
-wrapper.addEventListener('mouseleave', () => {
-    clearTimeout(idleTimer);
-    overlay.style.opacity = '0'; 
-});
-resetIdleTimer();
 
 window.addEventListener('load', loadStreamFromHash);
 window.addEventListener('hashchange', loadStreamFromHash);

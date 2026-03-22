@@ -6,58 +6,42 @@
 }
 .pulse-once { animation: pulseGreen 1.5s ease-out forwards; }
 
-/* --- REBUILT: Universal Center Action Overlay (Smooth Continuous) --- */
 .action-visual {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9);
-    background: rgba(0, 0, 0, 0.65);
-    color: white; padding: 15px 25px; border-radius: 12px;
+    background: rgba(0, 0, 0, 0.65); color: white; padding: 15px 25px; border-radius: 12px;
     z-index: 25; pointer-events: none; display: flex; align-items: center; gap: 8px;
     font-size: 1.5rem; font-weight: bold; opacity: 0; backdrop-filter: blur(4px);
     transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
 }
-.action-visual.show { 
-    opacity: 1; 
-    transform: translate(-50%, -50%) scale(1); 
-}
+.action-visual.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
-/* --- Accumulating Seek Overlays --- */
 .seek-visual {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.65); color: white; padding: 15px 25px; border-radius: 30px;
-    z-index: 25; pointer-events: none; font-size: 1.2rem; font-weight: bold; 
-    opacity: 0; transition: opacity 0.15s ease-in-out; backdrop-filter: blur(4px);
+    position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.65); 
+    color: white; padding: 15px 25px; border-radius: 30px; z-index: 25; pointer-events: none; 
+    font-size: 1.2rem; font-weight: bold; opacity: 0; transition: opacity 0.15s ease-in-out; backdrop-filter: blur(4px);
 }
 .seek-visual.show { opacity: 1; }
 .seek-left { left: 5%; }
 .seek-right { right: 5%; }
 
-/* --- Minimalist Speed Slider --- */
-.speed-track {
-    display: flex; align-items: center; gap: 16px; position: relative;
-}
+.speed-track { display: flex; align-items: center; gap: 16px; position: relative; }
 .speed-track::before {
     content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px;
     background: rgba(128, 128, 128, 0.15); transform: translateY(-50%); z-index: 0;
 }
 .speed-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    border: none; padding: 0; cursor: pointer; transition: all 0.15s ease-in-out;
-    z-index: 1; opacity: 0.5; position: relative;
+    width: 8px; height: 8px; border-radius: 50%; border: none; padding: 0; cursor: pointer; 
+    transition: all 0.15s ease-in-out; z-index: 1; opacity: 0.5; position: relative;
 }
 .speed-dot:hover { opacity: 1; transform: scale(1.2) !important; }
-
-/* Base Colors */
 .speed-dot[data-speed="0.25"], .speed-dot[data-speed="0.5"] { background: #e74c3c; } 
 .speed-dot[data-speed="1"] { background: var(--gray); width: 10px; height: 10px; opacity: 0.3; } 
 .speed-dot[data-speed="1.25"], .speed-dot[data-speed="1.5"], .speed-dot[data-speed="2"] { background: #2ecc71; } 
-
-/* Active Colors & Glow */
 .speed-dot.active { opacity: 1; transform: scale(1.3); }
 .speed-dot[data-speed="0.25"].active, .speed-dot[data-speed="0.5"].active { box-shadow: 0 0 5px rgba(231, 76, 60, 0.4); }
 .speed-dot[data-speed="1"].active { background: #fff !important; transform: scale(1.4); } 
 .speed-dot[data-speed="1.25"].active, .speed-dot[data-speed="1.5"].active, .speed-dot[data-speed="2"].active { box-shadow: 0 0 5px rgba(46, 204, 113, 0.4); }
 
-/* --- Shortcuts Overlay Grid --- */
 .shortcut-row {
     display: flex; justify-content: space-between; align-items: center; gap: 40px;
     padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -78,7 +62,7 @@
                     </button>
                     <h2 style="margin-top: 0; margin-bottom: 25px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; color: white;">Keyboard Shortcuts</h2>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; font-size: 16px; width: 80%; max-width: 650px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; font-size: 14px; width: 80%; max-width: 650px;">
                         <div>
                             <div class="shortcut-row"><span>Play / Pause</span> <span class="shortcut-key">Space / K</span></div>
                             <div class="shortcut-row"><span>Mute / Unmute</span> <span class="shortcut-key">M</span></div>
@@ -110,7 +94,9 @@
                     </button>
                 </div>
 
-                <iframe id="ytplayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></iframe>
+                <div id="stream-embed-target" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: #000;">
+                    <iframe id="ytplayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
             </div>
             
             <div class="video-control-bar" style="position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; background: var(--bg2); padding: 10px 15px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; margin-bottom: 20px; gap: 15px; flex-wrap: wrap;">
@@ -144,12 +130,10 @@
 
                 <div style="display: flex; flex: 1; align-items: center; justify-content: flex-end; gap: 12px;">
                     
-                    <div style="display: flex; align-items: center; gap: 8px; margin-right: 8px; border-right: 1px solid var(--border); padding-right: 12px;">
-                        
+                    <div id="speed-control-container" style="display: flex; align-items: center; gap: 8px; margin-right: 8px; border-right: 1px solid var(--border); padding-right: 12px;">
                         <div class="tooltip-top" data-tooltip="Playback Speed" style="display: flex; align-items: center; cursor: default;">
                             <span class="material-symbols-outlined" style="font-size: 16px; color: var(--gray); opacity: 0.4;">speed</span>
                         </div>
-                        
                         <div class="speed-track">
                             <button class="speed-dot tooltip-top" data-speed="0.25" data-tooltip="0.25x"></button>
                             <button class="speed-dot tooltip-top" data-speed="0.5" data-tooltip="0.5x"></button>
@@ -187,9 +171,11 @@
   var templateVideoId = '{{ include.video_id }}';
   var isDynamicPage = (templateVideoId === '');
   var activeVideoId = templateVideoId;
+  var liveChannelId = null;
+  var currentPlatform = 'youtube'; // Default safety flag
+
   var storageKey, originalSavedTime, urlParams, urlTime, isPreviewing, startTime, player, saveInterval;
 
-  // --- Universal Action Overlay ---
   const actionOverlay = document.getElementById('action-overlay');
   const actionOverlayIcon = document.getElementById('action-overlay-icon');
   const actionOverlayText = document.getElementById('action-overlay-text');
@@ -209,26 +195,18 @@
       actionTimeout = setTimeout(() => { actionOverlay.classList.remove('show'); }, 800);
   }
 
-  // --- Shortcuts Modal Logic ---
   const shortcutsOverlay = document.getElementById('shortcuts-overlay');
   const controlsBtn = document.getElementById('controls-btn');
   const closeShortcutsBtn = document.getElementById('close-shortcuts-btn');
 
   function toggleShortcuts() {
-      if (shortcutsOverlay.style.display === 'none' || shortcutsOverlay.style.display === '') {
-          shortcutsOverlay.style.display = 'flex';
-      } else {
-          shortcutsOverlay.style.display = 'none';
-      }
+      shortcutsOverlay.style.display = (shortcutsOverlay.style.display === 'none' || shortcutsOverlay.style.display === '') ? 'flex' : 'none';
   }
 
   controlsBtn.addEventListener('click', toggleShortcuts);
   closeShortcutsBtn.addEventListener('click', toggleShortcuts);
-  shortcutsOverlay.addEventListener('click', function(e) {
-      if (e.target === shortcutsOverlay) toggleShortcuts();
-  });
+  shortcutsOverlay.addEventListener('click', function(e) { if (e.target === shortcutsOverlay) toggleShortcuts(); });
 
-  // --- Speed Control Logic ---
   var allowedSpeeds = [0.25, 0.5, 1, 1.25, 1.5, 2];
   var currentSpeed = parseFloat(localStorage.getItem('yt_playback_speed')) || 1;
   if (!allowedSpeeds.includes(currentSpeed)) currentSpeed = 1;
@@ -254,7 +232,6 @@
       dot.addEventListener('click', function() { applySpeed(parseFloat(this.getAttribute('data-speed'))); });
   });
 
-  // --- Custom Volume Logic ---
   function handleVolume(delta) {
       if (!player || typeof player.getVolume !== 'function') return;
       if (player.isMuted()) player.unMute();
@@ -266,7 +243,6 @@
       showActionOverlay(delta > 0 ? 'volume_up' : 'volume_down', Math.round(newVol) + '%');
   }
 
-  // --- Accumulating Seek Logic ---
   let seekAccumulator = 0;
   let seekTimeout;
   const seekOverlayLeft = document.getElementById('seek-overlay-left');
@@ -275,9 +251,7 @@
   function handleSeek(seconds) {
       if (!player || typeof player.getCurrentTime !== 'function') return;
 
-      if (Math.sign(seconds) !== Math.sign(seekAccumulator) && seekAccumulator !== 0) {
-          seekAccumulator = 0;
-      }
+      if (Math.sign(seconds) !== Math.sign(seekAccumulator) && seekAccumulator !== 0) seekAccumulator = 0;
       seekAccumulator += seconds;
 
       let newTime = player.getCurrentTime() + seconds;
@@ -304,11 +278,28 @@
       }, 750);
   }
 
-  // --- Global Keyboard Listeners ---
+  // --- Keyboard Listeners (With Platform Safety) ---
   document.addEventListener('keydown', function(e) {
       const activeElement = document.activeElement;
       const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
       if (isInput) return; 
+
+      // Universal Cross-Platform Hotkeys
+      if (e.key.toLowerCase() === 'f') { toggleTheater(); return; }
+      if (e.key.toLowerCase() === 's') { toggleShortcuts(); return; }
+      if (e.key.toLowerCase() === 'c') {
+          const chatOpenBtn = document.getElementById('openChatBtn');
+          const chatCloseBtn = document.getElementById('closeChatBtn');
+          if (document.body.classList.contains('chat-open-squish')) {
+              if (chatCloseBtn) chatCloseBtn.click();
+          } else {
+              if (chatOpenBtn) chatOpenBtn.click();
+          }
+          return;
+      }
+
+      // DO NOT steal generic keys if Twitch or Kick is active, they need them!
+      if (currentPlatform !== 'youtube') return;
 
       if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
           e.preventDefault(); 
@@ -329,36 +320,15 @@
       if (!player || typeof player.getPlayerState !== 'function') return;
 
       switch(e.key.toLowerCase()) {
-          case 's':
-              toggleShortcuts();
-              break;
-          case 'c':
-              // Interacts directly with the existing Chat buttons
-              const chatOpenBtn = document.getElementById('openChatBtn');
-              const chatCloseBtn = document.getElementById('closeChatBtn');
-              if (document.body.classList.contains('chat-open-squish')) {
-                  if (chatCloseBtn) chatCloseBtn.click();
-              } else {
-                  if (chatOpenBtn) chatOpenBtn.click();
-              }
-              break;
           case ' ':
           case 'k':
               player.getPlayerState() === 1 ? player.pauseVideo() : player.playVideo();
               showActionOverlay(player.getPlayerState() === 1 ? 'pause' : 'play_arrow', '');
               break;
-          case 'arrowleft':
-              handleSeek(-5);
-              break;
-          case 'arrowright':
-              handleSeek(5);
-              break;
-          case 'j':
-              handleSeek(-10);
-              break;
-          case 'l':
-              handleSeek(10);
-              break;
+          case 'arrowleft': handleSeek(-5); break;
+          case 'arrowright': handleSeek(5); break;
+          case 'j': handleSeek(-10); break;
+          case 'l': handleSeek(10); break;
           case 'm':
               if (player.isMuted()) {
                   player.unMute();
@@ -368,15 +338,8 @@
                   showActionOverlay('volume_off', 'Muted');
               }
               break;
-          case 'f':
-              toggleTheater();
-              break;
-          case 'arrowup':
-              handleVolume(5);
-              break;
-          case 'arrowdown':
-              handleVolume(-5);
-              break;
+          case 'arrowup': handleVolume(5); break;
+          case 'arrowdown': handleVolume(-5); break;
           default:
               if (e.key >= '0' && e.key <= '9') {
                   const duration = player.getDuration();
@@ -392,7 +355,7 @@
 
   updateSpeedUI();
 
-  // --- API Injection & Player Setup ---
+  // --- Initialization & API Injection ---
   function setupPlayerData(vidId) {
       activeVideoId = vidId;
       storageKey = 'yt_resume_' + activeVideoId;
@@ -404,13 +367,58 @@
   }
 
   if (!isDynamicPage) {
+      currentPlatform = 'youtube';
       setupPlayerData(templateVideoId);
       injectYouTubeAPI();
   }
 
+  // VOD Interface
   window.startDynamicPlayer = function(vidId) {
+      currentPlatform = 'youtube';
+      liveChannelId = null;
       setupPlayerData(vidId);
       injectYouTubeAPI();
+      
+      const copyBtn = document.getElementById('copy-time-btn');
+      if (copyBtn) copyBtn.style.display = 'inline-flex';
+  };
+
+  // NEW: Live Stream Interface
+  window.startDynamicLivePlayer = function(platform, streamId) {
+      currentPlatform = platform;
+      const target = document.getElementById('stream-embed-target');
+      const speedControls = document.getElementById('speed-control-container');
+      const controlsBtn = document.getElementById('controls-btn');
+      const copyBtn = document.getElementById('copy-time-btn');
+
+      if (platform === 'youtube') {
+          liveChannelId = streamId;
+          activeVideoId = null; 
+          
+          if(speedControls) speedControls.style.display = 'flex';
+          if(controlsBtn) controlsBtn.style.display = 'inline-flex';
+          if(copyBtn) copyBtn.style.display = 'none'; // Timestamps useless on live
+
+          target.innerHTML = '<iframe id="ytplayer" src="https://www.youtube.com/embed/live_stream?channel=' + streamId + '&enablejsapi=1&rel=0&modestbranding=1&autoplay=1" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>';
+          injectYouTubeAPI();
+      } else {
+          // Hide YouTube specific controls for Twitch/Kick
+          if(speedControls) speedControls.style.display = 'none';
+          if(controlsBtn) controlsBtn.style.display = 'none';
+          if(copyBtn) copyBtn.style.display = 'none';
+
+          if (player && typeof player.destroy === 'function') {
+              try { player.destroy(); } catch(e){}
+              player = null;
+          }
+
+          if (platform === 'twitch') {
+              const hostname = window.location.hostname || 'letstrygg.com';
+              target.innerHTML = '<iframe src="https://player.twitch.tv/?channel=' + streamId + '&parent=' + hostname + '&parent=localhost&autoplay=true" frameborder="0" allowfullscreen scrolling="no" style="width: 100%; height: 100%;"></iframe>';
+          } else if (platform === 'kick') {
+              target.innerHTML = '<iframe src="https://player.kick.com/' + streamId + '" frameborder="0" allowfullscreen scrolling="no" style="width: 100%; height: 100%;"></iframe>';
+          }
+      }
   };
 
   function injectYouTubeAPI() {
@@ -425,9 +433,14 @@
   }
 
   function onYouTubeIframeAPIReady() {
-    if (!activeVideoId) return;
+    if (!activeVideoId && !liveChannelId) return;
     var iframe = document.getElementById('ytplayer');
-    iframe.src = "https://www.youtube.com/embed/" + activeVideoId + "?enablejsapi=1&rel=0&modestbranding=1&fs=1&autoplay=1&start=" + Math.floor(startTime);
+    
+    // Only append src if it's a VOD (Live explicitly injects it above)
+    if (activeVideoId) {
+        iframe.src = "https://www.youtube.com/embed/" + activeVideoId + "?enablejsapi=1&rel=0&modestbranding=1&fs=1&autoplay=1&start=" + Math.floor(startTime);
+    }
+    
     player = new YT.Player('ytplayer', { events: { 'onStateChange': onPlayerStateChange } });
   }
 
@@ -441,7 +454,7 @@
         player.setPlaybackRate(currentSpeed);
         if (!saveInterval) {
             saveInterval = setInterval(function() {
-                if (!isPreviewing) localStorage.setItem(storageKey, player.getCurrentTime());
+                if (!isPreviewing && activeVideoId) localStorage.setItem(storageKey, player.getCurrentTime());
             }, 5000);
         }
     } else {
@@ -450,7 +463,7 @@
     }
 
     if (event.data === 0) { 
-        localStorage.removeItem(storageKey);
+        if (activeVideoId) localStorage.removeItem(storageKey);
         const nextEpisodeUrl = "{{ include.next_url }}";
         if (!isDynamicPage && nextEpisodeUrl && nextEpisodeUrl.trim() !== "") {
              window.location.href = nextEpisodeUrl;
@@ -458,7 +471,6 @@
     }
   }
 
-  // --- Resume Button & Page Interactivity ---
   const resumeBtn = document.getElementById('resume-btn');
   const resumeText = document.getElementById('resume-time-text');
   
@@ -484,17 +496,17 @@
 
   window.triggerInPageJump = function(targetSeconds) {
       if (typeof player === 'undefined' || !player || typeof player.getCurrentTime !== 'function') return;
-      if (!isPreviewing) {
+      if (!isPreviewing && activeVideoId) {
           originalSavedTime = player.getCurrentTime();
           isPreviewing = true;
       }
       player.seekTo(targetSeconds, true);
-      updateResumeButtonUI(originalSavedTime);
+      if (activeVideoId) updateResumeButtonUI(originalSavedTime);
   };
 
   const copyBtn = document.getElementById('copy-time-btn');
   copyBtn.addEventListener('click', function() {
-      if (player && player.getCurrentTime) {
+      if (player && player.getCurrentTime && activeVideoId) {
           const t = Math.floor(player.getCurrentTime());
           const url = "https://youtu.be/" + activeVideoId + "?t=" + t + "s";
           navigator.clipboard.writeText(url).then(() => {
@@ -509,13 +521,11 @@
       }
   });
 
-  // --- Theater Mode ---
   const wrapper = document.getElementById('player-wrapper');
   const tIcon = document.getElementById('theater-icon');
   const tBtn = document.getElementById('theater-btn');
   const tExitOverlay = document.getElementById('theater-exit-overlay');
   const tExitBtn = document.getElementById('theater-exit-btn');
-  
   let idleTimer;
 
   function resetIdleTimer() {
@@ -540,10 +550,7 @@
           tIcon.innerText = 'close_fullscreen'; 
           tBtn.setAttribute('data-tooltip', "Exit Theater 'F'");
           tExitOverlay.style.display = 'block';
-          setTimeout(() => {
-              tExitOverlay.style.opacity = '1';
-              resetIdleTimer();
-          }, 10);
+          setTimeout(() => { tExitOverlay.style.opacity = '1'; resetIdleTimer(); }, 10);
       } else {
           document.body.style.overflow = '';
           tIcon.innerText = 'width_full'; 
