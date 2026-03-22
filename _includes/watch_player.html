@@ -6,46 +6,56 @@
 }
 .pulse-once { animation: pulseGreen 1.5s ease-out forwards; }
 
-/* Minimalist Speed Slider */
-.speed-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--gray);
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    opacity: 0.4;
+/* --- NEW: Speed Overlay Visual Feedback --- */
+@keyframes speedFadeOut {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    15% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    70% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.1); }
 }
-.speed-dot:hover { 
-    opacity: 1; 
-    transform: scale(1.2); 
+.speed-change-visual {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white; padding: 15px 25px; border-radius: 12px;
+    z-index: 25; pointer-events: none; display: flex; align-items: center; gap: 8px;
+    font-size: 1.5rem; font-weight: bold; opacity: 0; backdrop-filter: blur(4px);
 }
-.speed-dot.active {
-    background: #e67e22; /* Theme Orange */
-    opacity: 1;
-    transform: scale(1.4);
-    box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
-}
+.speed-change-visual.show { animation: speedFadeOut 0.8s ease-out forwards; }
+
+/* --- Minimalist Speed Slider --- */
 .speed-track {
-    display: flex; 
-    align-items: center; 
-    gap: 6px; 
+    display: flex; align-items: center; 
+    gap: 16px; /* Increased to 16px */
     position: relative;
 }
 .speed-track::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: rgba(128, 128, 128, 0.2);
-    transform: translateY(-50%);
-    z-index: 0;
+    content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px;
+    background: rgba(128, 128, 128, 0.15); transform: translateY(-50%); z-index: 0;
 }
-.speed-dot { z-index: 1; }
+.speed-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    border: none; padding: 0; cursor: pointer; transition: all 0.15s ease-in-out;
+    z-index: 1; opacity: 0.5; /* Baseline fading */
+    position: relative; /* Crucial for static tooltip anchoring */
+}
+.speed-dot:hover { opacity: 1; transform: scale(1.2) !important; }
+
+/* - BASE COLORING (Faded) - */
+.speed-dot[data-speed="0.5"] { background: #e74c3c; } /* Faded Red */
+.speed-dot[data-speed="1"] { background: var(--gray); width: 10px; height: 10px; opacity: 0.3; } /* Default large, extra faded */
+.speed-dot[data-speed="1.25"], .speed-dot[data-speed="1.5"], .speed-dot[data-speed="2"] { background: #2ecc71; } /* Faded Green */
+
+/* - ACTIVE COLORING (Bright) - */
+.speed-dot.active { opacity: 1; transform: scale(1.3); }
+
+/* 0.5x Active = Bright Red */
+.speed-dot[data-speed="0.5"].active { box-shadow: 0 0 5px rgba(231, 76, 60, 0.4); }
+/* 1.0x Active = Bright White, Scales Up */
+.speed-dot[data-speed="1"].active { background: #fff !important; transform: scale(1.4); } 
+/* 1.25, 1.5, 2x Active = Bright Green */
+.speed-dot[data-speed="1.25"].active, 
+.speed-dot[data-speed="1.5"].active, 
+.speed-dot[data-speed="2"].active { box-shadow: 0 0 5px rgba(46, 204, 113, 0.4); }
 </style>
 
 <div class="game-section" style="margin-top: 0; padding: 0; border: none; background: transparent;">
@@ -54,6 +64,11 @@
         <div class="responsive-video-container">
             <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 8px 8px 0 0; overflow: hidden; z-index: 10;">
                 
+                <div id="speed-overlay" class="speed-change-visual">
+                    <span id="speed-overlay-icon" class="material-symbols-outlined" style="font-size: 2rem;">fast_forward</span>
+                    <span id="speed-overlay-text">1.5x</span>
+                </div>
+
                 <div id="theater-exit-overlay" style="display: none; opacity: 0; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 30; transition: opacity 0.3s ease-in-out;">
                     <button id="theater-exit-btn" class="icon-btn" data-tooltip="Exit Theater" style="background: rgba(0, 0, 0, 0.6); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(4px);">
                         <span class="material-symbols-outlined" style="font-size: 28px;">close_fullscreen</span>
@@ -95,15 +110,14 @@
                 <div style="display: flex; flex: 1; align-items: center; justify-content: flex-end; gap: 12px;">
                     
                     <div style="display: flex; align-items: center; gap: 8px; margin-right: 8px; border-right: 1px solid var(--border); padding-right: 12px;">
-                        <span class="material-symbols-outlined tooltip-top" data-tooltip="Playback Speed" style="font-size: 16px; color: var(--gray); cursor: default;">speed</span>
+                        <span class="material-symbols-outlined tooltip-top" data-tooltip="Playback Speed" style="font-size: 16px; color: var(--gray); opacity: 0.4; cursor: default;">speed</span>
                         <div class="speed-track">
-                            <button class="speed-dot" data-speed="0.5" title="0.5x"></button>
-                            <button class="speed-dot active" data-speed="1" title="1.0x"></button>
-                            <button class="speed-dot" data-speed="1.25" title="1.25x"></button>
-                            <button class="speed-dot" data-speed="1.5" title="1.5x"></button>
-                            <button class="speed-dot" data-speed="2" title="2.0x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="0.5" data-tooltip="0.5x"></button>
+                            <button class="speed-dot active tooltip-top" data-speed="1" data-tooltip="1.0x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="1.25" data-tooltip="1.25x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="1.5" data-tooltip="1.5x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="2" data-tooltip="2.0x"></button>
                         </div>
-                        <span id="speed-label" style="font-size: 12px; color: var(--gray); width: 28px; text-align: right; font-weight: bold;">1x</span>
                     </div>
 
                     <button id="resume-btn" class="btn" style="display: none; background: var(--bg); color: var(--text); border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; font-weight: bold; align-items: center; gap: 4px; cursor: pointer; transition: background 0.2s;" data-tooltip="Return to saved place">
@@ -115,7 +129,7 @@
                         {% if include.next_url != '' and include.next_url != null %}
                             <button onclick="window.location.href='{{ include.next_url }}'" class="icon-btn tooltip-top" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                         {% else %}
-                            <button class="icon-btn" style="opacity: 0.3; cursor: default;"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                            <button class="icon-btn" style="opacity: 0.3; cursor: default; flex-shrink: 0;"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                         {% endif %}
                     {% endif %}
                 </div>
@@ -126,6 +140,7 @@
 </div>
 
 <script>
+  // Setup logic
   var templateVideoId = '{{ include.video_id }}';
   var isDynamicPage = (templateVideoId === '');
   var activeVideoId = templateVideoId;
@@ -144,44 +159,42 @@
               dot.classList.remove('active');
           }
       });
-      document.getElementById('speed-label').innerText = currentSpeed + 'x';
   }
 
+  // Visual Overlay Elements
+  const speedOverlay = document.getElementById('speed-overlay');
+  const speedOverlayIcon = document.getElementById('speed-overlay-icon');
+  const speedOverlayText = document.getElementById('speed-overlay-text');
+
   function applySpeed(speed) {
+      // Determine if speeding up or slowing down for the visual overlay
+      let isSpeedingUp = (speed > currentSpeed);
+      
       currentSpeed = speed;
       localStorage.setItem('yt_playback_speed', currentSpeed);
       updateSpeedUI();
+      
       if (player && typeof player.setPlaybackRate === 'function') {
           player.setPlaybackRate(currentSpeed);
       }
+
+      // Handle Visual Overlay
+      speedOverlayIcon.innerText = isSpeedingUp ? 'fast_forward' : 'fast_rewind';
+      speedOverlayText.innerText = currentSpeed + 'x';
+      
+      // Reset animation
+      speedOverlay.classList.remove('show');
+      void speedOverlay.offsetWidth; // Trigger reflow
+      speedOverlay.classList.add('show');
   }
 
   document.querySelectorAll('.speed-dot').forEach(dot => {
       dot.addEventListener('click', function() { applySpeed(parseFloat(this.getAttribute('data-speed'))); });
   });
 
-  // --- Global Keyboard Listener (Inputs Blocked) ---
+  // Hotkey listener for Shift + > and Shift + <
   document.addEventListener('keydown', function(e) {
-      // 1. Check if the user is typing in any text box or chat
-      const activeElement = document.activeElement;
-      const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
-      
-      if (isInput) return; // Do nothing if typing
-
-      // 2. Spacebar for Play/Pause
-      if (e.code === 'Space') {
-          e.preventDefault(); // Prevents the webpage from scrolling down
-          if (player && typeof player.getPlayerState === 'function') {
-              if (player.getPlayerState() === 1) {
-                  player.pauseVideo();
-              } else {
-                  player.playVideo();
-              }
-          }
-          return;
-      }
-
-      // 3. Shift + > / < for Speed
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
       if (e.shiftKey) {
           if (e.key === '>' || e.key === '.') {
               let idx = allowedSpeeds.indexOf(currentSpeed);
@@ -194,7 +207,6 @@
       }
   });
 
-  // --- Initialization ---
   updateSpeedUI();
 
   function setupPlayerData(vidId) {
@@ -236,13 +248,8 @@
   }
 
   function onPlayerStateChange(event) {
-    // FOCUS BOUNCE: Rip focus away from the iframe so our global hotkeys keep working
-    if (document.activeElement && document.activeElement.tagName === 'IFRAME') {
-        window.focus();
-        document.activeElement.blur();
-    }
-
     if (event.data === 1) { 
+        // Force saved speed on play
         player.setPlaybackRate(currentSpeed);
         if (!saveInterval) {
             saveInterval = setInterval(function() {
