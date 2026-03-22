@@ -6,23 +6,21 @@
 }
 .pulse-once { animation: pulseGreen 1.5s ease-out forwards; }
 
-/* --- Universal Center Action Overlay --- */
-@keyframes actionFadeOut {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-    15% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    70% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.1); }
-}
+/* --- REBUILT: Universal Center Action Overlay (Smooth Continuous) --- */
 .action-visual {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9);
     background: rgba(0, 0, 0, 0.65);
     color: white; padding: 15px 25px; border-radius: 12px;
     z-index: 25; pointer-events: none; display: flex; align-items: center; gap: 8px;
     font-size: 1.5rem; font-weight: bold; opacity: 0; backdrop-filter: blur(4px);
+    transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
 }
-.action-visual.show { animation: actionFadeOut 0.8s ease-out forwards; }
+.action-visual.show { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1); 
+}
 
-/* --- Accumulating Seek Overlays (Pushed closer to edges) --- */
+/* --- Accumulating Seek Overlays --- */
 .seek-visual {
     position: absolute; top: 50%; transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.65); color: white; padding: 15px 25px; border-radius: 30px;
@@ -30,7 +28,6 @@
     opacity: 0; transition: opacity 0.15s ease-in-out; backdrop-filter: blur(4px);
 }
 .seek-visual.show { opacity: 1; }
-/* Pushed from 15% to 5% from the edge */
 .seek-left { left: 5%; }
 .seek-right { right: 5%; }
 
@@ -48,11 +45,15 @@
     z-index: 1; opacity: 0.5; position: relative;
 }
 .speed-dot:hover { opacity: 1; transform: scale(1.2) !important; }
-.speed-dot[data-speed="0.5"] { background: #e74c3c; } 
+
+/* Base Colors */
+.speed-dot[data-speed="0.25"], .speed-dot[data-speed="0.5"] { background: #e74c3c; } 
 .speed-dot[data-speed="1"] { background: var(--gray); width: 10px; height: 10px; opacity: 0.3; } 
 .speed-dot[data-speed="1.25"], .speed-dot[data-speed="1.5"], .speed-dot[data-speed="2"] { background: #2ecc71; } 
+
+/* Active Colors & Glow */
 .speed-dot.active { opacity: 1; transform: scale(1.3); }
-.speed-dot[data-speed="0.5"].active { box-shadow: 0 0 5px rgba(231, 76, 60, 0.4); }
+.speed-dot[data-speed="0.25"].active, .speed-dot[data-speed="0.5"].active { box-shadow: 0 0 5px rgba(231, 76, 60, 0.4); }
 .speed-dot[data-speed="1"].active { background: #fff !important; transform: scale(1.4); } 
 .speed-dot[data-speed="1.25"].active, .speed-dot[data-speed="1.5"].active, .speed-dot[data-speed="2"].active { box-shadow: 0 0 5px rgba(46, 204, 113, 0.4); }
 </style>
@@ -114,6 +115,7 @@
                     <div style="display: flex; align-items: center; gap: 8px; margin-right: 8px; border-right: 1px solid var(--border); padding-right: 12px;">
                         <span class="material-symbols-outlined tooltip-top" data-tooltip="Playback Speed" style="font-size: 16px; color: var(--gray); opacity: 0.4; cursor: default;">speed</span>
                         <div class="speed-track">
+                            <button class="speed-dot tooltip-top" data-speed="0.25" data-tooltip="0.25x"></button>
                             <button class="speed-dot tooltip-top" data-speed="0.5" data-tooltip="0.5x"></button>
                             <button class="speed-dot active tooltip-top" data-speed="1" data-tooltip="1.0x"></button>
                             <button class="speed-dot tooltip-top" data-speed="1.25" data-tooltip="1.25x"></button>
@@ -147,28 +149,32 @@
   var activeVideoId = templateVideoId;
   var storageKey, originalSavedTime, urlParams, urlTime, isPreviewing, startTime, player, saveInterval;
 
-  // --- Universal Action Overlay ---
+  // --- REBUILT: Universal Action Overlay (Smooth timeout) ---
   const actionOverlay = document.getElementById('action-overlay');
   const actionOverlayIcon = document.getElementById('action-overlay-icon');
   const actionOverlayText = document.getElementById('action-overlay-text');
+  let actionTimeout;
 
   function showActionOverlay(iconName, textString) {
       actionOverlayIcon.innerText = iconName;
-      
       if (textString) {
           actionOverlayText.innerText = textString;
           actionOverlayText.style.display = 'inline';
       } else {
           actionOverlayText.style.display = 'none';
       }
-
-      actionOverlay.classList.remove('show');
-      void actionOverlay.offsetWidth; // Trigger reflow to restart animation
+      
+      // Keep it visible as long as the function is called
       actionOverlay.classList.add('show');
+      
+      clearTimeout(actionTimeout);
+      actionTimeout = setTimeout(() => {
+          actionOverlay.classList.remove('show');
+      }, 800);
   }
 
   // --- Speed Control Logic ---
-  var allowedSpeeds = [0.5, 1, 1.25, 1.5, 2];
+  var allowedSpeeds = [0.25, 0.5, 1, 1.25, 1.5, 2];
   var currentSpeed = parseFloat(localStorage.getItem('yt_playback_speed')) || 1;
   if (!allowedSpeeds.includes(currentSpeed)) currentSpeed = 1;
 
@@ -186,14 +192,29 @@
       updateSpeedUI();
       
       if (player && typeof player.setPlaybackRate === 'function') player.setPlaybackRate(currentSpeed);
-
-      // Reused the universal action overlay for speed changes
       showActionOverlay(isSpeedingUp ? 'fast_forward' : 'fast_rewind', currentSpeed + 'x');
   }
 
   document.querySelectorAll('.speed-dot').forEach(dot => {
       dot.addEventListener('click', function() { applySpeed(parseFloat(this.getAttribute('data-speed'))); });
   });
+
+  // --- NEW: Custom Volume Logic ---
+  function handleVolume(delta) {
+      if (!player || typeof player.getVolume !== 'function') return;
+      
+      // Auto-unmute if they try to change the volume
+      if (player.isMuted()) player.unMute();
+
+      // Calculate the math ourselves to prevent API lag
+      let newVol = player.getVolume() + delta;
+      newVol = Math.max(0, Math.min(newVol, 100)); 
+      
+      player.setVolume(newVol);
+      
+      // Show the instantly calculated volume
+      showActionOverlay(delta > 0 ? 'volume_up' : 'volume_down', Math.round(newVol) + '%');
+  }
 
   // --- Accumulating Seek Logic ---
   let seekAccumulator = 0;
@@ -220,7 +241,7 @@
           seekOverlayRight.classList.add('show');
           seekOverlayLeft.classList.remove('show');
       } else {
-          seekOverlayLeft.innerText = '< ' + seekAccumulator;
+          seekOverlayLeft.innerText = '< ' + Math.abs(seekAccumulator);
           seekOverlayLeft.classList.add('show');
           seekOverlayRight.classList.remove('show');
       }
@@ -290,21 +311,17 @@
               toggleTheater();
               break;
           case 'arrowup':
-              player.setVolume(Math.min(player.getVolume() + 5, 100));
-              showActionOverlay('volume_up', player.getVolume() + '%');
+              handleVolume(5);
               break;
           case 'arrowdown':
-              player.setVolume(Math.max(player.getVolume() - 5, 0));
-              showActionOverlay('volume_down', player.getVolume() + '%');
+              handleVolume(-5);
               break;
           default:
-              // 0-9 percentage jumps (Hooks into Resume Button logic!)
               if (e.key >= '0' && e.key <= '9') {
                   const duration = player.getDuration();
                   if (duration) {
                       let percentNum = parseInt(e.key) * 10;
                       showActionOverlay('schedule', `Jump to ${percentNum}%`);
-                      // Triggers the in-page jump so the Resume button appears
                       window.triggerInPageJump(duration * (percentNum / 100));
                   }
               }
