@@ -8,6 +8,7 @@ var resolvedLiveVodId = null; // NEW: Holds the permanent ID of the livestream
 var activePlayerPlatform = 'youtube'; 
 
 var storageKey, originalSavedTime, urlParams, urlTime, isPreviewing, startTime, player, saveInterval;
+let hasAutoSeeked = false;
 
 const actionOverlay = document.getElementById('action-overlay');
 const actionOverlayIcon = document.getElementById('action-overlay-icon');
@@ -279,8 +280,13 @@ function onPlayerStateChange(event) {
 
   if (event.data === 1) { // PLAYING
       
-      // NEW: THE API HEIST!
-      // If we are on a livestream, extract the permanent VOD ID immediately
+      // NEW: Manually force the timestamp seek for Live Streams
+      if (urlTime !== null && !hasAutoSeeked) {
+          hasAutoSeeked = true;
+          player.seekTo(urlTime, true);
+      }
+
+      // THE API HEIST!
       if (liveChannelId && !resolvedLiveVodId) {
           const videoData = player.getVideoData();
           if (videoData && videoData.video_id) {
@@ -336,12 +342,15 @@ function updateResumeButtonUI(timeVal) {
 }
 
 if (resumeBtn) {
-    resumeBtn.addEventListener('click', function() {
+    resumeBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // Stop any rogue button clicks
         isPreviewing = false; 
         player.seekTo(originalSavedTime, true);
         resumeBtn.style.display = 'none';
-        // FIXED: Preserves the hash (e.g., #youtube/jorbs) so you don't get kicked to /live/
-        history.replaceState(null, '', window.location.pathname + window.location.hash); 
+        
+        // Explicitly build the clean URL (keeps the hash, drops the ?t=)
+        const cleanUrl = window.location.pathname + window.location.hash;
+        history.replaceState(null, '', cleanUrl); 
     });
 }
 
