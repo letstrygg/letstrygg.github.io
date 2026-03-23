@@ -7,7 +7,7 @@
 .left-sidebar {
     position: fixed;
     top: 0;
-    left: calc(-1 * var(--sidebar-width)); /* Hidden off-screen left */
+    left: calc(-1 * var(--sidebar-width)); 
     bottom: 0;
     width: var(--sidebar-width);
     background: var(--bg2);
@@ -17,11 +17,10 @@
     align-items: center;
     padding-top: 15px;
     gap: 15px;
-    z-index: 40;
+    z-index: 40; /* Renders over the video player (which is z-10) */
     transition: left 0.3s ease;
 }
 
-/* The Squish */
 body.sidebar-open-squish { padding-left: var(--sidebar-width); }
 body.sidebar-open-squish .left-sidebar { left: 0; }
 
@@ -31,6 +30,7 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     justify-content: center;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 2;
 }
 
 .sidebar-content {
@@ -41,16 +41,21 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     width: 100%;
     overflow-y: auto;
     -ms-overflow-style: none; scrollbar-width: none;
+    z-index: 1;
 }
 .sidebar-content::-webkit-scrollbar { display: none; }
 
-/* Avatar Styling */
+/* Avatar Styling & Z-Index Tooltip Fix */
 .sidebar-avatar-wrapper {
     position: relative; width: 36px; height: 36px;
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    text-decoration: none; transition: transform 0.2s;
+    text-decoration: none;
+    z-index: 1; /* Standard depth */
 }
-.sidebar-avatar-wrapper:hover { transform: scale(1.1); }
+/* Pop the hovered item to the front so its tooltip renders over the item below it */
+.sidebar-avatar-wrapper:hover {
+    z-index: 50; 
+}
 
 .sidebar-avatar-img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; z-index: 2; }
 .sidebar-avatar-fallback {
@@ -69,27 +74,43 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
 /* --- MOBILE BOTTOM GRID --- */
 @media (max-width: 768px) {
     body.sidebar-open-squish {
-        padding-left: 0; /* Cancel left squish */
-        padding-bottom: var(--sidebar-mobile-height); /* Squish bottom */
+        padding-left: 0; 
+        padding-bottom: var(--sidebar-mobile-height); 
     }
+    
+    /* Move Open Button to Bottom Left */
+    #openSidebarBtn {
+        top: auto !important;
+        bottom: 15px !important;
+        left: 15px !important;
+    }
+
     .left-sidebar {
         top: auto; 
-        bottom: calc(-1 * var(--sidebar-mobile-height)); /* Hidden off-screen bottom */
+        bottom: calc(-1 * var(--sidebar-mobile-height)); 
         left: 0;
         width: 100%; 
         height: var(--sidebar-mobile-height);
         border-right: none; 
         border-top: 1px solid var(--border);
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
-        padding: 15px;
+        padding: 0;
         transition: bottom 0.3s ease;
     }
     body.sidebar-open-squish .left-sidebar { bottom: 0; left: 0; }
     
-    .sidebar-header { display: none; } /* Hide close button on mobile */
+    /* Header stays visible but moves to top-left of the panel */
+    .sidebar-header { 
+        display: flex;
+        justify-content: flex-start;
+        padding: 10px 15px 0 15px;
+        border-bottom: none;
+    }
+    
     .sidebar-content { 
         flex-direction: row; flex-wrap: wrap; justify-content: center; align-content: flex-start; gap: 15px; 
+        padding: 10px 15px 15px 15px;
     }
     .sidebar-avatar-wrapper { width: 48px; height: 48px; }
     .sidebar-avatar-img, .sidebar-avatar-fallback { width: 42px; height: 42px; font-size: 18px; }

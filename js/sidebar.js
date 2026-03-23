@@ -6,12 +6,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     if (!sidebar || !content) return;
 
-    // --- 1. TOGGLE & MOBILE EXCLUSIVITY LOGIC ---
+    // --- 1. TOGGLE & RESPONSIVE STATE LOGIC ---
+    let isMobile = window.innerWidth <= 768;
+
     window.ltgSidebar = {
-        isOpen: localStorage.getItem('sidebarOpen') === 'true',
+        isOpen: !isMobile, // Default: Open on Desktop, Closed on Mobile
         toggle: function(forceState) {
             this.isOpen = typeof forceState === 'boolean' ? forceState : !this.isOpen;
-            localStorage.setItem('sidebarOpen', this.isOpen);
             
             if (this.isOpen) {
                 document.body.classList.add('sidebar-open-squish');
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     };
 
-    // Initialize State
+    // Apply Initial State
     window.ltgSidebar.toggle(window.ltgSidebar.isOpen);
     if (openBtn) openBtn.addEventListener('click', () => window.ltgSidebar.toggle(true));
     if (closeBtn) closeBtn.addEventListener('click', () => window.ltgSidebar.toggle(false));
@@ -46,7 +47,33 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-    // --- 2. AUTH & DATA FETCHING ---
+    // --- 2. THE RESPONSIVE SNAP COORDINATOR ---
+    let lastWidth = window.innerWidth;
+    window.addEventListener('resize', () => {
+        const currentWidth = window.innerWidth;
+        const wasMobile = lastWidth <= 768;
+        const isNowMobile = currentWidth <= 768;
+        
+        // Crossed breakpoint from Desktop -> Mobile
+        if (!wasMobile && isNowMobile) {
+            window.ltgSidebar.toggle(false); // Close Directory
+            if (typeof isChatOpen !== 'undefined') {
+                isChatOpen = true; // Open Chat
+                if (typeof updateChatVisibility === 'function') updateChatVisibility();
+            }
+        } 
+        // Crossed breakpoint from Mobile -> Desktop
+        else if (wasMobile && !isNowMobile) {
+            window.ltgSidebar.toggle(true); // Open Directory
+            if (typeof isChatOpen !== 'undefined') {
+                isChatOpen = true; // Open Chat
+                if (typeof updateChatVisibility === 'function') updateChatVisibility();
+            }
+        }
+        lastWidth = currentWidth;
+    });
+
+    // --- 3. AUTH & DATA FETCHING ---
     const supabaseUrl = window.SUPABASE_URL;
     const supabaseKey = window.SUPABASE_ANON_KEY;
     if (!supabaseUrl || !supabaseKey) return;
@@ -73,13 +100,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (profileRes.data && profileRes.data.platform_prefs) userPrefs = profileRes.data.platform_prefs;
     const followedChannels = followsRes.data ? followsRes.data.map(f => f.ltg_channels).filter(c => c !== null) : [];
 
-    // --- 3. ROUTING & SORTING LOGIC ---
     function getBestLiveRoute(channel) {
         const liveData = channel.live_data || {};
         if (!liveData.is_live || !Array.isArray(liveData.platforms) || liveData.platforms.length === 0) {
             return { isLive: false, platform: null, url: `/live/#twitch/${channel.slug}` };
         }
-
         for (const pref of userPrefs) {
             if (liveData.platforms.includes(pref)) return { isLive: true, platform: pref, url: `/live/#${pref}/${channel.slug}` };
         }
@@ -102,13 +127,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             const displayName = ch.display_name || ch.slug;
             const firstLetter = displayName.charAt(0);
             const imgPath = `/assets/avatars/${ch.slug}/sm.webp`;
-            
             const statusClass = ch.route.isLive ? `live-${ch.route.platform}` : 'offline';
-            const tooltipText = ch.route.isLive ? `${displayName} (Live on ${ch.route.platform})` : `${displayName} (Offline)`;
 
-            // Pure Avatar Injection (No text)
             const rowHtml = `
-                <a href="${ch.route.url}" class="sidebar-avatar-wrapper tooltip-right ${statusClass}" data-tooltip="${tooltipText}">
+                <a href="${ch.route.url}" class="sidebar-avatar-wrapper tooltip-right ${statusClass}" data-tooltip="${displayName}">
                     <div class="sidebar-avatar-fallback">${firstLetter}</div>
                     <img src="${imgPath}" class="sidebar-avatar-img" alt="${displayName}" onerror="this.style.display='none'">
                 </a>
@@ -119,7 +141,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     sortAndRender();
 
-    // --- 4. REALTIME LISTENER ---
     const sidebarChannel = supabaseClient.channel('sidebar_updates');
     sidebarChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_channels' }, payload => {
         const updated = payload.new;

@@ -28,7 +28,7 @@ const globalToggle = document.getElementById('globalChatToggle');
 const channelToggle = document.getElementById('channelChatToggle');
 const topicToggle = document.getElementById('topicChatToggle'); 
 
-let isChatOpen = localStorage.getItem('chatOpen') !== 'false'; 
+let isChatOpen = true; // Default open for all devices on fresh load
 
 // --- PREVENT RESIZE LAYOUT SHIFT ANIMATION ---
 let resizeTimer;
