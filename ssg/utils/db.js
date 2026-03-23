@@ -105,15 +105,22 @@ export async function getFullSeriesContext(gameSlug) {
         .select(`
             slug,
             title,
+            status,
             ltg_games!inner (slug, title),
             ltg_playlists (
                 id,
                 season,
                 channel_slug,
                 sync_date,
+                title,
                 ltg_playlist_videos (
-                    video_id,
-                    sort_order
+                    sort_order,
+                    ltg_videos (
+                        id,
+                        duration_seconds,
+                        view_count,
+                        published_at
+                    )
                 )
             )
         `)

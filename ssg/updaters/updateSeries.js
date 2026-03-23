@@ -5,31 +5,23 @@ import { seriesRootAutoHTML, seriesRootManualHTML } from '../utils/templates.js'
 import { updateSeason } from './updateSeason.js';
 
 export async function updateSeries(gameSlug, force = false) {
-    // 1. Fetch DB Context (Returns an array of Series)
     const seriesArray = await getFullSeriesContext(gameSlug);
-    
-    // Grab the proper Game Title from the first series' joined table
     const gameTitle = seriesArray[0].ltg_games?.title || gameSlug;
 
-    // Aggregate ALL playlists across ALL series for this game
     let allPlaylists = [];
     seriesArray.forEach(series => {
         if (series.ltg_playlists) {
-            allPlaylists.push(...series.ltg_playlists);
+            // Attach the parent series status to each playlist so the card knows if it's "Completed" or "Ongoing"
+            const taggedPlaylists = series.ltg_playlists.map(p => ({ ...p, series_status: series.status }));
+            allPlaylists.push(...taggedPlaylists);
         }
     });
 
-    if (allPlaylists.length === 0) {
-        console.log(`⚠️ No seasons/playlists found for game: ${gameSlug}`);
-        return { success: true, skipped: true, totalEpisodes: 0 };
-    }
-
-    // Assume all seasons for a game belong to the same channel
+    if (allPlaylists.length === 0) return { success: true, skipped: true, totalEpisodes: 0 };
     const channelSlug = allPlaylists[0]?.channel_slug || 'unknown';
 
     console.log(`\n📚 Processing Game: ${gameTitle} (${allPlaylists.length} seasons across ${seriesArray.length} series)`);
 
-    // 2. Sort all seasons descending and process them
     const sortedPlaylists = allPlaylists.sort((a, b) => b.season - a.season);
     
     let anyUpdates = false;
@@ -38,14 +30,9 @@ export async function updateSeries(gameSlug, force = false) {
     for (const playlist of sortedPlaylists) {
         const result = await updateSeason(playlist.id, force);
         totalEpisodes += result.episodesProcessed || 0;
-        
-        // If even a single season updated, we must flag the game root for a rebuild
-        if (!result.skipped) {
-            anyUpdates = true;
-        }
+        if (!result.skipped) anyUpdates = true;
     }
 
-    // 3. The Bubble-Up Skip Logic
     const basePath = `yt/${channelSlug}/${gameSlug}`;
     const autoPath = `${basePath}/_seasons_auto.html`;
     const manualPath = `${basePath}/index.html`;
@@ -57,22 +44,64 @@ export async function updateSeries(gameSlug, force = false) {
 
     console.log(`\n🏗️ Rebuilding Game Root Index for ${gameSlug}...`);
 
-    // 4. Assemble Data
+    // --- MAP & REDUCE THE CARD DATA ---
+    const mappedSeasons = sortedPlaylists.map(p => {
+        let totalViews = 0;
+        let totalDuration = 0;
+        let latestDate = new Date(0);
+        let firstVideoId = '';
+        
+        // Filter out null videos and sort by order
+        const validVideos = p.ltg_playlist_videos
+            .filter(pv => pv.ltg_videos)
+            .sort((a, b) => a.sort_order - b.sort_order);
+
+        if (validVideos.length > 0) {
+            firstVideoId = validVideos[0].ltg_videos.id; // Grab the thumbnail for Ep 1
+            
+            validVideos.forEach(pv => {
+                const v = pv.ltg_videos;
+                totalViews += (v.view_count || 0);
+                totalDuration += (v.duration_seconds || 0);
+                
+                const pubDate = new Date(v.published_at);
+                if (pubDate > latestDate) latestDate = pubDate;
+            });
+        }
+
+        // Formatting Helpers for the template
+        const h = Math.floor(totalDuration / 3600);
+        const m = Math.floor((totalDuration % 3600) / 60);
+        const durFull = h > 0 ? `${h}h ${m}m` : `${m}m`;
+        const durShort = Math.round(totalDuration / 3600) > 0 ? `${Math.round(totalDuration / 3600)}h` : durFull;
+        const lastUpdatedFormatted = latestDate.getFullYear() + String(latestDate.getMonth() + 1).padStart(2, '0') + String(latestDate.getDate()).padStart(2, '0');
+
+        return {
+            id: p.id,
+            seasonNum: p.season,
+            title: p.title || `Season ${p.season}`,
+            status: p.series_status || 'Ongoing',
+            statusColor: (p.series_status || '').toLowerCase() === 'completed' ? 'blue' : 'green',
+            epCount: validVideos.length,
+            totalViews,
+            totalDuration,
+            durFull,
+            durShort,
+            lastUpdatedFormatted,
+            firstVideoId,
+            episodes: validVideos.map(pv => pv.sort_order)
+        };
+    });
+
     const shortPrefix = gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
-    
     const templateData = {
-        seriesTitle: gameTitle, // Pass the Game title down for the page H1
+        seriesTitle: gameTitle,
         gameSlug: gameSlug,
         channelSlug: channelSlug,
         shortPrefix: shortPrefix,
-        seasons: sortedPlaylists.map(p => ({
-            id: p.id,
-            seasonNum: p.season,
-            episodes: p.ltg_playlist_videos.map(pv => pv.sort_order).sort((a, b) => a - b)
-        }))
+        seasons: mappedSeasons
     };
 
-    // 5. Write the Files
     const autoHTML = seriesRootAutoHTML(templateData);
     writeStaticPage(autoPath, autoHTML);
     console.log(`✅ Game Grid generated at: ${autoPath}`);
@@ -80,13 +109,7 @@ export async function updateSeries(gameSlug, force = false) {
     if (!checkFileExists(manualPath)) {
         const manualHTML = seriesRootManualHTML(templateData);
         writeStaticPage(manualPath, manualHTML);
-        console.log(`    [CREATED MANUAL SHELL] ${manualPath}`);
     }
 
-    return { 
-        success: true, 
-        skipped: false, 
-        totalEpisodes,
-        channelSlug 
-    };
+    return { success: true, skipped: false, totalEpisodes, channelSlug };
 }

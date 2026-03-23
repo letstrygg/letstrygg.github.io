@@ -107,35 +107,56 @@ sync_date: "${data.syncDate}"
 </script>`;
 }
 
-// Add these to the bottom of ssg/utils/templates.js
 export function seriesRootAutoHTML(data) {
     let autoHtml = `<div class="season-grid">\n`;
 
     data.seasons.forEach(season => {
         const sFolder = `s${Math.floor(season.seasonNum)}`;
-        const epCount = season.episodes.length;
-
+        
         autoHtml += `\n<div class="season-block">\n`;
         autoHtml += `  <div class="season-header">\n`;
         autoHtml += `    <span class="season-label">Season ${season.seasonNum}</span>\n`;
         autoHtml += `  </div>\n`;
-        autoHtml += `  {% include cards/${season.id.toLowerCase()}-playlist_card.html %}\n`;
         
-        if (epCount > 0) {
+        // --- INJECT THE DYNAMIC CARD HTML HERE ---
+        autoHtml += `  <a href="https://www.youtube.com/watch?v=${season.firstVideoId}&list=${season.id}" target="_blank" rel="noopener noreferrer" class="filterable-card">\n`;
+        autoHtml += `    <div class="game-card" data-updated="${season.lastUpdatedFormatted}" data-episodes="${season.epCount}" data-views="${season.totalViews}" data-duration="${season.totalDuration}">\n`;
+        
+        // Fallback thumbnail if firstVideoId is empty
+        const thumbUrl = season.firstVideoId ? `https://i.ytimg.com/vi/${season.firstVideoId}/maxresdefault.jpg` : '/assets/img/default-thumbnail.jpg';
+        autoHtml += `      <img src="${thumbUrl}" alt="${season.title}">\n`;
+        
+        autoHtml += `      <div class="card-row">\n`;
+        autoHtml += `        <strong>${season.title}</strong>\n`;
+        autoHtml += `        <span class="card-status ${season.statusColor}">${season.status}</span>\n`;
+        autoHtml += `      </div>\n`;
+        autoHtml += `      <div class="card-row">\n`;
+        autoHtml += `        <span>${season.epCount} videos</span>\n`;
+        autoHtml += `        <span>${season.totalViews.toLocaleString()} views</span>\n`;
+        autoHtml += `        <span class="card-duration">\n`;
+        autoHtml += `          <span class="dur-full">⏱ ${season.durFull}</span>\n`;
+        autoHtml += `          <span class="dur-short">⏱ ${season.durShort}</span>\n`;
+        autoHtml += `        </span>\n`;
+        autoHtml += `      </div>\n`;
+        autoHtml += `    </div>\n`;
+        autoHtml += `  </a>\n`;
+        // --- END CARD HTML ---
+
+        if (season.epCount > 0) {
             autoHtml += `  <div class="ep-pill-container">\n`;
             
-            if (epCount <= 5) {
+            if (season.epCount <= 5) {
                 season.episodes.forEach((ep, index) => {
                     autoHtml += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-ep-${ep}.html" class="btn">Ep ${ep}</a>\n`;
-                    if (index < epCount - 1) autoHtml += `    <span class="ep-delimiter">•</span>\n`;
+                    if (index < season.epCount - 1) autoHtml += `    <span class="ep-delimiter">•</span>\n`;
                 });
             } else {
                 const firstEp = season.episodes[0];
-                const lastEp = season.episodes[epCount - 1];
+                const lastEp = season.episodes[season.epCount - 1];
                 
                 autoHtml += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-ep-${firstEp}.html" class="btn">Ep ${firstEp}</a>\n`;
                 autoHtml += `    <span class="ep-delimiter">•</span>\n`;
-                autoHtml += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/" class="btn" style="flex: 1 1 auto; font-weight: bold;">View All ${epCount}</a>\n`;
+                autoHtml += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/" class="btn" style="flex: 1 1 auto; font-weight: bold;">View All ${season.epCount}</a>\n`;
                 autoHtml += `    <span class="ep-delimiter">•</span>\n`;
                 autoHtml += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-ep-${lastEp}.html" class="btn">Ep ${lastEp}</a>\n`;
             }
