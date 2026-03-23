@@ -23,14 +23,13 @@ let currentPlatform = 'twitch';
 let activeStreamer = ''; 
 let streamerData = null;
 
-// Direct fetch to Supabase
+// 1. Direct fetch to Supabase (Searches slugs OR raw platform IDs)
 async function fetchStreamerData(slug) {
     const supabaseUrl = '{{ site.supabase_url }}';
     const supabaseKey = '{{ site.supabase_anon_key }}';
     
     if (!supabaseUrl || !supabaseKey) return null;
     try {
-        // FIXED: Queries ltg_channels and safely searches slugs or raw platform IDs
         const response = await fetch(`${supabaseUrl}/rest/v1/ltg_channels?or=(slug.eq.${slug},youtube_channel_id.eq.${slug},twitch_channel.eq.${slug})&select=*`, {
             headers: { 'apikey': supabaseKey, 'Authorization': `Bearer ${supabaseKey}` }
         });
@@ -39,6 +38,7 @@ async function fetchStreamerData(slug) {
     } catch (e) { return null; }
 }
 
+// 2. Main initialization
 async function loadStreamFromHash() {
     const hash = window.location.hash.substring(1); 
     if (!hash) return;
@@ -50,7 +50,7 @@ async function loadStreamFromHash() {
         
         streamerData = await fetchStreamerData(activeStreamer);
         
-        // NEW: URL Normalizer. If they used a raw ID, swap the URL to the beautiful Slug!
+        // URL Normalizer: Swaps ugly IDs for beautiful slugs
         if (streamerData && activeStreamer !== streamerData.slug) {
             activeStreamer = streamerData.slug;
             history.replaceState(null, '', `#${currentPlatform}/${activeStreamer}`);
@@ -68,21 +68,29 @@ async function loadStreamFromHash() {
             if (streamerData.kick_channel) platformCount++;
         }
 
+        // Show platform toggles if they stream on multiple sites
         if (platformCount >= 2) {
-            togglesContainer.style.display = 'flex';
-            btnTwitch.style.display = streamerData.twitch_channel ? 'flex' : 'none';
-            btnYoutube.style.display = streamerData.youtube_channel_id ? 'flex' : 'none';
-            btnKick.style.display = streamerData.kick_channel ? 'flex' : 'none';
+            if (togglesContainer) togglesContainer.style.display = 'flex';
+            if (btnTwitch) btnTwitch.style.display = streamerData.twitch_channel ? 'flex' : 'none';
+            if (btnYoutube) btnYoutube.style.display = streamerData.youtube_channel_id ? 'flex' : 'none';
+            if (btnKick) btnKick.style.display = streamerData.kick_channel ? 'flex' : 'none';
         } else {
-            togglesContainer.style.display = 'none';
+            if (togglesContainer) togglesContainer.style.display = 'none';
         }
 
         renderStream();
     }
 }
 
+// 3. THE MISSING FUNCTION: Handles the button clicks!
+function switchPlatform(platform) {
+    if (!activeStreamer) return;
+    // Changing the hash triggers the event listener, which re-runs loadStreamFromHash automatically
+    window.location.hash = `${platform}/${activeStreamer}`;
+}
+
+// 4. Renders the UI states and calls the external video player
 function renderStream() {
-    // 1. Define the platform config and grab the live data array
     const btns = {
         twitch: { el: document.getElementById('btn-twitch'), color: 'var(--purple)', idKey: 'twitch_channel' },
         youtube: { el: document.getElementById('btn-youtube'), color: 'var(--red)', idKey: 'youtube_channel_id' },
@@ -94,7 +102,6 @@ function renderStream() {
 
     let targetId = activeStreamer;
 
-    // 2. Loop through each platform and apply the visual states
     Object.keys(btns).forEach(platform => {
         const btnObj = btns[platform];
         const btn = btnObj.el;
@@ -104,33 +111,30 @@ function renderStream() {
         const isLive = livePlatforms.includes(platform);
         
         if (currentPlatform === platform) {
-            // STATE 1: ACTIVE PLATFORM (Fully colored button & icon)
+            // Active platform styling
             btn.style.color = btnObj.color;
             btn.style.borderColor = btnObj.color;
             if (icon) icon.style.color = btnObj.color;
             
-            // Set the target ID for the video player while we are here
             targetId = (streamerData && streamerData[btnObj.idKey]) ? streamerData[btnObj.idKey] : activeStreamer;
         } else {
-            // STATE 2 & 3: INACTIVE PLATFORM
+            // Inactive platform styling (plus live-indicator check)
             btn.style.color = 'var(--text)';
             btn.style.borderColor = 'var(--border)';
-            
-            // If they are live, light up the icon! Otherwise, standard color.
-            if (icon) {
-                icon.style.color = isLive ? btnObj.color : 'inherit';
-            }
+            if (icon) icon.style.color = isLive ? btnObj.color : 'inherit';
         }
     });
 
+    // Notify the chat that the topic changed
     window.dispatchEvent(new CustomEvent('topicChanged', { detail: activeStreamer }));
     
-    // Call the universal player API we exposed in watch_player.html
+    // Call the universal player API exposed in watch_player.js
     if (typeof window.startDynamicLivePlayer === 'function') {
         window.startDynamicLivePlayer(currentPlatform, targetId);
     }
 }
 
+// Event Listeners
 window.addEventListener('load', loadStreamFromHash);
 window.addEventListener('hashchange', loadStreamFromHash);
 </script>
