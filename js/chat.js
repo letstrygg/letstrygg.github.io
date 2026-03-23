@@ -443,7 +443,9 @@ function renderMessages() {
 
         let formattedMessage = row.message;
         if (row.url) {
-            const isCurrentPage = (row.url.split('#')[0] === window.location.pathname);
+            // STRICT MATCH: Must match both pathname and hash to trigger the in-page JS jump
+            const currentFullUrl = window.location.pathname + window.location.hash;
+            const isCurrentPage = (row.url === currentFullUrl);
             const isInternal = row.url.startsWith('/');
             const targetAttr = isInternal ? '' : 'target="_blank"';
             
@@ -455,7 +457,17 @@ function renderMessages() {
                 if (isCurrentPage && typeof window.triggerInPageJump === 'function') {
                     return `<a href="#" onclick="window.triggerInPageJump(${seconds}); return false;" class="yt-time-link">${timeStr}</a>`;
                 } else {
-                    return `<a href="${row.url}?t=${seconds}" ${targetAttr} class="yt-time-link">${timeStr}</a>`;
+                    // Smart URL Constructor: Forces ?t= to sit BEFORE the # so the browser can read it
+                    let timeUrl = '';
+                    if (row.url.includes('#')) {
+                        const urlParts = row.url.split('#');
+                        const separator = urlParts[0].includes('?') ? '&' : '?';
+                        timeUrl = `${urlParts[0]}${separator}t=${seconds}#${urlParts.slice(1).join('#')}`;
+                    } else {
+                        const separator = row.url.includes('?') ? '&' : '?';
+                        timeUrl = `${row.url}${separator}t=${seconds}`;
+                    }
+                    return `<a href="${timeUrl}" ${targetAttr} class="yt-time-link">${timeStr}</a>`;
                 }
             });
         }
@@ -552,11 +564,8 @@ if (sendBtn && chatInput) {
         if (!text || !currentSession || !supabaseClient) return;
         sendBtn.disabled = true;
         
-        // Grab the hash on the live page so links resolve perfectly to the stream
-        let msgUrl = window.location.pathname;
-        if (currentGame === 'live' && window.location.hash) {
-            msgUrl += window.location.hash;
-        }
+        // Always capture the pathname and hash so dynamic VODs and Live Streams track perfectly
+        let msgUrl = window.location.pathname + window.location.hash;
 
         const { error } = await supabaseClient.from('ltg_chat').insert([{ 
             message: text, 
