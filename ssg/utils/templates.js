@@ -106,3 +106,57 @@ sync_date: "${data.syncDate}"
   }
 </script>`;
 }
+
+// Add these to the bottom of ssg/utils/templates.js
+export function seriesRootAutoHTML(data) {
+    let autoHtml = `<div class="season-grid">\n`;
+
+    data.seasons.forEach(season => {
+        const sFolder = `s${Math.floor(season.seasonNum)}`;
+        const epCount = season.episodes.length;
+
+        autoHtml += `\n<div class="season-block">\n`;
+        autoHtml += `  <div class="season-header">\n`;
+        autoHtml += `    <span class="season-label">Season ${season.seasonNum}</span>\n`;
+        autoHtml += `  </div>\n`;
+        autoHtml += `  {% include cards/${season.id.toLowerCase()}-playlist_card.html %}\n`;
+        
+        if (epCount > 0) {
+            autoHtml += `  <div class="ep-pill-container">\n`;
+            
+            if (epCount <= 5) {
+                season.episodes.forEach((ep, index) => {
+                    autoHtml += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-ep-${ep}.html" class="btn">Ep ${ep}</a>\n`;
+                    if (index < epCount - 1) autoHtml += `    <span class="ep-delimiter">•</span>\n`;
+                });
+            } else {
+                const firstEp = season.episodes[0];
+                const lastEp = season.episodes[epCount - 1];
+                
+                autoHtml += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-ep-${firstEp}.html" class="btn">Ep ${firstEp}</a>\n`;
+                autoHtml += `    <span class="ep-delimiter">•</span>\n`;
+                autoHtml += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/" class="btn" style="flex: 1 1 auto; font-weight: bold;">View All ${epCount}</a>\n`;
+                autoHtml += `    <span class="ep-delimiter">•</span>\n`;
+                autoHtml += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-ep-${lastEp}.html" class="btn">Ep ${lastEp}</a>\n`;
+            }
+            autoHtml += `  </div>\n`;
+        }
+        autoHtml += `</div>\n`;
+    });
+
+    autoHtml += `</div>\n`;
+    return autoHtml;
+}
+
+export function seriesRootManualHTML(data) {
+    return `---
+layout: new
+title: "${data.seriesTitle}"
+permalink: /yt/${data.channelSlug}/${data.gameSlug}/
+custom_css: "/css/game.css"
+---
+
+<div class="game-page-wrapper">
+  {% include_relative _seasons_auto.html %}
+</div>`;
+}

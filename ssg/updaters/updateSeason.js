@@ -20,8 +20,8 @@ export async function updateSeason(playlistId, force = false) {
     const basePath = `yt/${channelSlug}/${gameSlug}/s${Math.floor(seasonNum)}`;
     const indexPath = `${basePath}/index.html`;
 
-    // Ensure we have a valid sync_date to compare against (fallback to current time if null)
-    const dbSyncDate = playlist.sync_date || new Date().toISOString(); 
+    // Grab the exact string from Supabase, or default to 'never' if the column is entirely empty
+    const dbSyncDate = playlist.sync_date || 'never';
 
     // 2. The Smart Skip Logic
     if (!force && fs.existsSync(indexPath)) {

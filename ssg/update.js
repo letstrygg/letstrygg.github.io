@@ -1,5 +1,6 @@
 import { updateEpisode } from './updaters/updateEpisode.js';
 import { updateSeason } from './updaters/updateSeason.js'; 
+import { updateSeries } from './updaters/updateSeries.js';
 
 async function run() {
     const args = process.argv.slice(2);
@@ -42,6 +43,17 @@ async function run() {
             default:
                 console.error(`❌ Unknown command: ${command}`);
                 console.log("Available commands: episode, season, series, channel, all");
+                break;
+			
+			case 'series':
+                if (!targetId) throw new Error("Missing Series Slug.");
+                const seriesResult = await updateSeries(targetId, isForce);
+                
+                if (seriesResult.skipped) {
+                    console.log(`⏩ Series fully skipped (Already up-to-date).`);
+                } else {
+                    console.log(`✅ Series complete! Processed ${seriesResult.totalEpisodes} episodes.`);
+                }
                 break;
         }
 

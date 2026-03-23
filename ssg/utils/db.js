@@ -81,6 +81,7 @@ export async function getFullSeasonContext(playlistId) {
             id,
             season,
             channel_slug,
+            sync_date, 
             ltg_series (
                 slug,
                 title,
@@ -95,5 +96,34 @@ export async function getFullSeasonContext(playlistId) {
         .single();
 
     if (error) throw error;
+    return data;
+}
+
+export async function getFullSeriesContext(gameSlug) {
+    const { data, error } = await supabase
+        .from('ltg_series')
+        .select(`
+            slug,
+            title,
+            ltg_games!inner (slug, title),
+            ltg_playlists (
+                id,
+                season,
+                channel_slug,
+                sync_date,
+                ltg_playlist_videos (
+                    video_id,
+                    sort_order
+                )
+            )
+        `)
+        .eq('game_slug', gameSlug);
+
+    if (error) throw error;
+    
+    if (!data || data.length === 0) {
+        throw new Error(`No series found attached to game slug: '${gameSlug}'.`);
+    }
+
     return data;
 }
