@@ -8,7 +8,8 @@ var resolvedLiveVodId = null;
 var activePlayerPlatform = 'youtube'; 
 
 var storageKey, originalSavedTime, urlParams, urlTime, isPreviewing, startTime, player, saveInterval;
-let hasAutoSeeked = false; // NEW: Prevents an infinite seek loop
+let hasAutoSeeked = false; // Prevents an infinite seek loop
+let isMutingForSeek = false; // NEW: Tracks the split-second mute hack
 
 const actionOverlay = document.getElementById('action-overlay');
 const actionOverlayIcon = document.getElementById('action-overlay-icon');
@@ -288,15 +289,31 @@ function onPlayerStateChange(event) {
       document.activeElement.blur();
   }
 
+  // NEW: The "Split-Second Audio Hack"
+  // When the user clicks the red play button, the video buffers (State 3) before it plays (State 1).
+  // We mute it instantly during the buffer so the live edge audio doesn't bleed through.
+  if (event.data === 3) { // BUFFERING
+      if (liveChannelId && urlTime !== null && !hasAutoSeeked) {
+          player.mute();
+          isMutingForSeek = true;
+      }
+  }
+
   if (event.data === 1) { // PLAYING
       
       // FIXED: The missing Live Stream Auto-Seek
       if (urlTime !== null && !hasAutoSeeked) {
           hasAutoSeeked = true;
-          // Standard VODs auto-seek using the iframe 'start=' param. 
-          // Live streams ignore that parameter, so we force the jump here.
           if (liveChannelId) {
               player.seekTo(urlTime, true);
+              
+              // Now that the playhead has safely moved to the timestamp, we restore the audio!
+              setTimeout(() => {
+                  if (isMutingForSeek) {
+                      player.unMute();
+                      isMutingForSeek = false;
+                  }
+              }, 400); // 400ms is enough to clear the old audio buffer
           }
       }
 
