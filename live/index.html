@@ -111,14 +111,16 @@ function renderStream() {
         const isLive = livePlatforms.includes(platform);
         
         if (currentPlatform === platform) {
-            // Active platform styling
-            btn.style.color = btnObj.color;
+            // ACTIVE STATE: Solid background, inverted text and icon
+            btn.style.backgroundColor = btnObj.color;
             btn.style.borderColor = btnObj.color;
-            if (icon) icon.style.color = btnObj.color;
+            btn.style.color = 'var(--bg)'; 
+            if (icon) icon.style.color = 'var(--bg)';
             
             targetId = (streamerData && streamerData[btnObj.idKey]) ? streamerData[btnObj.idKey] : activeStreamer;
         } else {
-            // Inactive platform styling (plus live-indicator check)
+            // INACTIVE STATE: Transparent background, standard text, live-indicator icon
+            btn.style.backgroundColor = 'transparent'; // Reset background so it doesn't stick
             btn.style.color = 'var(--text)';
             btn.style.borderColor = 'var(--border)';
             if (icon) icon.style.color = isLive ? btnObj.color : 'inherit';
