@@ -1,6 +1,6 @@
 import { getFullEpisodeContext, getAdjacentEpisodes } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
-import { watchPageAutoHTML, watchPageManualHTML } from '../utils/templates.js'; 
+import { episodePageHTML } from '../utils/templates.js'; 
 
 export async function updateEpisode(videoId) {
     // 1. Fetch DB Context
@@ -55,26 +55,22 @@ export async function updateEpisode(videoId) {
     };
 
     // 4. Write the Files
-    const autoFilePath = `${basePath}/_auto/${fileName}`;
-    const manualFilePath = `${basePath}/${fileName}`;
+    const mainFilePath = `${basePath}/${fileName}`;
+    const manualFilePath = `${basePath}/_manual/${fileName}`;
     
-    // Always update the _auto file with fresh stats
-    const autoHTML = watchPageAutoHTML(templateData);
-    writeStaticPage(autoFilePath, autoHTML);
+    // Always overwrite the main page with fresh stats, frontmatter, and structure
+    const pageHTML = episodePageHTML(templateData);
+    writeStaticPage(mainFilePath, pageHTML);
 
-    // Only generate the manual file if it doesn't exist, preserving manual edits
+    // Only generate the manual fragment if it doesn't exist
     if (!checkFileExists(manualFilePath)) {
-        const manualHTML = watchPageManualHTML(templateData);
-        writeStaticPage(manualFilePath, manualHTML);
-        console.log(`    [CREATED MANUAL SHELL] ${manualFilePath}`);
-    } else {
-        console.log(`    [SKIPPED MANUAL SHELL] ${manualFilePath} (Already exists)`);
-        // We could implement your old thumbnail injection fix here if needed later
+        writeStaticPage(manualFilePath, "\n");
+        console.log(`    [CREATED MANUAL FRAGMENT] ${manualFilePath}`);
     }
 
     return {
         success: true,
-        filePath: autoFilePath,
+        filePath: mainFilePath,
         playlistId: playlist.id,
         seriesSlug: series.slug
     };

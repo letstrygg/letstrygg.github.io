@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { getFullSeriesContext } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
-import { seriesRootAutoHTML, seriesRootManualHTML } from '../utils/templates.js';
+import { seriesRootHTML } from '../utils/templates.js';
 import { updateSeason } from './updateSeason.js';
 
 export async function updateSeries(gameSlug, force = false) {
@@ -23,6 +23,27 @@ export async function updateSeries(gameSlug, force = false) {
 
     const sortedPlaylists = allPlaylists.sort((a, b) => b.season - a.season);
     
+    // Calculate the Master Sync Date from child playlists
+    const masterSyncDate = sortedPlaylists.reduce((latest, p) => {
+        const pDate = p.sync_date || 'never';
+        return pDate > latest ? pDate : latest;
+    }, 'never');
+
+    const basePath = `yt/${channelSlug}/${gameSlug}`;
+    const indexPath = `${basePath}/index.html`;
+    const manualPath = `${basePath}/_manual/index.html`;
+
+    // The Frontmatter Skip Logic
+    if (!force && fs.existsSync(indexPath)) {
+        const existingContent = fs.readFileSync(indexPath, 'utf8');
+        const match = existingContent.match(/sync_date:\s*"?([^"\r\n]+)"?/);
+        
+        if (match && match[1] === masterSyncDate) {
+            console.log(`⏩ Game Root completely skipped (Latest sync_date matches: ${masterSyncDate}).`);
+            return { success: true, skipped: true, totalEpisodes: 0 };
+        }
+    }
+
     let anyUpdates = false;
     let totalEpisodes = 0;
 
@@ -32,20 +53,14 @@ export async function updateSeries(gameSlug, force = false) {
         if (!result.skipped) anyUpdates = true;
     }
 
-    const basePath = `yt/${channelSlug}/${gameSlug}`;
-    const autoPath = `${basePath}/_seasons_auto.html`;
-    const manualPath = `${basePath}/index.html`;
-
-    if (!anyUpdates && !force && fs.existsSync(autoPath)) {
-        console.log(`\n⏩ Game Root skipped (All child seasons are up-to-date).`);
+    if (!anyUpdates && !force && fs.existsSync(indexPath)) {
+        console.log(`\n⏩ Game Root skipped (All child seasons reported as up-to-date).`);
         return { success: true, skipped: true, totalEpisodes };
     }
 
     console.log(`\n🏗️ Rebuilding Game Root Index for ${gameSlug}...`);
 
-    // --- USE THE PRE-CALCULATED DB STATS ---
     const mappedSeasons = sortedPlaylists.map(p => {
-        // Grab the stats from our new Database View
         const stats = p.ltg_playlist_stats[0] || { 
             ep_count: 0, total_views: 0, total_duration: 0, 
             latest_published_at: new Date(0).toISOString(), first_video_id: '' 
@@ -54,7 +69,6 @@ export async function updateSeries(gameSlug, force = false) {
         const totalDuration = stats.total_duration;
         const latestDate = new Date(stats.latest_published_at);
 
-        // Formatting Helpers
         const h = Math.floor(totalDuration / 3600);
         const m = Math.floor((totalDuration % 3600) / 60);
         const durFull = h > 0 ? `${h}h ${m}m` : `${m}m`;
@@ -84,16 +98,19 @@ export async function updateSeries(gameSlug, force = false) {
         gameSlug: gameSlug,
         channelSlug: channelSlug,
         shortPrefix: shortPrefix,
+        syncDate: masterSyncDate, 
         seasons: mappedSeasons
     };
 
-    const autoHTML = seriesRootAutoHTML(templateData);
-    writeStaticPage(autoPath, autoHTML);
-    console.log(`✅ Game Grid generated at: ${autoPath}`);
+    // Always overwrite the main index
+    const pageHTML = seriesRootHTML(templateData);
+    writeStaticPage(indexPath, pageHTML);
+    console.log(`✅ Game Root Index generated at: ${indexPath}`);
 
+    // Create the manual fragment if missing
     if (!checkFileExists(manualPath)) {
-        const manualHTML = seriesRootManualHTML(templateData);
-        writeStaticPage(manualPath, manualHTML);
+        writeStaticPage(manualPath, "\n");
+        console.log(`    [CREATED MANUAL FRAGMENT] ${manualPath}`);
     }
 
     return { success: true, skipped: false, totalEpisodes, channelSlug };

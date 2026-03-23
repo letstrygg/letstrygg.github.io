@@ -19,6 +19,8 @@ sync_date: "2026-03-20T23:04:48.178+00:00"
   </div>
 
   <div class="game-section">
+    {% include_relative _manual/index.html %}
+
     {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/letstrygg/slay-the-spire-2/s1/'" | where_exp: "item", "item.url contains '-ep-'" | sort: "title" -%}
     
     <div id="epGrid" class="ep-grid">
@@ -39,10 +41,8 @@ sync_date: "2026-03-20T23:04:48.178+00:00"
   function toggleEpSort() {
     isAscending = !isAscending;
     sortIcon.innerText = isAscending ? 'arrow_downward' : 'arrow_upward';
-    
     const items = Array.from(epGrid.children);
     items.reverse();
-    
     epGrid.innerHTML = '';
     items.forEach(item => epGrid.appendChild(item));
   }

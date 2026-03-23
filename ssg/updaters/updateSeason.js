@@ -1,12 +1,10 @@
-import fs from 'fs'; // Add this at the top to read the existing index
+import fs from 'fs'; 
 import { getFullSeasonContext } from '../utils/db.js';
 import { writeStaticPage } from '../utils/fileSys.js';
 import { seasonIndexHTML } from '../utils/templates.js';
 import { updateEpisode } from './updateEpisode.js';
 
-// Accept the force flag (defaulting to false)
 export async function updateSeason(playlistId, force = false) {
-    // 1. Fetch DB Context
     const playlist = await getFullSeasonContext(playlistId);
     const series = playlist.ltg_series;
     const gameSlug = series.ltg_games?.slug || series.slug;
@@ -15,18 +13,16 @@ export async function updateSeason(playlistId, force = false) {
 
     console.log(`\n📂 Processing Season: ${series.title} (Season ${seasonNum}) for ${channelSlug}`);
 
-    // Set paths
     const shortPrefix = series.slug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
     const basePath = `yt/${channelSlug}/${gameSlug}/s${Math.floor(seasonNum)}`;
     const indexPath = `${basePath}/index.html`;
+    const manualPath = `${basePath}/_manual/index.html`;
 
-    // Grab the exact string from Supabase, or default to 'never' if the column is entirely empty
     const dbSyncDate = playlist.sync_date || 'never';
 
-    // 2. The Smart Skip Logic
+    // The Smart Skip Logic
     if (!force && fs.existsSync(indexPath)) {
         const existingContent = fs.readFileSync(indexPath, 'utf8');
-        // Regex to extract the sync_date string from the frontmatter
         const match = existingContent.match(/sync_date:\s*"?([^"\r\n]+)"?/);
         
         if (match && match[1] === dbSyncDate) {
@@ -36,7 +32,6 @@ export async function updateSeason(playlistId, force = false) {
         }
     }
 
-    // 3. Sort videos and process episodes (Only runs if force is true, or sync_date changed)
     const videos = playlist.ltg_playlist_videos.sort((a, b) => a.sort_order - b.sort_order);
     console.log(`Found ${videos.length} episodes. Triggering granular updates...`);
 
@@ -50,20 +45,25 @@ export async function updateSeason(playlistId, force = false) {
         }
     }
 
-    // 4. Assemble Data for the Season Index Page
     const templateData = {
         seasonNum: seasonNum,
         seriesTitle: series.title,
         channelSlug: channelSlug,
         gameSlug: gameSlug,
         shortPrefix: shortPrefix,
-        syncDate: dbSyncDate // Pass the timestamp to the template
+        syncDate: dbSyncDate
     };
 
-    // 5. Write the Season Index HTML
+    // Always overwrite the main index
     const seasonHTML = seasonIndexHTML(templateData);
     writeStaticPage(indexPath, seasonHTML);
     console.log(`✅ Season Index generated at: ${indexPath}`);
+
+    // Create the manual fragment if missing
+    if (!fs.existsSync(manualPath)) {
+        writeStaticPage(manualPath, "\n");
+        console.log(`    [CREATED MANUAL FRAGMENT] ${manualPath}`);
+    }
 
     return {
         success: true,
