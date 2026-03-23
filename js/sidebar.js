@@ -9,6 +9,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     // --- 1. TOGGLE & RESPONSIVE STATE LOGIC ---
     let isMobile = window.innerWidth <= 768;
 
+    function updateToggleUI(mobileState) {
+        if (openBtn) {
+            const icon = openBtn.querySelector('.material-symbols-outlined');
+            if (icon) icon.textContent = mobileState ? 'keyboard_double_arrow_up' : 'keyboard_double_arrow_right';
+            if (mobileState) {
+                openBtn.classList.remove('tooltip-bottom');
+            } else {
+                openBtn.classList.add('tooltip-bottom');
+            }
+        }
+        if (closeBtn) {
+            const icon = closeBtn.querySelector('.material-symbols-outlined');
+            if (icon) icon.textContent = mobileState ? 'keyboard_double_arrow_down' : 'keyboard_double_arrow_left';
+            if (mobileState) {
+                closeBtn.classList.remove('tooltip-bottom');
+            } else {
+                closeBtn.classList.add('tooltip-bottom');
+            }
+        }
+    }
+
+    // Set initial icons and tooltips
+    updateToggleUI(isMobile);
+
     window.ltgSidebar = {
         isOpen: !isMobile,
         toggle: function(forceState) {
@@ -51,6 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const isNowMobile = currentWidth <= 768;
         
         if (!wasMobile && isNowMobile) {
+            updateToggleUI(true);
             window.ltgSidebar.toggle(false);
             if (typeof isChatOpen !== 'undefined') {
                 isChatOpen = true;
@@ -58,6 +83,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         } 
         else if (wasMobile && !isNowMobile) {
+            updateToggleUI(false);
             window.ltgSidebar.toggle(true);
             if (typeof isChatOpen !== 'undefined') {
                 isChatOpen = true;
@@ -66,6 +92,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         lastWidth = currentWidth;
     });
+
+    // --- 2. AUTH & DATA FETCHING ---
 
     // --- 2. AUTH & DATA FETCHING ---
     const supabaseUrl = window.SUPABASE_URL;
