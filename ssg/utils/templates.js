@@ -54,7 +54,7 @@ thumbnail: "${safeThumbnail}"
 </div>`;
 }
 
-// Add this to the bottom of ssg/utils/templates.js
+// Inside ssg/utils/templates.js
 export function seasonIndexHTML(data) {
     return `---
 layout: new
@@ -62,6 +62,7 @@ title: "Season ${data.seasonNum} Episodes - ${data.seriesTitle}"
 description: "A complete list of episodes from Season ${data.seasonNum} of the ${data.seriesTitle} Let's Play."
 permalink: /yt/${data.channelSlug}/${data.gameSlug}/s${Math.floor(data.seasonNum)}/
 custom_css: "/css/game/${data.shortPrefix}-style.css"
+sync_date: "${data.syncDate}"
 ---
 
 <div class="game-page-wrapper">

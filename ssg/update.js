@@ -1,17 +1,22 @@
 import { updateEpisode } from './updaters/updateEpisode.js';
-import { updateSeason } from './updaters/updateSeason.js'; // <-- Uncommented
+import { updateSeason } from './updaters/updateSeason.js'; 
 
 async function run() {
     const args = process.argv.slice(2);
-    const command = args[0];
-    const targetId = args[1];
+    
+    // Extract commands and flags
+    const isForce = args.includes('--force') || args.includes('-f');
+    const cleanArgs = args.filter(a => !a.startsWith('-')); // Remove flags so we get the pure command/target
+    
+    const command = cleanArgs[0];
+    const targetId = cleanArgs[1];
 
     if (!command) {
-        console.error("❌ Please provide a command. Example: node update.js episode 5b861ZbgHE4");
+        console.error("❌ Please provide a command. Example: node update.js episode [id]");
         process.exit(1);
     }
 
-    console.log(`\n🚀 Starting Build Process: [${command.toUpperCase()}] -> Target: ${targetId || 'ALL'}`);
+    console.log(`\n🚀 Starting Build Process: [${command.toUpperCase()}] -> Target: ${targetId || 'ALL'} ${isForce ? '(FORCE REBUILD)' : ''}`);
     const startTime = Date.now();
 
     try {
@@ -20,18 +25,18 @@ async function run() {
                 if (!targetId) throw new Error("Missing Video ID.");
                 const epResult = await updateEpisode(targetId);
                 console.log(`✅ Episode HTML generated at: ${epResult.filePath}`);
-                
-                // THE CASCADE: Later, we can uncomment this to auto-update the parent season
-                // console.log(`Triggering cascade update for Season: ${epResult.playlistId}...`);
-                // await updateSeason(epResult.playlistId); 
                 break;
 
-            case 'season': // <-- Implemented
+            case 'season':
                 if (!targetId) throw new Error("Missing Playlist ID.");
-                const seasonResult = await updateSeason(targetId);
-                console.log(`✅ Season complete! Processed ${seasonResult.episodesProcessed} episodes.`);
+                // Pass the force flag down
+                const seasonResult = await updateSeason(targetId, isForce);
                 
-                // THE CASCADE: Next up will be triggering updateSeries(seasonResult.seriesSlug)
+                if (seasonResult.skipped) {
+                    console.log(`⏩ Season skipped (Already up-to-date).`);
+                } else {
+                    console.log(`✅ Season complete! Processed ${seasonResult.episodesProcessed} episodes.`);
+                }
                 break;
 
             default:
