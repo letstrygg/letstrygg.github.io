@@ -7,3 +7,9 @@ supabase login
 supabase functions deploy check-live-status --no-verify-jwt
 
 C:\GitHub\letstrygg\supabase\functions\check-live-status\index.ts
+
+
+cd C:\GitHub\letstrygg\local-tools
+node server.js
+
+Click twitch / youtube (often twice), download. Kick doesn't work, 403 error, can probably use undocumented public api
