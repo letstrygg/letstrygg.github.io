@@ -81,44 +81,51 @@ async function loadStreamFromHash() {
     }
 }
 
-function switchPlatform(platform) {
-    if (!activeStreamer) return;
-    window.location.hash = `${platform}/${activeStreamer}`;
-}
-
 function renderStream() {
+    // 1. Define the platform config and grab the live data array
     const btns = {
-        twitch: document.getElementById('btn-twitch'),
-        youtube: document.getElementById('btn-youtube'),
-        kick: document.getElementById('btn-kick')
+        twitch: { el: document.getElementById('btn-twitch'), color: 'var(--purple)', idKey: 'twitch_channel' },
+        youtube: { el: document.getElementById('btn-youtube'), color: 'var(--red)', idKey: 'youtube_channel_id' },
+        kick: { el: document.getElementById('btn-kick'), color: 'var(--green)', idKey: 'kick_channel' }
     };
 
-    Object.values(btns).forEach(btn => {
-        btn.style.color = 'var(--text)';
-        btn.style.borderColor = 'var(--border)';
-    });
+    const liveData = streamerData ? streamerData.live_data : null;
+    const livePlatforms = (liveData && liveData.is_live && Array.isArray(liveData.platforms)) ? liveData.platforms : [];
 
     let targetId = activeStreamer;
 
-    if (currentPlatform === 'twitch') {
-        btns.twitch.style.color = 'var(--purple)'; 
-        btns.twitch.style.borderColor = 'var(--purple)';
-        targetId = (streamerData && streamerData.twitch_channel) ? streamerData.twitch_channel : activeStreamer;
-    } 
-    else if (currentPlatform === 'youtube') {
-        btns.youtube.style.color = 'var(--red)'; 
-        btns.youtube.style.borderColor = 'var(--red)';
-        targetId = (streamerData && streamerData.youtube_channel_id) ? streamerData.youtube_channel_id : activeStreamer;
-    }
-    else if (currentPlatform === 'kick') {
-        btns.kick.style.color = 'var(--green)'; 
-        btns.kick.style.borderColor = 'var(--green)';
-        targetId = (streamerData && streamerData.kick_channel) ? streamerData.kick_channel : activeStreamer;
-    }
+    // 2. Loop through each platform and apply the visual states
+    Object.keys(btns).forEach(platform => {
+        const btnObj = btns[platform];
+        const btn = btnObj.el;
+        if (!btn) return;
+
+        const icon = btn.querySelector('.material-symbols-outlined');
+        const isLive = livePlatforms.includes(platform);
+        
+        if (currentPlatform === platform) {
+            // STATE 1: ACTIVE PLATFORM (Fully colored button & icon)
+            btn.style.color = btnObj.color;
+            btn.style.borderColor = btnObj.color;
+            if (icon) icon.style.color = btnObj.color;
+            
+            // Set the target ID for the video player while we are here
+            targetId = (streamerData && streamerData[btnObj.idKey]) ? streamerData[btnObj.idKey] : activeStreamer;
+        } else {
+            // STATE 2 & 3: INACTIVE PLATFORM
+            btn.style.color = 'var(--text)';
+            btn.style.borderColor = 'var(--border)';
+            
+            // If they are live, light up the icon! Otherwise, standard color.
+            if (icon) {
+                icon.style.color = isLive ? btnObj.color : 'inherit';
+            }
+        }
+    });
 
     window.dispatchEvent(new CustomEvent('topicChanged', { detail: activeStreamer }));
     
-    // Call the universal player API we are exposing in watch_player.html
+    // Call the universal player API we exposed in watch_player.html
     if (typeof window.startDynamicLivePlayer === 'function') {
         window.startDynamicLivePlayer(currentPlatform, targetId);
     }
