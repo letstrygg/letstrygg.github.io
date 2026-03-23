@@ -191,7 +191,12 @@ if (grabTimeBtn && chatInput) {
             const s = Math.floor(time % 60);
             
             let timeStr = h > 0 ? `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}` : `${m}:${s.toString().padStart(2, '0')}`;
-            chatInput.value += (chatInput.value.length > 0 && !chatInput.value.endsWith(' ') ? ' ' : '') + `(${timeStr}) `;
+            
+            // NEW: Grab the permanent ID and secretly embed it in the chat text!
+            let permId = typeof window.getPermanentVideoId === 'function' ? window.getPermanentVideoId() : null;
+            let appendStr = permId ? `(${timeStr}|${permId})` : `(${timeStr})`;
+
+            chatInput.value += (chatInput.value.length > 0 && !chatInput.value.endsWith(' ') ? ' ' : '') + appendStr + ' ';
             chatInput.focus();
         } else if (statusMessage) {
             statusMessage.textContent = "Play video to grab time.";
@@ -437,30 +442,39 @@ function renderMessages() {
 
         let formattedMessage = row.message;
         if (row.url) {
-            // STRICT MATCH: Must match both pathname and hash to trigger the in-page JS jump
             const currentFullUrl = window.location.pathname + window.location.hash;
             const isCurrentPage = (row.url === currentFullUrl);
             const isInternal = row.url.startsWith('/');
             const targetAttr = isInternal ? '' : 'target="_blank"';
             
-            formattedMessage = formattedMessage.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, (match, timeStr) => {
+            // NEW: Regex catches the time AND the hidden VOD ID (if it exists)
+            formattedMessage = formattedMessage.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)(?:\|([a-zA-Z0-9_-]{11}))?\)/g, (match, timeStr, explicitVodId) => {
                 let parts = timeStr.split(':').reverse();
                 let seconds = 0;
                 for (let i = 0; i < parts.length; i++) seconds += parseInt(parts[i]) * Math.pow(60, i);
                 
-                if (isCurrentPage && typeof window.triggerInPageJump === 'function') {
-                    // FIXED: javascript:void(0) prevents the page from jumping to the top!
+                const currentPermId = typeof window.getPermanentVideoId === 'function' ? window.getPermanentVideoId() : null;
+                const isMatchingVod = explicitVodId && currentPermId === explicitVodId;
+
+                // Jump in-page if they are on the same page OR currently watching the matched VOD
+                if ((isCurrentPage || isMatchingVod) && typeof window.triggerInPageJump === 'function') {
                     return `<a href="javascript:void(0);" onclick="window.triggerInPageJump(${seconds});" class="yt-time-link">${timeStr}</a>`;
                 } else {
-                    // Smart URL Constructor: Forces ?t= to sit BEFORE the # so the browser can read it
                     let timeUrl = '';
-                    if (row.url.includes('#')) {
-                        const urlParts = row.url.split('#');
-                        const separator = urlParts[0].includes('?') ? '&' : '?';
-                        timeUrl = `${urlParts[0]}${separator}t=${seconds}#${urlParts.slice(1).join('#')}`;
+                    
+                    if (explicitVodId) {
+                        // Point the timestamp explicitly to the permanent VOD player
+                        timeUrl = `/yt/?t=${seconds}#${explicitVodId}`;
                     } else {
-                        const separator = row.url.includes('?') ? '&' : '?';
-                        timeUrl = `${row.url}${separator}t=${seconds}`;
+                        // Fallback logic for standard URLs
+                        if (row.url.includes('#')) {
+                            const urlParts = row.url.split('#');
+                            const separator = urlParts[0].includes('?') ? '&' : '?';
+                            timeUrl = `${urlParts[0]}${separator}t=${seconds}#${urlParts.slice(1).join('#')}`;
+                        } else {
+                            const separator = row.url.includes('?') ? '&' : '?';
+                            timeUrl = `${row.url}${separator}t=${seconds}`;
+                        }
                     }
                     return `<a href="${timeUrl}" ${targetAttr} class="yt-time-link">${timeStr}</a>`;
                 }
@@ -559,16 +573,8 @@ if (sendBtn && chatInput) {
         if (!text || !currentSession || !supabaseClient) return;
         sendBtn.disabled = true;
         
-        // THE API HEIST: Try to get the permanent VOD ID from the player
+        // Strict URL grabbing. The Icon will point to this URL.
         let msgUrl = window.location.pathname + window.location.hash;
-        
-        if (typeof window.getPermanentVideoId === 'function') {
-            const permanentId = window.getPermanentVideoId();
-            if (permanentId) {
-                // Silently rewrite the URL to the permanent VOD!
-                msgUrl = '/yt/#' + permanentId;
-            }
-        }
 
         const { error } = await supabaseClient.from('ltg_chat').insert([{ 
             message: text, 

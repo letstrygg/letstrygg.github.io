@@ -30,7 +30,8 @@ async function fetchStreamerData(slug) {
     
     if (!supabaseUrl || !supabaseKey) return null;
     try {
-        const response = await fetch(`${supabaseUrl}/rest/v1/ltg_streamers?slug=eq.${slug}&select=*`, {
+        // FIXED: Queries ltg_channels and safely searches slugs or raw platform IDs
+        const response = await fetch(`${supabaseUrl}/rest/v1/ltg_channels?or=(slug.eq.${slug},youtube_channel_id.eq.${slug},twitch_channel.eq.${slug})&select=*`, {
             headers: { 'apikey': supabaseKey, 'Authorization': `Bearer ${supabaseKey}` }
         });
         const data = await response.json();
