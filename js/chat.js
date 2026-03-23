@@ -52,9 +52,13 @@ function updateChatVisibility() {
         document.body.classList.add('chat-open-squish');
         openChatBtn.style.display = 'none';
         
-        // ADD THIS: Clear the unread dot when chat opens
         const unreadDot = document.getElementById('chat-unread-dot');
         if (unreadDot) unreadDot.style.display = 'none';
+        
+        // NEW: Mobile Mutual Exclusivity. If Chat opens on mobile, close the Sidebar.
+        if (window.innerWidth <= 768 && window.ltgSidebar && window.ltgSidebar.isOpen) {
+            window.ltgSidebar.toggle(false);
+        }
         
     } else {
         document.body.classList.remove('chat-open-squish');
@@ -672,3 +676,16 @@ if (sendBtn && chatInput) {
     });
     chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendBtn.click(); });
 }
+
+// GLOBAL CHAT HOTKEY ('C')
+document.addEventListener('keydown', function(e) {
+    const activeElement = document.activeElement;
+    const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
+    if (isInput) return; 
+
+    if (e.key.toLowerCase() === 'c') {
+        e.preventDefault();
+        isChatOpen = !isChatOpen;
+        updateChatVisibility();
+    }
+});

@@ -1,130 +1,140 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const sidebar = document.getElementById('ltg-left-sidebar');
-    if (!sidebar) return;
+    const content = document.getElementById('sidebar-content');
+    const openBtn = document.getElementById('openSidebarBtn');
+    const closeBtn = document.getElementById('closeSidebarBtn');
+    
+    if (!sidebar || !content) return;
 
-    // Prevent crash if variables aren't loaded
+    // --- 1. TOGGLE & MOBILE EXCLUSIVITY LOGIC ---
+    window.ltgSidebar = {
+        isOpen: localStorage.getItem('sidebarOpen') === 'true',
+        toggle: function(forceState) {
+            this.isOpen = typeof forceState === 'boolean' ? forceState : !this.isOpen;
+            localStorage.setItem('sidebarOpen', this.isOpen);
+            
+            if (this.isOpen) {
+                document.body.classList.add('sidebar-open-squish');
+                if (openBtn) openBtn.style.display = 'none';
+                
+                // MOBILE EXCLUSIVITY: Close Chat if opening Sidebar
+                if (window.innerWidth <= 768 && typeof isChatOpen !== 'undefined' && isChatOpen) {
+                    isChatOpen = false;
+                    if (typeof updateChatVisibility === 'function') updateChatVisibility();
+                }
+            } else {
+                document.body.classList.remove('sidebar-open-squish');
+                if (openBtn) openBtn.style.display = 'flex';
+            }
+        }
+    };
+
+    // Initialize State
+    window.ltgSidebar.toggle(window.ltgSidebar.isOpen);
+    if (openBtn) openBtn.addEventListener('click', () => window.ltgSidebar.toggle(true));
+    if (closeBtn) closeBtn.addEventListener('click', () => window.ltgSidebar.toggle(false));
+
+    // Global Hotkey 'D'
+    document.addEventListener('keydown', function(e) {
+        const activeElement = document.activeElement;
+        const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
+        if (isInput) return; 
+
+        if (e.key.toLowerCase() === 'd') {
+            e.preventDefault();
+            window.ltgSidebar.toggle();
+        }
+    });
+
+    // --- 2. AUTH & DATA FETCHING ---
     const supabaseUrl = window.SUPABASE_URL;
     const supabaseKey = window.SUPABASE_ANON_KEY;
     if (!supabaseUrl || !supabaseKey) return;
     
     const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-    // 1. Check Auth Status
     const { data: authData } = await supabaseClient.auth.getSession();
     const session = authData.session;
 
     if (!session) {
-        sidebar.style.display = 'none'; // Hide sidebar if logged out
+        if (openBtn) openBtn.style.display = 'none'; // Hide access if logged out
         return;
     }
 
-    sidebar.style.display = 'flex'; // Show sidebar
-
-    // 2. Fetch User Preferences and Followed Channels
     const defaultPrefs = ['twitch', 'youtube', 'kick'];
     let userPrefs = defaultPrefs;
 
     const [profileRes, followsRes] = await Promise.all([
         supabaseClient.from('ltg_profiles').select('platform_prefs').eq('user_id', session.user.id).maybeSingle(),
         supabaseClient.from('ltg_channels_followed')
-            .select(`
-                channel_slug,
-                ltg_channels (
-                    slug,
-                    display_name,
-                    live_data
-                )
-            `)
+            .select(`channel_slug, ltg_channels (slug, display_name, live_data)`)
             .eq('user_id', session.user.id)
     ]);
 
-    if (profileRes.data && profileRes.data.platform_prefs) {
-        userPrefs = profileRes.data.platform_prefs;
-    }
-
+    if (profileRes.data && profileRes.data.platform_prefs) userPrefs = profileRes.data.platform_prefs;
     const followedChannels = followsRes.data ? followsRes.data.map(f => f.ltg_channels).filter(c => c !== null) : [];
 
-    // 3. Routing Logic: Find the preferred active platform
+    // --- 3. ROUTING & SORTING LOGIC ---
     function getBestLiveRoute(channel) {
         const liveData = channel.live_data || {};
         if (!liveData.is_live || !Array.isArray(liveData.platforms) || liveData.platforms.length === 0) {
-            return { isLive: false, platform: null, url: `/live/#twitch/${channel.slug}` }; // Default offline route
+            return { isLive: false, platform: null, url: `/live/#twitch/${channel.slug}` };
         }
 
-        // Loop through user preferences in order. First match wins!
+        // Loop user preferences, return first active match
         for (const pref of userPrefs) {
-            if (liveData.platforms.includes(pref)) {
-                return { isLive: true, platform: pref, url: `/live/#${pref}/${channel.slug}` };
-            }
+            if (liveData.platforms.includes(pref)) return { isLive: true, platform: pref, url: `/live/#${pref}/${channel.slug}` };
         }
 
-        // Fallback: If they are live, but not on a preferred platform, grab the first available
-        const fallbackPlat = liveData.platforms[0];
-        return { isLive: true, platform: fallbackPlat, url: `/live/#${fallbackPlat}/${channel.slug}` };
+        // Fallback if live but not on a preferred platform
+        return { isLive: true, platform: liveData.platforms[0], url: `/live/#${liveData.platforms[0]}/${channel.slug}` };
     }
 
-    // 4. Sort Channels (Live on top, then alphabetical)
-    const processedChannels = followedChannels.map(ch => {
-        const route = getBestLiveRoute(ch);
-        return { ...ch, route };
-    });
+    let processedChannels = followedChannels.map(ch => ({ ...ch, route: getBestLiveRoute(ch) }));
 
-    processedChannels.sort((a, b) => {
-        if (a.route.isLive && !b.route.isLive) return -1;
-        if (!a.route.isLive && b.route.isLive) return 1;
-        const nameA = (a.display_name || a.slug).toLowerCase();
-        const nameB = (b.display_name || b.slug).toLowerCase();
-        return nameA.localeCompare(nameB);
-    });
+    function sortAndRender() {
+        processedChannels.sort((a, b) => {
+            if (a.route.isLive && !b.route.isLive) return -1;
+            if (!a.route.isLive && b.route.isLive) return 1;
+            const nameA = (a.display_name || a.slug).toLowerCase();
+            const nameB = (b.display_name || b.slug).toLowerCase();
+            return nameA.localeCompare(nameB);
+        });
 
-    // 5. Render the Sidebar
-    function renderSidebar() {
-        sidebar.innerHTML = '';
-
+        content.innerHTML = '';
         processedChannels.forEach(ch => {
             const displayName = ch.display_name || ch.slug;
             const firstLetter = displayName.charAt(0);
-            
-            // Expected image path
             const imgPath = `/assets/avatars/${ch.slug}/sm.webp`;
             
-            // Status classes
             const statusClass = ch.route.isLive ? `live-${ch.route.platform}` : 'offline';
-            const tooltipText = ch.route.isLive ? `${displayName} (Live on ${ch.route.platform})` : `${displayName} (Offline)`;
+            const iconHtml = ch.route.isLive ? 'sensors' : ''; // Material icon dot
+            const iconColor = ch.route.platform === 'twitch' ? 'var(--purple)' : ch.route.platform === 'youtube' ? 'var(--red)' : 'var(--green)';
 
-            // HTML Structure: The image has an onerror attribute that hides it if the file doesn't exist, revealing the initial underneath.
-            const avatarHtml = `
-                <a href="${ch.route.url}" class="sidebar-avatar-wrapper tooltip-right ${statusClass}" data-tooltip="${tooltipText}">
-                    <div class="sidebar-avatar-fallback">${firstLetter}</div>
-                    <img src="${imgPath}" class="sidebar-avatar-img" alt="${displayName}" onerror="this.style.display='none'">
+            const rowHtml = `
+                <a href="${ch.route.url}" class="sidebar-row tooltip-right" data-tooltip="${displayName}">
+                    <div class="sidebar-avatar-wrapper ${statusClass}">
+                        <div class="sidebar-avatar-fallback">${firstLetter}</div>
+                        <img src="${imgPath}" class="sidebar-avatar-img" alt="${displayName}" onerror="this.style.display='none'">
+                    </div>
+                    <span class="sidebar-name">${displayName}</span>
+                    ${ch.route.isLive ? `<span class="material-symbols-outlined sidebar-status-icon" style="color: ${iconColor};">sensors</span>` : ''}
                 </a>
             `;
-
-            sidebar.insertAdjacentHTML('beforeend', avatarHtml);
+            content.insertAdjacentHTML('beforeend', rowHtml);
         });
     }
 
-    renderSidebar();
+    sortAndRender();
 
-    // 6. Realtime Updates (Optional but highly recommended)
+    // --- 4. REALTIME LISTENER ---
     const sidebarChannel = supabaseClient.channel('sidebar_updates');
     sidebarChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_channels' }, payload => {
         const updated = payload.new;
         const index = processedChannels.findIndex(c => c.slug === updated.slug);
-        
         if (index !== -1) {
             processedChannels[index].live_data = updated.live_data;
             processedChannels[index].route = getBestLiveRoute(processedChannels[index]);
-            
-            // Resort and Re-render to bump them to the top if they went live
-            processedChannels.sort((a, b) => {
-                if (a.route.isLive && !b.route.isLive) return -1;
-                if (!a.route.isLive && b.route.isLive) return 1;
-                const nameA = (a.display_name || a.slug).toLowerCase();
-                const nameB = (b.display_name || b.slug).toLowerCase();
-                return nameA.localeCompare(nameB);
-            });
-            renderSidebar();
+            sortAndRender();
         }
     });
     sidebarChannel.subscribe();
