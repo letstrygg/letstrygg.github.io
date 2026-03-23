@@ -7,9 +7,11 @@ var liveChannelId = null;
 var resolvedLiveVodId = null; 
 var activePlayerPlatform = 'youtube'; 
 
-var storageKey, originalSavedTime, urlParams, urlTime, isPreviewing, startTime, player, saveInterval;
-let hasAutoSeeked = false; // Prevents an infinite seek loop
-let isMutingForSeek = false; // NEW: Tracks the split-second mute hack
+// REMOVED: isPreviewing variable is gone!
+var storageKey, originalSavedTime, urlParams, urlTime, startTime, player, saveInterval;
+let hasAutoSeeked = false; 
+let isMutingForSeek = false; 
+let hasInitialBookmark = false; // NEW: Replaces isPreviewing for the initial load
 
 const actionOverlay = document.getElementById('action-overlay');
 const actionOverlayIcon = document.getElementById('action-overlay-icon');
@@ -186,7 +188,6 @@ document.addEventListener('keydown', function(e) {
 
 updateSpeedUI();
 
-// Expose the permanent video ID so the Chat can steal it for permanent timestamps!
 window.getPermanentVideoId = function() {
     return resolvedLiveVodId || activeVideoId || null;
 };
@@ -194,16 +195,16 @@ window.getPermanentVideoId = function() {
 function setupPlayerData(vidId) {
     activeVideoId = vidId;
     resolvedLiveVodId = null; 
-    hasAutoSeeked = false; // Reset on load
+    hasAutoSeeked = false; 
     
-    // Fallback key if vidId is null (Live Streams)
     storageKey = 'yt_resume_' + (activeVideoId || 'live');
     originalSavedTime = parseFloat(localStorage.getItem(storageKey)) || 0;
     
     urlParams = new URLSearchParams(window.location.search);
     urlTime = urlParams.get('t') ? parseFloat(urlParams.get('t')) : null;
     
-    isPreviewing = urlTime !== null && originalSavedTime > 0 && Math.abs(urlTime - originalSavedTime) > 5;
+    // Set the initial Bookmark flag if they load the page via a timestamp URL
+    hasInitialBookmark = urlTime !== null && originalSavedTime > 0 && Math.abs(urlTime - originalSavedTime) > 5;
     startTime = urlTime !== null ? urlTime : originalSavedTime;
 }
 
@@ -226,9 +227,8 @@ window.startDynamicPlayer = function(vidId) {
 window.startDynamicLivePlayer = function(platform, streamId) {
     activePlayerPlatform = platform;
     
-    // FIXED: Call this so urlTime is extracted flawlessly before the iframe loads!
     setupPlayerData(null); 
-    liveChannelId = streamId; // Set after setup clears it
+    liveChannelId = streamId; 
 
     const target = document.getElementById('stream-embed-target');
     const speedControls = document.getElementById('speed-control-container');
@@ -289,9 +289,6 @@ function onPlayerStateChange(event) {
       document.activeElement.blur();
   }
 
-  // NEW: The "Split-Second Audio Hack"
-  // When the user clicks the red play button, the video buffers (State 3) before it plays (State 1).
-  // We mute it instantly during the buffer so the live edge audio doesn't bleed through.
   if (event.data === 3) { // BUFFERING
       if (liveChannelId && urlTime !== null && !hasAutoSeeked) {
           player.mute();
@@ -301,23 +298,20 @@ function onPlayerStateChange(event) {
 
   if (event.data === 1) { // PLAYING
       
-      // FIXED: The missing Live Stream Auto-Seek
       if (urlTime !== null && !hasAutoSeeked) {
           hasAutoSeeked = true;
           if (liveChannelId) {
               player.seekTo(urlTime, true);
               
-              // Now that the playhead has safely moved to the timestamp, we restore the audio!
               setTimeout(() => {
                   if (isMutingForSeek) {
                       player.unMute();
                       isMutingForSeek = false;
                   }
-              }, 400); // 400ms is enough to clear the old audio buffer
+              }, 400); 
           }
       }
 
-      // THE API HEIST!
       if (liveChannelId && !resolvedLiveVodId) {
           const videoData = player.getVideoData();
           if (videoData && videoData.video_id) {
@@ -325,22 +319,19 @@ function onPlayerStateChange(event) {
               storageKey = 'yt_resume_' + resolvedLiveVodId;
               originalSavedTime = parseFloat(localStorage.getItem(storageKey)) || 0;
               
-              // Recalculate preview state for Live Streams using the real saved time
-              isPreviewing = urlTime !== null && originalSavedTime > 0 && Math.abs(urlTime - originalSavedTime) > 5;
-              
-              if (originalSavedTime > 0) {
-                  // Only show resume button if not previewing a specific link
-                  if (urlTime === null || isPreviewing) {
-                      updateResumeButtonUI(originalSavedTime);
-                  }
+              // If they had a bookmark before clicking the stream, show it now
+              if (originalSavedTime > 0 && (urlTime === null || hasInitialBookmark)) {
+                  updateResumeButtonUI(originalSavedTime);
               }
           }
       }
 
       player.setPlaybackRate(currentSpeed);
+      
+      // FIXED: The auto-saver now ALWAYS runs every 5 seconds, ignoring bookmarks!
       if (!saveInterval) {
           saveInterval = setInterval(function() {
-              if (!isPreviewing && (activeVideoId || resolvedLiveVodId)) {
+              if (activeVideoId || resolvedLiveVodId) {
                   localStorage.setItem(storageKey, player.getCurrentTime());
               }
           }, 5000);
@@ -361,6 +352,7 @@ function onPlayerStateChange(event) {
 
 const resumeBtn = document.getElementById('resume-btn');
 const resumeText = document.getElementById('resume-time-text');
+const resumeCloseBtn = document.getElementById('resume-close-btn');
 
 function updateResumeButtonUI(timeVal) {
     if(!resumeBtn || !resumeText) return;
@@ -375,27 +367,38 @@ function updateResumeButtonUI(timeVal) {
 }
 
 if (resumeBtn) {
+    // The main button jumps back in time
     resumeBtn.addEventListener('click', function(e) {
-        e.preventDefault(); // FIXED: Stop rogue HTML button clicks
-        isPreviewing = false; 
+        e.preventDefault(); 
         player.seekTo(originalSavedTime, true);
         resumeBtn.style.display = 'none';
-        // FIXED: Preserves the hash (e.g., #youtube/jorbs) so you don't get kicked to /live/
         history.replaceState(null, '', window.location.pathname + window.location.hash); 
     });
 }
 
-if (isPreviewing) updateResumeButtonUI(originalSavedTime);
+if (resumeCloseBtn) {
+    // The X button closes the bookmark without jumping
+    resumeCloseBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation(); // Stops the main Resume jump from firing!
+        resumeBtn.style.display = 'none';
+        history.replaceState(null, '', window.location.pathname + window.location.hash); 
+    });
+}
+
+// Check if we need to show the bookmark on initial page load
+if (hasInitialBookmark) updateResumeButtonUI(originalSavedTime);
 
 window.triggerInPageJump = function(targetSeconds) {
     if (typeof player === 'undefined' || !player || typeof player.getCurrentTime !== 'function') return;
     
-    if (!isPreviewing && (activeVideoId || resolvedLiveVodId)) {
+    // Only drop a bookmark if the button isn't ALREADY on the screen
+    if ((activeVideoId || resolvedLiveVodId) && resumeBtn && resumeBtn.style.display === 'none') {
         originalSavedTime = player.getCurrentTime();
-        isPreviewing = true;
+        updateResumeButtonUI(originalSavedTime);
     }
+    
     player.seekTo(targetSeconds, true);
-    if (activeVideoId || resolvedLiveVodId) updateResumeButtonUI(originalSavedTime);
 };
 
 const copyBtn = document.getElementById('copy-time-btn');

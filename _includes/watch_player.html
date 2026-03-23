@@ -96,9 +96,12 @@
                         <span class="material-symbols-outlined">keyboard</span>
                     </button>
 
-                    <button id="resume-btn" class="btn" style="display: none; background: var(--bg); color: var(--text); border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; font-weight: bold; align-items: center; gap: 4px; cursor: pointer; transition: background 0.2s;" data-tooltip="Return to saved place">
-                        <span class="material-symbols-outlined" style="font-size: 16px;">fast_rewind</span>
-                        <span id="resume-time-text" style="font-size: 12px;"></span>
+                    <button id="resume-btn" class="btn" style="display: none; background: var(--bg); color: var(--text); border: 1px solid var(--border); padding: 4px 4px 4px 10px; border-radius: 4px; font-weight: bold; align-items: center; gap: 6px; cursor: pointer; transition: background 0.2s;" data-tooltip="Return to saved place">
+                        <div style="display: flex; align-items: center; gap: 4px;">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">fast_rewind</span>
+                            <span id="resume-time-text" style="font-size: 12px;"></span>
+                        </div>
+                        <div id="resume-close-btn" class="material-symbols-outlined" style="font-size: 16px; opacity: 0.6; border-radius: 50%; padding: 2px; transition: 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.opacity='1'" onmouseout="this.style.background='transparent'; this.style.opacity='0.6'">close</div>
                     </button>
 
                     {% if include.video_id %}
