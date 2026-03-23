@@ -172,7 +172,7 @@
   var isDynamicPage = (templateVideoId === '');
   var activeVideoId = templateVideoId;
   var liveChannelId = null;
-  var currentPlatform = 'youtube'; // Default safety flag
+  var activePlayerPlatform = 'youtube'; // FIXED: Namespace collision with live/index.html
 
   var storageKey, originalSavedTime, urlParams, urlTime, isPreviewing, startTime, player, saveInterval;
 
@@ -284,7 +284,6 @@
       const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
       if (isInput) return; 
 
-      // Universal Cross-Platform Hotkeys
       if (e.key.toLowerCase() === 'f') { toggleTheater(); return; }
       if (e.key.toLowerCase() === 's') { toggleShortcuts(); return; }
       if (e.key.toLowerCase() === 'c') {
@@ -298,8 +297,7 @@
           return;
       }
 
-      // DO NOT steal generic keys if Twitch or Kick is active, they need them!
-      if (currentPlatform !== 'youtube') return;
+      if (activePlayerPlatform !== 'youtube') return;
 
       if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
           e.preventDefault(); 
@@ -367,14 +365,13 @@
   }
 
   if (!isDynamicPage) {
-      currentPlatform = 'youtube';
+      activePlayerPlatform = 'youtube';
       setupPlayerData(templateVideoId);
       injectYouTubeAPI();
   }
 
-  // VOD Interface
   window.startDynamicPlayer = function(vidId) {
-      currentPlatform = 'youtube';
+      activePlayerPlatform = 'youtube';
       liveChannelId = null;
       setupPlayerData(vidId);
       injectYouTubeAPI();
@@ -383,9 +380,8 @@
       if (copyBtn) copyBtn.style.display = 'inline-flex';
   };
 
-  // NEW: Live Stream Interface
   window.startDynamicLivePlayer = function(platform, streamId) {
-      currentPlatform = platform;
+      activePlayerPlatform = platform;
       const target = document.getElementById('stream-embed-target');
       const speedControls = document.getElementById('speed-control-container');
       const controlsBtn = document.getElementById('controls-btn');
@@ -397,12 +393,11 @@
           
           if(speedControls) speedControls.style.display = 'flex';
           if(controlsBtn) controlsBtn.style.display = 'inline-flex';
-          if(copyBtn) copyBtn.style.display = 'none'; // Timestamps useless on live
+          if(copyBtn) copyBtn.style.display = 'none'; 
 
           target.innerHTML = '<iframe id="ytplayer" src="https://www.youtube.com/embed/live_stream?channel=' + streamId + '&enablejsapi=1&rel=0&modestbranding=1&autoplay=1" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>';
           injectYouTubeAPI();
       } else {
-          // Hide YouTube specific controls for Twitch/Kick
           if(speedControls) speedControls.style.display = 'none';
           if(controlsBtn) controlsBtn.style.display = 'none';
           if(copyBtn) copyBtn.style.display = 'none';
@@ -436,7 +431,6 @@
     if (!activeVideoId && !liveChannelId) return;
     var iframe = document.getElementById('ytplayer');
     
-    // Only append src if it's a VOD (Live explicitly injects it above)
     if (activeVideoId) {
         iframe.src = "https://www.youtube.com/embed/" + activeVideoId + "?enablejsapi=1&rel=0&modestbranding=1&fs=1&autoplay=1&start=" + Math.floor(startTime);
     }
