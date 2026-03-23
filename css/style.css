@@ -127,7 +127,7 @@ header { text-align: center; padding: 20px 0; }
 }
 
 /* --- NAVIGATION & LISTS --- */
-.breadcrumbs { margin-bottom: 25px; font-size: 1.05rem; }
+.breadcrumbs { font-size: 1.05rem; }
 .breadcrumbs a {
     color: var(--blue);
     font-weight: 500;
