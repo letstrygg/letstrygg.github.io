@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const session = authData.session;
 
     if (!session) {
-        if (openBtn) openBtn.style.display = 'none'; // Hide access if logged out
+        if (openBtn) openBtn.style.display = 'none';
         return;
     }
 
@@ -80,12 +80,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             return { isLive: false, platform: null, url: `/live/#twitch/${channel.slug}` };
         }
 
-        // Loop user preferences, return first active match
         for (const pref of userPrefs) {
             if (liveData.platforms.includes(pref)) return { isLive: true, platform: pref, url: `/live/#${pref}/${channel.slug}` };
         }
-
-        // Fallback if live but not on a preferred platform
         return { isLive: true, platform: liveData.platforms[0], url: `/live/#${liveData.platforms[0]}/${channel.slug}` };
     }
 
@@ -107,17 +104,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             const imgPath = `/assets/avatars/${ch.slug}/sm.webp`;
             
             const statusClass = ch.route.isLive ? `live-${ch.route.platform}` : 'offline';
-            const iconHtml = ch.route.isLive ? 'sensors' : ''; // Material icon dot
-            const iconColor = ch.route.platform === 'twitch' ? 'var(--purple)' : ch.route.platform === 'youtube' ? 'var(--red)' : 'var(--green)';
+            const tooltipText = ch.route.isLive ? `${displayName} (Live on ${ch.route.platform})` : `${displayName} (Offline)`;
 
+            // Pure Avatar Injection (No text)
             const rowHtml = `
-                <a href="${ch.route.url}" class="sidebar-row tooltip-right" data-tooltip="${displayName}">
-                    <div class="sidebar-avatar-wrapper ${statusClass}">
-                        <div class="sidebar-avatar-fallback">${firstLetter}</div>
-                        <img src="${imgPath}" class="sidebar-avatar-img" alt="${displayName}" onerror="this.style.display='none'">
-                    </div>
-                    <span class="sidebar-name">${displayName}</span>
-                    ${ch.route.isLive ? `<span class="material-symbols-outlined sidebar-status-icon" style="color: ${iconColor};">sensors</span>` : ''}
+                <a href="${ch.route.url}" class="sidebar-avatar-wrapper tooltip-right ${statusClass}" data-tooltip="${tooltipText}">
+                    <div class="sidebar-avatar-fallback">${firstLetter}</div>
+                    <img src="${imgPath}" class="sidebar-avatar-img" alt="${displayName}" onerror="this.style.display='none'">
                 </a>
             `;
             content.insertAdjacentHTML('beforeend', rowHtml);
