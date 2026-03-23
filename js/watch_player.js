@@ -4,11 +4,11 @@ var templateVideoId = window.ltgPlayerConfig ? window.ltgPlayerConfig.videoId : 
 var isDynamicPage = (templateVideoId === '');
 var activeVideoId = templateVideoId;
 var liveChannelId = null;
-var resolvedLiveVodId = null; // NEW: Holds the permanent ID of the livestream
+var resolvedLiveVodId = null; 
 var activePlayerPlatform = 'youtube'; 
 
 var storageKey, originalSavedTime, urlParams, urlTime, isPreviewing, startTime, player, saveInterval;
-let hasAutoSeeked = false;
+let hasAutoSeeked = false; // NEW: Prevents an infinite seek loop
 
 const actionOverlay = document.getElementById('action-overlay');
 const actionOverlayIcon = document.getElementById('action-overlay-icon');
@@ -185,13 +185,23 @@ document.addEventListener('keydown', function(e) {
 
 updateSpeedUI();
 
+// Expose the permanent video ID so the Chat can steal it for permanent timestamps!
+window.getPermanentVideoId = function() {
+    return resolvedLiveVodId || activeVideoId || null;
+};
+
 function setupPlayerData(vidId) {
     activeVideoId = vidId;
-    resolvedLiveVodId = null; // Reset on new load
-    storageKey = 'yt_resume_' + activeVideoId;
+    resolvedLiveVodId = null; 
+    hasAutoSeeked = false; // Reset on load
+    
+    // Fallback key if vidId is null (Live Streams)
+    storageKey = 'yt_resume_' + (activeVideoId || 'live');
     originalSavedTime = parseFloat(localStorage.getItem(storageKey)) || 0;
+    
     urlParams = new URLSearchParams(window.location.search);
     urlTime = urlParams.get('t') ? parseFloat(urlParams.get('t')) : null;
+    
     isPreviewing = urlTime !== null && originalSavedTime > 0 && Math.abs(urlTime - originalSavedTime) > 5;
     startTime = urlTime !== null ? urlTime : originalSavedTime;
 }
@@ -214,17 +224,17 @@ window.startDynamicPlayer = function(vidId) {
 
 window.startDynamicLivePlayer = function(platform, streamId) {
     activePlayerPlatform = platform;
-    resolvedLiveVodId = null; // Reset
+    
+    // FIXED: Call this so urlTime is extracted flawlessly before the iframe loads!
+    setupPlayerData(null); 
+    liveChannelId = streamId; // Set after setup clears it
+
     const target = document.getElementById('stream-embed-target');
     const speedControls = document.getElementById('speed-control-container');
     const controlsBtn = document.getElementById('controls-btn');
     const copyBtn = document.getElementById('copy-time-btn');
 
     if (platform === 'youtube') {
-        liveChannelId = streamId;
-        activeVideoId = null; 
-        
-        // EVERYTHING stays visible for YouTube Live now
         if(speedControls) speedControls.style.display = 'flex';
         if(controlsBtn) controlsBtn.style.display = 'inline-flex';
         if(copyBtn) copyBtn.style.display = 'inline-flex'; 
@@ -280,10 +290,14 @@ function onPlayerStateChange(event) {
 
   if (event.data === 1) { // PLAYING
       
-      // NEW: Manually force the timestamp seek for Live Streams
+      // FIXED: The missing Live Stream Auto-Seek
       if (urlTime !== null && !hasAutoSeeked) {
           hasAutoSeeked = true;
-          player.seekTo(urlTime, true);
+          // Standard VODs auto-seek using the iframe 'start=' param. 
+          // Live streams ignore that parameter, so we force the jump here.
+          if (liveChannelId) {
+              player.seekTo(urlTime, true);
+          }
       }
 
       // THE API HEIST!
@@ -291,14 +305,17 @@ function onPlayerStateChange(event) {
           const videoData = player.getVideoData();
           if (videoData && videoData.video_id) {
               resolvedLiveVodId = videoData.video_id;
-              
-              // Migrate the storage key so saving works seamlessly
               storageKey = 'yt_resume_' + resolvedLiveVodId;
               originalSavedTime = parseFloat(localStorage.getItem(storageKey)) || 0;
               
-              // If they actually had a saved time for this VOD, show the resume button!
+              // Recalculate preview state for Live Streams using the real saved time
+              isPreviewing = urlTime !== null && originalSavedTime > 0 && Math.abs(urlTime - originalSavedTime) > 5;
+              
               if (originalSavedTime > 0) {
-                  updateResumeButtonUI(originalSavedTime);
+                  // Only show resume button if not previewing a specific link
+                  if (urlTime === null || isPreviewing) {
+                      updateResumeButtonUI(originalSavedTime);
+                  }
               }
           }
       }
@@ -306,7 +323,6 @@ function onPlayerStateChange(event) {
       player.setPlaybackRate(currentSpeed);
       if (!saveInterval) {
           saveInterval = setInterval(function() {
-              // We can now save progress for activeVideoId OR a resolvedLiveVodId
               if (!isPreviewing && (activeVideoId || resolvedLiveVodId)) {
                   localStorage.setItem(storageKey, player.getCurrentTime());
               }
@@ -343,14 +359,12 @@ function updateResumeButtonUI(timeVal) {
 
 if (resumeBtn) {
     resumeBtn.addEventListener('click', function(e) {
-        e.preventDefault(); // Stop any rogue button clicks
+        e.preventDefault(); // FIXED: Stop rogue HTML button clicks
         isPreviewing = false; 
         player.seekTo(originalSavedTime, true);
         resumeBtn.style.display = 'none';
-        
-        // Explicitly build the clean URL (keeps the hash, drops the ?t=)
-        const cleanUrl = window.location.pathname + window.location.hash;
-        history.replaceState(null, '', cleanUrl); 
+        // FIXED: Preserves the hash (e.g., #youtube/jorbs) so you don't get kicked to /live/
+        history.replaceState(null, '', window.location.pathname + window.location.hash); 
     });
 }
 
@@ -359,7 +373,6 @@ if (isPreviewing) updateResumeButtonUI(originalSavedTime);
 window.triggerInPageJump = function(targetSeconds) {
     if (typeof player === 'undefined' || !player || typeof player.getCurrentTime !== 'function') return;
     
-    // We can jump if we have a standard ID OR a resolved live ID
     if (!isPreviewing && (activeVideoId || resolvedLiveVodId)) {
         originalSavedTime = player.getCurrentTime();
         isPreviewing = true;
@@ -371,8 +384,6 @@ window.triggerInPageJump = function(targetSeconds) {
 const copyBtn = document.getElementById('copy-time-btn');
 if (copyBtn) {
     copyBtn.addEventListener('click', function() {
-        // NEW: Future-Proof Timestamp generation
-        // Uses the active ID, or the extracted permanent VOD ID if on a livestream
         const targetId = activeVideoId || resolvedLiveVodId;
 
         if (player && player.getCurrentTime && targetId) {
