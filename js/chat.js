@@ -581,35 +581,72 @@ if (supabaseClient) {
 
 if (sendBtn && chatInput) {
     sendBtn.addEventListener('click', async () => {
-        let text = chatInput.value.trim();
-        if (!text || !currentSession || !supabaseClient) return;
-        sendBtn.disabled = true;
+        const rawText = chatInput.value.trim();
+        let dbText = rawText; 
         
-        // NEW: The Silent API Heist
-        // If we are on a YouTube Live Stream, find any clean timestamps and inject the VOD ID!
+        if (!rawText || !currentSession || !supabaseClient) return;
+        
+        sendBtn.disabled = true;
+        chatInput.value = ""; // Clear immediately for that instant-response feel!
+        
+        // --- 1. OPTIMISTIC UI (The "Fake" Message) ---
+        const tempDiv = document.createElement('div');
+        tempDiv.className = 'chat-msg';
+        tempDiv.style.opacity = '0.5'; // Faded to indicate "Sending..."
+        
+        // Grab the user's current display name and color from the UI
+        const tempName = userNameDisplay ? userNameDisplay.textContent : 'You';
+        const tempColor = userColorPicker ? userColorPicker.value : '#ffffff';
+        const timeStr = formatTime(new Date().toISOString());
+        
+        // Give it a basic link style so timestamps don't look jarring before the DB refresh
+        let displayHtml = rawText.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, `<a href="javascript:void(0);" class="yt-time-link">$1</a>`);
+
+        tempDiv.innerHTML = `
+            <span class="chat-timestamp">${timeStr}</span>
+            <div style="flex-grow: 1;">
+                <strong style="color: ${tempColor};">${tempName}</strong>: 
+                ${displayHtml}
+            </div>
+        `;
+        chatBox.appendChild(tempDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        // ---------------------------------------------
+        
+        // 2. THE API HEIST (Runs in the background)
         if (currentGame === 'live' && window.location.hash.includes('youtube')) {
             if (typeof window.getPermanentVideoId === 'function') {
                 const permId = window.getPermanentVideoId();
                 if (permId) {
-                    // Finds (11:14) and silently replaces it with (11:14|permId)
-                    text = text.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, `($1|${permId})`);
+                    dbText = dbText.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, `($1|${permId})`);
                 }
             }
         }
         
-        // Strict URL grabbing. The Icon will point to this URL.
         let msgUrl = window.location.pathname + window.location.hash;
 
+        // 3. SEND TO DATABASE
         const { error } = await supabaseClient.from('ltg_chat').insert([{ 
-            message: text, 
+            message: dbText, 
             user_id: currentSession.user.id, 
             channel: currentGame,
             topic: currentTopic,
             url: msgUrl 
         }]);
         
-        if (!error) chatInput.value = ""; 
+        // 4. ERROR HANDLING
+        if (error) {
+            tempDiv.style.color = '#e74c3c';
+            tempDiv.style.opacity = '1';
+            tempDiv.innerHTML = `<em>Message failed to send. Please try again.</em>`;
+            chatInput.value = rawText; // Give them their text back
+        }
+        
+        // If successful, the Supabase real-time listener will fire, run loadMessages(),
+        // wipe the chatBox, and draw the real message instantly!
+        
         sendBtn.disabled = false;
+        chatInput.focus();
     });
     chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendBtn.click(); });
 }
