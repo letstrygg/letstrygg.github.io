@@ -580,6 +580,7 @@ if (supabaseClient) {
 }
 
 if (sendBtn && chatInput) {
+    if (sendBtn && chatInput) {
     sendBtn.addEventListener('click', async () => {
         const rawText = chatInput.value.trim();
         let dbText = rawText; 
@@ -587,33 +588,57 @@ if (sendBtn && chatInput) {
         if (!rawText || !currentSession || !supabaseClient) return;
         
         sendBtn.disabled = true;
-        chatInput.value = ""; // Clear immediately for that instant-response feel!
+        chatInput.value = ""; // Clear immediately for instant response
         
+        let msgUrl = window.location.pathname + window.location.hash;
+
         // --- 1. OPTIMISTIC UI (The "Fake" Message) ---
         const tempDiv = document.createElement('div');
         tempDiv.className = 'chat-msg';
-        tempDiv.style.opacity = '0.5'; // Faded to indicate "Sending..."
         
-        // Grab the user's current display name and color from the UI
+        // Mirror the Channel Highlighting logic
+        if (filterLevel === 1) {
+            if (currentTopic || currentGame !== 'general') tempDiv.classList.add('msg-channel');
+        } else if (filterLevel === 2 && currentTopic) {
+            tempDiv.classList.add('msg-channel');
+        }
+        
         const tempName = userNameDisplay ? userNameDisplay.textContent : 'You';
         const tempColor = userColorPicker ? userColorPicker.value : '#ffffff';
         const timeStr = formatTime(new Date().toISOString());
         
-        // Give it a basic link style so timestamps don't look jarring before the DB refresh
+        // Mirror the URL Icon logic
+        let urlLower = msgUrl.toLowerCase();
+        let isTwitch = urlLower.includes('#twitch') || urlLower.includes('twitch.tv');
+        let isKick = urlLower.includes('#kick') || urlLower.includes('kick.com');
+        let isYoutubeLive = urlLower.includes('#youtube') || urlLower.includes('/live');
+        let isVideo = urlLower.includes('/episodes/') || urlLower.includes('-ep-') || urlLower.includes('/yt/#');
+
+        let tooltipName = currentTopic ? (typeof channelMap !== 'undefined' && channelMap[currentTopic] ? channelMap[currentTopic] : toTitleCase(currentTopic)) : 'Video';
+        let iconColor = 'var(--gray)', iconName = 'article', tooltip = `Go to ${tooltipName} page`;
+
+        if (isTwitch) { iconColor = 'var(--purple)'; iconName = 'sensors'; tooltip = `Twitch ${tooltipName} Live`; } 
+        else if (isKick) { iconColor = 'var(--green)'; iconName = 'sensors'; tooltip = `Kick ${tooltipName} Live`; } 
+        else if (isYoutubeLive) { iconColor = 'var(--red)'; iconName = 'sensors'; tooltip = `YouTube ${tooltipName} Live`; } 
+        else if (isVideo) { iconColor = 'var(--red)'; iconName = 'smart_display'; tooltip = `Go to Video`; }
+
+        let urlIconHtml = `<a href="${msgUrl}" data-tooltip="${tooltip}" class="tooltip-bottom" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
+
         let displayHtml = rawText.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, `<a href="javascript:void(0);" class="yt-time-link">$1</a>`);
 
+        // Apply 80% opacity ONLY to the message text span
         tempDiv.innerHTML = `
             <span class="chat-timestamp">${timeStr}</span>
             <div style="flex-grow: 1;">
-                <strong style="color: ${tempColor};">${tempName}</strong>: 
-                ${displayHtml}
+                <strong style="color: ${tempColor};">${tempName}</strong>${urlIconHtml}: 
+                <span class="optimistic-text" style="opacity: 0.8;">${displayHtml}</span>
             </div>
         `;
         chatBox.appendChild(tempDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
         // ---------------------------------------------
         
-        // 2. THE API HEIST (Runs in the background)
+        // 2. THE API HEIST
         if (currentGame === 'live' && window.location.hash.includes('youtube')) {
             if (typeof window.getPermanentVideoId === 'function') {
                 const permId = window.getPermanentVideoId();
@@ -623,8 +648,6 @@ if (sendBtn && chatInput) {
             }
         }
         
-        let msgUrl = window.location.pathname + window.location.hash;
-
         // 3. SEND TO DATABASE
         const { error } = await supabaseClient.from('ltg_chat').insert([{ 
             message: dbText, 
@@ -636,14 +659,14 @@ if (sendBtn && chatInput) {
         
         // 4. ERROR HANDLING
         if (error) {
-            tempDiv.style.color = '#e74c3c';
-            tempDiv.style.opacity = '1';
-            tempDiv.innerHTML = `<em>Message failed to send. Please try again.</em>`;
-            chatInput.value = rawText; // Give them their text back
+            const optText = tempDiv.querySelector('.optimistic-text');
+            if (optText) {
+                optText.style.color = '#e74c3c';
+                optText.style.opacity = '1';
+                optText.innerHTML = `<em>Message failed to send. Please try again.</em>`;
+            }
+            chatInput.value = rawText; 
         }
-        
-        // If successful, the Supabase real-time listener will fire, run loadMessages(),
-        // wipe the chatBox, and draw the real message instantly!
         
         sendBtn.disabled = false;
         chatInput.focus();
