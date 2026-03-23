@@ -580,7 +580,6 @@ if (supabaseClient) {
 }
 
 if (sendBtn && chatInput) {
-    if (sendBtn && chatInput) {
     sendBtn.addEventListener('click', async () => {
         const rawText = chatInput.value.trim();
         let dbText = rawText; 
