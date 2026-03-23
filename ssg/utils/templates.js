@@ -53,3 +53,55 @@ thumbnail: "${safeThumbnail}"
   </div>
 </div>`;
 }
+
+// Add this to the bottom of ssg/utils/templates.js
+export function seasonIndexHTML(data) {
+    return `---
+layout: new
+title: "Season ${data.seasonNum} Episodes - ${data.seriesTitle}"
+description: "A complete list of episodes from Season ${data.seasonNum} of the ${data.seriesTitle} Let's Play."
+permalink: /yt/${data.channelSlug}/${data.gameSlug}/s${Math.floor(data.seasonNum)}/
+custom_css: "/css/game/${data.shortPrefix}-style.css"
+---
+
+<div class="game-page-wrapper">
+  <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+    <div>
+      <h1 class="title">${data.seriesTitle}</h1>
+      <p class="subtitle">Season ${data.seasonNum} Episodes</p>
+    </div>
+    <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order">
+      <span class="material-symbols-outlined" id="sortIcon">arrow_downward</span> Sort
+    </button>
+  </div>
+
+  <div class="game-section">
+    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/${data.channelSlug}/${data.gameSlug}/s${Math.floor(data.seasonNum)}/'" | where_exp: "item", "item.url contains '-ep-'" | sort: "title" -%}
+    
+    <div id="epGrid" class="ep-grid">
+    {%- for ep in ep_pages -%}
+      <a href="{{ ep.url | relative_url }}">
+        {{ ep.title | remove: "${data.seriesTitle}" | strip }}
+      </a>
+    {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  let isAscending = true;
+  const epGrid = document.getElementById('epGrid');
+  const sortIcon = document.getElementById('sortIcon');
+
+  function toggleEpSort() {
+    isAscending = !isAscending;
+    sortIcon.innerText = isAscending ? 'arrow_downward' : 'arrow_upward';
+    
+    const items = Array.from(epGrid.children);
+    items.reverse();
+    
+    epGrid.innerHTML = '';
+    items.forEach(item => epGrid.appendChild(item));
+  }
+</script>`;
+}

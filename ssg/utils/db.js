@@ -72,3 +72,28 @@ export async function getAdjacentEpisodes(playlistId, currentSortOrder) {
         nextSortOrder: nextData?.sort_order || null 
     };
 }
+
+// Add this to your existing exports in ssg/utils/db.js
+export async function getFullSeasonContext(playlistId) {
+    const { data, error } = await supabase
+        .from('ltg_playlists')
+        .select(`
+            id,
+            season,
+            channel_slug,
+            ltg_series (
+                slug,
+                title,
+                ltg_games (slug)
+            ),
+            ltg_playlist_videos (
+                video_id,
+                sort_order
+            )
+        `)
+        .eq('id', playlistId)
+        .single();
+
+    if (error) throw error;
+    return data;
+}

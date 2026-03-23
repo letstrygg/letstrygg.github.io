@@ -1,9 +1,7 @@
 import { updateEpisode } from './updaters/updateEpisode.js';
-// import { updateSeason } from './updaters/updateSeason.js'; // We'll add this later
+import { updateSeason } from './updaters/updateSeason.js'; // <-- Uncommented
 
 async function run() {
-    // process.argv contains the command line arguments. 
-    // Example: node update.js episode 5b861ZbgHE4
     const args = process.argv.slice(2);
     const command = args[0];
     const targetId = args[1];
@@ -20,10 +18,7 @@ async function run() {
         switch (command) {
             case 'episode':
                 if (!targetId) throw new Error("Missing Video ID.");
-                
-                // Run the granular updater and get the context back
                 const epResult = await updateEpisode(targetId);
-                
                 console.log(`✅ Episode HTML generated at: ${epResult.filePath}`);
                 
                 // THE CASCADE: Later, we can uncomment this to auto-update the parent season
@@ -31,9 +26,12 @@ async function run() {
                 // await updateSeason(epResult.playlistId); 
                 break;
 
-            case 'season':
-                // await updateSeason(targetId);
-                console.log("Season updater not implemented yet.");
+            case 'season': // <-- Implemented
+                if (!targetId) throw new Error("Missing Playlist ID.");
+                const seasonResult = await updateSeason(targetId);
+                console.log(`✅ Season complete! Processed ${seasonResult.episodesProcessed} episodes.`);
+                
+                // THE CASCADE: Next up will be triggering updateSeries(seasonResult.seriesSlug)
                 break;
 
             default:
