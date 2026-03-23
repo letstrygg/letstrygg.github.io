@@ -30,7 +30,7 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     justify-content: center;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    z-index: 2;
+    z-index: 1; /* Lowered so content tooltips render over it */
 }
 
 .sidebar-content {
@@ -41,9 +41,14 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     width: 100%;
     overflow-y: auto;
     -ms-overflow-style: none; scrollbar-width: none;
-    z-index: 1;
+    z-index: 2; /* Raised above header */
 }
 .sidebar-content::-webkit-scrollbar { display: none; }
+
+/* ADD THIS ANYWHERE IN YOUR CSS TO FIX THE YOUTUBE BOUNCE */
+#player-wrapper, #ytplayer {
+    transition: none !important;
+}
 
 /* Avatar Styling & Z-Index Tooltip Fix */
 .sidebar-avatar-wrapper {

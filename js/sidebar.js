@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let processedChannels = followedChannels.map(ch => ({ ...ch, route: getBestLiveRoute(ch) }));
 
-    function sortAndRender() {
+	function sortAndRender() {
         processedChannels.sort((a, b) => {
             if (a.route.isLive && !b.route.isLive) return -1;
             if (!a.route.isLive && b.route.isLive) return 1;
@@ -129,8 +129,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             const imgPath = `/assets/avatars/${ch.slug}/sm.webp`;
             const statusClass = ch.route.isLive ? `live-${ch.route.platform}` : 'offline';
 
+            // Changed to tooltip-left and restricted tooltip text to displayName only
             const rowHtml = `
-                <a href="${ch.route.url}" class="sidebar-avatar-wrapper tooltip-right ${statusClass}" data-tooltip="${displayName}">
+                <a href="${ch.route.url}" class="sidebar-avatar-wrapper tooltip-left ${statusClass}" data-tooltip="${displayName}">
                     <div class="sidebar-avatar-fallback">${firstLetter}</div>
                     <img src="${imgPath}" class="sidebar-avatar-img" alt="${displayName}" onerror="this.style.display='none'">
                 </a>
