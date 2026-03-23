@@ -240,7 +240,7 @@ function parseRoute() {
         } else {
             currentTopic = null;
         }
-    } else if (path.startsWith('/yt') || path.startsWith('/youtube')) { // ADD THIS BLOCK
+    } else if (path.startsWith('/yt') || path.startsWith('/youtube')) { 
         currentGame = 'youtube_vod'; 
         currentTopic = window.location.hash.substring(1); // The topic is just the Video ID
     } else {
@@ -401,45 +401,39 @@ function renderMessages() {
         const displayName = profile.username || 'Anon';
         const displayColor = profile.color || '#ffffff';
 
-		let urlIconHtml = '';
-		if (row.url) {
-			const url = row.url.toLowerCase();
-			
-			// 1. Categorize the URL
-			const isTwitch = url.includes('#twitch') || url.includes('twitch.tv');
-			const isKick = url.includes('#kick') || url.includes('kick.com');
-			const isYoutubeLive = url.includes('#youtube') || url.includes('/live');
-			const isVideo = url.includes('/episodes/') || url.includes('-ep-');
+        let urlIconHtml = '';
+        if (row.url) {
+            const url = row.url.toLowerCase();
+            
+            // 1. Categorize the URL
+            const isTwitch = url.includes('#twitch') || url.includes('twitch.tv');
+            const isKick = url.includes('#kick') || url.includes('kick.com');
+            const isYoutubeLive = url.includes('#youtube') || url.includes('/live');
+            const isVideo = url.includes('/episodes/') || url.includes('-ep-');
 
-			// 2. Set Defaults
-			let iconColor = 'var(--gray)';
-			let iconName = 'article';
-			let tooltip = 'Go to page';
+            // 2. Set Defaults
+            let iconColor = 'var(--gray)';
+            let iconName = 'article';
+            let tooltipName = row.topic ? toTitleCase(row.topic) : 'Video';
+            let tooltip = `Go to ${tooltipName} page`;
 
-			// 3. Apply Specific Branding
-			if (isTwitch) {
-				iconColor = 'var(--purple)';
-				iconName = 'sensors';
-				tooltip = 'Go to Twitch stream';
-			} else if (isKick) {
-				iconColor = 'var(--green)';
-				iconName = 'sensors';
-				tooltip = 'Go to Kick stream';
-			} else if (isYoutubeLive) {
-				iconColor = 'var(--red)';
-				iconName = 'sensors';
-				tooltip = 'Go to YouTube stream';
-			} else if (isVideo) {
-				iconColor = 'var(--red)';
-				iconName = 'smart_display';
-				tooltip = 'Go to video';
-			}
-			
-			const isInternal = row.url.startsWith('/');
-			const targetAttr = isInternal ? '' : 'target="_blank"';
+            // 3. Apply Specific Branding
+            // Note: Added /yt/# to the isVideo check so dynamic VODs get the Video icon!
+            if (isTwitch) {
+                iconColor = 'var(--purple)'; iconName = 'sensors'; tooltip = `Go to ${tooltipName} Twitch`;
+            } else if (isKick) {
+                iconColor = 'var(--green)'; iconName = 'sensors'; tooltip = `Go to ${tooltipName} Kick`;
+            } else if (isYoutubeLive) {
+                iconColor = 'var(--red)'; iconName = 'sensors'; tooltip = `Go to ${tooltipName} YouTube`;
+            } else if (isVideo || url.includes('/yt/#')) {
+                iconColor = 'var(--red)'; iconName = 'smart_display'; tooltip = `Go to Video`;
+            }
+            
+            const isInternal = row.url.startsWith('/');
+            const targetAttr = isInternal ? '' : 'target="_blank"';
 
-			urlIconHtml = `<a href="${row.url}" ${targetAttr} data-tooltip="${tooltip}" class="tooltip-bottom" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
-		}
+            urlIconHtml = `<a href="${row.url}" ${targetAttr} data-tooltip="${tooltip}" class="tooltip-bottom" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
+        }
 
         let formattedMessage = row.message;
         if (row.url) {
@@ -455,7 +449,8 @@ function renderMessages() {
                 for (let i = 0; i < parts.length; i++) seconds += parseInt(parts[i]) * Math.pow(60, i);
                 
                 if (isCurrentPage && typeof window.triggerInPageJump === 'function') {
-                    return `<a href="#" onclick="window.triggerInPageJump(${seconds}); return false;" class="yt-time-link">${timeStr}</a>`;
+                    // FIXED: javascript:void(0) prevents the page from jumping to the top!
+                    return `<a href="javascript:void(0);" onclick="window.triggerInPageJump(${seconds});" class="yt-time-link">${timeStr}</a>`;
                 } else {
                     // Smart URL Constructor: Forces ?t= to sit BEFORE the # so the browser can read it
                     let timeUrl = '';
@@ -493,14 +488,14 @@ function renderMessages() {
 if (supabaseClient) {
     const chatChannel = supabaseClient.channel('chat_updates');
     chatChannel.on('postgres_changes', { event: '*', schema: 'public', table: 'ltg_chat' }, payload => { 
-		loadMessages(); 
-		
-		// If a new message arrives AND the chat is closed, show the red dot
-		if (payload.eventType === 'INSERT' && !isChatOpen) {
-			const unreadDot = document.getElementById('chat-unread-dot');
-			if (unreadDot) unreadDot.style.display = 'block';
-		}
-	});
+        loadMessages(); 
+        
+        // If a new message arrives AND the chat is closed, show the red dot
+        if (payload.eventType === 'INSERT' && !isChatOpen) {
+            const unreadDot = document.getElementById('chat-unread-dot');
+            if (unreadDot) unreadDot.style.display = 'block';
+        }
+    });
     chatChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_profiles' }, payload => { loadMessages(); });
     chatChannel.subscribe();
 
@@ -514,7 +509,7 @@ if (supabaseClient) {
         localStorage.setItem('ltg_device_id', deviceId);
     }
 
-presenceChannel.on('presence', { event: 'sync' }, () => {
+    presenceChannel.on('presence', { event: 'sync' }, () => {
         const newState = presenceChannel.presenceState();
         const uniqueUsers = new Set();
         
@@ -564,8 +559,16 @@ if (sendBtn && chatInput) {
         if (!text || !currentSession || !supabaseClient) return;
         sendBtn.disabled = true;
         
-        // Always capture the pathname and hash so dynamic VODs and Live Streams track perfectly
+        // THE API HEIST: Try to get the permanent VOD ID from the player
         let msgUrl = window.location.pathname + window.location.hash;
+        
+        if (typeof window.getPermanentVideoId === 'function') {
+            const permanentId = window.getPermanentVideoId();
+            if (permanentId) {
+                // Silently rewrite the URL to the permanent VOD!
+                msgUrl = '/yt/#' + permanentId;
+            }
+        }
 
         const { error } = await supabaseClient.from('ltg_chat').insert([{ 
             message: text, 
