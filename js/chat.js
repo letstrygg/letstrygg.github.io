@@ -192,11 +192,8 @@ if (grabTimeBtn && chatInput) {
             
             let timeStr = h > 0 ? `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}` : `${m}:${s.toString().padStart(2, '0')}`;
             
-            // NEW: Grab the permanent ID and secretly embed it in the chat text!
-            let permId = typeof window.getPermanentVideoId === 'function' ? window.getPermanentVideoId() : null;
-            let appendStr = permId ? `(${timeStr}|${permId})` : `(${timeStr})`;
-
-            chatInput.value += (chatInput.value.length > 0 && !chatInput.value.endsWith(' ') ? ' ' : '') + appendStr + ' ';
+            // REVERTED: Just insert the clean, human-readable timestamp!
+            chatInput.value += (chatInput.value.length > 0 && !chatInput.value.endsWith(' ') ? ' ' : '') + `(${timeStr}) `;
             chatInput.focus();
         } else if (statusMessage) {
             statusMessage.textContent = "Play video to grab time.";
@@ -584,9 +581,21 @@ if (supabaseClient) {
 
 if (sendBtn && chatInput) {
     sendBtn.addEventListener('click', async () => {
-        const text = chatInput.value.trim();
+        let text = chatInput.value.trim();
         if (!text || !currentSession || !supabaseClient) return;
         sendBtn.disabled = true;
+        
+        // NEW: The Silent API Heist
+        // If we are on a YouTube Live Stream, find any clean timestamps and inject the VOD ID!
+        if (currentGame === 'live' && window.location.hash.includes('youtube')) {
+            if (typeof window.getPermanentVideoId === 'function') {
+                const permId = window.getPermanentVideoId();
+                if (permId) {
+                    // Finds (11:14) and silently replaces it with (11:14|permId)
+                    text = text.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, `($1|${permId})`);
+                }
+            }
+        }
         
         // Strict URL grabbing. The Icon will point to this URL.
         let msgUrl = window.location.pathname + window.location.hash;
