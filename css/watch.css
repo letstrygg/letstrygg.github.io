@@ -65,7 +65,7 @@ body.chat-open-squish #player-wrapper.theater-active {
 }
 
 /* --- MOBILE: Chat is on the Bottom --- */
-@media (max-aspect-ratio: 1/1), (max-width: 768px) {
+@media (max-width: 768px) {
     body.chat-open-squish #player-wrapper.theater-active {
         width: 100vw !important; 
         height: calc(100vh - var(--chat-height)) !important; 

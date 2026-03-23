@@ -88,7 +88,7 @@ body.chat-open-squish .os-scrollbar-vertical {
 
 
 /* --- MOBILE (VERTICAL/PORTRAIT) --- */
-@media (max-aspect-ratio: 1/1), (max-width: 768px) {
+@media (max-width: 768px) {
     
     /* KEEP BUBBLE NORMAL: Removed the 90deg rotation */
     #openChatBtn .material-symbols-outlined {
