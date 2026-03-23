@@ -17,7 +17,7 @@
     align-items: center;
     padding-top: 15px;
     gap: 15px;
-    z-index: 40; /* Renders over the video player (which is z-10) */
+    z-index: 1000; /* Increased to render over video embed and main content */
     transition: left 0.3s ease;
 }
 
@@ -30,8 +30,10 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     justify-content: center;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    z-index: 1; /* Lowered so content tooltips render over it */
+    position: relative;
+    z-index: 10;
 }
+.sidebar-header:hover { z-index: 100; }
 
 .sidebar-content {
     display: flex;
@@ -41,7 +43,6 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     width: 100%;
     overflow-y: auto;
     -ms-overflow-style: none; scrollbar-width: none;
-    z-index: 2; /* Raised above header */
 }
 .sidebar-content::-webkit-scrollbar { display: none; }
 
@@ -55,11 +56,11 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     position: relative; width: 36px; height: 36px;
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     text-decoration: none;
-    z-index: 1; /* Standard depth */
+    z-index: 10;
 }
 /* Pop the hovered item to the front so its tooltip renders over the item below it */
 .sidebar-avatar-wrapper:hover {
-    z-index: 50; 
+    z-index: 100; /* Pops the hovered avatar tooltip over the header and other avatars */
 }
 
 .sidebar-avatar-img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; z-index: 2; }
@@ -84,10 +85,11 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     }
     
     /* Move Open Button to Bottom Left */
-    #openSidebarBtn {
+	#openSidebarBtn {
         top: auto !important;
         bottom: 15px !important;
         left: 15px !important;
+        z-index: 1000 !important;
     }
 
     .left-sidebar {
