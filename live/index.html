@@ -50,6 +50,12 @@ async function loadStreamFromHash() {
         
         streamerData = await fetchStreamerData(activeStreamer);
         
+        // NEW: URL Normalizer. If they used a raw ID, swap the URL to the beautiful Slug!
+        if (streamerData && activeStreamer !== streamerData.slug) {
+            activeStreamer = streamerData.slug;
+            history.replaceState(null, '', `#${currentPlatform}/${activeStreamer}`);
+        }
+        
         const togglesContainer = document.getElementById('platform-toggles');
         const btnTwitch = document.getElementById('btn-twitch');
         const btnYoutube = document.getElementById('btn-youtube');

@@ -340,7 +340,8 @@ if (resumeBtn) {
         isPreviewing = false; 
         player.seekTo(originalSavedTime, true);
         resumeBtn.style.display = 'none';
-        history.replaceState(null, '', window.location.pathname); 
+        // FIXED: Preserves the hash (e.g., #youtube/jorbs) so you don't get kicked to /live/
+        history.replaceState(null, '', window.location.pathname + window.location.hash); 
     });
 }
 

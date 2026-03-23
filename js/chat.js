@@ -231,6 +231,20 @@ let currentGame = 'general';
 let currentTopic = null;
 let filterLevel = parseInt(localStorage.getItem('chatFilterLevel')) || 1; 
 
+// --- CACHE DISPLAY NAMES FOR TOOLTIPS ---
+let channelMap = {};
+async function loadChannelMap() {
+    if (!supabaseClient) return;
+    const { data } = await supabaseClient.from('ltg_channels').select('slug, display_name');
+    if (data) {
+        data.forEach(ch => {
+            // Uses display_name if available, otherwise TitleCases the slug
+            channelMap[ch.slug] = ch.display_name || toTitleCase(ch.slug);
+        });
+    }
+}
+loadChannelMap();
+
 function parseRoute() {
     const path = window.location.pathname;
     if (path.startsWith('/game/')) {
@@ -416,20 +430,21 @@ function renderMessages() {
             const isYoutubeLive = url.includes('#youtube') || url.includes('/live');
             const isVideo = url.includes('/episodes/') || url.includes('-ep-');
 
-            // 2. Set Defaults
+            // 2. NEW: Use the Channel Map to get the Display Name!
+            let tooltipName = row.topic ? (channelMap[row.topic] || toTitleCase(row.topic)) : 'Video';
+            
+            // 3. Set Defaults
             let iconColor = 'var(--gray)';
             let iconName = 'article';
-            let tooltipName = row.topic ? toTitleCase(row.topic) : 'Video';
             let tooltip = `Go to ${tooltipName} page`;
 
-            // 3. Apply Specific Branding
-            // Note: Added /yt/# to the isVideo check so dynamic VODs get the Video icon!
+            // 4. Apply Specific Branding & Formats
             if (isTwitch) {
-                iconColor = 'var(--purple)'; iconName = 'sensors'; tooltip = `Go to ${tooltipName} Twitch`;
+                iconColor = 'var(--purple)'; iconName = 'sensors'; tooltip = `Twitch ${tooltipName} Live`;
             } else if (isKick) {
-                iconColor = 'var(--green)'; iconName = 'sensors'; tooltip = `Go to ${tooltipName} Kick`;
+                iconColor = 'var(--green)'; iconName = 'sensors'; tooltip = `Kick ${tooltipName} Live`;
             } else if (isYoutubeLive) {
-                iconColor = 'var(--red)'; iconName = 'sensors'; tooltip = `Go to ${tooltipName} YouTube`;
+                iconColor = 'var(--red)'; iconName = 'sensors'; tooltip = `YouTube ${tooltipName} Live`;
             } else if (isVideo || url.includes('/yt/#')) {
                 iconColor = 'var(--red)'; iconName = 'smart_display'; tooltip = `Go to Video`;
             }
