@@ -20,6 +20,13 @@ main {
 .breadcrumbs a { text-decoration: none !important; }
 .breadcrumbs a:hover { color: var(--title); }
 
+/*-------------------*/
+	.top-nav-wrapper, 
+    .manual-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
 /* ==========================================================================
    VIDEO CONTAINER DEFAULTS
    ========================================================================== */

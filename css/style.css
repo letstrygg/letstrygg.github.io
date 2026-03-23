@@ -61,12 +61,7 @@ header { text-align: center; padding: 20px 0; }
   padding-top: 20px;
 }
 
-/*-------------------*/
-	.top-nav-wrapper, 
-    .manual-content {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+
 
 /* ==========================================================================
    4. GLOBAL UI COMPONENTS
