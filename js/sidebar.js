@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     sortAndRender();
-
+/*
     // --- 4. REALTIME LISTENER ---
     const sidebarChannel = supabaseClient.channel('sidebar_updates');
     sidebarChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_channels' }, payload => {
@@ -204,4 +204,40 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
     sidebarChannel.subscribe();
+	*/
+	
+	// --- 4. POLLING LISTENER (Scalable Alternative to Realtime) ---
+	async function fetchLatestStatuses() {
+    // Only fetch the slugs we actually care about right now
+    const slugsToFetch = processedChannels.map(c => c.slug);
+    
+    const { data, error } = await supabaseClient
+        .from('ltg_channels')
+        .select('slug, live_data')
+        .in('slug', slugsToFetch);
+
+    if (error || !data) return;
+
+    let hasChanges = false;
+
+    data.forEach(updatedChannel => {
+        const index = processedChannels.findIndex(c => c.slug === updatedChannel.slug);
+        if (index !== -1) {
+            // Check if the is_live status actually changed to avoid unnecessary re-renders
+            const oldStatus = processedChannels[index].live_data?.is_live;
+            const newStatus = updatedChannel.live_data?.is_live;
+
+            if (oldStatus !== newStatus) {
+                processedChannels[index].live_data = updatedChannel.live_data;
+                processedChannels[index].route = getBestLiveRoute(processedChannels[index]);
+                hasChanges = true;
+            }
+        }
+    });
+
+    if (hasChanges) sortAndRender();
+}
+
+// Check every 60 seconds (60000 ms)
+setInterval(fetchLatestStatuses, 60000);
 });
