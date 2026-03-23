@@ -35,6 +35,19 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
 }
 .sidebar-header:hover { z-index: 100; }
 
+.sidebar-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: auto; /* This forces it to the absolute bottom of the sidebar */
+    position: relative;
+    z-index: 10;
+}
+.sidebar-footer:hover { z-index: 100; }
+
 .sidebar-content {
     display: flex;
     flex-direction: column;
@@ -44,6 +57,8 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     -ms-overflow-style: none; scrollbar-width: none;
 }
 .sidebar-content::-webkit-scrollbar { display: none; }
+
+
 
 /* ADD THIS ANYWHERE IN YOUR CSS TO FIX THE YOUTUBE BOUNCE */
 #player-wrapper, #ytplayer {
@@ -112,6 +127,13 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
         justify-content: flex-start;
         padding: 10px 15px 0 15px;
         border-bottom: none;
+    }
+	.sidebar-footer { 
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 10px 15px 15px 15px;
+        border-top: none;
     }
     
     .sidebar-content { 
