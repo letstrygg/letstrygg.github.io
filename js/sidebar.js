@@ -94,8 +94,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // --- 2. AUTH & DATA FETCHING ---
-
-    // --- 2. AUTH & DATA FETCHING ---
     const supabaseUrl = window.SUPABASE_URL;
     const supabaseKey = window.SUPABASE_ANON_KEY;
     if (!supabaseUrl || !supabaseKey) return;
