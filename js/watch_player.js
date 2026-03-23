@@ -4,6 +4,7 @@ var templateVideoId = window.ltgPlayerConfig ? window.ltgPlayerConfig.videoId : 
 var isDynamicPage = (templateVideoId === '');
 var activeVideoId = templateVideoId;
 var liveChannelId = null;
+var resolvedLiveVodId = null; // NEW: Holds the permanent ID of the livestream
 var activePlayerPlatform = 'youtube'; 
 
 var storageKey, originalSavedTime, urlParams, urlTime, isPreviewing, startTime, player, saveInterval;
@@ -32,6 +33,7 @@ const controlsBtn = document.getElementById('controls-btn');
 const closeShortcutsBtn = document.getElementById('close-shortcuts-btn');
 
 function toggleShortcuts() {
+    if(!shortcutsOverlay) return;
     shortcutsOverlay.style.display = (shortcutsOverlay.style.display === 'none' || shortcutsOverlay.style.display === '') ? 'flex' : 'none';
 }
 
@@ -93,13 +95,11 @@ function handleSeek(seconds) {
     player.seekTo(newTime, true);
 
     if (seekAccumulator > 0) {
-        seekOverlayRight.innerText = '+' + seekAccumulator + ' >';
-        seekOverlayRight.classList.add('show');
-        seekOverlayLeft.classList.remove('show');
+        if(seekOverlayRight) { seekOverlayRight.innerText = '+' + seekAccumulator + ' >'; seekOverlayRight.classList.add('show'); }
+        if(seekOverlayLeft) seekOverlayLeft.classList.remove('show');
     } else {
-        seekOverlayLeft.innerText = '< ' + Math.abs(seekAccumulator);
-        seekOverlayLeft.classList.add('show');
-        seekOverlayRight.classList.remove('show');
+        if(seekOverlayLeft) { seekOverlayLeft.innerText = '< ' + Math.abs(seekAccumulator); seekOverlayLeft.classList.add('show'); }
+        if(seekOverlayRight) seekOverlayRight.classList.remove('show');
     }
 
     clearTimeout(seekTimeout);
@@ -110,7 +110,6 @@ function handleSeek(seconds) {
     }, 750);
 }
 
-// Global Keyboard Listeners
 document.addEventListener('keydown', function(e) {
     const activeElement = document.activeElement;
     const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
@@ -187,6 +186,7 @@ updateSpeedUI();
 
 function setupPlayerData(vidId) {
     activeVideoId = vidId;
+    resolvedLiveVodId = null; // Reset on new load
     storageKey = 'yt_resume_' + activeVideoId;
     originalSavedTime = parseFloat(localStorage.getItem(storageKey)) || 0;
     urlParams = new URLSearchParams(window.location.search);
@@ -213,6 +213,7 @@ window.startDynamicPlayer = function(vidId) {
 
 window.startDynamicLivePlayer = function(platform, streamId) {
     activePlayerPlatform = platform;
+    resolvedLiveVodId = null; // Reset
     const target = document.getElementById('stream-embed-target');
     const speedControls = document.getElementById('speed-control-container');
     const controlsBtn = document.getElementById('controls-btn');
@@ -222,9 +223,10 @@ window.startDynamicLivePlayer = function(platform, streamId) {
         liveChannelId = streamId;
         activeVideoId = null; 
         
+        // EVERYTHING stays visible for YouTube Live now
         if(speedControls) speedControls.style.display = 'flex';
         if(controlsBtn) controlsBtn.style.display = 'inline-flex';
-        if(copyBtn) copyBtn.style.display = 'none'; 
+        if(copyBtn) copyBtn.style.display = 'inline-flex'; 
 
         target.innerHTML = '<iframe id="ytplayer" src="https://www.youtube.com/embed/live_stream?channel=' + streamId + '&enablejsapi=1&rel=0&modestbranding=1&autoplay=1" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>';
         injectYouTubeAPI();
@@ -275,11 +277,33 @@ function onPlayerStateChange(event) {
       document.activeElement.blur();
   }
 
-  if (event.data === 1) { 
+  if (event.data === 1) { // PLAYING
+      
+      // NEW: THE API HEIST!
+      // If we are on a livestream, extract the permanent VOD ID immediately
+      if (liveChannelId && !resolvedLiveVodId) {
+          const videoData = player.getVideoData();
+          if (videoData && videoData.video_id) {
+              resolvedLiveVodId = videoData.video_id;
+              
+              // Migrate the storage key so saving works seamlessly
+              storageKey = 'yt_resume_' + resolvedLiveVodId;
+              originalSavedTime = parseFloat(localStorage.getItem(storageKey)) || 0;
+              
+              // If they actually had a saved time for this VOD, show the resume button!
+              if (originalSavedTime > 0) {
+                  updateResumeButtonUI(originalSavedTime);
+              }
+          }
+      }
+
       player.setPlaybackRate(currentSpeed);
       if (!saveInterval) {
           saveInterval = setInterval(function() {
-              if (!isPreviewing && activeVideoId) localStorage.setItem(storageKey, player.getCurrentTime());
+              // We can now save progress for activeVideoId OR a resolvedLiveVodId
+              if (!isPreviewing && (activeVideoId || resolvedLiveVodId)) {
+                  localStorage.setItem(storageKey, player.getCurrentTime());
+              }
           }, 5000);
       }
   } else {
@@ -287,8 +311,8 @@ function onPlayerStateChange(event) {
       saveInterval = null;
   }
 
-  if (event.data === 0) { 
-      if (activeVideoId) localStorage.removeItem(storageKey);
+  if (event.data === 0) { // ENDED
+      if (activeVideoId || resolvedLiveVodId) localStorage.removeItem(storageKey);
       const nextEpisodeUrl = window.ltgPlayerConfig ? window.ltgPlayerConfig.nextUrl : '';
       if (!isDynamicPage && nextEpisodeUrl && nextEpisodeUrl.trim() !== "") {
            window.location.href = nextEpisodeUrl;
@@ -324,20 +348,26 @@ if (isPreviewing) updateResumeButtonUI(originalSavedTime);
 
 window.triggerInPageJump = function(targetSeconds) {
     if (typeof player === 'undefined' || !player || typeof player.getCurrentTime !== 'function') return;
-    if (!isPreviewing && activeVideoId) {
+    
+    // We can jump if we have a standard ID OR a resolved live ID
+    if (!isPreviewing && (activeVideoId || resolvedLiveVodId)) {
         originalSavedTime = player.getCurrentTime();
         isPreviewing = true;
     }
     player.seekTo(targetSeconds, true);
-    if (activeVideoId) updateResumeButtonUI(originalSavedTime);
+    if (activeVideoId || resolvedLiveVodId) updateResumeButtonUI(originalSavedTime);
 };
 
 const copyBtn = document.getElementById('copy-time-btn');
 if (copyBtn) {
     copyBtn.addEventListener('click', function() {
-        if (player && player.getCurrentTime && activeVideoId) {
+        // NEW: Future-Proof Timestamp generation
+        // Uses the active ID, or the extracted permanent VOD ID if on a livestream
+        const targetId = activeVideoId || resolvedLiveVodId;
+
+        if (player && player.getCurrentTime && targetId) {
             const t = Math.floor(player.getCurrentTime());
-            const url = "https://youtu.be/" + activeVideoId + "?t=" + t + "s";
+            const url = "https://youtu.be/" + targetId + "?t=" + t + "s";
             navigator.clipboard.writeText(url).then(() => {
                 const icon = document.getElementById('copy-icon');
                 if(icon) icon.innerText = 'check'; 
