@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTG Local Avatar Manager</title>
+    <link rel="icon" href="data:,">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { background: #0e0e10; color: #efeff1; font-family: sans-serif; padding: 20px; }
+        .channel-row { display: flex; align-items: center; gap: 15px; padding: 10px; border-bottom: 1px solid #333; }
+        input[type="text"] { background: #18181b; color: white; border: 1px solid #555; padding: 8px; width: 300px; }
+        button { background: #9146FF; color: white; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+        button:hover { background: #a970ff; }
+        .avatar-preview { width: 30px; height: 30px; border-radius: 50%; background: #333; object-fit: cover; }
+    </style>
+</head>
+<body>
+    <h1>Avatar Manager</h1>
+    <div id="channel-list">Loading channels...</div>
+
+<script>
+        let supabaseClient;
+        const pendingUrls = {}; // Stores fetched URLs before saving
+
+        async function init() {
+            try {
+                const res = await fetch('/api/config');
+                const env = await res.json();
+                if (!env.url || !env.anonKey) throw new Error("Missing URL or Anon Key");
+                
+                supabaseClient = window.supabase.createClient(env.url, env.anonKey, { auth: { persistSession: false } });
+                loadChannels();
+            } catch (err) {
+                document.getElementById('channel-list').innerHTML = `<span style="color: #e74c3c;">Error: ${err.message}</span>`;
+            }
+        }
+
+        async function loadChannels() {
+            const { data, error } = await supabaseClient.from('ltg_channels')
+                .select('slug, display_name, twitch_channel, youtube_channel_id, kick_channel')
+                .order('slug');
+                
+            if (error) return console.error("Database Error:", error);
+
+            const container = document.getElementById('channel-list');
+            container.innerHTML = '';
+
+            data.forEach(ch => {
+                const row = document.createElement('div');
+                row.className = 'channel-row';
+                const cacheBuster = new Date().getTime();
+                
+                let buttonsHtml = '';
+                if (ch.twitch_channel) buttonsHtml += `<button style="background: var(--purple);" onclick="fetchPreview('${ch.slug}', 'twitch', '${ch.twitch_channel}')">Twitch</button> `;
+                if (ch.youtube_channel_id) buttonsHtml += `<button style="background: var(--red);" onclick="fetchPreview('${ch.slug}', 'youtube', '${ch.youtube_channel_id}')">YouTube</button> `;
+                if (ch.kick_channel) buttonsHtml += `<button style="background: var(--green);" onclick="fetchPreview('${ch.slug}', 'kick', '${ch.kick_channel}')">Kick</button> `;
+
+                row.innerHTML = `
+					<img src="/assets/avatars/${ch.slug}/sm.webp?t=${cacheBuster}" class="avatar-preview" onerror="this.src='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='">
+                    <strong style="width: 150px;">${ch.display_name || ch.slug}</strong>
+                    
+                    <div style="display: flex; gap: 8px; width: 220px;">
+                        ${buttonsHtml || '<span style="color: #555; font-size: 12px;">No platforms</span>'}
+                    </div>
+
+                    <img id="preview-img-${ch.slug}" class="avatar-preview" style="display: none; border: 2px solid #e67e22;" src="">
+                    <button id="save-btn-${ch.slug}" style="display: none; background: #2ecc71;" onclick="commitSave('${ch.slug}')">Save</button>
+                    
+                    <span id="status-${ch.slug}" style="font-size: 12px; margin-left: 10px;"></span>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        async function fetchPreview(slug, platform, handle) {
+            const statusLabel = document.getElementById(`status-${slug}`);
+            statusLabel.style.color = '#f1c40f';
+            statusLabel.innerText = `Scraping...`;
+
+            try {
+                const res = await fetch('/api/fetch-avatar-url', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ platform, handle })
+                });
+                
+                const result = await res.json();
+                
+                if (result.success && result.imageUrl) {
+                    pendingUrls[slug] = result.imageUrl; // Store URL for later
+                    document.getElementById(`preview-img-${slug}`).src = result.imageUrl;
+                    document.getElementById(`preview-img-${slug}`).style.display = 'block';
+                    document.getElementById(`save-btn-${slug}`).style.display = 'block';
+                    statusLabel.innerText = "Loaded.";
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (err) {
+                statusLabel.style.color = '#e74c3c';
+                statusLabel.innerText = "Fetch failed.";
+                console.error(err);
+            }
+        }
+
+        async function commitSave(slug) {
+            const statusLabel = document.getElementById(`status-${slug}`);
+            const imageUrl = pendingUrls[slug];
+
+            if (!imageUrl) return;
+
+            statusLabel.style.color = '#f1c40f';
+            statusLabel.innerText = "Saving...";
+
+            try {
+                const res = await fetch('/api/save-avatar', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ slug, imageUrl })
+                });
+                
+                const result = await res.json();
+                
+                if (result.success) {
+                    statusLabel.style.color = '#2ecc71';
+                    statusLabel.innerText = "Saved!";
+                    setTimeout(loadChannels, 1000); 
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (err) {
+                statusLabel.style.color = '#e74c3c';
+                statusLabel.innerText = "Save failed.";
+                console.error(err);
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>
