@@ -113,14 +113,15 @@ export async function getFullSeriesContext(gameSlug) {
                 channel_slug,
                 sync_date,
                 title,
+                ltg_playlist_stats (
+                    ep_count,
+                    total_views,
+                    total_duration,
+                    latest_published_at,
+                    first_video_id
+                ),
                 ltg_playlist_videos (
-                    sort_order,
-                    ltg_videos (
-                        id,
-                        duration_seconds,
-                        view_count,
-                        published_at
-                    )
+                    sort_order
                 )
             )
         `)

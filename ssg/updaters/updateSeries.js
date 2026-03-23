@@ -11,7 +11,6 @@ export async function updateSeries(gameSlug, force = false) {
     let allPlaylists = [];
     seriesArray.forEach(series => {
         if (series.ltg_playlists) {
-            // Attach the parent series status to each playlist so the card knows if it's "Completed" or "Ongoing"
             const taggedPlaylists = series.ltg_playlists.map(p => ({ ...p, series_status: series.status }));
             allPlaylists.push(...taggedPlaylists);
         }
@@ -44,32 +43,18 @@ export async function updateSeries(gameSlug, force = false) {
 
     console.log(`\n🏗️ Rebuilding Game Root Index for ${gameSlug}...`);
 
-    // --- MAP & REDUCE THE CARD DATA ---
+    // --- USE THE PRE-CALCULATED DB STATS ---
     const mappedSeasons = sortedPlaylists.map(p => {
-        let totalViews = 0;
-        let totalDuration = 0;
-        let latestDate = new Date(0);
-        let firstVideoId = '';
-        
-        // Filter out null videos and sort by order
-        const validVideos = p.ltg_playlist_videos
-            .filter(pv => pv.ltg_videos)
-            .sort((a, b) => a.sort_order - b.sort_order);
+        // Grab the stats from our new Database View
+        const stats = p.ltg_playlist_stats[0] || { 
+            ep_count: 0, total_views: 0, total_duration: 0, 
+            latest_published_at: new Date(0).toISOString(), first_video_id: '' 
+        };
 
-        if (validVideos.length > 0) {
-            firstVideoId = validVideos[0].ltg_videos.id; // Grab the thumbnail for Ep 1
-            
-            validVideos.forEach(pv => {
-                const v = pv.ltg_videos;
-                totalViews += (v.view_count || 0);
-                totalDuration += (v.duration_seconds || 0);
-                
-                const pubDate = new Date(v.published_at);
-                if (pubDate > latestDate) latestDate = pubDate;
-            });
-        }
+        const totalDuration = stats.total_duration;
+        const latestDate = new Date(stats.latest_published_at);
 
-        // Formatting Helpers for the template
+        // Formatting Helpers
         const h = Math.floor(totalDuration / 3600);
         const m = Math.floor((totalDuration % 3600) / 60);
         const durFull = h > 0 ? `${h}h ${m}m` : `${m}m`;
@@ -82,14 +67,14 @@ export async function updateSeries(gameSlug, force = false) {
             title: p.title || `Season ${p.season}`,
             status: p.series_status || 'Ongoing',
             statusColor: (p.series_status || '').toLowerCase() === 'completed' ? 'blue' : 'green',
-            epCount: validVideos.length,
-            totalViews,
-            totalDuration,
+            epCount: stats.ep_count,
+            totalViews: stats.total_views,
+            totalDuration: totalDuration,
             durFull,
             durShort,
             lastUpdatedFormatted,
-            firstVideoId,
-            episodes: validVideos.map(pv => pv.sort_order)
+            firstVideoId: stats.first_video_id,
+            episodes: p.ltg_playlist_videos.map(pv => pv.sort_order).sort((a, b) => a - b)
         };
     });
 
