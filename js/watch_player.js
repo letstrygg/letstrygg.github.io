@@ -121,7 +121,7 @@ document.addEventListener('keydown', function(e) {
 
     if (e.key.toLowerCase() === 'f') { toggleTheater(); return; }
     if (e.key.toLowerCase() === 's') { toggleShortcuts(); return; }
-    if (e.key.toLowerCase() === 'c') {
+/*    if (e.key.toLowerCase() === 'c') {
         const chatOpenBtn = document.getElementById('openChatBtn');
         const chatCloseBtn = document.getElementById('closeChatBtn');
         if (document.body.classList.contains('chat-open-squish')) {
@@ -130,7 +130,7 @@ document.addEventListener('keydown', function(e) {
             if (chatOpenBtn) chatOpenBtn.click();
         }
         return;
-    }
+    }*/
 
     if (activePlayerPlatform !== 'youtube') return;
 
