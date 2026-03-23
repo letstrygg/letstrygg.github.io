@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let isMobile = window.innerWidth <= 768;
 
     window.ltgSidebar = {
-        isOpen: !isMobile, // Default: Open on Desktop, Closed on Mobile
+        isOpen: !isMobile,
         toggle: function(forceState) {
             this.isOpen = typeof forceState === 'boolean' ? forceState : !this.isOpen;
             
@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 document.body.classList.add('sidebar-open-squish');
                 if (openBtn) openBtn.style.display = 'none';
                 
-                // MOBILE EXCLUSIVITY: Close Chat if opening Sidebar
                 if (window.innerWidth <= 768 && typeof isChatOpen !== 'undefined' && isChatOpen) {
                     isChatOpen = false;
                     if (typeof updateChatVisibility === 'function') updateChatVisibility();
@@ -30,12 +29,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     };
 
-    // Apply Initial State
     window.ltgSidebar.toggle(window.ltgSidebar.isOpen);
     if (openBtn) openBtn.addEventListener('click', () => window.ltgSidebar.toggle(true));
     if (closeBtn) closeBtn.addEventListener('click', () => window.ltgSidebar.toggle(false));
 
-    // Global Hotkey 'D'
     document.addEventListener('keydown', function(e) {
         const activeElement = document.activeElement;
         const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
@@ -47,33 +44,30 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-    // --- 2. THE RESPONSIVE SNAP COORDINATOR ---
     let lastWidth = window.innerWidth;
     window.addEventListener('resize', () => {
         const currentWidth = window.innerWidth;
         const wasMobile = lastWidth <= 768;
         const isNowMobile = currentWidth <= 768;
         
-        // Crossed breakpoint from Desktop -> Mobile
         if (!wasMobile && isNowMobile) {
-            window.ltgSidebar.toggle(false); // Close Directory
+            window.ltgSidebar.toggle(false);
             if (typeof isChatOpen !== 'undefined') {
-                isChatOpen = true; // Open Chat
+                isChatOpen = true;
                 if (typeof updateChatVisibility === 'function') updateChatVisibility();
             }
         } 
-        // Crossed breakpoint from Mobile -> Desktop
         else if (wasMobile && !isNowMobile) {
-            window.ltgSidebar.toggle(true); // Open Directory
+            window.ltgSidebar.toggle(true);
             if (typeof isChatOpen !== 'undefined') {
-                isChatOpen = true; // Open Chat
+                isChatOpen = true;
                 if (typeof updateChatVisibility === 'function') updateChatVisibility();
             }
         }
         lastWidth = currentWidth;
     });
 
-    // --- 3. AUTH & DATA FETCHING ---
+    // --- 2. AUTH & DATA FETCHING ---
     const supabaseUrl = window.SUPABASE_URL;
     const supabaseKey = window.SUPABASE_ANON_KEY;
     if (!supabaseUrl || !supabaseKey) return;
@@ -82,24 +76,44 @@ document.addEventListener("DOMContentLoaded", async () => {
     const { data: authData } = await supabaseClient.auth.getSession();
     const session = authData.session;
 
-    if (!session) {
-        if (openBtn) openBtn.style.display = 'none';
-        return;
-    }
-
     const defaultPrefs = ['twitch', 'youtube', 'kick'];
     let userPrefs = defaultPrefs;
+    
+    let followedChannels = [];
+    let unfollowedChannels = [];
 
-    const [profileRes, followsRes] = await Promise.all([
-        supabaseClient.from('ltg_profiles').select('platform_prefs').eq('user_id', session.user.id).maybeSingle(),
-        supabaseClient.from('ltg_channels_followed')
-            .select(`channel_slug, ltg_channels (slug, display_name, live_data)`)
-            .eq('user_id', session.user.id)
-    ]);
+    // Fetch follows if logged in
+    if (session) {
+        const [profileRes, followsRes] = await Promise.all([
+            supabaseClient.from('ltg_profiles').select('platform_prefs').eq('user_id', session.user.id).maybeSingle(),
+            supabaseClient.from('ltg_channels_followed')
+                .select(`channel_slug, ltg_channels (slug, display_name, live_data)`)
+                .eq('user_id', session.user.id)
+        ]);
 
-    if (profileRes.data && profileRes.data.platform_prefs) userPrefs = profileRes.data.platform_prefs;
-    const followedChannels = followsRes.data ? followsRes.data.map(f => f.ltg_channels).filter(c => c !== null) : [];
+        if (profileRes.data && profileRes.data.platform_prefs) userPrefs = profileRes.data.platform_prefs;
+        if (followsRes.data) {
+            followedChannels = followsRes.data.map(f => f.ltg_channels).filter(c => c !== null);
+        }
+    }
 
+    // Calculate how many more channels we need to hit 15
+    const needed = 15 - followedChannels.length;
+    
+    if (needed > 0) {
+        let query = supabaseClient.from('ltg_channels').select('slug, display_name, live_data').limit(needed);
+        
+        // Exclude already followed channels from this backfill query
+        if (followedChannels.length > 0) {
+            const followedSlugs = followedChannels.map(c => c.slug);
+            query = query.not('slug', 'in', `(${followedSlugs.join(',')})`);
+        }
+        
+        const { data } = await query;
+        if (data) unfollowedChannels = data;
+    }
+
+    // --- 3. ROUTING & SORTING LOGIC ---
     function getBestLiveRoute(channel) {
         const liveData = channel.live_data || {};
         if (!liveData.is_live || !Array.isArray(liveData.platforms) || liveData.platforms.length === 0) {
@@ -111,12 +125,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         return { isLive: true, platform: liveData.platforms[0], url: `/live/#${liveData.platforms[0]}/${channel.slug}` };
     }
 
-    let processedChannels = followedChannels.map(ch => ({ ...ch, route: getBestLiveRoute(ch) }));
+    // Tag the channels so we know how to group them during the sort
+    followedChannels = followedChannels.map(ch => ({ ...ch, isFollowed: true, route: getBestLiveRoute(ch) }));
+    unfollowedChannels = unfollowedChannels.map(ch => ({ ...ch, isFollowed: false, route: getBestLiveRoute(ch) }));
+    
+    let processedChannels = [...followedChannels, ...unfollowedChannels];
 
-	function sortAndRender() {
+    function sortAndRender() {
         processedChannels.sort((a, b) => {
+            // Group 1: Followed channels always stack above unfollowed
+            if (a.isFollowed && !b.isFollowed) return -1;
+            if (!a.isFollowed && b.isFollowed) return 1;
+
+            // Group 2: Within their respective groups, live channels stack above offline
             if (a.route.isLive && !b.route.isLive) return -1;
             if (!a.route.isLive && b.route.isLive) return 1;
+            
+            // Group 3: Alphabetical fallback
             const nameA = (a.display_name || a.slug).toLowerCase();
             const nameB = (b.display_name || b.slug).toLowerCase();
             return nameA.localeCompare(nameB);
@@ -129,7 +154,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const imgPath = `/assets/avatars/${ch.slug}/sm.webp`;
             const statusClass = ch.route.isLive ? `live-${ch.route.platform}` : 'offline';
 
-            // Changed to tooltip-left and restricted tooltip text to displayName only
             const rowHtml = `
                 <a href="${ch.route.url}" class="sidebar-avatar-wrapper tooltip-left ${statusClass}" data-tooltip="${displayName}">
                     <div class="sidebar-avatar-fallback">${firstLetter}</div>
@@ -142,6 +166,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     sortAndRender();
 
+    // --- 4. REALTIME LISTENER ---
     const sidebarChannel = supabaseClient.channel('sidebar_updates');
     sidebarChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_channels' }, payload => {
         const updated = payload.new;
