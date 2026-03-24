@@ -1,78 +1,153 @@
 ---
 layout: new
-title: "Diablo II Median XL Assassin"
+title: "Diablo II Median XL Assassin - All Seasons"
 permalink: /yt/letstrygg/diablo-ii/
-custom_css: "/css/game.css"
-sync_date: "2026-03-24T08:05:02.625Z"
+custom_css: "/css/home.css"
 ---
 
+<style>
+/* Split Card Styling Overrides */
+.split-card.game-card {
+    padding: 0 !important; /* Strip default padding to let zones fill the edges */
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.zone-top, .zone-bottom {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+}
+
+/* Zone 1: Ep 1 (Thumbnail & Title) */
+.zone-top {
+    padding-bottom: 8px;
+}
+.zone-top img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    transition: opacity 0.2s ease;
+}
+.zone-top:hover img {
+    opacity: 0.7; /* Dim image on hover to indicate play action */
+}
+.zone-top .card-row {
+    padding: 12px 15px 0 15px; /* Restore padding just for the text */
+}
+
+/* Zone 2: Season View (Stats & Link) */
+.zone-bottom {
+    padding: 10px 15px 15px 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid transparent;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.zone-bottom:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-top: 1px solid var(--border);
+}
+.zone-bottom:hover .view-list-text {
+    color: var(--blue);
+}
+
+.yt-header-link:hover {
+    opacity: 1 !important;
+}
+.yt-header-link:hover .material-symbols-outlined {
+    transform: scale(1.1);
+}
+</style>
+
 <div class="game-page-wrapper">
-  {% include_relative _manual/index.html %}
+  
 
-  <div class="season-grid">
 
-<div class="season-block">
-  <div class="season-header">
-    <span class="season-label">Season 1</span>
-  </div>
-  <a href="https://www.youtube.com/watch?v=wcvWnPbXu9s&list=PLQ4IL4UVgQk7AgVioBXiA-T6FWdgx8IVj" target="_blank" rel="noopener noreferrer" class="filterable-card">
-    <div class="game-card" data-updated="1581291001000" data-episodes="4" data-views="177" data-duration="7790">
-      <img src="https://i.ytimg.com/vi/wcvWnPbXu9s/maxresdefault.jpg" alt="Diablo II Median XL Assassin">
-      <div class="card-row">
-        <strong>Diablo II Median XL Assassin</strong>
-        <span class="card-status blue">Active</span>
+  <div class="season-grid" id="series-grid">
+
+    <div class="season-block">
+      <div class="season-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <span class="season-label" style="font-size: 1.2rem; font-weight: bold; padding-left: 6px; border-left: 4px solid var(--blue);">Season 1</span>
+        
+        <a href="https://www.youtube.com/playlist?list=PLQ4IL4UVgQk7AgVioBXiA-T6FWdgx8IVj" target="_blank" rel="noopener noreferrer" class="yt-header-link" style="display: flex; align-items: center; gap: 4px; color: var(--text); text-decoration: none; font-size: 0.9rem; opacity: 0.7; transition: all 0.2s;">
+          <span class="material-symbols-outlined" style="color: var(--red); font-size: 20px; transition: transform 0.2s;">play_circle</span> YouTube
+        </a>
       </div>
-      <div class="card-row">
-        <span>4 videos</span>
-        <span>177 views</span>
-        <span class="card-duration">
-          <span class="dur-full">⏱ 2h 9m</span>
-          <span class="dur-short">⏱ 2h</span>
-        </span>
+      
+      <div class="split-card game-card filterable-card" data-updated="1581291001000">
+        
+        <a href="/yt/letstrygg/diablo-ii/season-1/di-s01e01.html" class="zone-top" title="Play Episode 1">
+          <div style="background: #000;">
+            <img src="https://i.ytimg.com/vi/wcvWnPbXu9s/maxresdefault.jpg" alt="Diablo II Median XL Assassin S1">
+          </div>
+          <div class="card-row">
+            <strong style="font-size: 1.1rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Diablo II Median XL Assassin S1</strong>
+            <span class="card-status blue">Active</span>
+          </div>
+        </a>
+        
+        <a href="/yt/letstrygg/diablo-ii/season-1/" class="zone-bottom" title="View Season Details">
+          <div class="card-row stats-row" style="margin-bottom: 12px; font-size: 0.85rem;">
+            <span><span class="material-symbols-outlined gray" style="font-size: 16px; vertical-align: text-bottom;">list</span> 4</span>
+            <span><span class="material-symbols-outlined gray" style="font-size: 16px; vertical-align: text-bottom;">visibility</span> 177</span>
+            <span class="card-duration">
+              <span class="dur-full"><span class="material-symbols-outlined gray" style="font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 9m</span>
+              <span class="dur-short"><span class="material-symbols-outlined gray" style="font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h</span>
+            </span>
+          </div>
+          
+          <div class="view-list-text" style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: bold; color: var(--gray); border-top: 1px solid var(--border); padding-top: 10px; transition: color 0.2s;">
+            View Episode List <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+          </div>
+        </a>
+        
       </div>
     </div>
-  </a>
-  <div class="ep-pill-container">
-    <a href="/yt/letstrygg/diablo-ii/season-1/di-s01e01.html" class="btn">Ep 1</a>
-    <span class="ep-delimiter">•</span>
-    <a href="/yt/letstrygg/diablo-ii/season-1/di-s01e02.html" class="btn">Ep 2</a>
-    <span class="ep-delimiter">•</span>
-    <a href="/yt/letstrygg/diablo-ii/season-1/di-s01e03.html" class="btn">Ep 3</a>
-    <span class="ep-delimiter">•</span>
-    <a href="/yt/letstrygg/diablo-ii/season-1/di-s01e04.html" class="btn">Ep 4</a>
-  </div>
-</div>
 
-<div class="season-block">
-  <div class="season-header">
-    <span class="season-label">Season 2</span>
-  </div>
-  <a href="https://www.youtube.com/watch?v=lAEX2xG_y8I&list=PLQ4IL4UVgQk7kK4CAYQTjcoIdThHZQL4i" target="_blank" rel="noopener noreferrer" class="filterable-card">
-    <div class="game-card" data-updated="1629246617000" data-episodes="4" data-views="52" data-duration="6336">
-      <img src="https://i.ytimg.com/vi/lAEX2xG_y8I/maxresdefault.jpg" alt="Diablo II Resurrected Beta">
-      <div class="card-row">
-        <strong>Diablo II Resurrected Beta</strong>
-        <span class="card-status blue">Active</span>
+    <div class="season-block">
+      <div class="season-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <span class="season-label" style="font-size: 1.2rem; font-weight: bold; padding-left: 6px; border-left: 4px solid var(--blue);">Season 2</span>
+        
+        <a href="https://www.youtube.com/playlist?list=PLQ4IL4UVgQk7kK4CAYQTjcoIdThHZQL4i" target="_blank" rel="noopener noreferrer" class="yt-header-link" style="display: flex; align-items: center; gap: 4px; color: var(--text); text-decoration: none; font-size: 0.9rem; opacity: 0.7; transition: all 0.2s;">
+          <span class="material-symbols-outlined" style="color: var(--red); font-size: 20px; transition: transform 0.2s;">play_circle</span> YouTube
+        </a>
       </div>
-      <div class="card-row">
-        <span>4 videos</span>
-        <span>52 views</span>
-        <span class="card-duration">
-          <span class="dur-full">⏱ 1h 45m</span>
-          <span class="dur-short">⏱ 1h</span>
-        </span>
+      
+      <div class="split-card game-card filterable-card" data-updated="1629246617000">
+        
+        <a href="/yt/letstrygg/diablo-ii/season-2/di-s02e01.html" class="zone-top" title="Play Episode 1">
+          <div style="background: #000;">
+            <img src="https://i.ytimg.com/vi/lAEX2xG_y8I/maxresdefault.jpg" alt="Diablo II Median XL Assassin S2">
+          </div>
+          <div class="card-row">
+            <strong style="font-size: 1.1rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Diablo II Median XL Assassin S2</strong>
+            <span class="card-status blue">Active</span>
+          </div>
+        </a>
+        
+        <a href="/yt/letstrygg/diablo-ii/season-2/" class="zone-bottom" title="View Season Details">
+          <div class="card-row stats-row" style="margin-bottom: 12px; font-size: 0.85rem;">
+            <span><span class="material-symbols-outlined gray" style="font-size: 16px; vertical-align: text-bottom;">list</span> 4</span>
+            <span><span class="material-symbols-outlined gray" style="font-size: 16px; vertical-align: text-bottom;">visibility</span> 52</span>
+            <span class="card-duration">
+              <span class="dur-full"><span class="material-symbols-outlined gray" style="font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 45m</span>
+              <span class="dur-short"><span class="material-symbols-outlined gray" style="font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h</span>
+            </span>
+          </div>
+          
+          <div class="view-list-text" style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: bold; color: var(--gray); border-top: 1px solid var(--border); padding-top: 10px; transition: color 0.2s;">
+            View Episode List <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+          </div>
+        </a>
+        
       </div>
     </div>
-  </a>
-  <div class="ep-pill-container">
-    <a href="/yt/letstrygg/diablo-ii/season-2/di-s02e01.html" class="btn">Ep 1</a>
-    <span class="ep-delimiter">•</span>
-    <a href="/yt/letstrygg/diablo-ii/season-2/di-s02e02.html" class="btn">Ep 2</a>
-    <span class="ep-delimiter">•</span>
-    <a href="/yt/letstrygg/diablo-ii/season-2/di-s02e03.html" class="btn">Ep 3</a>
-    <span class="ep-delimiter">•</span>
-    <a href="/yt/letstrygg/diablo-ii/season-2/di-s02e04.html" class="btn">Ep 4</a>
-  </div>
-</div>
+
   </div>
 </div>

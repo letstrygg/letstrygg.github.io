@@ -19,7 +19,8 @@ sync_date: "2026-03-18T02:31:20.491+00:00"
   </div>
 
   <div class="game-section">
-    {% include_relative _manual/index.html %}
+    
+
 
     {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/letstrygg/blood-card-2-dark-mist/season-1/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
     

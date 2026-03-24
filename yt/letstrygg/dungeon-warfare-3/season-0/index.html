@@ -19,7 +19,8 @@ sync_date: "2026-03-20T23:05:04.271+00:00"
   </div>
 
   <div class="game-section">
-    {% include_relative _manual/index.html %}
+    
+
 
     {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/letstrygg/dungeon-warfare-3/season-0/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
     

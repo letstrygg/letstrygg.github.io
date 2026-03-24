@@ -19,7 +19,8 @@ sync_date: "2026-03-24T02:03:41.458+00:00"
   </div>
 
   <div class="game-section">
-    {% include_relative _manual/index.html %}
+    
+
 
     {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/ltg-plus/backpack-battles/season-5/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
     
