@@ -20,7 +20,7 @@ sync_date: "${data.syncDate}"
   </div>
 
   <div class="game-section">
-    {% include_relative _manual/index.html %}
+    ${data.manualContent}
 
     {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/${data.channelSlug}/${data.gameSlug}/season-${Math.floor(data.seasonNum)}/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
     

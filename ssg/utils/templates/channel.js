@@ -81,7 +81,7 @@ custom_css: "/css/home.css"
 </style>
 
 <div class="game-page-wrapper">
-  {% include_relative _manual/index.html %}
+  ${data.manualContent}
 `;
 
     // 1. Inject the Animated Header (Only for the Parent Channel)

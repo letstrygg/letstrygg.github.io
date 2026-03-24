@@ -8,7 +8,7 @@ sync_date: "${data.syncDate}"
 ---
 
 <div class="game-page-wrapper">
-  {% include_relative _manual/index.html %}
+  ${data.manualContent}
 
   <div class="season-grid">\n`;
 

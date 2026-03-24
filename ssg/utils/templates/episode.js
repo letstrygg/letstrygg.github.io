@@ -43,7 +43,7 @@ sync_date: "${data.rawPublishedAt}"
       <h1 class="title" style="font-size: 1.8rem; margin-bottom: 5px;">{{ page.title }}</h1>
       <p class="subtitle" style="margin-bottom: 20px;">Season ${data.seasonNum}, Episode ${data.episodeNum}</p>
       
-      {% include_relative _manual/${data.fileName} %}
+      ${data.manualContent}
   </div>
 </div>`;
 }

@@ -21,7 +21,7 @@ custom_css: "/css/home.css"
 ---
 
 <div class="game-page-wrapper">
-  {% include_relative _manual/index.html %}
+  ${networkData.manualContent}
 
   <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
     <div>

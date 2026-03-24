@@ -110,13 +110,21 @@ export async function updateChannel(hubSlug, options = {}) {
     if (!fs.existsSync(rootPath)) fs.mkdirSync(rootPath, { recursive: true });
     if (!fs.existsSync(`${rootPath}/_manual`)) fs.mkdirSync(`${rootPath}/_manual`, { recursive: true });
     
+    // --> NODE INJECTION: Read the Master Hub manual file <--
+    const rootManualPath = `${rootPath}/_manual/index.html`;
+    let rootManualContent = "\n";
+    if (fs.existsSync(rootManualPath)) {
+        rootManualContent = fs.readFileSync(rootManualPath, 'utf8');
+    } else {
+        writeStaticPage(rootManualPath, rootManualContent);
+    }
+    
+    // Attach it to the payload
+    networkData.manualContent = rootManualContent;
+
+    // Generate the page
     writeStaticPage(`${rootPath}/index.html`, hubHTML(networkData));
     console.log(`✅ Master Network Directory generated at: ${rootPath}/index.html`);
-
-    const rootManualPath = `${rootPath}/_manual/index.html`;
-    if (!fs.existsSync(rootManualPath)) {
-        writeStaticPage(rootManualPath, "\n");
-    }
 
     // --- 2. GENERATE THE INDIVIDUAL CHANNEL DIRECTORIES (/yt/letstrygg/index.html) ---
     console.log(`\n🏗️  Generating Channel Indexes for the ${context.hubSlug} family...`);
@@ -129,20 +137,26 @@ export async function updateChannel(hubSlug, options = {}) {
         if (!fs.existsSync(channelPath)) fs.mkdirSync(channelPath, { recursive: true });
         if (!fs.existsSync(`${channelPath}/_manual`)) fs.mkdirSync(`${channelPath}/_manual`, { recursive: true });
 
+        // --> NODE INJECTION LOGIC <--
+        // Read the manual file if it exists, otherwise create it and use default text
+        let manualContent = "\n";
+        if (fs.existsSync(channelManual)) {
+            manualContent = fs.readFileSync(channelManual, 'utf8');
+        } else {
+            writeStaticPage(channelManual, manualContent);
+        }
+
         const isMainHub = channel.channelSlug === context.hubSlug;
         const channelsToRender = isMainHub ? context.channels : [channel];
 
         const pageHTML = channelHTML({
             hubSlug: channel.channelSlug,
-            channels: channelsToRender
+            channels: channelsToRender,
+            manualContent: manualContent // Pass the raw text directly into the template!
         });
 
         writeStaticPage(channelIndex, pageHTML);
         console.log(`✅ Channel Index generated at: ${channelIndex}`);
-
-        if (!fs.existsSync(channelManual)) {
-            writeStaticPage(channelManual, "\n");
-        }
     }
 
     return { success: true, skipped: false, totalEpisodes, errors: channelErrors };

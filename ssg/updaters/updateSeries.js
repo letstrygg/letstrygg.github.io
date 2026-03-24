@@ -7,7 +7,6 @@ import { writeStaticPage } from '../utils/fileSys.js';
 export async function updateSeries(gameSlug, options = {}, channelFamily = null, rootChannelSlug = null) {
     const isForce = options.force || false;
     
-    // The fixed query: reaching through ltg_series into ltg_games for the tags
     const { data: allPlaylists, error } = await supabase
         .from('ltg_playlists')
         .select(`
@@ -15,7 +14,8 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
             ltg_series!inner ( 
                 slug, 
                 title,
-                ltg_games ( tags )
+                game_slug,
+                ltg_games ( tags, custom_abbr )
             ),
             ltg_playlist_stats ( ep_count, total_views, total_duration, latest_published_at, first_video_id )
         `)
@@ -28,15 +28,10 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
     }
 
     const seriesTitle = allPlaylists[0].ltg_series.title;
-    
-    // Extract the tags safely (fallback to empty array if none exist)
     const gameTags = allPlaylists[0].ltg_series.ltg_games?.tags || [];
-    
-    // Use the channel that owns the first playlist, fallback to the root channel if provided
     const channelSlug = allPlaylists[0]?.channel_slug || rootChannelSlug || 'unknown';
     const seriesPath = `yt/${channelSlug}/${gameSlug}`;
     const seriesIndex = `${seriesPath}/index.html`;
-    const seriesManual = `${seriesPath}/_manual/index.html`;
 
     console.log(`\n📚 Processing Game: ${seriesTitle} (${allPlaylists.length} seasons)`);
 
@@ -44,9 +39,7 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
     let totalEpisodes = 0;
     const seasonsData = [];
 
-    // Process each season and gather stats for the series page
     for (const playlist of allPlaylists) {
-        // Pass the options object down to the season builder
         const seasonResult = await updateSeason(playlist.id, options);
         
         if (!seasonResult.skipped) {
@@ -83,26 +76,30 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
     if (!fs.existsSync(seriesPath)) fs.mkdirSync(seriesPath, { recursive: true });
     if (!fs.existsSync(`${seriesPath}/_manual`)) fs.mkdirSync(`${seriesPath}/_manual`, { recursive: true });
 
-    // FIX: Calculate the prefix right before generating the HTML
     const dbAbbr = allPlaylists[0].ltg_series.ltg_games?.custom_abbr;
     const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
+
+    const seriesManual = `${seriesPath}/_manual/index.html`;
+    let seriesManualContent = "\n";
+    if (fs.existsSync(seriesManual)) {
+        seriesManualContent = fs.readFileSync(seriesManual, 'utf8');
+    } else {
+        writeStaticPage(seriesManual, seriesManualContent);
+    }
 
     const seriesPageHTML = seriesHTML({
         seriesTitle,
         channelSlug,
         gameSlug,
-        shortPrefix: shortPrefix, // <--- Use the calculated variable here!
+        shortPrefix: shortPrefix,
         syncDate: new Date().toISOString(),
         seasons: seasonsData,
-        tags: gameTags 
+        tags: gameTags,
+        manualContent: seriesManualContent
     });
 
     writeStaticPage(seriesIndex, seriesPageHTML);
     console.log(`  ✅ Wrote page: ${seriesIndex}`);
-
-    if (!fs.existsSync(seriesManual)) {
-        writeStaticPage(seriesManual, "\n");
-    }
 
     return { success: true, skipped: false, totalEpisodes };
 }
