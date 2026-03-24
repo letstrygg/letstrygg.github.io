@@ -8,10 +8,18 @@ export function hubHTML(networkData) {
     };
 
     const formatDuration = (seconds) => {
-        if (!seconds) return '0h';
-        const h = Math.floor(seconds / 3600);
-        return `${h.toLocaleString()}h`;
-    };
+    if (!seconds) return '0s'; // Or '0h', depending on your preference for zero
+    
+    if (seconds < 60) {
+        return `${seconds.toLocaleString()}s`;
+    }
+    if (seconds < 3600) {
+        const m = Math.floor(seconds / 60);
+        return `${m.toLocaleString()}m`;
+    }
+    const h = Math.floor(seconds / 3600);
+    return `${h.toLocaleString()}h`;
+};
 
     let html = `---
 layout: new
@@ -70,7 +78,7 @@ custom_css: "/css/home.css"
                     <div style="color: var(--gray); margin-bottom: 5px; border-bottom: 1px solid #333;">Averages</div>
                     <div><strong>${avgVideosPerGame}</strong> vids per game</div>
                     <div><strong>${formatDuration(ch.duration / (ch.games || 1))}</strong> per game</div>
-                    <div><strong>${formatDuration(ch.duration / (ch.videos.parseInt() || 1))}</strong> per video</div>
+                    <div><strong>${formatDuration(ch.duration / (ch.videos || 1))}</strong> per video</div>
                 </div>
                 <div>
                     <div style="color: var(--gray); margin-bottom: 5px; border-bottom: 1px solid #333;">Totals</div>
