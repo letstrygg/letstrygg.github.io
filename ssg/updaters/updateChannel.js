@@ -65,18 +65,30 @@ export async function updateChannel(channelSlug, force = false) {
         return { success: true, skipped: true, totalEpisodes, errors: channelErrors };
     }
 
-    console.log(`\n🏗️ Rebuilding Channel Root Index for ${context.hubSlug}...`);
+    
+    // Instead of one build, we loop through every channel in the family context
+    // and build an index for each one.
+    console.log(`\n🏗️  Generating Hub Indexes for the ${context.hubSlug} family...`);
 
-    const pageHTML = channelRootHTML({
-        hubSlug: context.hubSlug,
-        channels: context.channels
-    });
+    for (const channel of context.channels) {
+        const channelPath = `yt/${channel.channelSlug}`;
+        const channelIndex = `${channelPath}/index.html`;
+        const channelManual = `${channelPath}/_manual/index.html`;
 
-    writeStaticPage(indexPath, pageHTML);
-    console.log(`✅ Channel Root Index generated at: ${indexPath}`);
+        // Ensure directory exists
+        if (!fs.existsSync(channelPath)) fs.mkdirSync(channelPath, { recursive: true });
 
-    if (!checkFileExists(manualPath)) {
-        writeStaticPage(manualPath, "\n");
+        const pageHTML = channelRootHTML({
+            hubSlug: channel.channelSlug, // Use the specific channel slug (letstrygg or ltg-plus)
+            channels: [channel]           // Only pass this specific channel's data to its own template
+        });
+
+        writeStaticPage(channelIndex, pageHTML);
+        console.log(`✅ Hub Index generated at: ${channelIndex}`);
+
+        if (!fs.existsSync(channelManual)) {
+            writeStaticPage(channelManual, "\n");
+        }
     }
 
     return { success: true, skipped: false, totalEpisodes, errors: channelErrors };
