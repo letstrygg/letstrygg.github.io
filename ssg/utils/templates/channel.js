@@ -209,7 +209,7 @@ custom_css: "/css/home.css"
             html += `
   <a href="${gameUrl}" class="filterable-card" data-channel="${channel.channelSlug}" data-title="${safeTitle.toLowerCase()}" data-tags="${tagsStr}">
     <div class="game-card" data-updated="${maxTime}" data-episodes="${epCount}" data-views="${totalViews}" data-duration="${totalDuration}" data-vpv="${vpv}">
-      <img src="${thumbUrl}" alt="${safeTitle}">
+      <img src="${thumbUrl}" alt="${safeTitle}" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
       <div class="card-row">
           <strong>${safeTitle}</strong>
           <span class="card-status ${statusColor}">${channel.channelSlug}</span>
