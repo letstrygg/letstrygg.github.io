@@ -232,12 +232,16 @@ export async function getChannelContext(targetSlug) {
     };
 }
 
-// Add to ssg/utils/db.js
 export async function updateSeriesSyncDateByPlaylist(playlistId) {
-    // 1. Find the series_slug associated with this playlist
+    // 1. Find the series_slug AND the parent game_slug associated with this playlist
     const { data: playlist, error: fetchError } = await supabase
         .from('ltg_playlists')
-        .select('series_slug')
+        .select(`
+            series_slug,
+            ltg_series (
+                game_slug
+            )
+        `)
         .eq('id', playlistId)
         .single();
 
@@ -258,5 +262,7 @@ export async function updateSeriesSyncDateByPlaylist(playlistId) {
     }
 
     console.log(`   >> Bubbled sync_date up to Series: ${playlist.series_slug}`);
-    return playlist.series_slug;
+    
+    // Return the GAME SLUG so the SSG builder knows exactly which Game Root page to rebuild
+    return playlist.ltg_series?.game_slug || playlist.series_slug.toLowerCase();
 }

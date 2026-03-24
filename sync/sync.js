@@ -28,7 +28,7 @@ async function run() {
                 await syncPlaylist(targetId);
                 
                 // 2. Bubble the sync_date up to the parent Series
-                const seriesSlug = await updateSeriesSyncDateByPlaylist(targetId);
+                const gameSlug = await updateSeriesSyncDateByPlaylist(targetId);
 
                 // 3. Trigger the SSG Build (Unless explicitly skipped)
                 if (!skipUpdate) {
@@ -39,23 +39,13 @@ async function run() {
                     // We execute the SSG script as a separate process to keep memory clean
                     execSync(`node ssg/update.js season ${targetId}${forceFlag}`, { stdio: 'inherit' });
                     
-                    // Optional: If you want the Game Root Page to immediately reflect the new date/stats,
-                    // you can also trigger the series update right here:
-                    if (seriesSlug) {
-                        execSync(`node ssg/update.js series ${seriesSlug}${forceFlag}`, { stdio: 'inherit' });
+                    // Trigger the game root page rebuild using the correct Game Slug
+                    if (gameSlug) {
+                        execSync(`node ssg/update.js series ${gameSlug}${forceFlag}`, { stdio: 'inherit' });
                     }
                 } else {
                     console.log(`\n⏩ Skipping SSG Build (--no-update provided).`);
                 }
-                break;
-
-            case 'channel':
-                console.log("Channel sync not implemented yet. Next on the list!");
-                break;
-
-            default:
-                console.error(`❌ Unknown command: ${command}`);
-                console.log("Available commands: playlist, channel");
                 break;
         }
 
