@@ -67,7 +67,7 @@ export async function updateChannel(channelSlug, force = false) {
 
     
     // Instead of one build, we loop through every channel in the family context
-    // and build an index for each one.
+    // and build an index for each one.    
     console.log(`\n🏗️  Generating Hub Indexes for the ${context.hubSlug} family...`);
 
     for (const channel of context.channels) {
@@ -75,12 +75,16 @@ export async function updateChannel(channelSlug, force = false) {
         const channelIndex = `${channelPath}/index.html`;
         const channelManual = `${channelPath}/_manual/index.html`;
 
-        // Ensure directory exists
         if (!fs.existsSync(channelPath)) fs.mkdirSync(channelPath, { recursive: true });
 
+        // If this channel is the main hub (letstrygg), it gets the whole family's data. 
+        // If it's a child (ltg-plus), it only gets its own data.
+        const isMainHub = channel.channelSlug === context.hubSlug;
+        const channelsToRender = isMainHub ? context.channels : [channel];
+
         const pageHTML = channelRootHTML({
-            hubSlug: channel.channelSlug, // Use the specific channel slug (letstrygg or ltg-plus)
-            channels: [channel]           // Only pass this specific channel's data to its own template
+            hubSlug: channel.channelSlug,
+            channels: channelsToRender
         });
 
         writeStaticPage(channelIndex, pageHTML);

@@ -13,779 +13,1122 @@ custom_css: "/css/game.css"
     <p class="subtitle">Channel Directory</p>
   </div>
 
-  <h2 style="margin-top: 30px; border-bottom: 1px solid var(--gray); padding-bottom: 10px;">letstrygg Games</h2>
-  <div class="season-grid">
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+  <div class="channel-filters" style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+    <button class="btn active filter-btn" data-target="all" onclick="filterChannel('all')">All Games</button>
+    <button class="btn btn-gray filter-btn" data-target="letstrygg" onclick="filterChannel('letstrygg')">letstrygg</button>
+    <button class="btn btn-gray filter-btn" data-target="ltg-plus" onclick="filterChannel('ltg-plus')">ltg-plus</button>
+  </div>
+  <div class="season-grid" id="directoryGrid">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/animal-well/" style="color: var(--text); text-decoration: none;">Animal Well</a></h3>
       <a href="/yt/letstrygg/animal-well/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/orb-of-creation/" style="color: var(--text); text-decoration: none;">Orb Of Creation</a></h3>
       <a href="/yt/letstrygg/orb-of-creation/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/apico/" style="color: var(--text); text-decoration: none;">Apico</a></h3>
       <a href="/yt/letstrygg/apico/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/arkos/" style="color: var(--text); text-decoration: none;">Arkos</a></h3>
       <a href="/yt/letstrygg/arkos/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/atrio-the-dark-wild/" style="color: var(--text); text-decoration: none;">Atrio The Dark Wild</a></h3>
       <a href="/yt/letstrygg/atrio-the-dark-wild/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/autoforge/" style="color: var(--text); text-decoration: none;">Autoforge</a></h3>
       <a href="/yt/letstrygg/autoforge/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/baba-is-you/" style="color: var(--text); text-decoration: none;">Baba Is You</a></h3>
       <a href="/yt/letstrygg/baba-is-you/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/backpack-hero/" style="color: var(--text); text-decoration: none;">Backpack Hero</a></h3>
       <a href="/yt/letstrygg/backpack-hero/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/balatro/" style="color: var(--text); text-decoration: none;">Balatro</a></h3>
       <a href="/yt/letstrygg/balatro/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/ball-x-pit/" style="color: var(--text); text-decoration: none;">Ball X Pit</a></h3>
       <a href="/yt/letstrygg/ball-x-pit/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/ballionaire/" style="color: var(--text); text-decoration: none;">Ballionaire</a></h3>
       <a href="/yt/letstrygg/ballionaire/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/below-the-stone/" style="color: var(--text); text-decoration: none;">Below The Stone</a></h3>
       <a href="/yt/letstrygg/below-the-stone/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/black-jacket/" style="color: var(--text); text-decoration: none;">Black Jacket</a></h3>
       <a href="/yt/letstrygg/black-jacket/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/blood-card-2-dark-mist/" style="color: var(--text); text-decoration: none;">Blood Card 2 Dark Mist</a></h3>
       <a href="/yt/letstrygg/blood-card-2-dark-mist/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/bloons-td-6/" style="color: var(--text); text-decoration: none;">Bloons Td 6</a></h3>
       <a href="/yt/letstrygg/bloons-td-6/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/border-pioneer/" style="color: var(--text); text-decoration: none;">Border Pioneer</a></h3>
       <a href="/yt/letstrygg/border-pioneer/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/breach-wanderers/" style="color: var(--text); text-decoration: none;">Breach Wanderers</a></h3>
       <a href="/yt/letstrygg/breach-wanderers/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/brotato/" style="color: var(--text); text-decoration: none;">Brotato</a></h3>
       <a href="/yt/letstrygg/brotato/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/carrion/" style="color: var(--text); text-decoration: none;">Carrion</a></h3>
       <a href="/yt/letstrygg/carrion/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/castle-of-alchemist/" style="color: var(--text); text-decoration: none;">Castle Of Alchemist</a></h3>
       <a href="/yt/letstrygg/castle-of-alchemist/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/causa-voices-of-the-dusk/" style="color: var(--text); text-decoration: none;">Causa Voices Of The Dusk</a></h3>
       <a href="/yt/letstrygg/causa-voices-of-the-dusk/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/cavernous-ii/" style="color: var(--text); text-decoration: none;">Cavernous Ii</a></h3>
       <a href="/yt/letstrygg/cavernous-ii/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/children-of-morta/" style="color: var(--text); text-decoration: none;">Children Of Morta</a></h3>
       <a href="/yt/letstrygg/children-of-morta/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/cookie-clicker/" style="color: var(--text); text-decoration: none;">Cookie Clicker</a></h3>
       <a href="/yt/letstrygg/cookie-clicker/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/creatorcrate/" style="color: var(--text); text-decoration: none;">Creatorcrate</a></h3>
       <a href="/yt/letstrygg/creatorcrate/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/creeper-world-3/" style="color: var(--text); text-decoration: none;">Creeper World 3</a></h3>
       <a href="/yt/letstrygg/creeper-world-3/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/creeper-world-ixe/" style="color: var(--text); text-decoration: none;">Creeper World Ixe</a></h3>
       <a href="/yt/letstrygg/creeper-world-ixe/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/asgards-fall/" style="color: var(--text); text-decoration: none;">Asgards Fall</a></h3>
       <a href="/yt/letstrygg/asgards-fall/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/cloverpit/" style="color: var(--text); text-decoration: none;">Cloverpit</a></h3>
       <a href="/yt/letstrygg/cloverpit/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/bloons-td-battles-2/" style="color: var(--text); text-decoration: none;">Bloons Td Battles 2</a></h3>
       <a href="/yt/letstrygg/bloons-td-battles-2/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/gemcraft-frostborn-wrath/" style="color: var(--text); text-decoration: none;">Gemcraft Frostborn Wrath</a></h3>
       <a href="/yt/letstrygg/gemcraft-frostborn-wrath/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/crystal-clash/" style="color: var(--text); text-decoration: none;">Crystal Clash</a></h3>
       <a href="/yt/letstrygg/crystal-clash/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/cube-chaos/" style="color: var(--text); text-decoration: none;">Cube Chaos</a></h3>
       <a href="/yt/letstrygg/cube-chaos/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/dark-fairy-tale-dreamland-survivors/" style="color: var(--text); text-decoration: none;">Dark Fairy Tale Dreamland Survivors</a></h3>
       <a href="/yt/letstrygg/dark-fairy-tale-dreamland-survivors/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/darkest-dungeon-2/" style="color: var(--text); text-decoration: none;">Darkest Dungeon 2</a></h3>
       <a href="/yt/letstrygg/darkest-dungeon-2/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/darkest-dungeon/" style="color: var(--text); text-decoration: none;">Darkest Dungeon</a></h3>
       <a href="/yt/letstrygg/darkest-dungeon/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/death-must-die/" style="color: var(--text); text-decoration: none;">Death Must Die</a></h3>
       <a href="/yt/letstrygg/death-must-die/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/deep-rock-g-survivors/" style="color: var(--text); text-decoration: none;">Deep Rock G Survivors</a></h3>
       <a href="/yt/letstrygg/deep-rock-g-survivors/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/despots-game/" style="color: var(--text); text-decoration: none;">Despots Game</a></h3>
       <a href="/yt/letstrygg/despots-game/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/die-in-the-dungeon/" style="color: var(--text); text-decoration: none;">Die In The Dungeon</a></h3>
       <a href="/yt/letstrygg/die-in-the-dungeon/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/dredge/" style="color: var(--text); text-decoration: none;">Dredge</a></h3>
       <a href="/yt/letstrygg/dredge/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/dungeon-clawler/" style="color: var(--text); text-decoration: none;">Dungeon Clawler</a></h3>
       <a href="/yt/letstrygg/dungeon-clawler/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/dungeon-warfare-2/" style="color: var(--text); text-decoration: none;">Dungeon Warfare 2</a></h3>
       <a href="/yt/letstrygg/dungeon-warfare-2/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/dungeon-warfare-3/" style="color: var(--text); text-decoration: none;">Dungeon Warfare 3</a></h3>
       <a href="/yt/letstrygg/dungeon-warfare-3/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/dungeon-sweeper/" style="color: var(--text); text-decoration: none;">Dungeon Sweeper</a></h3>
       <a href="/yt/letstrygg/dungeon-sweeper/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/dwarves-glory-death-and-loot/" style="color: var(--text); text-decoration: none;">Dwarves Glory Death And Loot</a></h3>
       <a href="/yt/letstrygg/dwarves-glory-death-and-loot/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/emberward/" style="color: var(--text); text-decoration: none;">Emberward</a></h3>
       <a href="/yt/letstrygg/emberward/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/enter-the-gungeon/" style="color: var(--text); text-decoration: none;">Enter The Gungeon</a></h3>
       <a href="/yt/letstrygg/enter-the-gungeon/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/factorio/" style="color: var(--text); text-decoration: none;">Factorio</a></h3>
       <a href="/yt/letstrygg/factorio/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/factory-idle/" style="color: var(--text); text-decoration: none;">Factory Idle</a></h3>
       <a href="/yt/letstrygg/factory-idle/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/fallout-shelter/" style="color: var(--text); text-decoration: none;">Fallout Shelter</a></h3>
       <a href="/yt/letstrygg/fallout-shelter/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/fights-in-tight-spaces/" style="color: var(--text); text-decoration: none;">Fights In Tight Spaces</a></h3>
       <a href="/yt/letstrygg/fights-in-tight-spaces/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/forager/" style="color: var(--text); text-decoration: none;">Forager</a></h3>
       <a href="/yt/letstrygg/forager/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/foundry/" style="color: var(--text); text-decoration: none;">Foundry</a></h3>
       <a href="/yt/letstrygg/foundry/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/fractory/" style="color: var(--text); text-decoration: none;">Fractory</a></h3>
       <a href="/yt/letstrygg/fractory/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/frankenstorm/" style="color: var(--text); text-decoration: none;">Frankenstorm</a></h3>
       <a href="/yt/letstrygg/frankenstorm/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/fray-fight/" style="color: var(--text); text-decoration: none;">Fray Fight</a></h3>
       <a href="/yt/letstrygg/fray-fight/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/galactic-glitch/" style="color: var(--text); text-decoration: none;">Galactic Glitch</a></h3>
       <a href="/yt/letstrygg/galactic-glitch/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/gladiator-guild-manager/" style="color: var(--text); text-decoration: none;">Gladiator Guild Manager</a></h3>
       <a href="/yt/letstrygg/gladiator-guild-manager/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/gnomes/" style="color: var(--text); text-decoration: none;">Gnomes</a></h3>
       <a href="/yt/letstrygg/gnomes/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/god-of-weapons/" style="color: var(--text); text-decoration: none;">God Of Weapons</a></h3>
       <a href="/yt/letstrygg/god-of-weapons/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/gods-of-defense/" style="color: var(--text); text-decoration: none;">Gods Of Defense</a></h3>
       <a href="/yt/letstrygg/gods-of-defense/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/goobies/" style="color: var(--text); text-decoration: none;">Goobies</a></h3>
       <a href="/yt/letstrygg/goobies/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/fill-up-the-hole/" style="color: var(--text); text-decoration: none;">Fill Up The Hole</a></h3>
       <a href="/yt/letstrygg/fill-up-the-hole/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/everything-is-crab/" style="color: var(--text); text-decoration: none;">Everything Is Crab</a></h3>
       <a href="/yt/letstrygg/everything-is-crab/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/diablo-ii/" style="color: var(--text); text-decoration: none;">Diablo Ii</a></h3>
       <a href="/yt/letstrygg/diablo-ii/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/dice-a-million/" style="color: var(--text); text-decoration: none;">Dice A Million</a></h3>
       <a href="/yt/letstrygg/dice-a-million/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/20-minutes-till-dawn/" style="color: var(--text); text-decoration: none;">20 Minutes Till Dawn</a></h3>
       <a href="/yt/letstrygg/20-minutes-till-dawn/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/a-land-goos-crazy/" style="color: var(--text); text-decoration: none;">A Land Goos Crazy</a></h3>
       <a href="/yt/letstrygg/a-land-goos-crazy/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/absorber/" style="color: var(--text); text-decoration: none;">Absorber</a></h3>
       <a href="/yt/letstrygg/absorber/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/against-the-moon/" style="color: var(--text); text-decoration: none;">Against The Moon</a></h3>
       <a href="/yt/letstrygg/against-the-moon/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/ageless/" style="color: var(--text); text-decoration: none;">Ageless</a></h3>
       <a href="/yt/letstrygg/ageless/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/lootbound/" style="color: var(--text); text-decoration: none;">Lootbound</a></h3>
       <a href="/yt/letstrygg/lootbound/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/graveyard-keeper/" style="color: var(--text); text-decoration: none;">Graveyard Keeper</a></h3>
       <a href="/yt/letstrygg/graveyard-keeper/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/guild-of-dungeoneering/" style="color: var(--text); text-decoration: none;">Guild Of Dungeoneering</a></h3>
       <a href="/yt/letstrygg/guild-of-dungeoneering/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/gunsuit-guardians/" style="color: var(--text); text-decoration: none;">Gunsuit Guardians</a></h3>
       <a href="/yt/letstrygg/gunsuit-guardians/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/guntech-2/" style="color: var(--text); text-decoration: none;">Guntech 2</a></h3>
       <a href="/yt/letstrygg/guntech-2/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/hadean-tactics/" style="color: var(--text); text-decoration: none;">Hadean Tactics</a></h3>
       <a href="/yt/letstrygg/hadean-tactics/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/he-is-coming/" style="color: var(--text); text-decoration: none;">He Is Coming</a></h3>
       <a href="/yt/letstrygg/he-is-coming/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/hell-builder/" style="color: var(--text); text-decoration: none;">Hell Builder</a></h3>
       <a href="/yt/letstrygg/hell-builder/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/heretics-fork/" style="color: var(--text); text-decoration: none;">Heretics Fork</a></h3>
       <a href="/yt/letstrygg/heretics-fork/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/heroes-of-hammerwatch-ii/" style="color: var(--text); text-decoration: none;">Heroes Of Hammerwatch Ii</a></h3>
       <a href="/yt/letstrygg/heroes-of-hammerwatch-ii/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/heros-hour/" style="color: var(--text); text-decoration: none;">Heros Hour</a></h3>
       <a href="/yt/letstrygg/heros-hour/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/holocure/" style="color: var(--text); text-decoration: none;">Holocure</a></h3>
       <a href="/yt/letstrygg/holocure/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/idle-loops/" style="color: var(--text); text-decoration: none;">Idle Loops</a></h3>
       <a href="/yt/letstrygg/idle-loops/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/increlution/" style="color: var(--text); text-decoration: none;">Increlution</a></h3>
       <a href="/yt/letstrygg/increlution/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/incremancer/" style="color: var(--text); text-decoration: none;">Incremancer</a></h3>
       <a href="/yt/letstrygg/incremancer/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/industry-idle/" style="color: var(--text); text-decoration: none;">Industry Idle</a></h3>
       <a href="/yt/letstrygg/industry-idle/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/inscryption/" style="color: var(--text); text-decoration: none;">Inscryption</a></h3>
       <a href="/yt/letstrygg/inscryption/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/into-the-breach/" style="color: var(--text); text-decoration: none;">Into The Breach</a></h3>
       <a href="/yt/letstrygg/into-the-breach/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/kenshi/" style="color: var(--text); text-decoration: none;">Kenshi</a></h3>
       <a href="/yt/letstrygg/kenshi/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/kerbal-space-program-2/" style="color: var(--text); text-decoration: none;">Kerbal Space Program 2</a></h3>
       <a href="/yt/letstrygg/kerbal-space-program-2/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/kingdom-two-crowns/" style="color: var(--text); text-decoration: none;">Kingdom Two Crowns</a></h3>
       <a href="/yt/letstrygg/kingdom-two-crowns/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/leaf-blower-revolution/" style="color: var(--text); text-decoration: none;">Leaf Blower Revolution</a></h3>
       <a href="/yt/letstrygg/leaf-blower-revolution/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/monster-sanctuary/" style="color: var(--text); text-decoration: none;">Monster Sanctuary</a></h3>
       <a href="/yt/letstrygg/monster-sanctuary/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/little-nightmares/" style="color: var(--text); text-decoration: none;">Little Nightmares</a></h3>
       <a href="/yt/letstrygg/little-nightmares/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/logicality/" style="color: var(--text); text-decoration: none;">Logicality</a></h3>
       <a href="/yt/letstrygg/logicality/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/loop-hero/" style="color: var(--text); text-decoration: none;">Loop Hero</a></h3>
       <a href="/yt/letstrygg/loop-hero/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/looper-tactics/" style="color: var(--text); text-decoration: none;">Looper Tactics</a></h3>
       <a href="/yt/letstrygg/looper-tactics/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/luck-loot/" style="color: var(--text); text-decoration: none;">Luck Loot</a></h3>
       <a href="/yt/letstrygg/luck-loot/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/lucky-hero/" style="color: var(--text); text-decoration: none;">Lucky Hero</a></h3>
       <a href="/yt/letstrygg/lucky-hero/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/magicraft/" style="color: var(--text); text-decoration: none;">Magicraft</a></h3>
       <a href="/yt/letstrygg/magicraft/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/how-many-dudes/" style="color: var(--text); text-decoration: none;">How Many Dudes</a></h3>
       <a href="/yt/letstrygg/how-many-dudes/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/alchemortis/" style="color: var(--text); text-decoration: none;">Alchemortis</a></h3>
       <a href="/yt/letstrygg/alchemortis/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/machick-2/" style="color: var(--text); text-decoration: none;">Machick 2</a></h3>
       <a href="/yt/letstrygg/machick-2/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/main-assembly/" style="color: var(--text); text-decoration: none;">Main Assembly</a></h3>
       <a href="/yt/letstrygg/main-assembly/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/slay-the-spire-2/" style="color: var(--text); text-decoration: none;">Slay The Spire 2</a></h3>
       <a href="/yt/letstrygg/slay-the-spire-2/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/hollow-knight/" style="color: var(--text); text-decoration: none;">Hollow Knight</a></h3>
       <a href="/yt/letstrygg/hollow-knight/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/kadomon-hyper-auto-battlers/" style="color: var(--text); text-decoration: none;">Kadomon Hyper Auto Battlers</a></h3>
       <a href="/yt/letstrygg/kadomon-hyper-auto-battlers/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/fakutori/" style="color: var(--text); text-decoration: none;">Fakutori</a></h3>
       <a href="/yt/letstrygg/fakutori/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/megabonk/" style="color: var(--text); text-decoration: none;">Megabonk</a></h3>
       <a href="/yt/letstrygg/megabonk/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/nimrods/" style="color: var(--text); text-decoration: none;">Nimrods</a></h3>
       <a href="/yt/letstrygg/nimrods/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/oxygen-not-included/" style="color: var(--text); text-decoration: none;">Oxygen Not Included</a></h3>
       <a href="/yt/letstrygg/oxygen-not-included/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/mindustry/" style="color: var(--text); text-decoration: none;">Mindustry</a></h3>
       <a href="/yt/letstrygg/mindustry/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/monster-train-2/" style="color: var(--text); text-decoration: none;">Monster Train 2</a></h3>
       <a href="/yt/letstrygg/monster-train-2/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/noita/" style="color: var(--text); text-decoration: none;">Noita</a></h3>
       <a href="/yt/letstrygg/noita/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/nearly-dead-live-and-let-die/" style="color: var(--text); text-decoration: none;">Nearly Dead Live And Let Die</a></h3>
       <a href="/yt/letstrygg/nearly-dead-live-and-let-die/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/megaloot/" style="color: var(--text); text-decoration: none;">Megaloot</a></h3>
       <a href="/yt/letstrygg/megaloot/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/melvor-idle/" style="color: var(--text); text-decoration: none;">Melvor Idle</a></h3>
       <a href="/yt/letstrygg/melvor-idle/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/merge-maestro/" style="color: var(--text); text-decoration: none;">Merge Maestro</a></h3>
       <a href="/yt/letstrygg/merge-maestro/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/mind-over-magic/" style="color: var(--text); text-decoration: none;">Mind Over Magic</a></h3>
       <a href="/yt/letstrygg/mind-over-magic/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/minemogul/" style="color: var(--text); text-decoration: none;">Minemogul</a></h3>
       <a href="/yt/letstrygg/minemogul/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/mob-factory/" style="color: var(--text); text-decoration: none;">Mob Factory</a></h3>
       <a href="/yt/letstrygg/mob-factory/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/monster-train/" style="color: var(--text); text-decoration: none;">Monster Train</a></h3>
       <a href="/yt/letstrygg/monster-train/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/multiply-factory/" style="color: var(--text); text-decoration: none;">Multiply Factory</a></h3>
       <a href="/yt/letstrygg/multiply-factory/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/neon-abyss/" style="color: var(--text); text-decoration: none;">Neon Abyss</a></h3>
       <a href="/yt/letstrygg/neon-abyss/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/slay-the-spire/" style="color: var(--text); text-decoration: none;">Slay The Spire</a></h3>
       <a href="/yt/letstrygg/slay-the-spire/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/nitro-kid-demo/" style="color: var(--text); text-decoration: none;">Nitro Kid Demo</a></h3>
       <a href="/yt/letstrygg/nitro-kid-demo/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/nongunz/" style="color: var(--text); text-decoration: none;">Nongunz</a></h3>
       <a href="/yt/letstrygg/nongunz/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/nova-drift/" style="color: var(--text); text-decoration: none;">Nova Drift</a></h3>
       <a href="/yt/letstrygg/nova-drift/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/nova-lands/" style="color: var(--text); text-decoration: none;">Nova Lands</a></h3>
       <a href="/yt/letstrygg/nova-lands/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/orbles/" style="color: var(--text); text-decoration: none;">Orbles</a></h3>
       <a href="/yt/letstrygg/orbles/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/organs-please/" style="color: var(--text); text-decoration: none;">Organs Please</a></h3>
       <a href="/yt/letstrygg/organs-please/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/outpath/" style="color: var(--text); text-decoration: none;">Outpath</a></h3>
       <a href="/yt/letstrygg/outpath/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/poker-quest/" style="color: var(--text); text-decoration: none;">Poker Quest</a></h3>
       <a href="/yt/letstrygg/poker-quest/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/poly-bridge-2/" style="color: var(--text); text-decoration: none;">Poly Bridge 2</a></h3>
       <a href="/yt/letstrygg/poly-bridge-2/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/portal-reloaded/" style="color: var(--text); text-decoration: none;">Portal Reloaded</a></h3>
       <a href="/yt/letstrygg/portal-reloaded/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/project-highrise/" style="color: var(--text); text-decoration: none;">Project Highrise</a></h3>
       <a href="/yt/letstrygg/project-highrise/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/project-zomboid/" style="color: var(--text); text-decoration: none;">Project Zomboid</a></h3>
       <a href="/yt/letstrygg/project-zomboid/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/rain-world/" style="color: var(--text); text-decoration: none;">Rain World</a></h3>
       <a href="/yt/letstrygg/rain-world/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/ratropolis/" style="color: var(--text); text-decoration: none;">Ratropolis</a></h3>
       <a href="/yt/letstrygg/ratropolis/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/red-cap-squad-zombie-source/" style="color: var(--text); text-decoration: none;">Red Cap Squad Zombie Source</a></h3>
       <a href="/yt/letstrygg/red-cap-squad-zombie-source/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/ring-of-pain/" style="color: var(--text); text-decoration: none;">Ring Of Pain</a></h3>
       <a href="/yt/letstrygg/ring-of-pain/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/rogue-genesia/" style="color: var(--text); text-decoration: none;">Rogue Genesia</a></h3>
       <a href="/yt/letstrygg/rogue-genesia/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/rogue-legacy-2/" style="color: var(--text); text-decoration: none;">Rogue Legacy 2</a></h3>
       <a href="/yt/letstrygg/rogue-legacy-2/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/salt-and-sanctuary/" style="color: var(--text); text-decoration: none;">Salt And Sanctuary</a></h3>
       <a href="/yt/letstrygg/salt-and-sanctuary/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/sandustry/" style="color: var(--text); text-decoration: none;">Sandustry</a></h3>
       <a href="/yt/letstrygg/sandustry/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/satisfactory/" style="color: var(--text); text-decoration: none;">Satisfactory</a></h3>
       <a href="/yt/letstrygg/satisfactory/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/shapez/" style="color: var(--text); text-decoration: none;">Shapez</a></h3>
       <a href="/yt/letstrygg/shapez/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/shroom-and-gloom/" style="color: var(--text); text-decoration: none;">Shroom And Gloom</a></h3>
       <a href="/yt/letstrygg/shroom-and-gloom/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/skill-legends-royale/" style="color: var(--text); text-decoration: none;">Skill Legends Royale</a></h3>
       <a href="/yt/letstrygg/skill-legends-royale/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/slay-the-princess/" style="color: var(--text); text-decoration: none;">Slay The Princess</a></h3>
       <a href="/yt/letstrygg/slay-the-princess/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/slime-3k/" style="color: var(--text); text-decoration: none;">Slime 3k</a></h3>
       <a href="/yt/letstrygg/slime-3k/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/squad-busters/" style="color: var(--text); text-decoration: none;">Squad Busters</a></h3>
       <a href="/yt/letstrygg/squad-busters/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/starground/" style="color: var(--text); text-decoration: none;">Starground</a></h3>
       <a href="/yt/letstrygg/starground/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/stratum-descent/" style="color: var(--text); text-decoration: none;">Stratum Descent</a></h3>
       <a href="/yt/letstrygg/stratum-descent/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/stuck-in-time/" style="color: var(--text); text-decoration: none;">Stuck In Time</a></h3>
       <a href="/yt/letstrygg/stuck-in-time/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/super-auto-pets/" style="color: var(--text); text-decoration: none;">Super Auto Pets</a></h3>
       <a href="/yt/letstrygg/super-auto-pets/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/super-fantasy-kingdom/" style="color: var(--text); text-decoration: none;">Super Fantasy Kingdom</a></h3>
       <a href="/yt/letstrygg/super-fantasy-kingdom/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/swarm-grinder/" style="color: var(--text); text-decoration: none;">Swarm Grinder</a></h3>
       <a href="/yt/letstrygg/swarm-grinder/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/sworn/" style="color: var(--text); text-decoration: none;">Sworn</a></h3>
       <a href="/yt/letstrygg/sworn/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/takara-cards/" style="color: var(--text); text-decoration: none;">Takara Cards</a></h3>
       <a href="/yt/letstrygg/takara-cards/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/techtonica/" style="color: var(--text); text-decoration: none;">Techtonica</a></h3>
       <a href="/yt/letstrygg/techtonica/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/terra-cards/" style="color: var(--text); text-decoration: none;">Terra Cards</a></h3>
       <a href="/yt/letstrygg/terra-cards/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/terraria/" style="color: var(--text); text-decoration: none;">Terraria</a></h3>
       <a href="/yt/letstrygg/terraria/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/the-gnorp-apologue/" style="color: var(--text); text-decoration: none;">The Gnorp Apologue</a></h3>
       <a href="/yt/letstrygg/the-gnorp-apologue/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/the-last-spell/" style="color: var(--text); text-decoration: none;">The Last Spell</a></h3>
       <a href="/yt/letstrygg/the-last-spell/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/the-witness/" style="color: var(--text); text-decoration: none;">The Witness</a></h3>
       <a href="/yt/letstrygg/the-witness/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/theory-of-magic/" style="color: var(--text); text-decoration: none;">Theory Of Magic</a></h3>
       <a href="/yt/letstrygg/theory-of-magic/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/they-are-billions/" style="color: var(--text); text-decoration: none;">They Are Billions</a></h3>
       <a href="/yt/letstrygg/they-are-billions/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/thronefall/" style="color: var(--text); text-decoration: none;">Thronefall</a></h3>
       <a href="/yt/letstrygg/thronefall/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/tiny-rogues/" style="color: var(--text); text-decoration: none;">Tiny Rogues</a></h3>
       <a href="/yt/letstrygg/tiny-rogues/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/stabjack/" style="color: var(--text); text-decoration: none;">Stabjack</a></h3>
       <a href="/yt/letstrygg/stabjack/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/paquerette-down-the-bunburrows/" style="color: var(--text); text-decoration: none;">Paquerette Down The Bunburrows</a></h3>
       <a href="/yt/letstrygg/paquerette-down-the-bunburrows/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/roots-devour/" style="color: var(--text); text-decoration: none;">Roots Devour</a></h3>
       <a href="/yt/letstrygg/roots-devour/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/plants-vs-zombies/" style="color: var(--text); text-decoration: none;">Plants Vs Zombies</a></h3>
       <a href="/yt/letstrygg/plants-vs-zombies/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/shapez-2/" style="color: var(--text); text-decoration: none;">Shapez 2</a></h3>
       <a href="/yt/letstrygg/shapez-2/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/skull-horde/" style="color: var(--text); text-decoration: none;">Skull Horde</a></h3>
       <a href="/yt/letstrygg/skull-horde/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/tower-deck/" style="color: var(--text); text-decoration: none;">Tower Deck</a></h3>
       <a href="/yt/letstrygg/tower-deck/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/tower-dominion/" style="color: var(--text); text-decoration: none;">Tower Dominion</a></h3>
       <a href="/yt/letstrygg/tower-dominion/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/toy-smash-kaboom/" style="color: var(--text); text-decoration: none;">Toy Smash Kaboom</a></h3>
       <a href="/yt/letstrygg/toy-smash-kaboom/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/trigon-space-story/" style="color: var(--text); text-decoration: none;">Trigon Space Story</a></h3>
       <a href="/yt/letstrygg/trigon-space-story/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/turnbound/" style="color: var(--text); text-decoration: none;">Turnbound</a></h3>
       <a href="/yt/letstrygg/turnbound/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/undermine/" style="color: var(--text); text-decoration: none;">Undermine</a></h3>
       <a href="/yt/letstrygg/undermine/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/v-rising/" style="color: var(--text); text-decoration: none;">V Rising</a></h3>
       <a href="/yt/letstrygg/v-rising/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/vampire-survivors/" style="color: var(--text); text-decoration: none;">Vampire Survivors</a></h3>
       <a href="/yt/letstrygg/vampire-survivors/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/minecraft/" style="color: var(--text); text-decoration: none;">Minecraft</a></h3>
       <a href="/yt/letstrygg/minecraft/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/vectorio/" style="color: var(--text); text-decoration: none;">Vectorio</a></h3>
       <a href="/yt/letstrygg/vectorio/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/vertical-kingdom/" style="color: var(--text); text-decoration: none;">Vertical Kingdom</a></h3>
       <a href="/yt/letstrygg/vertical-kingdom/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/warzone/" style="color: var(--text); text-decoration: none;">Warzone</a></h3>
       <a href="/yt/letstrygg/warzone/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/ways-of-alchemy/" style="color: var(--text); text-decoration: none;">Ways Of Alchemy</a></h3>
       <a href="/yt/letstrygg/ways-of-alchemy/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/wanderburg/" style="color: var(--text); text-decoration: none;">Wanderburg</a></h3>
       <a href="/yt/letstrygg/wanderburg/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
     </div>
-    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+    <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
       <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/letstrygg/zoominoes/" style="color: var(--text); text-decoration: none;">Zoominoes</a></h3>
       <a href="/yt/letstrygg/zoominoes/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 letstrygg</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/backpack-battles/" style="color: var(--text); text-decoration: none;">Backpack Battles</a></h3>
+      <a href="/yt/ltg-plus/backpack-battles/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/cube-chaos/" style="color: var(--text); text-decoration: none;">Cube Chaos</a></h3>
+      <a href="/yt/ltg-plus/cube-chaos/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/dungeon-clawler/" style="color: var(--text); text-decoration: none;">Dungeon Clawler</a></h3>
+      <a href="/yt/ltg-plus/dungeon-clawler/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/9-kings/" style="color: var(--text); text-decoration: none;">9 Kings</a></h3>
+      <a href="/yt/ltg-plus/9-kings/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/halls-of-torment/" style="color: var(--text); text-decoration: none;">Halls Of Torment</a></h3>
+      <a href="/yt/ltg-plus/halls-of-torment/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/knightica/" style="color: var(--text); text-decoration: none;">Knightica</a></h3>
+      <a href="/yt/ltg-plus/knightica/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/konfronto/" style="color: var(--text); text-decoration: none;">Konfronto</a></h3>
+      <a href="/yt/ltg-plus/konfronto/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/slay-the-spire/" style="color: var(--text); text-decoration: none;">Slay The Spire</a></h3>
+      <a href="/yt/ltg-plus/slay-the-spire/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/backpack-brawl/" style="color: var(--text); text-decoration: none;">Backpack Brawl</a></h3>
+      <a href="/yt/ltg-plus/backpack-brawl/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/card-draw/" style="color: var(--text); text-decoration: none;">Card Draw</a></h3>
+      <a href="/yt/ltg-plus/card-draw/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/auto-rogue/" style="color: var(--text); text-decoration: none;">Auto Rogue</a></h3>
+      <a href="/yt/ltg-plus/auto-rogue/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/archon-soul/" style="color: var(--text); text-decoration: none;">Archon Soul</a></h3>
+      <a href="/yt/ltg-plus/archon-soul/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/brawl-to-the-west/" style="color: var(--text); text-decoration: none;">Brawl To The West</a></h3>
+      <a href="/yt/ltg-plus/brawl-to-the-west/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/for-the-forge/" style="color: var(--text); text-decoration: none;">For The Forge</a></h3>
+      <a href="/yt/ltg-plus/for-the-forge/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/deadly-days-roadtrip/" style="color: var(--text); text-decoration: none;">Deadly Days Roadtrip</a></h3>
+      <a href="/yt/ltg-plus/deadly-days-roadtrip/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/down-with-the-ship/" style="color: var(--text); text-decoration: none;">Down With The Ship</a></h3>
+      <a href="/yt/ltg-plus/down-with-the-ship/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/luck-be-a-landlord/" style="color: var(--text); text-decoration: none;">Luck Be A Landlord</a></h3>
+      <a href="/yt/ltg-plus/luck-be-a-landlord/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/oaken-tower/" style="color: var(--text); text-decoration: none;">Oaken Tower</a></h3>
+      <a href="/yt/ltg-plus/oaken-tower/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/monster-battles/" style="color: var(--text); text-decoration: none;">Monster Battles</a></h3>
+      <a href="/yt/ltg-plus/monster-battles/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/tiny-auto-knights/" style="color: var(--text); text-decoration: none;">Tiny Auto Knights</a></h3>
+      <a href="/yt/ltg-plus/tiny-auto-knights/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/the-bazaar/" style="color: var(--text); text-decoration: none;">The Bazaar</a></h3>
+      <a href="/yt/ltg-plus/the-bazaar/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/toy-smash-kaboom/" style="color: var(--text); text-decoration: none;">Toy Smash Kaboom</a></h3>
+      <a href="/yt/ltg-plus/toy-smash-kaboom/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/turnbound/" style="color: var(--text); text-decoration: none;">Turnbound</a></h3>
+      <a href="/yt/ltg-plus/turnbound/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
+    </div>
+    <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/ltg-plus/wordle/" style="color: var(--text); text-decoration: none;">Wordle</a></h3>
+      <a href="/yt/ltg-plus/wordle/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ltg-plus</div>
     </div>
   </div>
 </div>
+
+<script>
+  function filterChannel(targetSlug) {
+    // Update button visual states
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => {
+      if (btn.getAttribute('data-target') === targetSlug) {
+        btn.classList.add('active');
+        btn.classList.remove('btn-gray');
+      } else {
+        btn.classList.remove('active');
+        btn.classList.add('btn-gray');
+      }
+    });
+
+    // Instantly hide/show the grid items
+    const items = document.querySelectorAll('.game-item');
+    items.forEach(item => {
+      if (targetSlug === 'all' || item.getAttribute('data-channel') === targetSlug) {
+        item.style.display = 'block'; // Or 'flex' depending on your CSS
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+</script>

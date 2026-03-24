@@ -168,6 +168,8 @@ sync_date: "${data.syncDate}"
 }
 
 export function channelRootHTML(data) {
+    const hasMultipleChannels = data.channels.length > 1;
+
     let html = `---
 layout: new
 title: "${data.hubSlug} - Games Directory"
@@ -184,21 +186,66 @@ custom_css: "/css/game.css"
   </div>
 `;
 
-    // Loop through each channel in the family and create a section
-    data.channels.forEach(channel => {
-        html += `\n  <h2 style="margin-top: 30px; border-bottom: 1px solid var(--gray); padding-bottom: 10px;">${channel.channelSlug} Games</h2>\n`;
-        html += `  <div class="season-grid">\n`;
+    // 1. Inject the Toggle Buttons if it's the Umbrella Hub
+    if (hasMultipleChannels) {
+        html += `
+  <div class="channel-filters" style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+    <button class="btn active filter-btn" data-target="all" onclick="filterChannel('all')">All Games</button>
+`;
+        data.channels.forEach(ch => {
+            html += `    <button class="btn btn-gray filter-btn" data-target="${ch.channelSlug}" onclick="filterChannel('${ch.channelSlug}')">${ch.channelSlug}</button>\n`;
+        });
+        html += `  </div>\n`;
+    }
 
+    html += `  <div class="season-grid" id="directoryGrid">\n`;
+
+    // 2. Output the games with a data-channel tag so the JS knows what to hide
+    data.channels.forEach(channel => {
         channel.games.forEach(game => {
-            html += `    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
-      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/${data.hubSlug}/${game.slug}/" style="color: var(--text); text-decoration: none;">${game.title}</a></h3>
-      <a href="/yt/${data.hubSlug}/${game.slug}/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+            // Hardcode the physical channel path so ltg-plus games always route correctly
+            const gameUrl = `/yt/${channel.channelSlug}/${game.slug}/`;
+            
+            html += `    <div class="season-block game-item" data-channel="${channel.channelSlug}" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="${gameUrl}" style="color: var(--text); text-decoration: none;">${game.title}</a></h3>
+      <a href="${gameUrl}" class="btn btn-gray" style="display: inline-block;">View Series</a>
+      <div style="margin-top: 15px; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">📺 ${channel.channelSlug}</div>
     </div>\n`;
         });
-
-        html += `  </div>\n`;
     });
 
-    html += `</div>`;
+    html += `  </div>\n</div>\n`;
+
+    // 3. Inject the Vanilla JS logic
+    if (hasMultipleChannels) {
+        html += `
+<script>
+  function filterChannel(targetSlug) {
+    // Update button visual states
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => {
+      if (btn.getAttribute('data-target') === targetSlug) {
+        btn.classList.add('active');
+        btn.classList.remove('btn-gray');
+      } else {
+        btn.classList.remove('active');
+        btn.classList.add('btn-gray');
+      }
+    });
+
+    // Instantly hide/show the grid items
+    const items = document.querySelectorAll('.game-item');
+    items.forEach(item => {
+      if (targetSlug === 'all' || item.getAttribute('data-channel') === targetSlug) {
+        item.style.display = 'block'; // Or 'flex' depending on your CSS
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+</script>
+`;
+    }
+
     return html;
 }
