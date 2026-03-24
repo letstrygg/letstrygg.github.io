@@ -7,50 +7,66 @@ import { updateSeries } from './updateSeries.js';
 export async function updateChannel(channelSlug, force = false) {
     console.log(`\n📡 Fetching Data for Channel Family: ${channelSlug}...`);
     
-    // 1. Fetch the nested channel family data
     const context = await getChannelContext(channelSlug);
     
-    // Flatten all games across the family so we know which series to update
     const allUniqueGames = new Map();
     context.channels.forEach(ch => {
         ch.games.forEach(g => allUniqueGames.set(g.slug, g));
     });
     const gamesList = Array.from(allUniqueGames.values());
-
-    // Extract an array of all valid channel slugs in this family (e.g., ['letstrygg', 'ltg-plus'])
     const channelFamily = context.channels.map(c => c.channelSlug);
 
-    console.log(`Found ${gamesList.length} unique games across ${context.channels.length} channel(s). Beginning cascade...`);
+    console.log(`Found ${gamesList.length} unique games across ${context.channels.length} channel(s). Beginning concurrent cascade...`);
 
     let totalEpisodes = 0;
     let anyUpdates = false;
+    const channelErrors = [];
 
-    // 2. Cascade downwards into updateSeries
-    for (const game of gamesList) {
-        try {
-            // Pass the scope parameters down so updateSeries stays strictly in its lane
-            const result = await updateSeries(game.slug, force, channelFamily, context.hubSlug);
-            
-            totalEpisodes += result.totalEpisodes || 0;
-            if (!result.skipped) anyUpdates = true;
-        } catch (err) {
-            console.error(`❌ Failed to update series for game ${game.slug}:`, err.message);
-        }
+    // --- CONCURRENT BATCH PROCESSING ---
+    const batchSize = 15; // Process 15 games simultaneously
+    
+    for (let i = 0; i < gamesList.length; i += batchSize) {
+        const batch = gamesList.slice(i, i + batchSize);
+        
+        // Fire off 15 updateSeries functions at the exact same time
+        const batchPromises = batch.map(async (game) => {
+            try {
+                return await updateSeries(game.slug, force, channelFamily, context.hubSlug);
+            } catch (err) {
+                const errMsg = `[Game: ${game.slug}] Critical Series Failure: ${err.message}`;
+                console.error(`❌ ${errMsg}`);
+                return { error: errMsg };
+            }
+        });
+
+        // Wait for the batch to finish before moving to the next 15
+        const batchResults = await Promise.all(batchPromises);
+
+        // Tally up the results from the concurrent workers
+        batchResults.forEach(result => {
+            if (result.error) {
+                channelErrors.push(result.error);
+            } else {
+                totalEpisodes += result.totalEpisodes || 0;
+                if (result.errors && result.errors.length > 0) {
+                    channelErrors.push(...result.errors);
+                }
+                if (!result.skipped) anyUpdates = true;
+            }
+        });
     }
 
-    // 3. Build the Channel Hub Page
     const basePath = `yt/${context.hubSlug}`;
     const indexPath = `${basePath}/index.html`;
     const manualPath = `${basePath}/_manual/index.html`;
 
     if (!anyUpdates && !force && fs.existsSync(indexPath)) {
         console.log(`\n⏩ Channel Root skipped (All child series are up-to-date).`);
-        return { success: true, skipped: true, totalEpisodes };
+        return { success: true, skipped: true, totalEpisodes, errors: channelErrors };
     }
 
     console.log(`\n🏗️ Rebuilding Channel Root Index for ${context.hubSlug}...`);
 
-    // Pass the new structured channels array to the template
     const pageHTML = channelRootHTML({
         hubSlug: context.hubSlug,
         channels: context.channels
@@ -61,8 +77,7 @@ export async function updateChannel(channelSlug, force = false) {
 
     if (!checkFileExists(manualPath)) {
         writeStaticPage(manualPath, "\n");
-        console.log(`    [CREATED MANUAL FRAGMENT] ${manualPath}`);
     }
 
-    return { success: true, skipped: false, totalEpisodes };
+    return { success: true, skipped: false, totalEpisodes, errors: channelErrors };
 }

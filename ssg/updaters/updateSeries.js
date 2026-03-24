@@ -27,25 +27,39 @@ export async function updateSeries(gameSlug, force = false, channelFamily = null
 
     const sortedPlaylists = allPlaylists.sort((a, b) => b.season - a.season);
     
-    // Calculate the Master Sync Date from child playlists
-    const masterSyncDate = sortedPlaylists.reduce((latest, p) => {
-        const pDate = p.sync_date || 'never';
-        return pDate > latest ? pDate : latest;
-    }, 'never');
+    // Calculate the Master Sync Date using actual Time values to avoid alphabetical bugs
+    let masterSyncDate = 'never';
+    let maxTime = 0;
+    
+    sortedPlaylists.forEach(p => {
+        if (p.sync_date) {
+            const time = new Date(p.sync_date).getTime();
+            if (time > maxTime) {
+                maxTime = time;
+                masterSyncDate = p.sync_date;
+            }
+        }
+    });
 
-    const basePath = `yt/${channelSlug}/${gameSlug}`;
+	const basePath = `yt/${channelSlug}/${gameSlug}`;
     const indexPath = `${basePath}/index.html`;
     const manualPath = `${basePath}/_manual/index.html`;
 
-    // The Frontmatter Skip Logic
+    // --- BULLETPROOF SKIP LOGIC ---
+    let fileDateStr = 'never';
     if (!force && fs.existsSync(indexPath)) {
         const existingContent = fs.readFileSync(indexPath, 'utf8');
         const match = existingContent.match(/sync_date:\s*"?([^"\r\n]+)"?/);
-        
-        if (match && match[1] === masterSyncDate) {
-            console.log(`⏩ Game Root completely skipped (Latest sync_date matches: ${masterSyncDate}).`);
-            return { success: true, skipped: true, totalEpisodes: 0 };
-        }
+        if (match) fileDateStr = match[1];
+    }
+
+    // Convert both strings to raw milliseconds (0 if 'never')
+    const dbTime = masterSyncDate === 'never' ? 0 : new Date(masterSyncDate).getTime();
+    const fileTime = fileDateStr === 'never' ? 0 : new Date(fileDateStr).getTime();
+
+    if (!force && fileTime === dbTime) {
+        console.log(`⏩ Game Root completely skipped (Latest sync_date matches).`);
+        return { success: true, skipped: true, totalEpisodes: 0 };
     }
 
     let anyUpdates = false;

@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
 import { syncPlaylist } from './syncPlaylist.js';
+import { syncChannel } from './syncChannel.js';
 import { updateSeriesSyncDateByPlaylist } from '../ssg/utils/db.js';
 
 async function run() {
@@ -46,6 +47,37 @@ async function run() {
                 } else {
                     console.log(`\n⏩ Skipping SSG Build (--no-update provided).`);
                 }
+                break;
+
+            case 'channel':
+                // 1. Run the Smart Sync
+                const affectedGames = await syncChannel(targetId);
+
+                // 2. Trigger SSG Builds for affected games
+                if (!skipUpdate && affectedGames.length > 0) {
+                    console.log(`\n🔨 Triggering SSG Builds for ${affectedGames.length} affected games...`);
+                    const forceFlag = forceUpdate ? ' --force' : '';
+                    
+                    for (const slug of affectedGames) {
+                        console.log(`   >> Building ${slug}...`);
+                        // Build series for the game
+                        execSync(`node ssg/update.js series ${slug}${forceFlag}`, { stdio: 'inherit' });
+                    }
+                    
+                    // Rebuild the channel hub at the very end
+                    console.log(`   >> Rebuilding Channel Hub...`);
+                    execSync(`node ssg/update.js channel ${targetId}${forceFlag}`, { stdio: 'inherit' });
+
+                } else if (skipUpdate) {
+                    console.log(`\n⏩ Skipping SSG Builds (--no-update provided).`);
+                } else {
+                    console.log(`\n⏩ No games were affected. Skipping SSG Build.`);
+                }
+                break;
+
+            default:
+                console.error(`❌ Unknown command: ${command}`);
+                console.log("Available commands: playlist, channel");
                 break;
         }
 
