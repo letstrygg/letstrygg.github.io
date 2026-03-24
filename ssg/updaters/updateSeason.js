@@ -46,15 +46,16 @@ export async function updateSeason(playlistId, options = {}) {
     
     // Decimal Season Logic
     const seasonNumStr = playlistData.season.toString();
+    const seasonNumSafe = seasonNumStr.replace('.', '_'); // e.g., "3_2"
     const seasonParts = seasonNumStr.split('.');
-    const paddedSeason = seasonParts[0].padStart(2, '0') + (seasonParts[1] ? '.' + seasonParts[1] : '');
+    const paddedSeason = seasonParts[0].padStart(2, '0') + (seasonParts[1] ? '_' + seasonParts[1] : '');
     
     const dbAbbr = playlistData.ltg_series.ltg_games?.custom_abbr;
     const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
     
     const channelSlug = playlistData.channel_slug;
     
-    const seasonPath = `yt/${channelSlug}/${gameSlug}/season-${seasonNumStr}`;
+    const seasonPath = `yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}`;
     const seasonIndexPath = `${seasonPath}/index.html`;
 
     const dbSyncDate = playlistData.sync_date ? new Date(playlistData.sync_date).getTime() : 0;
@@ -97,7 +98,7 @@ export async function updateSeason(playlistId, options = {}) {
         const fileName = `${shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
         const epPath = `${seasonPath}/${fileName}`;
         const epManualPath = `${seasonPath}/_manual/${fileName}`;
-        const epUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumStr}/${fileName}`;
+        const epUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}/${fileName}`;
 
         // Populate the list for the Season Index Page (Regardless of indexesOnly flag)
         fullEpisodesList.push({
@@ -116,13 +117,13 @@ export async function updateSeason(playlistId, options = {}) {
             let prevUrl = null;
             if (i > 0) {
                 const prevEpNum = String(episodes[i - 1].sort_order).padStart(2, '0'); 
-                prevUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumStr}/${shortPrefix}-s${paddedSeason}e${prevEpNum}.html`;
+                prevUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}/${shortPrefix}-s${paddedSeason}e${prevEpNum}.html`;
             }
 
             let nextUrl = null;
             if (i < episodes.length - 1) {
                 const nextEpNum = String(episodes[i + 1].sort_order).padStart(2, '0'); 
-                nextUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumStr}/${shortPrefix}-s${paddedSeason}e${nextEpNum}.html`;
+                nextUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}/${shortPrefix}-s${paddedSeason}e${nextEpNum}.html`;
             }
 
             const h = Math.floor(v.duration_seconds / 3600);
