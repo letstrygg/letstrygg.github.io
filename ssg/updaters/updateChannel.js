@@ -1,13 +1,12 @@
 import fs from 'fs';
 import { getChannelContext } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
-import { channelHTML, hubHTML } from '../utils/templates/index.js'; // Imported hubHTML!
+import { channelHTML, hubHTML } from '../utils/templates/index.js'; 
 import { updateSeries } from './updateSeries.js';
 
 export async function updateChannel(hubSlug, options = {}) {
     const isForce = options.force || false;
 
-    // FIX: Using hubSlug instead of undefined channelSlug
     console.log(`\n📡 Fetching Data for Channel Family: ${hubSlug}...`);
     
     const context = await getChannelContext(hubSlug);
@@ -19,48 +18,62 @@ export async function updateChannel(hubSlug, options = {}) {
     const gamesList = Array.from(allUniqueGames.values());
     const channelFamily = context.channels.map(c => c.channelSlug);
 
-    console.log(`Found ${gamesList.length} unique games across ${context.channels.length} channel(s). Beginning concurrent cascade...`);
-
     let totalEpisodes = 0;
     let anyUpdates = false;
     const channelErrors = [];
 
-    // --- CONCURRENT BATCH PROCESSING ---
-    const batchSize = 15; 
-    
-    for (let i = 0; i < gamesList.length; i += batchSize) {
-        const batch = gamesList.slice(i, i + batchSize);
+    // --- THE FIX: Skip the cascade if -i is active ---
+    if (!options.indexesOnly) {
+        console.log(`Found ${gamesList.length} unique games across ${context.channels.length} channel(s). Beginning concurrent cascade...`);
+
+        // --- CONCURRENT BATCH PROCESSING ---
+        const batchSize = 15; 
         
-        const batchPromises = batch.map(async (game) => {
-            try {
-                // FIX: Passing the 'options' object down instead of just 'force'
-                return await updateSeries(game.slug, options, channelFamily, context.hubSlug);
-            } catch (err) {
-                const errMsg = `[Game: ${game.slug}] Critical Series Failure: ${err.message}`;
-                console.error(`❌ ${errMsg}`);
-                return { error: errMsg };
-            }
-        });
-
-        const batchResults = await Promise.all(batchPromises);
-
-        batchResults.forEach(result => {
-            if (result.error) {
-                channelErrors.push(result.error);
-            } else {
-                totalEpisodes += result.totalEpisodes || 0;
-                if (result.errors && result.errors.length > 0) {
-                    channelErrors.push(...result.errors);
+        for (let i = 0; i < gamesList.length; i += batchSize) {
+            const batch = gamesList.slice(i, i + batchSize);
+            
+            const batchPromises = batch.map(async (game) => {
+                try {
+                    return await updateSeries(game.slug, options, channelFamily, context.hubSlug);
+                } catch (err) {
+                    const errMsg = `[Game: ${game.slug}] Critical Series Failure: ${err.message}`;
+                    console.error(`❌ ${errMsg}`);
+                    return { error: errMsg };
                 }
-                if (!result.skipped) anyUpdates = true;
-            }
+            });
+
+            const batchResults = await Promise.all(batchPromises);
+
+            batchResults.forEach(result => {
+                if (result.error) {
+                    channelErrors.push(result.error);
+                } else {
+                    totalEpisodes += result.totalEpisodes || 0;
+                    if (result.errors && result.errors.length > 0) {
+                        channelErrors.push(...result.errors);
+                    }
+                    if (!result.skipped) anyUpdates = true;
+                }
+            });
+        }
+    } else {
+        console.log(`⏩ --indexes-only active: Skipping child series cascade. Building Hub & Channel directly...`);
+        anyUpdates = true; // Force it to build the channel pages
+        
+        // Quickly tally the episodes just so the final console log is accurate
+        context.channels.forEach(ch => {
+            ch.games.forEach(game => {
+                game.ltg_series_playlists?.forEach(sp => {
+                    const stats = sp.ltg_playlists?.ltg_playlist_stats?.[0];
+                    if (stats) totalEpisodes += parseInt(stats.ep_count || 0);
+                });
+            });
         });
     }
 
     const basePath = `yt/${context.hubSlug}`;
     const indexPath = `${basePath}/index.html`;
 
-    // FIX: using isForce
     if (!anyUpdates && !isForce && fs.existsSync(indexPath)) {
         console.log(`\n⏩ Channel Root skipped (All child series are up-to-date).`);
         return { success: true, skipped: true, totalEpisodes, errors: channelErrors };
@@ -95,19 +108,15 @@ export async function updateChannel(hubSlug, options = {}) {
 
     const rootPath = `yt`;
     if (!fs.existsSync(rootPath)) fs.mkdirSync(rootPath, { recursive: true });
-    
-    // --> ADD THIS: Ensure the manual directory exists for the Master Hub <--
     if (!fs.existsSync(`${rootPath}/_manual`)) fs.mkdirSync(`${rootPath}/_manual`, { recursive: true });
     
     writeStaticPage(`${rootPath}/index.html`, hubHTML(networkData));
     console.log(`✅ Master Network Directory generated at: ${rootPath}/index.html`);
 
-    // --> ADD THIS: Generate the empty manual file so Jekyll doesn't crash <--
     const rootManualPath = `${rootPath}/_manual/index.html`;
     if (!fs.existsSync(rootManualPath)) {
         writeStaticPage(rootManualPath, "\n");
     }
-
 
     // --- 2. GENERATE THE INDIVIDUAL CHANNEL DIRECTORIES (/yt/letstrygg/index.html) ---
     console.log(`\n🏗️  Generating Channel Indexes for the ${context.hubSlug} family...`);
