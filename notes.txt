@@ -8,8 +8,26 @@ supabase functions deploy check-live-status --no-verify-jwt
 
 C:\GitHub\letstrygg\supabase\functions\check-live-status\index.ts
 
-
+#get profile ltg_channels pictures
 cd C:\GitHub\letstrygg\local-tools
 node server.js
-
 Click twitch / youtube (often twice), download. Kick doesn't work, 403 error, can probably use undocumented public api
+
+
+cd C:\GitHub\letstrygg\
+#sync youtube api data for playlist
+node sync/sync.js playlist PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3
+#smart sync recent and stale playlists
+node sync/sync.js channel letstrygg
+#background smart sync without triggering html builds
+node sync/sync.js channel letstrygg --no-update
+#build html for entire channel network
+node ssg/update.js channel letstrygg
+#build html for specific game and its seasons
+node ssg/update.js series god-of-weapons
+#build html for specific season or playlist
+node ssg/update.js season PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3
+#force rebuild html for a game ignoring timestamp skip logic
+node ssg/update.js series backpack-battles --force
+
+node ssg/update.js channel letstrygg # builds the whole letstrygg + ltg-plus directory from the database

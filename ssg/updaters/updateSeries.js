@@ -21,7 +21,7 @@ export async function updateSeries(gameSlug, force = false, channelFamily = null
     if (allPlaylists.length === 0) return { success: true, skipped: true, totalEpisodes: 0 };
     
     // Use the explicitly provided root hub slug, or fallback to the playlist's channel
-    const channelSlug = rootChannelSlug || allPlaylists[0]?.channel_slug || 'unknown';
+    const channelSlug = allPlaylists[0]?.channel_slug || rootChannelSlug || 'unknown';
 
     console.log(`\n📚 Processing Game: ${gameTitle} (${allPlaylists.length} seasons across ${seriesArray.length} series)`);
 
