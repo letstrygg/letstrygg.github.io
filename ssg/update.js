@@ -1,6 +1,7 @@
 import { updateEpisode } from './updaters/updateEpisode.js';
 import { updateSeason } from './updaters/updateSeason.js'; 
-import { updateSeries } from './updaters/updateSeries.js';
+import { updateSeries } from './updaters/updateSeries.js'; 
+import { updateChannel } from './updaters/updateChannel.js';
 
 async function run() {
     const args = process.argv.slice(2);
@@ -53,6 +54,17 @@ async function run() {
                     console.log(`⏩ Series fully skipped (Already up-to-date).`);
                 } else {
                     console.log(`✅ Series complete! Processed ${seriesResult.totalEpisodes} episodes.`);
+                }
+                break;
+			
+			case 'channel':
+                if (!targetId) throw new Error("Missing Channel Slug.");
+                const channelResult = await updateChannel(targetId, isForce);
+                
+                if (channelResult.skipped) {
+                    console.log(`\n✨ Channel fully skipped in ${((Date.now() - startTime) / 1000).toFixed(2)}s (Already up-to-date).`);
+                } else {
+                    console.log(`\n✨ Channel complete in ${((Date.now() - startTime) / 1000).toFixed(2)}s! Processed ${channelResult.totalEpisodes} episodes.`);
                 }
                 break;
         }

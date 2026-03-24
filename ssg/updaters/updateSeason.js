@@ -13,8 +13,12 @@ export async function updateSeason(playlistId, force = false) {
 
     console.log(`\n📂 Processing Season: ${series.title} (Season ${seasonNum}) for ${channelSlug}`);
 
-    const shortPrefix = series.slug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
-    const basePath = `yt/${channelSlug}/${gameSlug}/s${Math.floor(seasonNum)}`;
+// Use the custom abbreviation if it exists, otherwise generate the default
+    const dbAbbr = series.ltg_games?.custom_abbr;
+    const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
+    
+    // Change sX to season-X
+    const basePath = `yt/${channelSlug}/${gameSlug}/season-${Math.floor(seasonNum)}`;
     const indexPath = `${basePath}/index.html`;
     const manualPath = `${basePath}/_manual/index.html`;
 

@@ -8,7 +8,7 @@ export function episodePageHTML(data) {
 layout: watch
 title: "${epNumPadded} ${data.seriesTitle}"
 description: "${data.seriesTitle} Let's Play Season ${data.seasonNum} Episode ${data.episodeNum}"
-permalink: /yt/${data.channelSlug}/${data.gameSlug}/s${Math.floor(data.seasonNum)}/${data.fileName}
+permalink: /yt/${data.channelSlug}/${data.gameSlug}/season-${Math.floor(data.seasonNum)}/${data.fileName}
 custom_css: "/css/game/${data.shortPrefix}-style.css"
 thumbnail: "${safeThumbnail}"
 sync_date: "${data.rawPublishedAt}"
@@ -54,7 +54,7 @@ export function seasonIndexHTML(data) {
 layout: new
 title: "Season ${data.seasonNum} Episodes - ${data.seriesTitle}"
 description: "A complete list of episodes from Season ${data.seasonNum} of the ${data.seriesTitle} Let's Play."
-permalink: /yt/${data.channelSlug}/${data.gameSlug}/s${Math.floor(data.seasonNum)}/
+permalink: /yt/${data.channelSlug}/${data.gameSlug}/season-${Math.floor(data.seasonNum)}/
 custom_css: "/css/game/${data.shortPrefix}-style.css"
 sync_date: "${data.syncDate}"
 ---
@@ -73,7 +73,7 @@ sync_date: "${data.syncDate}"
   <div class="game-section">
     {% include_relative _manual/index.html %}
 
-    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/${data.channelSlug}/${data.gameSlug}/s${Math.floor(data.seasonNum)}/'" | where_exp: "item", "item.url contains '-ep-'" | sort: "title" -%}
+    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/${data.channelSlug}/${data.gameSlug}/season-${Math.floor(data.seasonNum)}/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
     
     <div id="epGrid" class="ep-grid">
     {%- for ep in ep_pages -%}
@@ -135,19 +135,28 @@ sync_date: "${data.syncDate}"
 
         if (season.epCount > 0) {
             html += `  <div class="ep-pill-container">\n`;
+            
+            const sFolder = `season-${Math.floor(season.seasonNum)}`;
+            const paddedSeason = String(Math.floor(season.seasonNum)).padStart(2, '0');
+
             if (season.epCount <= 5) {
                 season.episodes.forEach((ep, index) => {
-                    html += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-ep-${ep}.html" class="btn">Ep ${ep}</a>\n`;
+                    const paddedEp = String(ep).padStart(2, '0');
+                    html += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-s${paddedSeason}e${paddedEp}.html" class="btn">Ep ${ep}</a>\n`;
                     if (index < season.epCount - 1) html += `    <span class="ep-delimiter">•</span>\n`;
                 });
             } else {
                 const firstEp = season.episodes[0];
                 const lastEp = season.episodes[season.epCount - 1];
-                html += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-ep-${firstEp}.html" class="btn">Ep ${firstEp}</a>\n`;
+                
+                const paddedFirstEp = String(firstEp).padStart(2, '0');
+                const paddedLastEp = String(lastEp).padStart(2, '0');
+
+                html += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-s${paddedSeason}e${paddedFirstEp}.html" class="btn">Ep ${firstEp}</a>\n`;
                 html += `    <span class="ep-delimiter">•</span>\n`;
                 html += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/" class="btn" style="flex: 1 1 auto; font-weight: bold;">View All ${season.epCount}</a>\n`;
                 html += `    <span class="ep-delimiter">•</span>\n`;
-                html += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-ep-${lastEp}.html" class="btn">Ep ${lastEp}</a>\n`;
+                html += `    <a href="/yt/${data.channelSlug}/${data.gameSlug}/${sFolder}/${data.shortPrefix}-s${paddedSeason}e${paddedLastEp}.html" class="btn">Ep ${lastEp}</a>\n`;
             }
             html += `  </div>\n`;
         }
@@ -155,5 +164,41 @@ sync_date: "${data.syncDate}"
     });
 
     html += `  </div>\n</div>`;
+    return html;
+}
+
+export function channelRootHTML(data) {
+    let html = `---
+layout: new
+title: "${data.hubSlug} - Games Directory"
+permalink: /yt/${data.hubSlug}/
+custom_css: "/css/game.css"
+---
+
+<div class="game-page-wrapper">
+  {% include_relative _manual/index.html %}
+
+  <div style="margin-bottom: 20px;">
+    <h1 class="title">${data.hubSlug}</h1>
+    <p class="subtitle">Channel Directory</p>
+  </div>
+`;
+
+    // Loop through each channel in the family and create a section
+    data.channels.forEach(channel => {
+        html += `\n  <h2 style="margin-top: 30px; border-bottom: 1px solid var(--gray); padding-bottom: 10px;">${channel.channelSlug} Games</h2>\n`;
+        html += `  <div class="season-grid">\n`;
+
+        channel.games.forEach(game => {
+            html += `    <div class="season-block" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 10px;"><a href="/yt/${data.hubSlug}/${game.slug}/" style="color: var(--text); text-decoration: none;">${game.title}</a></h3>
+      <a href="/yt/${data.hubSlug}/${game.slug}/" class="btn btn-gray" style="display: inline-block;">View Series</a>
+    </div>\n`;
+        });
+
+        html += `  </div>\n`;
+    });
+
+    html += `</div>`;
     return html;
 }

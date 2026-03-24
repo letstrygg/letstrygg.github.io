@@ -4,8 +4,10 @@ import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
 import { seriesRootHTML } from '../utils/templates.js';
 import { updateSeason } from './updateSeason.js';
 
-export async function updateSeries(gameSlug, force = false) {
-    const seriesArray = await getFullSeriesContext(gameSlug);
+// Added channelFamily array and rootChannelSlug overrides
+export async function updateSeries(gameSlug, force = false, channelFamily = null, rootChannelSlug = null) {
+    // Pass the filter down to the database query
+    const seriesArray = await getFullSeriesContext(gameSlug, channelFamily);
     const gameTitle = seriesArray[0].ltg_games?.title || gameSlug;
 
     let allPlaylists = [];
@@ -17,7 +19,9 @@ export async function updateSeries(gameSlug, force = false) {
     });
 
     if (allPlaylists.length === 0) return { success: true, skipped: true, totalEpisodes: 0 };
-    const channelSlug = allPlaylists[0]?.channel_slug || 'unknown';
+    
+    // Use the explicitly provided root hub slug, or fallback to the playlist's channel
+    const channelSlug = rootChannelSlug || allPlaylists[0]?.channel_slug || 'unknown';
 
     console.log(`\n📚 Processing Game: ${gameTitle} (${allPlaylists.length} seasons across ${seriesArray.length} series)`);
 
@@ -92,7 +96,11 @@ export async function updateSeries(gameSlug, force = false) {
         };
     });
 
-    const shortPrefix = gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
+	// Use gameSlug for the prefix
+// Use the custom abbreviation if it exists, otherwise generate the default
+    const dbAbbr = seriesArray[0].ltg_games?.custom_abbr;
+    const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
+    
     const templateData = {
         seriesTitle: gameTitle,
         gameSlug: gameSlug,

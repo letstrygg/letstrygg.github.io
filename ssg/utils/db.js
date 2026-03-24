@@ -35,7 +35,7 @@ export async function getFullEpisodeContext(videoId) {
                     id, season, title, channel_slug,
                     ltg_series!inner(
                         slug, title,
-                        ltg_games(slug, title)
+                        ltg_games(slug, title, custom_abbr)
                     )
                 )
             )
@@ -85,7 +85,7 @@ export async function getFullSeasonContext(playlistId) {
             ltg_series (
                 slug,
                 title,
-                ltg_games (slug)
+                ltg_games (slug, custom_abbr)
             ),
             ltg_playlist_videos (
                 video_id,
@@ -99,14 +99,14 @@ export async function getFullSeasonContext(playlistId) {
     return data;
 }
 
-export async function getFullSeriesContext(gameSlug) {
+export async function getFullSeriesContext(gameSlug, channelFamily = null) {
     const { data, error } = await supabase
         .from('ltg_series')
         .select(`
             slug,
             title,
             status,
-            ltg_games!inner (slug, title),
+            ltg_games!inner (slug, title, custom_abbr),
             ltg_playlists (
                 id,
                 season,
@@ -128,10 +128,96 @@ export async function getFullSeriesContext(gameSlug) {
         .eq('game_slug', gameSlug);
 
     if (error) throw error;
+
+    let processedData = data;
+
+    // Filter out playlists that don't belong to this channel family (if specified)
+    if (channelFamily && Array.isArray(channelFamily) && channelFamily.length > 0) {
+        processedData.forEach(series => {
+            if (series.ltg_playlists) {
+                series.ltg_playlists = series.ltg_playlists.filter(p => channelFamily.includes(p.channel_slug));
+            }
+        });
+        
+        // Remove any series that now have 0 playlists after the filter
+        processedData = processedData.filter(s => s.ltg_playlists && s.ltg_playlists.length > 0);
+    }
     
-    if (!data || data.length === 0) {
-        throw new Error(`No series found attached to game slug: '${gameSlug}'.`);
+    if (!processedData || processedData.length === 0) {
+        throw new Error(`No series found attached to game slug: '${gameSlug}' for the specified channels.`);
     }
 
-    return data;
+    return processedData;
+}
+
+// In ssg/utils/db.js
+export async function getChannelContext(targetSlug) {
+    // 1. Check if this channel has any children
+    const { data: childrenData } = await supabase
+        .from('ltg_channels')
+        .select('slug')
+        .eq('parent_channel', targetSlug);
+
+    // Build our array of slugs to query (e.g., ['letstrygg', 'ltg-plus'])
+    const slugsToFetch = [targetSlug];
+    if (childrenData && childrenData.length > 0) {
+        slugsToFetch.push(...childrenData.map(c => c.slug));
+    }
+
+    // 2. Fetch playlists for ALL channels in that family
+    const { data, error } = await supabase
+        .from('ltg_playlists')
+        .select(`
+            channel_slug,
+            ltg_series!inner (
+                ltg_games!inner (
+                    slug,
+                    title,
+                    custom_abbr
+                )
+            )
+        `)
+        .in('channel_slug', slugsToFetch);
+
+    if (error) throw error;
+    
+    if (!data || data.length === 0) {
+        throw new Error(`No playlists found for channel family: '${slugsToFetch.join(', ')}'.`);
+    }
+
+    // 3. Group the games by their actual channel slug so the template can separate them
+    const channelsMap = new Map();
+    
+    slugsToFetch.forEach(slug => {
+        channelsMap.set(slug, new Map()); // Initialize an empty game map for each channel
+    });
+
+    data.forEach(p => {
+        const cSlug = p.channel_slug;
+        const game = p.ltg_series.ltg_games;
+        
+        const gameMap = channelsMap.get(cSlug);
+        if (!gameMap.has(game.slug)) {
+            gameMap.set(game.slug, {
+                slug: game.slug,
+                title: game.title,
+                custom_abbr: game.custom_abbr,
+                channelOwner: cSlug
+            });
+        }
+    });
+
+    // Convert our maps back into clean arrays
+    const formattedChannels = Array.from(channelsMap.entries())
+        .map(([slug, gamesMap]) => ({
+            channelSlug: slug,
+            isParent: slug === targetSlug, // Helps the template know which one is the main hub
+            games: Array.from(gamesMap.values())
+        }))
+        .filter(c => c.games.length > 0); // Only pass channels that actually have games
+
+    return {
+        hubSlug: targetSlug, // The URL we are building the page on (yt/letstrygg/)
+        channels: formattedChannels // Array of channels, each with their own games array
+    };
 }

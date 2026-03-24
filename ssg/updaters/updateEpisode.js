@@ -28,9 +28,21 @@ export async function updateEpisode(videoId) {
         return `PT${h > 0 ? h + 'H' : ''}${m > 0 ? m + 'M' : ''}${s}S`;
     };
 
-    const shortPrefix = series.slug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
-    const fileName = `${shortPrefix}-ep-${junction.sort_order}.html`;
-    const basePath = `yt/${channelSlug}/${gameSlug}/s${Math.floor(playlist.season)}`;
+    // --- NEW PREFIX, PADDING, AND PATH LOGIC ---
+    // Use gameSlug instead of series.slug
+    const dbAbbr = series.ltg_games?.custom_abbr;
+    const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
+    
+    // Pad to a minimum of 2 digits
+    const paddedSeason = String(Math.floor(playlist.season)).padStart(2, '0');
+    const paddedEp = String(junction.sort_order).padStart(2, '0');
+    
+    // The new filename standard: gfw-s03e25.html
+    const fileName = `${shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
+    const basePath = `yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}`;
+
+    const prevPaddedEp = prevSortOrder ? String(prevSortOrder).padStart(2, '0') : null;
+    const nextPaddedEp = nextSortOrder ? String(nextSortOrder).padStart(2, '0') : null;
 
     // 3. Assemble the Data Payload
     const templateData = {
@@ -50,8 +62,8 @@ export async function updateEpisode(videoId) {
         channelSlug: channelSlug,
         shortPrefix: shortPrefix,
         fileName: fileName,
-        prevUrl: prevSortOrder ? `/yt/${channelSlug}/${gameSlug}/s${Math.floor(playlist.season)}/${shortPrefix}-ep-${prevSortOrder}.html` : null,
-        nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/s${Math.floor(playlist.season)}/${shortPrefix}-ep-${nextSortOrder}.html` : null
+        prevUrl: prevSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${prevPaddedEp}.html` : null,
+        nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${nextPaddedEp}.html` : null
     };
 
     // 4. Write the Files
