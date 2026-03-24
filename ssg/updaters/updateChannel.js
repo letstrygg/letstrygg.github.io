@@ -96,8 +96,17 @@ export async function updateChannel(hubSlug, options = {}) {
     const rootPath = `yt`;
     if (!fs.existsSync(rootPath)) fs.mkdirSync(rootPath, { recursive: true });
     
+    // --> ADD THIS: Ensure the manual directory exists for the Master Hub <--
+    if (!fs.existsSync(`${rootPath}/_manual`)) fs.mkdirSync(`${rootPath}/_manual`, { recursive: true });
+    
     writeStaticPage(`${rootPath}/index.html`, hubHTML(networkData));
     console.log(`✅ Master Network Directory generated at: ${rootPath}/index.html`);
+
+    // --> ADD THIS: Generate the empty manual file so Jekyll doesn't crash <--
+    const rootManualPath = `${rootPath}/_manual/index.html`;
+    if (!fs.existsSync(rootManualPath)) {
+        writeStaticPage(rootManualPath, "\n");
+    }
 
 
     // --- 2. GENERATE THE INDIVIDUAL CHANNEL DIRECTORIES (/yt/letstrygg/index.html) ---

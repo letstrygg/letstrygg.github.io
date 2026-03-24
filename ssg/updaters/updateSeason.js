@@ -6,9 +6,18 @@ import { writeStaticPage } from '../utils/fileSys.js';
 export async function updateSeason(playlistId, options = {}) {
     const isForce = options.force || false;
     
+    // FIX 1: Fetch the game_slug and custom_abbr from the nested tables
     const { data: playlistData, error: plError } = await supabase
         .from('ltg_playlists')
-        .select(`*, ltg_series!inner(slug, title)`)
+        .select(`
+            *, 
+            ltg_series!inner(
+                slug, 
+                title,
+                game_slug,
+                ltg_games ( custom_abbr )
+            )
+        `)
         .eq('id', playlistId)
         .single();
 
@@ -17,7 +26,6 @@ export async function updateSeason(playlistId, options = {}) {
         return { success: false, skipped: false, episodesProcessed: 0, episodesList: [] };
     }
 
-    // FIX: Changed episode_num to sort_order
     const { data: episodes, error: epError } = await supabase
         .from('ltg_playlist_videos')
         .select(`
@@ -27,20 +35,25 @@ export async function updateSeason(playlistId, options = {}) {
             )
         `)
         .eq('playlist_id', playlistId)
-        .order('sort_order', { ascending: true }); // FIX: ordered by sort_order
+        .order('sort_order', { ascending: true });
 
     if (epError) {
         console.error(`❌ Video fetch error for ${playlistId}`, epError.message);
         return { success: false, skipped: false, episodesProcessed: 0, episodesList: [] };
     }
 
-    const gameSlug = playlistData.ltg_series.slug;
-    const seasonNum = playlistData.season_num;
-    const shortPrefix = playlistData.short_prefix;
+    // FIX 2: Use the right DB columns and dynamically calculate the prefix
+    const gameSlug = playlistData.ltg_series.game_slug || playlistData.ltg_series.slug;
+    const seasonNum = playlistData.season; // NOT season_num
+    
+    const dbAbbr = playlistData.ltg_series.ltg_games?.custom_abbr;
+    const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
+    
     const channelSlug = playlistData.channel_slug;
     
     const seasonPath = `yt/${channelSlug}/${gameSlug}/season-${Math.floor(seasonNum)}`;
     const seasonIndexPath = `${seasonPath}/index.html`;
+
 
     // Skip Logic
     const dbSyncDate = playlistData.sync_date ? new Date(playlistData.sync_date).getTime() : 0;

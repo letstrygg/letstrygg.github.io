@@ -58,7 +58,7 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
         const stats = playlist.ltg_playlist_stats?.[0] || {};
         seasonsData.push({
             id: playlist.id,
-            seasonNum: playlist.season_num,
+            seasonNum: playlist.season,
             title: playlist.title,
             status: playlist.status === 'c' ? 'Complete' : playlist.status === 'h' ? 'Hiatus' : 'Active',
             statusColor: playlist.status === 'c' ? 'green' : playlist.status === 'h' ? 'orange' : 'blue',
@@ -83,14 +83,18 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
     if (!fs.existsSync(seriesPath)) fs.mkdirSync(seriesPath, { recursive: true });
     if (!fs.existsSync(`${seriesPath}/_manual`)) fs.mkdirSync(`${seriesPath}/_manual`, { recursive: true });
 
+    // FIX: Calculate the prefix right before generating the HTML
+    const dbAbbr = allPlaylists[0].ltg_series.ltg_games?.custom_abbr;
+    const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
+
     const seriesPageHTML = seriesHTML({
         seriesTitle,
         channelSlug,
         gameSlug,
-        shortPrefix: allPlaylists[0].short_prefix,
+        shortPrefix: shortPrefix, // <--- Use the calculated variable here!
         syncDate: new Date().toISOString(),
         seasons: seasonsData,
-        tags: gameTags // Passed down to the template just in case we want them later!
+        tags: gameTags 
     });
 
     writeStaticPage(seriesIndex, seriesPageHTML);
