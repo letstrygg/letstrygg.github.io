@@ -6,6 +6,7 @@ import { writeStaticPage } from '../utils/fileSys.js';
 export async function updateSeason(playlistId, options = {}) {
     const isForce = options.force || false;
     
+    // 1. Fetch Playlist + Series Info + NEW Playlist Stats
     const { data: playlistData, error: plError } = await supabase
         .from('ltg_playlists')
         .select(`
@@ -15,7 +16,8 @@ export async function updateSeason(playlistId, options = {}) {
                 title,
                 game_slug,
                 ltg_games ( title, custom_abbr )
-            )
+            ),
+            ltg_playlist_stats ( ep_count, total_views, total_likes, total_comments, total_duration, latest_published_at, first_published_at )
         `)
         .eq('id', playlistId)
         .single();
@@ -40,6 +42,42 @@ export async function updateSeason(playlistId, options = {}) {
         console.error(`❌ Video fetch error for ${playlistId}`, epError.message);
         return { success: false, skipped: false, episodesProcessed: 0, episodesList: [] };
     }
+
+    // 2. Fetch Series Averages for the Deltas
+    const seriesSlug = playlistData.ltg_series.slug;
+    
+    const { data: seriesStats } = await supabase
+        .from('ltg_series_stats')
+        .select('*')
+        .eq('series_slug', seriesSlug)
+        .single();
+
+    const { count: seasonCount } = await supabase
+        .from('ltg_playlists')
+        .select('*', { count: 'exact', head: true })
+        .eq('series_slug', seriesSlug);
+
+    // Calculate Baseline Averages
+    const sCount = seasonCount || 1;
+    const averages = {
+        videos: Math.round((seriesStats?.total_videos || 0) / sCount),
+        views: Math.round((seriesStats?.total_views || 0) / sCount),
+        likes: Math.round((seriesStats?.total_likes || 0) / sCount),
+        comments: Math.round((seriesStats?.total_comments || 0) / sCount),
+        duration: Math.round((seriesStats?.total_duration || 0) / sCount)
+    };
+
+    // Format Current Season Stats
+    const plStats = playlistData.ltg_playlist_stats?.[0] || {};
+    const stats = {
+        videos: plStats.ep_count || 0,
+        views: plStats.total_views || 0,
+        likes: plStats.total_likes || 0,
+        comments: plStats.total_comments || 0,
+        duration: plStats.total_duration || 0,
+        firstPub: plStats.first_published_at || null,
+        lastPub: plStats.latest_published_at || null
+    };
 
     const gameSlug = playlistData.ltg_series.game_slug || playlistData.ltg_series.slug;
     const gameTitle = playlistData.ltg_series.ltg_games?.title || playlistData.ltg_series.title;
@@ -178,16 +216,19 @@ export async function updateSeason(playlistId, options = {}) {
         writeStaticPage(seasonManualIndex, seasonManualContent);
     }
 
-    // Now pass the full array to the season template
+    // Pass the stats, averages, and series title to the template!
     const seasonData = {
         gameTitle,
+        seriesTitle: playlistData.ltg_series.title,
         seasonNum: seasonNumStr,
         channelSlug,
         gameSlug,
         shortPrefix,
         syncDate: playlistData.sync_date || new Date().toISOString(),
         manualContent: seasonManualContent,
-        episodes: fullEpisodesList
+        episodes: fullEpisodesList,
+        stats,
+        averages
     };
 
     const seasonPageHTML = seasonHTML(seasonData);

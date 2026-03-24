@@ -1,21 +1,83 @@
 ---
 layout: new
-title: "Season 1 Episodes - undefined"
-description: "A complete list of episodes from Season 1 of the undefined Let's Play."
+title: "Season 1 Episodes - Die In The Dungeon"
+description: "A complete list of episodes from Season 1 of the Die In The Dungeon Let's Play."
 permalink: /yt/letstrygg/die-in-the-dungeon/season-1/
 custom_css: "/css/game/ditd-style.css"
 sync_date: "2026-03-24T22:01:06.017+00:00"
 ---
 
+<style>
+/* Dashboard Styles */
+.analytics-dash {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    color: var(--text);
+}
+.dash-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+.dash-row:last-child { border-bottom: none; padding-bottom: 0; }
+.stat-item { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; }
+.stat-label { color: var(--gray); font-weight: bold; margin-right: 4px; }
+</style>
+
 <div class="game-page-wrapper">
   <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
     <div>
-      <h1 class="title" style="margin-bottom: 5px;">undefined</h1>
+      <h1 class="title" style="margin-bottom: 5px;">Die In The Dungeon</h1>
       <p class="subtitle" style="margin: 0;">Season 1 Episodes</p>
     </div>
     <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order">
       <span class="material-symbols-outlined" id="sortIcon" style="font-size: 18px; vertical-align: middle;">arrow_downward</span> Sort
     </button>
+  </div>
+
+  <div class="analytics-dash">
+    
+    <div class="dash-row">
+        <div class="stat-item"><span class="stat-label">ORIGINAL:</span></div>
+        <div class="stat-item" title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 3</div>
+        <div class="stat-item" title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 812</div>
+        <div class="stat-item" title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 15</div>
+        <div class="stat-item" title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 2</div>
+        <div class="stat-item" title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 3h 49m</div>
+    </div>
+
+    <div class="dash-row">
+        <div class="stat-item"><span class="stat-label tooltip-trigger" data-tooltip="Compared to Series Average">W/ DELTAS:</span></div>
+        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 3 <span style="color: var(--gray); font-size: 0.85em;">(0)</span></div>
+        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 812 <span style="color: var(--gray); font-size: 0.85em;">(0)</span></div>
+        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 15 <span style="color: var(--gray); font-size: 0.85em;">(0)</span></div>
+        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em;">(0)</span></div>
+    </div>
+
+    <div class="dash-row" style="margin-top: 5px;">
+        <div class="stat-item">
+            <span class="stat-label tooltip-trigger" data-tooltip="Total Age of Season">Age:</span> 404d
+        </div>
+        <div class="stat-item">
+            <span class="stat-label tooltip-trigger" data-tooltip="Days between Ep 1 and Final Ep">Longevity:</span> 3d
+        </div>
+        <div class="stat-item">
+            <span class="stat-label tooltip-trigger" data-tooltip="Days since latest upload">Last Video:</span> 402d ago
+        </div>
+        <div class="stat-item">
+            <span class="stat-label tooltip-trigger" data-tooltip="Average views generated per day">Velocity:</span> <span style="color: var(--blue);">2.0/d</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label tooltip-trigger" data-tooltip="High Engagement + Low Views = Hidden Gem">Gem Score:</span> <span style="color: var(--orange); font-weight: bold;">0.10</span>
+        </div>
+    </div>
+
   </div>
 
   <div class="game-section">
@@ -27,7 +89,7 @@ sync_date: "2026-03-24T22:01:06.017+00:00"
     <div id="epGrid" class="ep-grid">
     {%- for ep in ep_pages -%}
       <a href="{{ ep.url | relative_url }}" class="btn btn-gray" style="text-align: left; padding: 10px 15px;">
-        {{ ep.title | remove: "undefined" | strip }}
+        {{ ep.title | remove: "Die In The Dungeon" | strip }}
       </a>
     {%- endfor -%}
     </div>
