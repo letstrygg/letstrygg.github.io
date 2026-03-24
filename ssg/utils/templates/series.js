@@ -85,7 +85,7 @@ custom_css: "/css/home.css"
 }
 
 .info:hover {
-    background: #222;
+    background: var(--bg3);
     border-color: var(--border-hover);
 }
 
