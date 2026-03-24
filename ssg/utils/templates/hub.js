@@ -75,7 +75,7 @@ custom_css: "/css/home.css"
                 <div>
                     <div style="color: var(--gray); margin-bottom: 5px; border-bottom: 1px solid #333;">Totals</div>
                     <div><strong>${ch.seasons}</strong> Total Playlists</div>
-                    <div><strong>${formatDuration(ch.duration)}</strong> Total Watchtime</div>
+                    <div><strong>${formatDuration(ch.duration)}</strong> Total Duration</div>
                 </div>
             </div>
             
