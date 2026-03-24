@@ -31,3 +31,36 @@ node ssg/update.js season PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3
 node ssg/update.js series backpack-battles --force
 
 node ssg/update.js channel letstrygg # builds the whole letstrygg + ltg-plus directory from the database
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+There is actually zero duplication happening on your hard drive, which means there is nothing to fall out of sync.
+
+Here is why it already works perfectly:
+
+No Duplicate Game Folders: When you update an ltg-plus playlist, the SSG builder only updates the files inside yt/ltg-plus/game-slug/. It does not create a hidden copy inside the letstrygg folder.
+
+The Hub is Just a Router: The master umbrella hub (yt/letstrygg/index.html) doesn't hold any episode data. If you look at the template we just wrote, it literally just stamps an HTML link that points directly to the child's folder: <a href="/yt/ltg-plus/game-slug/">.
+
+The Hub is Static: Because the Channel Hub only displays the Game Title and the Link, its HTML never physically changes when you upload a new episode.
+
+The Only Edge Case:
+The only time you ever need to worry about updating the parent hub is if you debut a brand new game on ltg-plus that didn't exist in the database yesterday.
+
+If that happens, the new game will build perfectly in its own folder, but the letstrygg master directory won't have a button for it yet. You would just run your master rebuild command (node ssg/update.js channel letstrygg) to pop the new button onto the board. For day-to-day episode syncs, the orchestrator handles everything flawlessly.

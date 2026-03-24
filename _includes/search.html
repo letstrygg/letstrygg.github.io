@@ -15,7 +15,7 @@
                   // 1. YouTube Matcher (Catches youtube.com/watch, youtu.be, and live links)
                   const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|shorts\/)([^"&?\/\s]{11})/i);
                   if (ytMatch && ytMatch[1]) {
-                      window.location.href = '/yt/#' + ytMatch[1];
+                      window.location.href = '/watch/#' + ytMatch[1];
                       return;
                   }
 
