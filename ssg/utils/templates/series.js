@@ -139,16 +139,17 @@ custom_css: "/css/home.css"
 
     // Generate Panel Blocks
     data.seasons.forEach(s => {
-        // Handle Decimals (e.g. 4.1 -> 04.1)
+		// Handle Decimals safely for URLs (e.g. 4.1 -> 04_1)
         const seasonNumStr = s.seasonNum.toString();
+        const seasonNumSafe = seasonNumStr.replace('.', '_');
         const seasonParts = seasonNumStr.split('.');
-        const paddedSeason = seasonParts[0].padStart(2, '0') + (seasonParts[1] ? '.' + seasonParts[1] : '');
+        const paddedSeason = seasonParts[0].padStart(2, '0') + (seasonParts[1] ? '_' + seasonParts[1] : '');
         
         const firstEp = s.episodes && s.episodes.length > 0 ? s.episodes[0] : 1;
         const paddedEp = String(firstEp).padStart(2, '0');
         
-        const ep1Url = `/yt/${data.channelSlug}/${data.gameSlug}/season-${seasonNumStr}/${data.shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
-        const seasonUrl = `/yt/${data.channelSlug}/${data.gameSlug}/season-${seasonNumStr}/`;
+        const ep1Url = `/yt/${data.channelSlug}/${data.gameSlug}/season-${seasonNumSafe}/${data.shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
+        const seasonUrl = `/yt/${data.channelSlug}/${data.gameSlug}/season-${seasonNumSafe}/`;
         const ytPlaylistUrl = `https://www.youtube.com/playlist?list=${s.id}`;
         
         const viewsFormatted = formatNumber(s.totalViews);
