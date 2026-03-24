@@ -21,6 +21,10 @@ custom_css: "/css/home.css"
 .panel {
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    background: transparent;
 }
 
 .panel-header {
@@ -31,7 +35,6 @@ custom_css: "/css/home.css"
 }
 
 .label {
-    /* Relying on your global typography, add specifics here if needed */
     font-size: 1.1rem;
     font-weight: bold;
 }
@@ -46,11 +49,10 @@ custom_css: "/css/home.css"
     overflow: hidden;
     text-decoration: none;
     color: var(--text);
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: border-color 0.2s ease;
 }
 
 .content:hover {
-    transform: translateY(-2px);
     border-color: var(--border-hover);
 }
 
@@ -79,13 +81,12 @@ custom_css: "/css/home.css"
     margin-top: 10px;
     text-decoration: none;
     color: var(--text);
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .info:hover {
     background: #222;
     border-color: var(--border-hover);
-    transform: translateY(-2px);
 }
 
 .info:hover .info-cta {
@@ -94,9 +95,8 @@ custom_css: "/css/home.css"
 
 .info-stats {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     margin-bottom: 10px;
     font-size: 0.85rem;
 }
@@ -168,12 +168,9 @@ custom_css: "/css/home.css"
       
       <a href="${seasonUrl}" class="info" title="View Season Details">
         <div class="info-stats">
-          <span><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> ${s.epCount} videos</span>
-          <span><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> ${viewsFormatted} views</span>
-          <span class="card-duration">
-            <span class="dur-full"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> ${s.durFull}</span>
-            <span class="dur-short"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> ${s.durShort}</span>
-          </span>
+          <span><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> ${s.epCount}</span>
+          <span><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> ${viewsFormatted}</span>
+          <span><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> ${s.durShort}</span>
         </div>
         
         <div class="info-cta">
