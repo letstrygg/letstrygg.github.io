@@ -1,5 +1,6 @@
 export function seriesHTML(data) {
-    const safeTitle = data.seriesTitle.replace(/"/g, '&quot;');
+    // We now strictly use the Game Title (ltg_games.title)
+    const safeGameTitle = data.gameTitle ? data.gameTitle.replace(/"/g, '&quot;') : data.seriesTitle.replace(/"/g, '&quot;');
 
     // Helper for "4.2K" formatting
     const formatNumber = (num) => {
@@ -11,7 +12,7 @@ export function seriesHTML(data) {
 
     let html = `---
 layout: new
-title: "${safeTitle} - All Seasons"
+title: "${safeGameTitle} - All Seasons"
 permalink: /yt/${data.channelSlug}/${data.gameSlug}/
 custom_css: "/css/home.css"
 ---
@@ -99,7 +100,7 @@ custom_css: "/css/home.css"
     align-items: center;
     margin-bottom: 10px;
     font-size: 0.85rem;
-    flex-wrap: wrap; /* Ensures the 5 items wrap cleanly on small screens */
+    flex-wrap: wrap; 
 }
 
 .info-stats span {
@@ -138,33 +139,40 @@ custom_css: "/css/home.css"
 
     // Generate Panel Blocks
     data.seasons.forEach(s => {
-        const paddedSeason = String(Math.floor(s.seasonNum)).padStart(2, '0');
+        // Handle Decimals (e.g. 4.1 -> 04.1)
+        const seasonNumStr = s.seasonNum.toString();
+        const seasonParts = seasonNumStr.split('.');
+        const paddedSeason = seasonParts[0].padStart(2, '0') + (seasonParts[1] ? '.' + seasonParts[1] : '');
+        
         const firstEp = s.episodes && s.episodes.length > 0 ? s.episodes[0] : 1;
         const paddedEp = String(firstEp).padStart(2, '0');
         
-        const ep1Url = `/yt/${data.channelSlug}/${data.gameSlug}/season-${Math.floor(s.seasonNum)}/${data.shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
-        const seasonUrl = `/yt/${data.channelSlug}/${data.gameSlug}/season-${Math.floor(s.seasonNum)}/`;
+        const ep1Url = `/yt/${data.channelSlug}/${data.gameSlug}/season-${seasonNumStr}/${data.shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
+        const seasonUrl = `/yt/${data.channelSlug}/${data.gameSlug}/season-${seasonNumStr}/`;
         const ytPlaylistUrl = `https://www.youtube.com/playlist?list=${s.id}`;
         
         const viewsFormatted = formatNumber(s.totalViews);
         const likesFormatted = formatNumber(s.totalLikes);
         const commentsFormatted = formatNumber(s.totalComments);
         const thumbUrl = s.firstVideoId ? `https://i.ytimg.com/vi/${s.firstVideoId}/maxresdefault.jpg` : '/assets/img/default-thumbnail.jpg';
+        
+        // Strictly formatted as: Game Title S#
+        const displayTitle = `${safeGameTitle} S${seasonNumStr}`;
 
         html += `
     <div class="panel filterable-card" data-updated="${s.lastUpdatedFormatted}">
       
       <div class="panel-header">
-        <span class="label">Season ${s.seasonNum}</span>
+        <span class="label">Season ${seasonNumStr}</span>
         <a href="${ytPlaylistUrl}" target="_blank" rel="noopener noreferrer" class="yt-header-link" style="display: flex; align-items: center; gap: 4px; color: var(--text); text-decoration: none; font-size: 0.9rem;">
           <span class="material-symbols-outlined" style="color: var(--red); font-size: 20px;">play_circle</span> YouTube
         </a>
       </div>
       
       <a href="${ep1Url}" class="content" title="Play Episode 1">
-        <img src="${thumbUrl}" alt="${safeTitle} S${s.seasonNum}">
+        <img src="${thumbUrl}" alt="${displayTitle}">
         <div class="content-row">
-          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">${safeTitle} S${s.seasonNum}</strong>
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">${displayTitle}</strong>
           <span class="card-status ${s.statusColor}">${s.status}</span>
         </div>
       </a>
