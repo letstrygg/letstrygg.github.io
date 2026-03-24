@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { getChannelContext } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
-import { channelRootHTML } from '../utils/templates.js';
+import { channelHTML } from '../utils/templates.js';
 import { updateSeries } from './updateSeries.js';
 
 export async function updateChannel(channelSlug, force = false) {
@@ -82,7 +82,7 @@ export async function updateChannel(channelSlug, force = false) {
         const isMainHub = channel.channelSlug === context.hubSlug;
         const channelsToRender = isMainHub ? context.channels : [channel];
 
-        const pageHTML = channelRootHTML({
+        const pageHTML = channelHTML({
             hubSlug: channel.channelSlug,
             channels: channelsToRender
         });

@@ -8,6 +8,7 @@ async function run() {
     
     // Extract commands and flags
     const isForce = args.includes('--force') || args.includes('-f');
+    const indexesOnly = args.includes('--indexes-only') || args.includes('-i');
     const cleanArgs = args.filter(a => !a.startsWith('-')); // Remove flags so we get the pure command/target
     
     const command = cleanArgs[0];
@@ -18,7 +19,11 @@ async function run() {
         process.exit(1);
     }
 
-    console.log(`\n🚀 Starting Build Process: [${command.toUpperCase()}] -> Target: ${targetId || 'ALL'} ${isForce ? '(FORCE REBUILD)' : ''}`);
+    // Dynamic UI logging for flags
+    const forceLog = isForce ? '(FORCE REBUILD)' : '';
+    const indexLog = indexesOnly ? '(INDEXES ONLY)' : '';
+    console.log(`\n🚀 Starting Build Process: [${command.toUpperCase()}] -> Target: ${targetId || 'ALL'} ${forceLog} ${indexLog}`);
+    
     const startTime = Date.now();
 
     try {
@@ -31,41 +36,41 @@ async function run() {
 
             case 'season':
                 if (!targetId) throw new Error("Missing Playlist ID.");
-                // Pass the force flag down
-                const seasonResult = await updateSeason(targetId, isForce);
+                // Pass flags down as an options object
+                const seasonResult = await updateSeason(targetId, { force: isForce, indexesOnly });
                 
                 if (seasonResult.skipped) {
                     console.log(`⏩ Season skipped (Already up-to-date).`);
                 } else {
-                    console.log(`✅ Season complete! Processed ${seasonResult.episodesProcessed} episodes.`);
+                    console.log(`✅ Season complete! Processed ${seasonResult.episodesProcessed || 0} episodes.`);
+                }
+                break;
+            
+            case 'series':
+                if (!targetId) throw new Error("Missing Series Slug.");
+                const seriesResult = await updateSeries(targetId, { force: isForce, indexesOnly });
+                
+                if (seriesResult.skipped) {
+                    console.log(`⏩ Series fully skipped (Already up-to-date).`);
+                } else {
+                    console.log(`✅ Series complete! Processed ${seriesResult.totalEpisodes || 0} episodes.`);
+                }
+                break;
+            
+            case 'channel':
+                if (!targetId) throw new Error("Missing Channel Slug.");
+                const channelResult = await updateChannel(targetId, { force: isForce, indexesOnly });
+                
+                if (channelResult.skipped) {
+                    console.log(`\n✨ Channel fully skipped in ${((Date.now() - startTime) / 1000).toFixed(2)}s (Already up-to-date).`);
+                } else {
+                    console.log(`\n✨ Channel complete in ${((Date.now() - startTime) / 1000).toFixed(2)}s! Processed ${channelResult.totalEpisodes || 0} episodes.`);
                 }
                 break;
 
             default:
                 console.error(`❌ Unknown command: ${command}`);
-                console.log("Available commands: episode, season, series, channel, all");
-                break;
-			
-			case 'series':
-                if (!targetId) throw new Error("Missing Series Slug.");
-                const seriesResult = await updateSeries(targetId, isForce);
-                
-                if (seriesResult.skipped) {
-                    console.log(`⏩ Series fully skipped (Already up-to-date).`);
-                } else {
-                    console.log(`✅ Series complete! Processed ${seriesResult.totalEpisodes} episodes.`);
-                }
-                break;
-			
-			case 'channel':
-                if (!targetId) throw new Error("Missing Channel Slug.");
-                const channelResult = await updateChannel(targetId, isForce);
-                
-                if (channelResult.skipped) {
-                    console.log(`\n✨ Channel fully skipped in ${((Date.now() - startTime) / 1000).toFixed(2)}s (Already up-to-date).`);
-                } else {
-                    console.log(`\n✨ Channel complete in ${((Date.now() - startTime) / 1000).toFixed(2)}s! Processed ${channelResult.totalEpisodes} episodes.`);
-                }
+                console.log("Available commands: episode, season, series, channel");
                 break;
         }
 

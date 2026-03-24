@@ -1,6 +1,6 @@
 import { getFullEpisodeContext, getAdjacentEpisodes } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
-import { episodePageHTML } from '../utils/templates.js'; 
+import { episodeHTML } from '../utils/templates.js'; 
 
 export async function updateEpisode(videoId) {
     // 1. Fetch DB Context
@@ -71,7 +71,7 @@ export async function updateEpisode(videoId) {
     const manualFilePath = `${basePath}/_manual/${fileName}`;
     
     // Always overwrite the main page with fresh stats, frontmatter, and structure
-    const pageHTML = episodePageHTML(templateData);
+    const pageHTML = episodeHTML(templateData);
     writeStaticPage(mainFilePath, pageHTML);
 
     // Only generate the manual fragment if it doesn't exist

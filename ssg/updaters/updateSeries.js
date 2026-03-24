@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { getFullSeriesContext } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
-import { seriesRootHTML } from '../utils/templates.js';
+import { seriesHTML } from '../utils/templates.js';
 import { updateSeason } from './updateSeason.js';
 
 // Added channelFamily array and rootChannelSlug overrides
@@ -125,7 +125,7 @@ export async function updateSeries(gameSlug, force = false, channelFamily = null
     };
 
     // Always overwrite the main index
-    const pageHTML = seriesRootHTML(templateData);
+    const pageHTML = seriesHTML(templateData);
     writeStaticPage(indexPath, pageHTML);
     console.log(`✅ Game Root Index generated at: ${indexPath}`);
 

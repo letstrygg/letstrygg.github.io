@@ -1,7 +1,7 @@
 import fs from 'fs'; 
 import { getFullSeasonContext } from '../utils/db.js';
 import { writeStaticPage } from '../utils/fileSys.js';
-import { seasonIndexHTML } from '../utils/templates.js';
+import { seasonHTML } from '../utils/templates.js';
 import { updateEpisode } from './updateEpisode.js';
 
 export async function updateSeason(playlistId, force = false) {
@@ -92,7 +92,7 @@ export async function updateSeason(playlistId, force = false) {
     };
 
     // Always overwrite the main index
-    const seasonHTML = seasonIndexHTML(templateData);
+    const seasonHTML = seasonHTML(templateData);
     writeStaticPage(indexPath, seasonHTML);
 
     if (!fs.existsSync(manualPath)) {
