@@ -14,7 +14,7 @@ export async function updateSeason(playlistId, options = {}) {
                 slug, 
                 title,
                 game_slug,
-                ltg_games ( custom_abbr )
+                ltg_games ( title, custom_abbr )
             )
         `)
         .eq('id', playlistId)
@@ -42,14 +42,19 @@ export async function updateSeason(playlistId, options = {}) {
     }
 
     const gameSlug = playlistData.ltg_series.game_slug || playlistData.ltg_series.slug;
-    const seasonNum = playlistData.season; 
+    const gameTitle = playlistData.ltg_series.ltg_games?.title || playlistData.ltg_series.title;
+    
+    // Decimal Season Logic
+    const seasonNumStr = playlistData.season.toString();
+    const seasonParts = seasonNumStr.split('.');
+    const paddedSeason = seasonParts[0].padStart(2, '0') + (seasonParts[1] ? '.' + seasonParts[1] : '');
     
     const dbAbbr = playlistData.ltg_series.ltg_games?.custom_abbr;
     const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
     
     const channelSlug = playlistData.channel_slug;
     
-    const seasonPath = `yt/${channelSlug}/${gameSlug}/season-${Math.floor(seasonNum)}`;
+    const seasonPath = `yt/${channelSlug}/${gameSlug}/season-${seasonNumStr}`;
     const seasonIndexPath = `${seasonPath}/index.html`;
 
     const dbSyncDate = playlistData.sync_date ? new Date(playlistData.sync_date).getTime() : 0;
@@ -69,36 +74,55 @@ export async function updateSeason(playlistId, options = {}) {
         }
     }
 
-    console.log(`\n  📂 Processing Season: ${playlistData.title} (Season ${seasonNum})`);
+    console.log(`\n  📂 Processing Season: ${playlistData.title} (Season ${seasonNumStr})`);
     
     if (!fs.existsSync(seasonPath)) fs.mkdirSync(seasonPath, { recursive: true });
     if (!fs.existsSync(`${seasonPath}/_manual`)) fs.mkdirSync(`${seasonPath}/_manual`, { recursive: true });
 
     const epNumbers = [];
+    const fullEpisodesList = [];
 
     if (!options.indexesOnly) {
         console.log(`  Found ${episodes.length} episodes. Generating files...`);
-        for (let i = 0; i < episodes.length; i++) {
-            const ep = episodes[i];
-            const v = ep.ltg_videos;
-            epNumbers.push(ep.sort_order); 
+    } else {
+        console.log(`  ⏩ Skipped episode page generation for Season ${seasonNumStr} (--indexes-only active). Aggregating stats for index...`);
+    }
 
-            const paddedSeason = String(Math.floor(seasonNum)).padStart(2, '0');
-            const paddedEp = String(ep.sort_order).padStart(2, '0'); 
-            const fileName = `${shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
-            const epPath = `${seasonPath}/${fileName}`;
-            const epManualPath = `${seasonPath}/_manual/${fileName}`;
+    for (let i = 0; i < episodes.length; i++) {
+        const ep = episodes[i];
+        const v = ep.ltg_videos;
+        epNumbers.push(ep.sort_order); 
 
+        const paddedEp = String(ep.sort_order).padStart(2, '0'); 
+        const fileName = `${shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
+        const epPath = `${seasonPath}/${fileName}`;
+        const epManualPath = `${seasonPath}/_manual/${fileName}`;
+        const epUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumStr}/${fileName}`;
+
+        // Populate the list for the Season Index Page (Regardless of indexesOnly flag)
+        fullEpisodesList.push({
+            epNum: ep.sort_order,
+            videoId: v.id,
+            title: v.title,
+            views: v.view_count || 0,
+            likes: v.likes || 0,
+            comments: v.comments || 0,
+            duration: v.duration_seconds || 0,
+            url: epUrl
+        });
+
+        // ONLY generate the actual Episode HTML files if NOT in indexesOnly mode
+        if (!options.indexesOnly) {
             let prevUrl = null;
             if (i > 0) {
                 const prevEpNum = String(episodes[i - 1].sort_order).padStart(2, '0'); 
-                prevUrl = `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(seasonNum)}/${shortPrefix}-s${paddedSeason}e${prevEpNum}.html`;
+                prevUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumStr}/${shortPrefix}-s${paddedSeason}e${prevEpNum}.html`;
             }
 
             let nextUrl = null;
             if (i < episodes.length - 1) {
                 const nextEpNum = String(episodes[i + 1].sort_order).padStart(2, '0'); 
-                nextUrl = `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(seasonNum)}/${shortPrefix}-s${paddedSeason}e${nextEpNum}.html`;
+                nextUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumStr}/${shortPrefix}-s${paddedSeason}e${nextEpNum}.html`;
             }
 
             const h = Math.floor(v.duration_seconds / 3600);
@@ -123,7 +147,7 @@ export async function updateSeason(playlistId, options = {}) {
                 seriesTitle: playlistData.ltg_series.title,
                 gameSlug,
                 channelSlug,
-                seasonNum,
+                seasonNum: seasonNumStr,
                 episodeNum: ep.sort_order,
                 fileName,
                 shortPrefix,
@@ -143,9 +167,6 @@ export async function updateSeason(playlistId, options = {}) {
             const epHTML = episodeHTML(epData);
             writeStaticPage(epPath, epHTML);
         }
-    } else {
-        episodes.forEach(ep => epNumbers.push(ep.sort_order)); 
-        console.log(`  ⏩ Skipped episode generation for Season ${seasonNum} (--indexes-only active)`);
     }
 
     const seasonManualIndex = `${seasonPath}/_manual/index.html`;
@@ -156,14 +177,16 @@ export async function updateSeason(playlistId, options = {}) {
         writeStaticPage(seasonManualIndex, seasonManualContent);
     }
 
+    // Now pass the full array to the season template
     const seasonData = {
-        seriesTitle: playlistData.ltg_series.title,
-        seasonNum,
+        gameTitle,
+        seasonNum: seasonNumStr,
         channelSlug,
         gameSlug,
         shortPrefix,
         syncDate: playlistData.sync_date || new Date().toISOString(),
-        manualContent: seasonManualContent
+        manualContent: seasonManualContent,
+        episodes: fullEpisodesList
     };
 
     const seasonPageHTML = seasonHTML(seasonData);
