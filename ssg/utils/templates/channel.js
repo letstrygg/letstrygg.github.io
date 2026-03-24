@@ -35,30 +35,49 @@ custom_css: "/css/home.css"
 <style>
 /* Flexbox Merge/Split Animation Styles */
 .channel-split-container {
-    display: flex; gap: 20px; width: 100%; margin-bottom: 30px;
+    display: flex; width: 100%; margin-bottom: 30px; position: relative;
+    gap: 0; /* Starts flush to simulate a single cell */
     transition: gap 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
+.state-split { gap: 20px; } /* The gap appears as they divide */
+
 .anim-card {
     border: 2px solid #333; border-radius: 12px; background: #1a1a1a;
     overflow: hidden; white-space: nowrap; display: flex; flex-direction: column;
     justify-content: center; align-items: center; user-select: none;
-    transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, 
+    transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, 
                 padding 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-width 0.5s ease;
 }
 .anim-card:hover { background: #222; }
 
 /* STATE: COMBINED */
-.state-combined .card-combined { flex: 1; opacity: 1; padding: 30px; border-color: var(--green); }
+/* The middle card holds 100% space, the outer cards hold 0% */
+.state-combined .card-combined { flex: 1; opacity: 1; padding: 30px; border-color: var(--blue); cursor: pointer; }
 .state-combined .card-split { flex: 0; opacity: 0; padding: 0; border-width: 0; pointer-events: none; }
-.state-combined { gap: 0; }
 
 /* STATE: SPLIT */
+/* The middle card collapses to 0%, the outer cards expand to 50/50 */
 .state-split .card-combined { flex: 0; opacity: 0; padding: 0; border-width: 0; pointer-events: none; }
-.state-split .card-split { flex: 1; opacity: 1; padding: 30px; }
-.state-split { gap: 20px; }
+.state-split .card-split { flex: 1; opacity: 1; padding: 30px; cursor: pointer; }
 
 /* Active Filter State for Split Cards */
-.card-split.active-filter { border-color: var(--green); background: #222; }
+.card-split.active-filter { border-color: var(--blue); background: #222; }
+
+/* The Floating Merge Icon (No box!) */
+.merge-icon-btn {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    cursor: pointer; color: var(--gray);
+    display: flex; justify-content: center; align-items: center;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s, color 0.2s;
+    opacity: 0; z-index: 10; pointer-events: none;
+    background: #111; border-radius: 50%; padding: 4px; /* Slight bg just to mask the gap line behind it */
+}
+.merge-icon-btn:hover { color: var(--blue); }
+.state-split .merge-icon-btn {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1; pointer-events: auto;
+}
 </style>
 
 <div class="game-page-wrapper">
@@ -69,23 +88,23 @@ custom_css: "/css/home.css"
     if (isParent) {
         html += `
   <div class="channel-split-container state-combined" id="networkToggleContainer">
-      <div class="anim-card card-combined" onclick="toggleNetworkState('split', 'all')" style="cursor: pointer;">
-          <h2 style="margin: 0 0 5px 0;">Let's Try GG Network</h2>
-          <p style="margin: 0; color: var(--gray);">Click to split by channel</p>
-      </div>
-
-      <div class="anim-card card-split" id="card-letstrygg" onclick="toggleNetworkState('split', 'letstrygg')" style="cursor: pointer;">
+      <div class="anim-card card-split" id="card-letstrygg" onclick="toggleNetworkState('split', 'letstrygg')">
           <h2 style="margin: 0 0 5px 0;">Letstrygg</h2>
           <p style="margin: 0; color: var(--gray);">${letstryggCount} Games</p>
       </div>
 
-      <div class="anim-card card-split" id="card-ltg-plus" onclick="toggleNetworkState('split', 'ltg-plus')" style="cursor: pointer; border-color: #ff8888;">
-          <h2 style="margin: 0 0 5px 0; color: #ff8888;">LTG Plus</h2>
+      <div class="anim-card card-combined" onclick="toggleNetworkState('split', 'letstrygg')">
+          <h2 style="margin: 0 0 5px 0;">Let's Try GG Network</h2>
+          <p style="margin: 0; color: var(--gray);">Click to split by channel</p>
+      </div>
+
+      <div class="anim-card card-split" id="card-ltg-plus" onclick="toggleNetworkState('split', 'ltg-plus')">
+          <h2 style="margin: 0 0 5px 0;">LTG Plus</h2>
           <p style="margin: 0; color: var(--gray);">${plusCount} Games</p>
       </div>
       
-      <div class="anim-card card-split" onclick="toggleNetworkState('combined', 'all')" style="cursor: pointer; flex: 0.15; border-color: var(--gray);">
-          <span class="material-symbols-outlined" style="font-size: 24px; color: var(--gray);">close_fullscreen</span>
+      <div class="merge-icon-btn" onclick="toggleNetworkState('combined', 'all')" title="Re-combine Network">
+          <span class="material-symbols-outlined" style="font-size: 28px;">close_fullscreen</span>
       </div>
   </div>
 `;
@@ -102,7 +121,11 @@ custom_css: "/css/home.css"
     html += `
 <div class="controls-wrapper">
     <div class="controls-top-row">
-        <input type="text" id="gameSearch" placeholder="Search Games">
+        <div class="search-wrapper" style="position: relative; flex: 1;">
+            <input type="text" id="gameSearch" placeholder="Search Games" style="width: 100%; padding-right: 35px; box-sizing: border-box;">
+            <span id="clearSearch" class="material-symbols-outlined" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray); font-size: 20px; display: none;" onclick="clearSearchInput()" title="Clear search">close</span>
+        </div>
+        
         <div class="top-row-buttons">
             <button class="btn" id="btn-tags-toggle" onclick="toggleTagPanel()">
                 <span class="material-symbols-outlined">sell</span> Tags
@@ -137,19 +160,19 @@ custom_css: "/css/home.css"
             <strong class="text-blue" style="font-size: 1.1em;">Library Scope</strong><br>
             Games: <strong id="stat-games">0</strong><br>
             Videos: <strong id="stat-videos-total">0</strong><br>
-            Avg / Game: <strong id="stat-avg-vid-game">0</strong>
+            Videos / Game: <strong id="stat-avg-vid-game">0</strong>
         </div>
         <div>
             <strong class="text-green" style="font-size: 1.1em;">Views</strong><br>
             Total: <span id="stat-views-total">0</span><br>
-            Avg / Game: <span id="stat-views-avg-game">0</span><br>
-            Avg / Video: <span id="stat-vpv" class="text-orange" style="font-weight: bold;">0</span>
+            Views / Game: <span id="stat-views-avg-game">0</span><br>
+            Views / Video: <span id="stat-vpv" class="text-orange" style="font-weight: bold;">0</span>
         </div>
         <div>
             <strong class="text-purple" style="font-size: 1.1em;">Duration</strong><br>
             Total: <span id="stat-dur-total">0</span><br>
-            Avg / Game: <span id="stat-dur-game">0</span><br>
-            Avg / Video: <span id="stat-dur-video">0</span>
+            <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: text-bottom;">schedule</span> / Game: <span id="stat-dur-game">0</span><br>
+            <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: text-bottom;">schedule</span> / Video: <span id="stat-dur-video">0</span>
         </div>
     </div>
 </div>
@@ -160,7 +183,6 @@ custom_css: "/css/home.css"
     // 3. Generate the Game Cards dynamically
     data.channels.forEach(channel => {
         channel.games.forEach(game => {
-            // Aggregate DB stats for this game
             let totalViews = 0, totalDuration = 0, epCount = 0, maxTime = 0;
             let firstVideoId = null;
 
@@ -182,7 +204,6 @@ custom_css: "/css/home.css"
             const safeTitle = game.title.replace(/"/g, '&quot;');
             const gameUrl = `/yt/${channel.channelSlug}/${game.slug}/`;
 
-            // Use the channel slug as the status indicator (e.g., letstrygg or ltg-plus)
             const statusColor = channel.channelSlug === 'ltg-plus' ? 'gray' : 'blue';
 
             html += `
@@ -220,7 +241,7 @@ let isInfoActive = false;
 let activeTags = new Set();
 let allSortedTags = [];
 let isTagPanelActive = false;
-let activeChannelFilter = 'all'; // Used by the flexbox merge/split cards
+let activeChannelFilter = 'all'; 
 
 // --- Formatting Helpers ---
 function formatViews(num) {
@@ -243,22 +264,29 @@ function toggleNetworkState(targetState, filterSlug) {
     const cLets = document.getElementById('card-letstrygg');
     const cPlus = document.getElementById('card-ltg-plus');
     
-    if (!container) return; // Failsafe if not on parent hub
+    if (!container) return;
 
     if (targetState === 'split') {
         container.classList.remove('state-combined');
         container.classList.add('state-split');
+        
+        // Strict Mutual Exclusion for the Blue Highlight
+        if (filterSlug === 'letstrygg') {
+            cLets.classList.add('active-filter');
+            cPlus.classList.remove('active-filter');
+        } else if (filterSlug === 'ltg-plus') {
+            cPlus.classList.add('active-filter');
+            cLets.classList.remove('active-filter');
+        }
     } else {
         container.classList.remove('state-split');
         container.classList.add('state-combined');
+        
+        // Remove highlights when combined
+        cLets.classList.remove('active-filter');
+        cPlus.classList.remove('active-filter');
     }
 
-    cLets.classList.remove('active-filter');
-    cPlus.classList.remove('active-filter');
-    if (filterSlug === 'letstrygg') cLets.classList.add('active-filter');
-    if (filterSlug === 'ltg-plus') cPlus.classList.add('active-filter');
-
-    // Update global state and trigger main filter function
     activeChannelFilter = filterSlug;
     applyFilters();
 }
@@ -353,7 +381,15 @@ function sortGrid(type) {
     updateVPVVisibility();
 }
 
-// --- Unified Filter Logic ---
+// --- Unified Filter & Search Logic ---
+function clearSearchInput() {
+    const searchInput = document.getElementById('gameSearch');
+    searchInput.value = '';
+    document.getElementById('clearSearch').style.display = 'none';
+    applyFilters();
+    searchInput.focus();
+}
+
 function applyFilters() {
     const searchTerm = document.getElementById('gameSearch').value.toLowerCase();
     const cards = document.querySelectorAll('.filterable-card');
@@ -431,8 +467,12 @@ function initTags() {
     });
 }
 
-// Ensure event listener triggers the unified filter function
-document.getElementById('gameSearch').addEventListener('input', applyFilters);
+// Listen for search input and toggle the 'x' button
+document.getElementById('gameSearch').addEventListener('input', (e) => {
+    const clearBtn = document.getElementById('clearSearch');
+    clearBtn.style.display = e.target.value.length > 0 ? 'block' : 'none';
+    applyFilters();
+});
 
 // Boot it all up
 document.addEventListener('DOMContentLoaded', () => {
