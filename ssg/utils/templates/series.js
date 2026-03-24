@@ -97,7 +97,6 @@ custom_css: "/css/home.css"
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 14px;
     margin-bottom: 10px;
     font-size: 0.85rem;
     flex-wrap: wrap; /* Ensures the 5 items wrap cleanly on small screens */
@@ -106,7 +105,7 @@ custom_css: "/css/home.css"
 .info-stats span {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
 }
 
 .info-cta {
