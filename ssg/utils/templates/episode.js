@@ -8,7 +8,7 @@ export function episodeHTML(data) {
 layout: watch
 title: "${epNumPadded} ${data.seriesTitle}"
 description: "${data.seriesTitle} Let's Play Season ${data.seasonNum} Episode ${data.episodeNum}"
-permalink: /yt/${data.channelSlug}/${data.gameSlug}/season-${Math.floor(data.seasonNum)}/${data.fileName}
+permalink: /yt/${data.channelSlug}/${data.gameSlug}/season-${data.seasonNum}/${data.fileName}
 custom_css: "/css/game/${data.shortPrefix}-style.css"
 thumbnail: "${safeThumbnail}"
 sync_date: "${data.rawPublishedAt}"

@@ -3,7 +3,7 @@ export function seasonHTML(data) {
 layout: new
 title: "Season ${data.seasonNum} Episodes - ${data.seriesTitle}"
 description: "A complete list of episodes from Season ${data.seasonNum} of the ${data.seriesTitle} Let's Play."
-permalink: /yt/${data.channelSlug}/${data.gameSlug}/season-${Math.floor(data.seasonNum)}/
+permalink: /yt/${data.channelSlug}/${data.gameSlug}/season-${data.seasonNum.toString().replace('.', '_')}/
 custom_css: "/css/game/${data.shortPrefix}-style.css"
 sync_date: "${data.syncDate}"
 ---
@@ -22,7 +22,7 @@ sync_date: "${data.syncDate}"
   <div class="game-section">
     ${data.manualContent}
 
-    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/${data.channelSlug}/${data.gameSlug}/season-${Math.floor(data.seasonNum)}/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
+    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/${data.channelSlug}/${data.gameSlug}/season-${data.seasonNum}/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
     
     <div id="epGrid" class="ep-grid">
     {%- for ep in ep_pages -%}
