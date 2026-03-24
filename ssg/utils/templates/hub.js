@@ -70,7 +70,7 @@ custom_css: "/css/home.css"
                     <div style="color: var(--gray); margin-bottom: 5px; border-bottom: 1px solid #333;">Averages</div>
                     <div><strong>${avgVideosPerGame}</strong> vids per game</div>
                     <div><strong>${formatDuration(ch.duration / (ch.games || 1))}</strong> per game</div>
-                    <div><strong>${formatDuration(ch.duration / (ch.videos || 1))}</strong> per video</div>
+                    <div><strong>${formatDuration(ch.duration / (ch.videos.parseInt() || 1))}</strong> per video</div>
                 </div>
                 <div>
                     <div style="color: var(--gray); margin-bottom: 5px; border-bottom: 1px solid #333;">Totals</div>
