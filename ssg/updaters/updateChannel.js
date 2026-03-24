@@ -1,13 +1,16 @@
 import fs from 'fs';
 import { getChannelContext } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
-import { channelHTML } from '../utils/templates.js';
+import { channelHTML, hubHTML } from '../utils/templates/index.js'; // Imported hubHTML!
 import { updateSeries } from './updateSeries.js';
 
-export async function updateChannel(channelSlug, force = false) {
-    console.log(`\n📡 Fetching Data for Channel Family: ${channelSlug}...`);
+export async function updateChannel(hubSlug, options = {}) {
+    const isForce = options.force || false;
+
+    // FIX: Using hubSlug instead of undefined channelSlug
+    console.log(`\n📡 Fetching Data for Channel Family: ${hubSlug}...`);
     
-    const context = await getChannelContext(channelSlug);
+    const context = await getChannelContext(hubSlug);
     
     const allUniqueGames = new Map();
     context.channels.forEach(ch => {
@@ -23,15 +26,15 @@ export async function updateChannel(channelSlug, force = false) {
     const channelErrors = [];
 
     // --- CONCURRENT BATCH PROCESSING ---
-    const batchSize = 15; // Process 15 games simultaneously
+    const batchSize = 15; 
     
     for (let i = 0; i < gamesList.length; i += batchSize) {
         const batch = gamesList.slice(i, i + batchSize);
         
-        // Fire off 15 updateSeries functions at the exact same time
         const batchPromises = batch.map(async (game) => {
             try {
-                return await updateSeries(game.slug, force, channelFamily, context.hubSlug);
+                // FIX: Passing the 'options' object down instead of just 'force'
+                return await updateSeries(game.slug, options, channelFamily, context.hubSlug);
             } catch (err) {
                 const errMsg = `[Game: ${game.slug}] Critical Series Failure: ${err.message}`;
                 console.error(`❌ ${errMsg}`);
@@ -39,10 +42,8 @@ export async function updateChannel(channelSlug, force = false) {
             }
         });
 
-        // Wait for the batch to finish before moving to the next 15
         const batchResults = await Promise.all(batchPromises);
 
-        // Tally up the results from the concurrent workers
         batchResults.forEach(result => {
             if (result.error) {
                 channelErrors.push(result.error);
@@ -58,17 +59,49 @@ export async function updateChannel(channelSlug, force = false) {
 
     const basePath = `yt/${context.hubSlug}`;
     const indexPath = `${basePath}/index.html`;
-    const manualPath = `${basePath}/_manual/index.html`;
 
-    if (!anyUpdates && !force && fs.existsSync(indexPath)) {
+    // FIX: using isForce
+    if (!anyUpdates && !isForce && fs.existsSync(indexPath)) {
         console.log(`\n⏩ Channel Root skipped (All child series are up-to-date).`);
         return { success: true, skipped: true, totalEpisodes, errors: channelErrors };
     }
 
+    // --- 1. GENERATE THE MASTER HUB DIRECTORY (/yt/index.html) ---
+    console.log(`\n🏗️  Aggregating Network Statistics for Master Hub...`);
+    const networkData = {
+        totalGames: 0, totalVideos: 0, totalViews: 0, totalDuration: 0, channels: []
+    };
+
+    for (const ch of context.channels) {
+        const chStats = { slug: ch.channelSlug, games: ch.games.length, seasons: 0, videos: 0, views: 0, duration: 0 };
+        for (const game of ch.games) {
+            const gameSeasons = game.ltg_series_playlists || [];
+            chStats.seasons += gameSeasons.length;
+            for (const sp of gameSeasons) {
+                const stats = sp.ltg_playlists?.ltg_playlist_stats?.[0];
+                if (stats) {
+                    chStats.videos += parseInt(stats.ep_count || 0);
+                    chStats.views += parseInt(stats.total_views || 0);
+                    chStats.duration += parseInt(stats.total_duration || 0);
+                }
+            }
+        }
+        networkData.channels.push(chStats);
+        networkData.totalGames += chStats.games;
+        networkData.totalVideos += chStats.videos;
+        networkData.totalViews += chStats.views;
+        networkData.totalDuration += chStats.duration;
+    }
+
+    const rootPath = `yt`;
+    if (!fs.existsSync(rootPath)) fs.mkdirSync(rootPath, { recursive: true });
     
-    // Instead of one build, we loop through every channel in the family context
-    // and build an index for each one.    
-    console.log(`\n🏗️  Generating Hub Indexes for the ${context.hubSlug} family...`);
+    writeStaticPage(`${rootPath}/index.html`, hubHTML(networkData));
+    console.log(`✅ Master Network Directory generated at: ${rootPath}/index.html`);
+
+
+    // --- 2. GENERATE THE INDIVIDUAL CHANNEL DIRECTORIES (/yt/letstrygg/index.html) ---
+    console.log(`\n🏗️  Generating Channel Indexes for the ${context.hubSlug} family...`);
 
     for (const channel of context.channels) {
         const channelPath = `yt/${channel.channelSlug}`;
@@ -76,9 +109,8 @@ export async function updateChannel(channelSlug, force = false) {
         const channelManual = `${channelPath}/_manual/index.html`;
 
         if (!fs.existsSync(channelPath)) fs.mkdirSync(channelPath, { recursive: true });
+        if (!fs.existsSync(`${channelPath}/_manual`)) fs.mkdirSync(`${channelPath}/_manual`, { recursive: true });
 
-        // If this channel is the main hub (letstrygg), it gets the whole family's data. 
-        // If it's a child (ltg-plus), it only gets its own data.
         const isMainHub = channel.channelSlug === context.hubSlug;
         const channelsToRender = isMainHub ? context.channels : [channel];
 
@@ -88,7 +120,7 @@ export async function updateChannel(channelSlug, force = false) {
         });
 
         writeStaticPage(channelIndex, pageHTML);
-        console.log(`✅ Hub Index generated at: ${channelIndex}`);
+        console.log(`✅ Channel Index generated at: ${channelIndex}`);
 
         if (!fs.existsSync(channelManual)) {
             writeStaticPage(channelManual, "\n");

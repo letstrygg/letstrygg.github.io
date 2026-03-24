@@ -1,6 +1,6 @@
 import { getFullEpisodeContext, getAdjacentEpisodes } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
-import { episodeHTML } from '../utils/templates.js'; 
+import { episodeHTML } from '../utils/templates/index.js'; 
 
 export async function updateEpisode(videoId) {
     // 1. Fetch DB Context

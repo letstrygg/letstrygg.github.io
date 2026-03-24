@@ -1,139 +1,94 @@
 import fs from 'fs';
-import { getFullSeriesContext } from '../utils/db.js';
-import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
-import { seriesHTML } from '../utils/templates.js';
+import { supabase } from '../utils/db.js';
 import { updateSeason } from './updateSeason.js';
+import { seriesHTML } from '../utils/templates/index.js';
+import { writeStaticPage, getChannelContext } from '../utils/fileSys.js';
 
-// Added channelFamily array and rootChannelSlug overrides
-export async function updateSeries(gameSlug, force = false, channelFamily = null, rootChannelSlug = null) {
-    // Pass the filter down to the database query
-    const seriesArray = await getFullSeriesContext(gameSlug, channelFamily);
-    const gameTitle = seriesArray[0].ltg_games?.title || gameSlug;
+export async function updateSeries(gameSlug, options = {}, channelFamily = null, rootChannelSlug = null) {
+    const isForce = options.force || false;
+    const { data: allPlaylists, error } = await supabase
+        .from('ltg_playlists')
+        .select(`
+            *,
+            ltg_series!inner ( slug, title, tags ),
+            ltg_playlist_stats ( ep_count, total_views, total_duration, latest_published_at, first_video_id )
+        `)
+        .eq('ltg_series.slug', gameSlug)
+        .order('sort_order', { ascending: true });
 
-    let allPlaylists = [];
-    seriesArray.forEach(series => {
-        if (series.ltg_playlists) {
-            const taggedPlaylists = series.ltg_playlists.map(p => ({ ...p, series_status: series.status }));
-            allPlaylists.push(...taggedPlaylists);
-        }
-    });
+    if (error || !allPlaylists.length) {
+        console.error(`❌ Series error or not found: ${gameSlug}`, error?.message || '');
+        return { success: false, skipped: false, totalEpisodes: 0 };
+    }
 
-    if (allPlaylists.length === 0) return { success: true, skipped: true, totalEpisodes: 0 };
+    const seriesTitle = allPlaylists[0].ltg_series.title;
     
-    // Use the explicitly provided root hub slug, or fallback to the playlist's channel
+    // Use the channel that owns the first playlist, fallback to the root channel if provided
     const channelSlug = allPlaylists[0]?.channel_slug || rootChannelSlug || 'unknown';
+    const seriesPath = `yt/${channelSlug}/${gameSlug}`;
+    const seriesIndex = `${seriesPath}/index.html`;
+    const seriesManual = `${seriesPath}/_manual/index.html`;
 
-    console.log(`\n📚 Processing Game: ${gameTitle} (${allPlaylists.length} seasons across ${seriesArray.length} series)`);
+    console.log(`\n📚 Processing Game: ${seriesTitle} (${allPlaylists.length} seasons)`);
 
-    const sortedPlaylists = allPlaylists.sort((a, b) => b.season - a.season);
-    
-    // Calculate the Master Sync Date using actual Time values to avoid alphabetical bugs
-    let masterSyncDate = 'never';
-    let maxTime = 0;
-    
-    sortedPlaylists.forEach(p => {
-        if (p.sync_date) {
-            const time = new Date(p.sync_date).getTime();
-            if (time > maxTime) {
-                maxTime = time;
-                masterSyncDate = p.sync_date;
-            }
-        }
-    });
-
-	const basePath = `yt/${channelSlug}/${gameSlug}`;
-    const indexPath = `${basePath}/index.html`;
-    const manualPath = `${basePath}/_manual/index.html`;
-
-    // --- BULLETPROOF SKIP LOGIC ---
-    let fileDateStr = 'never';
-    if (!force && fs.existsSync(indexPath)) {
-        const existingContent = fs.readFileSync(indexPath, 'utf8');
-        const match = existingContent.match(/sync_date:\s*"?([^"\r\n]+)"?/);
-        if (match) fileDateStr = match[1];
-    }
-
-    // Convert both strings to raw milliseconds (0 if 'never')
-    const dbTime = masterSyncDate === 'never' ? 0 : new Date(masterSyncDate).getTime();
-    const fileTime = fileDateStr === 'never' ? 0 : new Date(fileDateStr).getTime();
-
-    if (!force && fileTime === dbTime) {
-        console.log(`⏩ Game Root completely skipped (Latest sync_date matches).`);
-        return { success: true, skipped: true, totalEpisodes: 0 };
-    }
-
-    let anyUpdates = false;
+    let seriesSkipped = true;
     let totalEpisodes = 0;
+    const seasonsData = [];
 
-    for (const playlist of sortedPlaylists) {
-        const result = await updateSeason(playlist.id, force);
-        totalEpisodes += result.episodesProcessed || 0;
-        if (!result.skipped) anyUpdates = true;
+    // Process each season and gather stats for the series page
+    for (const playlist of allPlaylists) {
+        // Pass the options object down to the season builder
+        const seasonResult = await updateSeason(playlist.id, options);
+        
+        if (!seasonResult.skipped) {
+            seriesSkipped = false;
+        }
+        
+        totalEpisodes += seasonResult.episodesProcessed || 0;
+
+        const stats = playlist.ltg_playlist_stats?.[0] || {};
+        seasonsData.push({
+            id: playlist.id,
+            seasonNum: playlist.season_num,
+            title: playlist.title,
+            status: playlist.status === 'c' ? 'Complete' : playlist.status === 'h' ? 'Hiatus' : 'Active',
+            statusColor: playlist.status === 'c' ? 'green' : playlist.status === 'h' ? 'orange' : 'blue',
+            epCount: stats.ep_count || 0,
+            totalViews: stats.total_views || 0,
+            totalDuration: stats.total_duration || 0,
+            durFull: stats.total_duration ? Math.floor(stats.total_duration / 3600) + 'h ' + Math.floor((stats.total_duration % 3600) / 60) + 'm' : '0m',
+            durShort: stats.total_duration ? Math.floor(stats.total_duration / 3600) + 'h' : '0h',
+            firstVideoId: stats.first_video_id,
+            lastUpdatedFormatted: stats.latest_published_at ? new Date(stats.latest_published_at).getTime() : 0,
+            episodes: seasonResult.episodesList || []
+        });
     }
 
-    if (!anyUpdates && !force && fs.existsSync(indexPath)) {
-        console.log(`\n⏩ Game Root skipped (All child seasons reported as up-to-date).`);
+    if (seriesSkipped && !isForce && fs.existsSync(seriesIndex)) {
+        console.log(`  ⏩ Game Root skipped (All child seasons reported as up-to-date).`);
         return { success: true, skipped: true, totalEpisodes };
     }
 
-    console.log(`\n🏗️ Rebuilding Game Root Index for ${gameSlug}...`);
+    console.log(`  🏗️ Rebuilding Game Root Index for ${gameSlug}...`);
+    
+    if (!fs.existsSync(seriesPath)) fs.mkdirSync(seriesPath, { recursive: true });
+    if (!fs.existsSync(`${seriesPath}/_manual`)) fs.mkdirSync(`${seriesPath}/_manual`, { recursive: true });
 
-    const mappedSeasons = sortedPlaylists.map(p => {
-        const stats = p.ltg_playlist_stats[0] || { 
-            ep_count: 0, total_views: 0, total_duration: 0, 
-            latest_published_at: new Date(0).toISOString(), first_video_id: '' 
-        };
-
-        const totalDuration = stats.total_duration;
-        const latestDate = new Date(stats.latest_published_at);
-
-        const h = Math.floor(totalDuration / 3600);
-        const m = Math.floor((totalDuration % 3600) / 60);
-        const durFull = h > 0 ? `${h}h ${m}m` : `${m}m`;
-        const durShort = Math.round(totalDuration / 3600) > 0 ? `${Math.round(totalDuration / 3600)}h` : durFull;
-        const lastUpdatedFormatted = latestDate.getFullYear() + String(latestDate.getMonth() + 1).padStart(2, '0') + String(latestDate.getDate()).padStart(2, '0');
-
-        return {
-            id: p.id,
-            seasonNum: p.season,
-            title: p.title || `Season ${p.season}`,
-            status: p.series_status || 'Ongoing',
-            statusColor: (p.series_status || '').toLowerCase() === 'completed' ? 'blue' : 'green',
-            epCount: stats.ep_count,
-            totalViews: stats.total_views,
-            totalDuration: totalDuration,
-            durFull,
-            durShort,
-            lastUpdatedFormatted,
-            firstVideoId: stats.first_video_id,
-            episodes: p.ltg_playlist_videos.map(pv => pv.sort_order).sort((a, b) => a - b)
-        };
+    const seriesPageHTML = seriesHTML({
+        seriesTitle,
+        channelSlug,
+        gameSlug,
+        shortPrefix: allPlaylists[0].short_prefix,
+        syncDate: new Date().toISOString(),
+        seasons: seasonsData
     });
 
-	// Use gameSlug for the prefix
-// Use the custom abbreviation if it exists, otherwise generate the default
-    const dbAbbr = seriesArray[0].ltg_games?.custom_abbr;
-    const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
-    
-    const templateData = {
-        seriesTitle: gameTitle,
-        gameSlug: gameSlug,
-        channelSlug: channelSlug,
-        shortPrefix: shortPrefix,
-        syncDate: masterSyncDate, 
-        seasons: mappedSeasons
-    };
+    writeStaticPage(seriesIndex, seriesPageHTML);
+    console.log(`  ✅ Wrote page: ${seriesIndex}`);
 
-    // Always overwrite the main index
-    const pageHTML = seriesHTML(templateData);
-    writeStaticPage(indexPath, pageHTML);
-    console.log(`✅ Game Root Index generated at: ${indexPath}`);
-
-    // Create the manual fragment if missing
-    if (!checkFileExists(manualPath)) {
-        writeStaticPage(manualPath, "\n");
-        console.log(`    [CREATED MANUAL FRAGMENT] ${manualPath}`);
+    if (!fs.existsSync(seriesManual)) {
+        writeStaticPage(seriesManual, "\n");
     }
 
-    return { success: true, skipped: false, totalEpisodes, channelSlug };
+    return { success: true, skipped: false, totalEpisodes };
 }
