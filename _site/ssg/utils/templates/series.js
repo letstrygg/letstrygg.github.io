@@ -31,7 +31,7 @@ custom_css: "/css/home.css"
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin: 0px 4px 4px 4px;
 }
 
 .label {
@@ -95,6 +95,7 @@ custom_css: "/css/home.css"
 
 .info-stats {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 14px;
     margin-bottom: 10px;

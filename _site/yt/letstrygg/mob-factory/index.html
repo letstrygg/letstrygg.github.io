@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin: 0px 4px 4px 4px;
 }
 
 .label {
@@ -279,10 +279,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 .info-stats {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     margin-bottom: 10px;
     font-size: 0.85rem;
+    flex-wrap: wrap; /* Ensures the 5 items wrap cleanly on small screens */
 }
 
 .info-stats span {
@@ -338,9 +340,11 @@ document.addEventListener("DOMContentLoaded", () => {
       
       <a href="/yt/letstrygg/mob-factory/season-1/" class="info" title="View Season Details">
         <div class="info-stats">
-          <span><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 6</span>
-          <span><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 2.4K</span>
-          <span><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h</span>
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 6</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 2.4K</span>
+          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 81</span>
+          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 24</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h</span>
         </div>
         
         <div class="info-cta">
