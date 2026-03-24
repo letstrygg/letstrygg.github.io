@@ -22,52 +22,37 @@ export async function updateChannel(hubSlug, options = {}) {
     let anyUpdates = false;
     const channelErrors = [];
 
-    // --- THE FIX: Skip the cascade if -i is active ---
-    if (!options.indexesOnly) {
-        console.log(`Found ${gamesList.length} unique games across ${context.channels.length} channel(s). Beginning concurrent cascade...`);
+    console.log(`Found ${gamesList.length} unique games across ${context.channels.length} channel(s). Beginning concurrent cascade...`);
 
-        // --- CONCURRENT BATCH PROCESSING ---
-        const batchSize = 15; 
+    // --- CONCURRENT BATCH PROCESSING ---
+    const batchSize = 15; 
+    
+    for (let i = 0; i < gamesList.length; i += batchSize) {
+        const batch = gamesList.slice(i, i + batchSize);
         
-        for (let i = 0; i < gamesList.length; i += batchSize) {
-            const batch = gamesList.slice(i, i + batchSize);
-            
-            const batchPromises = batch.map(async (game) => {
-                try {
-                    return await updateSeries(game.slug, options, channelFamily, context.hubSlug);
-                } catch (err) {
-                    const errMsg = `[Game: ${game.slug}] Critical Series Failure: ${err.message}`;
-                    console.error(`❌ ${errMsg}`);
-                    return { error: errMsg };
-                }
-            });
+        const batchPromises = batch.map(async (game) => {
+            try {
+                // The options object (including indexesOnly) passes down through the cascade
+                return await updateSeries(game.slug, options, channelFamily, context.hubSlug);
+            } catch (err) {
+                const errMsg = `[Game: ${game.slug}] Critical Series Failure: ${err.message}`;
+                console.error(`❌ ${errMsg}`);
+                return { error: errMsg };
+            }
+        });
 
-            const batchResults = await Promise.all(batchPromises);
+        const batchResults = await Promise.all(batchPromises);
 
-            batchResults.forEach(result => {
-                if (result.error) {
-                    channelErrors.push(result.error);
-                } else {
-                    totalEpisodes += result.totalEpisodes || 0;
-                    if (result.errors && result.errors.length > 0) {
-                        channelErrors.push(...result.errors);
-                    }
-                    if (!result.skipped) anyUpdates = true;
+        batchResults.forEach(result => {
+            if (result.error) {
+                channelErrors.push(result.error);
+            } else {
+                totalEpisodes += result.totalEpisodes || 0;
+                if (result.errors && result.errors.length > 0) {
+                    channelErrors.push(...result.errors);
                 }
-            });
-        }
-    } else {
-        console.log(`⏩ --indexes-only active: Skipping child series cascade. Building Hub & Channel directly...`);
-        anyUpdates = true; // Force it to build the channel pages
-        
-        // Quickly tally the episodes just so the final console log is accurate
-        context.channels.forEach(ch => {
-            ch.games.forEach(game => {
-                game.ltg_series_playlists?.forEach(sp => {
-                    const stats = sp.ltg_playlists?.ltg_playlist_stats?.[0];
-                    if (stats) totalEpisodes += parseInt(stats.ep_count || 0);
-                });
-            });
+                if (!result.skipped) anyUpdates = true;
+            }
         });
     }
 
@@ -110,7 +95,7 @@ export async function updateChannel(hubSlug, options = {}) {
     if (!fs.existsSync(rootPath)) fs.mkdirSync(rootPath, { recursive: true });
     if (!fs.existsSync(`${rootPath}/_manual`)) fs.mkdirSync(`${rootPath}/_manual`, { recursive: true });
     
-    // --> NODE INJECTION: Read the Master Hub manual file <--
+    // Node Injection for the Master Hub Manual
     const rootManualPath = `${rootPath}/_manual/index.html`;
     let rootManualContent = "\n";
     if (fs.existsSync(rootManualPath)) {
@@ -119,12 +104,11 @@ export async function updateChannel(hubSlug, options = {}) {
         writeStaticPage(rootManualPath, rootManualContent);
     }
     
-    // Attach it to the payload
     networkData.manualContent = rootManualContent;
 
-    // Generate the page
     writeStaticPage(`${rootPath}/index.html`, hubHTML(networkData));
     console.log(`✅ Master Network Directory generated at: ${rootPath}/index.html`);
+
 
     // --- 2. GENERATE THE INDIVIDUAL CHANNEL DIRECTORIES (/yt/letstrygg/index.html) ---
     console.log(`\n🏗️  Generating Channel Indexes for the ${context.hubSlug} family...`);
@@ -137,8 +121,7 @@ export async function updateChannel(hubSlug, options = {}) {
         if (!fs.existsSync(channelPath)) fs.mkdirSync(channelPath, { recursive: true });
         if (!fs.existsSync(`${channelPath}/_manual`)) fs.mkdirSync(`${channelPath}/_manual`, { recursive: true });
 
-        // --> NODE INJECTION LOGIC <--
-        // Read the manual file if it exists, otherwise create it and use default text
+        // Node Injection for the Channel Manual
         let manualContent = "\n";
         if (fs.existsSync(channelManual)) {
             manualContent = fs.readFileSync(channelManual, 'utf8');
@@ -152,7 +135,7 @@ export async function updateChannel(hubSlug, options = {}) {
         const pageHTML = channelHTML({
             hubSlug: channel.channelSlug,
             channels: channelsToRender,
-            manualContent: manualContent // Pass the raw text directly into the template!
+            manualContent: manualContent 
         });
 
         writeStaticPage(channelIndex, pageHTML);
