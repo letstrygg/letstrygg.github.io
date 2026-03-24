@@ -15,7 +15,7 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
                 slug, 
                 title,
                 game_slug,
-                ltg_games ( tags, custom_abbr )
+                ltg_games ( title, tags, custom_abbr )
             ),
             ltg_playlist_stats ( ep_count, total_views, total_likes, total_comments, total_duration, latest_published_at, first_video_id )
         `)
@@ -28,6 +28,7 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
     }
 
     const seriesTitle = allPlaylists[0].ltg_series.title;
+    const gameTitle = allPlaylists[0].ltg_series.ltg_games?.title || seriesTitle;
     const gameTags = allPlaylists[0].ltg_series.ltg_games?.tags || [];
     const channelSlug = allPlaylists[0]?.channel_slug || rootChannelSlug || 'unknown';
     const seriesPath = `yt/${channelSlug}/${gameSlug}`;
@@ -49,16 +50,25 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
         totalEpisodes += seasonResult.episodesProcessed || 0;
 
         const stats = playlist.ltg_playlist_stats?.[0] || {};
+        
+        // --- STRICT STATUS MAPPING ---
+        const displayStatus = playlist.status || 'Unknown';
+        let sColor = 'gray'; 
+        if (displayStatus === 'Active') sColor = 'green';
+        else if (displayStatus === 'Complete') sColor = 'blue';
+        else if (displayStatus === 'Pause') sColor = 'purple';
+        else if (displayStatus === 'Abandon') sColor = 'red';
+
         seasonsData.push({
             id: playlist.id,
             seasonNum: playlist.season,
             title: playlist.title,
-            status: playlist.status === 'c' ? 'Complete' : playlist.status === 'h' ? 'Hiatus' : 'Active',
-            statusColor: playlist.status === 'c' ? 'green' : playlist.status === 'h' ? 'orange' : 'blue',
+            status: displayStatus,
+            statusColor: sColor,
             epCount: stats.ep_count || 0,
             totalViews: stats.total_views || 0,
-            totalLikes: stats.total_likes || 0,        // <-- ADD THIS
-            totalComments: stats.total_comments || 0,  // <-- ADD THIS
+            totalLikes: stats.total_likes || 0,
+            totalComments: stats.total_comments || 0,
             totalDuration: stats.total_duration || 0,
             durFull: stats.total_duration ? Math.floor(stats.total_duration / 3600) + 'h ' + Math.floor((stats.total_duration % 3600) / 60) + 'm' : '0m',
             durShort: stats.total_duration ? Math.floor(stats.total_duration / 3600) + 'h' : '0h',
@@ -90,6 +100,7 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
     }
 
     const seriesPageHTML = seriesHTML({
+        gameTitle,
         seriesTitle,
         channelSlug,
         gameSlug,
