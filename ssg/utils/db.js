@@ -3,11 +3,11 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// 1. Get exact directory of this file (C:\GitHub\letstrygg\ssg\utils)
+// 1. Get exact directory of this file
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 2. Resolve the path to C:\GitHub\.env
+// 2. Resolve the path to .env
 const envPath = path.resolve(__dirname, '../../../.env');
 
 // 3. Load the environment variables explicitly
@@ -73,7 +73,7 @@ export async function getAdjacentEpisodes(playlistId, currentSortOrder) {
     };
 }
 
-// Add this to your existing exports in ssg/utils/db.js
+// Helper to get Season Context
 export async function getFullSeasonContext(playlistId) {
     const { data, error } = await supabase
         .from('ltg_playlists')
@@ -99,6 +99,7 @@ export async function getFullSeasonContext(playlistId) {
     return data;
 }
 
+// Helper to get Series Context (Updated to include tags!)
 export async function getFullSeriesContext(gameSlug, channelFamily = null) {
     const { data, error } = await supabase
         .from('ltg_series')
@@ -106,7 +107,7 @@ export async function getFullSeriesContext(gameSlug, channelFamily = null) {
             slug,
             title,
             status,
-            ltg_games!inner (slug, title, custom_abbr),
+            ltg_games!inner (slug, title, custom_abbr, tags),
             ltg_playlists (
                 id,
                 season,
@@ -132,24 +133,18 @@ export async function getFullSeriesContext(gameSlug, channelFamily = null) {
 
     let processedData = data;
 
-    // Filter out non-games AND playlists outside the channel family
     processedData.forEach(series => {
         if (series.ltg_playlists) {
             series.ltg_playlists = series.ltg_playlists.filter(p => {
-                // 1. Must be a game
                 if (p.playlist_type !== 'game') return false;
-                
-                // 2. Must belong to the specified channel family (if provided)
                 if (channelFamily && Array.isArray(channelFamily) && channelFamily.length > 0) {
                     return channelFamily.includes(p.channel_slug);
                 }
-                
                 return true;
             });
         }
     });
     
-    // Remove any series that now have 0 valid playlists after the filter
     processedData = processedData.filter(s => s.ltg_playlists && s.ltg_playlists.length > 0);
     
     if (!processedData || processedData.length === 0) {
@@ -159,35 +154,42 @@ export async function getFullSeriesContext(gameSlug, channelFamily = null) {
     return processedData;
 }
 
-// In ssg/utils/db.js
+// Helper to get Channel Family Context (Updated to include stats & tags!)
 export async function getChannelContext(targetSlug) {
-    // 1. Check if this channel has any children
     const { data: childrenData } = await supabase
         .from('ltg_channels')
         .select('slug')
         .eq('parent_channel', targetSlug);
 
-    // Build our array of slugs to query (e.g., ['letstrygg', 'ltg-plus'])
     const slugsToFetch = [targetSlug];
     if (childrenData && childrenData.length > 0) {
         slugsToFetch.push(...childrenData.map(c => c.slug));
     }
 
-	// 2. Fetch playlists for ALL channels in that family
+    // 2. Fetch playlists, games, tags, AND STATS
     const { data, error } = await supabase
         .from('ltg_playlists')
         .select(`
+            id,
             channel_slug,
             ltg_series!inner (
                 ltg_games!inner (
                     slug,
                     title,
-                    custom_abbr
+                    custom_abbr,
+                    tags
                 )
+            ),
+            ltg_playlist_stats (
+                ep_count,
+                total_views,
+                total_duration,
+                latest_published_at,
+                first_video_id
             )
         `)
         .in('channel_slug', slugsToFetch)
-        .eq('playlist_type', 'game'); // <-- Strict DB-level filter
+        .eq('playlist_type', 'game'); 
 
     if (error) throw error;
     
@@ -195,11 +197,11 @@ export async function getChannelContext(targetSlug) {
         throw new Error(`No playlists found for channel family: '${slugsToFetch.join(', ')}'.`);
     }
 
-    // 3. Group the games by their actual channel slug so the template can separate them
+    // 3. Group games and attach their stats
     const channelsMap = new Map();
     
     slugsToFetch.forEach(slug => {
-        channelsMap.set(slug, new Map()); // Initialize an empty game map for each channel
+        channelsMap.set(slug, new Map()); 
     });
 
     data.forEach(p => {
@@ -207,33 +209,43 @@ export async function getChannelContext(targetSlug) {
         const game = p.ltg_series.ltg_games;
         
         const gameMap = channelsMap.get(cSlug);
+        
+        // Create the game entry if we haven't seen it yet
         if (!gameMap.has(game.slug)) {
             gameMap.set(game.slug, {
                 slug: game.slug,
                 title: game.title,
                 custom_abbr: game.custom_abbr,
-                channelOwner: cSlug
+                tags: game.tags || [],
+                channelOwner: cSlug,
+                ltg_series_playlists: [] // We use this array to feed the aggregator!
             });
         }
+
+        // Attach this specific playlist's stats to the game object
+        gameMap.get(game.slug).ltg_series_playlists.push({
+            ltg_playlists: {
+                id: p.id,
+                ltg_playlist_stats: p.ltg_playlist_stats
+            }
+        });
     });
 
-    // Convert our maps back into clean arrays
     const formattedChannels = Array.from(channelsMap.entries())
         .map(([slug, gamesMap]) => ({
             channelSlug: slug,
-            isParent: slug === targetSlug, // Helps the template know which one is the main hub
+            isParent: slug === targetSlug,
             games: Array.from(gamesMap.values())
         }))
-        .filter(c => c.games.length > 0); // Only pass channels that actually have games
+        .filter(c => c.games.length > 0); 
 
     return {
-        hubSlug: targetSlug, // The URL we are building the page on (yt/letstrygg/)
-        channels: formattedChannels // Array of channels, each with their own games array
+        hubSlug: targetSlug, 
+        channels: formattedChannels 
     };
 }
 
 export async function updateSeriesSyncDateByPlaylist(playlistId) {
-    // 1. Find the series_slug AND the parent game_slug associated with this playlist
     const { data: playlist, error: fetchError } = await supabase
         .from('ltg_playlists')
         .select(`
@@ -250,7 +262,6 @@ export async function updateSeriesSyncDateByPlaylist(playlistId) {
         return null;
     }
 
-    // 2. Update the sync_date on that series
     const { error: updateError } = await supabase
         .from('ltg_series')
         .update({ sync_date: new Date().toISOString() })
@@ -261,8 +272,7 @@ export async function updateSeriesSyncDateByPlaylist(playlistId) {
         return null;
     }
 
-    console.log(`   >> Bubbled sync_date up to Series: ${playlist.series_slug}`);
+    console.log(`    >> Bubbled sync_date up to Series: ${playlist.series_slug}`);
     
-    // Return the GAME SLUG so the SSG builder knows exactly which Game Root page to rebuild
     return playlist.ltg_series?.game_slug || playlist.series_slug.toLowerCase();
 }

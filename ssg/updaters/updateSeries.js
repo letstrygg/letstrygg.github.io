@@ -2,19 +2,25 @@ import fs from 'fs';
 import { supabase } from '../utils/db.js';
 import { updateSeason } from './updateSeason.js';
 import { seriesHTML } from '../utils/templates/index.js';
-import { writeStaticPage, getChannelContext } from '../utils/fileSys.js';
+import { writeStaticPage } from '../utils/fileSys.js';
 
 export async function updateSeries(gameSlug, options = {}, channelFamily = null, rootChannelSlug = null) {
     const isForce = options.force || false;
+    
+    // The fixed query: reaching through ltg_series into ltg_games for the tags
     const { data: allPlaylists, error } = await supabase
         .from('ltg_playlists')
         .select(`
             *,
-            ltg_series!inner ( slug, title, tags ),
+            ltg_series!inner ( 
+                slug, 
+                title,
+                ltg_games ( tags )
+            ),
             ltg_playlist_stats ( ep_count, total_views, total_duration, latest_published_at, first_video_id )
         `)
-        .eq('ltg_series.slug', gameSlug)
-        .order('sort_order', { ascending: true });
+        .eq('ltg_series.game_slug', gameSlug)
+        .order('season', { ascending: true });
 
     if (error || !allPlaylists.length) {
         console.error(`❌ Series error or not found: ${gameSlug}`, error?.message || '');
@@ -22,6 +28,9 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
     }
 
     const seriesTitle = allPlaylists[0].ltg_series.title;
+    
+    // Extract the tags safely (fallback to empty array if none exist)
+    const gameTags = allPlaylists[0].ltg_series.ltg_games?.tags || [];
     
     // Use the channel that owns the first playlist, fallback to the root channel if provided
     const channelSlug = allPlaylists[0]?.channel_slug || rootChannelSlug || 'unknown';
@@ -80,7 +89,8 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
         gameSlug,
         shortPrefix: allPlaylists[0].short_prefix,
         syncDate: new Date().toISOString(),
-        seasons: seasonsData
+        seasons: seasonsData,
+        tags: gameTags // Passed down to the template just in case we want them later!
     });
 
     writeStaticPage(seriesIndex, seriesPageHTML);

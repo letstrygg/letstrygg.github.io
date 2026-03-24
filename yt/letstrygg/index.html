@@ -2,21 +2,60 @@
 layout: new
 title: "letstrygg - Games Directory"
 permalink: /yt/letstrygg/
-custom_css: "/css/game.css"
+custom_css: "/css/home.css"
 ---
+
+<style>
+/* Flexbox Merge/Split Animation Styles */
+.channel-split-container {
+    display: flex; gap: 20px; width: 100%; margin-bottom: 30px;
+    transition: gap 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.anim-card {
+    border: 2px solid #333; border-radius: 12px; background: #1a1a1a;
+    overflow: hidden; white-space: nowrap; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; user-select: none;
+    transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, 
+                padding 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-width 0.5s ease;
+}
+.anim-card:hover { background: #222; }
+
+/* STATE: COMBINED */
+.state-combined .card-combined { flex: 1; opacity: 1; padding: 30px; border-color: var(--green); }
+.state-combined .card-split { flex: 0; opacity: 0; padding: 0; border-width: 0; pointer-events: none; }
+.state-combined { gap: 0; }
+
+/* STATE: SPLIT */
+.state-split .card-combined { flex: 0; opacity: 0; padding: 0; border-width: 0; pointer-events: none; }
+.state-split .card-split { flex: 1; opacity: 1; padding: 30px; }
+.state-split { gap: 20px; }
+
+/* Active Filter State for Split Cards */
+.card-split.active-filter { border-color: var(--green); background: #222; }
+</style>
 
 <div class="game-page-wrapper">
   {% include_relative _manual/index.html %}
 
-  <div style="margin-bottom: 20px;">
-    <h1 class="title">letstrygg</h1>
-    <p class="subtitle">Channel Directory</p>
-  </div>
+  <div class="channel-split-container state-combined" id="networkToggleContainer">
+      <div class="anim-card card-combined" onclick="toggleNetworkState('split', 'all')" style="cursor: pointer;">
+          <h2 style="margin: 0 0 5px 0;">Let's Try GG Network</h2>
+          <p style="margin: 0; color: var(--gray);">Click to split by channel</p>
+      </div>
 
-  <div class="channel-filters" style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
-    <button class="btn active filter-btn" data-target="all" onclick="filterChannel('all')">All Games</button>
-    <button class="btn btn-gray filter-btn" data-target="letstrygg" onclick="filterChannel('letstrygg')">letstrygg</button>
-    <button class="btn btn-gray filter-btn" data-target="ltg-plus" onclick="filterChannel('ltg-plus')">ltg-plus</button>
+      <div class="anim-card card-split" id="card-letstrygg" onclick="toggleNetworkState('split', 'letstrygg')" style="cursor: pointer;">
+          <h2 style="margin: 0 0 5px 0;">Letstrygg</h2>
+          <p style="margin: 0; color: var(--gray);">193 Games</p>
+      </div>
+
+      <div class="anim-card card-split" id="card-ltg-plus" onclick="toggleNetworkState('split', 'ltg-plus')" style="cursor: pointer; border-color: #ff8888;">
+          <h2 style="margin: 0 0 5px 0; color: #ff8888;">LTG Plus</h2>
+          <p style="margin: 0; color: var(--gray);">24 Games</p>
+      </div>
+      
+      <div class="anim-card card-split" onclick="toggleNetworkState('combined', 'all')" style="cursor: pointer; flex: 0.15; border-color: var(--gray);">
+          <span class="material-symbols-outlined" style="font-size: 24px; color: var(--gray);">close_fullscreen</span>
+      </div>
   </div>
   <div class="season-grid" id="directoryGrid">
     <div class="season-block game-item" data-channel="letstrygg" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
@@ -1108,27 +1147,34 @@ custom_css: "/css/game.css"
 </div>
 
 <script>
-  function filterChannel(targetSlug) {
-    // Update button visual states
-    const buttons = document.querySelectorAll('.filter-btn');
-    buttons.forEach(btn => {
-      if (btn.getAttribute('data-target') === targetSlug) {
-        btn.classList.add('active');
-        btn.classList.remove('btn-gray');
-      } else {
-        btn.classList.remove('active');
-        btn.classList.add('btn-gray');
-      }
-    });
-
-    // Instantly hide/show the grid items
+function toggleNetworkState(targetState, filterSlug) {
+    const container = document.getElementById('networkToggleContainer');
     const items = document.querySelectorAll('.game-item');
+    const cLets = document.getElementById('card-letstrygg');
+    const cPlus = document.getElementById('card-ltg-plus');
+    
+    // 1. Handle the CSS Animation State
+    if (targetState === 'split') {
+        container.classList.remove('state-combined');
+        container.classList.add('state-split');
+    } else {
+        container.classList.remove('state-split');
+        container.classList.add('state-combined');
+    }
+
+    // 2. Handle the Visual Active States on the Split Cards
+    cLets.classList.remove('active-filter');
+    cPlus.classList.remove('active-filter');
+    if (filterSlug === 'letstrygg') cLets.classList.add('active-filter');
+    if (filterSlug === 'ltg-plus') cPlus.classList.add('active-filter');
+
+    // 3. Filter the Grid
     items.forEach(item => {
-      if (targetSlug === 'all' || item.getAttribute('data-channel') === targetSlug) {
-        item.style.display = 'block'; // Or 'flex' depending on your CSS
-      } else {
-        item.style.display = 'none';
-      }
+        if (filterSlug === 'all' || item.getAttribute('data-channel') === filterSlug) {
+            item.style.display = 'block'; 
+        } else {
+            item.style.display = 'none';
+        }
     });
-  }
+}
 </script>

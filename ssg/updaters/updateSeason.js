@@ -17,16 +17,17 @@ export async function updateSeason(playlistId, options = {}) {
         return { success: false, skipped: false, episodesProcessed: 0, episodesList: [] };
     }
 
+    // FIX: Changed episode_num to sort_order
     const { data: episodes, error: epError } = await supabase
         .from('ltg_playlist_videos')
         .select(`
-            episode_num,
+            sort_order,
             ltg_videos!inner (
-                id, title, published_at, duration_seconds, view_count, like_count, comment_count, thumbnails
+                id, title, published_at, duration_seconds, view_count, likes, comments
             )
         `)
         .eq('playlist_id', playlistId)
-        .order('episode_num', { ascending: true });
+        .order('sort_order', { ascending: true }); // FIX: ordered by sort_order
 
     if (epError) {
         console.error(`❌ Video fetch error for ${playlistId}`, epError.message);
@@ -53,7 +54,7 @@ export async function updateSeason(playlistId, options = {}) {
                     success: true, 
                     skipped: true, 
                     episodesProcessed: episodes.length,
-                    episodesList: episodes.map(ep => ep.episode_num)
+                    episodesList: episodes.map(ep => ep.sort_order) // FIX: mapped sort_order
                 };
             }
         }
@@ -72,23 +73,23 @@ export async function updateSeason(playlistId, options = {}) {
         for (let i = 0; i < episodes.length; i++) {
             const ep = episodes[i];
             const v = ep.ltg_videos;
-            epNumbers.push(ep.episode_num);
+            epNumbers.push(ep.sort_order); // FIX: pushed sort_order
 
             const paddedSeason = String(Math.floor(seasonNum)).padStart(2, '0');
-            const paddedEp = String(ep.episode_num).padStart(2, '0');
+            const paddedEp = String(ep.sort_order).padStart(2, '0'); // FIX: padded sort_order
             const fileName = `${shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
             const epPath = `${seasonPath}/${fileName}`;
             const epManualPath = `${seasonPath}/_manual/${fileName}`;
 
             let prevUrl = null;
             if (i > 0) {
-                const prevEpNum = String(episodes[i - 1].episode_num).padStart(2, '0');
+                const prevEpNum = String(episodes[i - 1].sort_order).padStart(2, '0'); // FIX: prev sort_order
                 prevUrl = `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(seasonNum)}/${shortPrefix}-s${paddedSeason}e${prevEpNum}.html`;
             }
 
             let nextUrl = null;
             if (i < episodes.length - 1) {
-                const nextEpNum = String(episodes[i + 1].episode_num).padStart(2, '0');
+                const nextEpNum = String(episodes[i + 1].sort_order).padStart(2, '0'); // FIX: next sort_order
                 nextUrl = `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(seasonNum)}/${shortPrefix}-s${paddedSeason}e${nextEpNum}.html`;
             }
 
@@ -98,9 +99,9 @@ export async function updateSeason(playlistId, options = {}) {
             const durationFormatted = h > 0 ? `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}` : `${m}:${String(s).padStart(2, '0')}`;
             
             // Handle ISO duration for schema
-            const isoDuration = `PT${h > 0 ? h + 'H' : ''}${m}M${s}S`;
+            const isoDuration = `PT${h > 0 ? h + 'H' : ''}${m > 0 ? m + 'M' : ''}${s}S`;
 
-            let thumbnail = v.thumbnails?.maxres?.url || v.thumbnails?.high?.url || v.thumbnails?.default?.url;
+            let thumbnail = `https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`;
 
             const epData = {
                 id: v.id,
@@ -109,7 +110,7 @@ export async function updateSeason(playlistId, options = {}) {
                 gameSlug,
                 channelSlug,
                 seasonNum,
-                episodeNum: ep.episode_num,
+                episodeNum: ep.sort_order, // FIX: episodeNum is sort_order
                 fileName,
                 shortPrefix,
                 thumbnail,
@@ -118,8 +119,8 @@ export async function updateSeason(playlistId, options = {}) {
                 durationFormatted,
                 isoDuration,
                 views: v.view_count || 0,
-                likes: v.like_count || 0,
-                comments: v.comment_count || 0,
+                likes: v.likes || 0,
+                comments: v.comments || 0,
                 prevUrl,
                 nextUrl
             };
@@ -133,7 +134,7 @@ export async function updateSeason(playlistId, options = {}) {
         }
     } else {
         // Just collect the numbers for the series index without building the files
-        episodes.forEach(ep => epNumbers.push(ep.episode_num));
+        episodes.forEach(ep => epNumbers.push(ep.sort_order)); // FIX: sort_order
         console.log(`  ⏩ Skipped episode generation for Season ${seasonNum} (--indexes-only active)`);
     }
 

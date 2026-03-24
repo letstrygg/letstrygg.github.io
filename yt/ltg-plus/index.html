@@ -2,15 +2,44 @@
 layout: new
 title: "ltg-plus - Games Directory"
 permalink: /yt/ltg-plus/
-custom_css: "/css/game.css"
+custom_css: "/css/home.css"
 ---
+
+<style>
+/* Flexbox Merge/Split Animation Styles */
+.channel-split-container {
+    display: flex; gap: 20px; width: 100%; margin-bottom: 30px;
+    transition: gap 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.anim-card {
+    border: 2px solid #333; border-radius: 12px; background: #1a1a1a;
+    overflow: hidden; white-space: nowrap; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; user-select: none;
+    transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, 
+                padding 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-width 0.5s ease;
+}
+.anim-card:hover { background: #222; }
+
+/* STATE: COMBINED */
+.state-combined .card-combined { flex: 1; opacity: 1; padding: 30px; border-color: var(--green); }
+.state-combined .card-split { flex: 0; opacity: 0; padding: 0; border-width: 0; pointer-events: none; }
+.state-combined { gap: 0; }
+
+/* STATE: SPLIT */
+.state-split .card-combined { flex: 0; opacity: 0; padding: 0; border-width: 0; pointer-events: none; }
+.state-split .card-split { flex: 1; opacity: 1; padding: 30px; }
+.state-split { gap: 20px; }
+
+/* Active Filter State for Split Cards */
+.card-split.active-filter { border-color: var(--green); background: #222; }
+</style>
 
 <div class="game-page-wrapper">
   {% include_relative _manual/index.html %}
 
-  <div style="margin-bottom: 20px;">
-    <h1 class="title">ltg-plus</h1>
-    <p class="subtitle">Channel Directory</p>
+  <div style="margin-bottom: 30px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
+    <h1 class="title" style="text-transform: capitalize;">ltg-plus</h1>
+    <p class="subtitle" style="margin: 0;">Channel Directory</p>
   </div>
   <div class="season-grid" id="directoryGrid">
     <div class="season-block game-item" data-channel="ltg-plus" style="padding: 20px; border: 1px solid var(--gray); border-radius: 8px;">
