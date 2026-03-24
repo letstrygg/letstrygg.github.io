@@ -231,3 +231,32 @@ export async function getChannelContext(targetSlug) {
         channels: formattedChannels // Array of channels, each with their own games array
     };
 }
+
+// Add to ssg/utils/db.js
+export async function updateSeriesSyncDateByPlaylist(playlistId) {
+    // 1. Find the series_slug associated with this playlist
+    const { data: playlist, error: fetchError } = await supabase
+        .from('ltg_playlists')
+        .select('series_slug')
+        .eq('id', playlistId)
+        .single();
+
+    if (fetchError || !playlist?.series_slug) {
+        console.error(`⚠️ Could not find parent series for playlist ${playlistId} to update sync_date.`);
+        return null;
+    }
+
+    // 2. Update the sync_date on that series
+    const { error: updateError } = await supabase
+        .from('ltg_series')
+        .update({ sync_date: new Date().toISOString() })
+        .eq('slug', playlist.series_slug);
+
+    if (updateError) {
+        console.error(`❌ Failed to update sync_date for series ${playlist.series_slug}:`, updateError.message);
+        return null;
+    }
+
+    console.log(`   >> Bubbled sync_date up to Series: ${playlist.series_slug}`);
+    return playlist.series_slug;
+}
