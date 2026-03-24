@@ -113,6 +113,7 @@ export async function getFullSeriesContext(gameSlug, channelFamily = null) {
                 channel_slug,
                 sync_date,
                 title,
+                playlist_type, 
                 ltg_playlist_stats (
                     ep_count,
                     total_views,
@@ -131,20 +132,28 @@ export async function getFullSeriesContext(gameSlug, channelFamily = null) {
 
     let processedData = data;
 
-    // Filter out playlists that don't belong to this channel family (if specified)
-    if (channelFamily && Array.isArray(channelFamily) && channelFamily.length > 0) {
-        processedData.forEach(series => {
-            if (series.ltg_playlists) {
-                series.ltg_playlists = series.ltg_playlists.filter(p => channelFamily.includes(p.channel_slug));
-            }
-        });
-        
-        // Remove any series that now have 0 playlists after the filter
-        processedData = processedData.filter(s => s.ltg_playlists && s.ltg_playlists.length > 0);
-    }
+    // Filter out non-games AND playlists outside the channel family
+    processedData.forEach(series => {
+        if (series.ltg_playlists) {
+            series.ltg_playlists = series.ltg_playlists.filter(p => {
+                // 1. Must be a game
+                if (p.playlist_type !== 'game') return false;
+                
+                // 2. Must belong to the specified channel family (if provided)
+                if (channelFamily && Array.isArray(channelFamily) && channelFamily.length > 0) {
+                    return channelFamily.includes(p.channel_slug);
+                }
+                
+                return true;
+            });
+        }
+    });
+    
+    // Remove any series that now have 0 valid playlists after the filter
+    processedData = processedData.filter(s => s.ltg_playlists && s.ltg_playlists.length > 0);
     
     if (!processedData || processedData.length === 0) {
-        throw new Error(`No series found attached to game slug: '${gameSlug}' for the specified channels.`);
+        throw new Error(`No valid game series found attached to game slug: '${gameSlug}'.`);
     }
 
     return processedData;
@@ -164,7 +173,7 @@ export async function getChannelContext(targetSlug) {
         slugsToFetch.push(...childrenData.map(c => c.slug));
     }
 
-    // 2. Fetch playlists for ALL channels in that family
+	// 2. Fetch playlists for ALL channels in that family
     const { data, error } = await supabase
         .from('ltg_playlists')
         .select(`
@@ -177,7 +186,8 @@ export async function getChannelContext(targetSlug) {
                 )
             )
         `)
-        .in('channel_slug', slugsToFetch);
+        .in('channel_slug', slugsToFetch)
+        .eq('playlist_type', 'game'); // <-- Strict DB-level filter
 
     if (error) throw error;
     
