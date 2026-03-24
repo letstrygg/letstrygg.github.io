@@ -28,6 +28,8 @@
 		window.SUPABASE_ANON_KEY = 'sb_publishable_y12qZF_dSbUPmV_aieiUgA_CibDsxQV';
 	</script>
 
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/sidebar.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/layout.css">
   <link rel="stylesheet" href="/css/colors.css">
@@ -86,8 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <main>
-  <div style="margin-top: 5px; margin-bottom: 5px;">
-    <div class="breadcrumbs">
+  <div class="top-nav-wrapper" style="margin-top: 5px; margin-bottom: 5px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+    <div style="flex: 1; min-width: 250px;">
+      <div class="breadcrumbs">
   <a href="/">letstrygg.com</a>
   
   
@@ -113,68 +116,192 @@ document.addEventListener("DOMContentLoaded", () => {
     
   
 </div>
+    </div>
+    <div style="position: relative; max-width: 300px; width: 100%;">
+  <span class="material-symbols-outlined" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 18px; pointer-events: none;">link</span>
+  <input type="text" id="quickJumpInput" placeholder="Paste YouTube or Twitch URL..." autocomplete="off" style="width: 100%; padding: 6px 10px 6px 34px; background: var(--bg2); color: var(--text); border: 1px solid var(--border); border-radius: 6px; font-size: 13px; outline: none; box-sizing: border-box; transition: border-color 0.2s, box-shadow 0.2s;" onfocus="this.style.borderColor='#e67e22'; this.style.boxShadow='0 0 5px rgba(230,126,34,0.3)';" onblur="this.style.borderColor='var(--border)'; this.style.boxShadow='none';">
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const quickJump = document.getElementById('quickJumpInput');
+      if (quickJump) {
+          quickJump.addEventListener('keypress', function(e) {
+              if (e.key === 'Enter') {
+                  const url = this.value.trim();
+                  if (!url) return;
+
+                  // 1. YouTube Matcher (Catches youtube.com/watch, youtu.be, and live links)
+                  const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|shorts\/)([^"&?\/\s]{11})/i);
+                  if (ytMatch && ytMatch[1]) {
+                      window.location.href = '/watch/#' + ytMatch[1];
+                      return;
+                  }
+
+                  // 2. Twitch Matcher
+                  const twitchMatch = url.match(/(?:twitch\.tv\/)([a-zA-Z0-9_]+)/i);
+                  if (twitchMatch && twitchMatch[1]) {
+                      window.location.href = '/live/#twitch/' + twitchMatch[1];
+                      return;
+                  }
+
+                  // Visual feedback for failure
+                  this.style.borderColor = '#e74c3c';
+                  this.value = '';
+                  this.placeholder = 'Invalid URL... Try again';
+                  setTimeout(() => {
+                      this.style.borderColor = 'var(--border)';
+                      this.placeholder = 'Paste YouTube or Twitch URL...';
+                  }, 2000);
+              }
+          });
+      }
+  });
+</script>
   </div>
 
-  <div class="game-section auto-generated-stats" style="margin-top: 0;">
+  <div class="game-section" style="margin-top: 0; padding: 0; border: none; background: transparent;">
     <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-        <div style="width: 100%; max-width: calc((100vh - 75px) * 16 / 9);">
-            
-            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; margin-bottom: 0px; z-index: 10;">
+        
+        <div class="responsive-video-container">
+            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 8px 8px 0 0; overflow: hidden; z-index: 10;">
                 
-                <div id="video-overlay" class="video-overlay" style="z-index: 20;">
-                    <div class="overlay-bottom">
-                        <button id="theater-btn" class="overlay-btn" data-tooltip="Theater Mode">
-                            <span class="material-symbols-outlined" id="theater-icon">width_full</span>
-                        </button>
+                <div id="shortcuts-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(14, 14, 16, 0.85); z-index: 40; flex-direction: column; align-items: center; justify-content: center; backdrop-filter: blur(8px); color: #efeff1;">
+                    <button id="close-shortcuts-btn" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: white; cursor: pointer; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                        <span class="material-symbols-outlined" style="font-size: 32px;">close</span>
+                    </button>
+                    <h2 style="margin-top: 0; margin-bottom: 25px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; color: white;">Keyboard Shortcuts</h2>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; font-size: 14px; width: 80%; max-width: 650px;">
+                        <div>
+                            <div class="shortcut-row"><span>Play / Pause</span> <span class="shortcut-key">Space / K</span></div>
+                            <div class="shortcut-row"><span>Mute / Unmute</span> <span class="shortcut-key">M</span></div>
+                            <div class="shortcut-row"><span>Volume ±5%</span> <span class="shortcut-key">&uarr; &darr;</span></div>
+                            <div class="shortcut-row"><span>Jump to %</span> <span class="shortcut-key">0 - 9</span></div>
+                            <div class="shortcut-row"><span>Toggle Chat</span> <span class="shortcut-key">C</span></div>
+                        </div>
+                        <div>
+                            <div class="shortcut-row"><span>Seek ±5s</span> <span class="shortcut-key">&larr; &rarr;</span></div>
+                            <div class="shortcut-row"><span>Seek ±10s</span> <span class="shortcut-key">J / L</span></div>
+                            <div class="shortcut-row"><span>Playback Speed</span> <span class="shortcut-key">Shift + < / ></span></div>
+                            <div class="shortcut-row"><span>Theater Mode</span> <span class="shortcut-key">F</span></div>
+                            <div class="shortcut-row"><span>Shortcuts Menu</span> <span class="shortcut-key">S</span></div>
+                        </div>
                     </div>
                 </div>
 
-                <div id="stream-embed-target" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
-                    Waiting for stream...
+                <div id="action-overlay" class="action-visual">
+                    <span id="action-overlay-icon" class="material-symbols-outlined" style="font-size: 2rem;"></span>
+                    <span id="action-overlay-text"></span>
+                </div>
+
+                <div id="seek-overlay-left" class="seek-visual seek-left">< -5</div>
+                <div id="seek-overlay-right" class="seek-visual seek-right">+5 ></div>
+
+                <div id="theater-exit-overlay" style="display: none; opacity: 0; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 30; transition: opacity 0.3s ease-in-out;">
+                    <button id="theater-exit-btn" class="icon-btn" data-tooltip="Exit Theater 'F'" style="background: rgba(0, 0, 0, 0.6); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(4px);">
+                        <span class="material-symbols-outlined" style="font-size: 28px;">close_fullscreen</span>
+                    </button>
+                </div>
+
+                <div id="stream-embed-target" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: #000;">
+                    <iframe id="ytplayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%;"></iframe>
                 </div>
             </div>
+            
+            <div class="video-control-bar" style="position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; background: var(--bg2); padding: 10px 15px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; margin-bottom: 20px; gap: 15px; flex-wrap: wrap;">
+                
+                <div style="display: flex; flex: 1; min-width: 250px; gap: 15px; align-items: center;">
+                    
+                </div>
 
-			<div id="platform-toggles" style="padding-bottom: 10px; display: none; justify-content: center; gap: 15px;">
-				<button id="btn-twitch" class="btn" onclick="switchPlatform('twitch')" style="display: flex; align-items: center; gap: 6px;">
-					<span class="material-symbols-outlined" style="font-size: 18px;">sensors</span> Twitch
-				</button>
-				<button id="btn-youtube" class="btn" onclick="switchPlatform('youtube')" style="display: flex; align-items: center; gap: 6px;">
-					<span class="material-symbols-outlined" style="font-size: 18px;">play_circle</span> YouTube
-				</button>
-				<button id="btn-kick" class="btn" onclick="switchPlatform('kick')" style="display: flex; align-items: center; gap: 6px;">
-					<span class="material-symbols-outlined" style="font-size: 18px;">bolt</span> Kick
-				</button>
-			</div>
+                <div style="display: flex; gap: 8px; align-items: center; justify-content: center;">
+                    <button id="theater-btn" class="icon-btn tooltip-top" data-tooltip="Theater Mode 'F'">
+                        <span class="material-symbols-outlined" id="theater-icon">width_full</span>
+                    </button>
+                    <button id="copy-time-btn" class="icon-btn tooltip-top" data-tooltip="Copy Timestamp">
+                        <span class="material-symbols-outlined" id="copy-icon">link</span>
+                    </button>
+                </div>
 
+                <div style="display: flex; flex: 1; align-items: center; justify-content: flex-end; gap: 12px;">
+                    
+                    <div id="speed-control-container" style="display: flex; align-items: center; gap: 8px; margin-right: 8px; border-right: 1px solid var(--border); padding-right: 12px;">
+                        <div class="tooltip-top" data-tooltip="Playback Speed" style="display: flex; align-items: center; cursor: default;">
+                            <span class="material-symbols-outlined" style="font-size: 16px; color: var(--gray); opacity: 0.4;">speed</span>
+                        </div>
+                        <div class="speed-track">
+                            <button class="speed-dot tooltip-top" data-speed="0.25" data-tooltip="0.25x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="0.5" data-tooltip="0.5x"></button>
+                            <button class="speed-dot active tooltip-top" data-speed="1" data-tooltip="1.0x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="1.25" data-tooltip="1.25x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="1.5" data-tooltip="1.5x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="2" data-tooltip="2.0x"></button>
+                        </div>
+                    </div>
+
+                    <button id="controls-btn" class="icon-btn tooltip-top" data-tooltip="Shortcuts 'S'" style="margin-right: 4px;">
+                        <span class="material-symbols-outlined">keyboard</span>
+                    </button>
+
+                    <button id="resume-btn" class="btn" style="display: none; background: var(--bg); color: var(--text); border: 1px solid var(--border); padding: 4px 4px 4px 10px; border-radius: 4px; font-weight: bold; align-items: center; gap: 6px; cursor: pointer; transition: background 0.2s;" data-tooltip="Return to saved place">
+                        <div style="display: flex; align-items: center; gap: 4px;">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">fast_rewind</span>
+                            <span id="resume-time-text" style="font-size: 12px;"></span>
+                        </div>
+                        <div id="resume-close-btn" class="material-symbols-outlined" style="font-size: 16px; opacity: 0.6; border-radius: 50%; padding: 2px; transition: 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.opacity='1'" onmouseout="this.style.background='transparent'; this.style.opacity='0.6'">close</div>
+                    </button>
+
+                    
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
 
 <script>
+    window.ltgPlayerConfig = {
+        videoId: '',
+        nextUrl: ''
+    };
+</script>
+
+<script src="/js/watch_player.js"></script>
+
+<div id="platform-toggles" style="padding-bottom: 20px; display: none; justify-content: center; gap: 15px; margin-top: -10px;">
+    <button id="btn-twitch" class="btn" onclick="switchPlatform('twitch')" style="display: flex; align-items: center; gap: 6px;">
+        <span class="material-symbols-outlined" style="font-size: 18px;">sensors</span> Twitch
+    </button>
+    <button id="btn-youtube" class="btn" onclick="switchPlatform('youtube')" style="display: flex; align-items: center; gap: 6px;">
+        <span class="material-symbols-outlined" style="font-size: 18px;">play_circle</span> YouTube
+    </button>
+    <button id="btn-kick" class="btn" onclick="switchPlatform('kick')" style="display: flex; align-items: center; gap: 6px;">
+        <span class="material-symbols-outlined" style="font-size: 18px;">bolt</span> Kick
+    </button>
+</div>
+
+<script>
 let currentPlatform = 'twitch';
 let activeStreamer = ''; 
-let streamerData = null; // Store the DB result
+let streamerData = null;
 
-// 1. Fast, direct fetch to Supabase (using Jekyll vars to ensure it always works)
+// 1. Direct fetch to Supabase (Searches slugs OR raw platform IDs)
 async function fetchStreamerData(slug) {
     const supabaseUrl = 'https://fnwmtytnltmqjaflfwyr.supabase.co';
     const supabaseKey = 'sb_publishable_y12qZF_dSbUPmV_aieiUgA_CibDsxQV';
     
     if (!supabaseUrl || !supabaseKey) return null;
     try {
-        const response = await fetch(`${supabaseUrl}/rest/v1/ltg_streamers?slug=eq.${slug}&select=*`, {
-            headers: {
-                'apikey': supabaseKey,
-                'Authorization': `Bearer ${supabaseKey}`
-            }
+        const response = await fetch(`${supabaseUrl}/rest/v1/ltg_channels?or=(slug.eq.${slug},youtube_channel_id.eq.${slug},twitch_channel.eq.${slug})&select=*`, {
+            headers: { 'apikey': supabaseKey, 'Authorization': `Bearer ${supabaseKey}` }
         });
         const data = await response.json();
         return data.length > 0 ? data[0] : null;
-    } catch (e) {
-        return null;
-    }
+    } catch (e) { return null; }
 }
 
+// 2. Main initialization
 async function loadStreamFromHash() {
     const hash = window.location.hash.substring(1); 
     if (!hash) return;
@@ -186,12 +313,17 @@ async function loadStreamFromHash() {
         
         streamerData = await fetchStreamerData(activeStreamer);
         
+        // URL Normalizer: Swaps ugly IDs for beautiful slugs
+        if (streamerData && activeStreamer !== streamerData.slug) {
+            activeStreamer = streamerData.slug;
+            history.replaceState(null, '', `#${currentPlatform}/${activeStreamer}`);
+        }
+        
         const togglesContainer = document.getElementById('platform-toggles');
         const btnTwitch = document.getElementById('btn-twitch');
         const btnYoutube = document.getElementById('btn-youtube');
         const btnKick = document.getElementById('btn-kick');
 
-        // Count how many valid platform IDs we actually have
         let platformCount = 0;
         if (streamerData) {
             if (streamerData.twitch_channel) platformCount++;
@@ -199,102 +331,103 @@ async function loadStreamFromHash() {
             if (streamerData.kick_channel) platformCount++;
         }
 
-        // Only show the bar if 2 or more platforms exist
+        // Show platform toggles if they stream on multiple sites
         if (platformCount >= 2) {
-            togglesContainer.style.display = 'flex';
-            btnTwitch.style.display = streamerData.twitch_channel ? 'flex' : 'none';
-            btnYoutube.style.display = streamerData.youtube_channel_id ? 'flex' : 'none';
-            btnKick.style.display = streamerData.kick_channel ? 'flex' : 'none';
+            if (togglesContainer) togglesContainer.style.display = 'flex';
+            if (btnTwitch) btnTwitch.style.display = streamerData.twitch_channel ? 'flex' : 'none';
+            if (btnYoutube) btnYoutube.style.display = streamerData.youtube_channel_id ? 'flex' : 'none';
+            if (btnKick) btnKick.style.display = streamerData.kick_channel ? 'flex' : 'none';
         } else {
-            togglesContainer.style.display = 'none';
+            if (togglesContainer) togglesContainer.style.display = 'none';
         }
 
         renderStream();
     }
 }
 
+// 3. THE MISSING FUNCTION: Handles the button clicks!
 function switchPlatform(platform) {
     if (!activeStreamer) return;
     // Changing the hash triggers the event listener, which re-runs loadStreamFromHash automatically
     window.location.hash = `${platform}/${activeStreamer}`;
 }
 
+// 4. Renders the UI states and calls the external video player
 function renderStream() {
-    const target = document.getElementById('stream-embed-target');
     const btns = {
-        twitch: document.getElementById('btn-twitch'),
-        youtube: document.getElementById('btn-youtube'),
-        kick: document.getElementById('btn-kick')
+        twitch: { el: document.getElementById('btn-twitch'), color: 'var(--purple)', idKey: 'twitch_channel' },
+        youtube: { el: document.getElementById('btn-youtube'), color: 'var(--red)', idKey: 'youtube_channel_id' },
+        kick: { el: document.getElementById('btn-kick'), color: 'var(--green)', idKey: 'kick_channel' }
     };
 
-    // Reset all buttons to standard theme
-    Object.values(btns).forEach(btn => {
-        btn.style.color = 'var(--text)';
-        btn.style.borderColor = 'var(--border)';
-    });
+    const liveData = streamerData ? streamerData.live_data : null;
+    const livePlatforms = (liveData && liveData.is_live && Array.isArray(liveData.platforms)) ? liveData.platforms : [];
 
-    if (currentPlatform === 'twitch') {
-        btns.twitch.style.color = 'var(--purple)'; 
-        btns.twitch.style.borderColor = 'var(--purple)';
-        const twitchId = (streamerData && streamerData.twitch_channel) ? streamerData.twitch_channel : activeStreamer;
-        const hostname = window.location.hostname || 'letstrygg.com';
-        target.innerHTML = `<iframe src="https://player.twitch.tv/?channel=${twitchId}&parent=${hostname}&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>`;
-    } 
-    else if (currentPlatform === 'youtube') {
-        btns.youtube.style.color = 'var(--red)'; 
-        btns.youtube.style.borderColor = 'var(--red)';
-        const ytId = (streamerData && streamerData.youtube_channel_id) ? streamerData.youtube_channel_id : activeStreamer;
-        target.innerHTML = `<iframe src="https://www.youtube.com/embed/live_stream?channel=${ytId}&autoplay=1" frameborder="0" allowfullscreen="true" height="100%" width="100%"></iframe>`;
-    }
-    else if (currentPlatform === 'kick') {
-        btns.kick.style.color = 'var(--green)'; 
-        btns.kick.style.borderColor = 'var(--green)';
-        const kickId = (streamerData && streamerData.kick_channel) ? streamerData.kick_channel : activeStreamer;
-        target.innerHTML = `<iframe src="https://player.kick.com/${kickId}" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>`;
-    }
+    let targetId = activeStreamer;
 
-    window.dispatchEvent(new CustomEvent('topicChanged', { detail: activeStreamer }));
-}
+    Object.keys(btns).forEach(platform => {
+        const btnObj = btns[platform];
+        const btn = btnObj.el;
+        if (!btn) return;
 
-
-const wrapper = document.getElementById('player-wrapper');
-const tIcon = document.getElementById('theater-icon');
-const tBtn = document.getElementById('theater-btn');
-
-if (tBtn) {
-    tBtn.addEventListener('click', function() {
-        const isTheater = wrapper.classList.toggle('theater-active');
-        if (isTheater) {
-            document.body.style.overflow = 'hidden';
-            tIcon.innerText = 'close_fullscreen'; 
-            tBtn.setAttribute('data-tooltip', 'Exit Theater');
+        const icon = btn.querySelector('.material-symbols-outlined');
+        const isLive = livePlatforms.includes(platform);
+        
+        if (currentPlatform === platform) {
+            // ACTIVE STATE: Solid background, inverted text and icon
+            btn.style.backgroundColor = btnObj.color;
+            btn.style.borderColor = btnObj.color;
+            btn.style.color = 'var(--bg)'; 
+            if (icon) icon.style.color = 'var(--bg)';
+            
+            targetId = (streamerData && streamerData[btnObj.idKey]) ? streamerData[btnObj.idKey] : activeStreamer;
         } else {
-            document.body.style.overflow = '';
-            tIcon.innerText = 'width_full'; 
-            tBtn.setAttribute('data-tooltip', 'Theater Mode');
+            // INACTIVE STATE: Transparent background, standard text, live-indicator icon
+            btn.style.backgroundColor = 'transparent'; // Reset background so it doesn't stick
+            btn.style.color = 'var(--text)';
+            btn.style.borderColor = 'var(--border)';
+            if (icon) icon.style.color = isLive ? btnObj.color : 'inherit';
         }
     });
+
+    // Notify the chat that the topic changed
+    window.dispatchEvent(new CustomEvent('topicChanged', { detail: activeStreamer }));
+    
+    // Call the universal player API exposed in watch_player.js
+    if (typeof window.startDynamicLivePlayer === 'function') {
+        window.startDynamicLivePlayer(currentPlatform, targetId);
+    }
 }
 
-const overlay = document.getElementById('video-overlay');
-let idleTimer;
-function resetIdleTimer() {
-    overlay.style.opacity = '1';
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(() => { overlay.style.opacity = '0'; }, 3500);
-}
-wrapper.addEventListener('mousemove', resetIdleTimer);
-wrapper.addEventListener('mouseleave', () => {
-    clearTimeout(idleTimer);
-    overlay.style.opacity = '0'; 
-});
-resetIdleTimer();
-
+// Event Listeners
 window.addEventListener('load', loadStreamFromHash);
 window.addEventListener('hashchange', loadStreamFromHash);
 </script>
   
 </main>
+
+<button id="openSidebarBtn" class="icon-btn tooltip-right" data-tooltip="Directory 'D'" style="position: fixed; top: 15px; left: 15px; z-index: 999999;">
+    <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
+</button>
+
+<aside id="ltg-left-sidebar" class="left-sidebar" style="z-index: 999998;">
+    <div class="sidebar-header">
+        <button id="closeSidebarBtn" class="icon-btn tooltip-right" data-tooltip="Close">
+            <span class="material-symbols-outlined">keyboard_double_arrow_left</span>
+        </button>
+    </div>
+    
+    <div id="sidebar-content" class="sidebar-content">
+        </div>
+
+    <div class="sidebar-footer">
+        <a href="/home/" class="icon-btn tooltip-right" data-tooltip="Manage Channels">
+            <span class="material-symbols-outlined">edit</span>
+        </a>
+    </div>
+</aside>
+
+<script src="/js/sidebar.js"></script>
 
 <link rel="stylesheet" href="/css/chat.css">
 

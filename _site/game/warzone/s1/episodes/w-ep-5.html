@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" data-overlayscrollbars-initialize>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <title>005 Warzone | letstrygg</title>
+  <meta name="title" content="005 Warzone">
+  <meta name="description" content="Warzone Let's Play Episode 5">
+  <link rel="canonical" href="https://letstrygg.com/game/warzone/s1/episodes/w-ep-5.html">
+  <meta name="theme-color" content="#e67e22"> 
+  <meta property="og:site_name" content="letstrygg">
+  <meta property="og:type" content="video.other">
+  <meta property="og:url" content="https://letstrygg.com/game/warzone/s1/episodes/w-ep-5.html">
+  <meta property="og:title" content="005 Warzone">
+  <meta property="og:description" content="Warzone Let's Play Episode 5">
+  
+  <meta property="og:image" content="https://i.ytimg.com/vi/IBTkHfTKoQE/maxresdefault.jpg">
+  
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://letstrygg.com/game/warzone/s1/episodes/w-ep-5.html">
+  <meta property="twitter:title" content="005 Warzone">
+  <meta property="twitter:description" content="Warzone Let's Play Episode 5">
+  
+  <meta property="twitter:image" content="https://i.ytimg.com/vi/IBTkHfTKoQE/maxresdefault.jpg">
+  
+  
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script>
+		window.SUPABASE_URL = 'https://fnwmtytnltmqjaflfwyr.supabase.co';
+		window.SUPABASE_ANON_KEY = 'sb_publishable_y12qZF_dSbUPmV_aieiUgA_CibDsxQV';
+	</script>
+
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/sidebar.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/colors.css">
+  <link rel="stylesheet" href="/css/watch.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0"/>
+
+  
+    
+    
+      <link rel="stylesheet" href="/css/game/w-style.css">
+    
+  
+</head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/styles/overlayscrollbars.min.css">
+<body data-overlayscrollbars-initialize>
+
+<div class="fixed-layer pin-top pin-right flex-col-stack">
+    <button id="themeToggleBtn" class="floating-btn tooltip-right" data-tooltip="Toggle Theme">
+        <span id="theme-toggle-icon" class="material-symbols-outlined">bedtime</span>
+    </button>
+
+	<button id="openChatBtn" class="floating-btn tooltip-right mobile-pin-bottom-right" data-tooltip="Expand Chat" style="display: none;">
+        <span class="material-symbols-outlined">chat_bubble</span>
+        <span id="chat-online-count" class="chat-viewer-count" style="display: none;">0</span>
+        <span id="chat-unread-dot" class="chat-unread-dot" style="display: none;"></span>
+    </button>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.getElementById('themeToggleBtn');
+    const toggleIcon = document.getElementById('theme-toggle-icon');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+
+    const applyTheme = (isLight) => {
+        body.classList.toggle('light-theme', isLight);
+        
+        if (isLight) {
+            toggleIcon.textContent = 'light_mode';
+            toggleIcon.classList.add('orange');
+            toggleIcon.classList.remove('purple');
+        } else {
+            toggleIcon.textContent = 'bedtime';
+            toggleIcon.classList.add('purple');
+            toggleIcon.classList.remove('orange');
+        }
+        
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    };
+
+    // Initialize theme on load
+    applyTheme(savedTheme === 'light');
+
+    // Handle clicks
+    toggleBtn.addEventListener('click', () => {
+        const isNowLight = !body.classList.contains('light-theme');
+        applyTheme(isNowLight);
+    });
+});
+</script>
+
+<main>
+  <div class="top-nav-wrapper" style="margin-top: 5px; margin-bottom: 5px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+    <div style="flex: 1; min-width: 250px;">
+      <div class="breadcrumbs">
+  <a href="/">letstrygg.com</a>
+  
+  
+  
+  
+  
+    
+    
+  
+    
+    
+      
+      <span style="margin: 0 10px; opacity: 0.5;">/</span>
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/game/" class="breadcrumb-link">Game</a>
+      
+    
+  
+    
+    
+      
+      <span style="margin: 0 10px; opacity: 0.5;">/</span>
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/game/warzone/" class="breadcrumb-link">Warzone</a>
+      
+    
+  
+    
+    
+      
+      <span style="margin: 0 10px; opacity: 0.5;">/</span>
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/game/warzone/s1/" class="breadcrumb-link">Season 1</a>
+      
+    
+  
+    
+    
+  
+    
+    
+      
+      <span style="margin: 0 10px; opacity: 0.5;">/</span>
+      
+      
+        <strong class="breadcrumb-current">
+          
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            Ep 005
+          
+        </strong>
+      
+    
+  
+</div>
+    </div>
+    <div style="position: relative; max-width: 300px; width: 100%;">
+  <span class="material-symbols-outlined" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 18px; pointer-events: none;">link</span>
+  <input type="text" id="quickJumpInput" placeholder="Paste YouTube or Twitch URL..." autocomplete="off" style="width: 100%; padding: 6px 10px 6px 34px; background: var(--bg2); color: var(--text); border: 1px solid var(--border); border-radius: 6px; font-size: 13px; outline: none; box-sizing: border-box; transition: border-color 0.2s, box-shadow 0.2s;" onfocus="this.style.borderColor='#e67e22'; this.style.boxShadow='0 0 5px rgba(230,126,34,0.3)';" onblur="this.style.borderColor='var(--border)'; this.style.boxShadow='none';">
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const quickJump = document.getElementById('quickJumpInput');
+      if (quickJump) {
+          quickJump.addEventListener('keypress', function(e) {
+              if (e.key === 'Enter') {
+                  const url = this.value.trim();
+                  if (!url) return;
+
+                  // 1. YouTube Matcher (Catches youtube.com/watch, youtu.be, and live links)
+                  const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|shorts\/)([^"&?\/\s]{11})/i);
+                  if (ytMatch && ytMatch[1]) {
+                      window.location.href = '/watch/#' + ytMatch[1];
+                      return;
+                  }
+
+                  // 2. Twitch Matcher
+                  const twitchMatch = url.match(/(?:twitch\.tv\/)([a-zA-Z0-9_]+)/i);
+                  if (twitchMatch && twitchMatch[1]) {
+                      window.location.href = '/live/#twitch/' + twitchMatch[1];
+                      return;
+                  }
+
+                  // Visual feedback for failure
+                  this.style.borderColor = '#e74c3c';
+                  this.value = '';
+                  this.placeholder = 'Invalid URL... Try again';
+                  setTimeout(() => {
+                      this.style.borderColor = 'var(--border)';
+                      this.placeholder = 'Paste YouTube or Twitch URL...';
+                  }, 2000);
+              }
+          });
+      }
+  });
+</script>
+  </div>
+
+  <div class="game-page-wrapper">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "005 Getting Strategic, Warzone",
+  "description": "Episode 5 of the Warzone Let's Play series.",
+  "thumbnailUrl": "https://i.ytimg.com/vi/IBTkHfTKoQE/maxresdefault.jpg",
+  "uploadDate": "2025-04-27T15:00:23Z",
+  "duration": "PT1H13M32S",
+  "embedUrl": "https://www.youtube.com/embed/IBTkHfTKoQE"
+}
+</script>
+
+<div class="game-section" style="margin-top: 0; padding: 0; border: none; background: transparent;">
+    <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+        
+        <div class="responsive-video-container">
+            <div id="player-wrapper" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 8px 8px 0 0; overflow: hidden; z-index: 10;">
+                
+                <div id="shortcuts-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(14, 14, 16, 0.85); z-index: 40; flex-direction: column; align-items: center; justify-content: center; backdrop-filter: blur(8px); color: #efeff1;">
+                    <button id="close-shortcuts-btn" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: white; cursor: pointer; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                        <span class="material-symbols-outlined" style="font-size: 32px;">close</span>
+                    </button>
+                    <h2 style="margin-top: 0; margin-bottom: 25px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; color: white;">Keyboard Shortcuts</h2>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; font-size: 14px; width: 80%; max-width: 650px;">
+                        <div>
+                            <div class="shortcut-row"><span>Play / Pause</span> <span class="shortcut-key">Space / K</span></div>
+                            <div class="shortcut-row"><span>Mute / Unmute</span> <span class="shortcut-key">M</span></div>
+                            <div class="shortcut-row"><span>Volume ±5%</span> <span class="shortcut-key">&uarr; &darr;</span></div>
+                            <div class="shortcut-row"><span>Jump to %</span> <span class="shortcut-key">0 - 9</span></div>
+                            <div class="shortcut-row"><span>Toggle Chat</span> <span class="shortcut-key">C</span></div>
+                        </div>
+                        <div>
+                            <div class="shortcut-row"><span>Seek ±5s</span> <span class="shortcut-key">&larr; &rarr;</span></div>
+                            <div class="shortcut-row"><span>Seek ±10s</span> <span class="shortcut-key">J / L</span></div>
+                            <div class="shortcut-row"><span>Playback Speed</span> <span class="shortcut-key">Shift + < / ></span></div>
+                            <div class="shortcut-row"><span>Theater Mode</span> <span class="shortcut-key">F</span></div>
+                            <div class="shortcut-row"><span>Shortcuts Menu</span> <span class="shortcut-key">S</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="action-overlay" class="action-visual">
+                    <span id="action-overlay-icon" class="material-symbols-outlined" style="font-size: 2rem;"></span>
+                    <span id="action-overlay-text"></span>
+                </div>
+
+                <div id="seek-overlay-left" class="seek-visual seek-left">< -5</div>
+                <div id="seek-overlay-right" class="seek-visual seek-right">+5 ></div>
+
+                <div id="theater-exit-overlay" style="display: none; opacity: 0; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 30; transition: opacity 0.3s ease-in-out;">
+                    <button id="theater-exit-btn" class="icon-btn" data-tooltip="Exit Theater 'F'" style="background: rgba(0, 0, 0, 0.6); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(4px);">
+                        <span class="material-symbols-outlined" style="font-size: 28px;">close_fullscreen</span>
+                    </button>
+                </div>
+
+                <div id="stream-embed-target" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: #000;">
+                    <iframe id="ytplayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+            </div>
+            
+            <div class="video-control-bar" style="position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; background: var(--bg2); padding: 10px 15px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; margin-bottom: 20px; gap: 15px; flex-wrap: wrap;">
+                
+                <div style="display: flex; flex: 1; min-width: 250px; gap: 15px; align-items: center;">
+                    
+                        
+                            <button onclick="window.location.href='/game/warzone/s1/episodes/w-ep-4.html'" class="icon-btn tooltip-top" data-tooltip="Previous Episode" style="flex-shrink: 0;"><span class="material-symbols-outlined">arrow_back_ios_new</span></button>
+                        
+
+                        <div style="display: flex; gap: 12px; font-size: 13px; color: var(--gray); flex-wrap: wrap; align-items: center;">
+                            <span style="display: flex; align-items: center; gap: 4px;" title="Published"><span class="material-symbols-outlined yellow" style="font-size: 16px;">calendar_month</span> Apr 27, 2025</span>
+                            <span style="display: flex; align-items: center; gap: 4px;" title="Duration"><span class="material-symbols-outlined purple" style="font-size: 16px;">schedule</span> 1h 13m 32s</span>
+                            <span style="display: flex; align-items: center; gap: 4px;" title="Views"><span class="material-symbols-outlined blue" style="font-size: 16px;">visibility</span> 44</span>
+                            <span style="display: flex; align-items: center; gap: 4px;" title="Likes"><span class="material-symbols-outlined green" style="font-size: 16px;">thumb_up</span> 3</span>
+                            <span style="display: flex; align-items: center; gap: 4px;" title="Comments"><span class="material-symbols-outlined orange" style="font-size: 16px;">chat_bubble</span> 2</span>
+                        </div>
+                    
+                </div>
+
+                <div style="display: flex; gap: 8px; align-items: center; justify-content: center;">
+                    <button id="theater-btn" class="icon-btn tooltip-top" data-tooltip="Theater Mode 'F'">
+                        <span class="material-symbols-outlined" id="theater-icon">width_full</span>
+                    </button>
+                    <button id="copy-time-btn" class="icon-btn tooltip-top" data-tooltip="Copy Timestamp">
+                        <span class="material-symbols-outlined" id="copy-icon">link</span>
+                    </button>
+                </div>
+
+                <div style="display: flex; flex: 1; align-items: center; justify-content: flex-end; gap: 12px;">
+                    
+                    <div id="speed-control-container" style="display: flex; align-items: center; gap: 8px; margin-right: 8px; border-right: 1px solid var(--border); padding-right: 12px;">
+                        <div class="tooltip-top" data-tooltip="Playback Speed" style="display: flex; align-items: center; cursor: default;">
+                            <span class="material-symbols-outlined" style="font-size: 16px; color: var(--gray); opacity: 0.4;">speed</span>
+                        </div>
+                        <div class="speed-track">
+                            <button class="speed-dot tooltip-top" data-speed="0.25" data-tooltip="0.25x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="0.5" data-tooltip="0.5x"></button>
+                            <button class="speed-dot active tooltip-top" data-speed="1" data-tooltip="1.0x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="1.25" data-tooltip="1.25x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="1.5" data-tooltip="1.5x"></button>
+                            <button class="speed-dot tooltip-top" data-speed="2" data-tooltip="2.0x"></button>
+                        </div>
+                    </div>
+
+                    <button id="controls-btn" class="icon-btn tooltip-top" data-tooltip="Shortcuts 'S'" style="margin-right: 4px;">
+                        <span class="material-symbols-outlined">keyboard</span>
+                    </button>
+
+                    <button id="resume-btn" class="btn" style="display: none; background: var(--bg); color: var(--text); border: 1px solid var(--border); padding: 4px 4px 4px 10px; border-radius: 4px; font-weight: bold; align-items: center; gap: 6px; cursor: pointer; transition: background 0.2s;" data-tooltip="Return to saved place">
+                        <div style="display: flex; align-items: center; gap: 4px;">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">fast_rewind</span>
+                            <span id="resume-time-text" style="font-size: 12px;"></span>
+                        </div>
+                        <div id="resume-close-btn" class="material-symbols-outlined" style="font-size: 16px; opacity: 0.6; border-radius: 50%; padding: 2px; transition: 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.opacity='1'" onmouseout="this.style.background='transparent'; this.style.opacity='0.6'">close</div>
+                    </button>
+
+                    
+                        
+                            <button onclick="window.location.href='/game/warzone/s1/episodes/w-ep-6.html'" class="icon-btn tooltip-top" data-tooltip="Next Episode"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                        
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.ltgPlayerConfig = {
+        videoId: 'IBTkHfTKoQE',
+        nextUrl: '/game/warzone/s1/episodes/w-ep-6.html'
+    };
+</script>
+
+<script src="/js/watch_player.js"></script>
+
+  <div class="manual-content">
+      <h1 class="title" style="font-size: 1.8rem; margin-bottom: 5px;">005 Warzone</h1>
+      <p class="subtitle" style="margin-bottom: 20px;">Season 1, Episode 5</p>
+  </div>
+</div>
+  
+</main>
+
+<button id="openSidebarBtn" class="icon-btn tooltip-right" data-tooltip="Directory 'D'" style="position: fixed; top: 15px; left: 15px; z-index: 999999;">
+    <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
+</button>
+
+<aside id="ltg-left-sidebar" class="left-sidebar" style="z-index: 999998;">
+    <div class="sidebar-header">
+        <button id="closeSidebarBtn" class="icon-btn tooltip-right" data-tooltip="Close">
+            <span class="material-symbols-outlined">keyboard_double_arrow_left</span>
+        </button>
+    </div>
+    
+    <div id="sidebar-content" class="sidebar-content">
+        </div>
+
+    <div class="sidebar-footer">
+        <a href="/home/" class="icon-btn tooltip-right" data-tooltip="Manage Channels">
+            <span class="material-symbols-outlined">edit</span>
+        </a>
+    </div>
+</aside>
+
+<script src="/js/sidebar.js"></script>
+
+<link rel="stylesheet" href="/css/chat.css">
+
+<div id="chatPanel" class="chat-panel" style="background: var(--bg); border-left: 1px solid var(--border); display: flex; flex-direction: column; z-index: 1000;">
+  
+<div class="chat-header" style="min-height: 50px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 10px; background: var(--bg);">
+    <button id="closeChatBtn" class="floating-btn tooltip-bottom tooltip-left" data-tooltip="Collapse Chat">
+        <span class="material-symbols-outlined desktop-icon">keyboard_tab</span>
+        <span class="material-symbols-outlined mobile-icon" style="display: none;">keyboard_double_arrow_down</span>
+    </button>
+    <span style="font-weight: 600; font-size: 13px; color: var(--text); text-transform: uppercase;">Live Chat</span>
+    <div style="width: 36px;"></div>
+</div>
+
+<div style="padding: 10px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg2);">
+    
+    <div style="display: flex; gap: 8px;">
+        <span id="timeToggle" class="icon-btn tooltip-left" data-tooltip="Timestamps">
+            <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
+        </span>
+        <span id="deletedToggle" class="icon-btn" data-tooltip="Deleted Messages" style="display: none;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">delete</span>
+        </span>
+    </div>
+
+    <div style="display: flex; gap: 8px;">
+        <span id="globalChatToggle" class="icon-btn active-green tooltip-right" data-tooltip="Global Chat">
+            <span class="material-symbols-outlined" style="font-size: 18px;">public</span>
+        </span>
+        <span id="channelChatToggle" class="icon-btn disabled tooltip-right" data-tooltip="" style="display: none;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">sports_esports</span>
+        </span>
+        <span id="topicChatToggle" class="icon-btn disabled tooltip-right" data-tooltip="" style="display: none;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">record_voice_over</span>
+        </span>
+    </div>
+  </div>
+
+  <div id="chatBox" style="flex-grow: 1; overflow-y: auto; padding: 10px; color: var(--text); background: var(--bg); overflow-x: hidden;">
+      <em>Loading messages...</em>
+  </div>
+
+  <div style="border-top: 1px solid var(--border); background: var(--bg2); padding: 8px 10px;">
+      <div id="loginSection" style="display: none;">
+          <p style="margin-top: 0; margin-bottom: 10px; color: var(--gray); font-size: 13px;">Log in to chat:</p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button onclick="login('twitch')" class="btn" style="flex: 1; background: #9146FF; color: white; border: none; padding: 8px; border-radius: 4px; font-size: 12px; cursor: pointer;">Twitch</button>
+              <button onclick="login('discord')" class="btn" style="flex: 1; background: #5865F2; color: white; border: none; padding: 8px; border-radius: 4px; font-size: 12px; cursor: pointer;">Discord</button>
+          </div>
+          <button onclick="login('google')" class="btn" style="width: 100%; margin-top: 8px; background: #DB4437; color: white; border: none; padding: 8px; border-radius: 4px; font-size: 12px; cursor: pointer;">Google</button>
+      </div>
+
+<div id="inputSection" style="display: none;">
+          
+          <div style="margin-bottom: 10px; font-size: 12px; color: var(--gray); position: relative;">
+    <div id="userSettingsBtn" style="display: inline-flex; align-items: center; gap: 4px; cursor: pointer; padding: 2px 4px; border-radius: 4px; margin-left: -4px; transition: background 0.2s;" onmouseover="this.style.background='rgba(128,128,128,0.15)'" onmouseout="this.style.background='transparent'">
+        <strong id="userNameDisplay" style="color: var(--text); font-size: 13px;"></strong> 
+        <span class="material-symbols-outlined" style="font-size: 16px;">settings</span>
+    </div>
+
+    <div id="userSettingsMenu" style="display: none; position: absolute; bottom: calc(100% + 5px); left: 0; width: 220px; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 12px; z-index: 1001; flex-direction: column; gap: 12px;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+            <span style="font-weight: bold; color: var(--text); font-size: 13px;">Chat Settings</span>
+            <span class="material-symbols-outlined" id="closeSettingsMenu" style="font-size: 16px; cursor: pointer; color: var(--gray); transition: color 0.2s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--gray)'">close</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--gray); font-size: 12px;">Name Color</span>
+            <input type="color" id="userColor" style="background: none; border: none; cursor: pointer; height: 24px; width: 24px; padding: 0;">
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--gray); font-size: 12px;">Time Format</span>
+            <select id="timeFormatSelect" style="background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px; font-size: 12px; outline: none; cursor: pointer;">
+                <option value="24">24-Hour</option>
+                <option value="12">12-Hour</option>
+            </select>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--gray); font-size: 12px;">Timezone</span>
+            <div style="display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; overflow: hidden;">
+                <button id="tzLocalBtn" style="border: none; padding: 4px 8px; font-size: 11px; cursor: pointer; transition: all 0.2s;">Local</button>
+                <button id="tzLtgBtn" style="border: none; padding: 4px 8px; font-size: 11px; cursor: pointer; transition: all 0.2s;">LTG (UTC-7)</button>
+            </div>
+        </div>
+
+        <button onclick="logout(); return false;" class="btn" style="width: 100%; background: rgba(231, 76, 60, 0.1); color: #e74c3c; border: 1px solid rgba(231, 76, 60, 0.4); padding: 6px; border-radius: 4px; font-size: 12px; cursor: pointer; margin-top: 4px; font-weight: bold; transition: background 0.2s;" onmouseover="this.style.background='rgba(231, 76, 60, 0.2)'" onmouseout="this.style.background='rgba(231, 76, 60, 0.1)'">Log Out</button>
+    </div>
+</div>
+
+          <div style="display: flex; gap: 8px; align-items: center;">
+              <button id="grabTimeBtn" class="floating-btn tooltip-left" data-tooltip="Insert Video Time" style="padding: 10px; background: var(--bg); color: var(--gray); border: 1px solid var(--border);">
+                  <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
+              </button>
+              <input type="text" id="chatInput" placeholder="Send a message" style="padding: 10px; flex-grow: 1; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 4px; outline: none; transition: border 0.2s;">
+              <button id="sendBtn" class="btn btn-gray" style="padding: 10px 15px; background: #e67e22; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Chat</button>
+          </div>
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2px;">
+              <p id="statusMessage" style="color: #2ecc71; height: 16px; margin: 5px 0 0 0; font-size: 12px;"></p>
+              
+              <div id="expanded-online-container" style="display: none; align-items: center; gap: 4px;">
+                  <span class="material-symbols-outlined" style="font-size: 16px; color: var(--gray);">group</span>
+                  <span id="chat-online-count-expanded" style="color: var(--green); font-weight: bold; font-size: 13px;">0</span>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+<script src="/js/chat.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.14.0/browser/overlayscrollbars.browser.es6.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Initialize on the whole body
+    OverlayScrollbarsGlobal.OverlayScrollbars(document.body, {
+      scrollbars: {
+        theme: 'os-theme-custom', // We will define this in style.css
+        autoHide: 'leave',        // Hides completely when not interacting
+        autoHideDelay: 300,
+        clickScroll: true
+      }
+    });
+  });
+</script>
+</body>
+</html>

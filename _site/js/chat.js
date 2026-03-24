@@ -28,7 +28,7 @@ const globalToggle = document.getElementById('globalChatToggle');
 const channelToggle = document.getElementById('channelChatToggle');
 const topicToggle = document.getElementById('topicChatToggle'); 
 
-let isChatOpen = localStorage.getItem('chatOpen') !== 'false'; 
+let isChatOpen = true; // Default open for all devices on fresh load
 
 // --- PREVENT RESIZE LAYOUT SHIFT ANIMATION ---
 let resizeTimer;
@@ -52,9 +52,13 @@ function updateChatVisibility() {
         document.body.classList.add('chat-open-squish');
         openChatBtn.style.display = 'none';
         
-        // ADD THIS: Clear the unread dot when chat opens
         const unreadDot = document.getElementById('chat-unread-dot');
         if (unreadDot) unreadDot.style.display = 'none';
+        
+        // NEW: Mobile Mutual Exclusivity. If Chat opens on mobile, close the Sidebar.
+        if (window.innerWidth <= 768 && window.ltgSidebar && window.ltgSidebar.isOpen) {
+            window.ltgSidebar.toggle(false);
+        }
         
     } else {
         document.body.classList.remove('chat-open-squish');
@@ -191,6 +195,8 @@ if (grabTimeBtn && chatInput) {
             const s = Math.floor(time % 60);
             
             let timeStr = h > 0 ? `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}` : `${m}:${s.toString().padStart(2, '0')}`;
+            
+            // REVERTED: Just insert the clean, human-readable timestamp!
             chatInput.value += (chatInput.value.length > 0 && !chatInput.value.endsWith(' ') ? ' ' : '') + `(${timeStr}) `;
             chatInput.focus();
         } else if (statusMessage) {
@@ -226,6 +232,20 @@ let currentGame = 'general';
 let currentTopic = null;
 let filterLevel = parseInt(localStorage.getItem('chatFilterLevel')) || 1; 
 
+// --- CACHE DISPLAY NAMES FOR TOOLTIPS ---
+let channelMap = {};
+async function loadChannelMap() {
+    if (!supabaseClient) return;
+    const { data } = await supabaseClient.from('ltg_channels').select('slug, display_name');
+    if (data) {
+        data.forEach(ch => {
+            // Uses display_name if available, otherwise TitleCases the slug
+            channelMap[ch.slug] = ch.display_name || toTitleCase(ch.slug);
+        });
+    }
+}
+loadChannelMap();
+
 function parseRoute() {
     const path = window.location.pathname;
     if (path.startsWith('/game/')) {
@@ -240,7 +260,7 @@ function parseRoute() {
         } else {
             currentTopic = null;
         }
-    } else if (path.startsWith('/yt') || path.startsWith('/youtube')) { // ADD THIS BLOCK
+    } else if (path.startsWith('/yt') || path.startsWith('/youtube')) { 
         currentGame = 'youtube_vod'; 
         currentTopic = window.location.hash.substring(1); // The topic is just the Video ID
     } else {
@@ -401,61 +421,78 @@ function renderMessages() {
         const displayName = profile.username || 'Anon';
         const displayColor = profile.color || '#ffffff';
 
-		let urlIconHtml = '';
-		if (row.url) {
-			const url = row.url.toLowerCase();
-			
-			// 1. Categorize the URL
-			const isTwitch = url.includes('#twitch') || url.includes('twitch.tv');
-			const isKick = url.includes('#kick') || url.includes('kick.com');
-			const isYoutubeLive = url.includes('#youtube') || url.includes('/live');
-			const isVideo = url.includes('/episodes/') || url.includes('-ep-');
+        let urlIconHtml = '';
+        if (row.url) {
+            const url = row.url.toLowerCase();
+            
+            // 1. Categorize the URL
+            const isTwitch = url.includes('#twitch') || url.includes('twitch.tv');
+            const isKick = url.includes('#kick') || url.includes('kick.com');
+            const isYoutubeLive = url.includes('#youtube') || url.includes('/live');
+            const isVideo = url.includes('/episodes/') || url.includes('-ep-');
 
-			// 2. Set Defaults
-			let iconColor = 'var(--gray)';
-			let iconName = 'article';
-			let tooltip = 'Go to page';
+            // 2. NEW: Use the Channel Map to get the Display Name!
+            let tooltipName = row.topic ? (channelMap[row.topic] || toTitleCase(row.topic)) : 'Video';
+            
+            // 3. Set Defaults
+            let iconColor = 'var(--gray)';
+            let iconName = 'article';
+            let tooltip = `Go to ${tooltipName} page`;
 
-			// 3. Apply Specific Branding
-			if (isTwitch) {
-				iconColor = 'var(--purple)';
-				iconName = 'sensors';
-				tooltip = 'Go to Twitch stream';
-			} else if (isKick) {
-				iconColor = 'var(--green)';
-				iconName = 'sensors';
-				tooltip = 'Go to Kick stream';
-			} else if (isYoutubeLive) {
-				iconColor = 'var(--red)';
-				iconName = 'sensors';
-				tooltip = 'Go to YouTube stream';
-			} else if (isVideo) {
-				iconColor = 'var(--red)';
-				iconName = 'smart_display';
-				tooltip = 'Go to video';
-			}
-			
-			const isInternal = row.url.startsWith('/');
-			const targetAttr = isInternal ? '' : 'target="_blank"';
+            // 4. Apply Specific Branding & Formats
+            if (isTwitch) {
+                iconColor = 'var(--purple)'; iconName = 'sensors'; tooltip = `Twitch ${tooltipName} Live`;
+            } else if (isKick) {
+                iconColor = 'var(--green)'; iconName = 'sensors'; tooltip = `Kick ${tooltipName} Live`;
+            } else if (isYoutubeLive) {
+                iconColor = 'var(--red)'; iconName = 'sensors'; tooltip = `YouTube ${tooltipName} Live`;
+            } else if (isVideo || url.includes('/yt/#')) {
+                iconColor = 'var(--red)'; iconName = 'smart_display'; tooltip = `Go to Video`;
+            }
+            
+            const isInternal = row.url.startsWith('/');
+            const targetAttr = isInternal ? '' : 'target="_blank"';
 
-			urlIconHtml = `<a href="${row.url}" ${targetAttr} data-tooltip="${tooltip}" class="tooltip-bottom" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
-		}
+            urlIconHtml = `<a href="${row.url}" ${targetAttr} data-tooltip="${tooltip}" class="tooltip-bottom" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
+        }
 
         let formattedMessage = row.message;
         if (row.url) {
-            const isCurrentPage = (row.url.split('#')[0] === window.location.pathname);
+            const currentFullUrl = window.location.pathname + window.location.hash;
+            const isCurrentPage = (row.url === currentFullUrl);
             const isInternal = row.url.startsWith('/');
             const targetAttr = isInternal ? '' : 'target="_blank"';
             
-            formattedMessage = formattedMessage.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, (match, timeStr) => {
+            // NEW: Regex catches the time AND the hidden VOD ID (if it exists)
+            formattedMessage = formattedMessage.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)(?:\|([a-zA-Z0-9_-]{11}))?\)/g, (match, timeStr, explicitVodId) => {
                 let parts = timeStr.split(':').reverse();
                 let seconds = 0;
                 for (let i = 0; i < parts.length; i++) seconds += parseInt(parts[i]) * Math.pow(60, i);
                 
-                if (isCurrentPage && typeof window.triggerInPageJump === 'function') {
-                    return `<a href="#" onclick="window.triggerInPageJump(${seconds}); return false;" class="yt-time-link">${timeStr}</a>`;
+                const currentPermId = typeof window.getPermanentVideoId === 'function' ? window.getPermanentVideoId() : null;
+                const isMatchingVod = explicitVodId && currentPermId === explicitVodId;
+
+                // Jump in-page if they are on the same page OR currently watching the matched VOD
+                if ((isCurrentPage || isMatchingVod) && typeof window.triggerInPageJump === 'function') {
+                    return `<a href="javascript:void(0);" onclick="window.triggerInPageJump(${seconds});" class="yt-time-link">${timeStr}</a>`;
                 } else {
-                    return `<a href="${row.url}?t=${seconds}" ${targetAttr} class="yt-time-link">${timeStr}</a>`;
+                    let timeUrl = '';
+                    
+                    if (explicitVodId) {
+                        // Point the timestamp explicitly to the permanent VOD player
+                        timeUrl = `/yt/?t=${seconds}#${explicitVodId}`;
+                    } else {
+                        // Fallback logic for standard URLs
+                        if (row.url.includes('#')) {
+                            const urlParts = row.url.split('#');
+                            const separator = urlParts[0].includes('?') ? '&' : '?';
+                            timeUrl = `${urlParts[0]}${separator}t=${seconds}#${urlParts.slice(1).join('#')}`;
+                        } else {
+                            const separator = row.url.includes('?') ? '&' : '?';
+                            timeUrl = `${row.url}${separator}t=${seconds}`;
+                        }
+                    }
+                    return `<a href="${timeUrl}" ${targetAttr} class="yt-time-link">${timeStr}</a>`;
                 }
             });
         }
@@ -481,14 +518,14 @@ function renderMessages() {
 if (supabaseClient) {
     const chatChannel = supabaseClient.channel('chat_updates');
     chatChannel.on('postgres_changes', { event: '*', schema: 'public', table: 'ltg_chat' }, payload => { 
-		loadMessages(); 
-		
-		// If a new message arrives AND the chat is closed, show the red dot
-		if (payload.eventType === 'INSERT' && !isChatOpen) {
-			const unreadDot = document.getElementById('chat-unread-dot');
-			if (unreadDot) unreadDot.style.display = 'block';
-		}
-	});
+        loadMessages(); 
+        
+        // If a new message arrives AND the chat is closed, show the red dot
+        if (payload.eventType === 'INSERT' && !isChatOpen) {
+            const unreadDot = document.getElementById('chat-unread-dot');
+            if (unreadDot) unreadDot.style.display = 'block';
+        }
+    });
     chatChannel.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ltg_profiles' }, payload => { loadMessages(); });
     chatChannel.subscribe();
 
@@ -502,7 +539,7 @@ if (supabaseClient) {
         localStorage.setItem('ltg_device_id', deviceId);
     }
 
-presenceChannel.on('presence', { event: 'sync' }, () => {
+    presenceChannel.on('presence', { event: 'sync' }, () => {
         const newState = presenceChannel.presenceState();
         const uniqueUsers = new Set();
         
@@ -548,26 +585,107 @@ presenceChannel.on('presence', { event: 'sync' }, () => {
 
 if (sendBtn && chatInput) {
     sendBtn.addEventListener('click', async () => {
-        const text = chatInput.value.trim();
-        if (!text || !currentSession || !supabaseClient) return;
-        sendBtn.disabled = true;
+        const rawText = chatInput.value.trim();
+        let dbText = rawText; 
         
-        // Grab the hash on the live page so links resolve perfectly to the stream
-        let msgUrl = window.location.pathname;
-        if (currentGame === 'live' && window.location.hash) {
-            msgUrl += window.location.hash;
-        }
+        if (!rawText || !currentSession || !supabaseClient) return;
+        
+        sendBtn.disabled = true;
+        chatInput.value = ""; // Clear immediately for instant response
+        
+        let msgUrl = window.location.pathname + window.location.hash;
 
+        // --- 1. OPTIMISTIC UI (The "Fake" Message) ---
+        const tempDiv = document.createElement('div');
+        tempDiv.className = 'chat-msg';
+        
+        // Mirror the Channel Highlighting logic
+        if (filterLevel === 1) {
+            if (currentTopic || currentGame !== 'general') tempDiv.classList.add('msg-channel');
+        } else if (filterLevel === 2 && currentTopic) {
+            tempDiv.classList.add('msg-channel');
+        }
+        
+        const tempName = userNameDisplay ? userNameDisplay.textContent : 'You';
+        const tempColor = userColorPicker ? userColorPicker.value : '#ffffff';
+        const timeStr = formatTime(new Date().toISOString());
+        
+        // Mirror the URL Icon logic
+        let urlLower = msgUrl.toLowerCase();
+        let isTwitch = urlLower.includes('#twitch') || urlLower.includes('twitch.tv');
+        let isKick = urlLower.includes('#kick') || urlLower.includes('kick.com');
+        let isYoutubeLive = urlLower.includes('#youtube') || urlLower.includes('/live');
+        let isVideo = urlLower.includes('/episodes/') || urlLower.includes('-ep-') || urlLower.includes('/yt/#');
+
+        let tooltipName = currentTopic ? (typeof channelMap !== 'undefined' && channelMap[currentTopic] ? channelMap[currentTopic] : toTitleCase(currentTopic)) : 'Video';
+        let iconColor = 'var(--gray)', iconName = 'article', tooltip = `Go to ${tooltipName} page`;
+
+        if (isTwitch) { iconColor = 'var(--purple)'; iconName = 'sensors'; tooltip = `Twitch ${tooltipName} Live`; } 
+        else if (isKick) { iconColor = 'var(--green)'; iconName = 'sensors'; tooltip = `Kick ${tooltipName} Live`; } 
+        else if (isYoutubeLive) { iconColor = 'var(--red)'; iconName = 'sensors'; tooltip = `YouTube ${tooltipName} Live`; } 
+        else if (isVideo) { iconColor = 'var(--red)'; iconName = 'smart_display'; tooltip = `Go to Video`; }
+
+        let urlIconHtml = `<a href="${msgUrl}" data-tooltip="${tooltip}" class="tooltip-bottom" style="color: ${iconColor}; display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; margin: 0 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">${iconName}</span></a>`;
+
+        let displayHtml = rawText.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, `<a href="javascript:void(0);" class="yt-time-link">$1</a>`);
+
+        // Apply 80% opacity ONLY to the message text span
+        tempDiv.innerHTML = `
+            <span class="chat-timestamp">${timeStr}</span>
+            <div style="flex-grow: 1;">
+                <strong style="color: ${tempColor};">${tempName}</strong>${urlIconHtml}: 
+                <span class="optimistic-text" style="opacity: 0.8;">${displayHtml}</span>
+            </div>
+        `;
+        chatBox.appendChild(tempDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        // ---------------------------------------------
+        
+        // 2. THE API HEIST
+        if (currentGame === 'live' && window.location.hash.includes('youtube')) {
+            if (typeof window.getPermanentVideoId === 'function') {
+                const permId = window.getPermanentVideoId();
+                if (permId) {
+                    dbText = dbText.replace(/\((\d{1,2}:\d{2}(?::\d{2})?)\)/g, `($1|${permId})`);
+                }
+            }
+        }
+        
+        // 3. SEND TO DATABASE
         const { error } = await supabaseClient.from('ltg_chat').insert([{ 
-            message: text, 
+            message: dbText, 
             user_id: currentSession.user.id, 
             channel: currentGame,
             topic: currentTopic,
             url: msgUrl 
         }]);
         
-        if (!error) chatInput.value = ""; 
+        // 4. ERROR HANDLING
+        if (error) {
+            const optText = tempDiv.querySelector('.optimistic-text');
+            if (optText) {
+                optText.style.color = '#e74c3c';
+                optText.style.opacity = '1';
+                optText.innerHTML = `<em>Message failed to send. Please try again.</em>`;
+            }
+            chatInput.value = rawText; 
+        }
+        
         sendBtn.disabled = false;
+        chatInput.focus();
     });
     chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendBtn.click(); });
 }
+
+// GLOBAL CHAT HOTKEY ('C')
+document.addEventListener('keydown', function(e) {
+    const activeElement = document.activeElement;
+    const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
+    if (isInput) return; 
+
+    if (e.key.toLowerCase() === 'c') {
+        e.preventDefault();
+        isChatOpen = !isChatOpen;
+        updateChatVisibility();
+    }
+});
