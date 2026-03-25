@@ -2,21 +2,21 @@ import fs from 'fs';
 import path from 'path';
 import { supabase } from '../utils/db.js';
 import { tagHTML } from '../utils/templates/tag.js';
+import { tagsHubHTML } from '../utils/templates/tagsHub.js'; // NEW IMPORT
+import { StatsCalc } from '../utils/statsCalc.js'; // NEW IMPORT
 
-// Helper to convert "Tower Defense" into "tower-defense"
 function slugify(text) {
     return text.toString().toLowerCase()
-        .replace(/\s+/g, '-')           // Replace spaces with -
-        .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-        .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-        .replace(/^-+/, '')             // Trim - from start of text
-        .replace(/-+$/, '');            // Trim - from end of text
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '');
 }
 
 export async function updateTag(targetTagSlug = null) {
     console.log(`\n🏷️  Generating Tag Directories...`);
 
-    // 1. Fetch ALL game playlists, their parent series, game tags, and stats in one giant query
     const { data: rawPlaylists, error } = await supabase
         .from('ltg_playlists')
         .select(`
@@ -44,20 +44,17 @@ export async function updateTag(targetTagSlug = null) {
         return;
     }
 
-    // 2. Aggregate playlists into Series (Games) per Channel
-    // A single game might have multiple playlists (Season 1, Season 2). We combine them here.
     const seriesMap = new Map();
 
     rawPlaylists.forEach(p => {
         const game = p.ltg_series?.ltg_games;
-        if (!game || !game.tags || game.tags.length === 0) return; // Skip if no tags
+        if (!game || !game.tags || game.tags.length === 0) return;
 
         const channelSlug = p.channel_slug;
         const channelName = p.ltg_channels?.display_name || channelSlug;
         const stats = p.ltg_playlist_stats?.[0];
-        if (!stats || stats.ep_count === 0) return; // Skip empty playlists
+        if (!stats || stats.ep_count === 0) return;
 
-        // Unique key so LTG's Slay the Spire is separate from LTG Plus's Slay the Spire
         const seriesKey = `${channelSlug}_${game.slug}`;
 
         if (!seriesMap.has(seriesKey)) {
@@ -93,7 +90,6 @@ export async function updateTag(targetTagSlug = null) {
         }
     });
 
-    // 3. Bucket the Series into Tags
     const tagBuckets = new Map();
 
     for (const s of seriesMap.values()) {
@@ -106,14 +102,10 @@ export async function updateTag(targetTagSlug = null) {
         });
     }
 
-    // 4. Generate Pages for each Tag
     let buildCount = 0;
+    const tagSummaries = []; // Arrays to hold data for the Master Tag Hub
 
     for (const [tSlug, tagData] of tagBuckets.entries()) {
-        // If a specific tag was requested via CLI, skip the others
-        if (targetTagSlug && targetTagSlug !== tSlug) continue;
-
-        // Calculate Tag-Wide Totals
         const totals = { total_videos: 0, total_views: 0, total_likes: 0, total_comments: 0, total_duration: 0, first_published_at: null, latest_published_at: null };
         
         tagData.series.forEach(s => {
@@ -127,7 +119,26 @@ export async function updateTag(targetTagSlug = null) {
             if (s.lastPub && (!totals.latest_published_at || s.lastPub > totals.latest_published_at)) totals.latest_published_at = s.lastPub;
         });
 
-        // Calculate Tag-Wide Averages
+        const tAge = StatsCalc.daysBetween(totals.first_published_at);
+        const tagAdv = {
+            age: tAge,
+            vel: StatsCalc.velocity(totals.total_views, tAge),
+            heat: StatsCalc.popularity(totals.total_views, totals.total_likes, totals.total_comments, StatsCalc.hoursBetween(totals.first_published_at)),
+            gem: StatsCalc.hiddenGemScore(totals.total_views, totals.total_likes, totals.total_comments)
+        };
+
+        // Save for the Hub
+        tagSummaries.push({
+            tagName: tagData.tagName,
+            tagSlug: tagData.tagSlug,
+            seriesCount: tagData.series.length,
+            stats: totals,
+            adv: tagAdv
+        });
+
+        // Skip writing the individual file if we are targeting a different tag
+        if (targetTagSlug && targetTagSlug !== tSlug) continue;
+
         const seriesCount = Math.max(1, tagData.series.length);
         const vidCount = Math.max(1, totals.total_videos);
         
@@ -143,30 +154,41 @@ export async function updateTag(targetTagSlug = null) {
             durPerVid: Math.round(totals.total_duration / vidCount)
         };
 
-        const templateData = {
-            tagName: tagData.tagName,
-            tagSlug: tagData.tagSlug,
-            series: tagData.series,
-            totals,
-            averages
-        };
-
+        const templateData = { tagName: tagData.tagName, tagSlug: tagData.tagSlug, series: tagData.series, totals, averages };
         const html = tagHTML(templateData);
 
-        // Write the file to /yt/tags/tag-name/index.html
         const dirPath = path.join(process.cwd(), 'yt', 'tags', tSlug);
         if (!fs.existsSync(dirPath)) fs.mkdirSync(dirPath, { recursive: true });
         
-        const filePath = path.join(dirPath, 'index.html');
-        fs.writeFileSync(filePath, html);
-        
-        console.log(`  ✅ Tag Directory generated at: yt/tags/${tSlug}/index.html`);
+        fs.writeFileSync(path.join(dirPath, 'index.html'), html);
+        console.log(`  ✅ Wrote Tag Directory: yt/tags/${tSlug}/index.html`);
         buildCount++;
     }
 
-    if (buildCount === 0) {
-        console.log(`  ⏩ No tags found to build.`);
+    // --- NEW: Generate the Master Tag Hub (Only if running a full tag sync) ---
+    if (!targetTagSlug) {
+        console.log(`  🏗️ Building Master Tag Hub...`);
+        
+        // Calculate the true global totals for the dashboard
+        const globalTotals = { series: 0, views: 0, duration: 0 };
+        for (const s of seriesMap.values()) {
+            globalTotals.series++;
+            globalTotals.views += s.totalViews;
+            globalTotals.duration += s.totalDuration;
+        }
+
+        const hubHtml = tagsHubHTML({ tags: tagSummaries, global: globalTotals });
+        
+        const hubDir = path.join(process.cwd(), 'yt', 'tags');
+        if (!fs.existsSync(hubDir)) fs.mkdirSync(hubDir, { recursive: true });
+        fs.writeFileSync(path.join(hubDir, 'index.html'), hubHtml);
+        
+        console.log(`  ✅ Master Tag Hub generated at: yt/tags/index.html`);
+    }
+
+    if (buildCount === 0 && targetTagSlug) {
+        console.log(`  ⏩ No tag found matching "${targetTagSlug}".`);
     } else {
-        console.log(`✨ Successfully generated ${buildCount} tag directories!`);
+        console.log(`✨ Tag generation complete!`);
     }
 }

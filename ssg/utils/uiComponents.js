@@ -128,6 +128,34 @@ export const UI = {
       </a>
   </div>\n`;
     },
+	
+	TagCard: function(base, stats, adv, opts) {
+        const { ctaText = "Browse Tag" } = opts || {};
+        return `
+  <div class="panel filterable-card flush-all" data-title="${base.title.toLowerCase()}"
+       data-episodes="${base.seriesCount}" data-views="${stats.totalViews}" data-likes="${stats.totalLikes}" data-comments="${stats.totalComments}" data-duration="${stats.totalDuration}" data-vpv="0" data-vel="${adv.vel}" data-heat="${adv.heat}" data-gem="${adv.gem}">
+      <a href="${base.url}" class="inner-panel interactive flush-all" style="border: none;">
+          <div style="padding: 20px; background: var(--bg3); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+              <h2 style="margin: 0; font-size: 1.4rem; color: var(--text);">${base.title} <span style="color: var(--gray); font-size: 1rem; font-weight: normal;">(${base.seriesCount})</span></h2>
+          </div>
+          <div style="padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+              <div class="flex-between flex-wrap text-sm">
+                  <span title="Total Views" class="tooltip-trigger flex-row gap-sm"><span class="material-symbols-outlined blue">visibility</span> ${StatsCalc.formatNum(stats.totalViews)}</span>
+                  <span title="Total Likes" class="tooltip-trigger flex-row gap-sm"><span class="material-symbols-outlined green">thumb_up</span> ${StatsCalc.formatNum(stats.totalLikes)}</span>
+                  <span title="Total Duration" class="tooltip-trigger flex-row gap-sm"><span class="material-symbols-outlined purple">schedule</span> ${StatsCalc.formatDur(stats.totalDuration)}</span>
+              </div>
+              <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+                  <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">${adv.vel}/d</span></span>
+                  <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">${adv.heat}</span></span>
+                  <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">${adv.gem}</span></span>
+              </div>
+              <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+                  ${ctaText} <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+              </div>
+          </div>
+      </a>
+  </div>\n`;
+    },
 
     EpisodeCard: function(base, stats, adv, avg, opts) {
         const { contextAvg = "Season Avg", ctaText = "Watch Episode", hideDeltas = false } = opts;
