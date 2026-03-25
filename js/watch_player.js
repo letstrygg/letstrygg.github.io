@@ -294,6 +294,17 @@ function onPlayerStateChange(event) {
           player.mute();
           isMutingForSeek = true;
       }
+
+      // --- NEW: Live Edge Catch-Up Detection ---
+      if (currentSpeed > 1) {
+          const videoData = player.getVideoData ? player.getVideoData() : {};
+          // Check if it's explicitly a live channel embed, or if the YT API flags the video as 'isLive'
+          if (liveChannelId || videoData.isLive) {
+              applySpeed(1);
+              // Overwrite the default "1x" message from applySpeed with a helpful alert
+              showActionOverlay('sensors', 'Live Edge Reached (1.0x)');
+          }
+      }
   }
 
   if (event.data === 1) { // PLAYING
@@ -328,7 +339,6 @@ function onPlayerStateChange(event) {
 
       player.setPlaybackRate(currentSpeed);
       
-      // FIXED: The auto-saver now ALWAYS runs every 5 seconds, ignoring bookmarks!
       if (!saveInterval) {
           saveInterval = setInterval(function() {
               if (activeVideoId || resolvedLiveVodId) {
