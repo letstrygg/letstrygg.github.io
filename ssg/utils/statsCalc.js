@@ -58,7 +58,7 @@ export const StatsCalc = {
         // Neutral gray for 0 difference
         if (diff === 0) return `<span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span>`;
         
-        const sign = diff > 0 ? '+' : '';
+        const sign = diff > 0 ? '+' : '-';
         let color = diff > 0 ? 'var(--green)' : 'var(--red)';
         
         let formatStr = '';
