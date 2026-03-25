@@ -40,16 +40,23 @@ permalink: /yt/${data.hubSlug}/
 `;
 
     if (isParent) {
-        html += `<div class="flex-row" style="margin-bottom: 30px; gap: 0;" id="networkToggleContainer">`;
+        html += `<div class="network-splitter state-combined" id="networkToggleContainer">`;
+        
         data.channels.forEach(ch => {
-            html += `<div class="panel card-split" data-target="${ch.channelSlug}" onclick="toggleNetworkState('split', '${ch.channelSlug}')" style="cursor:pointer; flex:0; opacity:0; padding:0; border:none; transition: flex 0.5s ease, opacity 0.3s ease, padding 0.5s ease;">
-                <h2 style="margin: 0 0 5px 0; text-transform: capitalize;">${ch.displayName}</h2>
-                <p style="margin: 0; color: var(--gray);">${ch.games.length} Games</p>
+            html += `
+            <div class="network-cell card-split" data-target="${ch.channelSlug}" onclick="toggleNetworkState('split', '${ch.channelSlug}')">
+                <h2>${ch.displayName}</h2>
+                <p>${ch.games.length} Games</p>
             </div>`;
         });
-        html += `<div class="panel card-combined active-filter" onclick="toggleNetworkState('split', '${data.channels[0].channelSlug}')" style="cursor:pointer; flex:1; transition: flex 0.5s ease, opacity 0.3s ease, padding 0.5s ease;">
-                <h2 style="margin: 0 0 5px 0;">${data.hubDisplayName}</h2>
-                <p style="margin: 0; color: var(--gray);">Click to split by channel</p>
+        
+        html += `
+            <div class="network-cell card-combined active-filter" onclick="toggleNetworkState('split', '${data.channels[0].channelSlug}')">
+                <h2>${data.hubDisplayName}</h2>
+                <p>Click to split by channel</p>
+            </div>
+            <div class="merge-btn" onclick="toggleNetworkState('combined', 'all')" title="Re-combine Network">
+                <span class="material-symbols-outlined" style="font-size: 20px;">close_fullscreen</span>
             </div>
         </div>`;
     } else {

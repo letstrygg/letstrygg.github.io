@@ -341,3 +341,103 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
 .flex-1 { 
     flex: 1; 
 }
+
+
+
+/* --- Network Splitter (Mitosis & Fusion Animation) --- */
+.network-splitter {
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+    gap: 0;
+    position: relative;
+    /* Organic ease-in-out curve for the fusion snap */
+    transition: gap 0.7s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.network-cell {
+    background: var(--bg2);
+    border: 2px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    /* Starts out very round (pill shape) to simulate a cell wall */
+    border-radius: 100px; 
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.network-cell:hover { 
+    background: var(--bg3); 
+}
+
+.network-cell h2 { margin: 0 0 4px 0; font-size: 1.2rem; text-transform: capitalize; }
+.network-cell p { margin: 0; font-size: 0.9rem; color: var(--gray); }
+
+/* STATE: COMBINED (Fusion) */
+.state-combined.network-splitter { gap: 0; }
+
+.state-combined .card-combined { 
+    flex: 1; 
+    padding: 25px; 
+    opacity: 1; 
+    border-color: var(--blue); 
+    /* Relaxes into a standard panel shape when fully merged */
+    border-radius: 12px; 
+}
+
+.state-combined .card-split { 
+    flex: 0; 
+    padding: 0; 
+    opacity: 0; 
+    border-width: 0; 
+    pointer-events: none; 
+    margin: 0; 
+}
+
+/* STATE: SPLIT (Mitosis) */
+.state-split.network-splitter { gap: 20px; }
+
+.state-split .card-combined { 
+    flex: 0; 
+    padding: 0; 
+    opacity: 0; 
+    border-width: 0; 
+    pointer-events: none; 
+    margin: 0; 
+}
+
+.state-split .card-split { 
+    flex: 1; 
+    padding: 25px; 
+    opacity: 1; 
+    /* Relaxes into standard panel shapes when fully divided */
+    border-radius: 12px; 
+}
+
+.state-split .card-split.active-filter { 
+    border-color: var(--blue); 
+    background: var(--bg3); 
+}
+
+/* The Floating Merge Button */
+.merge-btn {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(-180deg);
+    background: var(--bg); border: 1px solid var(--border);
+    color: var(--gray); border-radius: 50%;
+    width: 36px; height: 36px;
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer; opacity: 0; pointer-events: none; z-index: 10;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.merge-btn:hover { color: var(--blue); border-color: var(--blue); }
+
+.state-split .merge-btn { 
+    transform: translate(-50%, -50%) scale(1) rotate(0deg); 
+    opacity: 1; 
+    pointer-events: auto; 
+}
