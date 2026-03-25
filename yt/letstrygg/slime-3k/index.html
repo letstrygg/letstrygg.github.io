@@ -5,145 +5,6 @@ permalink: /yt/letstrygg/slime-3k/
 custom_css: "/css/home.css"
 ---
 
-<style>
-/* Generic Component System */
-.panel {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
-    background: transparent;
-}
-
-.panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px 4px 4px 4px;
-}
-
-.label {
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-/* Zone 1: Generic Content Block */
-.content {
-    display: flex;
-    flex-direction: column;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    text-decoration: none;
-    color: var(--text);
-    transition: border-color 0.2s ease;
-}
-
-.content:hover {
-    border-color: var(--border-hover);
-}
-
-.content img {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-}
-
-.content-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 15px;
-    gap: 12px;
-}
-
-/* Zone 2: Generic Info Block */
-.info {
-    display: flex;
-    flex-direction: column;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 15px;
-    margin-top: 10px;
-    text-decoration: none;
-    color: var(--text);
-    transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.info:hover {
-    background: var(--bg3);
-    border-color: var(--border-hover);
-}
-
-.info:hover .info-cta {
-    color: var(--blue);
-}
-
-.info-stats {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    flex-wrap: wrap; 
-}
-
-.info-stats span {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-}
-
-.info-cta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: var(--gray);
-    border-top: 1px solid var(--border);
-    padding-top: 10px;
-    transition: color 0.2s;
-}
-
-.yt-header-link {
-    opacity: 0.7;
-    transition: opacity 0.2s;
-}
-.yt-header-link:hover {
-    opacity: 1;
-}
-
-/* Series Dashboard Specifics */
-.dash-panel {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 30px;
-}
-.dash-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 12px 0;
-    border-bottom: 1px dashed var(--border);
-    align-items: center;
-}
-.dash-row:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-.dash-stat {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.95rem;
-}
-</style>
-
 <div class="game-page-wrapper">
   
   <div style="margin-bottom: 20px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
@@ -184,7 +45,7 @@ custom_css: "/css/home.css"
       <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">ANALYTICS:</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Time since first video"><strong>Age:</strong> 2y 158d</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 7d</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> <span style="color: var(--red);">882d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 882d</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.9/d</span></div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Franchise Retention: Latest Season Final Ep vs Season 1 First Ep"><strong>Retain:</strong> <span style="color: var(--green);">32.7%</span></div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Trending score based on engagement and recency"><strong>Heat:</strong> <span style="color: var(--red);">0.00</span></div>
@@ -235,7 +96,7 @@ custom_css: "/css/home.css"
         <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
           <span class="tooltip-trigger" data-tooltip="Age of Season"><strong>Age:</strong> 2y 158d</span>
           <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 7d</span>
-          <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> <span style="color: var(--red);">882d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 882d</span>
           <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.9/d</span></span>
           <span class="tooltip-trigger" data-tooltip="Retention: Final Ep Views vs Ep 1 Views"><strong>Retain:</strong> <span style="color: var(--green);">32.7%</span></span>
           <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span style="color: var(--red);">0.00</span></span>

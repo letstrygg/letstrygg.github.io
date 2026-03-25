@@ -2,17 +2,16 @@
 layout: new
 title: "ltg-plus - Games Directory"
 permalink: /yt/ltg-plus/
-custom_css: "/css/home.css"
 ---
 
 <style>
 /* Flexbox Merge/Split Animation Styles */
 .channel-split-container {
     display: flex; width: 100%; margin-bottom: 30px; position: relative;
-    gap: 0; /* Starts flush to simulate a single cell */
+    gap: 0; 
     transition: gap 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.state-split { gap: 20px; } /* The gap appears as they divide */
+.state-split { gap: 20px; } 
 
 .anim-card {
     border: 2px solid #333; border-radius: 12px; background: #1a1a1a;
@@ -24,19 +23,15 @@ custom_css: "/css/home.css"
 .anim-card:hover { background: #222; }
 
 /* STATE: COMBINED */
-/* The middle card holds 100% space, the outer cards hold 0% */
 .state-combined .card-combined { flex: 1; opacity: 1; padding: 30px; border-color: var(--blue); cursor: pointer; }
 .state-combined .card-split { flex: 0; opacity: 0; padding: 0; border-width: 0; pointer-events: none; }
 
 /* STATE: SPLIT */
-/* The middle card collapses to 0%, the outer cards expand to 50/50 */
 .state-split .card-combined { flex: 0; opacity: 0; padding: 0; border-width: 0; pointer-events: none; }
 .state-split .card-split { flex: 1; opacity: 1; padding: 30px; cursor: pointer; }
-
-/* Active Filter State for Split Cards */
 .card-split.active-filter { border-color: var(--blue); background: #222; }
 
-/* The Floating Merge Icon (No box!) */
+/* The Floating Merge Icon */
 .merge-icon-btn {
     position: absolute; left: 50%; top: 50%;
     transform: translate(-50%, -50%) scale(0);
@@ -44,7 +39,7 @@ custom_css: "/css/home.css"
     display: flex; justify-content: center; align-items: center;
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s, color 0.2s;
     opacity: 0; z-index: 10; pointer-events: none;
-    background: #111; border-radius: 50%; padding: 4px; /* Slight bg just to mask the gap line behind it */
+    background: #111; border-radius: 50%; padding: 4px;
 }
 .merge-icon-btn:hover { color: var(--blue); }
 .state-split .merge-icon-btn {
@@ -62,19 +57,55 @@ custom_css: "/css/home.css"
     <p class="subtitle" style="margin: 0;">Channel Directory</p>
   </div>
 
+  <div class="dash-panel">
+    
+    <div class="dash-row" style="padding-top: 0;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Games"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">sports_esports</span> 24</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 1.4K</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 345.5K</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 0</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 0</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 1247h 43m</div>
+    </div>
+
+    <div class="dash-row">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER GAME:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Videos per Game"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 58</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Game"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 14.4K</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Game"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 0</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Game"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 0</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Game"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 51h 59m</div>
+    </div>
+
+    <div class="dash-row">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 249</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 0</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 0</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 53m</div>
+    </div>
+
+    <div class="dash-row" style="gap: 20px;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ANALYTICS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Channel Age"><strong>Age:</strong> 1d</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 6d</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Network Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">345514.0/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Trending Score"><strong>Heat:</strong> <span style="color: var(--red);">66494.20</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">0.00</span></div>
+    </div>
+  </div>
+
 <div class="controls-wrapper">
     <div class="controls-top-row">
         <div class="search-wrapper" style="position: relative; flex: 1;">
             <input type="text" id="gameSearch" placeholder="Search Games" style="width: 100%; padding-right: 35px; box-sizing: border-box;">
-            <span id="clearSearch" class="material-symbols-outlined" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray); font-size: 20px; display: none;" onclick="clearSearchInput()" title="Clear search">close</span>
+            <span id="clearSearch" class="material-symbols-outlined" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray); font-size: 20px; display: none;" onclick="clearSearchInput()">close</span>
         </div>
         
         <div class="top-row-buttons">
             <button class="btn" id="btn-tags-toggle" onclick="toggleTagPanel()">
                 <span class="material-symbols-outlined">sell</span> Tags
-            </button>
-            <button class="btn" id="btn-info" onclick="toggleInfo()">
-                <span class="material-symbols-outlined">info</span> Info
             </button>
         </div>
     </div>
@@ -97,562 +128,618 @@ custom_css: "/css/home.css"
 
 <div id="tag-filters" class="tag-filters"></div>
 
-<div id="summary-info-box" class="summary-info-box" style="display: none;">
-    <div class="summary-grid">
-        <div>
-            <strong class="text-blue" style="font-size: 1.1em;">Library Scope</strong><br>
-            Games: <strong id="stat-games">0</strong><br>
-            Videos: <strong id="stat-videos-total">0</strong><br>
-            Videos / Game: <strong id="stat-avg-vid-game">0</strong>
-        </div>
-        <div>
-            <strong class="text-green" style="font-size: 1.1em;">Views</strong><br>
-            Total: <span id="stat-views-total">0</span><br>
-            Views / Game: <span id="stat-views-avg-game">0</span><br>
-            Views / Video: <span id="stat-vpv" class="text-orange" style="font-weight: bold;">0</span>
-        </div>
-        <div>
-            <strong class="text-purple" style="font-size: 1.1em;">Duration</strong><br>
-            Total: <span id="stat-dur-total">0</span><br>
-            <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: text-bottom;">schedule</span> / Game: <span id="stat-dur-game">0</span><br>
-            <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: text-bottom;">schedule</span> / Video: <span id="stat-dur-video">0</span>
-        </div>
-    </div>
-</div>
-
 <div class="game-grid" id="all-series-grid">
 
-  <a href="/yt/ltg-plus/dungeon-clawler/" class="filterable-card" data-channel="ltg-plus" data-title="dungeon clawler" data-tags="Incremental,Inventory Management,Auto Battler">
-    <div class="game-card" data-updated="1733320861000" data-episodes="13" data-views="2943" data-duration="42948" data-vpv="226">
-      <img src="https://i.ytimg.com/vi/YoZ3mxf0QMw/maxresdefault.jpg" alt="Dungeon Clawler" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Dungeon Clawler</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="dungeon clawler" data-tags="Incremental,Inventory Management,Auto Battler" data-updated="1733320861000" data-episodes="13" data-views="2943" data-duration="42948" data-vpv="226">
+      
+      <a href="/yt/ltg-plus/dungeon-clawler/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/YoZ3mxf0QMw/maxresdefault.jpg" alt="Dungeon Clawler" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Dungeon Clawler</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 13</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 2.9K</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 11h 55m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 11h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 226 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/cube-chaos/" class="filterable-card" data-channel="ltg-plus" data-title="cube chaos" data-tags="Auto Battler,Inventory Management">
-    <div class="game-card" data-updated="1756224002000" data-episodes="23" data-views="4768" data-duration="85549" data-vpv="207">
-      <img src="https://i.ytimg.com/vi/RcBtR76ZUX0/maxresdefault.jpg" alt="Cube Chaos" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Cube Chaos</strong>
-          <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 23</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 4.8K</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 23h 45m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 23h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 207 views per video</span>
-      </div>
-    </div>
-  </a>
+      <a href="/yt/ltg-plus/dungeon-clawler/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 13</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 2.9K</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 11h 55m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 226 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 55m /v</span>
+        </div>
+      </a>
+  </div>
 
-  <a href="/yt/ltg-plus/backpack-battles/" class="filterable-card" data-channel="ltg-plus" data-title="backpack battles" data-tags="PVP,Auto Battler,Inventory Management">
-    <div class="game-card" data-updated="1773959405000" data-episodes="903" data-views="263719" data-duration="3238993" data-vpv="292">
-      <img src="https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg" alt="Backpack Battles" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Backpack Battles</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="cube chaos" data-tags="Auto Battler,Inventory Management" data-updated="1756224002000" data-episodes="23" data-views="4768" data-duration="85549" data-vpv="207">
+      
+      <a href="/yt/ltg-plus/cube-chaos/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/RcBtR76ZUX0/maxresdefault.jpg" alt="Cube Chaos" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Cube Chaos</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 903</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 263.7K</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 899h 43m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 899h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 292 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/konfronto/" class="filterable-card" data-channel="ltg-plus" data-title="konfronto" data-tags="Inventory Management,Auto Battler,PVP">
-    <div class="game-card" data-updated="1749045664000" data-episodes="4" data-views="212" data-duration="15289" data-vpv="53">
-      <img src="https://i.ytimg.com/vi/LZdAMjxJfHk/maxresdefault.jpg" alt="Konfronto" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Konfronto</strong>
-          <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 4</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 212</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 4h 14m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 4h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 53 views per video</span>
-      </div>
-    </div>
-  </a>
+      <a href="/yt/ltg-plus/cube-chaos/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 23</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 4.8K</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 23h 45m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 207 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 2m /v</span>
+        </div>
+      </a>
+  </div>
 
-  <a href="/yt/ltg-plus/knightica/" class="filterable-card" data-channel="ltg-plus" data-title="knightica" data-tags="Auto Battler,PVP,Inventory Management">
-    <div class="game-card" data-updated="1743264059000" data-episodes="2" data-views="1060" data-duration="7339" data-vpv="530">
-      <img src="https://i.ytimg.com/vi/t_mpDmJhh30/maxresdefault.jpg" alt="Knightica" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Knightica</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="backpack battles" data-tags="PVP,Auto Battler,Inventory Management" data-updated="1773959405000" data-episodes="903" data-views="263719" data-duration="3238993" data-vpv="292">
+      
+      <a href="/yt/ltg-plus/backpack-battles/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg" alt="Backpack Battles" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 2</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 1.1K</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 2h 2m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 2h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 530 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/9-kings/" class="filterable-card" data-channel="ltg-plus" data-title="9 kings" data-tags="Auto Battler,Tower Defense,Inventory Management">
-    <div class="game-card" data-updated="1761148882000" data-episodes="21" data-views="1788" data-duration="92554" data-vpv="85">
-      <img src="https://i.ytimg.com/vi/IX24uMzbnso/maxresdefault.jpg" alt="9 Kings" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>9 Kings</strong>
-          <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 21</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 1.8K</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 25h 42m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 25h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 85 views per video</span>
-      </div>
-    </div>
-  </a>
+      <a href="/yt/ltg-plus/backpack-battles/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 903</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 263.7K</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 899h 43m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 292 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 59m /v</span>
+        </div>
+      </a>
+  </div>
 
-  <a href="/yt/ltg-plus/halls-of-torment/" class="filterable-card" data-channel="ltg-plus" data-title="halls of torment" data-tags="Bullet Heaven,Horde Survival">
-    <div class="game-card" data-updated="1729702844000" data-episodes="4" data-views="378" data-duration="10285" data-vpv="95">
-      <img src="https://i.ytimg.com/vi/3D8QJni7Fgg/maxresdefault.jpg" alt="Halls Of Torment" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Halls Of Torment</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="konfronto" data-tags="Inventory Management,Auto Battler,PVP" data-updated="1749045664000" data-episodes="4" data-views="212" data-duration="15289" data-vpv="53">
+      
+      <a href="/yt/ltg-plus/konfronto/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/LZdAMjxJfHk/maxresdefault.jpg" alt="Konfronto" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Konfronto</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 4</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 378</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 2h 51m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 2h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 95 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/tiny-auto-knights/" class="filterable-card" data-channel="ltg-plus" data-title="tiny auto knights" data-tags="Inventory Management,Auto Battler">
-    <div class="game-card" data-updated="1749571276000" data-episodes="4" data-views="178" data-duration="10085" data-vpv="45">
-      <img src="https://i.ytimg.com/vi/iEpun__RR6g/maxresdefault.jpg" alt="Tiny Auto Knights" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Tiny Auto Knights</strong>
-          <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 4</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 178</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 2h 48m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 2h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 45 views per video</span>
-      </div>
-    </div>
-  </a>
+      <a href="/yt/ltg-plus/konfronto/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 4</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 212</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 4h 14m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 53 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 3m /v</span>
+        </div>
+      </a>
+  </div>
 
-  <a href="/yt/ltg-plus/slay-the-spire/" class="filterable-card" data-channel="ltg-plus" data-title="slay the spire" data-tags="Deck Builder">
-    <div class="game-card" data-updated="1762617682000" data-episodes="4" data-views="126" data-duration="10979" data-vpv="32">
-      <img src="https://i.ytimg.com/vi/rzNVEWgDzSc/maxresdefault.jpg" alt="Slay The Spire" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Slay The Spire</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="knightica" data-tags="Auto Battler,PVP,Inventory Management" data-updated="1743264059000" data-episodes="2" data-views="1060" data-duration="7339" data-vpv="530">
+      
+      <a href="/yt/ltg-plus/knightica/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/t_mpDmJhh30/maxresdefault.jpg" alt="Knightica" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Knightica</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 4</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 126</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 3h 2m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 3h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 32 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/the-bazaar/" class="filterable-card" data-channel="ltg-plus" data-title="the bazaar" data-tags="Deck Builder">
-    <div class="game-card" data-updated="1766619900000" data-episodes="19" data-views="2907" data-duration="86781" data-vpv="153">
-      <img src="https://i.ytimg.com/vi/9svjYTS495o/maxresdefault.jpg" alt="The Bazaar" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>The Bazaar</strong>
-          <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 19</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 2.9K</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 24h 6m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 24h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 153 views per video</span>
-      </div>
-    </div>
-  </a>
+      <a href="/yt/ltg-plus/knightica/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 2</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 1.1K</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 2m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 530 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 1m /v</span>
+        </div>
+      </a>
+  </div>
 
-  <a href="/yt/ltg-plus/backpack-brawl/" class="filterable-card" data-channel="ltg-plus" data-title="backpack brawl" data-tags="Inventory Management,Auto Battler,PVP">
-    <div class="game-card" data-updated="1753200064000" data-episodes="2" data-views="371" data-duration="4850" data-vpv="186">
-      <img src="https://i.ytimg.com/vi/kLoudfb1BxQ/maxresdefault.jpg" alt="Backpack Brawl" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Backpack Brawl</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="9 kings" data-tags="Auto Battler,Tower Defense,Inventory Management" data-updated="1761148882000" data-episodes="21" data-views="1788" data-duration="92554" data-vpv="85">
+      
+      <a href="/yt/ltg-plus/9-kings/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/IX24uMzbnso/maxresdefault.jpg" alt="9 Kings" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">9 Kings</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 2</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 371</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 1h 20m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 1h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 186 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/archon-soul/" class="filterable-card" data-channel="ltg-plus" data-title="archon soul" data-tags="Deck Builder">
-    <div class="game-card" data-updated="1759838509000" data-episodes="3" data-views="105" data-duration="7628" data-vpv="35">
-      <img src="https://i.ytimg.com/vi/wQiOHruj7i0/maxresdefault.jpg" alt="Archon Soul" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Archon Soul</strong>
-          <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 3</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 105</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 2h 7m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 2h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 35 views per video</span>
-      </div>
-    </div>
-  </a>
+      <a href="/yt/ltg-plus/9-kings/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 21</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 1.8K</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 25h 42m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 85 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 13m /v</span>
+        </div>
+      </a>
+  </div>
 
-  <a href="/yt/ltg-plus/brawl-to-the-west/" class="filterable-card" data-channel="ltg-plus" data-title="brawl to the west" data-tags="Inventory Management,Auto Battler">
-    <div class="game-card" data-updated="1756476022000" data-episodes="4" data-views="263" data-duration="11900" data-vpv="66">
-      <img src="https://i.ytimg.com/vi/CWsdz2TW51g/maxresdefault.jpg" alt="Brawl To The West" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Brawl To The West</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="halls of torment" data-tags="Bullet Heaven,Horde Survival" data-updated="1729702844000" data-episodes="4" data-views="378" data-duration="10285" data-vpv="95">
+      
+      <a href="/yt/ltg-plus/halls-of-torment/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/3D8QJni7Fgg/maxresdefault.jpg" alt="Halls Of Torment" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Halls Of Torment</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 4</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 263</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 3h 18m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 3h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 66 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/deadly-days-roadtrip/" class="filterable-card" data-channel="ltg-plus" data-title="deadly days roadtrip" data-tags="Bullet Heaven,Horde Survival">
-    <div class="game-card" data-updated="1759334412000" data-episodes="2" data-views="147" data-duration="9226" data-vpv="74">
-      <img src="https://i.ytimg.com/vi/z6_kWw_jUtA/maxresdefault.jpg" alt="Deadly Days Roadtrip" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Deadly Days Roadtrip</strong>
-          <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 2</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 147</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 2h 33m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 2h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 74 views per video</span>
-      </div>
-    </div>
-  </a>
+      <a href="/yt/ltg-plus/halls-of-torment/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 4</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 378</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 51m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 95 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 42m /v</span>
+        </div>
+      </a>
+  </div>
 
-  <a href="/yt/ltg-plus/down-with-the-ship/" class="filterable-card" data-channel="ltg-plus" data-title="down with the ship" data-tags="Auto Battler,Inventory Management,PVP">
-    <div class="game-card" data-updated="1757678523000" data-episodes="3" data-views="430" data-duration="14266" data-vpv="143">
-      <img src="https://i.ytimg.com/vi/xVOAqk4J8XM/maxresdefault.jpg" alt="Down With The Ship" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Down With The Ship</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="tiny auto knights" data-tags="Inventory Management,Auto Battler" data-updated="1749571276000" data-episodes="4" data-views="178" data-duration="10085" data-vpv="45">
+      
+      <a href="/yt/ltg-plus/tiny-auto-knights/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/iEpun__RR6g/maxresdefault.jpg" alt="Tiny Auto Knights" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Tiny Auto Knights</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 3</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 430</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 3h 57m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 3h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 143 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/luck-be-a-landlord/" class="filterable-card" data-channel="ltg-plus" data-title="luck be a landlord" data-tags="Incremental,Auto Battler,Deck Builder">
-    <div class="game-card" data-updated="1755716424000" data-episodes="24" data-views="1998" data-duration="60300" data-vpv="83">
-      <img src="https://i.ytimg.com/vi/ixI4-OLD6J8/maxresdefault.jpg" alt="Luck Be A Landlord" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Luck Be A Landlord</strong>
-          <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 24</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 2K</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 16h 45m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 16h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 83 views per video</span>
-      </div>
-    </div>
-  </a>
+      <a href="/yt/ltg-plus/tiny-auto-knights/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 4</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 178</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 48m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 45 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 42m /v</span>
+        </div>
+      </a>
+  </div>
 
-  <a href="/yt/ltg-plus/for-the-forge/" class="filterable-card" data-channel="ltg-plus" data-title="for the forge" data-tags="Auto Battler,Deck Builder,PVP">
-    <div class="game-card" data-updated="1752422426000" data-episodes="4" data-views="187" data-duration="11003" data-vpv="47">
-      <img src="https://i.ytimg.com/vi/PcXkfSgoKmc/maxresdefault.jpg" alt="For The Forge" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>For The Forge</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="slay the spire" data-tags="Deck Builder" data-updated="1762617682000" data-episodes="4" data-views="126" data-duration="10979" data-vpv="32">
+      
+      <a href="/yt/ltg-plus/slay-the-spire/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/rzNVEWgDzSc/maxresdefault.jpg" alt="Slay The Spire" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Slay The Spire</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 4</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 187</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 3h 3m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 3h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 47 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/card-draw/" class="filterable-card" data-channel="ltg-plus" data-title="card draw" data-tags="Incremental,Relaxing,Chill">
-    <div class="game-card" data-updated="1731506447000" data-episodes="2" data-views="1876" data-duration="8191" data-vpv="938">
-      <img src="https://i.ytimg.com/vi/iOBBQuOrvRI/maxresdefault.jpg" alt="Card Draw" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Card Draw</strong>
-          <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 2</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 1.9K</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 2h 16m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 2h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 938 views per video</span>
-      </div>
-    </div>
-  </a>
+      <a href="/yt/ltg-plus/slay-the-spire/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 4</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 126</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 3h 2m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 32 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 45m /v</span>
+        </div>
+      </a>
+  </div>
 
-  <a href="/yt/ltg-plus/auto-rogue/" class="filterable-card" data-channel="ltg-plus" data-title="auto rogue" data-tags="Inventory Management,Auto Battler">
-    <div class="game-card" data-updated="1758729687000" data-episodes="2" data-views="153" data-duration="8337" data-vpv="77">
-      <img src="https://i.ytimg.com/vi/woVrYxJjGiw/maxresdefault.jpg" alt="Auto Rogue" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Auto Rogue</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="the bazaar" data-tags="Deck Builder" data-updated="1766619900000" data-episodes="19" data-views="2907" data-duration="86781" data-vpv="153">
+      
+      <a href="/yt/ltg-plus/the-bazaar/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/9svjYTS495o/maxresdefault.jpg" alt="The Bazaar" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">The Bazaar</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 2</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 153</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 2h 18m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 2h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 77 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/oaken-tower/" class="filterable-card" data-channel="ltg-plus" data-title="oaken tower" data-tags="PVP,Auto Battler">
-    <div class="game-card" data-updated="1772460061000" data-episodes="271" data-views="54276" data-duration="573430" data-vpv="200">
-      <img src="https://i.ytimg.com/vi/4LHX5Ojo07M/maxresdefault.jpg" alt="Oaken Tower" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Oaken Tower</strong>
-          <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 271</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 54.3K</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 159h 17m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 159h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 200 views per video</span>
-      </div>
-    </div>
-  </a>
+      <a href="/yt/ltg-plus/the-bazaar/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 19</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 2.9K</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 24h 6m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 153 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 16m /v</span>
+        </div>
+      </a>
+  </div>
 
-  <a href="/yt/ltg-plus/monster-battles/" class="filterable-card" data-channel="ltg-plus" data-title="monster battles" data-tags="PVP,Auto Battler,Inventory Management">
-    <div class="game-card" data-updated="1772028068000" data-episodes="30" data-views="5393" data-duration="97635" data-vpv="180">
-      <img src="https://i.ytimg.com/vi/ZwMIcLTCsEk/maxresdefault.jpg" alt="Monster Battles" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Monster Battles</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="backpack brawl" data-tags="Inventory Management,Auto Battler,PVP" data-updated="1753200064000" data-episodes="2" data-views="371" data-duration="4850" data-vpv="186">
+      
+      <a href="/yt/ltg-plus/backpack-brawl/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/kLoudfb1BxQ/maxresdefault.jpg" alt="Backpack Brawl" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Brawl</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 30</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 5.4K</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 27h 7m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 27h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 180 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/turnbound/" class="filterable-card" data-channel="ltg-plus" data-title="turnbound" data-tags="Auto Battler,PVP,Inventory Management">
-    <div class="game-card" data-updated="1760536865000" data-episodes="2" data-views="286" data-duration="6657" data-vpv="143">
-      <img src="https://i.ytimg.com/vi/YE9_2-f55ao/maxresdefault.jpg" alt="Turnbound" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Turnbound</strong>
-          <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 2</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 286</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 1h 50m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 1h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 143 views per video</span>
-      </div>
-    </div>
-  </a>
+      <a href="/yt/ltg-plus/backpack-brawl/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 2</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 371</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 20m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 186 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 40m /v</span>
+        </div>
+      </a>
+  </div>
 
-  <a href="/yt/ltg-plus/wordle/" class="filterable-card" data-channel="ltg-plus" data-title="wordle" data-tags="Puzzle">
-    <div class="game-card" data-updated="1767834912000" data-episodes="40" data-views="997" data-duration="61632" data-vpv="25">
-      <img src="https://i.ytimg.com/vi/Tlmok0UjrDE/maxresdefault.jpg" alt="Wordle" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Wordle</strong>
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="archon soul" data-tags="Deck Builder" data-updated="1759838509000" data-episodes="3" data-views="105" data-duration="7628" data-vpv="35">
+      
+      <a href="/yt/ltg-plus/archon-soul/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/wQiOHruj7i0/maxresdefault.jpg" alt="Archon Soul" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Archon Soul</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 40</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 997</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 17h 7m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 17h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 25 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
 
-  <a href="/yt/ltg-plus/toy-smash-kaboom/" class="filterable-card" data-channel="ltg-plus" data-title="toy smash kaboom" data-tags="PVP,Auto Battler,Inventory Management">
-    <div class="game-card" data-updated="1760097630000" data-episodes="3" data-views="953" data-duration="15926" data-vpv="318">
-      <img src="https://i.ytimg.com/vi/BFjSs-EaEwA/maxresdefault.jpg" alt="Toy Smash Kaboom" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-      <div class="card-row">
-          <strong>Toy Smash Kaboom</strong>
+      <a href="/yt/ltg-plus/archon-soul/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 3</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 105</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 7m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 35 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 42m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="brawl to the west" data-tags="Inventory Management,Auto Battler" data-updated="1756476022000" data-episodes="4" data-views="263" data-duration="11900" data-vpv="66">
+      
+      <a href="/yt/ltg-plus/brawl-to-the-west/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/CWsdz2TW51g/maxresdefault.jpg" alt="Brawl To The West" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Brawl To The West</strong>
           <span class="card-status gray">ltg-plus</span>
-      </div>
-      <div class="card-row">
-          <span><span class="material-symbols-outlined gray">play_circle</span> 3</span>
-          <span><span class="material-symbols-outlined gray">visibility</span> 953</span>
-          <span class="card-duration">
-              <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> 4h 25m</span>
-              <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> 4h</span>
-          </span>
-      </div>
-      <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
-          <span><span class="material-symbols-outlined orange">mode_heat</span> 318 views per video</span>
-      </div>
-    </div>
-  </a>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/brawl-to-the-west/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 4</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 263</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 3h 18m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 66 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 49m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="deadly days roadtrip" data-tags="Bullet Heaven,Horde Survival" data-updated="1759334412000" data-episodes="2" data-views="147" data-duration="9226" data-vpv="74">
+      
+      <a href="/yt/ltg-plus/deadly-days-roadtrip/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/z6_kWw_jUtA/maxresdefault.jpg" alt="Deadly Days Roadtrip" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Deadly Days Roadtrip</strong>
+          <span class="card-status gray">ltg-plus</span>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/deadly-days-roadtrip/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 2</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 147</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 33m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 74 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 16m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="down with the ship" data-tags="Auto Battler,Inventory Management,PVP" data-updated="1757678523000" data-episodes="3" data-views="430" data-duration="14266" data-vpv="143">
+      
+      <a href="/yt/ltg-plus/down-with-the-ship/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/xVOAqk4J8XM/maxresdefault.jpg" alt="Down With The Ship" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Down With The Ship</strong>
+          <span class="card-status gray">ltg-plus</span>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/down-with-the-ship/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 3</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 430</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 3h 57m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 143 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 19m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="luck be a landlord" data-tags="Incremental,Auto Battler,Deck Builder" data-updated="1755716424000" data-episodes="24" data-views="1998" data-duration="60300" data-vpv="83">
+      
+      <a href="/yt/ltg-plus/luck-be-a-landlord/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/ixI4-OLD6J8/maxresdefault.jpg" alt="Luck Be A Landlord" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Luck Be A Landlord</strong>
+          <span class="card-status gray">ltg-plus</span>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/luck-be-a-landlord/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 24</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 2K</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 16h 45m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 83 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 41m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="for the forge" data-tags="Auto Battler,Deck Builder,PVP" data-updated="1752422426000" data-episodes="4" data-views="187" data-duration="11003" data-vpv="47">
+      
+      <a href="/yt/ltg-plus/for-the-forge/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/PcXkfSgoKmc/maxresdefault.jpg" alt="For The Forge" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">For The Forge</strong>
+          <span class="card-status gray">ltg-plus</span>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/for-the-forge/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 4</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 187</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 3h 3m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 47 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 45m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="card draw" data-tags="Incremental,Relaxing,Chill" data-updated="1731506447000" data-episodes="2" data-views="1876" data-duration="8191" data-vpv="938">
+      
+      <a href="/yt/ltg-plus/card-draw/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/iOBBQuOrvRI/maxresdefault.jpg" alt="Card Draw" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Card Draw</strong>
+          <span class="card-status gray">ltg-plus</span>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/card-draw/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 2</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 1.9K</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 16m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 938 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 8m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="auto rogue" data-tags="Inventory Management,Auto Battler" data-updated="1758729687000" data-episodes="2" data-views="153" data-duration="8337" data-vpv="77">
+      
+      <a href="/yt/ltg-plus/auto-rogue/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/woVrYxJjGiw/maxresdefault.jpg" alt="Auto Rogue" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Auto Rogue</strong>
+          <span class="card-status gray">ltg-plus</span>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/auto-rogue/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 2</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 153</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 18m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 77 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 9m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="oaken tower" data-tags="PVP,Auto Battler" data-updated="1772460061000" data-episodes="271" data-views="54276" data-duration="573430" data-vpv="200">
+      
+      <a href="/yt/ltg-plus/oaken-tower/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/4LHX5Ojo07M/maxresdefault.jpg" alt="Oaken Tower" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Oaken Tower</strong>
+          <span class="card-status gray">ltg-plus</span>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/oaken-tower/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 271</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 54.3K</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 159h 17m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 200 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 35m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="monster battles" data-tags="PVP,Auto Battler,Inventory Management" data-updated="1772028068000" data-episodes="30" data-views="5393" data-duration="97635" data-vpv="180">
+      
+      <a href="/yt/ltg-plus/monster-battles/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/ZwMIcLTCsEk/maxresdefault.jpg" alt="Monster Battles" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Monster Battles</strong>
+          <span class="card-status gray">ltg-plus</span>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/monster-battles/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 30</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 5.4K</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 27h 7m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 180 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 54m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="turnbound" data-tags="Auto Battler,PVP,Inventory Management" data-updated="1760536865000" data-episodes="2" data-views="286" data-duration="6657" data-vpv="143">
+      
+      <a href="/yt/ltg-plus/turnbound/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/YE9_2-f55ao/maxresdefault.jpg" alt="Turnbound" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Turnbound</strong>
+          <span class="card-status gray">ltg-plus</span>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/turnbound/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 2</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 286</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 50m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 143 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 55m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="wordle" data-tags="Puzzle" data-updated="1767834912000" data-episodes="40" data-views="997" data-duration="61632" data-vpv="25">
+      
+      <a href="/yt/ltg-plus/wordle/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/Tlmok0UjrDE/maxresdefault.jpg" alt="Wordle" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Wordle</strong>
+          <span class="card-status gray">ltg-plus</span>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/wordle/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 40</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 997</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 17h 7m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 25 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 25m /v</span>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card" data-channel="ltg-plus" data-title="toy smash kaboom" data-tags="PVP,Auto Battler,Inventory Management" data-updated="1760097630000" data-episodes="3" data-views="953" data-duration="15926" data-vpv="318">
+      
+      <a href="/yt/ltg-plus/toy-smash-kaboom/" class="content" title="View Directory">
+        <img src="https://i.ytimg.com/vi/BFjSs-EaEwA/maxresdefault.jpg" alt="Toy Smash Kaboom" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Toy Smash Kaboom</strong>
+          <span class="card-status gray">ltg-plus</span>
+        </div>
+      </a>
+
+      <a href="/yt/ltg-plus/toy-smash-kaboom/" class="info" title="View Details">
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 3</span>
+          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 953</span>
+          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 4h 25m</span>
+        </div>
+        
+        <div class="info-stats" style="border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 318 /v</span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 0 /v</span>
+          <span title="Dur / Vid" class="tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 28m /v</span>
+        </div>
+      </a>
+  </div>
 </div>
 </div>
 
 <script>
 // --- State Management ---
 let currentSort = 'recent';
-let isInfoActive = false;
 let activeTags = new Set();
 let allSortedTags = [];
 let isTagPanelActive = false;
 let activeChannelFilter = 'all'; 
 
-// --- Formatting Helpers ---
-function formatViews(num) {
-    num = Math.round(num);
-    if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
-    if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
-    return num.toString();
-}
-
-function formatDuration(seconds) {
-    seconds = Math.round(seconds);
-    const h = Math.floor(seconds / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
-    return h > 0 ? `${h}h ${m}m` : `${m}m`;
-}
-
-// --- Split/Merge Network Toggle ---
 function toggleNetworkState(targetState, filterSlug) {
     const container = document.getElementById('networkToggleContainer');
     const cLets = document.getElementById('card-letstrygg');
@@ -664,7 +751,6 @@ function toggleNetworkState(targetState, filterSlug) {
         container.classList.remove('state-combined');
         container.classList.add('state-split');
         
-        // Strict Mutual Exclusion for the Blue Highlight
         if (filterSlug === 'letstrygg') {
             cLets.classList.add('active-filter');
             cPlus.classList.remove('active-filter');
@@ -676,76 +762,12 @@ function toggleNetworkState(targetState, filterSlug) {
         container.classList.remove('state-split');
         container.classList.add('state-combined');
         
-        // Remove highlights when combined
         cLets.classList.remove('active-filter');
         cPlus.classList.remove('active-filter');
     }
 
     activeChannelFilter = filterSlug;
     applyFilters();
-}
-
-// --- Info Box Logic ---
-function toggleInfo() {
-    isInfoActive = !isInfoActive;
-    const btn = document.getElementById('btn-info');
-    const infoBox = document.getElementById('summary-info-box');
-
-    if (isInfoActive) {
-        btn.classList.add('active'); 
-        infoBox.style.display = 'block';
-        calculateStats();
-    } else {
-        btn.classList.remove('active');
-        infoBox.style.display = 'none';
-    }
-    updateVPVVisibility();
-}
-
-function calculateStats() {
-    if (!isInfoActive) return;
-
-    const cards = document.querySelectorAll('.filterable-card');
-    let gamesCount = 0;
-    let totalViews = 0;
-    let totalVideos = 0;
-    let totalDuration = 0;
-
-    cards.forEach(card => {
-        if (card.style.display !== 'none') {
-            gamesCount++;
-            const inner = card.querySelector('.game-card');
-            totalViews += parseInt(inner.dataset.views || 0);
-            totalVideos += parseInt(inner.dataset.episodes || 0);
-            totalDuration += parseInt(inner.dataset.duration || 0);
-        }
-    });
-
-    const avgViewsGame = gamesCount > 0 ? totalViews / gamesCount : 0;
-    const avgViewsVideo = totalVideos > 0 ? totalViews / totalVideos : 0;
-    const avgDurGame = gamesCount > 0 ? totalDuration / gamesCount : 0;
-    const avgDurVideo = totalVideos > 0 ? totalDuration / totalVideos : 0;
-    const avgVideosGame = gamesCount > 0 ? Math.round(totalVideos / gamesCount) : 0;
-    
-    document.getElementById('stat-games').innerText = gamesCount;
-    document.getElementById('stat-videos-total').innerText = totalVideos;
-    document.getElementById('stat-avg-vid-game').innerText = avgVideosGame;
-    document.getElementById('stat-views-total').innerText = formatViews(totalViews);
-    document.getElementById('stat-views-avg-game').innerText = formatViews(avgViewsGame);
-    document.getElementById('stat-vpv').innerText = formatViews(avgViewsVideo);
-    document.getElementById('stat-dur-total').innerText = formatDuration(totalDuration);
-    document.getElementById('stat-dur-game').innerText = formatDuration(avgDurGame);
-    document.getElementById('stat-dur-video').innerText = formatDuration(avgDurVideo);
-}
-
-function updateVPVVisibility() {
-    const cards = document.querySelectorAll('.filterable-card');
-    cards.forEach(card => {
-        const vpvRow = card.querySelector('.vpv-row');
-        if (vpvRow) {
-            vpvRow.style.display = (currentSort === 'vpv' || isInfoActive) ? 'flex' : 'none';
-        }
-    });
 }
 
 // --- Sorting Logic ---
@@ -760,19 +782,14 @@ function sortGrid(type) {
     const cards = Array.from(grid.querySelectorAll('.filterable-card'));
 
     cards.sort((a, b) => {
-        const cardA = a.querySelector('.game-card');
-        const cardB = b.querySelector('.game-card');
-        if (!cardA || !cardB) return 0;
-
-        if (type === 'recent') return parseInt(cardB.dataset.updated || 0) - parseInt(cardA.dataset.updated || 0);
-        if (type === 'popular') return parseInt(cardB.dataset.views || 0) - parseInt(cardA.dataset.views || 0);
-        if (type === 'length') return parseInt(cardB.dataset.duration || 0) - parseInt(cardA.dataset.duration || 0);
-        if (type === 'vpv') return parseInt(cardB.dataset.vpv || 0) - parseInt(cardA.dataset.vpv || 0);
+        if (type === 'recent') return parseInt(b.dataset.updated || 0) - parseInt(a.dataset.updated || 0);
+        if (type === 'popular') return parseInt(b.dataset.views || 0) - parseInt(a.dataset.views || 0);
+        if (type === 'length') return parseInt(b.dataset.duration || 0) - parseInt(a.dataset.duration || 0);
+        if (type === 'vpv') return parseInt(b.dataset.vpv || 0) - parseInt(a.dataset.vpv || 0);
     });
 
     grid.innerHTML = '';
     cards.forEach(card => grid.appendChild(card));
-    updateVPVVisibility();
 }
 
 // --- Unified Filter & Search Logic ---
@@ -804,8 +821,6 @@ function applyFilters() {
             card.style.display = 'none';
         }
     });
-
-    calculateStats(); 
 }
 
 // --- Tag Logic ---

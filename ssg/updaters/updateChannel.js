@@ -132,10 +132,52 @@ export async function updateChannel(hubSlug, options = {}) {
         const isMainHub = channel.channelSlug === context.hubSlug;
         const channelsToRender = isMainHub ? context.channels : [channel];
 
+        // Dynamically calculate the totals for the rendered channels to feed the dashboard
+        const dashboardTotals = {
+            total_games: 0,
+            total_videos: 0,
+            total_views: 0,
+            total_likes: 0,
+            total_comments: 0,
+            total_duration: 0,
+            first_pub: Infinity,
+            last_pub: 0,
+            first_ep_views: 0,
+            last_ep_views: 0
+        };
+
+        channelsToRender.forEach(ch => {
+            dashboardTotals.total_games += ch.games.length;
+            ch.games.forEach(game => {
+                game.ltg_series_playlists?.forEach(sp => {
+                    const stats = sp.ltg_playlists?.ltg_playlist_stats?.[0];
+                    if (stats) {
+                        dashboardTotals.total_videos += parseInt(stats.ep_count || 0);
+                        dashboardTotals.total_views += parseInt(stats.total_views || 0);
+                        dashboardTotals.total_likes += parseInt(stats.total_likes || 0);
+                        dashboardTotals.total_comments += parseInt(stats.total_comments || 0);
+                        dashboardTotals.total_duration += parseInt(stats.total_duration || 0);
+                        
+                        const firstP = new Date(stats.first_published_at || Infinity).getTime();
+                        const lastP = new Date(stats.latest_published_at || 0).getTime();
+                        if (firstP < dashboardTotals.first_pub) {
+                            dashboardTotals.first_pub = firstP;
+                            // Approximating first/last views using the playlist's first video if available
+                        }
+                        if (lastP > dashboardTotals.last_pub) dashboardTotals.last_pub = lastP;
+                    }
+                });
+            });
+        });
+
+        // Convert Infinity back to null if no dates found
+        if (dashboardTotals.first_pub === Infinity) dashboardTotals.first_pub = null;
+
         const pageHTML = channelHTML({
             hubSlug: channel.channelSlug,
             channels: channelsToRender,
-            manualContent: manualContent 
+            manualContent: manualContent,
+            dashboardTotals // Pass the massive object down
         });
 
         writeStaticPage(channelIndex, pageHTML);

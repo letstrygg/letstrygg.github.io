@@ -461,3 +461,142 @@ header { text-align: center; padding: 20px 0; }
     right: 15px; /* Ensures Chat and Theme toggles are identical distance from edge */
     z-index: 999;
 }
+
+/* --- UNIVERSAL STAT COMPONENTS --- */
+
+/* Generic Component System */
+.panel {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    background: transparent;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 4px 4px 4px;
+}
+
+.label {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Zone 1: Generic Content Block */
+.content {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s ease;
+}
+
+.content:hover {
+    border-color: var(--border-hover);
+}
+
+.content img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.content-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    gap: 12px;
+}
+
+/* Zone 2: Generic Info Block */
+.info {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.info:hover {
+    background: var(--bg3);
+    border-color: var(--border-hover);
+}
+
+.info:hover .info-cta {
+    color: var(--blue);
+}
+
+.info-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    flex-wrap: wrap; 
+}
+
+.info-stats span {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.info-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--gray);
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+    transition: color 0.2s;
+}
+
+.yt-header-link {
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.yt-header-link:hover {
+    opacity: 1;
+}
+
+/* Universal Dashboard Specifics */
+.dash-panel {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.dash-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border);
+    align-items: center;
+}
+.dash-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.dash-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+}
