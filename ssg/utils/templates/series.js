@@ -3,7 +3,7 @@ import { StatsCalc } from '../statsCalc.js';
 export function seriesHTML(data) {
     const safeGameTitle = data.gameTitle ? data.gameTitle.replace(/"/g, '&quot;') : data.seriesTitle.replace(/"/g, '&quot;');
     const avg = data.averages || { videos: 0, views: 0, likes: 0, comments: 0, duration: 0, viewsPerVid: 0, likesPerVid: 0, commentsPerVid: 0, durPerVid: 0 };
-    const global = data.seriesStats || {};
+    const global = data.seriesTotals || {};
 
     // Calculate Series-Level Advanced Stats
     const seriesAgeDays = StatsCalc.daysBetween(global.first_published_at);
@@ -171,7 +171,7 @@ custom_css: "/css/home.css"
   <div class="dash-panel">
     
     <div class="dash-row" style="padding-top: 0;">
-      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">TOTALS:</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Total Seasons"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">folder</span> ${data.seasons.length}</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> ${StatsCalc.formatNum(global.total_videos)}</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> ${StatsCalc.formatNum(global.total_views)}</div>
@@ -181,7 +181,16 @@ custom_css: "/css/home.css"
     </div>
 
     <div class="dash-row">
-      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">PER SEASON:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Videos per Season"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> ${StatsCalc.formatNum(avg.videos)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Season"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> ${StatsCalc.formatNum(avg.views)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Season"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> ${StatsCalc.formatNum(avg.likes)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Season"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> ${StatsCalc.formatNum(avg.comments)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Season"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> ${StatsCalc.formatDur(avg.duration)}</div>
+    </div>
+
+    <div class="dash-row">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">PER VID:</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> ${StatsCalc.formatNum(avg.viewsPerVid)}</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> ${StatsCalc.formatNum(avg.likesPerVid)}</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> ${StatsCalc.formatNum(avg.commentsPerVid)}</div>
@@ -189,7 +198,7 @@ custom_css: "/css/home.css"
     </div>
 
     <div class="dash-row" style="gap: 20px;">
-      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ANALYTICS:</div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">ANALYTICS:</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Time since first video"><strong>Age:</strong> ${StatsCalc.formatAge(seriesAgeDays)}</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> ${StatsCalc.formatAge(seriesSpanDays)}</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> <span style="color: var(--red);">${seriesDeadDays}d</span></div>

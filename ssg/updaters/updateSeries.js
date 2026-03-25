@@ -7,7 +7,7 @@ import { writeStaticPage } from '../utils/fileSys.js';
 export async function updateSeries(gameSlug, options = {}, channelFamily = null, rootChannelSlug = null) {
     const isForce = options.force || false;
     
-    // Dropped the .order() here to handle custom sorting in JS
+    // Fetch raw playlists
     const { data: rawPlaylists, error } = await supabase
         .from('ltg_playlists')
         .select(`
@@ -44,36 +44,11 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
 
     console.log(`\n📚 Processing Game: ${seriesTitle} (${allPlaylists.length} seasons)`);
 
-    // Fetch Series Stats to calculate baseline averages & populate top panel
-    const seriesSlug = allPlaylists[0].ltg_series.slug;
-    const { data: seriesStats } = await supabase
-        .from('ltg_series_stats')
-        .select('*')
-        .eq('series_slug', seriesSlug)
-        .single();
-
-    const seasonCount = allPlaylists.length || 1;
-    const seriesVidsCount = seriesStats?.total_videos || 1; // Prevent div/0
-
-    const averages = {
-        // Per-Season Averages
-        videos: Math.round((seriesStats?.total_videos || 0) / seasonCount),
-        views: Math.round((seriesStats?.total_views || 0) / seasonCount),
-        likes: Math.round((seriesStats?.total_likes || 0) / seasonCount),
-        comments: Math.round((seriesStats?.total_comments || 0) / seasonCount),
-        duration: Math.round((seriesStats?.total_duration || 0) / seasonCount),
-        
-        // Per-Video Averages (across the whole series)
-        viewsPerVid: Math.round((seriesStats?.total_views || 0) / seriesVidsCount),
-        likesPerVid: Math.round((seriesStats?.total_likes || 0) / seriesVidsCount),
-        commentsPerVid: Math.round((seriesStats?.total_comments || 0) / seriesVidsCount),
-        durPerVid: Math.round((seriesStats?.total_duration || 0) / seriesVidsCount)
-    };
-
     let seriesSkipped = true;
     let totalEpisodes = 0;
     const seasonsData = [];
 
+    // Process every season and build the array
     for (const playlist of allPlaylists) {
         const seasonResult = await updateSeason(playlist.id, options);
         
@@ -98,11 +73,11 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
             title: playlist.title,
             status: displayStatus,
             statusColor: sColor,
-            epCount: stats.ep_count || 0,
-            totalViews: stats.total_views || 0,
-            totalLikes: stats.total_likes || 0,
-            totalComments: stats.total_comments || 0,
-            totalDuration: stats.total_duration || 0,
+            epCount: parseInt(stats.ep_count || 0),
+            totalViews: parseInt(stats.total_views || 0),
+            totalLikes: parseInt(stats.total_likes || 0),
+            totalComments: parseInt(stats.total_comments || 0),
+            totalDuration: parseInt(stats.total_duration || 0),
             firstPub: stats.first_published_at || null,
             lastPub: stats.latest_published_at || null,
             firstVideoId: stats.first_video_id,
@@ -113,16 +88,51 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
         });
     }
 
-    // Calculate Series First and Last Episode Views for franchise retention
-    // Finds chronological first/last safely, regardless of how the array is sorted
-    const earliestSeason = seasonsData.reduce((prev, curr) => (prev.firstPub < curr.firstPub ? prev : curr), seasonsData[0]);
-    const latestSeason = seasonsData.reduce((prev, curr) => (prev.lastPub > curr.lastPub ? prev : curr), seasonsData[0]);
+    // --- DYNAMIC SERIES AGGREGATION ---
+    // Instead of trusting the SQL view, we mathematically sum the seasons we just processed
+    const seriesTotals = {
+        total_videos: 0,
+        total_views: 0,
+        total_likes: 0,
+        total_comments: 0,
+        total_duration: 0
+    };
+
+    seasonsData.forEach(s => {
+        seriesTotals.total_videos += s.epCount;
+        seriesTotals.total_views += s.totalViews;
+        seriesTotals.total_likes += s.totalLikes;
+        seriesTotals.total_comments += s.totalComments;
+        seriesTotals.total_duration += s.totalDuration;
+    });
+
+    // Calculate Baseline Averages
+    const seasonCount = seasonsData.length || 1;
+    const seriesVidsCount = seriesTotals.total_videos || 1; // Prevent div/0
+
+    const averages = {
+        // Per-Season Averages
+        videos: Math.round(seriesTotals.total_videos / seasonCount),
+        views: Math.round(seriesTotals.total_views / seasonCount),
+        likes: Math.round(seriesTotals.total_likes / seasonCount),
+        comments: Math.round(seriesTotals.total_comments / seasonCount),
+        duration: Math.round(seriesTotals.total_duration / seasonCount),
+        
+        // Per-Video Averages (across the whole series)
+        viewsPerVid: Math.round(seriesTotals.total_views / seriesVidsCount),
+        likesPerVid: Math.round(seriesTotals.total_likes / seriesVidsCount),
+        commentsPerVid: Math.round(seriesTotals.total_comments / seriesVidsCount),
+        durPerVid: Math.round(seriesTotals.total_duration / seriesVidsCount)
+    };
+
+    // Calculate Series First and Last Dates/Views safely
+    const earliestSeason = seasonsData.reduce((prev, curr) => ((prev.firstPub || Infinity) < (curr.firstPub || Infinity) ? prev : curr), seasonsData[0]);
+    const latestSeason = seasonsData.reduce((prev, curr) => ((prev.lastPub || 0) > (curr.lastPub || 0) ? prev : curr), seasonsData[0]);
     
-    // Inject them directly into the seriesStats object so the template can easily grab them
-    if (seriesStats) {
-        seriesStats.firstEpViews = earliestSeason?.firstEpViews || 0;
-        seriesStats.lastEpViews = latestSeason?.lastEpViews || 0;
-    }
+    seriesTotals.first_published_at = earliestSeason?.firstPub || null;
+    seriesTotals.latest_published_at = latestSeason?.lastPub || null;
+    seriesTotals.firstEpViews = earliestSeason?.firstEpViews || 0;
+    seriesTotals.lastEpViews = latestSeason?.lastEpViews || 0;
 
     if (seriesSkipped && !isForce && fs.existsSync(seriesIndex)) {
         console.log(`  ⏩ Game Root skipped (All child seasons reported as up-to-date).`);
@@ -156,7 +166,7 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
         tags: gameTags,
         manualContent: seriesManualContent,
         averages,
-        seriesStats: seriesStats || {} // Pass full stats for the top panel
+        seriesTotals // Passed explicitly to template
     });
 
     writeStaticPage(seriesIndex, seriesPageHTML);

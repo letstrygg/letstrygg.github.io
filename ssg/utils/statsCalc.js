@@ -42,11 +42,10 @@ export const StatsCalc = {
     popularity(views, likes, comments, ageHours) {
         const num = views + (likes * 5) + (comments * 10);
         const den = Math.pow((ageHours + 2), 1.5);
-        return (num / den).toFixed(1);
+        return (num / den).toFixed(2); // Bumped to 2 decimal places
     },
     hiddenGemScore(views, likes, comments) {
         if (!views) return "0.0";
-        // Natural Log curve protects against mainstream inflation
         const score = ((likes + comments) / views) * Math.log(100000 / (views + 1));
         return Math.max(0, score).toFixed(2);
     },
