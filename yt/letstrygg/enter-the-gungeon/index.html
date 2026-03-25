@@ -108,7 +108,6 @@ custom_css: "/css/home.css"
     transition: color 0.2s;
 }
 
-/* Simple hover brighten for the YT link */
 .yt-header-link {
     opacity: 0.7;
     transition: opacity 0.2s;
@@ -116,9 +115,72 @@ custom_css: "/css/home.css"
 .yt-header-link:hover {
     opacity: 1;
 }
+
+/* Series Dashboard Specifics */
+.dash-panel {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.dash-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border);
+    align-items: center;
+}
+.dash-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.dash-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+}
 </style>
 
 <div class="game-page-wrapper">
+  
+  <div style="margin-bottom: 20px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
+    <h1 class="title">Enter The Gungeon</h1>
+    <p class="subtitle" style="margin: 0;">Series Overview</p>
+  </div>
+
+  <div class="dash-panel">
+    
+    <div class="dash-row" style="padding-top: 0;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Seasons"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">folder</span> 1</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 6</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 281</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 27</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 38</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 2h 34m</div>
+    </div>
+
+    <div class="dash-row">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 47</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 5</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 6</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 25m</div>
+    </div>
+
+    <div class="dash-row">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ADVANCED:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Time since first video"><strong>Age:</strong> 5y 215d</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 5d</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.1/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">1.36</span></div>
+    </div>
+
+  </div>
+
   
 
 
@@ -151,11 +213,18 @@ custom_css: "/css/home.css"
           <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 34m <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
         </div>
 
+        <div class="info-stats" style="margin-bottom: 8px; border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Views Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 47 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Likes Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Comments / Vid" class="tooltip-trigger" data-tooltip="Comments Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Duration / Vid" class="tooltip-trigger" data-tooltip="Duration Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 25m <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+        </div>
+
         <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
-          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 2040d</span>
-          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 5d</span>
-          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.1/d</span></span>
-          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">1.36</span></span>
+          <span class="tooltip-trigger" data-tooltip="Age of Season"><strong>Age:</strong> 5y 215d</span>
+          <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 5d</span>
+          <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.1/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">1.36</span></span>
         </div>
         
         <div class="info-cta">

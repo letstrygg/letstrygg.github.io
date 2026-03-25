@@ -1,0 +1,430 @@
+---
+layout: new
+title: "Slay The Spire - All Seasons"
+permalink: /yt/ltg-plus/slay-the-spire/
+custom_css: "/css/home.css"
+---
+
+<style>
+/* Generic Component System */
+.panel {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    background: transparent;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 4px 4px 4px;
+}
+
+.label {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Zone 1: Generic Content Block */
+.content {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s ease;
+}
+
+.content:hover {
+    border-color: var(--border-hover);
+}
+
+.content img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.content-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    gap: 12px;
+}
+
+/* Zone 2: Generic Info Block */
+.info {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.info:hover {
+    background: var(--bg3);
+    border-color: var(--border-hover);
+}
+
+.info:hover .info-cta {
+    color: var(--blue);
+}
+
+.info-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    flex-wrap: wrap; 
+}
+
+.info-stats span {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.info-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--gray);
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+    transition: color 0.2s;
+}
+
+.yt-header-link {
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.yt-header-link:hover {
+    opacity: 1;
+}
+
+/* Series Dashboard Specifics */
+.dash-panel {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.dash-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border);
+    align-items: center;
+}
+.dash-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.dash-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+}
+</style>
+
+<div class="game-page-wrapper">
+  
+  <div style="margin-bottom: 20px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
+    <h1 class="title">Slay The Spire</h1>
+    <p class="subtitle" style="margin: 0;">Series Overview</p>
+  </div>
+
+  <div class="dash-panel">
+    
+    <div class="dash-row" style="padding-top: 0;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Seasons"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">folder</span> 5</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 4</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 126</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 6</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 6</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 3h 2m</div>
+    </div>
+
+    <div class="dash-row">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 32</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 2</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 2</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 45m</div>
+    </div>
+
+    <div class="dash-row">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ADVANCED:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Time since first video"><strong>Age:</strong> 140d</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 4d</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.9/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">0.64</span></div>
+    </div>
+
+  </div>
+
+  
+
+
+  <div class="season-grid" id="series-grid">
+
+    <div class="panel filterable-card" data-updated="1762617682000">
+      
+      <div class="panel-header">
+        <span class="label">Season 4</span>
+        <a href="https://www.youtube.com/playlist?list=PLkwYKQUqZEUUmTNrXSbgc0rbAR_Uo7UDQ" target="_blank" rel="noopener noreferrer" class="yt-header-link" style="display: flex; align-items: center; gap: 4px; color: var(--text); text-decoration: none; font-size: 0.9rem;">
+          <span class="material-symbols-outlined" style="color: var(--red); font-size: 20px;">play_circle</span> YouTube
+        </a>
+      </div>
+      
+      <a href="/yt/ltg-plus/slay-the-spire/season-4/sts-s04e01.html" class="content" title="Play Episode 1">
+        <img src="https://i.ytimg.com/vi/rzNVEWgDzSc/maxresdefault.jpg" alt="Slay The Spire S4" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Slay The Spire S4</strong>
+          <span class="card-status blue">Complete</span>
+        </div>
+      </a>
+      
+      <a href="/yt/ltg-plus/slay-the-spire/season-4/" class="info" title="View Season Details">
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+3</span>)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 126 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+101</span>)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+5</span>)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+5</span>)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 3h 2m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+2h 26m</span>)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 8px; border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Views Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 32 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Likes Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Comments / Vid" class="tooltip-trigger" data-tooltip="Comments Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Duration / Vid" class="tooltip-trigger" data-tooltip="Duration Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 45m <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Age of Season"><strong>Age:</strong> 140d</span>
+          <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 4d</span>
+          <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.9/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">0.64</span></span>
+        </div>
+        
+        <div class="info-cta">
+          View Episode List <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+        </div>
+      </a>
+      
+    </div>
+
+    <div class="panel filterable-card" data-updated="1720270823000">
+      
+      <div class="panel-header">
+        <span class="label">Season 4.1</span>
+        <a href="https://www.youtube.com/playlist?list=PLQ4IL4UVgQk7KZCOHjyu1CTHwDFHH5kW_" target="_blank" rel="noopener noreferrer" class="yt-header-link" style="display: flex; align-items: center; gap: 4px; color: var(--text); text-decoration: none; font-size: 0.9rem;">
+          <span class="material-symbols-outlined" style="color: var(--red); font-size: 20px;">play_circle</span> YouTube
+        </a>
+      </div>
+      
+      <a href="/yt/ltg-plus/slay-the-spire/season-4_1/sts-s04_1e01.html" class="content" title="Play Episode 1">
+        <img src="https://i.ytimg.com/vi/SMMsCdv64xs/maxresdefault.jpg" alt="Slay The Spire S4.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Slay The Spire S4.1</strong>
+          <span class="card-status blue">Complete</span>
+        </div>
+      </a>
+      
+      <a href="/yt/ltg-plus/slay-the-spire/season-4_1/" class="info" title="View Season Details">
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 11 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+10</span>)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 986 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+961</span>)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 38 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+37</span>)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 37 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+36</span>)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 13h 34m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+12h 57m</span>)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 8px; border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Views Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 90 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+58</span>)</span></span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Likes Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+1</span>)</span></span>
+          <span title="Comments / Vid" class="tooltip-trigger" data-tooltip="Comments Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+1</span>)</span></span>
+          <span title="Duration / Vid" class="tooltip-trigger" data-tooltip="Duration Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 14m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+28m</span>)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Age of Season"><strong>Age:</strong> 1y 272d</span>
+          <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 10d</span>
+          <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span style="color: var(--blue);">1.5/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">0.35</span></span>
+        </div>
+        
+        <div class="info-cta">
+          View Episode List <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+        </div>
+      </a>
+      
+    </div>
+
+    <div class="panel filterable-card" data-updated="1681578013000">
+      
+      <div class="panel-header">
+        <span class="label">Season 3</span>
+        <a href="https://www.youtube.com/playlist?list=PLQ4IL4UVgQk4F31xss7ikC5gEWcNEDhot" target="_blank" rel="noopener noreferrer" class="yt-header-link" style="display: flex; align-items: center; gap: 4px; color: var(--text); text-decoration: none; font-size: 0.9rem;">
+          <span class="material-symbols-outlined" style="color: var(--red); font-size: 20px;">play_circle</span> YouTube
+        </a>
+      </div>
+      
+      <a href="/yt/ltg-plus/slay-the-spire/season-3/sts-s03e01.html" class="content" title="Play Episode 1">
+        <img src="https://i.ytimg.com/vi/RTaBNoV8CQU/maxresdefault.jpg" alt="Slay The Spire S3" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Slay The Spire S3</strong>
+          <span class="card-status blue">Complete</span>
+        </div>
+      </a>
+      
+      <a href="/yt/ltg-plus/slay-the-spire/season-3/" class="info" title="View Season Details">
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+5</span>)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 383 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+358</span>)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 12 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+11</span>)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 13 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+12</span>)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 43m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+2h 7m</span>)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 8px; border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Views Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 64 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+32</span>)</span></span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Likes Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Comments / Vid" class="tooltip-trigger" data-tooltip="Comments Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Duration / Vid" class="tooltip-trigger" data-tooltip="Duration Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 27m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">18m</span>)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Age of Season"><strong>Age:</strong> 2y 351d</span>
+          <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 7d</span>
+          <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.4/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">0.36</span></span>
+        </div>
+        
+        <div class="info-cta">
+          View Episode List <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+        </div>
+      </a>
+      
+    </div>
+
+    <div class="panel filterable-card" data-updated="1625229002000">
+      
+      <div class="panel-header">
+        <span class="label">Season 1</span>
+        <a href="https://www.youtube.com/playlist?list=PLQ4IL4UVgQk6UCEQ-75FG53-z6cDIACd4" target="_blank" rel="noopener noreferrer" class="yt-header-link" style="display: flex; align-items: center; gap: 4px; color: var(--text); text-decoration: none; font-size: 0.9rem;">
+          <span class="material-symbols-outlined" style="color: var(--red); font-size: 20px;">play_circle</span> YouTube
+        </a>
+      </div>
+      
+      <a href="/yt/ltg-plus/slay-the-spire/season-1/sts-s01e01.html" class="content" title="Play Episode 1">
+        <img src="https://i.ytimg.com/vi/usKoFsyPLmE/maxresdefault.jpg" alt="Slay The Spire S1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Slay The Spire S1</strong>
+          <span class="card-status blue">Complete</span>
+        </div>
+      </a>
+      
+      <a href="/yt/ltg-plus/slay-the-spire/season-1/" class="info" title="View Season Details">
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 21 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+20</span>)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 680 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+655</span>)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 35 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+34</span>)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 57 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+56</span>)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 25h 16m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+24h 39m</span>)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 8px; border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Views Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 32 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Likes Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Comments / Vid" class="tooltip-trigger" data-tooltip="Comments Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+1</span>)</span></span>
+          <span title="Duration / Vid" class="tooltip-trigger" data-tooltip="Duration Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 12m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+26m</span>)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Age of Season"><strong>Age:</strong> 4y 282d</span>
+          <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 15d</span>
+          <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.4/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">0.68</span></span>
+        </div>
+        
+        <div class="info-cta">
+          View Episode List <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+        </div>
+      </a>
+      
+    </div>
+
+    <div class="panel filterable-card" data-updated="1624689873000">
+      
+      <div class="panel-header">
+        <span class="label">Season 1.1</span>
+        <a href="https://www.youtube.com/playlist?list=PLQ4IL4UVgQk4fVl5qXicTPTepGPX8WVqG" target="_blank" rel="noopener noreferrer" class="yt-header-link" style="display: flex; align-items: center; gap: 4px; color: var(--text); text-decoration: none; font-size: 0.9rem;">
+          <span class="material-symbols-outlined" style="color: var(--red); font-size: 20px;">play_circle</span> YouTube
+        </a>
+      </div>
+      
+      <a href="/yt/ltg-plus/slay-the-spire/season-1_1/sts-s01_1e01.html" class="content" title="Play Episode 1">
+        <img src="https://i.ytimg.com/vi/2d-Goj5TH3M/maxresdefault.jpg" alt="Slay The Spire S1.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div class="content-row">
+          <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Slay The Spire S1.1</strong>
+          <span class="card-status blue">Complete</span>
+        </div>
+      </a>
+      
+      <a href="/yt/ltg-plus/slay-the-spire/season-1_1/" class="info" title="View Season Details">
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 18 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+17</span>)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 521 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+496</span>)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 57 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+56</span>)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 108 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+107</span>)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 38h 57m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+38h 20m</span>)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 8px; border-top: 1px dashed #333; padding-top: 8px;">
+          <span title="Views / Vid" class="tooltip-trigger" data-tooltip="Views Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 29 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">3</span>)</span></span>
+          <span title="Likes / Vid" class="tooltip-trigger" data-tooltip="Likes Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+1</span>)</span></span>
+          <span title="Comments / Vid" class="tooltip-trigger" data-tooltip="Comments Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+4</span>)</span></span>
+          <span title="Duration / Vid" class="tooltip-trigger" data-tooltip="Duration Per Video vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 9m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+1h 24m</span>)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Age of Season"><strong>Age:</strong> 5y 327d</span>
+          <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 1y 54d</span>
+          <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.2/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">1.66</span></span>
+        </div>
+        
+        <div class="info-cta">
+          View Episode List <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+        </div>
+      </a>
+      
+    </div>
+
+  </div>
+</div>

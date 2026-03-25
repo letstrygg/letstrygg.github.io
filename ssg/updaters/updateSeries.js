@@ -7,7 +7,8 @@ import { writeStaticPage } from '../utils/fileSys.js';
 export async function updateSeries(gameSlug, options = {}, channelFamily = null, rootChannelSlug = null) {
     const isForce = options.force || false;
     
-    const { data: allPlaylists, error } = await supabase
+    // Notice we dropped the .order() here to handle custom sorting in JS
+    const { data: rawPlaylists, error } = await supabase
         .from('ltg_playlists')
         .select(`
             *,
@@ -19,13 +20,20 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
             ),
             ltg_playlist_stats ( ep_count, total_views, total_likes, total_comments, total_duration, latest_published_at, first_published_at, first_video_id )
         `)
-        .eq('ltg_series.game_slug', gameSlug)
-        .order('season', { ascending: true });
+        .eq('ltg_series.game_slug', gameSlug);
 
-    if (error || !allPlaylists.length) {
+    if (error || !rawPlaylists.length) {
         console.error(`❌ Series error or not found: ${gameSlug}`, error?.message || '');
         return { success: false, skipped: false, totalEpisodes: 0 };
     }
+
+    // Custom Sort: Descending by Major Number, Ascending by Minor Number (e.g. 5, 5.1, 5.2, 4)
+    const allPlaylists = rawPlaylists.sort((a, b) => {
+        const aMajor = Math.floor(a.season);
+        const bMajor = Math.floor(b.season);
+        if (aMajor !== bMajor) return bMajor - aMajor; // Descending major
+        return a.season - b.season; // Ascending minor
+    });
 
     const seriesTitle = allPlaylists[0].ltg_series.title;
     const gameTitle = allPlaylists[0].ltg_series.ltg_games?.title || seriesTitle;
@@ -36,7 +44,7 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
 
     console.log(`\n📚 Processing Game: ${seriesTitle} (${allPlaylists.length} seasons)`);
 
-    // Fetch Series Stats to calculate baseline averages
+    // Fetch Series Stats to calculate baseline averages & populate top panel
     const seriesSlug = allPlaylists[0].ltg_series.slug;
     const { data: seriesStats } = await supabase
         .from('ltg_series_stats')
@@ -45,12 +53,21 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
         .single();
 
     const seasonCount = allPlaylists.length || 1;
+    const seriesVidsCount = seriesStats?.total_videos || 1; // Prevent div/0
+
     const averages = {
+        // Per-Season Averages
         videos: Math.round((seriesStats?.total_videos || 0) / seasonCount),
         views: Math.round((seriesStats?.total_views || 0) / seasonCount),
         likes: Math.round((seriesStats?.total_likes || 0) / seasonCount),
         comments: Math.round((seriesStats?.total_comments || 0) / seasonCount),
-        duration: Math.round((seriesStats?.total_duration || 0) / seasonCount)
+        duration: Math.round((seriesStats?.total_duration || 0) / seasonCount),
+        
+        // Per-Video Averages (across the whole series)
+        viewsPerVid: Math.round((seriesStats?.total_views || 0) / seriesVidsCount),
+        likesPerVid: Math.round((seriesStats?.total_likes || 0) / seriesVidsCount),
+        commentsPerVid: Math.round((seriesStats?.total_comments || 0) / seriesVidsCount),
+        durPerVid: Math.round((seriesStats?.total_duration || 0) / seriesVidsCount)
     };
 
     let seriesSkipped = true;
@@ -68,7 +85,6 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
 
         const stats = playlist.ltg_playlist_stats?.[0] || {};
         
-        // --- STRICT STATUS MAPPING ---
         const displayStatus = playlist.status || 'Unknown';
         let sColor = 'gray'; 
         if (displayStatus === 'Active') sColor = 'green';
@@ -126,7 +142,8 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
         seasons: seasonsData,
         tags: gameTags,
         manualContent: seriesManualContent,
-        averages // Pass the averages to the template
+        averages,
+        seriesStats: seriesStats || {} // Pass full stats for the top panel
     });
 
     writeStaticPage(seriesIndex, seriesPageHTML);

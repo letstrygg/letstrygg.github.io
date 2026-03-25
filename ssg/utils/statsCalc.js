@@ -19,6 +19,12 @@ export const StatsCalc = {
         const diff = Math.abs(new Date(date2) - new Date(date1));
         return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
     },
+    formatAge(days) {
+        if (days < 365) return `${days}d`;
+        const y = Math.floor(days / 365);
+        const d = days % 365;
+        return `${y}y ${d}d`;
+    },
     
     // 3. Advanced Metrics
     velocity(total, days) {
@@ -36,10 +42,10 @@ export const StatsCalc = {
         if (!average) return '';
         const diff = actual - average;
         
+        // Neutral gray for 0 difference
         if (diff === 0) return `<span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span>`;
         
         const sign = diff > 0 ? '+' : '';
-        // If duration, we usually don't want to color it red just because it's longer, but we can stick to standard green=more for now.
         let color = diff > 0 ? 'var(--green)' : 'var(--red)';
         
         let formatStr = '';
@@ -53,6 +59,7 @@ export const StatsCalc = {
                         Math.round(Math.abs(diff));
         }
 
-        return `<span style="color: ${color}; font-size: 0.85em; font-weight: bold; margin-left: 4px;">(${sign}${formatStr})</span>`;
+        // Parentheses are styled gray, only the inner number gets the green/red color
+        return `<span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: ${color};">${sign}${formatStr}</span>)</span>`;
     }
 };
