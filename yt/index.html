@@ -25,45 +25,6 @@ custom_css: "/css/home.css"
 
     <div class="channel-directory-card" style="background: #111; border: 1px solid #333; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
         <div style="padding: 20px; background: #1a1a1a; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="margin: 0; text-transform: capitalize;"><a href="/yt/letstrygg/" style="color: var(--text); text-decoration: none;">letstrygg</a></h2>
-            <a href="/yt/letstrygg/" class="btn">View Directory</a>
-        </div>
-
-        <div class="channel-stats-container" style="padding: 20px; position: relative;">
-            
-            <div class="stats-basic" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <div>
-                    <div style="font-size: 0.8em; color: var(--gray); text-transform: uppercase;">Library</div>
-                    <div style="font-size: 1.2em; font-weight: bold;">193 <span style="font-size: 0.7em; font-weight: normal; color: var(--gray);">Games</span></div>
-                    <div style="font-size: 1.2em; font-weight: bold;">3,838 <span style="font-size: 0.7em; font-weight: normal; color: var(--gray);">Videos</span></div>
-                </div>
-                <div>
-                    <div style="font-size: 0.8em; color: var(--gray); text-transform: uppercase;">Performance</div>
-                    <div style="font-size: 1.2em; font-weight: bold; color: var(--blue);">1.2M <span style="font-size: 0.7em; font-weight: normal; color: var(--gray);">Views</span></div>
-                    <div style="font-size: 1.2em; font-weight: bold; color: var(--orange);">312 <span style="font-size: 0.7em; font-weight: normal; color: var(--gray);">VPV</span></div>
-                </div>
-            </div>
-
-            <div class="stats-advanced" style="display: none; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9em;">
-                <div>
-                    <div style="color: var(--gray); margin-bottom: 5px; border-bottom: 1px solid #333;">Averages</div>
-                    <div><strong>20</strong> vids per game</div>
-                    <div><strong>16h</strong> per game</div>
-                    <div><strong>50m</strong> per video</div>
-                </div>
-                <div>
-                    <div style="color: var(--gray); margin-bottom: 5px; border-bottom: 1px solid #333;">Totals</div>
-                    <div><strong>235</strong> Total Playlists</div>
-                    <div><strong>3,248h</strong> Total Duration</div>
-                </div>
-            </div>
-            
-            <button class="btn btn-gray toggle-stats-btn" style="width: 100%; margin-top: 20px; font-size: 0.8em;" onclick="toggleChannelStats(this)">Show Advanced Stats</button>
-        </div>
-    </div>
-
-    <div class="channel-directory-card" style="background: #111; border: 1px solid #333; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <div style="padding: 20px; background: #1a1a1a; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center;">
             <h2 style="margin: 0; text-transform: capitalize;"><a href="/yt/ltg-plus/" style="color: var(--text); text-decoration: none;">ltg-plus</a></h2>
             <a href="/yt/ltg-plus/" class="btn">View Directory</a>
         </div>
@@ -94,6 +55,45 @@ custom_css: "/css/home.css"
                     <div style="color: var(--gray); margin-bottom: 5px; border-bottom: 1px solid #333;">Totals</div>
                     <div><strong>41</strong> Total Playlists</div>
                     <div><strong>1,247h</strong> Total Duration</div>
+                </div>
+            </div>
+            
+            <button class="btn btn-gray toggle-stats-btn" style="width: 100%; margin-top: 20px; font-size: 0.8em;" onclick="toggleChannelStats(this)">Show Advanced Stats</button>
+        </div>
+    </div>
+
+    <div class="channel-directory-card" style="background: #111; border: 1px solid #333; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="padding: 20px; background: #1a1a1a; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="margin: 0; text-transform: capitalize;"><a href="/yt/letstrygg/" style="color: var(--text); text-decoration: none;">letstrygg</a></h2>
+            <a href="/yt/letstrygg/" class="btn">View Directory</a>
+        </div>
+
+        <div class="channel-stats-container" style="padding: 20px; position: relative;">
+            
+            <div class="stats-basic" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div>
+                    <div style="font-size: 0.8em; color: var(--gray); text-transform: uppercase;">Library</div>
+                    <div style="font-size: 1.2em; font-weight: bold;">193 <span style="font-size: 0.7em; font-weight: normal; color: var(--gray);">Games</span></div>
+                    <div style="font-size: 1.2em; font-weight: bold;">3,838 <span style="font-size: 0.7em; font-weight: normal; color: var(--gray);">Videos</span></div>
+                </div>
+                <div>
+                    <div style="font-size: 0.8em; color: var(--gray); text-transform: uppercase;">Performance</div>
+                    <div style="font-size: 1.2em; font-weight: bold; color: var(--blue);">1.2M <span style="font-size: 0.7em; font-weight: normal; color: var(--gray);">Views</span></div>
+                    <div style="font-size: 1.2em; font-weight: bold; color: var(--orange);">312 <span style="font-size: 0.7em; font-weight: normal; color: var(--gray);">VPV</span></div>
+                </div>
+            </div>
+
+            <div class="stats-advanced" style="display: none; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9em;">
+                <div>
+                    <div style="color: var(--gray); margin-bottom: 5px; border-bottom: 1px solid #333;">Averages</div>
+                    <div><strong>20</strong> vids per game</div>
+                    <div><strong>16h</strong> per game</div>
+                    <div><strong>50m</strong> per video</div>
+                </div>
+                <div>
+                    <div style="color: var(--gray); margin-bottom: 5px; border-bottom: 1px solid #333;">Totals</div>
+                    <div><strong>235</strong> Total Playlists</div>
+                    <div><strong>3,248h</strong> Total Duration</div>
                 </div>
             </div>
             

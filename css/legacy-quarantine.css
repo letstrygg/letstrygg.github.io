@@ -68,3 +68,37 @@
     .dur-short { display: inline-flex; }
     .card-row { font-size: 0.85em; } 
 }
+
+
+
+/* ==========================================================================
+   7. UNIVERSAL PANELS & DASHBOARDS
+   ========================================================================== */
+/* --- Removed from Universal Panels (Replace with Utility Classes) --- */
+
+/* Replace .panel-header with: .flex-between */
+.panel-header { display: flex; justify-content: space-between; align-items: center; margin: 0px 4px 4px 4px; }
+
+/* Replace .content with: .inner-panel .flush-all .interactive */
+.content { display: flex; flex-direction: column; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; text-decoration: none; color: var(--text); transition: border-color 0.2s ease; }
+.content:hover { border-color: var(--border-hover); }
+.content img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+
+/* Replace .content-row with: .flex-between */
+.content-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; gap: 12px; }
+
+/* Replace .info with: .inner-panel .interactive */
+.info { display: flex; flex-direction: column; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 15px; margin-top: 10px; text-decoration: none; color: var(--text); transition: background 0.2s ease, border-color 0.2s ease; }
+.info:hover { background: var(--bg3); border-color: var(--border-hover); }
+.info:hover .info-cta { color: var(--blue); }
+
+/* Replace .info-stats with: .flex-between .flex-wrap .text-sm */
+.info-stats { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; flex-wrap: wrap; }
+.info-stats span { display: flex; align-items: center; gap: 2px; }
+
+/* Replace .info-cta with: .flex-between .text-sm .text-bold .text-muted .divider-top .hover-color-blue */
+.info-cta { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: bold; color: var(--gray); border-top: 1px solid var(--border); padding-top: 10px; transition: color 0.2s; }
+
+/* Replace .yt-header-link with: .hover-opacity */
+.yt-header-link { opacity: 0.7; transition: opacity 0.2s; }
+.yt-header-link:hover { opacity: 1; }
