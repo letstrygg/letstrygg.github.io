@@ -18,14 +18,12 @@ export function channelHTML(data) {
     const vCount = Math.max(1, global.total_videos);
 
     const avg = {
-        // Per Game
         vidPerGame: Math.round(global.total_videos / gCount),
         viewsPerGame: Math.round(global.total_views / gCount),
         likesPerGame: Math.round(global.total_likes / gCount),
         commentsPerGame: Math.round(global.total_comments / gCount),
         durPerGame: Math.round(global.total_duration / gCount),
         
-        // Per Video
         viewsPerVid: Math.round(global.total_views / vCount),
         likesPerVid: Math.round(global.total_likes / vCount),
         commentsPerVid: Math.round(global.total_comments / vCount),
@@ -35,12 +33,10 @@ export function channelHTML(data) {
     // Advanced Metrics
     const ageDays = StatsCalc.daysBetween(global.first_pub);
     const deadDays = StatsCalc.daysBetween(global.last_pub);
-    const spanDays = StatsCalc.daysBetween(global.first_pub, global.last_pub);
     const ageHours = StatsCalc.hoursBetween(global.first_pub);
     const velocity = StatsCalc.velocity(global.total_views, ageDays);
     const heat = StatsCalc.popularity(global.total_views, global.total_likes, global.total_comments, ageHours);
     const gem = StatsCalc.hiddenGemScore(global.total_views, global.total_likes, global.total_comments);
-
 
     let html = `---
 layout: new
@@ -49,7 +45,7 @@ permalink: /yt/${data.hubSlug}/
 ---
 
 <style>
-/* Flexbox Merge/Split Animation Styles */
+/* Flexbox Merge/Split Animation Styles (Kept as these are uniquely functional) */
 .channel-split-container {
     display: flex; width: 100%; margin-bottom: 30px; position: relative;
     gap: 0; 
@@ -125,10 +121,9 @@ permalink: /yt/${data.hubSlug}/
 `;
     }
 
-    // THE CHANNEL DASHBOARD (Always Visible)
+    // THE CHANNEL DASHBOARD
     html += `
   <div class="dash-panel">
-    
     <div class="dash-row" style="padding-top: 0;">
       <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Total Games"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">sports_esports</span> ${global.total_games}</div>
@@ -167,17 +162,16 @@ permalink: /yt/${data.hubSlug}/
   </div>
 `;
 
-    // The Rich UI Controls
+    // Generalized Universal Controls
     html += `
-<div class="controls-wrapper">
-    <div class="controls-top-row">
-        <div class="search-wrapper" style="position: relative; flex: 1;">
-            <input type="text" id="gameSearch" placeholder="Search Games" style="width: 100%; padding-right: 35px; box-sizing: border-box;">
-            <span id="clearSearch" class="material-symbols-outlined" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray); font-size: 20px; display: none;" onclick="clearSearchInput()">close</span>
+<div class="panel" style="margin-bottom: 20px; gap: 15px;">
+    <div class="flex-row">
+        <div style="position: relative; flex: 1;">
+            <input type="text" id="gameSearch" class="input" placeholder="Search Games...">
+            <span id="clearSearch" class="material-symbols-outlined hidden" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray);" onclick="clearSearchInput()">close</span>
         </div>
-        
-        <div class="top-row-buttons">
-            <button class="btn" id="btn-tags-toggle" onclick="toggleTagPanel()">
+        <div class="flex-row" style="gap: 10px;">
+            <button class="btn btn-gray" id="btn-tags-toggle" onclick="toggleTagPanel()">
                 <span class="material-symbols-outlined">sell</span> Tags
             </button>
         </div>
@@ -199,9 +193,9 @@ permalink: /yt/${data.hubSlug}/
     </div>
 </div>
 
-<div id="tag-filters" class="tag-filters"></div>
+<div id="tag-filters" class="panel hidden" style="flex-direction: row; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 12px;"></div>
 
-<div class="game-grid" id="all-series-grid">
+<div class="grid" id="all-series-grid">
 `;
 
     // Generate the Game Cards dynamically
@@ -235,7 +229,6 @@ permalink: /yt/${data.hubSlug}/
 
             const statusColor = channel.channelSlug === 'ltg-plus' ? 'gray' : 'blue';
 
-            // New Panel-Style Game Cards
             html += `
   <div class="panel filterable-card" data-channel="${channel.channelSlug}" data-title="${safeTitle.toLowerCase()}" data-tags="${tagsStr}" data-updated="${maxTime}" data-episodes="${epCount}" data-views="${totalViews}" data-duration="${totalDuration}" data-vpv="${vpv}">
       
@@ -332,7 +325,7 @@ function sortGrid(type) {
 function clearSearchInput() {
     const searchInput = document.getElementById('gameSearch');
     searchInput.value = '';
-    document.getElementById('clearSearch').style.display = 'none';
+    document.getElementById('clearSearch').classList.add('hidden');
     applyFilters();
     searchInput.focus();
 }
@@ -352,9 +345,9 @@ function applyFilters() {
         const matchesChannel = activeChannelFilter === 'all' || cardChannel === activeChannelFilter;
 
         if (matchesSearch && matchesTags && matchesChannel) {
-            card.style.display = '';
+            card.classList.remove('hidden');
         } else {
-            card.style.display = 'none';
+            card.classList.add('hidden');
         }
     });
 }
@@ -367,10 +360,10 @@ function toggleTagPanel() {
     
     if (isTagPanelActive) {
         btn.classList.add('active');
-        panel.style.display = 'flex'; 
+        panel.classList.remove('hidden');
     } else {
         btn.classList.remove('active');
-        panel.style.display = 'none'; 
+        panel.classList.add('hidden');
     }
 }
 
@@ -395,7 +388,7 @@ function initTags() {
 
     allSortedTags.forEach(([tag, count]) => {
         const btn = document.createElement('button');
-        btn.className = 'btn-tag tag-item'; 
+        btn.className = 'btn btn-gray'; 
         btn.innerText = \`\${tag} (\${count})\`;
         
         btn.onclick = () => {
@@ -415,7 +408,11 @@ function initTags() {
 // Listen for search input and toggle the 'x' button
 document.getElementById('gameSearch').addEventListener('input', (e) => {
     const clearBtn = document.getElementById('clearSearch');
-    clearBtn.style.display = e.target.value.length > 0 ? 'block' : 'none';
+    if (e.target.value.length > 0) {
+        clearBtn.classList.remove('hidden');
+    } else {
+        clearBtn.classList.add('hidden');
+    }
     applyFilters();
 });
 

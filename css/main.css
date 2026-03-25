@@ -269,3 +269,45 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
 
 .yt-header-link { opacity: 0.7; transition: opacity 0.2s; }
 .yt-header-link:hover { opacity: 1; }
+
+/* ==========================================================================
+   8. UNIVERSAL LAYOUT & FORMS
+   ========================================================================== */
+
+/* Universal Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Universal Form Inputs */
+.input {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input:focus {
+    border-color: var(--blue);
+}
+
+/* Structural Flex Utilities */
+.flex-row { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+    align-items: center; 
+}
+.flex-1 { 
+    flex: 1; 
+}

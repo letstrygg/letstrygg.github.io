@@ -73,7 +73,7 @@ custom_css: "/css/home.css"
 
   ${data.manualContent}
 
-  <div class="season-grid" id="series-grid">
+  <div class="grid" id="series-grid">
 `;
 
     // Generate Panel Blocks for each Season
