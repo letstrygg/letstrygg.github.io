@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { getChannelContext } from '../utils/db.js';
-import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
+import { writeStaticPage } from '../utils/fileSys.js';
 import { channelHTML, hubHTML } from '../utils/templates/index.js'; 
 import { updateSeries } from './updateSeries.js';
 
@@ -24,15 +24,11 @@ export async function updateChannel(hubSlug, options = {}) {
 
     console.log(`Found ${gamesList.length} unique games across ${context.channels.length} channel(s). Beginning concurrent cascade...`);
 
-    // --- CONCURRENT BATCH PROCESSING ---
     const batchSize = 15; 
-    
     for (let i = 0; i < gamesList.length; i += batchSize) {
         const batch = gamesList.slice(i, i + batchSize);
-        
         const batchPromises = batch.map(async (game) => {
             try {
-                // The options object (including indexesOnly) passes down through the cascade
                 return await updateSeries(game.slug, options, channelFamily, context.hubSlug);
             } catch (err) {
                 const errMsg = `[Game: ${game.slug}] Critical Series Failure: ${err.message}`;
@@ -42,15 +38,12 @@ export async function updateChannel(hubSlug, options = {}) {
         });
 
         const batchResults = await Promise.all(batchPromises);
-
         batchResults.forEach(result => {
             if (result.error) {
                 channelErrors.push(result.error);
             } else {
                 totalEpisodes += result.totalEpisodes || 0;
-                if (result.errors && result.errors.length > 0) {
-                    channelErrors.push(...result.errors);
-                }
+                if (result.errors && result.errors.length > 0) channelErrors.push(...result.errors);
                 if (!result.skipped) anyUpdates = true;
             }
         });
@@ -64,14 +57,14 @@ export async function updateChannel(hubSlug, options = {}) {
         return { success: true, skipped: true, totalEpisodes, errors: channelErrors };
     }
 
-    // --- 1. GENERATE THE MASTER HUB DIRECTORY (/yt/index.html) ---
+    // --- 1. GENERATE THE MASTER HUB DIRECTORY ---
     console.log(`\n🏗️  Aggregating Network Statistics for Master Hub...`);
     const networkData = {
         totalGames: 0, totalVideos: 0, totalViews: 0, totalDuration: 0, channels: []
     };
 
     for (const ch of context.channels) {
-        const chStats = { slug: ch.channelSlug, games: ch.games.length, seasons: 0, videos: 0, views: 0, duration: 0 };
+        const chStats = { slug: ch.channelSlug, displayName: ch.displayName, games: ch.games.length, seasons: 0, videos: 0, views: 0, duration: 0 };
         for (const game of ch.games) {
             const gameSeasons = game.ltg_series_playlists || [];
             chStats.seasons += gameSeasons.length;
@@ -95,22 +88,17 @@ export async function updateChannel(hubSlug, options = {}) {
     if (!fs.existsSync(rootPath)) fs.mkdirSync(rootPath, { recursive: true });
     if (!fs.existsSync(`${rootPath}/_manual`)) fs.mkdirSync(`${rootPath}/_manual`, { recursive: true });
     
-    // Node Injection for the Master Hub Manual
     const rootManualPath = `${rootPath}/_manual/index.html`;
     let rootManualContent = "\n";
-    if (fs.existsSync(rootManualPath)) {
-        rootManualContent = fs.readFileSync(rootManualPath, 'utf8');
-    } else {
-        writeStaticPage(rootManualPath, rootManualContent);
-    }
-    
+    if (fs.existsSync(rootManualPath)) rootManualContent = fs.readFileSync(rootManualPath, 'utf8');
+    else writeStaticPage(rootManualPath, rootManualContent);
     networkData.manualContent = rootManualContent;
 
     writeStaticPage(`${rootPath}/index.html`, hubHTML(networkData));
     console.log(`✅ Master Network Directory generated at: ${rootPath}/index.html`);
 
 
-    // --- 2. GENERATE THE INDIVIDUAL CHANNEL DIRECTORIES (/yt/letstrygg/index.html) ---
+    // --- 2. GENERATE THE INDIVIDUAL CHANNEL DIRECTORIES ---
     console.log(`\n🏗️  Generating Channel Indexes for the ${context.hubSlug} family...`);
 
     for (const channel of context.channels) {
@@ -121,29 +109,16 @@ export async function updateChannel(hubSlug, options = {}) {
         if (!fs.existsSync(channelPath)) fs.mkdirSync(channelPath, { recursive: true });
         if (!fs.existsSync(`${channelPath}/_manual`)) fs.mkdirSync(`${channelPath}/_manual`, { recursive: true });
 
-        // Node Injection for the Channel Manual
         let manualContent = "\n";
-        if (fs.existsSync(channelManual)) {
-            manualContent = fs.readFileSync(channelManual, 'utf8');
-        } else {
-            writeStaticPage(channelManual, manualContent);
-        }
+        if (fs.existsSync(channelManual)) manualContent = fs.readFileSync(channelManual, 'utf8');
+        else writeStaticPage(channelManual, manualContent);
 
         const isMainHub = channel.channelSlug === context.hubSlug;
         const channelsToRender = isMainHub ? context.channels : [channel];
 
-        // Dynamically calculate the totals for the rendered channels to feed the dashboard
         const dashboardTotals = {
-            total_games: 0,
-            total_videos: 0,
-            total_views: 0,
-            total_likes: 0,
-            total_comments: 0,
-            total_duration: 0,
-            first_pub: Infinity,
-            last_pub: 0,
-            first_ep_views: 0,
-            last_ep_views: 0
+            total_games: 0, total_videos: 0, total_views: 0, total_likes: 0,
+            total_comments: 0, total_duration: 0, first_pub: Infinity, last_pub: 0
         };
 
         channelsToRender.forEach(ch => {
@@ -160,24 +135,21 @@ export async function updateChannel(hubSlug, options = {}) {
                         
                         const firstP = new Date(stats.first_published_at || Infinity).getTime();
                         const lastP = new Date(stats.latest_published_at || 0).getTime();
-                        if (firstP < dashboardTotals.first_pub) {
-                            dashboardTotals.first_pub = firstP;
-                            // Approximating first/last views using the playlist's first video if available
-                        }
+                        if (firstP < dashboardTotals.first_pub) dashboardTotals.first_pub = firstP;
                         if (lastP > dashboardTotals.last_pub) dashboardTotals.last_pub = lastP;
                     }
                 });
             });
         });
 
-        // Convert Infinity back to null if no dates found
         if (dashboardTotals.first_pub === Infinity) dashboardTotals.first_pub = null;
 
         const pageHTML = channelHTML({
             hubSlug: channel.channelSlug,
+            hubDisplayName: isMainHub ? context.hubDisplayName : channel.displayName,
             channels: channelsToRender,
             manualContent: manualContent,
-            dashboardTotals // Pass the massive object down
+            dashboardTotals 
         });
 
         writeStaticPage(channelIndex, pageHTML);

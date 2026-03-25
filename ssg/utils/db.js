@@ -23,7 +23,6 @@ if (!supabaseUrl || !supabaseKey) {
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Generic helper to get all context needed for a single video page
 export async function getFullEpisodeContext(videoId) {
     const { data, error } = await supabase
         .from('ltg_videos')
@@ -47,7 +46,6 @@ export async function getFullEpisodeContext(videoId) {
     return data;
 }
 
-// Helper to find the Prev/Next episodes in the same playlist
 export async function getAdjacentEpisodes(playlistId, currentSortOrder) {
     const { data: prevData } = await supabase
         .from('ltg_playlist_videos')
@@ -73,24 +71,13 @@ export async function getAdjacentEpisodes(playlistId, currentSortOrder) {
     };
 }
 
-// Helper to get Season Context
 export async function getFullSeasonContext(playlistId) {
     const { data, error } = await supabase
         .from('ltg_playlists')
         .select(`
-            id,
-            season,
-            channel_slug,
-            sync_date, 
-            ltg_series (
-                slug,
-                title,
-                ltg_games (slug, custom_abbr)
-            ),
-            ltg_playlist_videos (
-                video_id,
-                sort_order
-            )
+            id, season, channel_slug, sync_date, 
+            ltg_series ( slug, title, ltg_games (slug, custom_abbr) ),
+            ltg_playlist_videos ( video_id, sort_order )
         `)
         .eq('id', playlistId)
         .single();
@@ -99,26 +86,16 @@ export async function getFullSeasonContext(playlistId) {
     return data;
 }
 
-// Helper to get Series Context (Updated to include tags!)
 export async function getFullSeriesContext(gameSlug, channelFamily = null) {
     const { data, error } = await supabase
         .from('ltg_series')
         .select(`
-            slug,
-            title,
-            status,
+            slug, title, status,
             ltg_games!inner (slug, title, custom_abbr, tags),
             ltg_playlists (
-                id,
-                season,
-                channel_slug,
-                sync_date,
-                title,
-                playlist_type, 
+                id, season, channel_slug, sync_date, title, playlist_type, 
                 ltg_playlist_stats ( ep_count, total_views, total_likes, total_comments, total_duration, latest_published_at, first_published_at, first_video_id ),
-                ltg_playlist_videos (
-                    sort_order
-                )
+                ltg_playlist_videos ( sort_order )
             )
         `)
         .eq('game_slug', gameSlug);
@@ -126,7 +103,6 @@ export async function getFullSeriesContext(gameSlug, channelFamily = null) {
     if (error) throw error;
 
     let processedData = data;
-
     processedData.forEach(series => {
         if (series.ltg_playlists) {
             series.ltg_playlists = series.ltg_playlists.filter(p => {
@@ -144,70 +120,50 @@ export async function getFullSeriesContext(gameSlug, channelFamily = null) {
     if (!processedData || processedData.length === 0) {
         throw new Error(`No valid game series found attached to game slug: '${gameSlug}'.`);
     }
-
     return processedData;
 }
 
-// Helper to get Channel Family Context (Updated to include ALL stats & tags!)
 export async function getChannelContext(targetSlug) {
-    const { data: childrenData } = await supabase
+    // 1. Fetch channel family AND display names
+    const { data: familyData } = await supabase
         .from('ltg_channels')
-        .select('slug')
-        .eq('parent_channel', targetSlug);
+        .select('slug, display_name, parent_channel')
+        .or(`slug.eq.${targetSlug},parent_channel.eq.${targetSlug}`);
 
-    const slugsToFetch = [targetSlug];
-    if (childrenData && childrenData.length > 0) {
-        slugsToFetch.push(...childrenData.map(c => c.slug));
-    }
+    const slugsToFetch = familyData.map(c => c.slug);
+    const parentChannel = familyData.find(c => c.slug === targetSlug);
+    const parentDisplayName = parentChannel?.display_name || targetSlug;
 
     // 2. Fetch playlists, games, tags, AND FULL STATS
     const { data, error } = await supabase
         .from('ltg_playlists')
         .select(`
-            id,
-            channel_slug,
+            id, channel_slug,
             ltg_series!inner (
-                ltg_games!inner (
-                    slug,
-                    title,
-                    custom_abbr,
-                    tags
-                )
+                ltg_games!inner ( slug, title, custom_abbr, tags )
             ),
             ltg_playlist_stats (
-                ep_count,
-                total_views,
-                total_likes,
-                total_comments,
-                total_duration,
-                latest_published_at,
-                first_published_at,
-                first_video_id
+                ep_count, total_views, total_likes, total_comments, total_duration,
+                latest_published_at, first_published_at, first_video_id
             )
         `)
         .in('channel_slug', slugsToFetch)
         .eq('playlist_type', 'game'); 
 
     if (error) throw error;
-    
     if (!data || data.length === 0) {
         throw new Error(`No playlists found for channel family: '${slugsToFetch.join(', ')}'.`);
     }
 
     // 3. Group games and attach their stats
     const channelsMap = new Map();
-    
-    slugsToFetch.forEach(slug => {
-        channelsMap.set(slug, new Map()); 
-    });
+    slugsToFetch.forEach(slug => channelsMap.set(slug, new Map()));
 
     data.forEach(p => {
         const cSlug = p.channel_slug;
         const game = p.ltg_series.ltg_games;
-        
         const gameMap = channelsMap.get(cSlug);
         
-        // Create the game entry if we haven't seen it yet
         if (!gameMap.has(game.slug)) {
             gameMap.set(game.slug, {
                 slug: game.slug,
@@ -215,12 +171,10 @@ export async function getChannelContext(targetSlug) {
                 custom_abbr: game.custom_abbr,
                 tags: game.tags || [],
                 channelOwner: cSlug,
-                ltg_series_playlists: [] // We use this array to feed the aggregator!
+                ltg_series_playlists: []
             });
         }
 
-        // Attach this specific playlist's FULL stats to the game object
-        // By passing p.ltg_playlist_stats down directly, we don't accidentally lose any fields
         gameMap.get(game.slug).ltg_series_playlists.push({
             ltg_playlists: {
                 id: p.id,
@@ -230,15 +184,20 @@ export async function getChannelContext(targetSlug) {
     });
 
     const formattedChannels = Array.from(channelsMap.entries())
-        .map(([slug, gamesMap]) => ({
-            channelSlug: slug,
-            isParent: slug === targetSlug,
-            games: Array.from(gamesMap.values())
-        }))
+        .map(([slug, gamesMap]) => {
+            const chanInfo = familyData.find(c => c.slug === slug);
+            return {
+                channelSlug: slug,
+                displayName: chanInfo?.display_name || slug,
+                isParent: slug === targetSlug,
+                games: Array.from(gamesMap.values())
+            };
+        })
         .filter(c => c.games.length > 0); 
 
     return {
-        hubSlug: targetSlug, 
+        hubSlug: targetSlug,
+        hubDisplayName: parentDisplayName,
         channels: formattedChannels 
     };
 }
@@ -246,31 +205,17 @@ export async function getChannelContext(targetSlug) {
 export async function updateSeriesSyncDateByPlaylist(playlistId) {
     const { data: playlist, error: fetchError } = await supabase
         .from('ltg_playlists')
-        .select(`
-            series_slug,
-            ltg_series (
-                game_slug
-            )
-        `)
+        .select('series_slug, ltg_series (game_slug)')
         .eq('id', playlistId)
         .single();
 
-    if (fetchError || !playlist?.series_slug) {
-        console.error(`⚠️ Could not find parent series for playlist ${playlistId} to update sync_date.`);
-        return null;
-    }
+    if (fetchError || !playlist?.series_slug) return null;
 
     const { error: updateError } = await supabase
         .from('ltg_series')
         .update({ sync_date: new Date().toISOString() })
         .eq('slug', playlist.series_slug);
 
-    if (updateError) {
-        console.error(`❌ Failed to update sync_date for series ${playlist.series_slug}:`, updateError.message);
-        return null;
-    }
-
-    console.log(`    >> Bubbled sync_date up to Series: ${playlist.series_slug}`);
-    
+    if (updateError) return null;
     return playlist.ltg_series?.game_slug || playlist.series_slug.toLowerCase();
 }
