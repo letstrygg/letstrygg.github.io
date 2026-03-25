@@ -9,8 +9,11 @@ export function seriesHTML(data) {
     const seriesAgeDays = StatsCalc.daysBetween(global.first_published_at);
     const seriesDeadDays = StatsCalc.daysBetween(global.latest_published_at);
     const seriesSpanDays = StatsCalc.daysBetween(global.first_published_at, global.latest_published_at);
+    const seriesAgeHours = StatsCalc.hoursBetween(global.first_published_at);
     const seriesVel = StatsCalc.velocity(global.total_views || 0, seriesAgeDays);
     const seriesGem = StatsCalc.hiddenGemScore(global.total_views, global.total_likes, global.total_comments);
+    const seriesRetention = StatsCalc.retention(global.firstEpViews, global.lastEpViews);
+    const seriesHeat = StatsCalc.popularity(global.total_views || 0, global.total_likes || 0, global.total_comments || 0, seriesAgeHours);
 
     let html = `---
 layout: new
@@ -185,11 +188,14 @@ custom_css: "/css/home.css"
       <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> ${StatsCalc.formatDur(avg.durPerVid)}</div>
     </div>
 
-    <div class="dash-row">
-      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ADVANCED:</div>
+    <div class="dash-row" style="gap: 20px;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ANALYTICS:</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Time since first video"><strong>Age:</strong> ${StatsCalc.formatAge(seriesAgeDays)}</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> ${StatsCalc.formatAge(seriesSpanDays)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> <span style="color: var(--red);">${seriesDeadDays}d</span></div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">${seriesVel}/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Franchise Retention: Latest Season Final Ep vs Season 1 First Ep"><strong>Retain:</strong> <span style="color: var(--green);">${seriesRetention}</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Trending score based on engagement and recency"><strong>Heat:</strong> <span style="color: var(--red);">${seriesHeat}</span></div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">${seriesGem}</span></div>
     </div>
 
@@ -220,9 +226,13 @@ custom_css: "/css/home.css"
 
         // Crunch Season-Specific Advanced Stats
         const ageDays = StatsCalc.daysBetween(s.firstPub);
+        const deadDays = StatsCalc.daysBetween(s.lastPub);
         const longevityDays = StatsCalc.daysBetween(s.firstPub, s.lastPub);
+        const ageHours = StatsCalc.hoursBetween(s.firstPub);
         const viewsVelocity = StatsCalc.velocity(s.totalViews, ageDays);
         const gemScore = StatsCalc.hiddenGemScore(s.totalViews, s.totalLikes, s.totalComments);
+        const sRetention = StatsCalc.retention(s.firstEpViews, s.lastEpViews);
+        const sHeat = StatsCalc.popularity(s.totalViews, s.totalLikes, s.totalComments, ageHours);
 
         // Crunch Season-Specific Per-Video Stats
         const epCountSafe = Math.max(1, s.epCount); // prevent divide by zero
@@ -269,7 +279,10 @@ custom_css: "/css/home.css"
         <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
           <span class="tooltip-trigger" data-tooltip="Age of Season"><strong>Age:</strong> ${StatsCalc.formatAge(ageDays)}</span>
           <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> ${StatsCalc.formatAge(longevityDays)}</span>
+          <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> <span style="color: var(--red);">${deadDays}d</span></span>
           <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span style="color: var(--blue);">${viewsVelocity}/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Retention: Final Ep Views vs Ep 1 Views"><strong>Retain:</strong> <span style="color: var(--green);">${sRetention}</span></span>
+          <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span style="color: var(--red);">${sHeat}</span></span>
           <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">${gemScore}</span></span>
         </div>
         

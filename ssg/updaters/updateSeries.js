@@ -7,7 +7,7 @@ import { writeStaticPage } from '../utils/fileSys.js';
 export async function updateSeries(gameSlug, options = {}, channelFamily = null, rootChannelSlug = null) {
     const isForce = options.force || false;
     
-    // Notice we dropped the .order() here to handle custom sorting in JS
+    // Dropped the .order() here to handle custom sorting in JS
     const { data: rawPlaylists, error } = await supabase
         .from('ltg_playlists')
         .select(`
@@ -106,9 +106,22 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
             firstPub: stats.first_published_at || null,
             lastPub: stats.latest_published_at || null,
             firstVideoId: stats.first_video_id,
+            firstEpViews: seasonResult.firstEpViews || 0,
+            lastEpViews: seasonResult.lastEpViews || 0,
             lastUpdatedFormatted: stats.latest_published_at ? new Date(stats.latest_published_at).getTime() : 0,
             episodes: seasonResult.episodesList || []
         });
+    }
+
+    // Calculate Series First and Last Episode Views for franchise retention
+    // Finds chronological first/last safely, regardless of how the array is sorted
+    const earliestSeason = seasonsData.reduce((prev, curr) => (prev.firstPub < curr.firstPub ? prev : curr), seasonsData[0]);
+    const latestSeason = seasonsData.reduce((prev, curr) => (prev.lastPub > curr.lastPub ? prev : curr), seasonsData[0]);
+    
+    // Inject them directly into the seriesStats object so the template can easily grab them
+    if (seriesStats) {
+        seriesStats.firstEpViews = earliestSeason?.firstEpViews || 0;
+        seriesStats.lastEpViews = latestSeason?.lastEpViews || 0;
     }
 
     if (seriesSkipped && !isForce && fs.existsSync(seriesIndex)) {

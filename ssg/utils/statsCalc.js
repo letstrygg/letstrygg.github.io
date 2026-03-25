@@ -19,6 +19,11 @@ export const StatsCalc = {
         const diff = Math.abs(new Date(date2) - new Date(date1));
         return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
     },
+    hoursBetween(date1, date2 = new Date()) {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date(date2) - new Date(date1));
+        return Math.max(1, diff / (1000 * 60 * 60));
+    },
     formatAge(days) {
         if (days < 365) return `${days}d`;
         const y = Math.floor(days / 365);
@@ -30,9 +35,18 @@ export const StatsCalc = {
     velocity(total, days) {
         return (total / days).toFixed(1);
     },
+    retention(firstViews, lastViews) {
+        if (!firstViews || firstViews === 0) return "0.0%";
+        return ((lastViews / firstViews) * 100).toFixed(1) + "%";
+    },
+    popularity(views, likes, comments, ageHours) {
+        const num = views + (likes * 5) + (comments * 10);
+        const den = Math.pow((ageHours + 2), 1.5);
+        return (num / den).toFixed(1);
+    },
     hiddenGemScore(views, likes, comments) {
         if (!views) return "0.0";
-        // Simple starting formula: (Engagement / Views) * Scaling Factor
+        // Natural Log curve protects against mainstream inflation
         const score = ((likes + comments) / views) * Math.log(100000 / (views + 1));
         return Math.max(0, score).toFixed(2);
     },

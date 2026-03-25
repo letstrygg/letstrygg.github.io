@@ -43,6 +43,10 @@ export async function updateSeason(playlistId, options = {}) {
         return { success: false, skipped: false, episodesProcessed: 0, episodesList: [] };
     }
 
+    // Grab first and last episode views for drop-off rate
+    const firstEpViews = episodes.length > 0 ? (episodes[0].ltg_videos.view_count || 0) : 0;
+    const lastEpViews = episodes.length > 0 ? (episodes[episodes.length - 1].ltg_videos.view_count || 0) : 0;
+
     // 2. Fetch Series Averages for the Deltas
     const seriesSlug = playlistData.ltg_series.slug;
     
@@ -107,7 +111,9 @@ export async function updateSeason(playlistId, options = {}) {
                     success: true, 
                     skipped: true, 
                     episodesProcessed: episodes.length,
-                    episodesList: episodes.map(ep => ep.sort_order) 
+                    episodesList: episodes.map(ep => ep.sort_order),
+                    firstEpViews,
+                    lastEpViews
                 };
             }
         }
@@ -239,6 +245,8 @@ export async function updateSeason(playlistId, options = {}) {
         success: true, 
         skipped: false, 
         episodesProcessed: episodes.length,
-        episodesList: epNumbers
+        episodesList: epNumbers,
+        firstEpViews,
+        lastEpViews
     };
 }
