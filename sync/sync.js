@@ -9,17 +9,19 @@ async function run() {
     // Extract flags
     const skipUpdate = args.includes('--no-update') || args.includes('-n');
     const forceUpdate = args.includes('--force') || args.includes('-f');
+    const fullSync = args.includes('--all') || args.includes('-a'); // NEW FLAG
     
     const cleanArgs = args.filter(a => !a.startsWith('-'));
     const command = cleanArgs[0];
     const targetId = cleanArgs[1];
 
     if (!command || !targetId) {
-        console.error("❌ Usage: node sync/sync.js [playlist|channel] [id] [--no-update] [--force]");
+        console.error("❌ Usage: node sync/sync.js [playlist|channel] [id] [--no-update] [--force] [--all]");
         process.exit(1);
     }
 
     console.log(`\n🚀 Starting Orchestrator: [SYNC ${command.toUpperCase()}] -> Target: ${targetId}`);
+    if (fullSync) console.log(`⚠️  FLAG DETECTED: [--all] Full catalog sync enabled.`);
     const startTime = Date.now();
 
     try {
@@ -50,8 +52,8 @@ async function run() {
                 break;
 
             case 'channel':
-                // 1. Run the Smart Sync
-                const affectedGames = await syncChannel(targetId);
+                // 1. Run the Sync (Pass fullSync flag)
+                const affectedGames = await syncChannel(targetId, fullSync);
 
                 // 2. Trigger SSG Builds for affected games
                 if (!skipUpdate && affectedGames.length > 0) {

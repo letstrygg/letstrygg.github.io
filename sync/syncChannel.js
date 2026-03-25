@@ -9,8 +9,8 @@ function ensureLogDir() {
     return logDir;
 }
 
-export async function syncChannel(channelSlug) {
-    console.log(`\n🧠 Initiating Smart Sync for Channel: ${channelSlug}...`);
+export async function syncChannel(channelSlug, isFullSync = false) {
+    console.log(`\n🧠 Initiating ${isFullSync ? 'FULL' : 'Smart'} Sync for Channel: ${channelSlug}...`);
 
     // 1. Fetch all game playlists for this channel with their stats
     const { data: playlists, error } = await supabase
@@ -64,27 +64,33 @@ export async function syncChannel(channelSlug) {
         }
     };
 
-    // --- BUCKET 1: 6 Most Recently Uploaded ---
-    const sortedByUpload = [...pool].sort((a, b) => b.lastUpload - a.lastUpload);
-    sortedByUpload.slice(0, 6).forEach(p => addToQueue(p, 'Top 6 Most Recent'));
+    if (isFullSync) {
+        console.log(`\n🚨 FULL SYNC FLAG DETECTED: Bypassing smart buckets. Syncing all ${pool.length} playlists.`);
+        // Sort by oldest sync first
+        pool.sort((a, b) => a.lastSync - b.lastSync).forEach(p => addToQueue(p, 'Full Sync (--all)'));
+    } else {
+        // --- BUCKET 1: 6 Most Recently Uploaded ---
+        const sortedByUpload = [...pool].sort((a, b) => b.lastUpload - a.lastUpload);
+        sortedByUpload.slice(0, 6).forEach(p => addToQueue(p, 'Top 6 Most Recent'));
 
-    // --- BUCKET 2: 30 Days (Most Stale Sync) ---
-    const stale30 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload <= 30).sort((a, b) => a.lastSync - b.lastSync);
-    stale30.slice(0, 6).forEach(p => addToQueue(p, '<= 30 Days (Stale)'));
+        // --- BUCKET 2: 30 Days (Most Stale Sync) ---
+        const stale30 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload <= 30).sort((a, b) => a.lastSync - b.lastSync);
+        stale30.slice(0, 6).forEach(p => addToQueue(p, '<= 30 Days (Stale)'));
 
-    // --- BUCKET 3: 90 Days (Most Stale Sync) ---
-    const stale90 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload > 30 && p.daysSinceUpload <= 90).sort((a, b) => a.lastSync - b.lastSync);
-    stale90.slice(0, 6).forEach(p => addToQueue(p, '<= 90 Days (Stale)'));
+        // --- BUCKET 3: 90 Days (Most Stale Sync) ---
+        const stale90 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload > 30 && p.daysSinceUpload <= 90).sort((a, b) => a.lastSync - b.lastSync);
+        stale90.slice(0, 6).forEach(p => addToQueue(p, '<= 90 Days (Stale)'));
 
-    // --- BUCKET 4: 365 Days (Most Stale Sync) ---
-    const stale365 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload > 90 && p.daysSinceUpload <= 365).sort((a, b) => a.lastSync - b.lastSync);
-    stale365.slice(0, 6).forEach(p => addToQueue(p, '<= 365 Days (Stale)'));
+        // --- BUCKET 4: 365 Days (Most Stale Sync) ---
+        const stale365 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload > 90 && p.daysSinceUpload <= 365).sort((a, b) => a.lastSync - b.lastSync);
+        stale365.slice(0, 6).forEach(p => addToQueue(p, '<= 365 Days (Stale)'));
 
-    // --- BUCKET 5: Overall Oldest Syncs ---
-    const staleAll = [...pool].filter(p => !queuedIds.has(p.id)).sort((a, b) => a.lastSync - b.lastSync);
-    staleAll.slice(0, 6).forEach(p => addToQueue(p, 'Oldest Overall'));
+        // --- BUCKET 5: Overall Oldest Syncs ---
+        const staleAll = [...pool].filter(p => !queuedIds.has(p.id)).sort((a, b) => a.lastSync - b.lastSync);
+        staleAll.slice(0, 6).forEach(p => addToQueue(p, 'Oldest Overall'));
+    }
 
-    console.log(`\n🎯 Smart Sync queued ${queue.length} playlists.`);
+    console.log(`\n🎯 Sync queued ${queue.length} playlists.`);
 
     const resultsLog = [];
     const affectedGames = new Set();
@@ -127,11 +133,12 @@ export async function syncChannel(channelSlug) {
     if (resultsLog.length > 0) {
         const logDir = ensureLogDir();
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        const logPath = path.join(logDir, `sync_${channelSlug}_${timestamp}.json`);
+        const logType = isFullSync ? 'full_sync' : 'smart_sync';
+        const logPath = path.join(logDir, `${logType}_${channelSlug}_${timestamp}.json`);
         
-        fs.writeFileSync(logPath, JSON.stringify({ channel: channelSlug, syncedAt: new Date().toISOString(), results: resultsLog }, null, 2));
+        fs.writeFileSync(logPath, JSON.stringify({ channel: channelSlug, type: logType, syncedAt: new Date().toISOString(), results: resultsLog }, null, 2));
         console.log(`\n📄 Sync Log written to: ${logPath}`);
     }
 
-    return Array.from(affectedGames); // Return the unique game slugs so the orchestrator knows what to rebuild
+    return Array.from(affectedGames); 
 }
