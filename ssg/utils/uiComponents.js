@@ -1,0 +1,128 @@
+import { StatsCalc } from './statsCalc.js';
+
+export const UI = {
+    Dashboard: function(global, avg, adv, opts) {
+        const {
+            itemCount = 0,
+            itemIcon = "sports_esports",
+            itemLabel = "Total Items",
+            groupLabel = "PER ITEM"
+        } = opts;
+
+        return `
+  <div class="dash-panel" id="main-dashboard">
+    <div class="dash-row" style="padding-top: 0;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="${itemLabel}" id="dash-tot-games"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">${itemIcon}</span> ${itemCount}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos" id="dash-tot-vids"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> ${StatsCalc.formatNum(global.total_videos)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views" id="dash-tot-views"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> ${StatsCalc.formatNum(global.total_views)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes" id="dash-tot-likes"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> ${StatsCalc.formatNum(global.total_likes)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments" id="dash-tot-comms"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> ${StatsCalc.formatNum(global.total_comments)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration" id="dash-tot-dur"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> ${StatsCalc.formatDur(global.total_duration)}</div>
+    </div>
+
+    <div class="dash-row">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">${groupLabel}:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Videos vs ${groupLabel}" id="dash-avg-vid"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> ${StatsCalc.formatNum(avg.items)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views vs ${groupLabel}" id="dash-avg-view"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> ${StatsCalc.formatNum(avg.views)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes vs ${groupLabel}" id="dash-avg-like"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> ${StatsCalc.formatNum(avg.likes)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments vs ${groupLabel}" id="dash-avg-comm"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> ${StatsCalc.formatNum(avg.comments)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration vs ${groupLabel}" id="dash-avg-dur"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> ${StatsCalc.formatDur(avg.duration)}</div>
+    </div>
+
+    <div class="dash-row">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video" id="dash-pv-view"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> ${StatsCalc.formatNum(avg.viewsPerVid)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video" id="dash-pv-like"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> ${StatsCalc.formatNum(avg.likesPerVid)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video" id="dash-pv-comm"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> ${StatsCalc.formatNum(avg.commentsPerVid)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video" id="dash-pv-dur"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> ${StatsCalc.formatDur(avg.durPerVid)}</div>
+    </div>
+
+    <div class="dash-row" style="gap: 20px;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ANALYTICS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Age of filtered content" id="dash-adv-age"><strong>Age:</strong> ${StatsCalc.formatAge(adv.age)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload" id="dash-adv-dead"><strong>Inactive:</strong> ${StatsCalc.formatAge(adv.dead)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Views generated per day" id="dash-adv-vel"><strong>Vel:</strong> <span class="blue">${adv.vel}/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Trending Score" id="dash-adv-heat"><strong>Heat:</strong> <span class="red">${adv.heat}</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Hidden Gem Score" id="dash-adv-gem"><strong>Gem:</strong> <span class="orange">${adv.gem}</span></div>
+    </div>
+  </div>`;
+    },
+
+    FilterControls: function() {
+        return `
+<div class="panel" style="margin-bottom: 20px; gap: 15px;">
+    <div class="flex-row">
+        <div style="position: relative; flex: 1;">
+            <input type="text" id="gameSearch" class="input" placeholder="Search...">
+            <span id="clearSearch" class="material-symbols-outlined hidden" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray);" onclick="clearSearchInput()">close</span>
+        </div>
+        <div class="flex-row" style="gap: 10px;">
+            <button class="btn btn-gray" id="btn-tags-toggle" onclick="toggleTagPanel()">
+                <span class="material-symbols-outlined">sell</span> Tags
+            </button>
+        </div>
+    </div>
+
+    <div class="btn-group flex-wrap">
+        <button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')"><span class="material-symbols-outlined">psychiatry</span> New</button>
+        <button class="btn btn-blue" id="btn-popular" onclick="sortGrid('popular')"><span class="material-symbols-outlined">visibility</span> Views</button>
+        <button class="btn btn-purple" id="btn-length" onclick="sortGrid('length')"><span class="material-symbols-outlined">schedule</span> Duration</button>
+        <button class="btn btn-orange" id="btn-vpv" onclick="sortGrid('vpv')"><span class="material-symbols-outlined">mode_heat</span> VPV</button>
+        <button class="btn btn-blue" id="btn-vel" onclick="sortGrid('vel')"><span class="material-symbols-outlined">speed</span> Velocity</button>
+        <button class="btn btn-red" id="btn-heat" onclick="sortGrid('heat')"><span class="material-symbols-outlined">local_fire_department</span> Heat</button>
+        <button class="btn btn-yellow" id="btn-gem" onclick="sortGrid('gem')"><span class="material-symbols-outlined">diamond</span> Gem</button>
+    </div>
+</div>
+<div id="tag-filters" class="panel hidden" style="flex-direction: row; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 12px;"></div>`;
+    },
+
+    GridCard: function(base, stats, adv, avg, opts) {
+        const { contextAvg = "Channel Avg", ctaText = "View Directory" } = opts;
+
+        return `
+  <div class="panel filterable-card flush-all" data-channel="${base.targetSlug}" data-title="${base.title.toLowerCase()}" data-tags="${base.tagsStr}" 
+       data-updated="${adv.maxLast}" data-episodes="${stats.epCount}" data-views="${stats.totalViews}" data-likes="${stats.totalLikes}" data-comments="${stats.totalComments}" data-duration="${stats.totalDuration}" data-vpv="${stats.vpv}" data-firstpub="${adv.minFirst}" data-vel="${adv.vel}" data-heat="${adv.heat}" data-gem="${adv.gem}">
+      
+      <a href="${base.url}" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="${base.thumbUrl}" alt="${base.title}" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            
+            <div class="flex-between divider-bottom">
+              <strong class="label">${base.title}</strong>
+              <span class="card-status ${base.superTitleColor}">${base.superTitle}</span>
+            </div>
+
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs ${contextAvg}"><span class="material-symbols-outlined red">video_library</span> ${StatsCalc.formatNum(stats.epCount)} ${StatsCalc.formatDelta(stats.epCount, avg.items)}</span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs ${contextAvg}"><span class="material-symbols-outlined blue">visibility</span> ${StatsCalc.formatNum(stats.totalViews)} ${StatsCalc.formatDelta(stats.totalViews, avg.views)}</span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs ${contextAvg}"><span class="material-symbols-outlined green">thumb_up</span> ${StatsCalc.formatNum(stats.totalLikes)} ${StatsCalc.formatDelta(stats.totalLikes, avg.likes)}</span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs ${contextAvg}"><span class="material-symbols-outlined orange">chat_bubble</span> ${StatsCalc.formatNum(stats.totalComments)} ${StatsCalc.formatDelta(stats.totalComments, avg.comments)}</span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs ${contextAvg}"><span class="material-symbols-outlined purple">schedule</span> ${StatsCalc.formatDur(stats.totalDuration)} ${StatsCalc.formatDelta(stats.totalDuration, avg.duration, true)}</span>
+            </div>
+            
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs ${contextAvg}"><span class="material-symbols-outlined blue">visibility</span> ${StatsCalc.formatNum(stats.vpv)} ${StatsCalc.formatDelta(stats.vpv, avg.viewsPerVid)}</span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs ${contextAvg}"><span class="material-symbols-outlined green">thumb_up</span> ${StatsCalc.formatNum(stats.lpv)} ${StatsCalc.formatDelta(stats.lpv, avg.likesPerVid)}</span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs ${contextAvg}"><span class="material-symbols-outlined orange">chat_bubble</span> ${StatsCalc.formatNum(stats.cpv)} ${StatsCalc.formatDelta(stats.cpv, avg.commentsPerVid)}</span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs ${contextAvg}"><span class="material-symbols-outlined purple">schedule</span> ${StatsCalc.formatDur(stats.dpv)} ${StatsCalc.formatDelta(stats.dpv, avg.durPerVid, true)}</span>
+            </div>
+
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> ${StatsCalc.formatAge(adv.age)}</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> ${StatsCalc.formatAge(adv.span)}</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> ${StatsCalc.formatAge(adv.dead)}</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">${adv.vel}/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">${adv.heat}</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">${adv.gem}</span></span>
+            </div>
+
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              ${ctaText} <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>\n`;
+    }
+};

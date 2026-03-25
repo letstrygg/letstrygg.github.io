@@ -3,106 +3,370 @@ layout: new
 title: "Trigon Space Story - All Seasons"
 permalink: /yt/letstrygg/trigon-space-story/
 ---
-
 <div class="game-page-wrapper">
-  
-  <div style="margin-bottom: 20px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
+  <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
     <h1 class="title">Trigon Space Story</h1>
     <p class="subtitle" style="margin: 0;">Series Overview</p>
   </div>
 
-  <div class="dash-panel">
-    
+  <div class="dash-panel" id="main-dashboard">
     <div class="dash-row" style="padding-top: 0;">
-      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">TOTALS:</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Total Seasons"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">folder</span> 1</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> 2</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> 184</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> 5</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> 2</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> 58m</div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Seasons" id="dash-tot-games"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">folder</span> 1</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos" id="dash-tot-vids"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> 2</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views" id="dash-tot-views"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> 184</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes" id="dash-tot-likes"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> 5</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments" id="dash-tot-comms"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> 2</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration" id="dash-tot-dur"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> 58m</div>
     </div>
 
     <div class="dash-row">
-      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">PER SEASON:</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Videos per Season"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> 2</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Season"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> 184</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Season"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> 5</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Season"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> 2</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Season"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> 58m</div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER SEASON:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Videos vs PER SEASON" id="dash-avg-vid"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> 2</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views vs PER SEASON" id="dash-avg-view"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> 184</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes vs PER SEASON" id="dash-avg-like"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> 5</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments vs PER SEASON" id="dash-avg-comm"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> 2</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration vs PER SEASON" id="dash-avg-dur"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> 58m</div>
     </div>
 
     <div class="dash-row">
-      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">PER VID:</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> 92</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> 3</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> 1</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> 29m</div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video" id="dash-pv-view"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> 92</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video" id="dash-pv-like"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> 3</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video" id="dash-pv-comm"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> 1</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video" id="dash-pv-dur"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> 29m</div>
     </div>
 
     <div class="dash-row" style="gap: 20px;">
-      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">ANALYTICS:</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Time since first video"><strong>Age:</strong> 3y 333d</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 3d</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 3y 331d</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.1/d</span></div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Franchise Retention: Latest Season Final Ep vs Season 1 First Ep"><strong>Retain:</strong> <span style="color: var(--green);">21.9%</span></div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Trending score based on engagement and recency"><strong>Heat:</strong> <span style="color: var(--red);">0.00</span></div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span style="color: var(--orange);">0.24</span></div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ANALYTICS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Age of filtered content" id="dash-adv-age"><strong>Age:</strong> 3y 333d</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload" id="dash-adv-dead"><strong>Inactive:</strong> 3y 331d</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Views generated per day" id="dash-adv-vel"><strong>Vel:</strong> <span class="blue">0.1/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Trending Score" id="dash-adv-heat"><strong>Heat:</strong> <span class="red">0.00</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Hidden Gem Score" id="dash-adv-gem"><strong>Gem:</strong> <span class="orange">0.24</span></div>
     </div>
-
   </div>
 
-  
 
+<div class="panel" style="margin-bottom: 20px; gap: 15px;">
+    <div class="flex-row">
+        <div style="position: relative; flex: 1;">
+            <input type="text" id="gameSearch" class="input" placeholder="Search...">
+            <span id="clearSearch" class="material-symbols-outlined hidden" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray);" onclick="clearSearchInput()">close</span>
+        </div>
+        <div class="flex-row" style="gap: 10px;">
+            <button class="btn btn-gray" id="btn-tags-toggle" onclick="toggleTagPanel()">
+                <span class="material-symbols-outlined">sell</span> Tags
+            </button>
+        </div>
+    </div>
 
-  <div class="grid" id="series-grid">
-
-    <div class="panel filterable-card flush-all" data-updated="1651237231000">
+    <div class="btn-group flex-wrap">
+        <button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')"><span class="material-symbols-outlined">psychiatry</span> New</button>
+        <button class="btn btn-blue" id="btn-popular" onclick="sortGrid('popular')"><span class="material-symbols-outlined">visibility</span> Views</button>
+        <button class="btn btn-purple" id="btn-length" onclick="sortGrid('length')"><span class="material-symbols-outlined">schedule</span> Duration</button>
+        <button class="btn btn-orange" id="btn-vpv" onclick="sortGrid('vpv')"><span class="material-symbols-outlined">mode_heat</span> VPV</button>
+        <button class="btn btn-blue" id="btn-vel" onclick="sortGrid('vel')"><span class="material-symbols-outlined">speed</span> Velocity</button>
+        <button class="btn btn-red" id="btn-heat" onclick="sortGrid('heat')"><span class="material-symbols-outlined">local_fire_department</span> Heat</button>
+        <button class="btn btn-yellow" id="btn-gem" onclick="sortGrid('gem')"><span class="material-symbols-outlined">diamond</span> Gem</button>
+    </div>
+</div>
+<div id="tag-filters" class="panel hidden" style="flex-direction: row; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 12px;"></div>
+<div class="grid" id="series-grid">
+  <div class="panel filterable-card flush-all" data-channel="" data-title="trigon space story s1" data-tags="" 
+       data-updated="1651237231000" data-episodes="2" data-views="184" data-likes="5" data-comments="2" data-duration="3523" data-vpv="92" data-firstpub="2022-04-27T13:00:02+00:00" data-vel="0.1" data-heat="0.00" data-gem="0.24">
       
       <a href="/yt/letstrygg/trigon-space-story/season-1/" class="inner-panel interactive flush-all" style="border: none;">
-        
-        <img src="https://i.ytimg.com/vi/44lss6lmUDA/maxresdefault.jpg" alt="Trigon Space Story S1" loading="lazy" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <img src="https://i.ytimg.com/vi/44lss6lmUDA/maxresdefault.jpg" alt="Trigon Space Story S1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         
         <div style="padding: 15px; display: flex; flex-direction: column;">
-          
-          <div class="flex-between divider-bottom">
-            <strong class="label">Trigon Space Story S1</strong>
-            <span class="card-status blue">Complete</span>
-          </div>
+            
+            <div class="flex-between divider-bottom">
+              <strong class="label">Trigon Space Story S1</strong>
+              <span class="card-status blue">Complete</span>
+            </div>
 
-          <div class="flex-between flex-wrap text-sm">
-            <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined red">video_library</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
-            <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined blue">visibility</span> 184 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
-            <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
-            <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
-            <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined purple">schedule</span> 58m <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
-          </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined red">video_library</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined blue">visibility</span> 184 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined purple">schedule</span> 58m <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+            </div>
+            
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Series Avg"><span class="material-symbols-outlined blue">visibility</span> 92 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Series Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Series Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Series Avg"><span class="material-symbols-outlined purple">schedule</span> 29m <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+            </div>
 
-          <div class="flex-between flex-wrap text-sm divider-top-dashed">
-            <span title="Views / Vid" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views Per Video vs Series Avg"><span class="material-symbols-outlined blue">visibility</span> 92 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
-            <span title="Likes / Vid" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes Per Video vs Series Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
-            <span title="Comments / Vid" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments Per Video vs Series Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
-            <span title="Dur / Vid" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration Per Video vs Series Avg"><span class="material-symbols-outlined purple">schedule</span> 29m <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
-          </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 3y 333d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 3d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 3y 331d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.1/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.24</span></span>
+            </div>
 
-          <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
-            <span class="tooltip-trigger" data-tooltip="Age of Season"><strong>Age:</strong> 3y 333d</span>
-            <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 3d</span>
-            <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 3y 331d</span>
-            <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.1/d</span></span>
-            <span class="tooltip-trigger" data-tooltip="Retention: Final Ep Views vs Ep 1 Views"><strong>Retain:</strong> <span class="green">21.9%</span></span>
-            <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
-            <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.24</span></span>
-          </div>
-          
-          <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
-            View Season <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
-          </div>
-          
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Season <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
         </div>
       </a>
-    </div>
-
   </div>
 </div>
+</div>
+
+<script>
+const Utils = {
+    formatNum: (num) => {
+        if (!num) return '0';
+        if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        return Math.round(num).toString();
+    },
+    formatDur: (seconds) => {
+        if (!seconds) return '0h 0m';
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        return h > 0 ? `${h}h ${m}m` : `${m}m`;
+    },
+    daysBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+    },
+    hoursBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, diff / (1000 * 60 * 60));
+    },
+    formatAge: (days) => {
+        if (days < 365) return `${days}d`;
+        const y = Math.floor(days / 365);
+        return `${y}y ${days % 365}d`;
+    },
+    velocity: (t, d) => (t / d).toFixed(1),
+    heat: (v, l, c, h) => ((v + (l * 5) + (c * 10)) / Math.pow(h + 2, 1.5)).toFixed(2),
+    gem: (v, l, c) => (v === 0 ? "0.00" : (Math.max(0, ((l + c) / v) * Math.log(100000 / (v + 1)))).toFixed(2))
+};
+
+let currentSort = 'recent';
+let activeTags = new Set();
+let allSortedTags = [];
+let isTagPanelActive = false;
+let activeChannelFilter = 'all'; 
+
+function updateDash(id, html) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = html;
+}
+
+function toggleNetworkState(targetState, filterSlug) {
+    const container = document.getElementById('networkToggleContainer');
+    if (!container) return;
+
+    const splitCards = container.querySelectorAll('.card-split');
+
+    if (targetState === 'split') {
+        container.classList.remove('state-combined');
+        container.classList.add('state-split');
+        splitCards.forEach(c => {
+            if (c.dataset.target === filterSlug) c.classList.add('active-filter');
+            else c.classList.remove('active-filter');
+        });
+    } else {
+        container.classList.remove('state-split');
+        container.classList.add('state-combined');
+        splitCards.forEach(c => c.classList.remove('active-filter'));
+    }
+
+    activeChannelFilter = filterSlug;
+    applyFilters();
+}
+
+function sortGrid(type) {
+    currentSort = type;
+    document.querySelectorAll('.btn-group .btn').forEach(btn => btn.classList.remove('active'));
+    
+    const clickedBtn = document.getElementById(`btn-${type}`);
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    const grid = document.getElementById('all-series-grid') || document.getElementById('series-grid');
+    if (!grid) return;
+    
+    const cards = Array.from(grid.querySelectorAll('.filterable-card'));
+
+    cards.sort((a, b) => {
+        if (type === 'recent') return parseInt(b.dataset.updated || 0) - parseInt(a.dataset.updated || 0);
+        if (type === 'popular') return parseInt(b.dataset.views || 0) - parseInt(a.dataset.views || 0);
+        if (type === 'length') return parseInt(b.dataset.duration || 0) - parseInt(a.dataset.duration || 0);
+        if (type === 'vpv') return parseInt(b.dataset.vpv || 0) - parseInt(a.dataset.vpv || 0);
+        if (type === 'vel') return parseFloat(b.dataset.vel || 0) - parseFloat(a.dataset.vel || 0);
+        if (type === 'heat') return parseFloat(b.dataset.heat || 0) - parseFloat(a.dataset.heat || 0);
+        if (type === 'gem') return parseFloat(b.dataset.gem || 0) - parseFloat(a.dataset.gem || 0);
+    });
+
+    grid.innerHTML = '';
+    cards.forEach(card => grid.appendChild(card));
+}
+
+function clearSearchInput() {
+    const searchInput = document.getElementById('gameSearch');
+    if (!searchInput) return;
+    searchInput.value = '';
+    document.getElementById('clearSearch').classList.add('hidden');
+    applyFilters();
+    searchInput.focus();
+}
+
+function applyFilters() {
+    const searchInput = document.getElementById('gameSearch');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+    const cards = document.querySelectorAll('.filterable-card');
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const tagsStr = card.getAttribute('data-tags') || '';
+        const cardChannel = card.getAttribute('data-channel') || '';
+        const cardTags = tagsStr.split(',').map(t => t.trim()).filter(Boolean);
+
+        const matchesSearch = title.includes(searchTerm);
+        const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(tag => cardTags.includes(tag));
+        const matchesChannel = activeChannelFilter === 'all' || cardChannel === activeChannelFilter;
+
+        if (matchesSearch && matchesTags && matchesChannel) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    calculateDynamicStats();
+}
+
+function calculateDynamicStats() {
+    const cards = document.querySelectorAll('.filterable-card:not(.hidden)');
+    
+    let tGames = 0, tVids = 0, tViews = 0, tLikes = 0, tComms = 0, tDur = 0;
+    let minFirst = Infinity, maxLast = 0;
+
+    cards.forEach(c => {
+        tGames++;
+        tVids += parseInt(c.dataset.episodes || 0);
+        tViews += parseInt(c.dataset.views || 0);
+        tLikes += parseInt(c.dataset.likes || 0);
+        tComms += parseInt(c.dataset.comments || 0);
+        tDur += parseInt(c.dataset.duration || 0);
+
+        const fp = parseInt(c.dataset.firstpub);
+        const lp = parseInt(c.dataset.updated);
+        if (fp && fp < minFirst) minFirst = fp;
+        if (lp && lp > maxLast) maxLast = lp;
+    });
+
+    if (tGames === 0) return; 
+
+    updateDash('dash-tot-games', `<span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">sports_esports</span> ${Utils.formatNum(tGames)}`);
+    updateDash('dash-tot-vids', `<span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> ${Utils.formatNum(tVids)}`);
+    updateDash('dash-tot-views', `<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> ${Utils.formatNum(tViews)}`);
+    updateDash('dash-tot-likes', `<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> ${Utils.formatNum(tLikes)}`);
+    updateDash('dash-tot-comms', `<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> ${Utils.formatNum(tComms)}`);
+    updateDash('dash-tot-dur', `<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> ${Utils.formatDur(tDur)}`);
+
+    updateDash('dash-avg-vid', `<span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> ${Utils.formatNum(tVids / tGames)}`);
+    updateDash('dash-avg-view', `<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> ${Utils.formatNum(tViews / tGames)}`);
+    updateDash('dash-avg-like', `<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> ${Utils.formatNum(tLikes / tGames)}`);
+    updateDash('dash-avg-comm', `<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> ${Utils.formatNum(tComms / tGames)}`);
+    updateDash('dash-avg-dur', `<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> ${Utils.formatDur(tDur / tGames)}`);
+
+    const vC = Math.max(1, tVids);
+    updateDash('dash-pv-view', `<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> ${Utils.formatNum(tViews / vC)}`);
+    updateDash('dash-pv-like', `<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> ${Utils.formatNum(tLikes / vC)}`);
+    updateDash('dash-pv-comm', `<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> ${Utils.formatNum(tComms / vC)}`);
+    updateDash('dash-pv-dur', `<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> ${Utils.formatDur(tDur / vC)}`);
+
+    const ageDays = Utils.daysBetween(minFirst);
+    updateDash('dash-adv-age', `<strong>Age:</strong> ${Utils.formatAge(ageDays)}`);
+    updateDash('dash-adv-dead', `<strong>Inactive:</strong> ${Utils.formatAge(Utils.daysBetween(maxLast))}`);
+    updateDash('dash-adv-vel', `<strong>Vel:</strong> <span class="blue">${Utils.velocity(tViews, ageDays)}/d</span>`);
+    updateDash('dash-adv-heat', `<strong>Heat:</strong> <span class="red">${Utils.heat(tViews, tLikes, tComms, Utils.hoursBetween(minFirst))}</span>`);
+    updateDash('dash-adv-gem', `<strong>Gem:</strong> <span class="orange">${Utils.gem(tViews, tLikes, tComms)}</span>`);
+}
+
+function toggleTagPanel() {
+    isTagPanelActive = !isTagPanelActive;
+    const btn = document.getElementById('btn-tags-toggle');
+    const panel = document.getElementById('tag-filters');
+    
+    if (!btn || !panel) return;
+
+    if (isTagPanelActive) {
+        btn.classList.add('active');
+        panel.classList.remove('hidden');
+    } else {
+        btn.classList.remove('active');
+        panel.classList.add('hidden');
+    }
+}
+
+function initTags() {
+    const cards = document.querySelectorAll('.filterable-card');
+    const tagCounts = {};
+    
+    cards.forEach(card => {
+        const tagsStr = card.getAttribute('data-tags');
+        if (!tagsStr) return;
+        tagsStr.split(',').filter(Boolean).forEach(t => {
+            const cleanTag = t.trim();
+            tagCounts[cleanTag] = (tagCounts[cleanTag] || 0) + 1;
+        });
+    });
+
+    allSortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+    if (allSortedTags.length === 0) return;
+
+    const container = document.getElementById('tag-filters');
+    if (!container) return;
+    
+    container.innerHTML = '';
+
+    allSortedTags.forEach(([tag, count]) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-gray'; 
+        btn.innerText = `${tag} (${count})`;
+        
+        btn.onclick = () => {
+            if (activeTags.has(tag)) {
+                activeTags.delete(tag);
+                btn.classList.remove('active');
+            } else {
+                activeTags.add(tag);
+                btn.classList.add('active');
+            }
+            applyFilters();
+        };
+        container.appendChild(btn);
+    });
+}
+
+const searchInput = document.getElementById('gameSearch');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const clearBtn = document.getElementById('clearSearch');
+        if (e.target.value.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+        applyFilters();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    sortGrid('recent');
+    initTags(); 
+});
+</script>
