@@ -1,19 +1,6 @@
 /* ==========================================================================
    LEGACY & QUESTIONABLE CSS - DO NOT USE ON MODERN PAGES
    ========================================================================== */
-
-/* Old Breadcrumbs */
-.breadcrumbs { font-size: 1.05rem; }
-.breadcrumbs a {
-    color: var(--blue);
-    font-weight: 500;
-    text-decoration: underline;
-    text-decoration-color: var(--underline);
-    text-underline-offset: 3px;
-    transition: opacity 0.2s ease;
-}
-.breadcrumbs a:hover { opacity: 0.8; }
-.breadcrumb-current { color: var(--text); }
 .game-index-list { padding-left: 0; margin-top: 20px; }
 .game-index-list a { font-size: 1.2rem; text-decoration: underline; text-decoration-color: var(--underline); text-underline-offset: 4px; transition: opacity 0.2s ease; }
 .game-index-list a:hover { opacity: 0.8; }
