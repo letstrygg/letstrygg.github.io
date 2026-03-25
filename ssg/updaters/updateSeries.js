@@ -17,7 +17,7 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
                 game_slug,
                 ltg_games ( title, tags, custom_abbr )
             ),
-            ltg_playlist_stats ( ep_count, total_views, total_likes, total_comments, total_duration, latest_published_at, first_video_id )
+            ltg_playlist_stats ( ep_count, total_views, total_likes, total_comments, total_duration, latest_published_at, first_published_at, first_video_id )
         `)
         .eq('ltg_series.game_slug', gameSlug)
         .order('season', { ascending: true });
@@ -35,6 +35,23 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
     const seriesIndex = `${seriesPath}/index.html`;
 
     console.log(`\n📚 Processing Game: ${seriesTitle} (${allPlaylists.length} seasons)`);
+
+    // Fetch Series Stats to calculate baseline averages
+    const seriesSlug = allPlaylists[0].ltg_series.slug;
+    const { data: seriesStats } = await supabase
+        .from('ltg_series_stats')
+        .select('*')
+        .eq('series_slug', seriesSlug)
+        .single();
+
+    const seasonCount = allPlaylists.length || 1;
+    const averages = {
+        videos: Math.round((seriesStats?.total_videos || 0) / seasonCount),
+        views: Math.round((seriesStats?.total_views || 0) / seasonCount),
+        likes: Math.round((seriesStats?.total_likes || 0) / seasonCount),
+        comments: Math.round((seriesStats?.total_comments || 0) / seasonCount),
+        duration: Math.round((seriesStats?.total_duration || 0) / seasonCount)
+    };
 
     let seriesSkipped = true;
     let totalEpisodes = 0;
@@ -70,8 +87,8 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
             totalLikes: stats.total_likes || 0,
             totalComments: stats.total_comments || 0,
             totalDuration: stats.total_duration || 0,
-            durFull: stats.total_duration ? Math.floor(stats.total_duration / 3600) + 'h ' + Math.floor((stats.total_duration % 3600) / 60) + 'm' : '0m',
-            durShort: stats.total_duration ? Math.floor(stats.total_duration / 3600) + 'h' : '0h',
+            firstPub: stats.first_published_at || null,
+            lastPub: stats.latest_published_at || null,
             firstVideoId: stats.first_video_id,
             lastUpdatedFormatted: stats.latest_published_at ? new Date(stats.latest_published_at).getTime() : 0,
             episodes: seasonResult.episodesList || []
@@ -108,7 +125,8 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
         syncDate: new Date().toISOString(),
         seasons: seasonsData,
         tags: gameTags,
-        manualContent: seriesManualContent
+        manualContent: seriesManualContent,
+        averages // Pass the averages to the template
     });
 
     writeStaticPage(seriesIndex, seriesPageHTML);

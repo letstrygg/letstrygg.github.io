@@ -86,7 +86,6 @@ custom_css: "/css/home.css"
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
     font-size: 0.85rem;
     flex-wrap: wrap; 
 }
@@ -135,7 +134,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-1/bpb-s01e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/FXYapsbD85k/maxresdefault.jpg" alt="Backpack Battles S1">
+        <img src="https://i.ytimg.com/vi/FXYapsbD85k/maxresdefault.jpg" alt="Backpack Battles S1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S1</strong>
           <span class="card-status blue">Complete</span>
@@ -143,12 +142,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 96</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 10.8K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 341</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 152</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 68h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 96 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+90)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 10.8K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+10.1K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 341 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+318)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 152 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+142)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 68h 8m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+63h 35m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 885d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 65d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">12.2/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.10</span></span>
         </div>
         
         <div class="info-cta">
@@ -168,7 +175,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2/bpb-s02e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/43DjglP8I1U/maxresdefault.jpg" alt="Backpack Battles S2">
+        <img src="https://i.ytimg.com/vi/43DjglP8I1U/maxresdefault.jpg" alt="Backpack Battles S2" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S2</strong>
           <span class="card-status blue">Complete</span>
@@ -176,12 +183,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 252</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 70.5K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 2K</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 1.1K</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 262h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 252 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+246)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 70.5K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+69.8K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 2K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+2K)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 1.1K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+1.1K)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 262h 20m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+257h 48m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 738d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 160d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">95.6/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.02</span></span>
         </div>
         
         <div class="info-cta">
@@ -201,7 +216,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/bpb-s02_1e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/G6DIVASs-3M/maxresdefault.jpg" alt="Backpack Battles S2.1">
+        <img src="https://i.ytimg.com/vi/G6DIVASs-3M/maxresdefault.jpg" alt="Backpack Battles S2.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S2.1</strong>
           <span class="card-status blue">Complete</span>
@@ -209,12 +224,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 9</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 1.7K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 48</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 10</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 12h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 9 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+3)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 1.7K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+957)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 48 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+25)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 10 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 12h 46m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+8h 14m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 449d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 57d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">3.7/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.14</span></span>
         </div>
         
         <div class="info-cta">
@@ -234,7 +257,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/bpb-s02_1e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/o2XhGsE7UmU/maxresdefault.jpg" alt="Backpack Battles S2.1">
+        <img src="https://i.ytimg.com/vi/o2XhGsE7UmU/maxresdefault.jpg" alt="Backpack Battles S2.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S2.1</strong>
           <span class="card-status blue">Complete</span>
@@ -242,12 +265,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 20</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 5.7K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 158</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 44</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 16h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 20 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+14)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 5.7K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+5K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 158 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+135)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 44 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+34)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 16h 8m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+11h 35m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 683d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 44d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">8.4/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.10</span></span>
         </div>
         
         <div class="info-cta">
@@ -267,7 +298,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/bpb-s02_1e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/3cEg8qI1BIc/maxresdefault.jpg" alt="Backpack Battles S2.1">
+        <img src="https://i.ytimg.com/vi/3cEg8qI1BIc/maxresdefault.jpg" alt="Backpack Battles S2.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S2.1</strong>
           <span class="card-status blue">Complete</span>
@@ -275,12 +306,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 13</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 16.2K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 320</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 117</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 13h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 13 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+7)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 16.2K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+15.5K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 320 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+297)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 117 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+107)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 13h 46m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+9h 13m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 607d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 22d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">26.7/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.05</span></span>
         </div>
         
         <div class="info-cta">
@@ -300,7 +339,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/bpb-s02_1e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/SXZQpqD9Wq4/maxresdefault.jpg" alt="Backpack Battles S2.1">
+        <img src="https://i.ytimg.com/vi/SXZQpqD9Wq4/maxresdefault.jpg" alt="Backpack Battles S2.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S2.1</strong>
           <span class="card-status blue">Complete</span>
@@ -308,12 +347,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 7</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 2.5K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 83</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 42</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 7h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 7 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+1)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 2.5K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+1.8K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 83 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+60)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 42 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+32)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 7h 25m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+2h 52m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 565d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 3d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">4.5/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.18</span></span>
         </div>
         
         <div class="info-cta">
@@ -333,7 +380,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/bpb-s02_1e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/o6emKRzcaV0/maxresdefault.jpg" alt="Backpack Battles S2.1">
+        <img src="https://i.ytimg.com/vi/o6emKRzcaV0/maxresdefault.jpg" alt="Backpack Battles S2.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S2.1</strong>
           <span class="card-status blue">Complete</span>
@@ -341,12 +388,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 11</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 3.5K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 90</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 11</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 11h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 11 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+5)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 3.5K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+2.8K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 90 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+67)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 11 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+1)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 11h 5m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+6h 33m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 473d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 13d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">7.4/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.10</span></span>
         </div>
         
         <div class="info-cta">
@@ -366,7 +421,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/bpb-s02_1e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/p9yWxKfEu0g/maxresdefault.jpg" alt="Backpack Battles S2.1">
+        <img src="https://i.ytimg.com/vi/p9yWxKfEu0g/maxresdefault.jpg" alt="Backpack Battles S2.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S2.1</strong>
           <span class="card-status blue">Complete</span>
@@ -374,12 +429,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 2</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 1K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 18</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 22</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 2 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(4)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 1K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+308)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 18 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(5)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 22 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+12)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 36m <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(1h 55m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 606d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 2d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">1.7/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.18</span></span>
         </div>
         
         <div class="info-cta">
@@ -399,7 +462,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/bpb-s02_1e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/XEMvimurDRQ/maxresdefault.jpg" alt="Backpack Battles S2.1">
+        <img src="https://i.ytimg.com/vi/XEMvimurDRQ/maxresdefault.jpg" alt="Backpack Battles S2.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S2.1</strong>
           <span class="card-status blue">Complete</span>
@@ -407,12 +470,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 4</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 1.6K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 43</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 11</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 3h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 4 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(2)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 1.6K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+882)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 43 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+20)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 11 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+1)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 3h 50m <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(41m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 515d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 4d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">3.1/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.14</span></span>
         </div>
         
         <div class="info-cta">
@@ -432,7 +503,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/bpb-s02_1e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/PFUjvgn6dVc/maxresdefault.jpg" alt="Backpack Battles S2.1">
+        <img src="https://i.ytimg.com/vi/PFUjvgn6dVc/maxresdefault.jpg" alt="Backpack Battles S2.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S2.1</strong>
           <span class="card-status blue">Complete</span>
@@ -440,12 +511,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-2_1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 1</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 210</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 4</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 1</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 1 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(5)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 210 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(511)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 4 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(19)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 1 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(9)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 12m <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(3h 19m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 450d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 1d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.5/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.15</span></span>
         </div>
         
         <div class="info-cta">
@@ -465,7 +544,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-3/bpb-s03e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/wKnlXjIzi8Q/maxresdefault.jpg" alt="Backpack Battles S3">
+        <img src="https://i.ytimg.com/vi/wKnlXjIzi8Q/maxresdefault.jpg" alt="Backpack Battles S3" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S3</strong>
           <span class="card-status blue">Complete</span>
@@ -473,12 +552,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-3/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 159</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 53K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 1.4K</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 377</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 154h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 159 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+153)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 53K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+52.3K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 1.4K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+1.4K)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 377 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+367)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 154h 51m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+150h 19m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 591d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 142d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">89.7/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.02</span></span>
         </div>
         
         <div class="info-cta">
@@ -498,7 +585,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-3_2/bpb-s03_2e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/fvitY7xG6Zw/maxresdefault.jpg" alt="Backpack Battles S3.2">
+        <img src="https://i.ytimg.com/vi/fvitY7xG6Zw/maxresdefault.jpg" alt="Backpack Battles S3.2" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S3.2</strong>
           <span class="card-status blue">Complete</span>
@@ -506,12 +593,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-3_2/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 4</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 931</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 25</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 11</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 3h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 4 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(2)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 931 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+210)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 25 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+2)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 11 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+1)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 3h 46m <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(46m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 368d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 4d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">2.5/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.18</span></span>
         </div>
         
         <div class="info-cta">
@@ -531,7 +626,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-4/bpb-s04e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/bgPvebk1WZs/maxresdefault.jpg" alt="Backpack Battles S4">
+        <img src="https://i.ytimg.com/vi/bgPvebk1WZs/maxresdefault.jpg" alt="Backpack Battles S4" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S4</strong>
           <span class="card-status blue">Complete</span>
@@ -539,12 +634,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-4/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 180</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 54.6K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 1.5K</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 366</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 175h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 180 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+174)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 54.6K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+53.9K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 1.5K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+1.5K)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 366 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+356)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 175h 2m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+170h 30m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 448d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 163d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">122.0/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.02</span></span>
         </div>
         
         <div class="info-cta">
@@ -564,7 +667,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-4_1/bpb-s04_1e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/zl_a97Bbv40/maxresdefault.jpg" alt="Backpack Battles S4.1">
+        <img src="https://i.ytimg.com/vi/zl_a97Bbv40/maxresdefault.jpg" alt="Backpack Battles S4.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S4.1</strong>
           <span class="card-status blue">Complete</span>
@@ -572,12 +675,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-4_1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 6</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 3K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 46</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 11</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 6h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 3K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+2.3K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 46 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+23)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 11 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+1)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 6h 39m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+2h 6m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 272d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 28d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">11.0/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.07</span></span>
         </div>
         
         <div class="info-cta">
@@ -597,7 +708,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/backpack-battles/season-5/bpb-s05e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg" alt="Backpack Battles S5">
+        <img src="https://i.ytimg.com/vi/OPeJuXBuL_U/maxresdefault.jpg" alt="Backpack Battles S5" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Backpack Battles S5</strong>
           <span class="card-status green">Active</span>
@@ -605,12 +716,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/backpack-battles/season-5/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 139</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 38.3K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 901</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 422</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 160h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 139 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+133)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 38.3K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+37.6K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 901 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+878)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 422 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+412)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 160h 1m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+155h 28m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 285d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 280d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">134.5/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.03</span></span>
         </div>
         
         <div class="info-cta">

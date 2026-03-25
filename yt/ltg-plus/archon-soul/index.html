@@ -86,7 +86,6 @@ custom_css: "/css/home.css"
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
     font-size: 0.85rem;
     flex-wrap: wrap; 
 }
@@ -135,7 +134,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/ltg-plus/archon-soul/season-1/as-s01e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/wQiOHruj7i0/maxresdefault.jpg" alt="Archon Soul S1">
+        <img src="https://i.ytimg.com/vi/wQiOHruj7i0/maxresdefault.jpg" alt="Archon Soul S1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Archon Soul S1</strong>
           <span class="card-status blue">Complete</span>
@@ -143,12 +142,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/ltg-plus/archon-soul/season-1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 3</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 105</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 3</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 2</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 105 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 2h 7m <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 171d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 2d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">0.6/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.33</span></span>
         </div>
         
         <div class="info-cta">

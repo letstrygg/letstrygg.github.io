@@ -86,7 +86,6 @@ custom_css: "/css/home.css"
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
     font-size: 0.85rem;
     flex-wrap: wrap; 
 }
@@ -135,7 +134,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/letstrygg/megabonk/season-1/mb-s01e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/Y43oiLHNUmI/maxresdefault.jpg" alt="Megabonk S1">
+        <img src="https://i.ytimg.com/vi/Y43oiLHNUmI/maxresdefault.jpg" alt="Megabonk S1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Megabonk S1</strong>
           <span class="card-status blue">Complete</span>
@@ -143,12 +142,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/letstrygg/megabonk/season-1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 126</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 35.1K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 661</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 255</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 123h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 126 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+63)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 35.1K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+17.6K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 661 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+330)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 255 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+127)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 123h 38m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+61h 49m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 186d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 123d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">188.9/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.03</span></span>
         </div>
         
         <div class="info-cta">
@@ -168,7 +175,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/letstrygg/megabonk/season-1_1/mb-s01_1e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/L2v3gQDx4KA/maxresdefault.jpg" alt="Megabonk S1.1">
+        <img src="https://i.ytimg.com/vi/L2v3gQDx4KA/maxresdefault.jpg" alt="Megabonk S1.1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Megabonk S1.1</strong>
           <span class="card-status blue">Complete</span>
@@ -176,12 +183,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/letstrygg/megabonk/season-1_1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 6</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 1K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 17</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 7</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 6 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(57)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 1K <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(16.6K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 17 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(314)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 7 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(121)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 1h 7m <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(60h 42m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 143d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 3d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">7.0/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.11</span></span>
         </div>
         
         <div class="info-cta">

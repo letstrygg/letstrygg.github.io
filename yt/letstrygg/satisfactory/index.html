@@ -86,7 +86,6 @@ custom_css: "/css/home.css"
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
     font-size: 0.85rem;
     flex-wrap: wrap; 
 }
@@ -135,7 +134,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/letstrygg/satisfactory/season-1/s-s01e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/GinsHvOuU1A/maxresdefault.jpg" alt="Satisfactory S1">
+        <img src="https://i.ytimg.com/vi/GinsHvOuU1A/maxresdefault.jpg" alt="Satisfactory S1" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Satisfactory S1</strong>
           <span class="card-status blue">Complete</span>
@@ -143,12 +142,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/letstrygg/satisfactory/season-1/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 80</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 21.1K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 376</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 192</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 76h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 80 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+53)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 21.1K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+14.1K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 376 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+251)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 192 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+128)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 76h 2m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+50h 41m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 830d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 246d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">25.5/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.04</span></span>
         </div>
         
         <div class="info-cta">
@@ -168,7 +175,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/letstrygg/satisfactory/season-2/s-s02e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/F1pVPsrkl5k/maxresdefault.jpg" alt="Satisfactory S2">
+        <img src="https://i.ytimg.com/vi/F1pVPsrkl5k/maxresdefault.jpg" alt="Satisfactory S2" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Satisfactory S2</strong>
           <span class="card-status blue">Complete</span>
@@ -176,12 +183,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/letstrygg/satisfactory/season-2/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 72</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 11.8K</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 139</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 71</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 103h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 72 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+45)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 11.8K <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+4.7K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 139 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+14)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 71 <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+7)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 103h 12m <span style="color: var(--green); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(+77h 51m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 561d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 101d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">21.0/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.04</span></span>
         </div>
         
         <div class="info-cta">
@@ -201,7 +216,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="/yt/letstrygg/satisfactory/season-3/s-s03e01.html" class="content" title="Play Episode 1">
-        <img src="https://i.ytimg.com/vi/CbGJ0CNSNbg/maxresdefault.jpg" alt="Satisfactory S3">
+        <img src="https://i.ytimg.com/vi/CbGJ0CNSNbg/maxresdefault.jpg" alt="Satisfactory S3" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">Satisfactory S3</strong>
           <span class="card-status blue">Complete</span>
@@ -209,12 +224,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="/yt/letstrygg/satisfactory/season-3/" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 8</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 598</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 15</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 10</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 18h</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> 8 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(19)</span></span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> 598 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(6.5K)</span></span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> 15 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(110)</span></span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> 10 <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(54)</span></span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> 18h 6m <span style="color: var(--red); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(7h 14m)</span></span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> 229d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> 16d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">2.6/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">0.21</span></span>
         </div>
         
         <div class="info-cta">

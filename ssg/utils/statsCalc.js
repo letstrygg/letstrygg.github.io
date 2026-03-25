@@ -32,17 +32,27 @@ export const StatsCalc = {
     },
 
     // 4. HTML Generators (The Green/Red Deltas)
-    formatDelta(actual, average, inverseGood = false) {
+    formatDelta(actual, average, isDuration = false) {
         if (!average) return '';
         const diff = actual - average;
-        if (diff === 0) return `<span style="color: var(--gray); font-size: 0.85em;">(0)</span>`;
+        
+        if (diff === 0) return `<span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span>`;
         
         const sign = diff > 0 ? '+' : '';
-        // If inverseGood is true (like duration), maybe less is better? Usually more is green.
+        // If duration, we usually don't want to color it red just because it's longer, but we can stick to standard green=more for now.
         let color = diff > 0 ? 'var(--green)' : 'var(--red)';
-        if (inverseGood) color = diff > 0 ? 'var(--red)' : 'var(--green)';
+        
+        let formatStr = '';
+        if (isDuration) {
+            const h = Math.floor(Math.abs(diff) / 3600);
+            const m = Math.floor((Math.abs(diff) % 3600) / 60);
+            formatStr = h > 0 ? `${h}h ${m}m` : `${m}m`;
+        } else {
+            formatStr = Math.abs(diff) >= 1000000 ? (Math.abs(diff)/1000000).toFixed(1).replace(/\.0$/, '') + 'M' :
+                        Math.abs(diff) >= 1000 ? (Math.abs(diff)/1000).toFixed(1).replace(/\.0$/, '') + 'K' : 
+                        Math.round(Math.abs(diff));
+        }
 
-        const format = Math.abs(diff) >= 1000 ? (diff/1000).toFixed(1) + 'K' : Math.round(diff);
-        return `<span style="color: ${color}; font-size: 0.85em; font-weight: bold; margin-left: 4px;">(${sign}${format})</span>`;
+        return `<span style="color: ${color}; font-size: 0.85em; font-weight: bold; margin-left: 4px;">(${sign}${formatStr})</span>`;
     }
 };

@@ -1,14 +1,8 @@
-export function seriesHTML(data) {
-    // We now strictly use the Game Title (ltg_games.title)
-    const safeGameTitle = data.gameTitle ? data.gameTitle.replace(/"/g, '&quot;') : data.seriesTitle.replace(/"/g, '&quot;');
+import { StatsCalc } from '../statsCalc.js';
 
-    // Helper for "4.2K" formatting
-    const formatNumber = (num) => {
-        if (!num) return '0';
-        if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
-        if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
-        return num.toString();
-    };
+export function seriesHTML(data) {
+    const safeGameTitle = data.gameTitle ? data.gameTitle.replace(/"/g, '&quot;') : data.seriesTitle.replace(/"/g, '&quot;');
+    const avg = data.averages || { videos: 0, views: 0, likes: 0, comments: 0, duration: 0 };
 
     let html = `---
 layout: new
@@ -98,7 +92,6 @@ custom_css: "/css/home.css"
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
     font-size: 0.85rem;
     flex-wrap: wrap; 
 }
@@ -139,7 +132,7 @@ custom_css: "/css/home.css"
 
     // Generate Panel Blocks
     data.seasons.forEach(s => {
-		// Handle Decimals safely for URLs (e.g. 4.1 -> 04_1)
+        // Handle Decimals (e.g. 4.1 -> 04_1)
         const seasonNumStr = s.seasonNum.toString();
         const seasonNumSafe = seasonNumStr.replace('.', '_');
         const seasonParts = seasonNumStr.split('.');
@@ -151,14 +144,16 @@ custom_css: "/css/home.css"
         const ep1Url = `/yt/${data.channelSlug}/${data.gameSlug}/season-${seasonNumSafe}/${data.shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
         const seasonUrl = `/yt/${data.channelSlug}/${data.gameSlug}/season-${seasonNumSafe}/`;
         const ytPlaylistUrl = `https://www.youtube.com/playlist?list=${s.id}`;
-        
-        const viewsFormatted = formatNumber(s.totalViews);
-        const likesFormatted = formatNumber(s.totalLikes);
-        const commentsFormatted = formatNumber(s.totalComments);
         const thumbUrl = s.firstVideoId ? `https://i.ytimg.com/vi/${s.firstVideoId}/maxresdefault.jpg` : '/assets/img/default-thumbnail.jpg';
         
-        // Strictly formatted as: Game Title S#
         const displayTitle = `${safeGameTitle} S${seasonNumStr}`;
+
+        // Crunch Advanced Stats
+        const ageDays = StatsCalc.daysBetween(s.firstPub);
+        const deadDays = StatsCalc.daysBetween(s.lastPub);
+        const longevityDays = StatsCalc.daysBetween(s.firstPub, s.lastPub);
+        const viewsVelocity = StatsCalc.velocity(s.totalViews, ageDays);
+        const gemScore = StatsCalc.hiddenGemScore(s.totalViews, s.totalLikes, s.totalComments);
 
         html += `
     <div class="panel filterable-card" data-updated="${s.lastUpdatedFormatted}">
@@ -171,7 +166,7 @@ custom_css: "/css/home.css"
       </div>
       
       <a href="${ep1Url}" class="content" title="Play Episode 1">
-        <img src="${thumbUrl}" alt="${displayTitle}">
+        <img src="${thumbUrl}" alt="${displayTitle}" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         <div class="content-row">
           <strong style="font-size: 1.1rem; line-height: 1.3; margin: 0;">${displayTitle}</strong>
           <span class="card-status ${s.statusColor}">${s.status}</span>
@@ -179,12 +174,20 @@ custom_css: "/css/home.css"
       </a>
       
       <a href="${seasonUrl}" class="info" title="View Season Details">
-        <div class="info-stats">
-          <span title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> ${s.epCount}</span>
-          <span title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> ${viewsFormatted}</span>
-          <span title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> ${likesFormatted}</span>
-          <span title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> ${commentsFormatted}</span>
-          <span title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> ${s.durShort}</span>
+        
+        <div class="info-stats" style="margin-bottom: 8px;">
+          <span title="Videos" class="tooltip-trigger" data-tooltip="Total Videos vs Series Avg"><span class="material-symbols-outlined" style="color: var(--red); font-size: 16px; vertical-align: text-bottom;">video_library</span> ${StatsCalc.formatNum(s.epCount)} ${StatsCalc.formatDelta(s.epCount, avg.videos)}</span>
+          <span title="Views" class="tooltip-trigger" data-tooltip="Total Views vs Series Avg"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 16px; vertical-align: text-bottom;">visibility</span> ${StatsCalc.formatNum(s.totalViews)} ${StatsCalc.formatDelta(s.totalViews, avg.views)}</span>
+          <span title="Likes" class="tooltip-trigger" data-tooltip="Total Likes vs Series Avg"><span class="material-symbols-outlined" style="color: var(--green); font-size: 16px; vertical-align: text-bottom;">thumb_up</span> ${StatsCalc.formatNum(s.totalLikes)} ${StatsCalc.formatDelta(s.totalLikes, avg.likes)}</span>
+          <span title="Comments" class="tooltip-trigger" data-tooltip="Total Comments vs Series Avg"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 16px; vertical-align: text-bottom;">chat_bubble</span> ${StatsCalc.formatNum(s.totalComments)} ${StatsCalc.formatDelta(s.totalComments, avg.comments)}</span>
+          <span title="Duration" class="tooltip-trigger" data-tooltip="Total Duration vs Series Avg"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 16px; vertical-align: text-bottom;">schedule</span> ${StatsCalc.formatDur(s.totalDuration)} ${StatsCalc.formatDelta(s.totalDuration, avg.duration, true)}</span>
+        </div>
+
+        <div class="info-stats" style="margin-bottom: 10px; border-top: 1px dashed #333; padding-top: 8px; justify-content: flex-start; gap: 12px; color: var(--gray);">
+          <span class="tooltip-trigger" data-tooltip="Days since first video"><strong>Age:</strong> ${ageDays}d</span>
+          <span class="tooltip-trigger" data-tooltip="Days between first and last video"><strong>Span:</strong> ${longevityDays}d</span>
+          <span class="tooltip-trigger" data-tooltip="Views per day"><strong>Vel:</strong> <span style="color: var(--blue);">${viewsVelocity}/d</span></span>
+          <span class="tooltip-trigger" data-tooltip="Hidden Gem Score (High Engagement, Low Views)"><strong>Gem:</strong> <span style="color: var(--orange);">${gemScore}</span></span>
         </div>
         
         <div class="info-cta">
