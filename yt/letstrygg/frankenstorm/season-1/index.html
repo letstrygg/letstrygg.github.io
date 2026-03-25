@@ -1,116 +1,885 @@
 ---
 layout: new
-title: "Season 1 Episodes - FrankenStorm"
-description: "A complete list of episodes from Season 1 of the FrankenStorm Let's Play."
+title: "Frankenstorm - Season 1"
 permalink: /yt/letstrygg/frankenstorm/season-1/
-custom_css: "/css/game/f-style.css"
-sync_date: "2026-03-19T03:28:17.844+00:00"
 ---
-
-<style>
-/* Dashboard Styles */
-.analytics-dash {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 24px;
-    color: var(--text);
-}
-.dash-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 10px 0;
-    border-bottom: 1px solid #333;
-}
-.dash-row:last-child { border-bottom: none; padding-bottom: 0; }
-.stat-item { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; }
-.stat-label { color: var(--gray); font-weight: bold; margin-right: 4px; }
-</style>
-
 <div class="game-page-wrapper">
-  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
-    <div>
-      <h1 class="title" style="margin-bottom: 5px;">FrankenStorm</h1>
-      <p class="subtitle" style="margin: 0;">Season 1 Episodes</p>
-    </div>
-    <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order">
-      <span class="material-symbols-outlined" id="sortIcon" style="font-size: 18px; vertical-align: middle;">arrow_downward</span> Sort
-    </button>
+  <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
+    <h1 class="title">Frankenstorm</h1>
+    <p class="subtitle" style="margin: 0;">Season 1</p>
   </div>
 
-  <div class="analytics-dash">
-    
+  <div class="dash-panel" id="main-dashboard">
+    <div class="dash-row" style="padding-top: 0;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Episodes"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">video_library</span> <span id="val-tot-items">20</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> <span id="val-tot-vids">20</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-tot-views">1.6K</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-tot-likes">76</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-tot-comms">78</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-tot-dur">17h 23m</span></div>
+    </div>
     <div class="dash-row">
-        <div class="stat-item"><span class="stat-label">ORIGINAL:</span></div>
-        <div class="stat-item" title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 20</div>
-        <div class="stat-item" title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 1.6K</div>
-        <div class="stat-item" title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 76</div>
-        <div class="stat-item" title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 78</div>
-        <div class="stat-item" title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 17h 23m</div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-pv-view">79</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-pv-like">4</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-pv-comm">4</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-pv-dur">52m</span></div>
     </div>
 
-    <div class="dash-row">
-        <div class="stat-item"><span class="stat-label tooltip-trigger" data-tooltip="Compared to Series Average">W/ DELTAS:</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 20 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 1.6K <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 76 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 78 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
+    <div class="dash-row" style="gap: 20px;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ANALYTICS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Age of filtered content"><strong style="margin-right: 4px;">Age:</strong> <span id="val-adv-age">4y 126d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong style="margin-right: 4px;">Inactive:</strong> <span id="val-adv-dead">4y 29d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Views generated per day"><strong style="margin-right: 4px;">Vel:</strong> <span class="blue" id="val-adv-vel">1.0/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Trending Score"><strong style="margin-right: 4px;">Heat:</strong> <span class="red" id="val-adv-heat">0.00</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Hidden Gem Score"><strong style="margin-right: 4px;">Gem:</strong> <span class="orange" id="val-adv-gem">0.41</span></div>
     </div>
-
-    <div class="dash-row" style="margin-top: 5px;">
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Total Age of Season">Age:</span> 1586d
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Days between Ep 1 and Final Ep">Longevity:</span> 98d
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Days since latest upload">Last Video:</span> 1489d ago
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Average views generated per day">Velocity:</span> <span style="color: var(--blue);">1.0/d</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="High Engagement + Low Views = Hidden Gem">Gem Score:</span> <span style="color: var(--orange); font-weight: bold;">0.41</span>
-        </div>
-    </div>
-
   </div>
 
-  <div class="game-section">
-    
 
+<div class="panel" style="margin-bottom: 20px; gap: 15px;">
+    <div class="flex-row">
+        <div style="position: relative; flex: 1;">
+            <input type="text" id="gameSearch" class="input" placeholder="Search...">
+            <span id="clearSearch" class="material-symbols-outlined hidden" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray);" onclick="clearSearchInput()">close</span>
+        </div>
+        <div class="flex-row" style="gap: 10px;">
+            <button class="btn btn-gray" id="btn-tags-toggle" onclick="toggleTagPanel()">
+                <span class="material-symbols-outlined">sell</span> Tags
+            </button>
+        </div>
+    </div>
 
-    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/letstrygg/frankenstorm/season-1/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
-    
-    <div id="grid" class="ep-grid">
-    {%- for ep in ep_pages -%}
-      <a href="{{ ep.url | relative_url }}" class="btn btn-gray" style="text-align: left; padding: 10px 15px;">
-        {{ ep.title | remove: "FrankenStorm" | strip }}
+    <div class="btn-group flex-wrap">
+        <button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')"><span class="material-symbols-outlined">psychiatry</span> New</button>
+        <button class="btn btn-blue" id="btn-popular" onclick="sortGrid('popular')"><span class="material-symbols-outlined">visibility</span> Views</button>
+        <button class="btn btn-purple" id="btn-length" onclick="sortGrid('length')"><span class="material-symbols-outlined">schedule</span> Duration</button>
+        <button class="btn btn-orange" id="btn-vpv" onclick="sortGrid('vpv')"><span class="material-symbols-outlined">mode_heat</span> VPV</button>
+        <button class="btn btn-blue" id="btn-vel" onclick="sortGrid('vel')"><span class="material-symbols-outlined">speed</span> Velocity</button>
+        <button class="btn btn-red" id="btn-heat" onclick="sortGrid('heat')"><span class="material-symbols-outlined">local_fire_department</span> Heat</button>
+        <button class="btn btn-yellow" id="btn-gem" onclick="sortGrid('gem')"><span class="material-symbols-outlined">diamond</span> Gem</button>
+    </div>
+</div>
+<div id="tag-filters" class="panel hidden" style="flex-direction: row; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 12px;"></div>
+<div class="grid" id="series-grid">
+  <div class="panel filterable-card flush-all" data-title="let's try frankenstorm ep 1 - roguelite tower defense with interesting mazing + upgrade choices!" data-tags="" 
+       data-updated="1637420406000" data-episodes="1" data-views="127" data-likes="8" data-comments="4" data-duration="1559" data-vpv="127" data-firstpub="1637420406000" data-vel="0.1" data-heat="0.00" data-gem="0.63">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e01.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/7S8DaI2JeC0/maxresdefault.jpg" alt="Let's Try FrankenStorm Ep 1 - Roguelite Tower Defense with interesting mazing + upgrade choices!" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Let's Try FrankenStorm Ep 1 - Roguelite Tower Defense with interesting mazing + upgrade choices!</strong>
+              <span class="card-status gray">Ep 01</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 127 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 8 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">68</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">74</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 25m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 57m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 126d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.1/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.63</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
       </a>
-    {%- endfor -%}
-    </div>
   </div>
+
+  <div class="panel filterable-card flush-all" data-title="figuring things out in frankenstorm ep 2 - roguelite tower defense" data-tags="" 
+       data-updated="1637506833000" data-episodes="1" data-views="74" data-likes="6" data-comments="0" data-duration="1798" data-vpv="74" data-firstpub="1637506833000" data-vel="0.0" data-heat="0.00" data-gem="0.58">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e02.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/rXZ5btBFf2w/maxresdefault.jpg" alt="Figuring things out in FrankenStorm Ep 2 - Roguelite Tower Defense" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Figuring things out in FrankenStorm Ep 2 - Roguelite Tower Defense</strong>
+              <span class="card-status gray">Ep 02</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 74 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">70</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 29m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 53m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 125d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.58</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="i'm not addicted, you're addicted. frankenstorm ep 3 - roguelite tower defense" data-tags="" 
+       data-updated="1637593202000" data-episodes="1" data-views="58" data-likes="5" data-comments="4" data-duration="4267" data-vpv="58" data-firstpub="1637593202000" data-vel="0.0" data-heat="0.00" data-gem="1.15">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e03.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/42Do30EZbSk/maxresdefault.jpg" alt="I'm not addicted, YOU'RE ADDICTED. FrankenStorm Ep 3 - Roguelite Tower Defense" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">I'm not addicted, YOU'RE ADDICTED. FrankenStorm Ep 3 - Roguelite Tower Defense</strong>
+              <span class="card-status gray">Ep 03</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 58 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">71</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">74</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 11m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 12m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 124d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.15</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="release day!? frankenstorm ep 4 - roguelite tower defense" data-tags="" 
+       data-updated="1637679614000" data-episodes="1" data-views="44" data-likes="4" data-comments="8" data-duration="2048" data-vpv="44" data-firstpub="1637679614000" data-vel="0.0" data-heat="0.00" data-gem="2.10">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e04.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/XIqiIVifUew/maxresdefault.jpg" alt="RELEASE DAY!? FrankenStorm Ep 4 - Roguelite Tower Defense" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">RELEASE DAY!? FrankenStorm Ep 4 - Roguelite Tower Defense</strong>
+              <span class="card-status gray">Ep 04</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 44 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">72</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 8 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">70</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 34m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 49m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 123d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">2.10</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="faster! frankenstorm ep 5 - roguelite tower defense" data-tags="" 
+       data-updated="1637766035000" data-episodes="1" data-views="44" data-likes="2" data-comments="6" data-duration="2500" data-vpv="44" data-firstpub="1637766035000" data-vel="0.0" data-heat="0.00" data-gem="1.40">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e05.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/zT1y8Y1umUY/maxresdefault.jpg" alt="FASTER! FrankenStorm Ep 5 - Roguelite Tower Defense" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">FASTER! FrankenStorm Ep 5 - Roguelite Tower Defense</strong>
+              <span class="card-status gray">Ep 05</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 44 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">74</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">72</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 41m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 41m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 122d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.40</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="highscore board is live! frankenstorm ep 6 free to play tower defense game" data-tags="" 
+       data-updated="1637852402000" data-episodes="1" data-views="49" data-likes="3" data-comments="5" data-duration="5187" data-vpv="49" data-firstpub="1637852402000" data-vel="0.0" data-heat="0.00" data-gem="1.24">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e06.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/ax3aBpqNf4Q/maxresdefault.jpg" alt="Highscore Board is LIVE! FrankenStorm Ep 6 Free to play Tower Defense Game" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Highscore Board is LIVE! FrankenStorm Ep 6 Free to play Tower Defense Game</strong>
+              <span class="card-status gray">Ep 06</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 49 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">73</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">73</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 26m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">15h 57m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 121d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.24</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="frankenstorm ep 7 free to play tower defense game" data-tags="" 
+       data-updated="1637938829000" data-episodes="1" data-views="36" data-likes="2" data-comments="4" data-duration="3389" data-vpv="36" data-firstpub="1637938829000" data-vel="0.0" data-heat="0.00" data-gem="1.32">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e07.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/QoB9sfKVGRA/maxresdefault.jpg" alt="FrankenStorm Ep 7 Free to Play Tower Defense Game" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">FrankenStorm Ep 7 Free to Play Tower Defense Game</strong>
+              <span class="card-status gray">Ep 07</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 36 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">74</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">74</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 56m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 27m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 120d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.32</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="we climb! going for a new highscore in frankenstorm ep 8" data-tags="" 
+       data-updated="1638025217000" data-episodes="1" data-views="346" data-likes="5" data-comments="7" data-duration="2919" data-vpv="346" data-firstpub="1638025217000" data-vel="0.2" data-heat="0.00" data-gem="0.20">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e08.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/NxU_-eQbHIc/maxresdefault.jpg" alt="We CLIMB! Going for a new highscore in FrankenStorm Ep 8" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">We CLIMB! Going for a new highscore in FrankenStorm Ep 8</strong>
+              <span class="card-status gray">Ep 08</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 346 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.2K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">71</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 7 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">71</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 48m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 34m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 119d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.20</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="frankenstorm ep 9 free to play tower defense game" data-tags="" 
+       data-updated="1638111631000" data-episodes="1" data-views="38" data-likes="4" data-comments="6" data-duration="3068" data-vpv="38" data-firstpub="1638111631000" data-vel="0.0" data-heat="0.00" data-gem="2.07">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e09.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/gCzZn4xpUrk/maxresdefault.jpg" alt="FrankenStorm Ep 9 Free to Play Tower Defense Game" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">FrankenStorm Ep 9 Free to Play Tower Defense Game</strong>
+              <span class="card-status gray">Ep 09</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 38 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">72</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">72</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 51m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 32m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 118d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">2.07</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="frankenstorm ep 10 free to play tower defense game" data-tags="" 
+       data-updated="1638198021000" data-episodes="1" data-views="190" data-likes="5" data-comments="4" data-duration="2632" data-vpv="190" data-firstpub="1638198021000" data-vel="0.1" data-heat="0.00" data-gem="0.30">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e10.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/qCOzyOfUumc/maxresdefault.jpg" alt="FrankenStorm Ep 10 Free to Play Tower Defense Game" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">FrankenStorm Ep 10 Free to Play Tower Defense Game</strong>
+              <span class="card-status gray">Ep 10</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 190 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">71</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">74</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 43m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 39m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 117d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.1/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.30</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="frankenstorm ep 11 free to play tower defense game" data-tags="" 
+       data-updated="1638284415000" data-episodes="1" data-views="70" data-likes="4" data-comments="6" data-duration="3868" data-vpv="70" data-firstpub="1638284415000" data-vel="0.0" data-heat="0.00" data-gem="1.04">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e11.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/SDVQll0SwNA/maxresdefault.jpg" alt="FrankenStorm Ep 11 Free to Play Tower Defense Game" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">FrankenStorm Ep 11 Free to Play Tower Defense Game</strong>
+              <span class="card-status gray">Ep 11</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 70 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">72</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">72</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 4m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 19m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 116d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.04</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="frankenstorm ep 12 free to play tower defense game" data-tags="" 
+       data-updated="1638370810000" data-episodes="1" data-views="55" data-likes="4" data-comments="2" data-duration="3536" data-vpv="55" data-firstpub="1638370810000" data-vel="0.0" data-heat="0.00" data-gem="0.82">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e12.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/5bICrfgLcxc/maxresdefault.jpg" alt="FrankenStorm Ep 12 Free to Play Tower Defense Game" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">FrankenStorm Ep 12 Free to Play Tower Defense Game</strong>
+              <span class="card-status gray">Ep 12</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 55 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">72</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">76</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 58m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 24m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 115d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.82</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="frankenstorm ep 13 - free to play tower defense" data-tags="" 
+       data-updated="1638457217000" data-episodes="1" data-views="58" data-likes="3" data-comments="2" data-duration="3306" data-vpv="58" data-firstpub="1638457217000" data-vel="0.0" data-heat="0.00" data-gem="0.64">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e13.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/W72iUU26CGY/maxresdefault.jpg" alt="Frankenstorm Ep 13 - Free to Play Tower Defense" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Frankenstorm Ep 13 - Free to Play Tower Defense</strong>
+              <span class="card-status gray">Ep 13</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 58 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">73</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">76</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 55m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 28m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 114d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.64</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="frankenstorm free tower defense indie game on steam ep 14" data-tags="" 
+       data-updated="1638550850000" data-episodes="1" data-views="52" data-likes="3" data-comments="4" data-duration="4116" data-vpv="52" data-firstpub="1638550850000" data-vel="0.0" data-heat="0.00" data-gem="1.02">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e14.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/wXPDCF_GDsM/maxresdefault.jpg" alt="FrankenStorm Free Tower Defense Indie Game on Steam Ep 14" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">FrankenStorm Free Tower Defense Indie Game on Steam Ep 14</strong>
+              <span class="card-status gray">Ep 14</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 52 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">73</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">74</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 8m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 14m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 113d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.02</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="frankenstorm free tower defense indie game on steam ep 15.5" data-tags="" 
+       data-updated="1638630006000" data-episodes="1" data-views="45" data-likes="4" data-comments="8" data-duration="2752" data-vpv="45" data-firstpub="1638630006000" data-vel="0.0" data-heat="0.00" data-gem="2.05">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e15.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/E9Cbv85wjI8/maxresdefault.jpg" alt="FrankenStorm Free Tower Defense Indie Game on Steam Ep 15.5" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">FrankenStorm Free Tower Defense Indie Game on Steam Ep 15.5</strong>
+              <span class="card-status gray">Ep 15</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 45 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">72</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 8 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">70</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 45m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 37m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 112d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">2.05</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="frankenstorm free tower defense indie game on steam ep 16.5" data-tags="" 
+       data-updated="1638730826000" data-episodes="1" data-views="86" data-likes="5" data-comments="2" data-duration="3646" data-vpv="86" data-firstpub="1638730826000" data-vel="0.1" data-heat="0.00" data-gem="0.57">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e16.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/eXiCj563TpM/maxresdefault.jpg" alt="FrankenStorm Free Tower Defense Indie Game on Steam Ep 16.5" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">FrankenStorm Free Tower Defense Indie Game on Steam Ep 16.5</strong>
+              <span class="card-status gray">Ep 16</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 86 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">71</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">76</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 0m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 22m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 111d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.1/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.57</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="frankenstorm free tower defense indie game on steam ep 17.5" data-tags="" 
+       data-updated="1638802819000" data-episodes="1" data-views="97" data-likes="3" data-comments="2" data-duration="3805" data-vpv="97" data-firstpub="1638802819000" data-vel="0.1" data-heat="0.00" data-gem="0.36">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e17.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/GEPKcv9dDho/maxresdefault.jpg" alt="FrankenStorm Free Tower Defense Indie Game on Steam Ep 17.5" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">FrankenStorm Free Tower Defense Indie Game on Steam Ep 17.5</strong>
+              <span class="card-status gray">Ep 17</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 97 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">73</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">76</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 3m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 20m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 110d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.1/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.36</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="frankenstorm update - quick (super-slow) run! free to play tower defense game" data-tags="" 
+       data-updated="1644771626000" data-episodes="1" data-views="50" data-likes="3" data-comments="2" data-duration="4335" data-vpv="50" data-firstpub="1644771626000" data-vel="0.0" data-heat="0.00" data-gem="0.76">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e18.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/Qbo_TCE278A/maxresdefault.jpg" alt="Frankenstorm Update - Quick (Super-Slow) Run! Free to play tower defense game" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Frankenstorm Update - Quick (Super-Slow) Run! Free to play tower defense game</strong>
+              <span class="card-status gray">Ep 18</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 50 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">73</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">76</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 12m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 11m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 41d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.76</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="free roguelite tower defense game! new ladder season in frankenstorm ep 19" data-tags="" 
+       data-updated="1645729220000" data-episodes="1" data-views="26" data-likes="2" data-comments="2" data-duration="1972" data-vpv="26" data-firstpub="1645729220000" data-vel="0.0" data-heat="0.00" data-gem="1.26">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e19.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/Tw8P0Q8l2W0/maxresdefault.jpg" alt="FREE Roguelite Tower Defense Game! New Ladder Season in Frankenstorm Ep 19" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">FREE Roguelite Tower Defense Game! New Ladder Season in Frankenstorm Ep 19</strong>
+              <span class="card-status gray">Ep 19</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 26 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">74</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">76</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 32m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 50m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 30d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.26</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="trying to climb the ladder - frankenstorm ep 20 - free roguelite tower defense game" data-tags="" 
+       data-updated="1645815606000" data-episodes="1" data-views="30" data-likes="1" data-comments="0" data-duration="1909" data-vpv="30" data-firstpub="1645815606000" data-vel="0.0" data-heat="0.00" data-gem="0.27">
+      <a href="/yt/letstrygg/frankenstorm/season-1/f-s01e20.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/K-AZQ1GQUVg/maxresdefault.jpg" alt="Trying to Climb the Ladder - Frankenstorm Ep 20 - FREE Roguelite Tower Defense Game" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Trying to Climb the Ladder - Frankenstorm Ep 20 - FREE Roguelite Tower Defense Game</strong>
+              <span class="card-status gray">Ep 20</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 30 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">1.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">75</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 31m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16h 51m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 29d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.27</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+</div>
 </div>
 
 <script>
-  let isAscending = true;
-  const epGrid = document.getElementById('epGrid');
-  const sortIcon = document.getElementById('sortIcon');
+const Utils = {
+    formatNum: (num) => {
+        if (!num) return '0';
+        if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        return Math.round(num).toString();
+    },
+    formatDur: (seconds) => {
+        if (!seconds) return '0h 0m';
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        return h > 0 ? `${h}h ${m}m` : `${m}m`;
+    },
+    daysBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+    },
+    hoursBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, diff / (1000 * 60 * 60));
+    },
+    formatAge: (days) => {
+        if (days < 365) return `${days}d`;
+        const y = Math.floor(days / 365);
+        return `${y}y ${days % 365}d`;
+    },
+    velocity: (t, d) => (t / d).toFixed(1),
+    heat: (v, l, c, h) => ((v + (l * 5) + (c * 10)) / Math.pow(h + 2, 1.5)).toFixed(2),
+    gem: (v, l, c) => (v === 0 ? "0.00" : (Math.max(0, ((l + c) / v) * Math.log(100000 / (v + 1)))).toFixed(2))
+};
 
-  function toggleEpSort() {
-    isAscending = !isAscending;
-    sortIcon.innerText = isAscending ? 'arrow_downward' : 'arrow_upward';
+let currentSort = 'recent';
+let activeTags = new Set();
+let allSortedTags = [];
+let isTagPanelActive = false;
+let activeChannelFilter = 'all'; 
+
+function updateDashNum(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.innerText = val;
+}
+
+function toggleNetworkState(targetState, filterSlug) {
+    const container = document.getElementById('networkToggleContainer');
+    if (!container) return;
+
+    const splitCards = container.querySelectorAll('.card-split');
+
+    if (targetState === 'split') {
+        container.classList.remove('state-combined');
+        container.classList.add('state-split');
+        splitCards.forEach(c => {
+            if (c.dataset.target === filterSlug) c.classList.add('active-filter');
+            else c.classList.remove('active-filter');
+        });
+    } else {
+        container.classList.remove('state-split');
+        container.classList.add('state-combined');
+        splitCards.forEach(c => c.classList.remove('active-filter'));
+    }
+
+    activeChannelFilter = filterSlug;
+    applyFilters();
+}
+
+function sortGrid(type) {
+    currentSort = type;
+    document.querySelectorAll('.btn-group .btn').forEach(btn => btn.classList.remove('active'));
     
-    // Convert HTMLCollection to Array to reverse it
-    const items = Array.from(epGrid.children);
-    items.reverse();
+    const clickedBtn = document.getElementById(`btn-${type}`);
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    const grid = document.getElementById('all-series-grid') || document.getElementById('series-grid');
+    if (!grid) return;
     
-    // Clear and re-append in the new order
-    epGrid.innerHTML = '';
-    items.forEach(item => epGrid.appendChild(item));
-  }
+    const cards = Array.from(grid.querySelectorAll('.filterable-card'));
+
+    cards.sort((a, b) => {
+        if (type === 'recent') return parseInt(b.dataset.updated || 0) - parseInt(a.dataset.updated || 0);
+        if (type === 'popular') return parseInt(b.dataset.views || 0) - parseInt(a.dataset.views || 0);
+        if (type === 'length') return parseInt(b.dataset.duration || 0) - parseInt(a.dataset.duration || 0);
+        if (type === 'vpv') return parseInt(b.dataset.vpv || 0) - parseInt(a.dataset.vpv || 0);
+        if (type === 'vel') return parseFloat(b.dataset.vel || 0) - parseFloat(a.dataset.vel || 0);
+        if (type === 'heat') return parseFloat(b.dataset.heat || 0) - parseFloat(a.dataset.heat || 0);
+        if (type === 'gem') return parseFloat(b.dataset.gem || 0) - parseFloat(a.dataset.gem || 0);
+    });
+
+    grid.innerHTML = '';
+    cards.forEach(card => grid.appendChild(card));
+}
+
+function clearSearchInput() {
+    const searchInput = document.getElementById('gameSearch');
+    if (!searchInput) return;
+    searchInput.value = '';
+    document.getElementById('clearSearch').classList.add('hidden');
+    applyFilters();
+    searchInput.focus();
+}
+
+function applyFilters() {
+    const searchInput = document.getElementById('gameSearch');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+    const cards = document.querySelectorAll('.filterable-card');
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const tagsStr = card.getAttribute('data-tags') || '';
+        const cardChannel = card.getAttribute('data-channel') || '';
+        const cardTags = tagsStr.split(',').map(t => t.trim()).filter(Boolean);
+
+        const matchesSearch = title.includes(searchTerm);
+        const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(tag => cardTags.includes(tag));
+        const matchesChannel = activeChannelFilter === 'all' || cardChannel === activeChannelFilter;
+
+        if (matchesSearch && matchesTags && matchesChannel) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    calculateDynamicStats();
+}
+
+function calculateDynamicStats() {
+    const cards = document.querySelectorAll('.filterable-card:not(.hidden)');
+    
+    let tGames = 0, tVids = 0, tViews = 0, tLikes = 0, tComms = 0, tDur = 0;
+    let minFirst = Infinity, maxLast = 0;
+
+    cards.forEach(c => {
+        tGames++;
+        tVids += parseInt(c.dataset.episodes || 0);
+        tViews += parseInt(c.dataset.views || 0);
+        tLikes += parseInt(c.dataset.likes || 0);
+        tComms += parseInt(c.dataset.comments || 0);
+        tDur += parseInt(c.dataset.duration || 0);
+
+        const fp = parseInt(c.dataset.firstpub);
+        const lp = parseInt(c.dataset.updated);
+        if (fp && fp < minFirst) minFirst = fp;
+        if (lp && lp > maxLast) maxLast = lp;
+    });
+
+    if (tGames === 0) return; 
+
+    updateDashNum('val-tot-items', Utils.formatNum(tGames));
+    updateDashNum('val-tot-vids', Utils.formatNum(tVids));
+    updateDashNum('val-tot-views', Utils.formatNum(tViews));
+    updateDashNum('val-tot-likes', Utils.formatNum(tLikes));
+    updateDashNum('val-tot-comms', Utils.formatNum(tComms));
+    updateDashNum('val-tot-dur', Utils.formatDur(tDur));
+
+    updateDashNum('val-avg-vid', Utils.formatNum(tVids / tGames));
+    updateDashNum('val-avg-view', Utils.formatNum(tViews / tGames));
+    updateDashNum('val-avg-like', Utils.formatNum(tLikes / tGames));
+    updateDashNum('val-avg-comm', Utils.formatNum(tComms / tGames));
+    updateDashNum('val-avg-dur', Utils.formatDur(tDur / tGames));
+
+    const vC = Math.max(1, tVids);
+    updateDashNum('val-pv-view', Utils.formatNum(tViews / vC));
+    updateDashNum('val-pv-like', Utils.formatNum(tLikes / vC));
+    updateDashNum('val-pv-comm', Utils.formatNum(tComms / vC));
+    updateDashNum('val-pv-dur', Utils.formatDur(tDur / vC));
+
+    const ageDays = Utils.daysBetween(minFirst);
+    updateDashNum('val-adv-age', Utils.formatAge(ageDays));
+    updateDashNum('val-adv-dead', Utils.formatAge(Utils.daysBetween(maxLast)));
+    
+    // Complex innerHTML updates for colored spans
+    const elVel = document.getElementById('val-adv-vel');
+    if (elVel) elVel.innerHTML = `${Utils.velocity(tViews, ageDays)}/d`;
+    
+    const elHeat = document.getElementById('val-adv-heat');
+    if (elHeat) elHeat.innerHTML = `${Utils.heat(tViews, tLikes, tComms, Utils.hoursBetween(minFirst))}`;
+    
+    const elGem = document.getElementById('val-adv-gem');
+    if (elGem) elGem.innerHTML = `${Utils.gem(tViews, tLikes, tComms)}`;
+}
+
+function toggleTagPanel() {
+    isTagPanelActive = !isTagPanelActive;
+    const btn = document.getElementById('btn-tags-toggle');
+    const panel = document.getElementById('tag-filters');
+    
+    if (!btn || !panel) return;
+
+    if (isTagPanelActive) {
+        btn.classList.add('active');
+        panel.classList.remove('hidden');
+    } else {
+        btn.classList.remove('active');
+        panel.classList.add('hidden');
+    }
+}
+
+function initTags() {
+    const cards = document.querySelectorAll('.filterable-card');
+    const tagCounts = {};
+    
+    cards.forEach(card => {
+        const tagsStr = card.getAttribute('data-tags');
+        if (!tagsStr) return;
+        tagsStr.split(',').filter(Boolean).forEach(t => {
+            const cleanTag = t.trim();
+            tagCounts[cleanTag] = (tagCounts[cleanTag] || 0) + 1;
+        });
+    });
+
+    allSortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+    if (allSortedTags.length === 0) return;
+
+    const container = document.getElementById('tag-filters');
+    if (!container) return;
+    
+    container.innerHTML = '';
+
+    allSortedTags.forEach(([tag, count]) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-gray'; 
+        btn.innerText = `${tag} (${count})`;
+        
+        btn.onclick = () => {
+            if (activeTags.has(tag)) {
+                activeTags.delete(tag);
+                btn.classList.remove('active');
+            } else {
+                activeTags.add(tag);
+                btn.classList.add('active');
+            }
+            applyFilters();
+        };
+        container.appendChild(btn);
+    });
+}
+
+const searchInput = document.getElementById('gameSearch');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const clearBtn = document.getElementById('clearSearch');
+        if (e.target.value.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+        applyFilters();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    sortGrid('recent');
+    initTags(); 
+});
 </script>

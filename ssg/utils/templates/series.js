@@ -8,7 +8,6 @@ export function seriesHTML(data) {
 
     const avgData = data.averages || { videos: 0, views: 0, likes: 0, comments: 0, duration: 0, viewsPerVid: 0, likesPerVid: 0, commentsPerVid: 0, durPerVid: 0 };
     
-    // Standardize mapping so it matches the UI requirements
     const avg = {
         items: avgData.videos, views: avgData.views, likes: avgData.likes, comments: avgData.comments, duration: avgData.duration,
         viewsPerVid: avgData.viewsPerVid, likesPerVid: avgData.likesPerVid, commentsPerVid: avgData.commentsPerVid, durPerVid: avgData.durPerVid
@@ -39,7 +38,8 @@ permalink: /yt/${data.channelSlug}/${data.gameSlug}/
         itemCount: data.seasons.length,
         itemIcon: "folder",
         itemLabel: "Total Seasons",
-        groupLabel: "PER SEASON"
+        groupLabel: "PER SEASON",
+        hideGroupAvg: data.seasons.length <= 1 // <--- Hides if only 1 season exists!
     });
 
     html += `${data.manualContent}\n${UI.FilterControls()}\n<div class="grid" id="series-grid">`;

@@ -153,7 +153,8 @@ export async function updateSeason(playlistId, options = {}) {
             likes: v.likes || 0,
             comments: v.comments || 0,
             duration: v.duration_seconds || 0,
-            url: epUrl
+            url: epUrl,
+            publishedAt: v.published_at
         });
 
         // ONLY generate the actual Episode HTML files if NOT in indexesOnly mode

@@ -1,116 +1,409 @@
 ---
 layout: new
-title: "Season 1 Episodes - Project Highrise Architects Edition"
-description: "A complete list of episodes from Season 1 of the Project Highrise Architects Edition Let's Play."
+title: "Project Highrise - Season 1"
 permalink: /yt/letstrygg/project-highrise/season-1/
-custom_css: "/css/game/ph-style.css"
-sync_date: "2026-03-20T23:04:58.699+00:00"
 ---
-
-<style>
-/* Dashboard Styles */
-.analytics-dash {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 24px;
-    color: var(--text);
-}
-.dash-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 10px 0;
-    border-bottom: 1px solid #333;
-}
-.dash-row:last-child { border-bottom: none; padding-bottom: 0; }
-.stat-item { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; }
-.stat-label { color: var(--gray); font-weight: bold; margin-right: 4px; }
-</style>
-
 <div class="game-page-wrapper">
-  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
-    <div>
-      <h1 class="title" style="margin-bottom: 5px;">Project Highrise Architects Edition</h1>
-      <p class="subtitle" style="margin: 0;">Season 1 Episodes</p>
-    </div>
-    <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order">
-      <span class="material-symbols-outlined" id="sortIcon" style="font-size: 18px; vertical-align: middle;">arrow_downward</span> Sort
-    </button>
+  <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
+    <h1 class="title">Project Highrise</h1>
+    <p class="subtitle" style="margin: 0;">Season 1</p>
   </div>
 
-  <div class="analytics-dash">
-    
+  <div class="dash-panel" id="main-dashboard">
+    <div class="dash-row" style="padding-top: 0;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Episodes"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">video_library</span> <span id="val-tot-items">3</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> <span id="val-tot-vids">3</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-tot-views">392</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-tot-likes">9</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-tot-comms">0</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-tot-dur">1h 11m</span></div>
+    </div>
     <div class="dash-row">
-        <div class="stat-item"><span class="stat-label">ORIGINAL:</span></div>
-        <div class="stat-item" title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 3</div>
-        <div class="stat-item" title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 392</div>
-        <div class="stat-item" title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 9</div>
-        <div class="stat-item" title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 0</div>
-        <div class="stat-item" title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 1h 11m</div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-pv-view">131</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-pv-like">3</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-pv-comm">0</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-pv-dur">23m</span></div>
     </div>
 
-    <div class="dash-row">
-        <div class="stat-item"><span class="stat-label tooltip-trigger" data-tooltip="Compared to Series Average">W/ DELTAS:</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 392 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 9 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 0 </div>
+    <div class="dash-row" style="gap: 20px;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ANALYTICS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Age of filtered content"><strong style="margin-right: 4px;">Age:</strong> <span id="val-adv-age">5y 350d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong style="margin-right: 4px;">Inactive:</strong> <span id="val-adv-dead">5y 348d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Views generated per day"><strong style="margin-right: 4px;">Vel:</strong> <span class="blue" id="val-adv-vel">0.2/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Trending Score"><strong style="margin-right: 4px;">Heat:</strong> <span class="red" id="val-adv-heat">0.00</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Hidden Gem Score"><strong style="margin-right: 4px;">Gem:</strong> <span class="orange" id="val-adv-gem">0.13</span></div>
     </div>
-
-    <div class="dash-row" style="margin-top: 5px;">
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Total Age of Season">Age:</span> 2175d
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Days between Ep 1 and Final Ep">Longevity:</span> 3d
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Days since latest upload">Last Video:</span> 2173d ago
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Average views generated per day">Velocity:</span> <span style="color: var(--blue);">0.2/d</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="High Engagement + Low Views = Hidden Gem">Gem Score:</span> <span style="color: var(--orange); font-weight: bold;">0.13</span>
-        </div>
-    </div>
-
   </div>
 
-  <div class="game-section">
-    
 
+<div class="panel" style="margin-bottom: 20px; gap: 15px;">
+    <div class="flex-row">
+        <div style="position: relative; flex: 1;">
+            <input type="text" id="gameSearch" class="input" placeholder="Search...">
+            <span id="clearSearch" class="material-symbols-outlined hidden" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray);" onclick="clearSearchInput()">close</span>
+        </div>
+        <div class="flex-row" style="gap: 10px;">
+            <button class="btn btn-gray" id="btn-tags-toggle" onclick="toggleTagPanel()">
+                <span class="material-symbols-outlined">sell</span> Tags
+            </button>
+        </div>
+    </div>
 
-    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/letstrygg/project-highrise/season-1/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
-    
-    <div id="grid" class="ep-grid">
-    {%- for ep in ep_pages -%}
-      <a href="{{ ep.url | relative_url }}" class="btn btn-gray" style="text-align: left; padding: 10px 15px;">
-        {{ ep.title | remove: "Project Highrise Architects Edition" | strip }}
+    <div class="btn-group flex-wrap">
+        <button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')"><span class="material-symbols-outlined">psychiatry</span> New</button>
+        <button class="btn btn-blue" id="btn-popular" onclick="sortGrid('popular')"><span class="material-symbols-outlined">visibility</span> Views</button>
+        <button class="btn btn-purple" id="btn-length" onclick="sortGrid('length')"><span class="material-symbols-outlined">schedule</span> Duration</button>
+        <button class="btn btn-orange" id="btn-vpv" onclick="sortGrid('vpv')"><span class="material-symbols-outlined">mode_heat</span> VPV</button>
+        <button class="btn btn-blue" id="btn-vel" onclick="sortGrid('vel')"><span class="material-symbols-outlined">speed</span> Velocity</button>
+        <button class="btn btn-red" id="btn-heat" onclick="sortGrid('heat')"><span class="material-symbols-outlined">local_fire_department</span> Heat</button>
+        <button class="btn btn-yellow" id="btn-gem" onclick="sortGrid('gem')"><span class="material-symbols-outlined">diamond</span> Gem</button>
+    </div>
+</div>
+<div id="tag-filters" class="panel hidden" style="flex-direction: row; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 12px;"></div>
+<div class="grid" id="series-grid">
+  <div class="panel filterable-card flush-all" data-title="project highrise ep 1 first scenario! marquette buliding - architect's edition let's play" data-tags="" 
+       data-updated="1586561401000" data-episodes="1" data-views="368" data-likes="7" data-comments="0" data-duration="1345" data-vpv="368" data-firstpub="1586561401000" data-vel="0.2" data-heat="0.00" data-gem="0.11">
+      <a href="/yt/letstrygg/project-highrise/season-1/ph-s01e01.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/JP15GJ7qFRM/maxresdefault.jpg" alt="Project Highrise Ep 1 First Scenario! Marquette Buliding - Architect's Edition Let's Play" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Project Highrise Ep 1 First Scenario! Marquette Buliding - Architect's Edition Let's Play</strong>
+              <span class="card-status gray">Ep 01</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 368 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">24</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 7 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 </span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 22m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 350d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.11</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
       </a>
-    {%- endfor -%}
-    </div>
   </div>
+
+  <div class="panel filterable-card flush-all" data-title="cash crunch! project highrise ep 2 marquette buliding architect's edition let's play" data-tags="" 
+       data-updated="1586651401000" data-episodes="1" data-views="14" data-likes="2" data-comments="0" data-duration="1361" data-vpv="14" data-firstpub="1586651401000" data-vel="0.0" data-heat="0.00" data-gem="1.26">
+      <a href="/yt/letstrygg/project-highrise/season-1/ph-s01e02.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/84tuQzTxmM0/maxresdefault.jpg" alt="Cash Crunch! Project Highrise Ep 2 Marquette Buliding Architect's Edition Let's Play" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cash Crunch! Project Highrise Ep 2 Marquette Buliding Architect's Edition Let's Play</strong>
+              <span class="card-status gray">Ep 02</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 14 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">378</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">7</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 </span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 22m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 349d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.26</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="play through finale!!! project highrise ep 3 marquette buliding architect's edition let's play" data-tags="" 
+       data-updated="1586737801000" data-episodes="1" data-views="10" data-likes="0" data-comments="0" data-duration="1609" data-vpv="10" data-firstpub="1586737801000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/project-highrise/season-1/ph-s01e03.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/9lzcwDQCu6I/maxresdefault.jpg" alt="Play Through Finale!!! Project Highrise Ep 3 Marquette Buliding Architect's Edition Let's Play" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Play Through Finale!!! Project Highrise Ep 3 Marquette Buliding Architect's Edition Let's Play</strong>
+              <span class="card-status gray">Ep 03</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 10 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">382</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">9</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 </span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 26m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">45m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 348d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+</div>
 </div>
 
 <script>
-  let isAscending = true;
-  const epGrid = document.getElementById('epGrid');
-  const sortIcon = document.getElementById('sortIcon');
+const Utils = {
+    formatNum: (num) => {
+        if (!num) return '0';
+        if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        return Math.round(num).toString();
+    },
+    formatDur: (seconds) => {
+        if (!seconds) return '0h 0m';
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        return h > 0 ? `${h}h ${m}m` : `${m}m`;
+    },
+    daysBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+    },
+    hoursBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, diff / (1000 * 60 * 60));
+    },
+    formatAge: (days) => {
+        if (days < 365) return `${days}d`;
+        const y = Math.floor(days / 365);
+        return `${y}y ${days % 365}d`;
+    },
+    velocity: (t, d) => (t / d).toFixed(1),
+    heat: (v, l, c, h) => ((v + (l * 5) + (c * 10)) / Math.pow(h + 2, 1.5)).toFixed(2),
+    gem: (v, l, c) => (v === 0 ? "0.00" : (Math.max(0, ((l + c) / v) * Math.log(100000 / (v + 1)))).toFixed(2))
+};
 
-  function toggleEpSort() {
-    isAscending = !isAscending;
-    sortIcon.innerText = isAscending ? 'arrow_downward' : 'arrow_upward';
+let currentSort = 'recent';
+let activeTags = new Set();
+let allSortedTags = [];
+let isTagPanelActive = false;
+let activeChannelFilter = 'all'; 
+
+function updateDashNum(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.innerText = val;
+}
+
+function toggleNetworkState(targetState, filterSlug) {
+    const container = document.getElementById('networkToggleContainer');
+    if (!container) return;
+
+    const splitCards = container.querySelectorAll('.card-split');
+
+    if (targetState === 'split') {
+        container.classList.remove('state-combined');
+        container.classList.add('state-split');
+        splitCards.forEach(c => {
+            if (c.dataset.target === filterSlug) c.classList.add('active-filter');
+            else c.classList.remove('active-filter');
+        });
+    } else {
+        container.classList.remove('state-split');
+        container.classList.add('state-combined');
+        splitCards.forEach(c => c.classList.remove('active-filter'));
+    }
+
+    activeChannelFilter = filterSlug;
+    applyFilters();
+}
+
+function sortGrid(type) {
+    currentSort = type;
+    document.querySelectorAll('.btn-group .btn').forEach(btn => btn.classList.remove('active'));
     
-    // Convert HTMLCollection to Array to reverse it
-    const items = Array.from(epGrid.children);
-    items.reverse();
+    const clickedBtn = document.getElementById(`btn-${type}`);
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    const grid = document.getElementById('all-series-grid') || document.getElementById('series-grid');
+    if (!grid) return;
     
-    // Clear and re-append in the new order
-    epGrid.innerHTML = '';
-    items.forEach(item => epGrid.appendChild(item));
-  }
+    const cards = Array.from(grid.querySelectorAll('.filterable-card'));
+
+    cards.sort((a, b) => {
+        if (type === 'recent') return parseInt(b.dataset.updated || 0) - parseInt(a.dataset.updated || 0);
+        if (type === 'popular') return parseInt(b.dataset.views || 0) - parseInt(a.dataset.views || 0);
+        if (type === 'length') return parseInt(b.dataset.duration || 0) - parseInt(a.dataset.duration || 0);
+        if (type === 'vpv') return parseInt(b.dataset.vpv || 0) - parseInt(a.dataset.vpv || 0);
+        if (type === 'vel') return parseFloat(b.dataset.vel || 0) - parseFloat(a.dataset.vel || 0);
+        if (type === 'heat') return parseFloat(b.dataset.heat || 0) - parseFloat(a.dataset.heat || 0);
+        if (type === 'gem') return parseFloat(b.dataset.gem || 0) - parseFloat(a.dataset.gem || 0);
+    });
+
+    grid.innerHTML = '';
+    cards.forEach(card => grid.appendChild(card));
+}
+
+function clearSearchInput() {
+    const searchInput = document.getElementById('gameSearch');
+    if (!searchInput) return;
+    searchInput.value = '';
+    document.getElementById('clearSearch').classList.add('hidden');
+    applyFilters();
+    searchInput.focus();
+}
+
+function applyFilters() {
+    const searchInput = document.getElementById('gameSearch');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+    const cards = document.querySelectorAll('.filterable-card');
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const tagsStr = card.getAttribute('data-tags') || '';
+        const cardChannel = card.getAttribute('data-channel') || '';
+        const cardTags = tagsStr.split(',').map(t => t.trim()).filter(Boolean);
+
+        const matchesSearch = title.includes(searchTerm);
+        const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(tag => cardTags.includes(tag));
+        const matchesChannel = activeChannelFilter === 'all' || cardChannel === activeChannelFilter;
+
+        if (matchesSearch && matchesTags && matchesChannel) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    calculateDynamicStats();
+}
+
+function calculateDynamicStats() {
+    const cards = document.querySelectorAll('.filterable-card:not(.hidden)');
+    
+    let tGames = 0, tVids = 0, tViews = 0, tLikes = 0, tComms = 0, tDur = 0;
+    let minFirst = Infinity, maxLast = 0;
+
+    cards.forEach(c => {
+        tGames++;
+        tVids += parseInt(c.dataset.episodes || 0);
+        tViews += parseInt(c.dataset.views || 0);
+        tLikes += parseInt(c.dataset.likes || 0);
+        tComms += parseInt(c.dataset.comments || 0);
+        tDur += parseInt(c.dataset.duration || 0);
+
+        const fp = parseInt(c.dataset.firstpub);
+        const lp = parseInt(c.dataset.updated);
+        if (fp && fp < minFirst) minFirst = fp;
+        if (lp && lp > maxLast) maxLast = lp;
+    });
+
+    if (tGames === 0) return; 
+
+    updateDashNum('val-tot-items', Utils.formatNum(tGames));
+    updateDashNum('val-tot-vids', Utils.formatNum(tVids));
+    updateDashNum('val-tot-views', Utils.formatNum(tViews));
+    updateDashNum('val-tot-likes', Utils.formatNum(tLikes));
+    updateDashNum('val-tot-comms', Utils.formatNum(tComms));
+    updateDashNum('val-tot-dur', Utils.formatDur(tDur));
+
+    updateDashNum('val-avg-vid', Utils.formatNum(tVids / tGames));
+    updateDashNum('val-avg-view', Utils.formatNum(tViews / tGames));
+    updateDashNum('val-avg-like', Utils.formatNum(tLikes / tGames));
+    updateDashNum('val-avg-comm', Utils.formatNum(tComms / tGames));
+    updateDashNum('val-avg-dur', Utils.formatDur(tDur / tGames));
+
+    const vC = Math.max(1, tVids);
+    updateDashNum('val-pv-view', Utils.formatNum(tViews / vC));
+    updateDashNum('val-pv-like', Utils.formatNum(tLikes / vC));
+    updateDashNum('val-pv-comm', Utils.formatNum(tComms / vC));
+    updateDashNum('val-pv-dur', Utils.formatDur(tDur / vC));
+
+    const ageDays = Utils.daysBetween(minFirst);
+    updateDashNum('val-adv-age', Utils.formatAge(ageDays));
+    updateDashNum('val-adv-dead', Utils.formatAge(Utils.daysBetween(maxLast)));
+    
+    // Complex innerHTML updates for colored spans
+    const elVel = document.getElementById('val-adv-vel');
+    if (elVel) elVel.innerHTML = `${Utils.velocity(tViews, ageDays)}/d`;
+    
+    const elHeat = document.getElementById('val-adv-heat');
+    if (elHeat) elHeat.innerHTML = `${Utils.heat(tViews, tLikes, tComms, Utils.hoursBetween(minFirst))}`;
+    
+    const elGem = document.getElementById('val-adv-gem');
+    if (elGem) elGem.innerHTML = `${Utils.gem(tViews, tLikes, tComms)}`;
+}
+
+function toggleTagPanel() {
+    isTagPanelActive = !isTagPanelActive;
+    const btn = document.getElementById('btn-tags-toggle');
+    const panel = document.getElementById('tag-filters');
+    
+    if (!btn || !panel) return;
+
+    if (isTagPanelActive) {
+        btn.classList.add('active');
+        panel.classList.remove('hidden');
+    } else {
+        btn.classList.remove('active');
+        panel.classList.add('hidden');
+    }
+}
+
+function initTags() {
+    const cards = document.querySelectorAll('.filterable-card');
+    const tagCounts = {};
+    
+    cards.forEach(card => {
+        const tagsStr = card.getAttribute('data-tags');
+        if (!tagsStr) return;
+        tagsStr.split(',').filter(Boolean).forEach(t => {
+            const cleanTag = t.trim();
+            tagCounts[cleanTag] = (tagCounts[cleanTag] || 0) + 1;
+        });
+    });
+
+    allSortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+    if (allSortedTags.length === 0) return;
+
+    const container = document.getElementById('tag-filters');
+    if (!container) return;
+    
+    container.innerHTML = '';
+
+    allSortedTags.forEach(([tag, count]) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-gray'; 
+        btn.innerText = `${tag} (${count})`;
+        
+        btn.onclick = () => {
+            if (activeTags.has(tag)) {
+                activeTags.delete(tag);
+                btn.classList.remove('active');
+            } else {
+                activeTags.add(tag);
+                btn.classList.add('active');
+            }
+            applyFilters();
+        };
+        container.appendChild(btn);
+    });
+}
+
+const searchInput = document.getElementById('gameSearch');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const clearBtn = document.getElementById('clearSearch');
+        if (e.target.value.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+        applyFilters();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    sortGrid('recent');
+    initTags(); 
+});
 </script>

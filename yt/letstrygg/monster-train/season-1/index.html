@@ -1,116 +1,1081 @@
 ---
 layout: new
-title: "Season 1 Episodes - Monster Train"
-description: "A complete list of episodes from Season 1 of the Monster Train Let's Play."
+title: "Monster Train - Season 1"
 permalink: /yt/letstrygg/monster-train/season-1/
-custom_css: "/css/game/mt-style.css"
-sync_date: "2026-03-20T23:04:57.248+00:00"
 ---
-
-<style>
-/* Dashboard Styles */
-.analytics-dash {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 24px;
-    color: var(--text);
-}
-.dash-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 10px 0;
-    border-bottom: 1px solid #333;
-}
-.dash-row:last-child { border-bottom: none; padding-bottom: 0; }
-.stat-item { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; }
-.stat-label { color: var(--gray); font-weight: bold; margin-right: 4px; }
-</style>
-
 <div class="game-page-wrapper">
-  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
-    <div>
-      <h1 class="title" style="margin-bottom: 5px;">Monster Train</h1>
-      <p class="subtitle" style="margin: 0;">Season 1 Episodes</p>
-    </div>
-    <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order">
-      <span class="material-symbols-outlined" id="sortIcon" style="font-size: 18px; vertical-align: middle;">arrow_downward</span> Sort
-    </button>
+  <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
+    <h1 class="title">Monster Train</h1>
+    <p class="subtitle" style="margin: 0;">Season 1</p>
   </div>
 
-  <div class="analytics-dash">
-    
+  <div class="dash-panel" id="main-dashboard">
+    <div class="dash-row" style="padding-top: 0;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Episodes"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">video_library</span> <span id="val-tot-items">27</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> <span id="val-tot-vids">27</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-tot-views">465</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-tot-likes">49</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-tot-comms">17</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-tot-dur">34h 26m</span></div>
+    </div>
     <div class="dash-row">
-        <div class="stat-item"><span class="stat-label">ORIGINAL:</span></div>
-        <div class="stat-item" title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 27</div>
-        <div class="stat-item" title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 465</div>
-        <div class="stat-item" title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 49</div>
-        <div class="stat-item" title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 17</div>
-        <div class="stat-item" title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 34h 26m</div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-pv-view">17</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-pv-like">2</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-pv-comm">1</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-pv-dur">1h 16m</span></div>
     </div>
 
-    <div class="dash-row">
-        <div class="stat-item"><span class="stat-label tooltip-trigger" data-tooltip="Compared to Series Average">W/ DELTAS:</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 27 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 465 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 49 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 17 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
+    <div class="dash-row" style="gap: 20px;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ANALYTICS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Age of filtered content"><strong style="margin-right: 4px;">Age:</strong> <span id="val-adv-age">5y 305d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong style="margin-right: 4px;">Inactive:</strong> <span id="val-adv-dead">4y 163d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Views generated per day"><strong style="margin-right: 4px;">Vel:</strong> <span class="blue" id="val-adv-vel">0.2/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Trending Score"><strong style="margin-right: 4px;">Heat:</strong> <span class="red" id="val-adv-heat">0.00</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Hidden Gem Score"><strong style="margin-right: 4px;">Gem:</strong> <span class="orange" id="val-adv-gem">0.76</span></div>
     </div>
-
-    <div class="dash-row" style="margin-top: 5px;">
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Total Age of Season">Age:</span> 2130d
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Days between Ep 1 and Final Ep">Longevity:</span> 508d
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Days since latest upload">Last Video:</span> 1623d ago
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Average views generated per day">Velocity:</span> <span style="color: var(--blue);">0.2/d</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="High Engagement + Low Views = Hidden Gem">Gem Score:</span> <span style="color: var(--orange); font-weight: bold;">0.76</span>
-        </div>
-    </div>
-
   </div>
 
-  <div class="game-section">
-    
 
+<div class="panel" style="margin-bottom: 20px; gap: 15px;">
+    <div class="flex-row">
+        <div style="position: relative; flex: 1;">
+            <input type="text" id="gameSearch" class="input" placeholder="Search...">
+            <span id="clearSearch" class="material-symbols-outlined hidden" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray);" onclick="clearSearchInput()">close</span>
+        </div>
+        <div class="flex-row" style="gap: 10px;">
+            <button class="btn btn-gray" id="btn-tags-toggle" onclick="toggleTagPanel()">
+                <span class="material-symbols-outlined">sell</span> Tags
+            </button>
+        </div>
+    </div>
 
-    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/letstrygg/monster-train/season-1/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
-    
-    <div id="grid" class="ep-grid">
-    {%- for ep in ep_pages -%}
-      <a href="{{ ep.url | relative_url }}" class="btn btn-gray" style="text-align: left; padding: 10px 15px;">
-        {{ ep.title | remove: "Monster Train" | strip }}
+    <div class="btn-group flex-wrap">
+        <button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')"><span class="material-symbols-outlined">psychiatry</span> New</button>
+        <button class="btn btn-blue" id="btn-popular" onclick="sortGrid('popular')"><span class="material-symbols-outlined">visibility</span> Views</button>
+        <button class="btn btn-purple" id="btn-length" onclick="sortGrid('length')"><span class="material-symbols-outlined">schedule</span> Duration</button>
+        <button class="btn btn-orange" id="btn-vpv" onclick="sortGrid('vpv')"><span class="material-symbols-outlined">mode_heat</span> VPV</button>
+        <button class="btn btn-blue" id="btn-vel" onclick="sortGrid('vel')"><span class="material-symbols-outlined">speed</span> Velocity</button>
+        <button class="btn btn-red" id="btn-heat" onclick="sortGrid('heat')"><span class="material-symbols-outlined">local_fire_department</span> Heat</button>
+        <button class="btn btn-yellow" id="btn-gem" onclick="sortGrid('gem')"><span class="material-symbols-outlined">diamond</span> Gem</button>
+    </div>
+</div>
+<div id="tag-filters" class="panel hidden" style="flex-direction: row; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 12px;"></div>
+<div class="grid" id="series-grid">
+  <div class="panel filterable-card flush-all" data-title="monster train first run! struggling to learn my second deck-building card game / rogue-like live!" data-tags="" 
+       data-updated="1590418829000" data-episodes="1" data-views="92" data-likes="5" data-comments="1" data-duration="8620" data-vpv="92" data-firstpub="1590418829000" data-vel="0.0" data-heat="0.00" data-gem="0.46">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e01.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/eMScngbviyU/maxresdefault.jpg" alt="Monster Train First Run! Struggling to learn my second deck-building card game / rogue-like Live!" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Monster Train First Run! Struggling to learn my second deck-building card game / rogue-like Live!</strong>
+              <span class="card-status gray">Ep 01</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 92 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">373</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">44</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 2h 23m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 2m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 305d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.46</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
       </a>
-    {%- endfor -%}
-    </div>
   </div>
+
+  <div class="panel filterable-card flush-all" data-title="monster train full inferno - 2nd normal run - let's go!!" data-tags="" 
+       data-updated="1590778801000" data-episodes="1" data-views="67" data-likes="3" data-comments="2" data-duration="6573" data-vpv="67" data-firstpub="1590778801000" data-vel="0.0" data-heat="0.00" data-gem="0.54">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e02.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/20ksJ7lz384/maxresdefault.jpg" alt="Monster Train FULL INFERNO - 2nd Normal Run - Let's Go!!" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Monster Train FULL INFERNO - 2nd Normal Run - Let's Go!!</strong>
+              <span class="card-status gray">Ep 02</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 67 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">398</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">46</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">15</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 49m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 36m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 301d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.54</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="first stygian guard run! awoken ally - monster train ep 3" data-tags="" 
+       data-updated="1590872410000" data-episodes="1" data-views="23" data-likes="4" data-comments="0" data-duration="2670" data-vpv="23" data-firstpub="1590872410000" data-vel="0.0" data-heat="0.00" data-gem="1.45">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e03.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/ksbpFANPbso/maxresdefault.jpg" alt="First Stygian Guard Run! Awoken Ally - Monster Train Ep 3" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">First Stygian Guard Run! Awoken Ally - Monster Train Ep 3</strong>
+              <span class="card-status gray">Ep 03</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 23 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">442</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">45</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 44m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 41m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 300d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.45</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="full frostbite!  stygian guard - monster train ep 4" data-tags="" 
+       data-updated="1591038000000" data-episodes="1" data-views="19" data-likes="5" data-comments="1" data-duration="6330" data-vpv="19" data-firstpub="1591038000000" data-vel="0.0" data-heat="0.00" data-gem="2.69">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e04.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/1-TpJh0azvQ/maxresdefault.jpg" alt="Full Frostbite!  Stygian Guard - Monster Train Ep 4" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Full Frostbite!  Stygian Guard - Monster Train Ep 4</strong>
+              <span class="card-status gray">Ep 04</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 19 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">446</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">44</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 45m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 40m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 298d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">2.69</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="let's try hell rush! ep 1 - monster train let's play" data-tags="" 
+       data-updated="1591819208000" data-episodes="1" data-views="18" data-likes="4" data-comments="2" data-duration="759" data-vpv="18" data-firstpub="1591819208000" data-vel="0.0" data-heat="0.00" data-gem="2.86">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e05.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/e6MN03exU94/maxresdefault.jpg" alt="Let's Try HELL RUSH! Ep 1 - Monster Train Let's Play" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Let's Try HELL RUSH! Ep 1 - Monster Train Let's Play</strong>
+              <span class="card-status gray">Ep 05</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 18 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">447</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">45</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">15</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 12m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">34h 13m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 289d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">2.86</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="stygian guard covenant rank 3 - monster train ep 5" data-tags="" 
+       data-updated="1591821004000" data-episodes="1" data-views="18" data-likes="4" data-comments="2" data-duration="5793" data-vpv="18" data-firstpub="1591821004000" data-vel="0.0" data-heat="0.00" data-gem="2.86">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e06.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/s20jOWxmYXY/maxresdefault.jpg" alt="Stygian Guard Covenant Rank 3 - Monster Train Ep 5" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Stygian Guard Covenant Rank 3 - Monster Train Ep 5</strong>
+              <span class="card-status gray">Ep 06</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 18 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">447</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">45</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">15</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 36m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 49m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 289d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">2.86</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="stygian guard covenant rank 4 - monster train ep 6" data-tags="" 
+       data-updated="1591993801000" data-episodes="1" data-views="19" data-likes="3" data-comments="1" data-duration="1364" data-vpv="19" data-firstpub="1591993801000" data-vel="0.0" data-heat="0.00" data-gem="1.79">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e07.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/emostPG1yfY/maxresdefault.jpg" alt="Stygian Guard Covenant Rank 4 - Monster Train Ep 6" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Stygian Guard Covenant Rank 4 - Monster Train Ep 6</strong>
+              <span class="card-status gray">Ep 07</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 19 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">446</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">46</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 22m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">34h 3m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 287d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.79</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="stygian guard covenant rank 4 - monster train ep 7" data-tags="" 
+       data-updated="1592164803000" data-episodes="1" data-views="16" data-likes="5" data-comments="1" data-duration="7574" data-vpv="16" data-firstpub="1592164803000" data-vel="0.0" data-heat="0.00" data-gem="3.25">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e08.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/SVd1hUNRM8E/maxresdefault.jpg" alt="Stygian Guard Covenant Rank 4 - Monster Train Ep 7" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Stygian Guard Covenant Rank 4 - Monster Train Ep 7</strong>
+              <span class="card-status gray">Ep 08</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 16 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">449</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">44</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 2h 6m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 19m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 285d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">3.25</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="hellhorned covenant rank 5 - monster train ep 8" data-tags="" 
+       data-updated="1592251203000" data-episodes="1" data-views="21" data-likes="3" data-comments="2" data-duration="6479" data-vpv="21" data-firstpub="1592251203000" data-vel="0.0" data-heat="0.00" data-gem="2.01">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e09.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/8by7zt7RUKc/maxresdefault.jpg" alt="Hellhorned Covenant Rank 5 - Monster Train Ep 8" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Hellhorned Covenant Rank 5 - Monster Train Ep 8</strong>
+              <span class="card-status gray">Ep 09</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 21 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">444</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">46</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">15</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 47m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 38m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 284d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">2.01</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="first umbra run! covenant rank 6 - monster train ep 9" data-tags="" 
+       data-updated="1592337600000" data-episodes="1" data-views="20" data-likes="2" data-comments="1" data-duration="4086" data-vpv="20" data-firstpub="1592337600000" data-vel="0.0" data-heat="0.00" data-gem="1.27">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e10.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/3WCiItozCd8/maxresdefault.jpg" alt="First Umbra Run! Covenant Rank 6 - Monster Train Ep 9" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">First Umbra Run! Covenant Rank 6 - Monster Train Ep 9</strong>
+              <span class="card-status gray">Ep 10</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 20 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">445</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">47</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 8m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 17m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 283d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.27</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="hell rush ep 3  - stygian guard, monster train let's play" data-tags="" 
+       data-updated="1592161202000" data-episodes="1" data-views="15" data-likes="4" data-comments="1" data-duration="1250" data-vpv="15" data-firstpub="1592161202000" data-vel="0.0" data-heat="0.00" data-gem="2.91">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e11.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/7yutvm5-4Qo/maxresdefault.jpg" alt="HELL RUSH Ep 3  - Stygian Guard, Monster Train Let's Play" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">HELL RUSH Ep 3  - Stygian Guard, Monster Train Let's Play</strong>
+              <span class="card-status gray">Ep 11</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 15 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">450</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">45</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 20m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">34h 5m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 285d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">2.91</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="let's try hellhorned + umbra! covenant rank 6, monster train ep 10" data-tags="" 
+       data-updated="1592424015000" data-episodes="1" data-views="19" data-likes="2" data-comments="1" data-duration="1883" data-vpv="19" data-firstpub="1592424015000" data-vel="0.0" data-heat="0.00" data-gem="1.34">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e12.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/pth67jOo2i0/maxresdefault.jpg" alt="Let's Try Hellhorned + Umbra! Covenant Rank 6, Monster Train Ep 10" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Let's Try Hellhorned + Umbra! Covenant Rank 6, Monster Train Ep 10</strong>
+              <span class="card-status gray">Ep 12</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 19 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">446</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">47</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">16</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 31m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 54m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 5y 282d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.34</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="monster train ep 11? random-random cov 20" data-tags="" 
+       data-updated="1631300412000" data-episodes="1" data-views="11" data-likes="3" data-comments="0" data-duration="4565" data-vpv="11" data-firstpub="1631300412000" data-vel="0.0" data-heat="0.00" data-gem="2.46">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e13.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/EmJnyFsqM1A/maxresdefault.jpg" alt="Monster Train Ep 11? Random-Random Cov 20" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Monster Train Ep 11? Random-Random Cov 20</strong>
+              <span class="card-status gray">Ep 13</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 11 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">454</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">46</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 16m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 10m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 197d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">2.46</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="monster train ep 12 random-random cov 21" data-tags="" 
+       data-updated="1631473211000" data-episodes="1" data-views="8" data-likes="0" data-comments="0" data-duration="5048" data-vpv="8" data-firstpub="1631473211000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e14.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/I-UZ9layuFM/maxresdefault.jpg" alt="Monster Train Ep 12 Random-Random Cov 21" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Monster Train Ep 12 Random-Random Cov 21</strong>
+              <span class="card-status gray">Ep 14</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 8 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">457</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 24m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 1m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 195d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="monster train ep 13 random-random cov 21" data-tags="" 
+       data-updated="1631646009000" data-episodes="1" data-views="8" data-likes="2" data-comments="2" data-duration="4672" data-vpv="8" data-firstpub="1631646009000" data-vel="0.0" data-heat="0.00" data-gem="4.66">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e15.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/GGUDsmqqeys/maxresdefault.jpg" alt="Monster Train Ep 13 Random-Random Cov 21" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Monster Train Ep 13 Random-Random Cov 21</strong>
+              <span class="card-status gray">Ep 15</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 8 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">457</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">47</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">15</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 17m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 8m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 193d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">4.66</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="struggling through random-random cov 22 - monster train ep 14" data-tags="" 
+       data-updated="1632164413000" data-episodes="1" data-views="9" data-likes="0" data-comments="0" data-duration="6889" data-vpv="9" data-firstpub="1632164413000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e16.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/OixAlj_GRLg/maxresdefault.jpg" alt="STRUGGLING through Random-Random Cov 22 - Monster Train Ep 14" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">STRUGGLING through Random-Random Cov 22 - Monster Train Ep 14</strong>
+              <span class="card-status gray">Ep 16</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 9 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">456</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 54m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 31m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 187d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="let's go! random-random cov 23 - monster train ep 15" data-tags="" 
+       data-updated="1632337210000" data-episodes="1" data-views="4" data-likes="0" data-comments="0" data-duration="4628" data-vpv="4" data-firstpub="1632337210000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e17.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/_DYWVXMsBaE/maxresdefault.jpg" alt="Let's Go! Random-Random Cov 23 - Monster Train Ep 15" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Let's Go! Random-Random Cov 23 - Monster Train Ep 15</strong>
+              <span class="card-status gray">Ep 17</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">461</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 17m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 8m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 185d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="this is it! random-random cov 24 - monster train ep 16" data-tags="" 
+       data-updated="1632510030000" data-episodes="1" data-views="6" data-likes="0" data-comments="0" data-duration="2491" data-vpv="6" data-firstpub="1632510030000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e18.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/xsSpi5KH3mY/maxresdefault.jpg" alt="This is it! Random-Random Cov 24 - Monster Train Ep 16" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">This is it! Random-Random Cov 24 - Monster Train Ep 16</strong>
+              <span class="card-status gray">Ep 18</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">459</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 41m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 44m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 183d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="cov 25 random-random - monster train ep 17 covenant rank 25" data-tags="" 
+       data-updated="1632682816000" data-episodes="1" data-views="16" data-likes="0" data-comments="0" data-duration="4453" data-vpv="16" data-firstpub="1632682816000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e19.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/UuJ_DnfKqfc/maxresdefault.jpg" alt="Cov 25 Random-Random - Monster Train Ep 17 Covenant Rank 25" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cov 25 Random-Random - Monster Train Ep 17 Covenant Rank 25</strong>
+              <span class="card-status gray">Ep 19</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 16 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">449</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 14m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 11m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 181d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="cov 25 random-random - monster train ep 18 covenant rank 25" data-tags="" 
+       data-updated="1632855603000" data-episodes="1" data-views="5" data-likes="0" data-comments="0" data-duration="2561" data-vpv="5" data-firstpub="1632855603000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e20.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/AxEbSl0kHmo/maxresdefault.jpg" alt="Cov 25 Random-Random - Monster Train Ep 18 Covenant Rank 25" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cov 25 Random-Random - Monster Train Ep 18 Covenant Rank 25</strong>
+              <span class="card-status gray">Ep 20</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">460</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 42m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 43m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 179d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="cov 25 random-random - monster train ep 19 covenant rank 25" data-tags="" 
+       data-updated="1633028405000" data-episodes="1" data-views="16" data-likes="0" data-comments="0" data-duration="4431" data-vpv="16" data-firstpub="1633028405000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e21.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/PS6B3g93syA/maxresdefault.jpg" alt="Cov 25 Random-Random - Monster Train Ep 19 Covenant Rank 25" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cov 25 Random-Random - Monster Train Ep 19 Covenant Rank 25</strong>
+              <span class="card-status gray">Ep 21</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 16 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">449</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 13m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 12m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 177d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="cov 25 random-random - monster train ep 20 covenant rank 25" data-tags="" 
+       data-updated="1633201214000" data-episodes="1" data-views="4" data-likes="0" data-comments="0" data-duration="5091" data-vpv="4" data-firstpub="1633201214000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e22.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/t7oIO_92Mu0/maxresdefault.jpg" alt="Cov 25 Random-Random - Monster Train Ep 20 Covenant Rank 25" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cov 25 Random-Random - Monster Train Ep 20 Covenant Rank 25</strong>
+              <span class="card-status gray">Ep 22</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">461</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 24m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 1m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 175d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="cov 25 random-random - monster train ep 21 covenant rank 25" data-tags="" 
+       data-updated="1633374008000" data-episodes="1" data-views="6" data-likes="0" data-comments="0" data-duration="6802" data-vpv="6" data-firstpub="1633374008000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e23.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/WA034F3ZDsY/maxresdefault.jpg" alt="Cov 25 Random-Random - Monster Train Ep 21 Covenant Rank 25" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cov 25 Random-Random - Monster Train Ep 21 Covenant Rank 25</strong>
+              <span class="card-status gray">Ep 23</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">459</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 53m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 32m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 173d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="cov 25 random-random - monster train ep 22 covenant rank 25" data-tags="" 
+       data-updated="1633539638000" data-episodes="1" data-views="3" data-likes="0" data-comments="0" data-duration="6501" data-vpv="3" data-firstpub="1633539638000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e24.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/sEUmYm-OGWA/maxresdefault.jpg" alt="Cov 25 Random-Random - Monster Train Ep 22 Covenant Rank 25" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cov 25 Random-Random - Monster Train Ep 22 Covenant Rank 25</strong>
+              <span class="card-status gray">Ep 24</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">462</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 48m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 37m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 171d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="cov 25 random-random - monster train ep 23 covenant rank 25" data-tags="" 
+       data-updated="1633892400000" data-episodes="1" data-views="5" data-likes="0" data-comments="0" data-duration="4373" data-vpv="5" data-firstpub="1633892400000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e25.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/aRh1TE8-8Jo/maxresdefault.jpg" alt="Cov 25 Random-Random - Monster Train Ep 23 Covenant Rank 25" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cov 25 Random-Random - Monster Train Ep 23 Covenant Rank 25</strong>
+              <span class="card-status gray">Ep 25</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">460</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 12m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 13m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 167d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="cov 25 random-random - monster train ep 24 covenant rank 25" data-tags="" 
+       data-updated="1634065213000" data-episodes="1" data-views="9" data-likes="0" data-comments="0" data-duration="4397" data-vpv="9" data-firstpub="1634065213000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e26.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/g76OzINJu2M/maxresdefault.jpg" alt="Cov 25 Random-Random - Monster Train Ep 24 Covenant Rank 25" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cov 25 Random-Random - Monster Train Ep 24 Covenant Rank 25</strong>
+              <span class="card-status gray">Ep 26</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 9 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">456</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 13m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 12m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 165d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="cov 25 random-random - monster train ep 25 covenant rank 25" data-tags="" 
+       data-updated="1634238031000" data-episodes="1" data-views="8" data-likes="0" data-comments="0" data-duration="3682" data-vpv="8" data-firstpub="1634238031000" data-vel="0.0" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/monster-train/season-1/mt-s01e27.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/w6YkqlwPi2k/maxresdefault.jpg" alt="Cov 25 Random-Random - Monster Train Ep 25 Covenant Rank 25" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cov 25 Random-Random - Monster Train Ep 25 Covenant Rank 25</strong>
+              <span class="card-status gray">Ep 27</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 8 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">457</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">49</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">17</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 1m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 24m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 4y 163d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+</div>
 </div>
 
 <script>
-  let isAscending = true;
-  const epGrid = document.getElementById('epGrid');
-  const sortIcon = document.getElementById('sortIcon');
+const Utils = {
+    formatNum: (num) => {
+        if (!num) return '0';
+        if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        return Math.round(num).toString();
+    },
+    formatDur: (seconds) => {
+        if (!seconds) return '0h 0m';
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        return h > 0 ? `${h}h ${m}m` : `${m}m`;
+    },
+    daysBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+    },
+    hoursBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, diff / (1000 * 60 * 60));
+    },
+    formatAge: (days) => {
+        if (days < 365) return `${days}d`;
+        const y = Math.floor(days / 365);
+        return `${y}y ${days % 365}d`;
+    },
+    velocity: (t, d) => (t / d).toFixed(1),
+    heat: (v, l, c, h) => ((v + (l * 5) + (c * 10)) / Math.pow(h + 2, 1.5)).toFixed(2),
+    gem: (v, l, c) => (v === 0 ? "0.00" : (Math.max(0, ((l + c) / v) * Math.log(100000 / (v + 1)))).toFixed(2))
+};
 
-  function toggleEpSort() {
-    isAscending = !isAscending;
-    sortIcon.innerText = isAscending ? 'arrow_downward' : 'arrow_upward';
+let currentSort = 'recent';
+let activeTags = new Set();
+let allSortedTags = [];
+let isTagPanelActive = false;
+let activeChannelFilter = 'all'; 
+
+function updateDashNum(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.innerText = val;
+}
+
+function toggleNetworkState(targetState, filterSlug) {
+    const container = document.getElementById('networkToggleContainer');
+    if (!container) return;
+
+    const splitCards = container.querySelectorAll('.card-split');
+
+    if (targetState === 'split') {
+        container.classList.remove('state-combined');
+        container.classList.add('state-split');
+        splitCards.forEach(c => {
+            if (c.dataset.target === filterSlug) c.classList.add('active-filter');
+            else c.classList.remove('active-filter');
+        });
+    } else {
+        container.classList.remove('state-split');
+        container.classList.add('state-combined');
+        splitCards.forEach(c => c.classList.remove('active-filter'));
+    }
+
+    activeChannelFilter = filterSlug;
+    applyFilters();
+}
+
+function sortGrid(type) {
+    currentSort = type;
+    document.querySelectorAll('.btn-group .btn').forEach(btn => btn.classList.remove('active'));
     
-    // Convert HTMLCollection to Array to reverse it
-    const items = Array.from(epGrid.children);
-    items.reverse();
+    const clickedBtn = document.getElementById(`btn-${type}`);
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    const grid = document.getElementById('all-series-grid') || document.getElementById('series-grid');
+    if (!grid) return;
     
-    // Clear and re-append in the new order
-    epGrid.innerHTML = '';
-    items.forEach(item => epGrid.appendChild(item));
-  }
+    const cards = Array.from(grid.querySelectorAll('.filterable-card'));
+
+    cards.sort((a, b) => {
+        if (type === 'recent') return parseInt(b.dataset.updated || 0) - parseInt(a.dataset.updated || 0);
+        if (type === 'popular') return parseInt(b.dataset.views || 0) - parseInt(a.dataset.views || 0);
+        if (type === 'length') return parseInt(b.dataset.duration || 0) - parseInt(a.dataset.duration || 0);
+        if (type === 'vpv') return parseInt(b.dataset.vpv || 0) - parseInt(a.dataset.vpv || 0);
+        if (type === 'vel') return parseFloat(b.dataset.vel || 0) - parseFloat(a.dataset.vel || 0);
+        if (type === 'heat') return parseFloat(b.dataset.heat || 0) - parseFloat(a.dataset.heat || 0);
+        if (type === 'gem') return parseFloat(b.dataset.gem || 0) - parseFloat(a.dataset.gem || 0);
+    });
+
+    grid.innerHTML = '';
+    cards.forEach(card => grid.appendChild(card));
+}
+
+function clearSearchInput() {
+    const searchInput = document.getElementById('gameSearch');
+    if (!searchInput) return;
+    searchInput.value = '';
+    document.getElementById('clearSearch').classList.add('hidden');
+    applyFilters();
+    searchInput.focus();
+}
+
+function applyFilters() {
+    const searchInput = document.getElementById('gameSearch');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+    const cards = document.querySelectorAll('.filterable-card');
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const tagsStr = card.getAttribute('data-tags') || '';
+        const cardChannel = card.getAttribute('data-channel') || '';
+        const cardTags = tagsStr.split(',').map(t => t.trim()).filter(Boolean);
+
+        const matchesSearch = title.includes(searchTerm);
+        const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(tag => cardTags.includes(tag));
+        const matchesChannel = activeChannelFilter === 'all' || cardChannel === activeChannelFilter;
+
+        if (matchesSearch && matchesTags && matchesChannel) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    calculateDynamicStats();
+}
+
+function calculateDynamicStats() {
+    const cards = document.querySelectorAll('.filterable-card:not(.hidden)');
+    
+    let tGames = 0, tVids = 0, tViews = 0, tLikes = 0, tComms = 0, tDur = 0;
+    let minFirst = Infinity, maxLast = 0;
+
+    cards.forEach(c => {
+        tGames++;
+        tVids += parseInt(c.dataset.episodes || 0);
+        tViews += parseInt(c.dataset.views || 0);
+        tLikes += parseInt(c.dataset.likes || 0);
+        tComms += parseInt(c.dataset.comments || 0);
+        tDur += parseInt(c.dataset.duration || 0);
+
+        const fp = parseInt(c.dataset.firstpub);
+        const lp = parseInt(c.dataset.updated);
+        if (fp && fp < minFirst) minFirst = fp;
+        if (lp && lp > maxLast) maxLast = lp;
+    });
+
+    if (tGames === 0) return; 
+
+    updateDashNum('val-tot-items', Utils.formatNum(tGames));
+    updateDashNum('val-tot-vids', Utils.formatNum(tVids));
+    updateDashNum('val-tot-views', Utils.formatNum(tViews));
+    updateDashNum('val-tot-likes', Utils.formatNum(tLikes));
+    updateDashNum('val-tot-comms', Utils.formatNum(tComms));
+    updateDashNum('val-tot-dur', Utils.formatDur(tDur));
+
+    updateDashNum('val-avg-vid', Utils.formatNum(tVids / tGames));
+    updateDashNum('val-avg-view', Utils.formatNum(tViews / tGames));
+    updateDashNum('val-avg-like', Utils.formatNum(tLikes / tGames));
+    updateDashNum('val-avg-comm', Utils.formatNum(tComms / tGames));
+    updateDashNum('val-avg-dur', Utils.formatDur(tDur / tGames));
+
+    const vC = Math.max(1, tVids);
+    updateDashNum('val-pv-view', Utils.formatNum(tViews / vC));
+    updateDashNum('val-pv-like', Utils.formatNum(tLikes / vC));
+    updateDashNum('val-pv-comm', Utils.formatNum(tComms / vC));
+    updateDashNum('val-pv-dur', Utils.formatDur(tDur / vC));
+
+    const ageDays = Utils.daysBetween(minFirst);
+    updateDashNum('val-adv-age', Utils.formatAge(ageDays));
+    updateDashNum('val-adv-dead', Utils.formatAge(Utils.daysBetween(maxLast)));
+    
+    // Complex innerHTML updates for colored spans
+    const elVel = document.getElementById('val-adv-vel');
+    if (elVel) elVel.innerHTML = `${Utils.velocity(tViews, ageDays)}/d`;
+    
+    const elHeat = document.getElementById('val-adv-heat');
+    if (elHeat) elHeat.innerHTML = `${Utils.heat(tViews, tLikes, tComms, Utils.hoursBetween(minFirst))}`;
+    
+    const elGem = document.getElementById('val-adv-gem');
+    if (elGem) elGem.innerHTML = `${Utils.gem(tViews, tLikes, tComms)}`;
+}
+
+function toggleTagPanel() {
+    isTagPanelActive = !isTagPanelActive;
+    const btn = document.getElementById('btn-tags-toggle');
+    const panel = document.getElementById('tag-filters');
+    
+    if (!btn || !panel) return;
+
+    if (isTagPanelActive) {
+        btn.classList.add('active');
+        panel.classList.remove('hidden');
+    } else {
+        btn.classList.remove('active');
+        panel.classList.add('hidden');
+    }
+}
+
+function initTags() {
+    const cards = document.querySelectorAll('.filterable-card');
+    const tagCounts = {};
+    
+    cards.forEach(card => {
+        const tagsStr = card.getAttribute('data-tags');
+        if (!tagsStr) return;
+        tagsStr.split(',').filter(Boolean).forEach(t => {
+            const cleanTag = t.trim();
+            tagCounts[cleanTag] = (tagCounts[cleanTag] || 0) + 1;
+        });
+    });
+
+    allSortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+    if (allSortedTags.length === 0) return;
+
+    const container = document.getElementById('tag-filters');
+    if (!container) return;
+    
+    container.innerHTML = '';
+
+    allSortedTags.forEach(([tag, count]) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-gray'; 
+        btn.innerText = `${tag} (${count})`;
+        
+        btn.onclick = () => {
+            if (activeTags.has(tag)) {
+                activeTags.delete(tag);
+                btn.classList.remove('active');
+            } else {
+                activeTags.add(tag);
+                btn.classList.add('active');
+            }
+            applyFilters();
+        };
+        container.appendChild(btn);
+    });
+}
+
+const searchInput = document.getElementById('gameSearch');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const clearBtn = document.getElementById('clearSearch');
+        if (e.target.value.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+        applyFilters();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    sortGrid('recent');
+    initTags(); 
+});
 </script>

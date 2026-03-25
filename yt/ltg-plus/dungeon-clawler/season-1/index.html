@@ -1,116 +1,689 @@
 ---
 layout: new
-title: "Season 1 Episodes - Dungeon Clawler"
-description: "A complete list of episodes from Season 1 of the Dungeon Clawler Let's Play."
+title: "Dungeon Clawler - Season 1"
 permalink: /yt/ltg-plus/dungeon-clawler/season-1/
-custom_css: "/css/game/dc-style.css"
-sync_date: "2026-03-24T22:02:23.043+00:00"
 ---
-
-<style>
-/* Dashboard Styles */
-.analytics-dash {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 24px;
-    color: var(--text);
-}
-.dash-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 10px 0;
-    border-bottom: 1px solid #333;
-}
-.dash-row:last-child { border-bottom: none; padding-bottom: 0; }
-.stat-item { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; }
-.stat-label { color: var(--gray); font-weight: bold; margin-right: 4px; }
-</style>
-
 <div class="game-page-wrapper">
-  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
-    <div>
-      <h1 class="title" style="margin-bottom: 5px;">Dungeon Clawler</h1>
-      <p class="subtitle" style="margin: 0;">Season 1 Episodes</p>
-    </div>
-    <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order">
-      <span class="material-symbols-outlined" id="sortIcon" style="font-size: 18px; vertical-align: middle;">arrow_downward</span> Sort
-    </button>
+  <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
+    <h1 class="title">Dungeon Clawler</h1>
+    <p class="subtitle" style="margin: 0;">Season 1</p>
   </div>
 
-  <div class="analytics-dash">
-    
+  <div class="dash-panel" id="main-dashboard">
+    <div class="dash-row" style="padding-top: 0;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Episodes"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">video_library</span> <span id="val-tot-items">13</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> <span id="val-tot-vids">13</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-tot-views">2.9K</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-tot-likes">91</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-tot-comms">35</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-tot-dur">11h 55m</span></div>
+    </div>
     <div class="dash-row">
-        <div class="stat-item"><span class="stat-label">ORIGINAL:</span></div>
-        <div class="stat-item" title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 13</div>
-        <div class="stat-item" title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 2.9K</div>
-        <div class="stat-item" title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 91</div>
-        <div class="stat-item" title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 35</div>
-        <div class="stat-item" title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 11h 55m</div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-pv-view">226</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-pv-like">7</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-pv-comm">3</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-pv-dur">55m</span></div>
     </div>
 
-    <div class="dash-row">
-        <div class="stat-item"><span class="stat-label tooltip-trigger" data-tooltip="Compared to Series Average">W/ DELTAS:</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 13 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 2.9K <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 91 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 35 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
+    <div class="dash-row" style="gap: 20px;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ANALYTICS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Age of filtered content"><strong style="margin-right: 4px;">Age:</strong> <span id="val-adv-age">1y 122d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong style="margin-right: 4px;">Inactive:</strong> <span id="val-adv-dead">1y 111d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Views generated per day"><strong style="margin-right: 4px;">Vel:</strong> <span class="blue" id="val-adv-vel">6.0/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Trending Score"><strong style="margin-right: 4px;">Heat:</strong> <span class="red" id="val-adv-heat">0.00</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Hidden Gem Score"><strong style="margin-right: 4px;">Gem:</strong> <span class="orange" id="val-adv-gem">0.15</span></div>
     </div>
-
-    <div class="dash-row" style="margin-top: 5px;">
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Total Age of Season">Age:</span> 487d
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Days between Ep 1 and Final Ep">Longevity:</span> 11d
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Days since latest upload">Last Video:</span> 476d ago
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Average views generated per day">Velocity:</span> <span style="color: var(--blue);">6.0/d</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="High Engagement + Low Views = Hidden Gem">Gem Score:</span> <span style="color: var(--orange); font-weight: bold;">0.15</span>
-        </div>
-    </div>
-
   </div>
 
-  <div class="game-section">
-    
 
+<div class="panel" style="margin-bottom: 20px; gap: 15px;">
+    <div class="flex-row">
+        <div style="position: relative; flex: 1;">
+            <input type="text" id="gameSearch" class="input" placeholder="Search...">
+            <span id="clearSearch" class="material-symbols-outlined hidden" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray);" onclick="clearSearchInput()">close</span>
+        </div>
+        <div class="flex-row" style="gap: 10px;">
+            <button class="btn btn-gray" id="btn-tags-toggle" onclick="toggleTagPanel()">
+                <span class="material-symbols-outlined">sell</span> Tags
+            </button>
+        </div>
+    </div>
 
-    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/ltg-plus/dungeon-clawler/season-1/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
-    
-    <div id="grid" class="ep-grid">
-    {%- for ep in ep_pages -%}
-      <a href="{{ ep.url | relative_url }}" class="btn btn-gray" style="text-align: left; padding: 10px 15px;">
-        {{ ep.title | remove: "Dungeon Clawler" | strip }}
+    <div class="btn-group flex-wrap">
+        <button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')"><span class="material-symbols-outlined">psychiatry</span> New</button>
+        <button class="btn btn-blue" id="btn-popular" onclick="sortGrid('popular')"><span class="material-symbols-outlined">visibility</span> Views</button>
+        <button class="btn btn-purple" id="btn-length" onclick="sortGrid('length')"><span class="material-symbols-outlined">schedule</span> Duration</button>
+        <button class="btn btn-orange" id="btn-vpv" onclick="sortGrid('vpv')"><span class="material-symbols-outlined">mode_heat</span> VPV</button>
+        <button class="btn btn-blue" id="btn-vel" onclick="sortGrid('vel')"><span class="material-symbols-outlined">speed</span> Velocity</button>
+        <button class="btn btn-red" id="btn-heat" onclick="sortGrid('heat')"><span class="material-symbols-outlined">local_fire_department</span> Heat</button>
+        <button class="btn btn-yellow" id="btn-gem" onclick="sortGrid('gem')"><span class="material-symbols-outlined">diamond</span> Gem</button>
+    </div>
+</div>
+<div id="tag-filters" class="panel hidden" style="flex-direction: row; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 12px;"></div>
+<div class="grid" id="series-grid">
+  <div class="panel filterable-card flush-all" data-title="new series, dungeon clawler: roguelike claw machine deckbuilder - steam key giveaway" data-tags="" 
+       data-updated="1732377634000" data-episodes="1" data-views="370" data-likes="7" data-comments="3" data-duration="2274" data-vpv="370" data-firstpub="1732377634000" data-vel="0.8" data-heat="0.00" data-gem="0.15">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e01.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/YoZ3mxf0QMw/maxresdefault.jpg" alt="New Series, Dungeon Clawler: Roguelike Claw Machine Deckbuilder - Steam Key Giveaway" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">New Series, Dungeon Clawler: Roguelike Claw Machine Deckbuilder - Steam Key Giveaway</strong>
+              <span class="card-status gray">Ep 01</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 370 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.6K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 7 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">84</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 37m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">11h 17m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 122d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.8/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.15</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
       </a>
-    {%- endfor -%}
-    </div>
   </div>
+
+  <div class="panel filterable-card flush-all" data-title="new ch, vampire - dungeon clawler ep 3" data-tags="" 
+       data-updated="1732388414000" data-episodes="1" data-views="269" data-likes="2" data-comments="1" data-duration="4348" data-vpv="269" data-firstpub="1732388414000" data-vel="0.6" data-heat="0.00" data-gem="0.07">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e02.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/SrBqMnOJLIA/maxresdefault.jpg" alt="New Ch, Vampire - Dungeon Clawler Ep 3" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">New Ch, Vampire - Dungeon Clawler Ep 3</strong>
+              <span class="card-status gray">Ep 02</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 269 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.7K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">89</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">34</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 12m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">10h 43m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 122d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.6/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.07</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="dolly & scrappy - dungeon clawler ep 4" data-tags="" 
+       data-updated="1732456805000" data-episodes="1" data-views="218" data-likes="3" data-comments="3" data-duration="5625" data-vpv="218" data-firstpub="1732456805000" data-vel="0.4" data-heat="0.00" data-gem="0.17">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e03.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/6mqBmVt7mvE/maxresdefault.jpg" alt="Dolly & Scrappy - Dungeon Clawler Ep 4" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Dolly & Scrappy - Dungeon Clawler Ep 4</strong>
+              <span class="card-status gray">Ep 03</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 218 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.7K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">88</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 33m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">10h 22m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 121d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.4/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.17</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="dungeon clawler: roguelike claw machine deckbuilder - steam key giveaway" data-tags="" 
+       data-updated="1732374018000" data-episodes="1" data-views="411" data-likes="14" data-comments="3" data-duration="3575" data-vpv="411" data-firstpub="1732374018000" data-vel="0.8" data-heat="0.00" data-gem="0.23">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e04.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/BxTqL2kb8dc/maxresdefault.jpg" alt="Dungeon Clawler: Roguelike Claw Machine Deckbuilder - Steam Key Giveaway" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Dungeon Clawler: Roguelike Claw Machine Deckbuilder - Steam Key Giveaway</strong>
+              <span class="card-status gray">Ep 04</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 411 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 14 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">77</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 59m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">10h 56m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 122d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.8/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.23</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="beaver strength! dungeon clawler ep 5" data-tags="" 
+       data-updated="1732543238000" data-episodes="1" data-views="197" data-likes="6" data-comments="2" data-duration="4400" data-vpv="197" data-firstpub="1732543238000" data-vel="0.4" data-heat="0.00" data-gem="0.25">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e05.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/YpLvGaZLM34/maxresdefault.jpg" alt="Beaver Strength! Dungeon Clawler Ep 5" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Beaver Strength! Dungeon Clawler Ep 5</strong>
+              <span class="card-status gray">Ep 05</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 197 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.7K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">85</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 13m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">10h 42m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 120d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.4/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.25</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="garbage man can, dungeon clawler 7" data-tags="" 
+       data-updated="1732802436000" data-episodes="1" data-views="218" data-likes="8" data-comments="1" data-duration="3642" data-vpv="218" data-firstpub="1732802436000" data-vel="0.5" data-heat="0.00" data-gem="0.25">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e06.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/Zb6aci0igKs/maxresdefault.jpg" alt="Garbage Man Can, Dungeon Clawler 7" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Garbage Man Can, Dungeon Clawler 7</strong>
+              <span class="card-status gray">Ep 06</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 218 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.7K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 8 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">83</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">34</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 0m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">10h 55m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 117d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.5/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.25</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="vamp cc poison dodge build is wild, dungeon clawler ep 6" data-tags="" 
+       data-updated="1732716014000" data-episodes="1" data-views="142" data-likes="7" data-comments="2" data-duration="3858" data-vpv="142" data-firstpub="1732716014000" data-vel="0.3" data-heat="0.00" data-gem="0.42">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e07.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/H_-mS2fx-1k/maxresdefault.jpg" alt="Vamp CC Poison Dodge Build is Wild, Dungeon Clawler Ep 6" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Vamp CC Poison Dodge Build is Wild, Dungeon Clawler Ep 6</strong>
+              <span class="card-status gray">Ep 07</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 142 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.8K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 7 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">84</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 4m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">10h 51m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 118d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.3/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.42</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="bernie is speed, dungeon clawler 8" data-tags="" 
+       data-updated="1732888800000" data-episodes="1" data-views="177" data-likes="5" data-comments="2" data-duration="2696" data-vpv="177" data-firstpub="1732888800000" data-vel="0.4" data-heat="0.00" data-gem="0.25">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e08.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/01asJpn0kF0/maxresdefault.jpg" alt="Bernie is SPEED, Dungeon Clawler 8" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Bernie is SPEED, Dungeon Clawler 8</strong>
+              <span class="card-status gray">Ep 08</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 177 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.8K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">86</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 44m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">11h 10m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 116d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.4/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.25</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="felina, dungeon clawler - ep 9" data-tags="" 
+       data-updated="1732975251000" data-episodes="1" data-views="115" data-likes="10" data-comments="3" data-duration="1607" data-vpv="115" data-firstpub="1732975251000" data-vel="0.2" data-heat="0.00" data-gem="0.76">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e09.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/p78f1rtMQWo/maxresdefault.jpg" alt="Felina, Dungeon Clawler - Ep 9" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Felina, Dungeon Clawler - Ep 9</strong>
+              <span class="card-status gray">Ep 09</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 115 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.8K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 10 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">81</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 26m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">11h 29m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 115d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.76</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="bernie's back, dungeon clawler ep10" data-tags="" 
+       data-updated="1733061611000" data-episodes="1" data-views="196" data-likes="7" data-comments="2" data-duration="2424" data-vpv="196" data-firstpub="1733061611000" data-vel="0.4" data-heat="0.00" data-gem="0.29">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e10.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/BJwCvf2H4rs/maxresdefault.jpg" alt="Bernie's Back, Dungeon Clawler ep10" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Bernie's Back, Dungeon Clawler ep10</strong>
+              <span class="card-status gray">Ep 10</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 196 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.7K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 7 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">84</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 40m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">11h 15m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 114d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.4/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.29</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="dolly too strong! dungeon clawler ep11" data-tags="" 
+       data-updated="1733148029000" data-episodes="1" data-views="271" data-likes="10" data-comments="2" data-duration="2941" data-vpv="271" data-firstpub="1733148029000" data-vel="0.6" data-heat="0.00" data-gem="0.26">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e11.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/Uu5jImyMOHM/maxresdefault.jpg" alt="Dolly too Strong! Dungeon Clawler Ep11" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Dolly too Strong! Dungeon Clawler Ep11</strong>
+              <span class="card-status gray">Ep 11</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 271 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.7K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 10 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">81</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 49m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">11h 6m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 113d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.6/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.26</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="spikey lil vampire, dungeon clawler 12" data-tags="" 
+       data-updated="1733234402000" data-episodes="1" data-views="136" data-likes="8" data-comments="1" data-duration="2814" data-vpv="136" data-firstpub="1733234402000" data-vel="0.3" data-heat="0.00" data-gem="0.44">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e12.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/0EA6qTlMm6w/maxresdefault.jpg" alt="Spikey lil Vampire, Dungeon Clawler 12" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Spikey lil Vampire, Dungeon Clawler 12</strong>
+              <span class="card-status gray">Ep 12</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 136 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.8K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 8 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">83</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">34</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 46m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">11h 8m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 112d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.3/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.44</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="hare l. quinn, dungeon clawler 13" data-tags="" 
+       data-updated="1733320861000" data-episodes="1" data-views="223" data-likes="4" data-comments="10" data-duration="2744" data-vpv="223" data-firstpub="1733320861000" data-vel="0.5" data-heat="0.00" data-gem="0.38">
+      <a href="/yt/ltg-plus/dungeon-clawler/season-1/dc-s01e13.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/vAylwdkOSvk/maxresdefault.jpg" alt="Hare L. Quinn, Dungeon Clawler 13" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Hare L. Quinn, Dungeon Clawler 13</strong>
+              <span class="card-status gray">Ep 13</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 223 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">2.7K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">87</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 10 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">25</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 45m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">11h 10m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 111d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.5/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.38</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+</div>
 </div>
 
 <script>
-  let isAscending = true;
-  const epGrid = document.getElementById('epGrid');
-  const sortIcon = document.getElementById('sortIcon');
+const Utils = {
+    formatNum: (num) => {
+        if (!num) return '0';
+        if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        return Math.round(num).toString();
+    },
+    formatDur: (seconds) => {
+        if (!seconds) return '0h 0m';
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        return h > 0 ? `${h}h ${m}m` : `${m}m`;
+    },
+    daysBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+    },
+    hoursBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, diff / (1000 * 60 * 60));
+    },
+    formatAge: (days) => {
+        if (days < 365) return `${days}d`;
+        const y = Math.floor(days / 365);
+        return `${y}y ${days % 365}d`;
+    },
+    velocity: (t, d) => (t / d).toFixed(1),
+    heat: (v, l, c, h) => ((v + (l * 5) + (c * 10)) / Math.pow(h + 2, 1.5)).toFixed(2),
+    gem: (v, l, c) => (v === 0 ? "0.00" : (Math.max(0, ((l + c) / v) * Math.log(100000 / (v + 1)))).toFixed(2))
+};
 
-  function toggleEpSort() {
-    isAscending = !isAscending;
-    sortIcon.innerText = isAscending ? 'arrow_downward' : 'arrow_upward';
+let currentSort = 'recent';
+let activeTags = new Set();
+let allSortedTags = [];
+let isTagPanelActive = false;
+let activeChannelFilter = 'all'; 
+
+function updateDashNum(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.innerText = val;
+}
+
+function toggleNetworkState(targetState, filterSlug) {
+    const container = document.getElementById('networkToggleContainer');
+    if (!container) return;
+
+    const splitCards = container.querySelectorAll('.card-split');
+
+    if (targetState === 'split') {
+        container.classList.remove('state-combined');
+        container.classList.add('state-split');
+        splitCards.forEach(c => {
+            if (c.dataset.target === filterSlug) c.classList.add('active-filter');
+            else c.classList.remove('active-filter');
+        });
+    } else {
+        container.classList.remove('state-split');
+        container.classList.add('state-combined');
+        splitCards.forEach(c => c.classList.remove('active-filter'));
+    }
+
+    activeChannelFilter = filterSlug;
+    applyFilters();
+}
+
+function sortGrid(type) {
+    currentSort = type;
+    document.querySelectorAll('.btn-group .btn').forEach(btn => btn.classList.remove('active'));
     
-    // Convert HTMLCollection to Array to reverse it
-    const items = Array.from(epGrid.children);
-    items.reverse();
+    const clickedBtn = document.getElementById(`btn-${type}`);
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    const grid = document.getElementById('all-series-grid') || document.getElementById('series-grid');
+    if (!grid) return;
     
-    // Clear and re-append in the new order
-    epGrid.innerHTML = '';
-    items.forEach(item => epGrid.appendChild(item));
-  }
+    const cards = Array.from(grid.querySelectorAll('.filterable-card'));
+
+    cards.sort((a, b) => {
+        if (type === 'recent') return parseInt(b.dataset.updated || 0) - parseInt(a.dataset.updated || 0);
+        if (type === 'popular') return parseInt(b.dataset.views || 0) - parseInt(a.dataset.views || 0);
+        if (type === 'length') return parseInt(b.dataset.duration || 0) - parseInt(a.dataset.duration || 0);
+        if (type === 'vpv') return parseInt(b.dataset.vpv || 0) - parseInt(a.dataset.vpv || 0);
+        if (type === 'vel') return parseFloat(b.dataset.vel || 0) - parseFloat(a.dataset.vel || 0);
+        if (type === 'heat') return parseFloat(b.dataset.heat || 0) - parseFloat(a.dataset.heat || 0);
+        if (type === 'gem') return parseFloat(b.dataset.gem || 0) - parseFloat(a.dataset.gem || 0);
+    });
+
+    grid.innerHTML = '';
+    cards.forEach(card => grid.appendChild(card));
+}
+
+function clearSearchInput() {
+    const searchInput = document.getElementById('gameSearch');
+    if (!searchInput) return;
+    searchInput.value = '';
+    document.getElementById('clearSearch').classList.add('hidden');
+    applyFilters();
+    searchInput.focus();
+}
+
+function applyFilters() {
+    const searchInput = document.getElementById('gameSearch');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+    const cards = document.querySelectorAll('.filterable-card');
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const tagsStr = card.getAttribute('data-tags') || '';
+        const cardChannel = card.getAttribute('data-channel') || '';
+        const cardTags = tagsStr.split(',').map(t => t.trim()).filter(Boolean);
+
+        const matchesSearch = title.includes(searchTerm);
+        const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(tag => cardTags.includes(tag));
+        const matchesChannel = activeChannelFilter === 'all' || cardChannel === activeChannelFilter;
+
+        if (matchesSearch && matchesTags && matchesChannel) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    calculateDynamicStats();
+}
+
+function calculateDynamicStats() {
+    const cards = document.querySelectorAll('.filterable-card:not(.hidden)');
+    
+    let tGames = 0, tVids = 0, tViews = 0, tLikes = 0, tComms = 0, tDur = 0;
+    let minFirst = Infinity, maxLast = 0;
+
+    cards.forEach(c => {
+        tGames++;
+        tVids += parseInt(c.dataset.episodes || 0);
+        tViews += parseInt(c.dataset.views || 0);
+        tLikes += parseInt(c.dataset.likes || 0);
+        tComms += parseInt(c.dataset.comments || 0);
+        tDur += parseInt(c.dataset.duration || 0);
+
+        const fp = parseInt(c.dataset.firstpub);
+        const lp = parseInt(c.dataset.updated);
+        if (fp && fp < minFirst) minFirst = fp;
+        if (lp && lp > maxLast) maxLast = lp;
+    });
+
+    if (tGames === 0) return; 
+
+    updateDashNum('val-tot-items', Utils.formatNum(tGames));
+    updateDashNum('val-tot-vids', Utils.formatNum(tVids));
+    updateDashNum('val-tot-views', Utils.formatNum(tViews));
+    updateDashNum('val-tot-likes', Utils.formatNum(tLikes));
+    updateDashNum('val-tot-comms', Utils.formatNum(tComms));
+    updateDashNum('val-tot-dur', Utils.formatDur(tDur));
+
+    updateDashNum('val-avg-vid', Utils.formatNum(tVids / tGames));
+    updateDashNum('val-avg-view', Utils.formatNum(tViews / tGames));
+    updateDashNum('val-avg-like', Utils.formatNum(tLikes / tGames));
+    updateDashNum('val-avg-comm', Utils.formatNum(tComms / tGames));
+    updateDashNum('val-avg-dur', Utils.formatDur(tDur / tGames));
+
+    const vC = Math.max(1, tVids);
+    updateDashNum('val-pv-view', Utils.formatNum(tViews / vC));
+    updateDashNum('val-pv-like', Utils.formatNum(tLikes / vC));
+    updateDashNum('val-pv-comm', Utils.formatNum(tComms / vC));
+    updateDashNum('val-pv-dur', Utils.formatDur(tDur / vC));
+
+    const ageDays = Utils.daysBetween(minFirst);
+    updateDashNum('val-adv-age', Utils.formatAge(ageDays));
+    updateDashNum('val-adv-dead', Utils.formatAge(Utils.daysBetween(maxLast)));
+    
+    // Complex innerHTML updates for colored spans
+    const elVel = document.getElementById('val-adv-vel');
+    if (elVel) elVel.innerHTML = `${Utils.velocity(tViews, ageDays)}/d`;
+    
+    const elHeat = document.getElementById('val-adv-heat');
+    if (elHeat) elHeat.innerHTML = `${Utils.heat(tViews, tLikes, tComms, Utils.hoursBetween(minFirst))}`;
+    
+    const elGem = document.getElementById('val-adv-gem');
+    if (elGem) elGem.innerHTML = `${Utils.gem(tViews, tLikes, tComms)}`;
+}
+
+function toggleTagPanel() {
+    isTagPanelActive = !isTagPanelActive;
+    const btn = document.getElementById('btn-tags-toggle');
+    const panel = document.getElementById('tag-filters');
+    
+    if (!btn || !panel) return;
+
+    if (isTagPanelActive) {
+        btn.classList.add('active');
+        panel.classList.remove('hidden');
+    } else {
+        btn.classList.remove('active');
+        panel.classList.add('hidden');
+    }
+}
+
+function initTags() {
+    const cards = document.querySelectorAll('.filterable-card');
+    const tagCounts = {};
+    
+    cards.forEach(card => {
+        const tagsStr = card.getAttribute('data-tags');
+        if (!tagsStr) return;
+        tagsStr.split(',').filter(Boolean).forEach(t => {
+            const cleanTag = t.trim();
+            tagCounts[cleanTag] = (tagCounts[cleanTag] || 0) + 1;
+        });
+    });
+
+    allSortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+    if (allSortedTags.length === 0) return;
+
+    const container = document.getElementById('tag-filters');
+    if (!container) return;
+    
+    container.innerHTML = '';
+
+    allSortedTags.forEach(([tag, count]) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-gray'; 
+        btn.innerText = `${tag} (${count})`;
+        
+        btn.onclick = () => {
+            if (activeTags.has(tag)) {
+                activeTags.delete(tag);
+                btn.classList.remove('active');
+            } else {
+                activeTags.add(tag);
+                btn.classList.add('active');
+            }
+            applyFilters();
+        };
+        container.appendChild(btn);
+    });
+}
+
+const searchInput = document.getElementById('gameSearch');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const clearBtn = document.getElementById('clearSearch');
+        if (e.target.value.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+        applyFilters();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    sortGrid('recent');
+    initTags(); 
+});
 </script>

@@ -39,9 +39,9 @@ let allSortedTags = [];
 let isTagPanelActive = false;
 let activeChannelFilter = 'all'; 
 
-function updateDash(id, html) {
+function updateDashNum(id, val) {
     const el = document.getElementById(id);
-    if (el) el.innerHTML = html;
+    if (el) el.innerText = val;
 }
 
 function toggleNetworkState(targetState, filterSlug) {
@@ -149,31 +149,38 @@ function calculateDynamicStats() {
 
     if (tGames === 0) return; 
 
-    updateDash('dash-tot-games', \`<span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">sports_esports</span> \${Utils.formatNum(tGames)}\`);
-    updateDash('dash-tot-vids', \`<span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> \${Utils.formatNum(tVids)}\`);
-    updateDash('dash-tot-views', \`<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> \${Utils.formatNum(tViews)}\`);
-    updateDash('dash-tot-likes', \`<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> \${Utils.formatNum(tLikes)}\`);
-    updateDash('dash-tot-comms', \`<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> \${Utils.formatNum(tComms)}\`);
-    updateDash('dash-tot-dur', \`<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> \${Utils.formatDur(tDur)}\`);
+    updateDashNum('val-tot-items', Utils.formatNum(tGames));
+    updateDashNum('val-tot-vids', Utils.formatNum(tVids));
+    updateDashNum('val-tot-views', Utils.formatNum(tViews));
+    updateDashNum('val-tot-likes', Utils.formatNum(tLikes));
+    updateDashNum('val-tot-comms', Utils.formatNum(tComms));
+    updateDashNum('val-tot-dur', Utils.formatDur(tDur));
 
-    updateDash('dash-avg-vid', \`<span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> \${Utils.formatNum(tVids / tGames)}\`);
-    updateDash('dash-avg-view', \`<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> \${Utils.formatNum(tViews / tGames)}\`);
-    updateDash('dash-avg-like', \`<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> \${Utils.formatNum(tLikes / tGames)}\`);
-    updateDash('dash-avg-comm', \`<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> \${Utils.formatNum(tComms / tGames)}\`);
-    updateDash('dash-avg-dur', \`<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> \${Utils.formatDur(tDur / tGames)}\`);
+    updateDashNum('val-avg-vid', Utils.formatNum(tVids / tGames));
+    updateDashNum('val-avg-view', Utils.formatNum(tViews / tGames));
+    updateDashNum('val-avg-like', Utils.formatNum(tLikes / tGames));
+    updateDashNum('val-avg-comm', Utils.formatNum(tComms / tGames));
+    updateDashNum('val-avg-dur', Utils.formatDur(tDur / tGames));
 
     const vC = Math.max(1, tVids);
-    updateDash('dash-pv-view', \`<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> \${Utils.formatNum(tViews / vC)}\`);
-    updateDash('dash-pv-like', \`<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> \${Utils.formatNum(tLikes / vC)}\`);
-    updateDash('dash-pv-comm', \`<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> \${Utils.formatNum(tComms / vC)}\`);
-    updateDash('dash-pv-dur', \`<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> \${Utils.formatDur(tDur / vC)}\`);
+    updateDashNum('val-pv-view', Utils.formatNum(tViews / vC));
+    updateDashNum('val-pv-like', Utils.formatNum(tLikes / vC));
+    updateDashNum('val-pv-comm', Utils.formatNum(tComms / vC));
+    updateDashNum('val-pv-dur', Utils.formatDur(tDur / vC));
 
     const ageDays = Utils.daysBetween(minFirst);
-    updateDash('dash-adv-age', \`<strong>Age:</strong> \${Utils.formatAge(ageDays)}\`);
-    updateDash('dash-adv-dead', \`<strong>Inactive:</strong> \${Utils.formatAge(Utils.daysBetween(maxLast))}\`);
-    updateDash('dash-adv-vel', \`<strong>Vel:</strong> <span class="blue">\${Utils.velocity(tViews, ageDays)}/d</span>\`);
-    updateDash('dash-adv-heat', \`<strong>Heat:</strong> <span class="red">\${Utils.heat(tViews, tLikes, tComms, Utils.hoursBetween(minFirst))}</span>\`);
-    updateDash('dash-adv-gem', \`<strong>Gem:</strong> <span class="orange">\${Utils.gem(tViews, tLikes, tComms)}</span>\`);
+    updateDashNum('val-adv-age', Utils.formatAge(ageDays));
+    updateDashNum('val-adv-dead', Utils.formatAge(Utils.daysBetween(maxLast)));
+    
+    // Complex innerHTML updates for colored spans
+    const elVel = document.getElementById('val-adv-vel');
+    if (elVel) elVel.innerHTML = \`\${Utils.velocity(tViews, ageDays)}/d\`;
+    
+    const elHeat = document.getElementById('val-adv-heat');
+    if (elHeat) elHeat.innerHTML = \`\${Utils.heat(tViews, tLikes, tComms, Utils.hoursBetween(minFirst))}\`;
+    
+    const elGem = document.getElementById('val-adv-gem');
+    if (elGem) elGem.innerHTML = \`\${Utils.gem(tViews, tLikes, tComms)}\`;
 }
 
 function toggleTagPanel() {

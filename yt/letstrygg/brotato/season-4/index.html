@@ -1,116 +1,1361 @@
 ---
 layout: new
-title: "Season 4 Episodes - Brotato Abyssal Terrors DLC Full Release"
-description: "A complete list of episodes from Season 4 of the Brotato Abyssal Terrors DLC Full Release Let's Play."
+title: "Brotato - Season 4"
 permalink: /yt/letstrygg/brotato/season-4/
-custom_css: "/css/game/bro-style.css"
-sync_date: "2026-03-20T23:05:08.7+00:00"
 ---
-
-<style>
-/* Dashboard Styles */
-.analytics-dash {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 24px;
-    color: var(--text);
-}
-.dash-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 10px 0;
-    border-bottom: 1px solid #333;
-}
-.dash-row:last-child { border-bottom: none; padding-bottom: 0; }
-.stat-item { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; }
-.stat-label { color: var(--gray); font-weight: bold; margin-right: 4px; }
-</style>
-
 <div class="game-page-wrapper">
-  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; border-bottom: 1px solid var(--gray); padding-bottom: 15px;">
-    <div>
-      <h1 class="title" style="margin-bottom: 5px;">Brotato Abyssal Terrors DLC Full Release</h1>
-      <p class="subtitle" style="margin: 0;">Season 4 Episodes</p>
-    </div>
-    <button class="btn btn-gray" onclick="toggleEpSort()" title="Reverse Order">
-      <span class="material-symbols-outlined" id="sortIcon" style="font-size: 18px; vertical-align: middle;">arrow_downward</span> Sort
-    </button>
+  <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
+    <h1 class="title">Brotato</h1>
+    <p class="subtitle" style="margin: 0;">Season 4</p>
   </div>
 
-  <div class="analytics-dash">
-    
+  <div class="dash-panel" id="main-dashboard">
+    <div class="dash-row" style="padding-top: 0;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Episodes"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">video_library</span> <span id="val-tot-items">37</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> <span id="val-tot-vids">37</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-tot-views">4.5K</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-tot-likes">80</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-tot-comms">13</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-tot-dur">33h 33m</span></div>
+    </div>
     <div class="dash-row">
-        <div class="stat-item"><span class="stat-label">ORIGINAL:</span></div>
-        <div class="stat-item" title="Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 37</div>
-        <div class="stat-item" title="Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 4.5K</div>
-        <div class="stat-item" title="Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 80</div>
-        <div class="stat-item" title="Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 13</div>
-        <div class="stat-item" title="Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> 33h 33m</div>
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-pv-view">122</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-pv-like">2</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-pv-comm">0</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-pv-dur">54m</span></div>
     </div>
 
-    <div class="dash-row">
-        <div class="stat-item"><span class="stat-label tooltip-trigger" data-tooltip="Compared to Series Average">W/ DELTAS:</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> 37 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> 4.5K <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> 80 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
-        <div class="stat-item"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> 13 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></div>
+    <div class="dash-row" style="gap: 20px;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ANALYTICS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Age of filtered content"><strong style="margin-right: 4px;">Age:</strong> <span id="val-adv-age">1y 151d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong style="margin-right: 4px;">Inactive:</strong> <span id="val-adv-dead">1y 43d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Views generated per day"><strong style="margin-right: 4px;">Vel:</strong> <span class="blue" id="val-adv-vel">8.7/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Trending Score"><strong style="margin-right: 4px;">Heat:</strong> <span class="red" id="val-adv-heat">0.00</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Hidden Gem Score"><strong style="margin-right: 4px;">Gem:</strong> <span class="orange" id="val-adv-gem">0.06</span></div>
     </div>
-
-    <div class="dash-row" style="margin-top: 5px;">
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Total Age of Season">Age:</span> 516d
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Days between Ep 1 and Final Ep">Longevity:</span> 109d
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Days since latest upload">Last Video:</span> 408d ago
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="Average views generated per day">Velocity:</span> <span style="color: var(--blue);">8.7/d</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-label tooltip-trigger" data-tooltip="High Engagement + Low Views = Hidden Gem">Gem Score:</span> <span style="color: var(--orange); font-weight: bold;">0.06</span>
-        </div>
-    </div>
-
   </div>
 
-  <div class="game-section">
-    
 
+<div class="panel" style="margin-bottom: 20px; gap: 15px;">
+    <div class="flex-row">
+        <div style="position: relative; flex: 1;">
+            <input type="text" id="gameSearch" class="input" placeholder="Search...">
+            <span id="clearSearch" class="material-symbols-outlined hidden" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray);" onclick="clearSearchInput()">close</span>
+        </div>
+        <div class="flex-row" style="gap: 10px;">
+            <button class="btn btn-gray" id="btn-tags-toggle" onclick="toggleTagPanel()">
+                <span class="material-symbols-outlined">sell</span> Tags
+            </button>
+        </div>
+    </div>
 
-    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/letstrygg/brotato/season-4/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
-    
-    <div id="grid" class="ep-grid">
-    {%- for ep in ep_pages -%}
-      <a href="{{ ep.url | relative_url }}" class="btn btn-gray" style="text-align: left; padding: 10px 15px;">
-        {{ ep.title | remove: "Brotato Abyssal Terrors DLC Full Release" | strip }}
+    <div class="btn-group flex-wrap">
+        <button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')"><span class="material-symbols-outlined">psychiatry</span> New</button>
+        <button class="btn btn-blue" id="btn-popular" onclick="sortGrid('popular')"><span class="material-symbols-outlined">visibility</span> Views</button>
+        <button class="btn btn-purple" id="btn-length" onclick="sortGrid('length')"><span class="material-symbols-outlined">schedule</span> Duration</button>
+        <button class="btn btn-orange" id="btn-vpv" onclick="sortGrid('vpv')"><span class="material-symbols-outlined">mode_heat</span> VPV</button>
+        <button class="btn btn-blue" id="btn-vel" onclick="sortGrid('vel')"><span class="material-symbols-outlined">speed</span> Velocity</button>
+        <button class="btn btn-red" id="btn-heat" onclick="sortGrid('heat')"><span class="material-symbols-outlined">local_fire_department</span> Heat</button>
+        <button class="btn btn-yellow" id="btn-gem" onclick="sortGrid('gem')"><span class="material-symbols-outlined">diamond</span> Gem</button>
+    </div>
+</div>
+<div id="tag-filters" class="panel hidden" style="flex-direction: row; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 12px;"></div>
+<div class="grid" id="series-grid">
+  <div class="panel filterable-card flush-all" data-title="new dlc out! monster: danger 5 - brotato abyssal terrors - giveaway" data-tags="" 
+       data-updated="1729864830000" data-episodes="1" data-views="250" data-likes="2" data-comments="0" data-duration="2590" data-vpv="250" data-firstpub="1729864830000" data-vel="0.5" data-heat="0.00" data-gem="0.05">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e01.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/NFtt9kmaomE/maxresdefault.jpg" alt="New DLC Out! Monster: Danger 5 - Brotato Abyssal Terrors - Giveaway" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">New DLC Out! Monster: Danger 5 - Brotato Abyssal Terrors - Giveaway</strong>
+              <span class="card-status gray">Ep 01</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 250 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.2K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 43m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 50m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 151d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.5/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.05</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
       </a>
-    {%- endfor -%}
-    </div>
   </div>
+
+  <div class="panel filterable-card flush-all" data-title="ogre go boom! danger 5 - brotato: abyssal terrors dlc - steam giveaway" data-tags="" 
+       data-updated="1729951246000" data-episodes="1" data-views="207" data-likes="5" data-comments="0" data-duration="2364" data-vpv="207" data-firstpub="1729951246000" data-vel="0.4" data-heat="0.00" data-gem="0.15">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e02.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/oliOdo_sZwQ/maxresdefault.jpg" alt="Ogre Go BOOM! Danger 5 - Brotato: Abyssal Terrors DLC - Steam Giveaway" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Ogre Go BOOM! Danger 5 - Brotato: Abyssal Terrors DLC - Steam Giveaway</strong>
+              <span class="card-status gray">Ep 02</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 207 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">75</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 39m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 54m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 150d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.4/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.15</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="buccaneer is tricky! danger 5 - brotato: abyssal terrors dlc" data-tags="" 
+       data-updated="1730037620000" data-episodes="1" data-views="272" data-likes="3" data-comments="0" data-duration="3711" data-vpv="272" data-firstpub="1730037620000" data-vel="0.5" data-heat="0.00" data-gem="0.07">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e03.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/OFTVBrL-1n4/maxresdefault.jpg" alt="Buccaneer is Tricky! Danger 5 - Brotato: Abyssal Terrors DLC" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Buccaneer is Tricky! Danger 5 - Brotato: Abyssal Terrors DLC</strong>
+              <span class="card-status gray">Ep 03</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 272 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.2K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">77</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 1m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 31m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 149d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.5/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.07</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="dlc giveaway then baby - brotato abyssal terrors dlc" data-tags="" 
+       data-updated="1730124033000" data-episodes="1" data-views="84" data-likes="0" data-comments="1" data-duration="3964" data-vpv="84" data-firstpub="1730124033000" data-vel="0.2" data-heat="0.00" data-gem="0.08">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e04.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/T_QoepRcFiA/maxresdefault.jpg" alt="DLC Giveaway then Baby - Brotato Abyssal Terrors DLC" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">DLC Giveaway then Baby - Brotato Abyssal Terrors DLC</strong>
+              <span class="card-status gray">Ep 04</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 84 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">80</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">12</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 6m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 27m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 148d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.08</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="random danger 5 - brotato: abyssal terrors dlc" data-tags="" 
+       data-updated="1730221252000" data-episodes="1" data-views="115" data-likes="2" data-comments="0" data-duration="4453" data-vpv="115" data-firstpub="1730221252000" data-vel="0.2" data-heat="0.00" data-gem="0.12">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e05.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/p-9Xn-FdS5Q/maxresdefault.jpg" alt="Random Danger 5 - Brotato: Abyssal Terrors DLC" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Random Danger 5 - Brotato: Abyssal Terrors DLC</strong>
+              <span class="card-status gray">Ep 05</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 115 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 14m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 19m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 147d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.12</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="cursed ghost renegade op, danger 5 - brotato: abyssal terrors dlc ep 6" data-tags="" 
+       data-updated="1730394045000" data-episodes="1" data-views="188" data-likes="2" data-comments="1" data-duration="1275" data-vpv="188" data-firstpub="1730394045000" data-vel="0.4" data-heat="0.00" data-gem="0.10">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e06.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/kIn1MId9Frc/maxresdefault.jpg" alt="Cursed Ghost Renegade OP, Danger 5 - Brotato: Abyssal Terrors DLC Ep 6" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cursed Ghost Renegade OP, Danger 5 - Brotato: Abyssal Terrors DLC Ep 6</strong>
+              <span class="card-status gray">Ep 06</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 188 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">12</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 21m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 12m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 145d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.4/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.10</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="well rounded - every potato #1 - brotato abyssal terrors dlc ep 7" data-tags="" 
+       data-updated="1730912434000" data-episodes="1" data-views="92" data-likes="1" data-comments="0" data-duration="3599" data-vpv="92" data-firstpub="1730912434000" data-vel="0.2" data-heat="0.00" data-gem="0.08">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e07.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/XEZQjRk-v7U/maxresdefault.jpg" alt="Well Rounded - Every Potato #1 - Brotato Abyssal Terrors DLC Ep 7" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Well Rounded - Every Potato #1 - Brotato Abyssal Terrors DLC Ep 7</strong>
+              <span class="card-status gray">Ep 07</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 92 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">79</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 59m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 33m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 139d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.08</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="brawler - every potato #2 - brotato abyssal terrors dlc ep 8" data-tags="" 
+       data-updated="1731164417000" data-episodes="1" data-views="93" data-likes="1" data-comments="0" data-duration="2200" data-vpv="93" data-firstpub="1731164417000" data-vel="0.2" data-heat="0.00" data-gem="0.07">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e08.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/AY61tM1EQVA/maxresdefault.jpg" alt="Brawler - Every Potato #2 - Brotato Abyssal Terrors DLC Ep 8" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Brawler - Every Potato #2 - Brotato Abyssal Terrors DLC Ep 8</strong>
+              <span class="card-status gray">Ep 08</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 93 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">79</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 36m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 57m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 136d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.07</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="crazy - every potato #3 - brotato abyssal terrors dlc ep 9" data-tags="" 
+       data-updated="1731250845000" data-episodes="1" data-views="101" data-likes="0" data-comments="0" data-duration="1640" data-vpv="101" data-firstpub="1731250845000" data-vel="0.2" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e09.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/eM5NzQXGGi8/maxresdefault.jpg" alt="Crazy - Every Potato #3 - Brotato Abyssal Terrors DLC Ep 9" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Crazy - Every Potato #3 - Brotato Abyssal Terrors DLC Ep 9</strong>
+              <span class="card-status gray">Ep 09</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 101 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">80</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 27m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 6m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 135d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="ranger - every potato #4 - brotato abyssal terrors dlc ep 10" data-tags="" 
+       data-updated="1731337216000" data-episodes="1" data-views="87" data-likes="0" data-comments="0" data-duration="1403" data-vpv="87" data-firstpub="1731337216000" data-vel="0.2" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e10.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/9JZxusKaGMo/maxresdefault.jpg" alt="Ranger - Every Potato #4 - Brotato Abyssal Terrors DLC Ep 10" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Ranger - Every Potato #4 - Brotato Abyssal Terrors DLC Ep 10</strong>
+              <span class="card-status gray">Ep 10</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 87 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">80</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 23m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 10m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 134d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="mage - every potato #5 - brotato abyssal terrors dlc ep 11" data-tags="" 
+       data-updated="1731423653000" data-episodes="1" data-views="121" data-likes="2" data-comments="0" data-duration="3751" data-vpv="121" data-firstpub="1731423653000" data-vel="0.2" data-heat="0.00" data-gem="0.11">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e11.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/cUeLFvaH8Uw/maxresdefault.jpg" alt="Mage - Every Potato #5 - Brotato Abyssal Terrors DLC Ep 11" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Mage - Every Potato #5 - Brotato Abyssal Terrors DLC Ep 11</strong>
+              <span class="card-status gray">Ep 11</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 121 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 2m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 31m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 133d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.11</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="chunky - every potato #6 - brotato abyssal terrors dlc ep 12" data-tags="" 
+       data-updated="1731510048000" data-episodes="1" data-views="86" data-likes="1" data-comments="0" data-duration="1552" data-vpv="86" data-firstpub="1731510048000" data-vel="0.2" data-heat="0.00" data-gem="0.08">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e12.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/groP_-z1Yys/maxresdefault.jpg" alt="Chunky - Every Potato #6 - Brotato Abyssal Terrors DLC Ep 12" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Chunky - Every Potato #6 - Brotato Abyssal Terrors DLC Ep 12</strong>
+              <span class="card-status gray">Ep 12</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 86 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">79</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 25m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 7m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 132d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.08</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="old - every potato #7 - brotato abyssal terrors dlc ep 13" data-tags="" 
+       data-updated="1731596452000" data-episodes="1" data-views="82" data-likes="2" data-comments="0" data-duration="3151" data-vpv="82" data-firstpub="1731596452000" data-vel="0.2" data-heat="0.00" data-gem="0.17">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e13.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/o-5oVwzP4cM/maxresdefault.jpg" alt="Old - Every Potato #7 - Brotato Abyssal Terrors DLC Ep 13" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Old - Every Potato #7 - Brotato Abyssal Terrors DLC Ep 13</strong>
+              <span class="card-status gray">Ep 13</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 82 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 52m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 41m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 131d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.17</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="lucky - every potato #8 - brotato abyssal terrors dlc ep 14" data-tags="" 
+       data-updated="1731682835000" data-episodes="1" data-views="100" data-likes="5" data-comments="0" data-duration="2002" data-vpv="100" data-firstpub="1731682835000" data-vel="0.2" data-heat="0.00" data-gem="0.34">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e14.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/TiowoT_6uQs/maxresdefault.jpg" alt="Lucky - Every Potato #8 - Brotato Abyssal Terrors DLC Ep 14" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Lucky - Every Potato #8 - Brotato Abyssal Terrors DLC Ep 14</strong>
+              <span class="card-status gray">Ep 14</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 100 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">75</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 33m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 0m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 130d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.34</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="mutant - every potato #9 - brotato abyssal terrors dlc ep 15" data-tags="" 
+       data-updated="1731769267000" data-episodes="1" data-views="110" data-likes="2" data-comments="0" data-duration="3405" data-vpv="110" data-firstpub="1731769267000" data-vel="0.2" data-heat="0.00" data-gem="0.12">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e15.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/zGvlc_vQfVk/maxresdefault.jpg" alt="Mutant - Every Potato #9 - Brotato Abyssal Terrors DLC Ep 15" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Mutant - Every Potato #9 - Brotato Abyssal Terrors DLC Ep 15</strong>
+              <span class="card-status gray">Ep 15</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 110 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 56m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 36m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 129d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.12</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="generalist - every potato #10 - brotato abyssal terrors dlc ep 16" data-tags="" 
+       data-updated="1731855604000" data-episodes="1" data-views="116" data-likes="2" data-comments="2" data-duration="2191" data-vpv="116" data-firstpub="1731855604000" data-vel="0.2" data-heat="0.00" data-gem="0.23">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e16.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/2QV-e-8iPVE/maxresdefault.jpg" alt="Generalist - Every Potato #10 - Brotato Abyssal Terrors DLC Ep 16" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Generalist - Every Potato #10 - Brotato Abyssal Terrors DLC Ep 16</strong>
+              <span class="card-status gray">Ep 16</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 116 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">11</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 36m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 57m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 128d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.23</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="loud - every potato #11 - brotato abyssal terrors dlc ep 17" data-tags="" 
+       data-updated="1731942043000" data-episodes="1" data-views="82" data-likes="2" data-comments="0" data-duration="5414" data-vpv="82" data-firstpub="1731942043000" data-vel="0.2" data-heat="0.00" data-gem="0.17">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e17.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/cq7qX00PVcA/maxresdefault.jpg" alt="LOUD - Every Potato #11 - Brotato Abyssal Terrors DLC Ep 17" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">LOUD - Every Potato #11 - Brotato Abyssal Terrors DLC Ep 17</strong>
+              <span class="card-status gray">Ep 17</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 82 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 30m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 3m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 127d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.17</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="multitasker - every potato #12 - brotato abyssal terrors dlc ep 18" data-tags="" 
+       data-updated="1732028433000" data-episodes="1" data-views="63" data-likes="2" data-comments="0" data-duration="5103" data-vpv="63" data-firstpub="1732028433000" data-vel="0.1" data-heat="0.00" data-gem="0.23">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e18.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/PGNCHpPBiX8/maxresdefault.jpg" alt="Multitasker - Every Potato #12 - Brotato Abyssal Terrors DLC Ep 18" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Multitasker - Every Potato #12 - Brotato Abyssal Terrors DLC Ep 18</strong>
+              <span class="card-status gray">Ep 18</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 63 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 25m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 8m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 126d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.1/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.23</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="wildling - every potato #13 - brotato abyssal terrors dlc ep 19" data-tags="" 
+       data-updated="1732114869000" data-episodes="1" data-views="97" data-likes="0" data-comments="0" data-duration="1280" data-vpv="97" data-firstpub="1732114869000" data-vel="0.2" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e19.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/vp7H_JCWJiQ/maxresdefault.jpg" alt="Wildling - Every Potato #13 - Brotato Abyssal Terrors DLC Ep 19" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Wildling - Every Potato #13 - Brotato Abyssal Terrors DLC Ep 19</strong>
+              <span class="card-status gray">Ep 19</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 97 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">80</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 21m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 12m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 125d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="pacifist - every potato #14 - brotato abyssal terrors dlc ep 20" data-tags="" 
+       data-updated="1732201202000" data-episodes="1" data-views="67" data-likes="0" data-comments="0" data-duration="3412" data-vpv="67" data-firstpub="1732201202000" data-vel="0.1" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e20.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/0GyKH3N0Cvk/maxresdefault.jpg" alt="Pacifist - Every Potato #14 - Brotato Abyssal Terrors DLC Ep 20" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Pacifist - Every Potato #14 - Brotato Abyssal Terrors DLC Ep 20</strong>
+              <span class="card-status gray">Ep 20</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 67 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">80</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 56m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 36m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 124d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.1/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="gladiator - every potato #15 - brotato abyssal terrors dlc ep 21" data-tags="" 
+       data-updated="1732287628000" data-episodes="1" data-views="59" data-likes="0" data-comments="0" data-duration="2546" data-vpv="59" data-firstpub="1732287628000" data-vel="0.1" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e21.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/OaHcSIwk90M/maxresdefault.jpg" alt="Gladiator - Every Potato #15 - Brotato Abyssal Terrors DLC Ep 21" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Gladiator - Every Potato #15 - Brotato Abyssal Terrors DLC Ep 21</strong>
+              <span class="card-status gray">Ep 21</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 59 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">80</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 42m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 51m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 123d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.1/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="saver - every potato #16 - brotato abyssal terrors dlc ep 22" data-tags="" 
+       data-updated="1732460402000" data-episodes="1" data-views="81" data-likes="0" data-comments="0" data-duration="4967" data-vpv="81" data-firstpub="1732460402000" data-vel="0.2" data-heat="0.00" data-gem="0.00">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e22.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/1M_hNZhr4KY/maxresdefault.jpg" alt="Saver - Every Potato #16 - Brotato Abyssal Terrors DLC Ep 22" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Saver - Every Potato #16 - Brotato Abyssal Terrors DLC Ep 22</strong>
+              <span class="card-status gray">Ep 22</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 81 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">80</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 22m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 10m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 121d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="sick - every potato #17 - brotato abyssal terrors dlc ep 23" data-tags="" 
+       data-updated="1732546823000" data-episodes="1" data-views="110" data-likes="2" data-comments="0" data-duration="6930" data-vpv="110" data-firstpub="1732546823000" data-vel="0.2" data-heat="0.00" data-gem="0.12">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e23.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/NnNPcGtFnc4/maxresdefault.jpg" alt="Sick - Every Potato #17 - Brotato Abyssal Terrors DLC Ep 23" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Sick - Every Potato #17 - Brotato Abyssal Terrors DLC Ep 23</strong>
+              <span class="card-status gray">Ep 23</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 110 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 55m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">31h 38m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 120d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.12</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="farmer - every potato #18 - brotato abyssal terrors dlc ep 24" data-tags="" 
+       data-updated="1732633227000" data-episodes="1" data-views="120" data-likes="4" data-comments="0" data-duration="5601" data-vpv="120" data-firstpub="1732633227000" data-vel="0.2" data-heat="0.00" data-gem="0.22">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e24.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/Slh3NExhnpw/maxresdefault.jpg" alt="Farmer - Every Potato #18 - Brotato Abyssal Terrors DLC Ep 24" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Farmer - Every Potato #18 - Brotato Abyssal Terrors DLC Ep 24</strong>
+              <span class="card-status gray">Ep 24</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 120 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">76</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 33m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 0m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 119d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.22</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="ghost - every potato #19 - brotato abyssal terrors dlc ep 25" data-tags="" 
+       data-updated="1732899632000" data-episodes="1" data-views="179" data-likes="2" data-comments="0" data-duration="1891" data-vpv="179" data-firstpub="1732899632000" data-vel="0.4" data-heat="0.00" data-gem="0.07">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e25.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/PSsxAB1TiC4/maxresdefault.jpg" alt="Ghost - Every Potato #19 - Brotato Abyssal Terrors DLC Ep 25" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Ghost - Every Potato #19 - Brotato Abyssal Terrors DLC Ep 25</strong>
+              <span class="card-status gray">Ep 25</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 179 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 31m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 2m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 116d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.4/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.07</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="speedy - every potato #20 - brotato abyssal terrors dlc ep 26" data-tags="" 
+       data-updated="1732986018000" data-episodes="1" data-views="82" data-likes="2" data-comments="0" data-duration="4508" data-vpv="82" data-firstpub="1732986018000" data-vel="0.2" data-heat="0.00" data-gem="0.17">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e26.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/M0h-xolCKK0/maxresdefault.jpg" alt="Speedy - Every Potato #20 - Brotato Abyssal Terrors DLC Ep 26" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Speedy - Every Potato #20 - Brotato Abyssal Terrors DLC Ep 26</strong>
+              <span class="card-status gray">Ep 26</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 82 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 15m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 18m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 115d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.17</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="entrepreneur - every potato #21 - brotato abyssal terrors dlc ep 27" data-tags="" 
+       data-updated="1733072440000" data-episodes="1" data-views="114" data-likes="4" data-comments="1" data-duration="2866" data-vpv="114" data-firstpub="1733072440000" data-vel="0.2" data-heat="0.00" data-gem="0.30">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e27.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/heZlZ5V4noU/maxresdefault.jpg" alt="Entrepreneur - Every Potato #21 - Brotato Abyssal Terrors DLC Ep 27" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Entrepreneur - Every Potato #21 - Brotato Abyssal Terrors DLC Ep 27</strong>
+              <span class="card-status gray">Ep 27</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 114 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">76</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">12</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 47m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 45m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 114d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.30</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="engineer - every potato #22 - brotato abyssal terrors dlc ep 28" data-tags="" 
+       data-updated="1733245241000" data-episodes="1" data-views="152" data-likes="3" data-comments="1" data-duration="4054" data-vpv="152" data-firstpub="1733245241000" data-vel="0.3" data-heat="0.00" data-gem="0.17">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e28.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/e8jkXps1L6o/maxresdefault.jpg" alt="Engineer - Every Potato #22 - Brotato Abyssal Terrors DLC Ep 28" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Engineer - Every Potato #22 - Brotato Abyssal Terrors DLC Ep 28</strong>
+              <span class="card-status gray">Ep 28</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 152 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">77</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">12</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 7m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 26m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 112d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.3/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.17</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="builder - every potato #23 - brotato abyssal terrors dlc ep 29" data-tags="" 
+       data-updated="1733331627000" data-episodes="1" data-views="119" data-likes="4" data-comments="0" data-duration="4127" data-vpv="119" data-firstpub="1733331627000" data-vel="0.3" data-heat="0.00" data-gem="0.23">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e29.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/VTm8wn_rleY/maxresdefault.jpg" alt="Builder - Every Potato #23 - Brotato Abyssal Terrors DLC Ep 29" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Builder - Every Potato #23 - Brotato Abyssal Terrors DLC Ep 29</strong>
+              <span class="card-status gray">Ep 29</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 119 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">76</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 8m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 24m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 111d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.3/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.23</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="explorer - every potato #24 - brotato abyssal terrors dlc ep 30" data-tags="" 
+       data-updated="1733763616000" data-episodes="1" data-views="127" data-likes="6" data-comments="0" data-duration="6599" data-vpv="127" data-firstpub="1733763616000" data-vel="0.3" data-heat="0.00" data-gem="0.31">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e30.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/IjBCO8QkRYc/maxresdefault.jpg" alt="Explorer - Every Potato #24 - Brotato Abyssal Terrors DLC Ep 30" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Explorer - Every Potato #24 - Brotato Abyssal Terrors DLC Ep 30</strong>
+              <span class="card-status gray">Ep 30</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 127 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">74</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 49m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">31h 43m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 106d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.3/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.31</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="doctor - every potato #25 - brotato abyssal terrors dlc ep 31" data-tags="" 
+       data-updated="1733936452000" data-episodes="1" data-views="87" data-likes="2" data-comments="0" data-duration="2131" data-vpv="87" data-firstpub="1733936452000" data-vel="0.2" data-heat="0.00" data-gem="0.16">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e31.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/sBizB02Okdk/maxresdefault.jpg" alt="Doctor - Every Potato #25 - Brotato Abyssal Terrors DLC Ep 31" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Doctor - Every Potato #25 - Brotato Abyssal Terrors DLC Ep 31</strong>
+              <span class="card-status gray">Ep 31</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 87 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 35m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 58m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 104d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.16</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="cursed hunter is amazing! every potato #26 - brotato abyssal terrors dlc ep 32" data-tags="" 
+       data-updated="1734440411000" data-episodes="1" data-views="170" data-likes="4" data-comments="0" data-duration="3142" data-vpv="170" data-firstpub="1734440411000" data-vel="0.4" data-heat="0.00" data-gem="0.15">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e32.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/A9AZNVImUos/maxresdefault.jpg" alt="Cursed Hunter is Amazing! Every Potato #26 - Brotato Abyssal Terrors DLC Ep 32" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Cursed Hunter is Amazing! Every Potato #26 - Brotato Abyssal Terrors DLC Ep 32</strong>
+              <span class="card-status gray">Ep 32</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 170 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">76</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 52m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 41m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 98d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.4/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.15</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="artificer - every potato #27 - brotato abyssal terrors dlc ep 33" data-tags="" 
+       data-updated="1734879617000" data-episodes="1" data-views="152" data-likes="3" data-comments="1" data-duration="3511" data-vpv="152" data-firstpub="1734879617000" data-vel="0.3" data-heat="0.00" data-gem="0.17">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e33.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/HEgIcNPWaX8/maxresdefault.jpg" alt="Artificer - Every Potato #27 - Brotato Abyssal Terrors DLC Ep 33" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Artificer - Every Potato #27 - Brotato Abyssal Terrors DLC Ep 33</strong>
+              <span class="card-status gray">Ep 33</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 152 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">77</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">12</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 58m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 35m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 93d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.3/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.17</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="arms dealer - every potato #28 - brotato abyssal terrors dlc ep 34" data-tags="" 
+       data-updated="1734973262000" data-episodes="1" data-views="184" data-likes="1" data-comments="2" data-duration="1834" data-vpv="184" data-firstpub="1734973262000" data-vel="0.4" data-heat="0.00" data-gem="0.10">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e34.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/wpT0dqkEhxA/maxresdefault.jpg" alt="Arms Dealer - Every Potato #28 - Brotato Abyssal Terrors DLC Ep 34" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Arms Dealer - Every Potato #28 - Brotato Abyssal Terrors DLC Ep 34</strong>
+              <span class="card-status gray">Ep 34</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 184 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">79</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">11</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 30m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">33h 3m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 92d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.4/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.10</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="streamer: going live later today! every potato #29 - brotato abyssal terrors dlc ep 35" data-tags="" 
+       data-updated="1735059647000" data-episodes="1" data-views="128" data-likes="4" data-comments="2" data-duration="2022" data-vpv="128" data-firstpub="1735059647000" data-vel="0.3" data-heat="0.00" data-gem="0.31">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e35.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/ruZokG3CyWc/maxresdefault.jpg" alt="Streamer: Going Live Later Today! Every Potato #29 - Brotato Abyssal Terrors DLC Ep 35" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Streamer: Going Live Later Today! Every Potato #29 - Brotato Abyssal Terrors DLC Ep 35</strong>
+              <span class="card-status gray">Ep 35</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 128 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">76</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">11</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 33m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 59m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 91d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.3/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.31</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="jack: every potato #30 - brotato abyssal terrors dlc ep 36" data-tags="" 
+       data-updated="1735923660000" data-episodes="1" data-views="123" data-likes="3" data-comments="0" data-duration="2429" data-vpv="123" data-firstpub="1735923660000" data-vel="0.3" data-heat="0.00" data-gem="0.16">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e36.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/mYMiz2O5hzA/maxresdefault.jpg" alt="Jack: Every Potato #30 - Brotato Abyssal Terrors DLC Ep 36" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Jack: Every Potato #30 - Brotato Abyssal Terrors DLC Ep 36</strong>
+              <span class="card-status gray">Ep 36</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 123 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">77</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">13</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 40m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 53m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 81d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.3/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.16</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-title="lich - every potato #31 - brotato abyssal terrors dlc ep 37" data-tags="" 
+       data-updated="1739206845000" data-episodes="1" data-views="99" data-likes="2" data-comments="2" data-duration="3202" data-vpv="99" data-firstpub="1739206845000" data-vel="0.2" data-heat="0.00" data-gem="0.28">
+      <a href="/yt/letstrygg/brotato/season-4/bro-s04e37.html" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/ZJthVrRGzqA/maxresdefault.jpg" alt="Lich - Every Potato #31 - Brotato Abyssal Terrors DLC Ep 37" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px;">Lich - Every Potato #31 - Brotato Abyssal Terrors DLC Ep 37</strong>
+              <span class="card-status gray">Ep 37</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs Season Avg"><span class="material-symbols-outlined blue">visibility</span> 99 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">4.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs Season Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">78</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs Season Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">11</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs Season Avg"><span class="material-symbols-outlined purple">schedule</span> 53m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">32h 40m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> 1y 43d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.2/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.28</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              Watch Episode <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">play_circle</span>
+            </div>
+        </div>
+      </a>
+  </div>
+</div>
 </div>
 
 <script>
-  let isAscending = true;
-  const epGrid = document.getElementById('epGrid');
-  const sortIcon = document.getElementById('sortIcon');
+const Utils = {
+    formatNum: (num) => {
+        if (!num) return '0';
+        if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        return Math.round(num).toString();
+    },
+    formatDur: (seconds) => {
+        if (!seconds) return '0h 0m';
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        return h > 0 ? `${h}h ${m}m` : `${m}m`;
+    },
+    daysBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+    },
+    hoursBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, diff / (1000 * 60 * 60));
+    },
+    formatAge: (days) => {
+        if (days < 365) return `${days}d`;
+        const y = Math.floor(days / 365);
+        return `${y}y ${days % 365}d`;
+    },
+    velocity: (t, d) => (t / d).toFixed(1),
+    heat: (v, l, c, h) => ((v + (l * 5) + (c * 10)) / Math.pow(h + 2, 1.5)).toFixed(2),
+    gem: (v, l, c) => (v === 0 ? "0.00" : (Math.max(0, ((l + c) / v) * Math.log(100000 / (v + 1)))).toFixed(2))
+};
 
-  function toggleEpSort() {
-    isAscending = !isAscending;
-    sortIcon.innerText = isAscending ? 'arrow_downward' : 'arrow_upward';
+let currentSort = 'recent';
+let activeTags = new Set();
+let allSortedTags = [];
+let isTagPanelActive = false;
+let activeChannelFilter = 'all'; 
+
+function updateDashNum(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.innerText = val;
+}
+
+function toggleNetworkState(targetState, filterSlug) {
+    const container = document.getElementById('networkToggleContainer');
+    if (!container) return;
+
+    const splitCards = container.querySelectorAll('.card-split');
+
+    if (targetState === 'split') {
+        container.classList.remove('state-combined');
+        container.classList.add('state-split');
+        splitCards.forEach(c => {
+            if (c.dataset.target === filterSlug) c.classList.add('active-filter');
+            else c.classList.remove('active-filter');
+        });
+    } else {
+        container.classList.remove('state-split');
+        container.classList.add('state-combined');
+        splitCards.forEach(c => c.classList.remove('active-filter'));
+    }
+
+    activeChannelFilter = filterSlug;
+    applyFilters();
+}
+
+function sortGrid(type) {
+    currentSort = type;
+    document.querySelectorAll('.btn-group .btn').forEach(btn => btn.classList.remove('active'));
     
-    // Convert HTMLCollection to Array to reverse it
-    const items = Array.from(epGrid.children);
-    items.reverse();
+    const clickedBtn = document.getElementById(`btn-${type}`);
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    const grid = document.getElementById('all-series-grid') || document.getElementById('series-grid');
+    if (!grid) return;
     
-    // Clear and re-append in the new order
-    epGrid.innerHTML = '';
-    items.forEach(item => epGrid.appendChild(item));
-  }
+    const cards = Array.from(grid.querySelectorAll('.filterable-card'));
+
+    cards.sort((a, b) => {
+        if (type === 'recent') return parseInt(b.dataset.updated || 0) - parseInt(a.dataset.updated || 0);
+        if (type === 'popular') return parseInt(b.dataset.views || 0) - parseInt(a.dataset.views || 0);
+        if (type === 'length') return parseInt(b.dataset.duration || 0) - parseInt(a.dataset.duration || 0);
+        if (type === 'vpv') return parseInt(b.dataset.vpv || 0) - parseInt(a.dataset.vpv || 0);
+        if (type === 'vel') return parseFloat(b.dataset.vel || 0) - parseFloat(a.dataset.vel || 0);
+        if (type === 'heat') return parseFloat(b.dataset.heat || 0) - parseFloat(a.dataset.heat || 0);
+        if (type === 'gem') return parseFloat(b.dataset.gem || 0) - parseFloat(a.dataset.gem || 0);
+    });
+
+    grid.innerHTML = '';
+    cards.forEach(card => grid.appendChild(card));
+}
+
+function clearSearchInput() {
+    const searchInput = document.getElementById('gameSearch');
+    if (!searchInput) return;
+    searchInput.value = '';
+    document.getElementById('clearSearch').classList.add('hidden');
+    applyFilters();
+    searchInput.focus();
+}
+
+function applyFilters() {
+    const searchInput = document.getElementById('gameSearch');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+    const cards = document.querySelectorAll('.filterable-card');
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const tagsStr = card.getAttribute('data-tags') || '';
+        const cardChannel = card.getAttribute('data-channel') || '';
+        const cardTags = tagsStr.split(',').map(t => t.trim()).filter(Boolean);
+
+        const matchesSearch = title.includes(searchTerm);
+        const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(tag => cardTags.includes(tag));
+        const matchesChannel = activeChannelFilter === 'all' || cardChannel === activeChannelFilter;
+
+        if (matchesSearch && matchesTags && matchesChannel) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    calculateDynamicStats();
+}
+
+function calculateDynamicStats() {
+    const cards = document.querySelectorAll('.filterable-card:not(.hidden)');
+    
+    let tGames = 0, tVids = 0, tViews = 0, tLikes = 0, tComms = 0, tDur = 0;
+    let minFirst = Infinity, maxLast = 0;
+
+    cards.forEach(c => {
+        tGames++;
+        tVids += parseInt(c.dataset.episodes || 0);
+        tViews += parseInt(c.dataset.views || 0);
+        tLikes += parseInt(c.dataset.likes || 0);
+        tComms += parseInt(c.dataset.comments || 0);
+        tDur += parseInt(c.dataset.duration || 0);
+
+        const fp = parseInt(c.dataset.firstpub);
+        const lp = parseInt(c.dataset.updated);
+        if (fp && fp < minFirst) minFirst = fp;
+        if (lp && lp > maxLast) maxLast = lp;
+    });
+
+    if (tGames === 0) return; 
+
+    updateDashNum('val-tot-items', Utils.formatNum(tGames));
+    updateDashNum('val-tot-vids', Utils.formatNum(tVids));
+    updateDashNum('val-tot-views', Utils.formatNum(tViews));
+    updateDashNum('val-tot-likes', Utils.formatNum(tLikes));
+    updateDashNum('val-tot-comms', Utils.formatNum(tComms));
+    updateDashNum('val-tot-dur', Utils.formatDur(tDur));
+
+    updateDashNum('val-avg-vid', Utils.formatNum(tVids / tGames));
+    updateDashNum('val-avg-view', Utils.formatNum(tViews / tGames));
+    updateDashNum('val-avg-like', Utils.formatNum(tLikes / tGames));
+    updateDashNum('val-avg-comm', Utils.formatNum(tComms / tGames));
+    updateDashNum('val-avg-dur', Utils.formatDur(tDur / tGames));
+
+    const vC = Math.max(1, tVids);
+    updateDashNum('val-pv-view', Utils.formatNum(tViews / vC));
+    updateDashNum('val-pv-like', Utils.formatNum(tLikes / vC));
+    updateDashNum('val-pv-comm', Utils.formatNum(tComms / vC));
+    updateDashNum('val-pv-dur', Utils.formatDur(tDur / vC));
+
+    const ageDays = Utils.daysBetween(minFirst);
+    updateDashNum('val-adv-age', Utils.formatAge(ageDays));
+    updateDashNum('val-adv-dead', Utils.formatAge(Utils.daysBetween(maxLast)));
+    
+    // Complex innerHTML updates for colored spans
+    const elVel = document.getElementById('val-adv-vel');
+    if (elVel) elVel.innerHTML = `${Utils.velocity(tViews, ageDays)}/d`;
+    
+    const elHeat = document.getElementById('val-adv-heat');
+    if (elHeat) elHeat.innerHTML = `${Utils.heat(tViews, tLikes, tComms, Utils.hoursBetween(minFirst))}`;
+    
+    const elGem = document.getElementById('val-adv-gem');
+    if (elGem) elGem.innerHTML = `${Utils.gem(tViews, tLikes, tComms)}`;
+}
+
+function toggleTagPanel() {
+    isTagPanelActive = !isTagPanelActive;
+    const btn = document.getElementById('btn-tags-toggle');
+    const panel = document.getElementById('tag-filters');
+    
+    if (!btn || !panel) return;
+
+    if (isTagPanelActive) {
+        btn.classList.add('active');
+        panel.classList.remove('hidden');
+    } else {
+        btn.classList.remove('active');
+        panel.classList.add('hidden');
+    }
+}
+
+function initTags() {
+    const cards = document.querySelectorAll('.filterable-card');
+    const tagCounts = {};
+    
+    cards.forEach(card => {
+        const tagsStr = card.getAttribute('data-tags');
+        if (!tagsStr) return;
+        tagsStr.split(',').filter(Boolean).forEach(t => {
+            const cleanTag = t.trim();
+            tagCounts[cleanTag] = (tagCounts[cleanTag] || 0) + 1;
+        });
+    });
+
+    allSortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+    if (allSortedTags.length === 0) return;
+
+    const container = document.getElementById('tag-filters');
+    if (!container) return;
+    
+    container.innerHTML = '';
+
+    allSortedTags.forEach(([tag, count]) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-gray'; 
+        btn.innerText = `${tag} (${count})`;
+        
+        btn.onclick = () => {
+            if (activeTags.has(tag)) {
+                activeTags.delete(tag);
+                btn.classList.remove('active');
+            } else {
+                activeTags.add(tag);
+                btn.classList.add('active');
+            }
+            applyFilters();
+        };
+        container.appendChild(btn);
+    });
+}
+
+const searchInput = document.getElementById('gameSearch');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const clearBtn = document.getElementById('clearSearch');
+        if (e.target.value.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+        applyFilters();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    sortGrid('recent');
+    initTags(); 
+});
 </script>
