@@ -3,6 +3,7 @@ import { updateSeason } from './updaters/updateSeason.js';
 import { updateSeries } from './updaters/updateSeries.js'; 
 import { updateChannel } from './updaters/updateChannel.js';
 import { updateTag } from './updaters/updateTag.js';
+import { updateYT } from './updaters/updateYT.js';
 
 async function run() {
     const args = process.argv.slice(2);
@@ -72,8 +73,10 @@ async function run() {
 			case 'tag':
 				await updateTag();
 				break;
-							
-			
+				
+			case 'yt':
+				await updateYT();
+				break;
 
             default:
                 console.error(`❌ Unknown command: ${command}`);

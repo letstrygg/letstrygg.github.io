@@ -66,7 +66,7 @@ async function run() {
                     }
                     
                     console.log(`   >> Rebuilding Channel Hub...`);
-                    execSync(`node ssg/update.js channel ${targetId}${forceFlag}`, { stdio: 'inherit' });
+                    execSync(`node ssg/update.js yt${forceFlag}`, { stdio: 'inherit' });
 
                 } else if (skipUpdate) {
                     console.log(`\n⏩ Skipping SSG Builds (--no-update provided).`);
