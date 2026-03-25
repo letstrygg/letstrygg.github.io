@@ -148,7 +148,7 @@ export async function getFullSeriesContext(gameSlug, channelFamily = null) {
     return processedData;
 }
 
-// Helper to get Channel Family Context (Updated to include stats & tags!)
+// Helper to get Channel Family Context (Updated to include ALL stats & tags!)
 export async function getChannelContext(targetSlug) {
     const { data: childrenData } = await supabase
         .from('ltg_channels')
@@ -160,7 +160,7 @@ export async function getChannelContext(targetSlug) {
         slugsToFetch.push(...childrenData.map(c => c.slug));
     }
 
-    // 2. Fetch playlists, games, tags, AND STATS
+    // 2. Fetch playlists, games, tags, AND FULL STATS
     const { data, error } = await supabase
         .from('ltg_playlists')
         .select(`
@@ -177,8 +177,11 @@ export async function getChannelContext(targetSlug) {
             ltg_playlist_stats (
                 ep_count,
                 total_views,
+                total_likes,
+                total_comments,
                 total_duration,
                 latest_published_at,
+                first_published_at,
                 first_video_id
             )
         `)
@@ -216,7 +219,8 @@ export async function getChannelContext(targetSlug) {
             });
         }
 
-        // Attach this specific playlist's stats to the game object
+        // Attach this specific playlist's FULL stats to the game object
+        // By passing p.ltg_playlist_stats down directly, we don't accidentally lose any fields
         gameMap.get(game.slug).ltg_series_playlists.push({
             ltg_playlists: {
                 id: p.id,
