@@ -52,8 +52,8 @@ async function run() {
                 break;
 
             case 'channel':
-                // 1. Run the Sync (Pass fullSync flag)
-                const affectedGames = await syncChannel(targetId, fullSync);
+                // 1. Run the Sync (Unpack the new return object)
+                const { affectedGames, errors: syncErrors } = await syncChannel(targetId, fullSync);
 
                 // 2. Trigger SSG Builds for affected games
                 if (!skipUpdate && affectedGames.length > 0) {
@@ -62,11 +62,9 @@ async function run() {
                     
                     for (const slug of affectedGames) {
                         console.log(`   >> Building ${slug}...`);
-                        // Build series for the game
                         execSync(`node ssg/update.js series ${slug}${forceFlag}`, { stdio: 'inherit' });
                     }
                     
-                    // Rebuild the channel hub at the very end
                     console.log(`   >> Rebuilding Channel Hub...`);
                     execSync(`node ssg/update.js channel ${targetId}${forceFlag}`, { stdio: 'inherit' });
 
@@ -74,6 +72,12 @@ async function run() {
                     console.log(`\n⏩ Skipping SSG Builds (--no-update provided).`);
                 } else {
                     console.log(`\n⏩ No games were affected. Skipping SSG Build.`);
+                }
+
+                // 3. PRINT THE ERROR SUMMARY
+                if (syncErrors && syncErrors.length > 0) {
+                    console.log(`\n⚠️  SYNC WARNINGS (${syncErrors.length}):`);
+                    syncErrors.forEach(err => console.log(`  - ${err}`));
                 }
                 break;
 

@@ -142,5 +142,6 @@ export async function syncPlaylist(playlistId) {
 
     } catch (dbError) {
         console.error(`❌ Database Sync Error:`, dbError.message);
+		throw new Error(dbError.message);
     }
 }

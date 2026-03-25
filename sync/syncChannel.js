@@ -94,6 +94,7 @@ export async function syncChannel(channelSlug, isFullSync = false) {
 
     const resultsLog = [];
     const affectedGames = new Set();
+    const syncErrors = []; // <-- NEW: Track errors for the summary
 
     // 2. Execute the Syncs
     for (const plan of queue) {
@@ -101,10 +102,23 @@ export async function syncChannel(channelSlug, isFullSync = false) {
         console.log(`[${plan.reason}] ${plan.title}`);
         console.log(`=========================================`);
 
-        // Run the worker
-        await syncPlaylist(plan.id);
-        
-        if (plan.gameSlug) affectedGames.add(plan.gameSlug);
+        try {
+            // Run the worker
+            const syncResult = await syncPlaylist(plan.id);
+            
+            // Catch explicit error returns if your script uses them
+            if (syncResult && syncResult.error) {
+                syncErrors.push(`[${plan.title}]: ${syncResult.error}`);
+                continue; // Skip the stats check
+            }
+            
+            if (plan.gameSlug) affectedGames.add(plan.gameSlug);
+
+        } catch (err) {
+            // Catch hard throws from the worker
+            syncErrors.push(`[${plan.title}]: ${err.message}`);
+            continue; // Skip the stats check for this broken playlist
+        }
 
         // Fetch fresh stats to calculate deltas
         const { data: freshStats } = await supabase
@@ -136,9 +150,13 @@ export async function syncChannel(channelSlug, isFullSync = false) {
         const logType = isFullSync ? 'full_sync' : 'smart_sync';
         const logPath = path.join(logDir, `${logType}_${channelSlug}_${timestamp}.json`);
         
-        fs.writeFileSync(logPath, JSON.stringify({ channel: channelSlug, type: logType, syncedAt: new Date().toISOString(), results: resultsLog }, null, 2));
+        fs.writeFileSync(logPath, JSON.stringify({ channel: channelSlug, type: logType, syncedAt: new Date().toISOString(), results: resultsLog, errors: syncErrors }, null, 2));
         console.log(`\n📄 Sync Log written to: ${logPath}`);
     }
 
-    return Array.from(affectedGames); 
+    // Return both the games to update AND the error list
+    return {
+        affectedGames: Array.from(affectedGames),
+        errors: syncErrors
+    };
 }
