@@ -86,7 +86,7 @@ sync_date: "2026-03-17T10:00:09.468+00:00"
 
     {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/letstrygg/slime-3k/season-1/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
     
-    <div id="epGrid" class="ep-grid">
+    <div id="grid" class="ep-grid">
     {%- for ep in ep_pages -%}
       <a href="{{ ep.url | relative_url }}" class="btn btn-gray" style="text-align: left; padding: 10px 15px;">
         {{ ep.title | remove: "Slime 3K Rise Against Despot" | strip }}

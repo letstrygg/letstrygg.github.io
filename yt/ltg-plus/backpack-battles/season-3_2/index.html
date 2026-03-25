@@ -86,7 +86,7 @@ sync_date: "2026-03-24T22:10:07.458+00:00"
 
     {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/ltg-plus/backpack-battles/season-3.2/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
     
-    <div id="epGrid" class="ep-grid">
+    <div id="grid" class="ep-grid">
     {%- for ep in ep_pages -%}
       <a href="{{ ep.url | relative_url }}" class="btn btn-gray" style="text-align: left; padding: 10px 15px;">
         {{ ep.title | remove: "BPB 0.9.37 Beta" | strip }}
