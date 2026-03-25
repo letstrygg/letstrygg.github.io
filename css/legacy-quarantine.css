@@ -1,0 +1,83 @@
+/* ==========================================================================
+   LEGACY & QUESTIONABLE CSS - DO NOT USE ON MODERN PAGES
+   ========================================================================== */
+
+/* Old Breadcrumbs */
+.breadcrumbs { font-size: 1.05rem; }
+.breadcrumbs a {
+    color: var(--blue);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--underline);
+    text-underline-offset: 3px;
+    transition: opacity 0.2s ease;
+}
+.breadcrumbs a:hover { opacity: 0.8; }
+.breadcrumb-current { color: var(--text); }
+.game-index-list { padding-left: 0; margin-top: 20px; }
+.game-index-list a { font-size: 1.2rem; text-decoration: underline; text-decoration-color: var(--underline); text-underline-offset: 4px; transition: opacity 0.2s ease; }
+.game-index-list a:hover { opacity: 0.8; }
+.nav-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.nav-item { flex: 1;  display: flex; }
+.nav-prev { justify-content: flex-start; }
+.nav-center { justify-content: center; }
+.nav-next { justify-content: flex-end; }
+.game-section-divider { margin-top: 40px;  border-top: 1px solid var(--border);  padding-top: 20px; }
+
+/* Old Multi-Btn Trays */
+#display { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+.multi-btn { display: flex; flex-direction: column; gap: 4px; min-width: 130px; border: 1px solid var(--border); border-radius: 10px; padding: 4px; background-color: var(--bg); }
+.multi-btn .btn-main { width: 100%; }
+.multi-btn .btn-tray { display: flex; gap: 4px; width: 100%; }
+.multi-btn .btn-tray .btn { flex: 1; padding: 4px 0; }
+
+/* Old Game Hub Archive (Seasons & Pills) */
+.season-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 0; width: 100%; }
+.season-block { display: flex; flex-direction: column; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 15px; max-width: 420px; }
+.season-block .game-card { width: 100% !important; max-width: 100%; box-sizing: border-box; margin: 0; }
+.season-header { margin-bottom: 12px; text-align: left; }
+.season-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); font-weight: bold; }
+.season-block .ep-pill-container { margin-top: 15px; margin-bottom: 0; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 8px; flex-wrap: nowrap; }
+.season-block .ep-pill-container .btn { padding: 4px 10px; font-size: 0.85em; flex: 0 1 auto; }
+.ep-delimiter { color: var(--gray); font-size: 0.8em; }
+
+/* Old Individual Episode Video Cards */
+.ep-card { display: flex; flex-direction: column; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 30px 0; text-decoration: none !important; transition: border-color 0.2s ease; }
+.ep-card:hover { border-color: var(--border-active); }
+.ep-card-thumb { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.ep-card-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.2s; }
+.ep-card:hover .ep-card-thumb img { opacity: 1; }
+.ep-card-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.7); color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; border: 2px solid #fff; transition: background-color 0.2s; }
+.ep-card:hover .ep-card-play { background: var(--blue); border-color: var(--blue); }
+.ep-card-info { padding: 15px 20px; }
+.ep-card-title { color: var(--title); font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; line-height: 1.4; }
+.ep-card-stats { display: flex; flex-wrap: wrap; gap: 15px; font-size: 0.9rem; }
+.ep-stat { display: flex; align-items: center; gap: 6px; color: var(--gray); }
+.ep-stat .material-symbols-outlined { font-size: 1.2em; opacity: 0.9; }
+
+@media (min-width: 768px) {
+    .ep-card { flex-direction: row; align-items: center; }
+    .ep-card-thumb { width: 40%; max-width: 350px; }
+    .ep-card-info { width: 60%; padding: 20px 30px; }
+}
+
+/* Old Universal Game Cards */
+.filterable-card { display: block; height: 100%; text-decoration: none !important; }
+.game-card { width: 100%; height: 100%; display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--bg2); color: var(--text); transition: transform 0.2s ease, border-color 0.2s ease; container-type: inline-size; }
+.game-card:hover { border-color: var(--border-active); }
+.game-card img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+.card-row { margin: 6px 8px; display: flex; justify-content: space-between; align-items: center; font-size: 0.95em; }
+.game-card .card-row:nth-of-type(2) { margin-top: auto; padding-bottom: 4px; }
+.card-row strong { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 8px; }
+.card-row > span { display: inline-flex; align-items: center; gap: 4px; }
+.card-status { font-weight: 500; text-decoration: underline; text-decoration-color: var(--underline); text-underline-offset: 3px; }
+
+/* Responsive Duration Swapper */
+.dur-full { display: inline-flex; align-items: center; gap: 4px; }
+.dur-short { display: none; align-items: center; gap: 4px; }
+
+@container (max-width: 340px) {
+    .dur-full { display: none; }
+    .dur-short { display: inline-flex; }
+    .card-row { font-size: 0.85em; } 
+}
