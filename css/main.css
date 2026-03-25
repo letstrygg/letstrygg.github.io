@@ -351,8 +351,10 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     margin-bottom: 30px;
     gap: 0;
     position: relative;
-    /* Organic ease-in-out curve for the fusion snap */
-    transition: gap 0.7s cubic-bezier(0.4, 0, 0.2, 1); 
+    justify-content: center;
+    height: 100px; /* Fixed height stops vertical bouncing */
+    /* Elastic squish curve for organic feeling */
+    transition: gap 0.6s cubic-bezier(0.5, -0.1, 0.2, 1.2); 
 }
 
 .network-cell {
@@ -364,38 +366,28 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     align-items: center;
     cursor: pointer;
     overflow: hidden;
-    white-space: nowrap;
-    /* Starts out very round (pill shape) to simulate a cell wall */
-    border-radius: 100px; 
-    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.network-cell:hover { 
-    background: var(--bg3); 
+    white-space: nowrap; /* Stops text from wrapping while shrinking */
+    min-width: 0; /* CRITICAL: Allows cell to shrink to 0px wide */
+    transition: all 0.6s cubic-bezier(0.5, -0.1, 0.2, 1.2);
 }
 
 .network-cell h2 { margin: 0 0 4px 0; font-size: 1.2rem; text-transform: capitalize; }
 .network-cell p { margin: 0; font-size: 0.9rem; color: var(--gray); }
 
 /* STATE: COMBINED (Fusion) */
-.state-combined.network-splitter { gap: 0; }
-
 .state-combined .card-combined { 
     flex: 1; 
-    padding: 25px; 
     opacity: 1; 
+    border-radius: 100px; /* Pill shape */
     border-color: var(--blue); 
-    /* Relaxes into a standard panel shape when fully merged */
-    border-radius: 12px; 
+    padding: 0 25px; 
 }
-
 .state-combined .card-split { 
     flex: 0; 
-    padding: 0; 
     opacity: 0; 
     border-width: 0; 
-    pointer-events: none; 
-    margin: 0; 
+    padding: 0; 
+    border-radius: 100px; 
 }
 
 /* STATE: SPLIT (Mitosis) */
@@ -403,21 +395,17 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
 
 .state-split .card-combined { 
     flex: 0; 
-    padding: 0; 
     opacity: 0; 
     border-width: 0; 
-    pointer-events: none; 
-    margin: 0; 
+    padding: 0; 
+    border-radius: 100px; 
 }
-
 .state-split .card-split { 
     flex: 1; 
-    padding: 25px; 
     opacity: 1; 
-    /* Relaxes into standard panel shapes when fully divided */
-    border-radius: 12px; 
+    border-radius: 12px; /* Relaxes into square panel */
+    padding: 0 25px; 
 }
-
 .state-split .card-split.active-filter { 
     border-color: var(--blue); 
     background: var(--bg3); 
@@ -432,7 +420,7 @@ body.sidebar-open-squish .left-sidebar { left: 0; }
     width: 36px; height: 36px;
     display: flex; justify-content: center; align-items: center;
     cursor: pointer; opacity: 0; pointer-events: none; z-index: 10;
-    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.6s cubic-bezier(0.5, -0.1, 0.2, 1.2);
 }
 .merge-btn:hover { color: var(--blue); border-color: var(--blue); }
 

@@ -42,7 +42,18 @@ permalink: /yt/${data.hubSlug}/
     if (isParent) {
         html += `<div class="network-splitter state-combined" id="networkToggleContainer">`;
         
-        data.channels.forEach(ch => {
+        // Find the exact middle to inject the combined card for proper Mitosis physics
+        const midIndex = Math.ceil(data.channels.length / 2);
+        
+        data.channels.forEach((ch, index) => {
+            if (index === midIndex) {
+                html += `
+            <div class="network-cell card-combined active-filter" onclick="toggleNetworkState('split', '${data.channels[0].channelSlug}')">
+                <h2>${data.hubDisplayName}</h2>
+                <p>Click to split by channel</p>
+            </div>`;
+            }
+            
             html += `
             <div class="network-cell card-split" data-target="${ch.channelSlug}" onclick="toggleNetworkState('split', '${ch.channelSlug}')">
                 <h2>${ch.displayName}</h2>
@@ -51,10 +62,6 @@ permalink: /yt/${data.hubSlug}/
         });
         
         html += `
-            <div class="network-cell card-combined active-filter" onclick="toggleNetworkState('split', '${data.channels[0].channelSlug}')">
-                <h2>${data.hubDisplayName}</h2>
-                <p>Click to split by channel</p>
-            </div>
             <div class="merge-btn" onclick="toggleNetworkState('combined', 'all')" title="Re-combine Network">
                 <span class="material-symbols-outlined" style="font-size: 20px;">close_fullscreen</span>
             </div>
