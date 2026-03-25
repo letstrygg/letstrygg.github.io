@@ -1,0 +1,1034 @@
+---
+layout: new
+title: "PVP Series - LTG Network"
+permalink: /yt/tags/pvp/
+---
+<div class="game-page-wrapper">
+  <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
+    <h1 class="title">PVP</h1>
+    <p class="subtitle" style="margin: 0;">Games tagged with <strong>PVP</strong> across the network</p>
+  </div>
+
+  <div class="dash-panel" id="main-dashboard">
+    <div class="dash-row" style="padding-top: 0;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">TOTALS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Games"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">sports_esports</span> <span id="val-tot-items">19</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> <span id="val-tot-vids">1.3K</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-tot-views">331.8K</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-tot-likes">8.9K</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-tot-comms">4.5K</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-tot-dur">1148h 3m</span></div>
+    </div>
+    <div class="dash-row">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER GAME:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Videos vs PER GAME"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> <span id="val-avg-vid">68</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views vs PER GAME"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-avg-view">17.5K</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes vs PER GAME"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-avg-like">469</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments vs PER GAME"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-avg-comm">234</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration vs PER GAME"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-avg-dur">60h 25m</span></div>
+    </div>
+    <div class="dash-row">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">PER VID:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> <span id="val-pv-view">257</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> <span id="val-pv-like">7</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> <span id="val-pv-comm">3</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-pv-dur">53m</span></div>
+    </div>
+
+    <div class="dash-row" style="gap: 20px;">
+      <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 90px;">ANALYTICS:</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Age of filtered content"><strong style="margin-right: 4px;">Age:</strong> <span id="val-adv-age">5y 303d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Days since last upload"><strong style="margin-right: 4px;">Inactive:</strong> <span id="val-adv-dead">7d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Views generated per day"><strong style="margin-right: 4px;">Vel:</strong> <span class="blue" id="val-adv-vel">155.9/d</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Trending Score"><strong style="margin-right: 4px;">Heat:</strong> <span class="red" id="val-adv-heat">0.04</span></div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Overall Hidden Gem Score"><strong style="margin-right: 4px;">Gem:</strong> <span class="orange" id="val-adv-gem">0.00</span></div>
+    </div>
+  </div>
+<div class="panel" style="margin-bottom: 20px; gap: 15px;">
+    <div class="flex-row">
+        <div style="position: relative; flex: 1;">
+            <input type="text" id="gameSearch" class="input" placeholder="Search...">
+            <span id="clearSearch" class="material-symbols-outlined hidden" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gray);" onclick="clearSearchInput()">close</span>
+        </div>
+        <div class="flex-row" style="gap: 10px;">
+            <button class="btn btn-gray" id="btn-tags-toggle" onclick="toggleTagPanel()">
+                <span class="material-symbols-outlined">sell</span> Tags
+            </button>
+        </div>
+    </div>
+
+    <div class="btn-group flex-wrap">
+        <button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')"><span class="material-symbols-outlined">psychiatry</span> New</button>
+        <button class="btn btn-blue" id="btn-popular" onclick="sortGrid('popular')"><span class="material-symbols-outlined">visibility</span> Views</button>
+        <button class="btn btn-purple" id="btn-length" onclick="sortGrid('length')"><span class="material-symbols-outlined">schedule</span> Duration</button>
+        <button class="btn btn-orange" id="btn-vpv" onclick="sortGrid('vpv')"><span class="material-symbols-outlined">mode_heat</span> VPV</button>
+        <button class="btn btn-blue" id="btn-vel" onclick="sortGrid('vel')"><span class="material-symbols-outlined">speed</span> Velocity</button>
+        <button class="btn btn-red" id="btn-heat" onclick="sortGrid('heat')"><span class="material-symbols-outlined">local_fire_department</span> Heat</button>
+        <button class="btn btn-yellow" id="btn-gem" onclick="sortGrid('gem')"><span class="material-symbols-outlined">diamond</span> Gem</button>
+    </div>
+</div>
+<div id="tag-filters" class="panel hidden" style="flex-direction: row; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 12px;"></div>
+<div class="grid" id="series-grid">
+  <div class="panel filterable-card flush-all" data-channel="letstrygg" data-title="crystal clash" data-tags="PVP,Tower Defense,Deck Builder" 
+       data-updated="2022-02-09T17:00:30.000Z" data-episodes="5" data-views="394" data-likes="9" data-comments="17" data-duration="10753" data-vpv="79" data-firstpub="1643475619000" data-vel="0.3" data-heat="0.00" data-gem="0.37">
+      <a href="/yt/letstrygg/crystal-clash/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/Zu9PL8n8bIk/maxresdefault.jpg" alt="Crystal Clash" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Crystal Clash</strong>
+              <span class="card-status blue">LetsTryGG</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-63</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 394 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17.1K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 9 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-460</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 17 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-217</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 2h 59m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-57h 26m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 79 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-178</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-5</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 35m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 4y 57d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 12d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 4y 46d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.3/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.37</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="ltg-plus" data-title="backpack battles" data-tags="PVP,Auto Battler,Inventory Management" 
+       data-updated="2026-03-19T22:30:05.000Z" data-episodes="903" data-views="263735" data-likes="7038" data-comments="2688" data-duration="3238993" data-vpv="292" data-firstpub="1697953533000" data-vel="297.7" data-heat="0.11" data-gem="0.00">
+      <a href="/yt/ltg-plus/backpack-battles/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/FXYapsbD85k/maxresdefault.jpg" alt="Backpack Battles" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Backpack Battles</strong>
+              <span class="card-status gray">LTG Plus</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 903 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+835</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 263.7K <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+246.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 7K <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+6.6K</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2.7K <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+2.5K</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 899h 43m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+839h 17m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 292 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+35</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 8 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+1</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 59m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+6m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 2y 156d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 2y 150d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 7d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">297.7/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.11</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.00</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="ltg-plus" data-title="konfronto" data-tags="Inventory Management,Auto Battler,PVP" 
+       data-updated="2025-06-04T14:01:04.000Z" data-episodes="4" data-views="212" data-likes="3" data-comments="0" data-duration="15289" data-vpv="53" data-firstpub="1748739620000" data-vel="0.7" data-heat="0.00" data-gem="0.09">
+      <a href="/yt/ltg-plus/konfronto/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/LZdAMjxJfHk/maxresdefault.jpg" alt="Konfronto" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Konfronto</strong>
+              <span class="card-status gray">LTG Plus</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-64</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 212 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-466</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-234</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 4h 14m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-56h 10m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 53 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-204</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-6</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-3</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 3m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+10m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 298d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 4d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 295d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.7/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.09</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="ltg-plus" data-title="knightica" data-tags="Auto Battler,PVP,Inventory Management" 
+       data-updated="2025-03-29T16:00:59.000Z" data-episodes="2" data-views="1060" data-likes="13" data-comments="6" data-duration="7339" data-vpv="530" data-firstpub="1743177611000" data-vel="2.9" data-heat="0.00" data-gem="0.08">
+      <a href="/yt/ltg-plus/knightica/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/t_mpDmJhh30/maxresdefault.jpg" alt="Knightica" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Knightica</strong>
+              <span class="card-status gray">LTG Plus</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-66</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 1.1K <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-16.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 13 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-456</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-228</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 2h 2m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-58h 23m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 530 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+273</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 7 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 1m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+7m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 363d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 2d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 362d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">2.9/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.08</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="letstrygg" data-title="squad busters" data-tags="Bullet Heaven,Horde Survival,PVP" 
+       data-updated="2024-06-06T18:00:02.000Z" data-episodes="6" data-views="414" data-likes="25" data-comments="28" data-duration="12816" data-vpv="69" data-firstpub="1717506001000" data-vel="0.6" data-heat="0.00" data-gem="0.70">
+      <a href="/yt/letstrygg/squad-busters/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/2gByrdh3NLk/maxresdefault.jpg" alt="Squad Busters" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Squad Busters</strong>
+              <span class="card-status blue">LetsTryGG</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-62</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 414 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 25 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-444</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 28 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-206</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 3h 33m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-56h 51m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 69 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-188</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-3</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+2</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 35m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 1y 295d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 3d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 1y 293d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.6/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.70</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="letstrygg" data-title="super auto pets" data-tags="Auto Battler,PVP" 
+       data-updated="2022-09-20T15:00:07.000Z" data-episodes="21" data-views="671" data-likes="42" data-comments="43" data-duration="39277" data-vpv="32" data-firstpub="1634238005000" data-vel="0.4" data-heat="0.00" data-gem="0.63">
+      <a href="/yt/letstrygg/super-auto-pets/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/MFTNaxQe4Bg/maxresdefault.jpg" alt="Super Auto Pets" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Super Auto Pets</strong>
+              <span class="card-status blue">LetsTryGG</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 21 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-47</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 671 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-16.8K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 42 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-427</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 43 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-191</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 10h 54m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-49h 30m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 32 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-225</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-5</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-1</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 31m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-22m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 4y 164d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 341d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 3y 188d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.4/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.63</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="letstrygg" data-title="skill legends royale" data-tags="Auto Battler,PVP" 
+       data-updated="2025-06-09T17:00:06.000Z" data-episodes="2" data-views="204" data-likes="3" data-comments="2" data-duration="5975" data-vpv="102" data-firstpub="1749394811000" data-vel="0.7" data-heat="0.00" data-gem="0.15">
+      <a href="/yt/letstrygg/skill-legends-royale/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/4X0YZG6Kzq0/maxresdefault.jpg" alt="Skill Legends Royale" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Skill Legends Royale</strong>
+              <span class="card-status blue">LetsTryGG</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-66</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 204 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-466</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-232</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 39m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-58h 45m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 102 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-155</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-5</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-2</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 49m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-3m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 291d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 2d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 290d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.7/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.15</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="ltg-plus" data-title="for the forge" data-tags="Auto Battler,Deck Builder,PVP" 
+       data-updated="2025-07-13T16:00:26.000Z" data-episodes="4" data-views="187" data-likes="6" data-comments="2" data-duration="11003" data-vpv="47" data-firstpub="1752174033000" data-vel="0.7" data-heat="0.00" data-gem="0.27">
+      <a href="/yt/ltg-plus/for-the-forge/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/PcXkfSgoKmc/maxresdefault.jpg" alt="For The Forge" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">For The Forge</strong>
+              <span class="card-status gray">LTG Plus</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-64</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 187 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-463</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-232</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 3h 3m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-57h 22m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 47 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-210</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-5</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-2</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 45m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-7m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 259d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 3d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 256d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.7/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.27</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="ltg-plus" data-title="down with the ship" data-tags="Auto Battler,Inventory Management,PVP" 
+       data-updated="2025-09-12T12:02:03.000Z" data-episodes="3" data-views="430" data-likes="21" data-comments="13" data-duration="14266" data-vpv="143" data-firstpub="1755093608000" data-vel="1.9" data-heat="0.00" data-gem="0.43">
+      <a href="/yt/ltg-plus/down-with-the-ship/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/xVOAqk4J8XM/maxresdefault.jpg" alt="Down With The Ship" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Down With The Ship</strong>
+              <span class="card-status gray">LTG Plus</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-65</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 430 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 21 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-448</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 13 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-221</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 3h 57m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-56h 27m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 143 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-114</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 7 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+1</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 19m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+25m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 225d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 30d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 195d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">1.9/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.43</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="ltg-plus" data-title="backpack brawl" data-tags="Inventory Management,Auto Battler,PVP" 
+       data-updated="2025-07-22T16:01:04.000Z" data-episodes="2" data-views="371" data-likes="10" data-comments="11" data-duration="4850" data-vpv="186" data-firstpub="1753027274000" data-vel="1.5" data-heat="0.00" data-gem="0.32">
+      <a href="/yt/ltg-plus/backpack-brawl/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/kLoudfb1BxQ/maxresdefault.jpg" alt="Backpack Brawl" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Backpack Brawl</strong>
+              <span class="card-status gray">LTG Plus</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-66</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 371 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17.1K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 10 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-459</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 11 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-223</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 20m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-59h 4m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 186 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-71</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-2</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+3</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 40m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-13m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 249d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 2d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 247d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">1.5/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.32</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="ltg-plus" data-title="monster battles" data-tags="PVP,Auto Battler,Inventory Management" 
+       data-updated="2026-02-25T14:01:08.000Z" data-episodes="30" data-views="5394" data-likes="108" data-comments="25" data-duration="97635" data-vpv="180" data-firstpub="1741269637000" data-vel="14.0" data-heat="0.01" data-gem="0.07">
+      <a href="/yt/ltg-plus/monster-battles/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/ZwMIcLTCsEk/maxresdefault.jpg" alt="Monster Battles" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Monster Battles</strong>
+              <span class="card-status gray">LTG Plus</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 30 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-38</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 5.4K <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-12.1K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 108 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-361</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 25 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-209</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 27h 7m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-33h 18m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 180 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-77</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-3</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-2</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 54m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+0m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 1y 20d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 357d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 29d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">14.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.01</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.07</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="ltg-plus" data-title="oaken tower" data-tags="PVP,Auto Battler" 
+       data-updated="2026-03-02T14:01:01.000Z" data-episodes="271" data-views="54276" data-likes="1507" data-comments="1436" data-duration="573430" data-vpv="200" data-firstpub="1751817616000" data-vel="206.4" data-heat="0.15" data-gem="0.03">
+      <a href="/yt/ltg-plus/oaken-tower/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/4LHX5Ojo07M/maxresdefault.jpg" alt="Oaken Tower" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Oaken Tower</strong>
+              <span class="card-status gray">LTG Plus</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 271 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+203</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 54.3K <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+36.8K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 1.5K <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+1K</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1.4K <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+1.2K</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 159h 17m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+98h 51m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 200 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-57</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-1</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+2</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 35m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-18m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 263d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 239d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 24d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">206.4/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.15</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.03</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="letstrygg" data-title="turnbound" data-tags="Auto Battler,PVP,Inventory Management" 
+       data-updated="2025-12-16T12:01:52.000Z" data-episodes="3" data-views="741" data-likes="13" data-comments="2" data-duration="10053" data-vpv="247" data-firstpub="1765454500000" data-vel="7.1" data-heat="0.01" data-gem="0.10">
+      <a href="/yt/letstrygg/turnbound/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/uEvpcM_tonk/maxresdefault.jpg" alt="Turnbound" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Turnbound</strong>
+              <span class="card-status blue">LetsTryGG</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-65</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 741 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-16.7K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 13 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-456</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-232</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 2h 47m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-57h 37m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 247 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-10</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 4 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-3</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-2</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 55m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+2m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 105d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 6d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 100d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">7.1/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.01</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.10</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="letstrygg" data-title="v rising" data-tags="Survival,Base Building,Crafting,Action RPG,PVP" 
+       data-updated="2022-06-03T17:00:12.000Z" data-episodes="1" data-views="36" data-likes="2" data-comments="0" data-duration="2525" data-vpv="36" data-firstpub="1654275612000" data-vel="0.0" data-heat="0.00" data-gem="0.44">
+      <a href="/yt/letstrygg/v-rising/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/PnMehdRxqz8/maxresdefault.jpg" alt="V Rising" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">V Rising</strong>
+              <span class="card-status blue">LetsTryGG</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 1 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-67</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 36 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-467</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-234</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 42m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-59h 43m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 36 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-221</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-5</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 0 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-3</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 42m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-11m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 3y 297d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 1d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 3y 297d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.0/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.44</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="letstrygg" data-title="causa voices of the dusk" data-tags="Deck Builder,PVP" 
+       data-updated="2020-06-04T17:00:27.000Z" data-episodes="8" data-views="141" data-likes="24" data-comments="17" data-duration="9183" data-vpv="18" data-firstpub="1590681632000" data-vel="0.1" data-heat="0.00" data-gem="1.91">
+      <a href="/yt/letstrygg/causa-voices-of-the-dusk/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/mrdD3lzquL0/maxresdefault.jpg" alt="Causa Voices Of The Dusk" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Causa Voices Of The Dusk</strong>
+              <span class="card-status blue">LetsTryGG</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 8 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-60</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 141 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17.3K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 24 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-445</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 17 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-217</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 2h 33m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-57h 52m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 18 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-239</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-4</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-1</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 19m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-34m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 5y 303d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 8d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 5y 296d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.1/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">1.91</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="letstrygg" data-title="toy smash kaboom" data-tags="PVP,Auto Battler,Inventory Management" 
+       data-updated="2025-12-16T14:01:10.000Z" data-episodes="5" data-views="1217" data-likes="26" data-comments="23" data-duration="23880" data-vpv="243" data-firstpub="1754530251000" data-vel="5.3" data-heat="0.00" data-gem="0.18">
+      <a href="/yt/letstrygg/toy-smash-kaboom/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/wg6b3qmxBqU/maxresdefault.jpg" alt="Toy Smash Kaboom" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Toy Smash Kaboom</strong>
+              <span class="card-status blue">LetsTryGG</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-63</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 1.2K <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-16.2K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 26 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-443</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 23 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-211</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 6h 38m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-53h 47m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 243 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-14</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-2</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+2</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 19m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+26m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 231d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 132d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 100d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">5.3/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.18</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="letstrygg" data-title="bloons td battles 2" data-tags="PVP,Tower Defense" 
+       data-updated="2021-12-28T17:00:09.000Z" data-episodes="14" data-views="1050" data-likes="32" data-comments="116" data-duration="33181" data-vpv="75" data-firstpub="1638716414000" data-vel="0.7" data-heat="0.00" data-gem="0.64">
+      <a href="/yt/letstrygg/bloons-td-battles-2/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/WjIcJCf0y7w/maxresdefault.jpg" alt="Bloons Td Battles 2" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Bloons Td Battles 2</strong>
+              <span class="card-status blue">LetsTryGG</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 14 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-54</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 1.1K <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-16.4K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 32 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-437</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 116 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-118</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 9h 13m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-51h 12m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 75 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-182</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-5</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 8 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+5</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 39m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-13m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 4y 112d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 24d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 4y 89d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">0.7/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.64</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="ltg-plus" data-title="toy smash kaboom" data-tags="PVP,Auto Battler,Inventory Management" 
+       data-updated="2025-10-10T12:00:30.000Z" data-episodes="3" data-views="953" data-likes="22" data-comments="19" data-duration="15926" data-vpv="318" data-firstpub="1754530251000" data-vel="4.1" data-heat="0.00" data-gem="0.20">
+      <a href="/yt/ltg-plus/toy-smash-kaboom/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/BFjSs-EaEwA/maxresdefault.jpg" alt="Toy Smash Kaboom" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Toy Smash Kaboom</strong>
+              <span class="card-status gray">LTG Plus</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-65</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 953 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-16.5K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 22 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-447</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 19 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-215</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 4h 25m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-56h 0m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 318 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+61</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 7 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+3</span>)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 28m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+35m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 231d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 65d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 167d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">4.1/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.20</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+
+  <div class="panel filterable-card flush-all" data-channel="ltg-plus" data-title="turnbound" data-tags="Auto Battler,PVP,Inventory Management" 
+       data-updated="2025-10-15T14:01:05.000Z" data-episodes="2" data-views="286" data-likes="12" data-comments="5" data-duration="6657" data-vpv="143" data-firstpub="1759240849000" data-vel="1.6" data-heat="0.00" data-gem="0.35">
+      <a href="/yt/ltg-plus/turnbound/" class="inner-panel interactive flush-all" style="border: none;">
+        <img src="https://i.ytimg.com/vi/YE9_2-f55ao/maxresdefault.jpg" alt="Turnbound" loading="lazy" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
+            <div class="flex-between divider-bottom">
+              <strong class="label">Turnbound</strong>
+              <span class="card-status gray">LTG Plus</span>
+            </div>
+            <div class="flex-between flex-wrap text-sm">
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs Genre Avg"><span class="material-symbols-outlined red">video_library</span> 2 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-66</span>)</span></span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 286 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-17.2K</span>)</span></span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 12 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-457</span>)</span></span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 5 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-229</span>)</span></span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 1h 50m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-58h 34m</span>)</span></span>
+            </div>
+            <div class="flex-between flex-wrap text-sm divider-top-dashed">
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Genre Avg"><span class="material-symbols-outlined blue">visibility</span> 143 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-114</span>)</span></span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Genre Avg"><span class="material-symbols-outlined green">thumb_up</span> 6 <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--red);">-1</span>)</span></span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Genre Avg"><span class="material-symbols-outlined orange">chat_bubble</span> 3 <span style="color: var(--gray); font-size: 0.85em; font-weight: normal; margin-left: 4px;">(0)</span></span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Genre Avg"><span class="material-symbols-outlined purple">schedule</span> 55m <span style="color: var(--gray); font-size: 0.85em; font-weight: bold; margin-left: 4px;">(<span style="color: var(--green);">+2m</span>)</span></span>
+            </div>
+            <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
+              <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> 177d</span>
+              <span class="tooltip-trigger" data-tooltip="Time between first and last video"><strong>Span:</strong> 16d</span>
+              <span class="tooltip-trigger" data-tooltip="Days since last upload"><strong>Inactive:</strong> 162d</span>
+              <span class="tooltip-trigger" data-tooltip="Views generated per day"><strong>Vel:</strong> <span class="blue">1.6/d</span></span>
+              <span class="tooltip-trigger" data-tooltip="Trending Score"><strong>Heat:</strong> <span class="red">0.00</span></span>
+              <span class="tooltip-trigger" data-tooltip="Hidden Gem Score"><strong>Gem:</strong> <span class="orange">0.35</span></span>
+            </div>
+            <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
+              View Series <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
+            </div>
+        </div>
+      </a>
+  </div>
+</div>
+</div>
+
+<script>
+const Utils = {
+    formatNum: (num) => {
+        if (!num) return '0';
+        if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        return Math.round(num).toString();
+    },
+    formatDur: (seconds) => {
+        if (!seconds) return '0h 0m';
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        return h > 0 ? `${h}h ${m}m` : `${m}m`;
+    },
+    daysBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+    },
+    hoursBetween: (date1) => {
+        if (!date1) return 1;
+        const diff = Math.abs(new Date() - new Date(parseInt(date1)));
+        return Math.max(1, diff / (1000 * 60 * 60));
+    },
+    formatAge: (days) => {
+        if (days < 365) return `${days}d`;
+        const y = Math.floor(days / 365);
+        return `${y}y ${days % 365}d`;
+    },
+    velocity: (t, d) => (t / d).toFixed(1),
+    heat: (v, l, c, h) => ((v + (l * 5) + (c * 10)) / Math.pow(h + 2, 1.5)).toFixed(2),
+    gem: (v, l, c) => (v === 0 ? "0.00" : (Math.max(0, ((l + c) / v) * Math.log(100000 / (v + 1)))).toFixed(2))
+};
+
+let currentSort = 'recent';
+let activeTags = new Set();
+let allSortedTags = [];
+let isTagPanelActive = false;
+let activeChannelFilter = 'all'; 
+
+function updateDashNum(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.innerText = val;
+}
+
+function toggleNetworkState(targetState, filterSlug) {
+    const container = document.getElementById('networkToggleContainer');
+    if (!container) return;
+
+    const splitCards = container.querySelectorAll('.card-split');
+
+    if (targetState === 'split') {
+        container.classList.remove('state-combined');
+        container.classList.add('state-split');
+        splitCards.forEach(c => {
+            if (c.dataset.target === filterSlug) c.classList.add('active-filter');
+            else c.classList.remove('active-filter');
+        });
+    } else {
+        container.classList.remove('state-split');
+        container.classList.add('state-combined');
+        splitCards.forEach(c => c.classList.remove('active-filter'));
+    }
+
+    activeChannelFilter = filterSlug;
+    applyFilters();
+}
+
+function sortGrid(type) {
+    currentSort = type;
+    document.querySelectorAll('.btn-group .btn').forEach(btn => btn.classList.remove('active'));
+    
+    const clickedBtn = document.getElementById(`btn-${type}`);
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    const grid = document.getElementById('all-series-grid') || document.getElementById('series-grid');
+    if (!grid) return;
+    
+    const cards = Array.from(grid.querySelectorAll('.filterable-card'));
+
+    cards.sort((a, b) => {
+        if (type === 'recent') return parseInt(b.dataset.updated || 0) - parseInt(a.dataset.updated || 0);
+        if (type === 'popular') return parseInt(b.dataset.views || 0) - parseInt(a.dataset.views || 0);
+        if (type === 'length') return parseInt(b.dataset.duration || 0) - parseInt(a.dataset.duration || 0);
+        if (type === 'vpv') return parseInt(b.dataset.vpv || 0) - parseInt(a.dataset.vpv || 0);
+        if (type === 'vel') return parseFloat(b.dataset.vel || 0) - parseFloat(a.dataset.vel || 0);
+        if (type === 'heat') return parseFloat(b.dataset.heat || 0) - parseFloat(a.dataset.heat || 0);
+        if (type === 'gem') return parseFloat(b.dataset.gem || 0) - parseFloat(a.dataset.gem || 0);
+    });
+
+    grid.innerHTML = '';
+    cards.forEach(card => grid.appendChild(card));
+}
+
+function clearSearchInput() {
+    const searchInput = document.getElementById('gameSearch');
+    if (!searchInput) return;
+    searchInput.value = '';
+    document.getElementById('clearSearch').classList.add('hidden');
+    applyFilters();
+    searchInput.focus();
+}
+
+function applyFilters() {
+    const searchInput = document.getElementById('gameSearch');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+    const cards = document.querySelectorAll('.filterable-card');
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const tagsStr = card.getAttribute('data-tags') || '';
+        const cardChannel = card.getAttribute('data-channel') || '';
+        const cardTags = tagsStr.split(',').map(t => t.trim()).filter(Boolean);
+
+        const matchesSearch = title.includes(searchTerm);
+        const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(tag => cardTags.includes(tag));
+        const matchesChannel = activeChannelFilter === 'all' || cardChannel === activeChannelFilter;
+
+        if (matchesSearch && matchesTags && matchesChannel) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    calculateDynamicStats();
+}
+
+function calculateDynamicStats() {
+    const cards = document.querySelectorAll('.filterable-card:not(.hidden)');
+    
+    let tGames = 0, tVids = 0, tViews = 0, tLikes = 0, tComms = 0, tDur = 0;
+    let minFirst = Infinity, maxLast = 0;
+
+    cards.forEach(c => {
+        tGames++;
+        tVids += parseInt(c.dataset.episodes || 0);
+        tViews += parseInt(c.dataset.views || 0);
+        tLikes += parseInt(c.dataset.likes || 0);
+        tComms += parseInt(c.dataset.comments || 0);
+        tDur += parseInt(c.dataset.duration || 0);
+
+        const fp = parseInt(c.dataset.firstpub);
+        const lp = parseInt(c.dataset.updated);
+        if (fp && fp < minFirst) minFirst = fp;
+        if (lp && lp > maxLast) maxLast = lp;
+    });
+
+    if (tGames === 0) return; 
+
+    updateDashNum('val-tot-items', Utils.formatNum(tGames));
+    updateDashNum('val-tot-vids', Utils.formatNum(tVids));
+    updateDashNum('val-tot-views', Utils.formatNum(tViews));
+    updateDashNum('val-tot-likes', Utils.formatNum(tLikes));
+    updateDashNum('val-tot-comms', Utils.formatNum(tComms));
+    updateDashNum('val-tot-dur', Utils.formatDur(tDur));
+
+    updateDashNum('val-avg-vid', Utils.formatNum(tVids / tGames));
+    updateDashNum('val-avg-view', Utils.formatNum(tViews / tGames));
+    updateDashNum('val-avg-like', Utils.formatNum(tLikes / tGames));
+    updateDashNum('val-avg-comm', Utils.formatNum(tComms / tGames));
+    updateDashNum('val-avg-dur', Utils.formatDur(tDur / tGames));
+
+    const vC = Math.max(1, tVids);
+    updateDashNum('val-pv-view', Utils.formatNum(tViews / vC));
+    updateDashNum('val-pv-like', Utils.formatNum(tLikes / vC));
+    updateDashNum('val-pv-comm', Utils.formatNum(tComms / vC));
+    updateDashNum('val-pv-dur', Utils.formatDur(tDur / vC));
+
+    const ageDays = Utils.daysBetween(minFirst);
+    updateDashNum('val-adv-age', Utils.formatAge(ageDays));
+    updateDashNum('val-adv-dead', Utils.formatAge(Utils.daysBetween(maxLast)));
+    
+    // Complex innerHTML updates for colored spans
+    const elVel = document.getElementById('val-adv-vel');
+    if (elVel) elVel.innerHTML = `${Utils.velocity(tViews, ageDays)}/d`;
+    
+    const elHeat = document.getElementById('val-adv-heat');
+    if (elHeat) elHeat.innerHTML = `${Utils.heat(tViews, tLikes, tComms, Utils.hoursBetween(minFirst))}`;
+    
+    const elGem = document.getElementById('val-adv-gem');
+    if (elGem) elGem.innerHTML = `${Utils.gem(tViews, tLikes, tComms)}`;
+}
+
+function toggleTagPanel() {
+    isTagPanelActive = !isTagPanelActive;
+    const btn = document.getElementById('btn-tags-toggle');
+    const panel = document.getElementById('tag-filters');
+    
+    if (!btn || !panel) return;
+
+    if (isTagPanelActive) {
+        btn.classList.add('active');
+        panel.classList.remove('hidden');
+    } else {
+        btn.classList.remove('active');
+        panel.classList.add('hidden');
+    }
+}
+
+function initTags() {
+    const cards = document.querySelectorAll('.filterable-card');
+    const tagCounts = {};
+    
+    cards.forEach(card => {
+        const tagsStr = card.getAttribute('data-tags');
+        if (!tagsStr) return;
+        tagsStr.split(',').filter(Boolean).forEach(t => {
+            const cleanTag = t.trim();
+            tagCounts[cleanTag] = (tagCounts[cleanTag] || 0) + 1;
+        });
+    });
+
+    allSortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+    if (allSortedTags.length === 0) return;
+
+    const container = document.getElementById('tag-filters');
+    if (!container) return;
+    
+    container.innerHTML = '';
+
+    allSortedTags.forEach(([tag, count]) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-gray'; 
+        btn.innerText = `${tag} (${count})`;
+        
+        btn.onclick = () => {
+            if (activeTags.has(tag)) {
+                activeTags.delete(tag);
+                btn.classList.remove('active');
+            } else {
+                activeTags.add(tag);
+                btn.classList.add('active');
+            }
+            applyFilters();
+        };
+        container.appendChild(btn);
+    });
+}
+
+const searchInput = document.getElementById('gameSearch');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const clearBtn = document.getElementById('clearSearch');
+        if (e.target.value.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+        applyFilters();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    sortGrid('recent');
+    initTags(); 
+});
+</script>

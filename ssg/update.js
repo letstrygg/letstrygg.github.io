@@ -2,6 +2,7 @@ import { updateEpisode } from './updaters/updateEpisode.js';
 import { updateSeason } from './updaters/updateSeason.js'; 
 import { updateSeries } from './updaters/updateSeries.js'; 
 import { updateChannel } from './updaters/updateChannel.js';
+import { updateTag } from './updaters/updateTag.js';
 
 async function run() {
     const args = process.argv.slice(2);
@@ -67,6 +68,12 @@ async function run() {
                     console.log(`\n✨ Channel complete in ${((Date.now() - startTime) / 1000).toFixed(2)}s! Processed ${channelResult.totalEpisodes || 0} episodes.`);
                 }
                 break;
+				
+			case 'tag':
+				await updateTag();
+				break;
+							
+			
 
             default:
                 console.error(`❌ Unknown command: ${command}`);
