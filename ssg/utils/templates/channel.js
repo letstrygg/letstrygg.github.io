@@ -3,17 +3,7 @@ import { StatsCalc } from '../statsCalc.js';
 export function channelHTML(data) {
     const isParent = data.channels.length > 1;
     const global = data.dashboardTotals || {};
-    
-    // Calculate stats for the top animation cards
-    let letstryggCount = 0, plusCount = 0;
-    if (isParent) {
-        data.channels.forEach(ch => {
-            if (ch.channelSlug === 'letstrygg') letstryggCount = ch.games.length;
-            if (ch.channelSlug === 'ltg-plus') plusCount = ch.games.length;
-        });
-    }
 
-    // Baseline SSG Averages
     const gCount = Math.max(1, global.total_games);
     const vCount = Math.max(1, global.total_videos);
 
@@ -63,6 +53,7 @@ permalink: /yt/${data.hubSlug}/
 
     if (isParent) {
         html += `<div class="channel-split-container state-combined" id="networkToggleContainer">`;
+        
         data.channels.forEach(ch => {
             html += `
             <div class="anim-card card-split" data-target="${ch.channelSlug}" onclick="toggleNetworkState('split', '${ch.channelSlug}')">
@@ -70,6 +61,7 @@ permalink: /yt/${data.hubSlug}/
                 <p style="margin: 0; color: var(--gray);">${ch.games.length} Games</p>
             </div>`;
         });
+        
         html += `
             <div class="anim-card card-combined" onclick="toggleNetworkState('split', '${data.channels[0].channelSlug}')">
                 <h2 style="margin: 0 0 5px 0;">${data.hubDisplayName}</h2>
@@ -87,7 +79,6 @@ permalink: /yt/${data.hubSlug}/
   </div>`;
     }
 
-    // THE CHANNEL DASHBOARD (With dynamic IDs for JS)
     html += `
   <div class="dash-panel" id="main-dashboard">
     <div class="dash-row" style="padding-top: 0;">
@@ -126,10 +117,7 @@ permalink: /yt/${data.hubSlug}/
       <div class="dash-stat tooltip-trigger" data-tooltip="Overall Hidden Gem Score" id="dash-adv-gem"><strong>Gem:</strong> <span class="orange">${gem}</span></div>
     </div>
   </div>
-`;
 
-    // Generalized Universal Controls
-    html += `
 <div class="panel" style="margin-bottom: 20px; gap: 15px;">
     <div class="flex-row">
         <div style="position: relative; flex: 1;">
@@ -159,7 +147,6 @@ permalink: /yt/${data.hubSlug}/
 <div class="grid" id="all-series-grid">
 `;
 
-    // Generate the Game Cards dynamically
     data.channels.forEach(channel => {
         channel.games.forEach(game => {
             let totalViews = 0, totalDuration = 0, totalLikes = 0, totalComments = 0, epCount = 0;
@@ -189,7 +176,6 @@ permalink: /yt/${data.hubSlug}/
             const cpv = epCount > 0 ? Math.round(totalComments / epCount) : 0;
             const dpv = epCount > 0 ? Math.round(totalDuration / epCount) : 0;
             
-            // Per Game Analytics
             const gAge = StatsCalc.daysBetween(minFirst);
             const gDead = StatsCalc.daysBetween(maxLast);
             const gSpan = StatsCalc.daysBetween(minFirst, maxLast);
@@ -204,7 +190,6 @@ permalink: /yt/${data.hubSlug}/
             const gameUrl = `/yt/${channel.channelSlug}/${game.slug}/`;
             const statusColor = channel.channelSlug === 'ltg-plus' ? 'gray' : 'blue';
 
-            // New Clean Utility Structure HTML
             html += `
   <div class="panel filterable-card flush-all" data-channel="${channel.channelSlug}" data-title="${safeTitle.toLowerCase()}" data-tags="${tagsStr}" 
        data-updated="${maxLast}" data-episodes="${epCount}" data-views="${totalViews}" data-likes="${totalLikes}" data-comments="${totalComments}" data-duration="${totalDuration}" data-vpv="${vpv}" data-firstpub="${minFirst}" data-vel="${gVel}" data-heat="${gHeat}" data-gem="${gGem}">
@@ -229,10 +214,10 @@ permalink: /yt/${data.hubSlug}/
             </div>
             
             <div class="flex-between flex-wrap text-sm divider-top-dashed">
-              <span title="Views / Vid" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views Per Video vs Channel Avg"><span class="material-symbols-outlined blue">visibility</span> ${StatsCalc.formatNum(vpv)} ${StatsCalc.formatDelta(vpv, avg.viewsPerVid)}</span>
-              <span title="Likes / Vid" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes Per Video vs Channel Avg"><span class="material-symbols-outlined green">thumb_up</span> ${StatsCalc.formatNum(lpv)} ${StatsCalc.formatDelta(lpv, avg.likesPerVid)}</span>
-              <span title="Comments / Vid" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments Per Video vs Channel Avg"><span class="material-symbols-outlined orange">chat_bubble</span> ${StatsCalc.formatNum(cpv)} ${StatsCalc.formatDelta(cpv, avg.commentsPerVid)}</span>
-              <span title="Dur / Vid" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration Per Video vs Channel Avg"><span class="material-symbols-outlined purple">schedule</span> ${StatsCalc.formatDur(dpv)} ${StatsCalc.formatDelta(dpv, avg.durPerVid, true)}</span>
+              <span title="VPV" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs Channel Avg"><span class="material-symbols-outlined blue">visibility</span> ${StatsCalc.formatNum(vpv)} ${StatsCalc.formatDelta(vpv, avg.viewsPerVid)}</span>
+              <span title="Likes / Vid" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs Channel Avg"><span class="material-symbols-outlined green">thumb_up</span> ${StatsCalc.formatNum(lpv)} ${StatsCalc.formatDelta(lpv, avg.likesPerVid)}</span>
+              <span title="Comments / Vid" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs Channel Avg"><span class="material-symbols-outlined orange">chat_bubble</span> ${StatsCalc.formatNum(cpv)} ${StatsCalc.formatDelta(cpv, avg.commentsPerVid)}</span>
+              <span title="Dur / Vid" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs Channel Avg"><span class="material-symbols-outlined purple">schedule</span> ${StatsCalc.formatDur(dpv)} ${StatsCalc.formatDelta(dpv, avg.durPerVid, true)}</span>
             </div>
 
             <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
@@ -256,7 +241,6 @@ permalink: /yt/${data.hubSlug}/
 
     html += `</div>\n</div>\n`;
 
-    // 4. Inject the interactive JavaScript
     html += `
 <script>
 const Utils = {
@@ -298,6 +282,11 @@ let allSortedTags = [];
 let isTagPanelActive = false;
 let activeChannelFilter = 'all'; 
 
+function updateDash(id, html) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = html;
+}
+
 function toggleNetworkState(targetState, filterSlug) {
     const container = document.getElementById('networkToggleContainer');
     if (!container) return;
@@ -328,7 +317,9 @@ function sortGrid(type) {
     const clickedBtn = document.getElementById(\`btn-\${type}\`);
     if (clickedBtn) clickedBtn.classList.add('active');
 
-    const grid = document.getElementById('all-series-grid');
+    const grid = document.getElementById('all-series-grid') || document.getElementById('series-grid');
+    if (!grid) return;
+    
     const cards = Array.from(grid.querySelectorAll('.filterable-card'));
 
     cards.sort((a, b) => {
@@ -347,6 +338,7 @@ function sortGrid(type) {
 
 function clearSearchInput() {
     const searchInput = document.getElementById('gameSearch');
+    if (!searchInput) return;
     searchInput.value = '';
     document.getElementById('clearSearch').classList.add('hidden');
     applyFilters();
@@ -354,7 +346,8 @@ function clearSearchInput() {
 }
 
 function applyFilters() {
-    const searchTerm = document.getElementById('gameSearch').value.toLowerCase();
+    const searchInput = document.getElementById('gameSearch');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
     const cards = document.querySelectorAll('.filterable-card');
 
     cards.forEach(card => {
@@ -397,37 +390,33 @@ function calculateDynamicStats() {
         if (lp && lp > maxLast) maxLast = lp;
     });
 
-    if (tGames === 0) return; // Prevent NaN errors
+    if (tGames === 0) return; 
 
-    // DOM Updates - Totals
-    document.getElementById('dash-tot-games').innerHTML = \`<span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">sports_esports</span> \${Utils.formatNum(tGames)}\`;
-    document.getElementById('dash-tot-vids').innerHTML = \`<span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> \${Utils.formatNum(tVids)}\`;
-    document.getElementById('dash-tot-views').innerHTML = \`<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> \${Utils.formatNum(tViews)}\`;
-    document.getElementById('dash-tot-likes').innerHTML = \`<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> \${Utils.formatNum(tLikes)}\`;
-    document.getElementById('dash-tot-comms').innerHTML = \`<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> \${Utils.formatNum(tComms)}\`;
-    document.getElementById('dash-tot-dur').innerHTML = \`<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> \${Utils.formatDur(tDur)}\`;
+    updateDash('dash-tot-games', \`<span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">sports_esports</span> \${Utils.formatNum(tGames)}\`);
+    updateDash('dash-tot-vids', \`<span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> \${Utils.formatNum(tVids)}\`);
+    updateDash('dash-tot-views', \`<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> \${Utils.formatNum(tViews)}\`);
+    updateDash('dash-tot-likes', \`<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> \${Utils.formatNum(tLikes)}\`);
+    updateDash('dash-tot-comms', \`<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> \${Utils.formatNum(tComms)}\`);
+    updateDash('dash-tot-dur', \`<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> \${Utils.formatDur(tDur)}\`);
 
-    // Per Game Averages
-    document.getElementById('dash-avg-vid').innerHTML = \`<span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> \${Utils.formatNum(tVids / tGames)}\`;
-    document.getElementById('dash-avg-view').innerHTML = \`<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> \${Utils.formatNum(tViews / tGames)}\`;
-    document.getElementById('dash-avg-like').innerHTML = \`<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> \${Utils.formatNum(tLikes / tGames)}\`;
-    document.getElementById('dash-avg-comm').innerHTML = \`<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> \${Utils.formatNum(tComms / tGames)}\`;
-    document.getElementById('dash-avg-dur').innerHTML = \`<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> \${Utils.formatDur(tDur / tGames)}\`;
+    updateDash('dash-avg-vid', \`<span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> \${Utils.formatNum(tVids / tGames)}\`);
+    updateDash('dash-avg-view', \`<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> \${Utils.formatNum(tViews / tGames)}\`);
+    updateDash('dash-avg-like', \`<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> \${Utils.formatNum(tLikes / tGames)}\`);
+    updateDash('dash-avg-comm', \`<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> \${Utils.formatNum(tComms / tGames)}\`);
+    updateDash('dash-avg-dur', \`<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> \${Utils.formatDur(tDur / tGames)}\`);
 
-    // Per Vid Averages
     const vC = Math.max(1, tVids);
-    document.getElementById('dash-pv-view').innerHTML = \`<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> \${Utils.formatNum(tViews / vC)}\`;
-    document.getElementById('dash-pv-like').innerHTML = \`<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> \${Utils.formatNum(tLikes / vC)}\`;
-    document.getElementById('dash-pv-comm').innerHTML = \`<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> \${Utils.formatNum(tComms / vC)}\`;
-    document.getElementById('dash-pv-dur').innerHTML = \`<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> \${Utils.formatDur(tDur / vC)}\`;
+    updateDash('dash-pv-view', \`<span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> \${Utils.formatNum(tViews / vC)}\`);
+    updateDash('dash-pv-like', \`<span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> \${Utils.formatNum(tLikes / vC)}\`);
+    updateDash('dash-pv-comm', \`<span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> \${Utils.formatNum(tComms / vC)}\`);
+    updateDash('dash-pv-dur', \`<span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> \${Utils.formatDur(tDur / vC)}\`);
 
-    // Advanced Analytics
     const ageDays = Utils.daysBetween(minFirst);
-    document.getElementById('dash-adv-age').innerHTML = \`<strong>Age:</strong> \${Utils.formatAge(ageDays)}\`;
-    document.getElementById('dash-adv-dead').innerHTML = \`<strong>Inactive:</strong> \${Utils.formatAge(Utils.daysBetween(maxLast))}\`;
-    document.getElementById('dash-adv-vel').innerHTML = \`<strong>Vel:</strong> <span style="color: var(--blue);">\${Utils.velocity(tViews, ageDays)}/d</span>\`;
-    document.getElementById('dash-adv-heat').innerHTML = \`<strong>Heat:</strong> <span style="color: var(--red);">\${Utils.heat(tViews, tLikes, tComms, Utils.hoursBetween(minFirst))}</span>\`;
-    document.getElementById('dash-adv-gem').innerHTML = \`<strong>Gem:</strong> <span style="color: var(--orange);">\${Utils.gem(tViews, tLikes, tComms)}</span>\`;
+    updateDash('dash-adv-age', \`<strong>Age:</strong> \${Utils.formatAge(ageDays)}\`);
+    updateDash('dash-adv-dead', \`<strong>Inactive:</strong> \${Utils.formatAge(Utils.daysBetween(maxLast))}\`);
+    updateDash('dash-adv-vel', \`<strong>Vel:</strong> <span class="blue">\${Utils.velocity(tViews, ageDays)}/d</span>\`);
+    updateDash('dash-adv-heat', \`<strong>Heat:</strong> <span class="red">\${Utils.heat(tViews, tLikes, tComms, Utils.hoursBetween(minFirst))}</span>\`);
+    updateDash('dash-adv-gem', \`<strong>Gem:</strong> <span class="orange">\${Utils.gem(tViews, tLikes, tComms)}</span>\`);
 }
 
 function toggleTagPanel() {
@@ -435,6 +424,8 @@ function toggleTagPanel() {
     const btn = document.getElementById('btn-tags-toggle');
     const panel = document.getElementById('tag-filters');
     
+    if (!btn || !panel) return;
+
     if (isTagPanelActive) {
         btn.classList.add('active');
         panel.classList.remove('hidden');
@@ -461,6 +452,8 @@ function initTags() {
     if (allSortedTags.length === 0) return;
 
     const container = document.getElementById('tag-filters');
+    if (!container) return;
+    
     container.innerHTML = '';
 
     allSortedTags.forEach(([tag, count]) => {
@@ -482,15 +475,18 @@ function initTags() {
     });
 }
 
-document.getElementById('gameSearch').addEventListener('input', (e) => {
-    const clearBtn = document.getElementById('clearSearch');
-    if (e.target.value.length > 0) {
-        clearBtn.classList.remove('hidden');
-    } else {
-        clearBtn.classList.add('hidden');
-    }
-    applyFilters();
-});
+const searchInput = document.getElementById('gameSearch');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const clearBtn = document.getElementById('clearSearch');
+        if (e.target.value.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+        applyFilters();
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     sortGrid('recent');

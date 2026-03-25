@@ -33,28 +33,28 @@ permalink: /yt/${data.channelSlug}/${data.gameSlug}/
     <div class="dash-row" style="padding-top: 0;">
       <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">TOTALS:</div>
       <div class="dash-stat tooltip-trigger" data-tooltip="Total Seasons"><span class="material-symbols-outlined" style="color: var(--text); font-size: 18px;">folder</span> ${data.seasons.length}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> ${StatsCalc.formatNum(global.total_videos)}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> ${StatsCalc.formatNum(global.total_views)}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> ${StatsCalc.formatNum(global.total_likes)}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> ${StatsCalc.formatNum(global.total_comments)}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> ${StatsCalc.formatDur(global.total_duration)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Videos"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> ${StatsCalc.formatNum(global.total_videos)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Views"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> ${StatsCalc.formatNum(global.total_views)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Likes"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> ${StatsCalc.formatNum(global.total_likes)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Comments"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> ${StatsCalc.formatNum(global.total_comments)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> ${StatsCalc.formatDur(global.total_duration)}</div>
     </div>
 
     <div class="dash-row">
       <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">PER SEASON:</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Videos per Season"><span class="material-symbols-outlined" style="color: var(--red); font-size: 18px;">video_library</span> ${StatsCalc.formatNum(avg.videos)}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Season"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> ${StatsCalc.formatNum(avg.views)}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Season"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> ${StatsCalc.formatNum(avg.likes)}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Season"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> ${StatsCalc.formatNum(avg.comments)}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Season"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> ${StatsCalc.formatDur(avg.duration)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Videos per Season"><span class="material-symbols-outlined red" style="font-size: 18px;">video_library</span> ${StatsCalc.formatNum(avg.videos)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Season"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> ${StatsCalc.formatNum(avg.views)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Season"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> ${StatsCalc.formatNum(avg.likes)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Season"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> ${StatsCalc.formatNum(avg.comments)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Season"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> ${StatsCalc.formatDur(avg.duration)}</div>
     </div>
 
     <div class="dash-row">
       <div class="dash-stat" style="color: var(--gray); font-weight: bold; min-width: 100px;">PER VID:</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined" style="color: var(--blue); font-size: 18px;">visibility</span> ${StatsCalc.formatNum(avg.viewsPerVid)}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined" style="color: var(--green); font-size: 18px;">thumb_up</span> ${StatsCalc.formatNum(avg.likesPerVid)}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined" style="color: var(--orange); font-size: 18px;">chat_bubble</span> ${StatsCalc.formatNum(avg.commentsPerVid)}</div>
-      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined" style="color: var(--purple); font-size: 18px;">schedule</span> ${StatsCalc.formatDur(avg.durPerVid)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Views per Video"><span class="material-symbols-outlined blue" style="font-size: 18px;">visibility</span> ${StatsCalc.formatNum(avg.viewsPerVid)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Likes per Video"><span class="material-symbols-outlined green" style="font-size: 18px;">thumb_up</span> ${StatsCalc.formatNum(avg.likesPerVid)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Comments per Video"><span class="material-symbols-outlined orange" style="font-size: 18px;">chat_bubble</span> ${StatsCalc.formatNum(avg.commentsPerVid)}</div>
+      <div class="dash-stat tooltip-trigger" data-tooltip="Avg Duration per Video"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> ${StatsCalc.formatDur(avg.durPerVid)}</div>
     </div>
 
     <div class="dash-row" style="gap: 20px;">
@@ -79,16 +79,9 @@ permalink: /yt/${data.channelSlug}/${data.gameSlug}/
     data.seasons.forEach(s => {
         const seasonNumStr = s.seasonNum.toString();
         const seasonNumSafe = seasonNumStr.replace('.', '_');
-        const seasonParts = seasonNumStr.split('.');
-        const paddedSeason = seasonParts[0].padStart(2, '0') + (seasonParts[1] ? '_' + seasonParts[1] : '');
-        
-        const firstEp = s.episodes && s.episodes.length > 0 ? s.episodes[0] : 1;
-        const paddedEp = String(firstEp).padStart(2, '0');
         
         const seasonUrl = `/yt/${data.channelSlug}/${data.gameSlug}/season-${seasonNumSafe}/`;
-        const ytPlaylistUrl = `https://www.youtube.com/playlist?list=${s.id}`;
         const thumbUrl = s.firstVideoId ? `https://i.ytimg.com/vi/${s.firstVideoId}/maxresdefault.jpg` : '/assets/img/default-thumbnail.jpg';
-        
         const displayTitle = `${safeGameTitle} S${seasonNumStr}`;
 
         // Crunch Season-Specific Advanced Stats
@@ -111,20 +104,11 @@ permalink: /yt/${data.channelSlug}/${data.gameSlug}/
         html += `
     <div class="panel filterable-card flush-all" data-updated="${s.lastUpdatedFormatted}">
       
-      <div class="flex-between" style="padding: 16px 16px 8px 16px;">
-        <span class="label">Season ${seasonNumStr}</span>
-        <a href="${ytPlaylistUrl}" target="_blank" rel="noopener noreferrer" class="yt-header-link flex-row gap-sm text-sm">
-          <span class="material-symbols-outlined red" style="font-size: 20px;">play_circle</span> YouTube
-        </a>
-      </div>
-      
       <a href="${seasonUrl}" class="inner-panel interactive flush-all" style="border: none;">
         
-        <div style="padding: 15px;">
-          <img src="${thumbUrl}" alt="${displayTitle}" loading="lazy" style="border-radius: 8px; width: 100%; aspect-ratio: 16/9; object-fit: cover;" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
-        </div>
+        <img src="${thumbUrl}" alt="${displayTitle}" loading="lazy" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;" onerror="this.onerror=null; this.src='/assets/img/default-thumbnail.jpg';">
         
-        <div style="padding: 0 15px 15px 15px; display: flex; flex-direction: column;">
+        <div style="padding: 15px; display: flex; flex-direction: column;">
           
           <div class="flex-between divider-bottom">
             <strong class="label">${displayTitle}</strong>
@@ -157,7 +141,7 @@ permalink: /yt/${data.channelSlug}/${data.gameSlug}/
           </div>
           
           <div class="flex-between text-sm text-bold text-muted divider-top hover-color-blue" style="margin-bottom: 0;">
-            View Episode List <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+            View Season <span class="material-symbols-outlined hover-opacity" style="font-size: 18px;">arrow_forward</span>
           </div>
           
         </div>
