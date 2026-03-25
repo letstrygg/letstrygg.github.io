@@ -31,6 +31,8 @@ node ssg/update.js season PLQ4IL4UVgQk6fhVZLVeQkwS2rFNfoX0e3
 node ssg/update.js series backpack-battles --force
 
 node ssg/update.js channel letstrygg # builds the whole letstrygg + ltg-plus directory from the database
+node ssg/update.js channel letstrygg -f -i # builds just the index files, without the episodes
+node sync/sync.js channel ltg-plus -a # sync whole channel
 
 
 

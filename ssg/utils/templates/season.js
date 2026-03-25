@@ -84,7 +84,10 @@ permalink: /yt/${data.channelSlug}/${data.gameSlug}/season-${data.seasonNum.toSt
             tagsStr: ""
         };
 
-        html += UI.EpisodeCard(eBase, eStats, eAdv, avg, { contextAvg: "Season Avg" });
+        html += UI.EpisodeCard(eBase, eStats, eAdv, avg, { 
+            contextAvg: "Season Avg",
+            hideDeltas: data.episodes.length <= 1 // <--- ADDED: Hides the (0) deltas
+        });
     });
 
     html += `</div>\n</div>\n${directoryFilterScript}`;

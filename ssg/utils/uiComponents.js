@@ -7,7 +7,7 @@ export const UI = {
             itemIcon = "sports_esports", 
             itemLabel = "Total Items", 
             groupLabel = "PER ITEM",
-            hideGroupAvg = false // <-- New conditional option
+            hideGroupAvg = false
         } = opts;
 
         let html = `
@@ -22,7 +22,6 @@ export const UI = {
       <div class="dash-stat tooltip-trigger" data-tooltip="Total Duration"><span class="material-symbols-outlined purple" style="font-size: 18px;">schedule</span> <span id="val-tot-dur">${StatsCalc.formatDur(global.total_duration)}</span></div>
     </div>`;
 
-        // Conditionally render the Group Average row
         if (!hideGroupAvg) {
             html += `
     <div class="dash-row">
@@ -86,7 +85,11 @@ export const UI = {
     },
 
     GridCard: function(base, stats, adv, avg, opts) {
-        const { contextAvg = "Channel Avg", ctaText = "View Directory" } = opts;
+        const { contextAvg = "Channel Avg", ctaText = "View Directory", hideDeltas = false } = opts;
+        
+        // Helper string to cleanly blank out deltas when requested
+        const delta = (actual, average, isDur) => hideDeltas ? '' : StatsCalc.formatDelta(actual, average, isDur);
+
         return `
   <div class="panel filterable-card flush-all" data-channel="${base.targetSlug}" data-title="${base.title.toLowerCase()}" data-tags="${base.tagsStr}" 
        data-updated="${adv.maxLast}" data-episodes="${stats.epCount}" data-views="${stats.totalViews}" data-likes="${stats.totalLikes}" data-comments="${stats.totalComments}" data-duration="${stats.totalDuration}" data-vpv="${stats.vpv}" data-firstpub="${adv.minFirst}" data-vel="${adv.vel}" data-heat="${adv.heat}" data-gem="${adv.gem}">
@@ -98,17 +101,17 @@ export const UI = {
               <span class="card-status ${base.superTitleColor}">${base.superTitle}</span>
             </div>
             <div class="flex-between flex-wrap text-sm">
-              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs ${contextAvg}"><span class="material-symbols-outlined red">video_library</span> ${StatsCalc.formatNum(stats.epCount)} ${StatsCalc.formatDelta(stats.epCount, avg.items)}</span>
-              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs ${contextAvg}"><span class="material-symbols-outlined blue">visibility</span> ${StatsCalc.formatNum(stats.totalViews)} ${StatsCalc.formatDelta(stats.totalViews, avg.views)}</span>
-              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs ${contextAvg}"><span class="material-symbols-outlined green">thumb_up</span> ${StatsCalc.formatNum(stats.totalLikes)} ${StatsCalc.formatDelta(stats.totalLikes, avg.likes)}</span>
-              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs ${contextAvg}"><span class="material-symbols-outlined orange">chat_bubble</span> ${StatsCalc.formatNum(stats.totalComments)} ${StatsCalc.formatDelta(stats.totalComments, avg.comments)}</span>
-              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs ${contextAvg}"><span class="material-symbols-outlined purple">schedule</span> ${StatsCalc.formatDur(stats.totalDuration)} ${StatsCalc.formatDelta(stats.totalDuration, avg.duration, true)}</span>
+              <span title="Videos" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Videos vs ${contextAvg}"><span class="material-symbols-outlined red">video_library</span> ${StatsCalc.formatNum(stats.epCount)} ${delta(stats.epCount, avg.items)}</span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Views vs ${contextAvg}"><span class="material-symbols-outlined blue">visibility</span> ${StatsCalc.formatNum(stats.totalViews)} ${delta(stats.totalViews, avg.views)}</span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Likes vs ${contextAvg}"><span class="material-symbols-outlined green">thumb_up</span> ${StatsCalc.formatNum(stats.totalLikes)} ${delta(stats.totalLikes, avg.likes)}</span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Comments vs ${contextAvg}"><span class="material-symbols-outlined orange">chat_bubble</span> ${StatsCalc.formatNum(stats.totalComments)} ${delta(stats.totalComments, avg.comments)}</span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Total Duration vs ${contextAvg}"><span class="material-symbols-outlined purple">schedule</span> ${StatsCalc.formatDur(stats.totalDuration)} ${delta(stats.totalDuration, avg.duration, true)}</span>
             </div>
             <div class="flex-between flex-wrap text-sm divider-top-dashed">
-              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs ${contextAvg}"><span class="material-symbols-outlined blue">visibility</span> ${StatsCalc.formatNum(stats.vpv)} ${StatsCalc.formatDelta(stats.vpv, avg.viewsPerVid)}</span>
-              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs ${contextAvg}"><span class="material-symbols-outlined green">thumb_up</span> ${StatsCalc.formatNum(stats.lpv)} ${StatsCalc.formatDelta(stats.lpv, avg.likesPerVid)}</span>
-              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs ${contextAvg}"><span class="material-symbols-outlined orange">chat_bubble</span> ${StatsCalc.formatNum(stats.cpv)} ${StatsCalc.formatDelta(stats.cpv, avg.commentsPerVid)}</span>
-              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs ${contextAvg}"><span class="material-symbols-outlined purple">schedule</span> ${StatsCalc.formatDur(stats.dpv)} ${StatsCalc.formatDelta(stats.dpv, avg.durPerVid, true)}</span>
+              <span title="Views per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views per Video vs ${contextAvg}"><span class="material-symbols-outlined blue">visibility</span> ${StatsCalc.formatNum(stats.vpv)} ${delta(stats.vpv, avg.viewsPerVid)}</span>
+              <span title="Likes per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes per Video vs ${contextAvg}"><span class="material-symbols-outlined green">thumb_up</span> ${StatsCalc.formatNum(stats.lpv)} ${delta(stats.lpv, avg.likesPerVid)}</span>
+              <span title="Comments per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments per Video vs ${contextAvg}"><span class="material-symbols-outlined orange">chat_bubble</span> ${StatsCalc.formatNum(stats.cpv)} ${delta(stats.cpv, avg.commentsPerVid)}</span>
+              <span title="Duration per Video" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration per Video vs ${contextAvg}"><span class="material-symbols-outlined purple">schedule</span> ${StatsCalc.formatDur(stats.dpv)} ${delta(stats.dpv, avg.durPerVid, true)}</span>
             </div>
             <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
               <span class="tooltip-trigger" data-tooltip="Age of content"><strong>Age:</strong> ${StatsCalc.formatAge(adv.age)}</span>
@@ -127,7 +130,11 @@ export const UI = {
     },
 
     EpisodeCard: function(base, stats, adv, avg, opts) {
-        const { contextAvg = "Season Avg", ctaText = "Watch Episode" } = opts;
+        const { contextAvg = "Season Avg", ctaText = "Watch Episode", hideDeltas = false } = opts;
+        
+        // Helper string to cleanly blank out deltas when requested
+        const delta = (actual, average, isDur) => hideDeltas ? '' : StatsCalc.formatDelta(actual, average, isDur);
+
         return `
   <div class="panel filterable-card flush-all" data-title="${base.title.toLowerCase()}" data-tags="${base.tagsStr}" 
        data-updated="${adv.rawDate}" data-episodes="1" data-views="${stats.views}" data-likes="${stats.likes}" data-comments="${stats.comments}" data-duration="${stats.duration}" data-vpv="${stats.views}" data-firstpub="${adv.rawDate}" data-vel="${adv.vel}" data-heat="${adv.heat}" data-gem="${adv.gem}">
@@ -139,10 +146,10 @@ export const UI = {
               <span class="card-status ${base.superTitleColor}">${base.superTitle}</span>
             </div>
             <div class="flex-between flex-wrap text-sm">
-              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs ${contextAvg}"><span class="material-symbols-outlined blue">visibility</span> ${StatsCalc.formatNum(stats.views)} ${StatsCalc.formatDelta(stats.views, avg.views)}</span>
-              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs ${contextAvg}"><span class="material-symbols-outlined green">thumb_up</span> ${StatsCalc.formatNum(stats.likes)} ${StatsCalc.formatDelta(stats.likes, avg.likes)}</span>
-              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs ${contextAvg}"><span class="material-symbols-outlined orange">chat_bubble</span> ${StatsCalc.formatNum(stats.comments)} ${StatsCalc.formatDelta(stats.comments, avg.comments)}</span>
-              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs ${contextAvg}"><span class="material-symbols-outlined purple">schedule</span> ${StatsCalc.formatDur(stats.duration)} ${StatsCalc.formatDelta(stats.duration, avg.duration, true)}</span>
+              <span title="Views" class="tooltip-trigger flex-row gap-sm" data-tooltip="Views vs ${contextAvg}"><span class="material-symbols-outlined blue">visibility</span> ${StatsCalc.formatNum(stats.views)} ${delta(stats.views, avg.viewsPerVid)}</span>
+              <span title="Likes" class="tooltip-trigger flex-row gap-sm" data-tooltip="Likes vs ${contextAvg}"><span class="material-symbols-outlined green">thumb_up</span> ${StatsCalc.formatNum(stats.likes)} ${delta(stats.likes, avg.likesPerVid)}</span>
+              <span title="Comments" class="tooltip-trigger flex-row gap-sm" data-tooltip="Comments vs ${contextAvg}"><span class="material-symbols-outlined orange">chat_bubble</span> ${StatsCalc.formatNum(stats.comments)} ${delta(stats.comments, avg.commentsPerVid)}</span>
+              <span title="Duration" class="tooltip-trigger flex-row gap-sm" data-tooltip="Duration vs ${contextAvg}"><span class="material-symbols-outlined purple">schedule</span> ${StatsCalc.formatDur(stats.duration)} ${delta(stats.duration, avg.durPerVid, true)}</span>
             </div>
             <div class="flex-row flex-wrap gap-md text-sm text-muted divider-top-dashed">
               <span class="tooltip-trigger" data-tooltip="Age of Video"><strong>Age:</strong> ${StatsCalc.formatAge(adv.age)}</span>

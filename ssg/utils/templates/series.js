@@ -73,7 +73,11 @@ permalink: /yt/${data.channelSlug}/${data.gameSlug}/
             tagsStr: ""
         };
 
-        html += UI.GridCard(cBase, cStats, cAdv, avg, { contextAvg: "Series Avg", ctaText: "View Season" });
+        html += UI.GridCard(cBase, cStats, cAdv, avg, { 
+            contextAvg: "Series Avg", 
+            ctaText: "View Season",
+            hideDeltas: data.seasons.length <= 1 // <--- ADDED: Hides the (0) deltas
+        });
     });
 
     html += `</div>\n</div>\n${directoryFilterScript}`;
