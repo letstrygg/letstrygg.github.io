@@ -17,21 +17,21 @@
         <span style="color: gray; font-style: italic; font-size: 0.9em;">Loading game tags...</span>
       </div>
       
-      <div style="display: inline-flex; gap: 6px; align-items: center; margin-top: 10px; flex-wrap: wrap;">
+      <div style="display: flex; gap: 6px; align-items: center; margin-top: 10px; flex-wrap: wrap;">
         
-        <span style="padding: 8px; background: rgba(0,0,0,0.2); border: 1px solid var(--border, #333); color: var(--text-muted, #aaa); border-radius: 4px; font-family: monospace; user-select: none;">
+        <span style="height: 32px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 10px; background: rgba(0,0,0,0.2); border: 1px solid var(--border, #333); color: var(--text-muted, #aaa); border-radius: 4px; font-family: monospace; font-size: 14px; user-select: none;">
           {{ page.game_slug }}
         </span>
-        <span style="color: gray; font-family: monospace;">:</span>
+        <span style="color: gray; font-family: monospace; font-size: 14px;">:</span>
         
-        <input list="tag-categories" id="new-tag-category" placeholder="category" style="width: 120px; padding: 8px; background: rgba(0,0,0,0.2); border: 1px solid var(--border, #333); color: white; border-radius: 4px; font-family: monospace;">
+        <input list="tag-categories" id="new-tag-category" placeholder="category" style="height: 32px; box-sizing: border-box; width: 120px; padding: 0 10px; background: rgba(0,0,0,0.2); border: 1px solid var(--border, #333); color: white; border-radius: 4px; font-family: monospace; font-size: 14px;">
         <datalist id="tag-categories"></datalist>
         
-        <span style="color: gray; font-family: monospace;">:</span>
+        <span style="color: gray; font-family: monospace; font-size: 14px;">:</span>
         
-        <input type="text" id="new-tag-item" placeholder="item (e.g. silent)" style="width: 160px; padding: 8px; background: rgba(0,0,0,0.2); border: 1px solid var(--border, #333); color: white; border-radius: 4px; font-family: monospace;">
+        <input type="text" id="new-tag-item" placeholder="item" style="height: 32px; box-sizing: border-box; width: 140px; padding: 0 10px; background: rgba(0,0,0,0.2); border: 1px solid var(--border, #333); color: white; border-radius: 4px; font-family: monospace; font-size: 14px;">
         
-        <button id="add-tag-btn" class="btn btn-blue">Add</button>
+        <button id="add-tag-btn" class="btn btn-blue" style="height: 32px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 14px; font-size: 14px;">Add</button>
       </div>
     </div>
 
