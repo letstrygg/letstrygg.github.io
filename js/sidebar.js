@@ -93,12 +93,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         lastWidth = currentWidth;
     });
 
-    // --- 2. AUTH & DATA FETCHING ---
-    const supabaseUrl = window.SUPABASE_URL;
-    const supabaseKey = window.SUPABASE_ANON_KEY;
-    if (!supabaseUrl || !supabaseKey) return;
-    
-    const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+	// --- 2. AUTH & DATA FETCHING ---
+    if (!window.SUPABASE_URL || !window.SUPABASE_ANON_KEY) return;
+    if (!window.supabaseClient) {
+        window.supabaseClient = supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+    }
+    const supabaseClient = window.supabaseClient;
     const { data: authData } = await supabaseClient.auth.getSession();
     const session = authData.session;
 

@@ -1,0 +1,178 @@
+<div id="admin-panel" style="display: none; background: var(--bg-secondary, #1e1e24); padding: 15px; border-radius: 8px; border: 1px solid var(--border, #333); margin-top: 20px;">
+  <h3 class="yellow" style="margin-top: 0; display: flex; align-items: center; gap: 8px;">
+    <span class="material-symbols-outlined">settings</span> Admin Controls
+  </h3>
+
+  {% if page.layout == 'video' or page.youtube_id %}
+  <div class="admin-module" data-table="ltg_videos" data-id="{{ page.youtube_id }}" data-game="{{ page.game_slug }}">
+    
+    <div style="margin-bottom: 15px;">
+      <strong style="color: var(--text-muted, #aaa); font-size: 0.9em;">Tags:</strong>
+      <div id="current-tags-container" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;">
+        <span style="color: gray; font-style: italic;">Loading tags...</span>
+      </div>
+      
+      <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
+        <span style="color: var(--blue, #4a90e2); font-family: monospace; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px;">{{ page.game_slug }}:</span>
+        <input type="text" id="new-tag-input" placeholder="category:item (e.g., character:silent)" style="flex-grow: 1; padding: 8px; background: rgba(0,0,0,0.2); border: 1px solid var(--border, #333); color: white; border-radius: 4px; font-family: monospace;">
+        <button id="add-tag-btn" class="btn btn-blue">Add</button>
+      </div>
+      <p style="margin: 5px 0 0 0; font-size: 0.8em; color: gray;">Press Enter to add. Click a current tag to remove it.</p>
+    </div>
+
+  </div>
+  {% endif %}
+
+  {% if page.layout == 'season' %}
+  <div class="admin-module" data-table="ltg_seasons" data-id="{{ page.season_id }}">
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <strong style="color: var(--text-muted, #aaa);">Status:</strong>
+      <select id="season-status-select" style="padding: 8px; background: rgba(0,0,0,0.2); border: 1px solid var(--border, #333); color: white; border-radius: 4px;">
+        <option value="Active">Active</option>
+        <option value="Complete">Complete</option>
+        <option value="Hiatus">Hiatus</option>
+      </select>
+      <button class="btn btn-blue" onclick="updateField('season-status-select', 'status')">Save Status</button>
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const panel = document.getElementById('admin-panel');
+  if (!panel) return;
+
+  // --- SINGLETON INITIALIZATION ---
+  if (!window.SUPABASE_URL || !window.SUPABASE_ANON_KEY) return;
+  if (!window.supabaseClient) {
+      window.supabaseClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+  }
+  const supabaseClient = window.supabaseClient;
+
+  // 1. Authenticate & Verify Admin Role
+  const { data: { session } } = await supabaseClient.auth.getSession();
+  if (!session) return; 
+
+  const { data: profile } = await supabaseClient
+    .from('ltg_profiles')
+    .select('role')
+    .eq('user_id', session.user.id)
+    .single();
+
+  if (!profile || profile.role !== 'admin') return;
+
+  // Reveal the panel to the Admin
+  panel.style.display = 'block';
+
+  // 2. Universal Field Updater
+  window.updateField = async function(inputId, dbColumnName) {
+    const inputEl = document.getElementById(inputId);
+    const module = inputEl.closest('.admin-module');
+    const table = module.getAttribute('data-table');
+    const recordId = module.getAttribute('data-id');
+    const newValue = inputEl.value;
+
+    const { error } = await supabaseClient.from(table).update({ [dbColumnName]: newValue }).eq('id', recordId);
+
+    if (error) {
+        console.error("Update failed:", error);
+        alert(`Failed to update ${dbColumnName}!`);
+    } else {
+        const btn = event.target;
+        const oldText = btn.innerText;
+        btn.innerText = "Saved!";
+        btn.style.backgroundColor = "var(--green, #2ecc71)";
+        setTimeout(() => {
+            btn.innerText = oldText;
+            btn.style.backgroundColor = "";
+        }, 2000);
+    }
+  };
+
+  // 3. Specialized Tag Editor Logic
+  const tagContainer = document.getElementById('current-tags-container');
+  if (tagContainer) {
+    const module = tagContainer.closest('.admin-module');
+    const recordId = module.getAttribute('data-id');
+    const gameSlug = module.getAttribute('data-game');
+    const input = document.getElementById('new-tag-input');
+    const addBtn = document.getElementById('add-tag-btn');
+    
+    let currentTags = [];
+
+    async function loadTags() {
+      const { data, error } = await supabaseClient.from('ltg_videos').select('tags').eq('id', recordId).single();
+      if (error) {
+          tagContainer.innerHTML = `<span style="color: red;">Error loading tags.</span>`;
+          return;
+      }
+      currentTags = data.tags || [];
+      renderTags();
+    }
+
+    function renderTags() {
+      if (currentTags.length === 0) {
+        tagContainer.innerHTML = `<span style="color: gray; font-style: italic;">No tags yet.</span>`;
+        return;
+      }
+
+      tagContainer.innerHTML = '';
+      currentTags.forEach(tag => {
+        const el = document.createElement('button');
+        el.className = 'btn btn-gray';
+        el.style.padding = '4px 10px';
+        el.style.fontSize = '0.9em';
+        el.style.display = 'flex';
+        el.style.alignItems = 'center';
+        el.style.gap = '5px';
+        
+        const parts = tag.split(':');
+        el.innerHTML = `<span style="opacity: 0.5">${parts[0]}:${parts[1]}:</span><strong>${parts[2] || ''}</strong> <span class="material-symbols-outlined" style="font-size: 14px; color: #ff4757;">close</span>`;
+        
+        el.onclick = () => removeTag(tag);
+        tagContainer.appendChild(el);
+      });
+    }
+
+    async function addTag() {
+      const rawVal = input.value.trim().toLowerCase().replace(/\s+/g, '-'); // auto-slugify
+      if (!rawVal) return;
+
+      const fullTag = `${gameSlug}:${rawVal}`;
+      if (currentTags.includes(fullTag)) {
+          input.value = ''; 
+          return;
+      }
+
+      const newTags = [...currentTags, fullTag];
+      currentTags = newTags;
+      renderTags();
+      input.value = '';
+
+      const { error } = await supabaseClient.from('ltg_videos').update({ tags: newTags }).eq('id', recordId);
+      if (error) {
+          alert("Failed to save tag!");
+          loadTags(); 
+      }
+    }
+
+    async function removeTag(tagToRemove) {
+      currentTags = currentTags.filter(t => t !== tagToRemove);
+      renderTags(); 
+
+      const { error } = await supabaseClient.from('ltg_videos').update({ tags: currentTags }).eq('id', recordId);
+      if (error) {
+          alert("Failed to remove tag!");
+          loadTags(); 
+      }
+    }
+
+    addBtn.onclick = addTag;
+    input.addEventListener('keypress', (e) => { if (e.key === 'Enter') addTag(); });
+
+    loadTags();
+  }
+});
+</script>

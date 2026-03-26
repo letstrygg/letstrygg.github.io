@@ -1,0 +1,182 @@
+├── _includes
+    ├── admin_panel.html
+    ├── breadcrumbs.html
+    ├── chat_widget.html
+    ├── search.html
+    ├── sidebar.html
+    ├── theme_toggle.html
+    ├── ui.html
+    ├── user_settings.html
+    └── watch_player.html
+├── _layouts
+    ├── new.html
+    └── watch.html
+├── api
+    └── youtube-map.json
+├── assets
+    └── avatars
+        ├── bobbooobpb
+            └── sm.webp
+        ├── cohh
+            └── sm.webp
+        ├── cohhcarnage
+            └── sm.webp
+        ├── dead3y3
+            └── sm.webp
+        ├── destiny
+            └── sm.webp
+        ├── jorbs
+            └── sm.webp
+        ├── letstrygg
+            └── sm.webp
+        ├── ltg-plus
+            └── sm.webp
+        ├── moneymoneyloot
+            └── sm.webp
+        ├── moonmoon
+            └── sm.webp
+        ├── redbeardy_mcgee
+            └── sm.webp
+        ├── reharded
+            └── sm.webp
+        ├── rockstarrzz64
+            └── sm.webp
+        └── unreleasedsong
+            └── sm.webp
+├── css
+    ├── game
+        └── sts2-style.css
+    ├── chat.css
+    ├── colors.css
+    ├── episode.css
+    ├── game.css
+    ├── global.css
+    ├── home.css
+    ├── layout.css
+    ├── legacy-quarantine.css
+    ├── main.css
+    ├── sidebar.css
+    ├── spire-style.css
+    ├── style-old.css
+    ├── style.css
+    ├── style2.css
+    └── watch.css
+├── game
+    ├── megabonk
+        └── ... (truncated)
+    ├── slay-the-spire-2
+        └── ... (truncated)
+    └── index.html
+├── games
+    └── slay-the-spire-2
+        └── ... (truncated)
+├── js
+    ├── chat.js
+    ├── home-feed.js
+    ├── map_site.js
+    ├── sidebar.js
+    └── watch_player.js
+├── live
+    └── index.html
+├── local-tools
+    ├── public
+        └── index.html
+    ├── package.json
+    └── server.js
+├── projects
+    └── car
+        ├── hood-strut-replacement-old.html
+        ├── hood-strut-replacement-old2.html
+        ├── hood-strut-replacement-video.html
+        └── hood-strut-replacement.html
+├── ssg
+    ├── updaters
+        ├── updateChannel.js
+        ├── updateEpisode.js
+        ├── updateSeason.js
+        ├── updateSeries.js
+        ├── updateTag.js
+        └── updateYT.js
+    ├── utils
+        ├── templates
+            ├── channel.js
+            ├── episode.js
+            ├── hub.js
+            ├── index.js
+            ├── season.js
+            ├── series.js
+            ├── tag.js
+            └── tagsHub.js
+        ├── clientScripts.js
+        ├── db.js
+        ├── fileSys.js
+        ├── statsCalc.js
+        ├── templates.js
+        └── uiComponents.js
+    ├── todo.txt
+    └── update.js
+├── supabase
+    ├── functions
+        └── check-live-status
+            ├── deno.json
+            └── index.ts
+    └── config.toml
+├── sync
+    ├── sync.js
+    ├── syncChannel.js
+    └── syncPlaylist.js
+├── temu
+    ├── images
+        └── shelf-72
+            ├── 1-temu-shelf-packaging.jpg
+            ├── 2-temu-shelf-packaging.jpg
+            ├── 3-temu-shelf-unpack.jpg
+            ├── 4-temu-shelf-minor-bend.jpg
+            ├── 5-temu-shelf-layout.jpg
+            ├── 6-temu-shelf-tools.jpg
+            ├── 7-temu-shelf-assembly.jpg
+            ├── 8-temu-shelf-plastic-connector.jpg
+            └── 9-temu-shelf-assembled.jpg
+    ├── index.html
+    └── shelf-72.html
+├── watch
+    └── index.html
+├── yt
+    ├── _manual
+        └── ... (truncated)
+    ├── letstrygg
+        └── ... (truncated)
+    ├── ltg-plus
+        └── ... (truncated)
+    ├── tags
+        └── ... (truncated)
+    └── index.html
+├── _config.yml
+├── _del_index.html
+├── chat.html
+├── CNAME
+├── console.html
+├── css-inspiration.html
+├── factory.html
+├── favicon.ico
+├── Gemfile
+├── Gemfile.lock
+├── home.html
+├── index.html
+├── links.html
+├── migrate_games.js
+├── migrate_step2.js
+├── migrate_step3.js
+├── mockup.html
+├── music.html
+├── notes.txt
+├── README.md
+├── robots.txt
+├── shows.txt
+├── sitemap.html
+├── sitemap.txt
+├── sitemap.xml
+├── sitemap.xml.backup.txt
+├── sitemap.xml.backup2.txt
+├── sitemap.xsl
+└── todo.html

@@ -207,11 +207,11 @@ if (grabTimeBtn && chatInput) {
     });
 }
 
-// 5. CHAT LOGIC & ROOM TOGGLES
-const supabaseUrl = window.SUPABASE_URL;
-const supabaseKey = window.SUPABASE_ANON_KEY;
-// Prevent crash if variables aren't loaded
-const supabaseClient = (supabaseUrl && supabaseKey) ? supabase.createClient(supabaseUrl, supabaseKey) : null;
+// Singleton Initialization
+if (window.SUPABASE_URL && window.SUPABASE_ANON_KEY && !window.supabaseClient) {
+    window.supabaseClient = supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+}
+const supabaseClient = window.supabaseClient;
 
 let currentSession = null;
 let isAdmin = false;
