@@ -1,7 +1,7 @@
 <div id="admin-panel" style="display: none; background: var(--bg-secondary, #1e1e24); padding: 15px; border-radius: 8px; border: 1px solid var(--border, #333); margin-top: 20px;">
-	<h3 class="yellow" style="margin-top: 0; display: flex; align-items: center; gap: 8px;">
-		<span class="material-symbols-outlined">settings</span> Admin Controls 
-	</h3>
+  <h3 class="yellow" style="margin-top: 0; display: flex; align-items: center; gap: 8px;">
+    <span class="material-symbols-outlined">settings</span> Admin Controls
+  </h3>
 
   {% if page.layout == 'video' or page.youtube_id %}
   <div class="admin-module" id="tag-editor-module" data-table="ltg_videos" data-id="{{ page.youtube_id }}" data-game="{{ page.game_slug }}">
@@ -31,7 +31,7 @@
         
         <input type="text" id="new-tag-item" placeholder="item" style="height: 32px; box-sizing: border-box; width: 140px; padding: 0 10px; background: rgba(0,0,0,0.2); border: 1px solid var(--border, #333); color: white; border-radius: 4px; font-family: monospace; font-size: 14px;">
         
-        <button id="add-tag-btn" class="btn btn-blue" style="height: 32px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 14px; font-size: 14px;">Add</button>
+        <button id="add-tag-btn" class="btn btn-blue" style="height: 32px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 14px; font-size: 14px; margin: 0;">Add</button>
       </div>
     </div>
 
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   panel.style.display = 'block';
 
-  window.updateField = async function(inputId, dbColumnName) { /* ... Universal Updater logic stays exactly the same ... */ };
+  window.updateField = async function(inputId, dbColumnName) { /* Universal Updater logic */ };
 
   const tagModule = document.getElementById('tag-editor-module');
   if (tagModule) {
@@ -89,38 +89,44 @@ document.addEventListener("DOMContentLoaded", async () => {
     let knownGameTags = new Set();
     let knownCategories = new Set();
 
-    // --- NEW: Sorting & Styling Helpers ---
+    // --- Bulletproof Sorting & Styling Helpers ---
     function sortTags(tagsArray) {
-        const config = window.LTG_TAG_CONFIG || { priorityCategories: [] };
+        const config = window.LTG_TAG_CONFIG || {};
+        const priorities = config.priorityCategories || [];
+        
         return tagsArray.sort((a, b) => {
             const [, catA, itemA] = a.split(':');
             const [, catB, itemB] = b.split(':');
 
-            const aIsPriority = config.priorityCategories.includes(catA);
-            const bIsPriority = config.priorityCategories.includes(catB);
+            const aIsPriority = priorities.includes(catA);
+            const bIsPriority = priorities.includes(catB);
 
-            // 1. Push priorities to the top
             if (aIsPriority && !bIsPriority) return -1;
             if (!aIsPriority && bIsPriority) return 1;
 
-            // 2. Sort alphabetically by item name
-            return (itemA || catA).localeCompare(itemB || catB);
+            // Safe fallback to prevent localeCompare crash on undefined values
+            return (itemA || catA || '').localeCompare(itemB || catB || '');
         });
     }
 
     function getTagStyle(category, item) {
-        const config = window.LTG_TAG_CONFIG || { colors: {} };
+        const config = window.LTG_TAG_CONFIG || {};
+        const colors = config.colors || {};
+        
         const key = `${category}:${item}`;
-        const color = config.colors[key] || config.colors['default'] || 'var(--text-muted, #aaa)';
+        const color = colors[key] || colors['default'] || 'var(--text-muted, #aaa)';
         return { color, border: color };
     }
     // --------------------------------------
 
     async function initTags() {
+      // 1. Fetch tags for this specific video
       const { data: vidData } = await supabaseClient.from('ltg_videos').select('tags').eq('id', recordId).single();
-      if (vidData) currentTags = vidData.tags || [];
+      if (vidData && vidData.tags) currentTags = vidData.tags;
 
-      const { data: allVidData } = await supabaseClient.from('ltg_videos').select('tags').not('tags', 'eq', '{}').limit(500);
+      // 2. Fetch the last 500 tagged videos (Safe query bypassing Postgres Array type errors)
+      const { data: allVidData } = await supabaseClient.from('ltg_videos').select('tags').not('tags', 'is', null).order('published_at', { ascending: false }).limit(500);
+      
       if (allVidData) {
           allVidData.forEach(row => {
               (row.tags || []).forEach(t => {
@@ -157,7 +163,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (currentTags.length === 0) {
         appliedContainer.innerHTML = `<span style="color: gray; font-style: italic; font-size: 0.9em;">No tags applied.</span>`;
       } else {
-        // Sort applied tags too so characters show up first
         const sortedApplied = sortTags([...currentTags]);
         sortedApplied.forEach(tag => {
           const parts = tag.split(':');
