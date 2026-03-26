@@ -6,58 +6,9 @@ permalink: /game/
 ---
 
 <div class="section">
-  <h1 class="title">Game Library</h1>
-
-  <div style="display: flex; gap: 10px; margin-top: 30px; margin-bottom: 20px; align-items: center;">
-    <input type="text" id="gameSearch" placeholder="Search games..." style="flex-grow: 1; max-width: 300px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--gray); background: var(--bg); color: var(--text);">
-    <button class="btn btn-gray" onclick="toggleGameSort()" title="Sort Alphabetical" style="display: flex; align-items: center; justify-content: center; width: 40px; padding: 0;">
-      <span class="material-symbols-outlined" id="sortIcon" style="transition: transform 0.2s ease;">sort_by_alpha</span>
-    </button>
-  </div>
-
-  <ul id="gameList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; list-style: none; padding: 0;">
-    {%- assign all_pages = site.pages | sort: "title" -%}
-    {%- for item in all_pages -%}
-      {%- if item.url contains '/game/' -%}
-        {%- assign path_size = item.url | split: '/' | size -%}
-        {%- if path_size == 3 and item.url != '/game/' -%}
-          {%- assign clean_title = item.title | remove: " - LetsTryGG" | remove: " – LetsTryGG" -%}
-          <li class="game-item" data-title="{{ clean_title | downcase }}">
-            <a href="{{ item.url | relative_url }}" class="blue">{{ clean_title }}</a>
-          </li>
-        {%- endif -%}
-      {%- endif -%}
-    {%- endfor -%}
+  <h1 class="title">Game Index</h1>
+  <ul>
+	<li><a href="megabonk/"></a></li>
+	<li><a href="slay-the-spire-2"></a></li>
   </ul>
 </div>
-
-<script>
-  let isAscending = true;
-  const searchInput = document.getElementById('gameSearch');
-  const gameList = document.getElementById('gameList');
-  const sortIcon = document.getElementById('sortIcon');
-
-  // Instant Filter
-  searchInput.addEventListener('input', (e) => {
-    const term = e.target.value.toLowerCase();
-    document.querySelectorAll('.game-item').forEach(item => {
-      item.style.display = item.dataset.title.includes(term) ? '' : 'none';
-    });
-  });
-
-  // Alphabetical Sort
-  function toggleGameSort() {
-    isAscending = !isAscending;
-    const items = Array.from(document.querySelectorAll('.game-item'));
-    
-    items.sort((a, b) => {
-      if (a.dataset.title < b.dataset.title) return isAscending ? -1 : 1;
-      if (a.dataset.title > b.dataset.title) return isAscending ? 1 : -1;
-      return 0;
-    });
-    
-    gameList.innerHTML = '';
-    items.forEach(item => gameList.appendChild(item));
-    sortIcon.style.transform = isAscending ? 'none' : 'scaleY(-1)';
-  }
-</script>
