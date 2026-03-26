@@ -15,11 +15,14 @@ export function episodeHTML(data) {
            </div>` 
         : '';
 
-    // Combine Meta Strings 
+    // Combine Meta Strings
     let combinedTagsString = data.tagsString || '';
     if (data.adminTagsMeta) {
         combinedTagsString = combinedTagsString ? `${combinedTagsString}, ${data.adminTagsMeta}` : data.adminTagsMeta;
     }
+
+    // Failsafe string injection
+    const safeConfigStr = data.clientTagConfigStr || '{}';
 
     return `---
 layout: watch
@@ -68,7 +71,7 @@ game_slug: "${data.gameSlug}"
 
   ${allTagsHtml}
 
-  <script>window.LTG_TAG_CONFIG = ${data.clientTagConfigStr};</script>
+  <script>window.LTG_TAG_CONFIG = ${safeConfigStr};</script>
   {% include admin_panel.html %}
 
   <div class="manual-content">
