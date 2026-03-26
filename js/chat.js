@@ -683,6 +683,9 @@ document.addEventListener('keydown', function(e) {
     const isInput = activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable);
     if (isInput) return; 
 
+    // NEW: Ignore if the user is holding Ctrl (Windows), Cmd (Mac), or Alt
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+
     if (e.key.toLowerCase() === 'c') {
         e.preventDefault();
         isChatOpen = !isChatOpen;

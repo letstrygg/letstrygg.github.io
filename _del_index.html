@@ -1,0 +1,306 @@
+---
+layout: new
+title: LTG YouTube Gameplay
+custom_css: "/css/home.css"
+---
+<!--
+<h2 class="green">Featured</h2>
+<div class="game-grid">
+  {% include cards/slay-the-spire-2-playlist_card.html %}
+  {% include cards/noita-playlist_card.html %}
+  {% include cards/gemcraft-playlist_card.html %}
+  {% include cards/oaken-tower-playlist_card.html %}
+</div>
+<h2 class="blue">All Series</h2>
+-->
+
+<div class="controls-wrapper">
+    <div class="controls-top-row">
+        <input type="text" id="gameSearch" placeholder="Search Games">
+        <div class="top-row-buttons">
+            <button class="btn" id="btn-tags-toggle" onclick="toggleTagPanel()">
+                <span class="material-symbols-outlined">sell</span> Tags
+            </button>
+            <button class="btn" id="btn-info" onclick="toggleInfo()">
+                <span class="material-symbols-outlined">info</span> Info
+            </button>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-green active" id="btn-recent" onclick="sortGrid('recent')">
+            <span class="material-symbols-outlined">psychiatry</span> New
+        </button>
+        <button class="btn btn-blue" id="btn-popular" onclick="sortGrid('popular')">
+            <span class="material-symbols-outlined">visibility</span> Views
+        </button>
+        <button class="btn btn-purple" id="btn-length" onclick="sortGrid('length')">
+            <span class="material-symbols-outlined">schedule</span> Duration
+        </button>
+        <button class="btn btn-orange" id="btn-vpv" onclick="sortGrid('vpv')">
+            <span class="material-symbols-outlined">mode_heat</span> VPV
+        </button>
+    </div>
+</div>
+
+    <div id="tag-filters" class="tag-filters"></div>
+
+    <div id="summary-info-box" class="summary-info-box" style="display: none;">
+        <div class="summary-grid">
+			<div>
+                <strong class="text-blue" style="font-size: 1.1em;">Library Scope</strong><br>
+                Games: <strong id="stat-games">0</strong><br>
+                Videos: <strong id="stat-videos-total">0</strong><br>
+                Avg / Game: <strong id="stat-avg-vid-game">0</strong>
+            </div>
+            <div>
+                <strong class="text-green" style="font-size: 1.1em;">Views</strong><br>
+                Total: <span id="stat-views-total">0</span><br>
+                Avg / Game: <span id="stat-views-avg-game">0</span><br>
+                Avg / Video: <span id="stat-vpv" class="text-orange" style="font-weight: bold;">0</span>
+            </div>
+            <div>
+                <strong class="text-purple" style="font-size: 1.1em;">Duration</strong><br>
+                Total: <span id="stat-dur-total">0</span><br>
+                Avg / Game: <span id="stat-dur-game">0</span><br>
+                Avg / Video: <span id="stat-dur-video">0</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="game-grid" id="all-series-grid">
+  {% for p in site.data.games %}
+    <a href="/game/{{ p.id }}/" class="filterable-card" data-title="{{ p.title | downcase }}" data-tags="{{ p.tags | join: ',' }}">
+      <div class="game-card" data-updated="{{ p.updated | date: '%Y%m%d' }}" data-episodes="{{ p.episodes }}" data-views="{{ p.views }}" data-duration="{{ p.duration }}" data-vpv="{{ p.vpv }}">
+        <img src="{{ p.thumbnail }}" alt="{{ p.title }}">
+        <div class="card-row">
+			<strong>{{ p.title }}</strong>
+			<span class="card-status {{ p.status_color }}">{{ p.status }}</span>
+        </div>
+<div class="card-row">
+            <span><span class="material-symbols-outlined gray">play_circle</span> {{ p.episodes }}</span>
+            <span><span class="material-symbols-outlined gray">visibility</span> {{ p.views_formatted }}</span>
+            <span class="card-duration">
+                <span class="dur-full"><span class="material-symbols-outlined gray">schedule</span> {{ p.duration_formatted }}</span>
+                <span class="dur-short"><span class="material-symbols-outlined gray">schedule</span> {{ p.duration_short }}</span>
+            </span>
+        </div>
+        <div class="card-row vpv-row" style="display: none; color: #aaa; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; justify-content: center;">
+			<span><span class="material-symbols-outlined orange">mode_heat</span> {{ p.vpv_formatted }} views per video</span>
+        </div>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+<script>
+// --- State Management ---
+let currentSort = 'recent';
+let isInfoActive = false;
+let activeTags = new Set();
+let allSortedTags = [];
+let isTagsExpanded = false;
+
+// --- Formatting Helpers ---
+function formatViews(num) {
+    num = Math.round(num);
+    if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+    return num.toString();
+}
+
+function formatDuration(seconds) {
+    seconds = Math.round(seconds);
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    return h > 0 ? `${h}h ${m}m` : `${m}m`;
+}
+
+// --- Info Box Logic ---
+function toggleInfo() {
+    isInfoActive = !isInfoActive;
+    const btn = document.getElementById('btn-info');
+    const infoBox = document.getElementById('summary-info-box');
+
+    if (isInfoActive) {
+        btn.classList.add('active'); 
+        infoBox.style.display = 'block';
+        calculateStats();
+    } else {
+        btn.classList.remove('active');
+        infoBox.style.display = 'none';
+    }
+    updateVPVVisibility();
+}
+
+function calculateStats() {
+    if (!isInfoActive) return;
+
+    const cards = document.querySelectorAll('.filterable-card');
+    let gamesCount = 0;
+    let totalViews = 0;
+    let totalVideos = 0;
+    let totalDuration = 0;
+
+    cards.forEach(card => {
+        if (card.style.display !== 'none') {
+            gamesCount++;
+            const inner = card.querySelector('.game-card');
+            totalViews += parseInt(inner.dataset.views || 0);
+            totalVideos += parseInt(inner.dataset.episodes || 0);
+            totalDuration += parseInt(inner.dataset.duration || 0);
+        }
+    });
+
+    const avgViewsGame = gamesCount > 0 ? totalViews / gamesCount : 0;
+    const avgViewsVideo = totalVideos > 0 ? totalViews / totalVideos : 0;
+    const avgDurGame = gamesCount > 0 ? totalDuration / gamesCount : 0;
+    const avgDurVideo = totalVideos > 0 ? totalDuration / totalVideos : 0;
+	const avgVideosGame = gamesCount > 0 ? Math.round(totalVideos / gamesCount) : 0;
+	
+	// 1. Library Scope
+    document.getElementById('stat-games').innerText = gamesCount;
+    document.getElementById('stat-videos-total').innerText = totalVideos;
+    document.getElementById('stat-avg-vid-game').innerText = avgVideosGame;
+
+    // 2. Views
+    document.getElementById('stat-views-total').innerText = formatViews(totalViews);
+    document.getElementById('stat-views-avg-game').innerText = formatViews(avgViewsGame);
+    document.getElementById('stat-vpv').innerText = formatViews(avgViewsVideo);
+
+    // 3. Duration
+    document.getElementById('stat-dur-total').innerText = formatDuration(totalDuration);
+    document.getElementById('stat-dur-game').innerText = formatDuration(avgDurGame);
+    document.getElementById('stat-dur-video').innerText = formatDuration(avgDurVideo);
+}
+
+function updateVPVVisibility() {
+    const cards = document.querySelectorAll('.filterable-card');
+    cards.forEach(card => {
+        const vpvRow = card.querySelector('.vpv-row');
+        if (vpvRow) {
+            vpvRow.style.display = (currentSort === 'vpv' || isInfoActive) ? 'flex' : 'none';
+        }
+    });
+}
+
+// --- Sorting Logic ---
+function sortGrid(type) {
+    currentSort = type;
+    document.querySelectorAll('.btn-group .btn').forEach(btn => btn.classList.remove('active'));
+    
+    const clickedBtn = document.getElementById(`btn-${type}`);
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    const grid = document.getElementById('all-series-grid');
+    const cards = Array.from(grid.querySelectorAll('.filterable-card'));
+
+    cards.sort((a, b) => {
+        const cardA = a.querySelector('.game-card');
+        const cardB = b.querySelector('.game-card');
+        if (!cardA || !cardB) return 0;
+
+        if (type === 'recent') return parseInt(cardB.dataset.updated || 0) - parseInt(cardA.dataset.updated || 0);
+        if (type === 'popular') return parseInt(cardB.dataset.views || 0) - parseInt(cardA.dataset.views || 0);
+        if (type === 'length') return parseInt(cardB.dataset.duration || 0) - parseInt(cardA.dataset.duration || 0);
+        if (type === 'vpv') return parseInt(cardB.dataset.vpv || 0) - parseInt(cardA.dataset.vpv || 0);
+    });
+
+    grid.innerHTML = '';
+    cards.forEach(card => grid.appendChild(card));
+    updateVPVVisibility();
+}
+
+// --- Unified Filter Logic (THIS IS WHAT WENT MISSING!) ---
+function applyFilters() {
+    const searchTerm = document.getElementById('gameSearch').value.toLowerCase();
+    const cards = document.querySelectorAll('.filterable-card');
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const tagsStr = card.getAttribute('data-tags') || '';
+        const cardTags = tagsStr.split(',').map(t => t.trim());
+
+        const matchesSearch = title.includes(searchTerm);
+        
+        // AND Logic: Game must have ALL of the active tags. 
+        const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(tag => cardTags.includes(tag));
+
+        if (matchesSearch && matchesTags) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    calculateStats(); 
+}
+
+// --- NEW: Tag Panel Toggle Logic ---
+let isTagPanelActive = false;
+
+function toggleTagPanel() {
+    isTagPanelActive = !isTagPanelActive;
+    const btn = document.getElementById('btn-tags-toggle');
+    const panel = document.getElementById('tag-filters');
+    
+    if (isTagPanelActive) {
+        btn.classList.add('active');
+        panel.style.display = 'flex'; // Reveals the whole panel
+    } else {
+        btn.classList.remove('active');
+        panel.style.display = 'none'; // Hides it
+    }
+}
+
+// --- UPDATED: Tag Building Logic (No more "+ More" button!) ---
+function initTags() {
+    const cards = document.querySelectorAll('.filterable-card');
+    const tagCounts = {};
+    
+    // Count the tags
+    cards.forEach(card => {
+        const tagsStr = card.getAttribute('data-tags');
+        if (!tagsStr) return;
+        tagsStr.split(',').filter(Boolean).forEach(t => {
+            const cleanTag = t.trim();
+            tagCounts[cleanTag] = (tagCounts[cleanTag] || 0) + 1;
+        });
+    });
+
+    allSortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+    if (allSortedTags.length === 0) return;
+
+    const container = document.getElementById('tag-filters');
+    container.innerHTML = '';
+
+    // Render all tag buttons instantly
+    allSortedTags.forEach(([tag, count]) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-tag tag-item'; 
+        btn.innerText = `${tag} (${count})`;
+        
+        btn.onclick = () => {
+            if (activeTags.has(tag)) {
+                activeTags.delete(tag);
+                btn.classList.remove('active');
+            } else {
+                activeTags.add(tag);
+                btn.classList.add('active');
+            }
+            applyFilters();
+        };
+        container.appendChild(btn);
+    });
+}
+
+// Ensure event listener triggers the unified filter function
+document.getElementById('gameSearch').addEventListener('input', applyFilters);
+
+// Boot it all up
+document.addEventListener('DOMContentLoaded', () => {
+    sortGrid('recent');
+    initTags(); 
+});
+</script>
