@@ -13,11 +13,20 @@ const targetId = args[1];
 async function buildTheWorld() {
     console.log(`\n🌍 Initiating Full Network Rebuild...`);
     
-    // 1. Fetch all channels to rebuild their individual directories
-    const { data: channels } = await supabase.from('ltg_channels').select('slug');
+    // 1. Fetch ONLY channels officially flagged to generate directories
+    const { data: channels } = await supabase
+        .from('ltg_channels')
+        .select('slug')
+        .eq('generate_dir', true); // <--- Updated flag here
+
     if (channels) {
         for (const ch of channels) {
-            await updateChannel(ch.slug);
+            try {
+                await updateChannel(ch.slug);
+            } catch (err) {
+                // Bulletproof the loop: If one channel fails, log it and keep going
+                console.error(`  ⚠️ Warning: Skipped building channel '${ch.slug}' (${err.message})`);
+            }
         }
     }
 
