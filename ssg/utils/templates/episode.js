@@ -1,6 +1,5 @@
 export function episodeHTML(data) {
     const safeThumbnail = data.thumbnail || `https://i.ytimg.com/vi/${data.id}/maxresdefault.jpg`;
-    // Escape quotes so the JSON-LD schema doesn't break
     const escapedTitle = data.title.replace(/"/g, '\\"');
     const epNumPadded = String(data.episodeNum).padStart(3, '0');
 
@@ -18,7 +17,8 @@ description: "${data.seriesTitle} Let's Play Season ${data.seasonNum} Episode ${
 permalink: /yt/${data.channelSlug}/${data.gameSlug}/season-${data.seasonNum}/${data.fileName}
 custom_css: "/css/game/${data.shortPrefix}-style.css"
 thumbnail: "${safeThumbnail}"
-sync_date: "${data.rawPublishedAt}"
+upload_date: "${data.rawPublishedAt}"
+duration_seconds: ${data.durationSeconds}
 tags: "${data.tagsString}"
 ---
 
@@ -32,7 +32,12 @@ tags: "${data.tagsString}"
   "uploadDate": "${data.rawPublishedAt}",
   "duration": "${data.isoDuration}",
   "embedUrl": "https://www.youtube.com/embed/${data.id}",
-  "keywords": "${data.tagsString}"
+  "keywords": "${data.tagsString}",
+  "interactionStatistic": {
+    "@type": "InteractionCounter",
+    "interactionType": { "@type": "WatchAction" },
+    "userInteractionCount": ${data.views}
+  }
 }
 </script>
 

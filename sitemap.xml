@@ -29,6 +29,8 @@ layout: null
             <video:title>{{ page.title | xml_escape }}</video:title>
             <video:description>{{ page.description | xml_escape }}</video:description>
             <video:player_loc>https://www.youtube.com/embed/{{ video_id }}</video:player_loc>
+            {% if page.duration_seconds %}<video:duration>{{ page.duration_seconds }}</video:duration>{% endif %}
+            {% if page.upload_date %}<video:publication_date>{{ page.upload_date | date_to_xmlschema }}</video:publication_date>{% endif %}
           </video:video>
         {% endif %}
 

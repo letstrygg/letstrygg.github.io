@@ -29,12 +29,36 @@ export function seriesHTML(data) {
            </div>`
         : '';
 
+    // --- NEW: SEO ItemList Schema ---
+    const baseUrl = "https://letstrygg.com";
+    const itemListElements = data.seasons.map((s, index) => {
+        const seasonNumSafe = s.seasonNum.toString().replace('.', '_');
+        return {
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": `${baseUrl}/yt/${data.channelSlug}/${data.gameSlug}/season-${seasonNumSafe}/`,
+            "name": `Season ${s.seasonNum}`
+        };
+    });
+
+    const schemaJSON = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": `${safeGameTitle} - All Seasons`,
+        "numberOfItems": data.seasons.length,
+        "itemListElement": itemListElements
+    };
+
     let html = `---
 layout: new
 title: "${safeGameTitle} - All Seasons"
 permalink: /yt/${data.channelSlug}/${data.gameSlug}/
 tags: "${data.tagsString}"
 ---
+<script type="application/ld+json">
+${JSON.stringify(schemaJSON, null, 2)}
+</script>
+
 <div class="game-page-wrapper">
   <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
     <h1 class="title">${safeGameTitle}</h1>

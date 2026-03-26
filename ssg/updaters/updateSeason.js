@@ -212,6 +212,7 @@ export async function updateSeason(playlistId, options = {}) {
                 publishedAt: new Date(v.published_at).toLocaleDateString(),
                 rawPublishedAt: v.published_at,
                 durationFormatted,
+				durationSeconds: v.duration_seconds,
                 isoDuration,
                 views: v.view_count || 0,
                 likes: v.likes || 0,

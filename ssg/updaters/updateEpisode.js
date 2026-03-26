@@ -62,6 +62,7 @@ export async function updateEpisode(videoId) {
         likes: video.likes,
         comments: video.comments,
         durationFormatted: formatDuration(video.duration_seconds),
+		durationSeconds: video.duration_seconds,
         isoDuration: isoDuration(video.duration_seconds),
         publishedAt: new Date(video.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
         rawPublishedAt: video.published_at,
