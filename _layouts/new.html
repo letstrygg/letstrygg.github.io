@@ -8,6 +8,9 @@
   {% if page.description %}
   <meta name="description" content="{{ page.description }}">
   {% endif %}
+  {% if page.tags and page.tags != "" %}
+  <meta name="keywords" content="{{ page.tags }}">
+  {% endif %}
   <link rel="canonical" href="https://letstrygg.com{{ page.permalink }}">
 
   <meta property="og:site_name" content="letstrygg">

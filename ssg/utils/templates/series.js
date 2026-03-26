@@ -22,15 +22,24 @@ export function seriesHTML(data) {
         gem: StatsCalc.hiddenGemScore(global.total_views, global.total_likes, global.total_comments)
     };
 
+    // Build the Tag Buttons HTML
+    const tagsHtml = data.tags && data.tags.length > 0 
+        ? `<div class="flex-row flex-wrap" style="gap: 8px; margin-top: 15px;">
+            ${data.tags.map(t => `<a href="/yt/tags/${t.slug}/" class="btn btn-gray interactive text-sm" style="padding: 4px 12px; border-radius: 15px; border-color: var(--border);">#${t.name}</a>`).join('\n')}
+           </div>`
+        : '';
+
     let html = `---
 layout: new
 title: "${safeGameTitle} - All Seasons"
 permalink: /yt/${data.channelSlug}/${data.gameSlug}/
+tags: "${data.tagsString}"
 ---
 <div class="game-page-wrapper">
   <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
     <h1 class="title">${safeGameTitle}</h1>
     <p class="subtitle" style="margin: 0;">Series Overview</p>
+    ${tagsHtml}
   </div>
 `;
 

@@ -4,6 +4,10 @@ import { updateSeason } from './updateSeason.js';
 import { seriesHTML } from '../utils/templates/index.js';
 import { writeStaticPage } from '../utils/fileSys.js';
 
+function slugify(text) {
+    return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
+}
+
 export async function updateSeries(gameSlug, options = {}, channelFamily = null, rootChannelSlug = null) {
     const isForce = options.force || false;
     
@@ -37,7 +41,12 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
 
     const seriesTitle = allPlaylists[0].ltg_series.title;
     const gameTitle = allPlaylists[0].ltg_series.ltg_games?.title || seriesTitle;
-    const gameTags = allPlaylists[0].ltg_series.ltg_games?.tags || [];
+    
+    // --- NEW: Tag Processing ---
+    const rawTags = allPlaylists[0].ltg_series.ltg_games?.tags || [];
+    const tagsArr = rawTags.map(t => ({ name: t.trim(), slug: slugify(t) }));
+    const tagsString = rawTags.join(', ');
+
     const channelSlug = allPlaylists[0]?.channel_slug || rootChannelSlug || 'unknown';
     const seriesPath = `yt/${channelSlug}/${gameSlug}`;
     const seriesIndex = `${seriesPath}/index.html`;
@@ -163,10 +172,11 @@ export async function updateSeries(gameSlug, options = {}, channelFamily = null,
         shortPrefix: shortPrefix,
         syncDate: new Date().toISOString(),
         seasons: seasonsData,
-        tags: gameTags,
+        tags: tagsArr,               // <-- Passed formatted array for buttons
+        tagsString: tagsString,      // <-- Passed string for SEO meta
         manualContent: seriesManualContent,
         averages,
-        seriesTotals // Passed explicitly to template
+        seriesTotals 
     });
 
     writeStaticPage(seriesIndex, seriesPageHTML);
