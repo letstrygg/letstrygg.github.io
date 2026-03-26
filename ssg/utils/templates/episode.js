@@ -3,12 +3,23 @@ export function episodeHTML(data) {
     const escapedTitle = data.title.replace(/"/g, '\\"');
     const epNumPadded = String(data.episodeNum).padStart(3, '0');
 
-    // Build the Tag Buttons HTML
-    const tagsHtml = data.tags && data.tags.length > 0 
-        ? `<div class="flex-row flex-wrap" style="gap: 8px; margin-bottom: 25px;">
-            ${data.tags.map(t => `<a href="/yt/tags/${t.slug}/" class="btn btn-gray interactive text-sm" style="padding: 4px 12px; border-radius: 15px; border-color: var(--border);">#${t.name}</a>`).join('\n')}
-           </div>`
+    // Combine Game Tags and parsed Admin Tags
+    const ytTagsHtml = data.tags && data.tags.length > 0 
+        ? data.tags.map(t => `<a href="/yt/tags/${t.slug}/" class="btn btn-gray interactive text-sm" style="padding: 4px 12px; border-radius: 15px; border-color: var(--border);">#${t.name}</a>`).join('\n')
         : '';
+        
+    const allTagsHtml = (ytTagsHtml || data.adminTagsHtml) 
+        ? `<div class="flex-row flex-wrap" style="gap: 8px; margin-bottom: 25px;">
+             ${ytTagsHtml}
+             ${data.adminTagsHtml || ''}
+           </div>` 
+        : '';
+
+    // Combine Meta Strings
+    let combinedTagsString = data.tagsString || '';
+    if (data.adminTagsMeta) {
+        combinedTagsString = combinedTagsString ? `${combinedTagsString}, ${data.adminTagsMeta}` : data.adminTagsMeta;
+    }
 
     return `---
 layout: watch
@@ -19,7 +30,7 @@ custom_css: "/css/game/${data.shortPrefix}-style.css"
 thumbnail: "${safeThumbnail}"
 upload_date: "${data.rawPublishedAt}"
 duration_seconds: ${data.durationSeconds}
-tags: "${data.tagsString}"
+tags: "${combinedTagsString}"
 youtube_id: "${data.id}"
 game_slug: "${data.gameSlug}"
 ---
@@ -34,7 +45,7 @@ game_slug: "${data.gameSlug}"
   "uploadDate": "${data.rawPublishedAt}",
   "duration": "${data.isoDuration}",
   "embedUrl": "https://www.youtube.com/embed/${data.id}",
-  "keywords": "${data.tagsString}",
+  "keywords": "${combinedTagsString}",
   "interactionStatistic": {
     "@type": "InteractionCounter",
     "interactionType": { "@type": "WatchAction" },
@@ -55,8 +66,8 @@ game_slug: "${data.gameSlug}"
       next_url="${data.nextUrl || ''}"
   %}
 
-  ${tagsHtml}
-  
+  ${allTagsHtml}
+
   {% include admin_panel.html %}
 
   <div class="manual-content">
