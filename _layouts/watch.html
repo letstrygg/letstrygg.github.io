@@ -7,6 +7,9 @@
   <title>{{ page.title }} | letstrygg</title>
   <meta name="title" content="{{ page.title }}">
   <meta name="description" content="{{ page.description }}">
+  {% if page.tags != "" %}
+  <meta name="keywords" content="{{ page.tags }}">
+  {% endif %}
   <link rel="canonical" href="https://letstrygg.com{{ page.permalink }}">
   <meta name="theme-color" content="#e67e22"> 
   <meta property="og:site_name" content="letstrygg">

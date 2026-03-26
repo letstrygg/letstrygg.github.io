@@ -3,6 +3,11 @@ import { supabase } from '../utils/db.js';
 import { seasonHTML, episodeHTML } from '../utils/templates/index.js';
 import { writeStaticPage } from '../utils/fileSys.js';
 
+// --- NEW: Slugify Helper ---
+function slugify(text) {
+    return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
+}
+
 export async function updateSeason(playlistId, options = {}) {
     const isForce = options.force || false;
     
@@ -15,7 +20,7 @@ export async function updateSeason(playlistId, options = {}) {
                 slug, 
                 title,
                 game_slug,
-                ltg_games ( title, custom_abbr )
+                ltg_games ( title, custom_abbr, tags ) 
             ),
             ltg_playlist_stats ( ep_count, total_views, total_likes, total_comments, total_duration, latest_published_at, first_published_at )
         `)
@@ -42,6 +47,11 @@ export async function updateSeason(playlistId, options = {}) {
         console.error(`❌ Video fetch error for ${playlistId}`, epError.message);
         return { success: false, skipped: false, episodesProcessed: 0, episodesList: [] };
     }
+
+    // --- NEW: Tag Processing ---
+    const rawTags = playlistData.ltg_series.ltg_games?.tags || [];
+    const tagsArr = rawTags.map(t => ({ name: t.trim(), slug: slugify(t) }));
+    const tagsString = rawTags.join(', ');
 
     // Grab first and last episode views for drop-off rate
     const firstEpViews = episodes.length > 0 ? (episodes[0].ltg_videos.view_count || 0) : 0;
@@ -144,7 +154,7 @@ export async function updateSeason(playlistId, options = {}) {
         const epManualPath = `${seasonPath}/_manual/${fileName}`;
         const epUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}/${fileName}`;
 
-        // Populate the list for the Season Index Page (Regardless of indexesOnly flag)
+        // Populate the list for the Season Index Page
         fullEpisodesList.push({
             epNum: ep.sort_order,
             videoId: v.id,
@@ -187,6 +197,7 @@ export async function updateSeason(playlistId, options = {}) {
                 writeStaticPage(epManualPath, manualContent);
             }
 
+            // --- INJECT TAGS INTO THE EPISODE PAYLOAD ---
             const epData = {
                 id: v.id,
                 title: v.title,
@@ -207,6 +218,8 @@ export async function updateSeason(playlistId, options = {}) {
                 comments: v.comments || 0,
                 prevUrl,
                 nextUrl,
+                tags: tagsArr,               // Pass to UI
+                tagsString: tagsString,      // Pass to Schema
                 manualContent
             };
 
@@ -223,7 +236,7 @@ export async function updateSeason(playlistId, options = {}) {
         writeStaticPage(seasonManualIndex, seasonManualContent);
     }
 
-    // Pass the stats, averages, and series title to the template!
+    // --- INJECT TAGS INTO THE SEASON PAYLOAD ---
     const seasonData = {
         gameTitle,
         seriesTitle: playlistData.ltg_series.title,
@@ -232,6 +245,8 @@ export async function updateSeason(playlistId, options = {}) {
         gameSlug,
         shortPrefix,
         syncDate: playlistData.sync_date || new Date().toISOString(),
+        tags: tagsArr,               // Pass to UI
+        tagsString: tagsString,      // Pass to Meta Tags
         manualContent: seasonManualContent,
         episodes: fullEpisodesList,
         stats,

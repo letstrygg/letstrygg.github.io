@@ -34,7 +34,7 @@ export async function getFullEpisodeContext(videoId) {
                     id, season, title, channel_slug,
                     ltg_series!inner(
                         slug, title,
-                        ltg_games(slug, title, custom_abbr)
+                        ltg_games(slug, title, custom_abbr, tags)
                     )
                 )
             )
@@ -76,7 +76,7 @@ export async function getFullSeasonContext(playlistId) {
         .from('ltg_playlists')
         .select(`
             id, season, channel_slug, sync_date, 
-            ltg_series ( slug, title, ltg_games (slug, custom_abbr) ),
+            ltg_series ( slug, title, ltg_games (slug, custom_abbr, tags) ),
             ltg_playlist_videos ( video_id, sort_order )
         `)
         .eq('id', playlistId)

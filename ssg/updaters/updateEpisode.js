@@ -2,6 +2,11 @@ import { getFullEpisodeContext, getAdjacentEpisodes } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
 import { episodeHTML } from '../utils/templates/index.js'; 
 
+// --- NEW: Slugify Helper ---
+function slugify(text) {
+    return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
+}
+
 export async function updateEpisode(videoId) {
     // 1. Fetch DB Context
     const video = await getFullEpisodeContext(videoId);
@@ -12,6 +17,11 @@ export async function updateEpisode(videoId) {
     const channelSlug = playlist.channel_slug;
 
     const { prevSortOrder, nextSortOrder } = await getAdjacentEpisodes(playlist.id, junction.sort_order);
+
+    // --- NEW: Tag Processing ---
+    const rawTags = series.ltg_games?.tags || [];
+    const tagsArr = rawTags.map(t => ({ name: t.trim(), slug: slugify(t) }));
+    const tagsString = rawTags.join(', ');
 
     // 2. Formatting Helpers
     const formatDuration = (secs) => {
@@ -28,7 +38,7 @@ export async function updateEpisode(videoId) {
         return `PT${h > 0 ? h + 'H' : ''}${m > 0 ? m + 'M' : ''}${s}S`;
     };
 
-    // --- NEW PREFIX, PADDING, AND PATH LOGIC ---
+    // --- PREFIX, PADDING, AND PATH LOGIC ---
     // Use gameSlug instead of series.slug
     const dbAbbr = series.ltg_games?.custom_abbr;
     const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
@@ -62,6 +72,8 @@ export async function updateEpisode(videoId) {
         channelSlug: channelSlug,
         shortPrefix: shortPrefix,
         fileName: fileName,
+        tags: tagsArr,               // <-- ADDED: For the HTML buttons
+        tagsString: tagsString,      // <-- ADDED: For the SEO Meta Data
         prevUrl: prevSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${prevPaddedEp}.html` : null,
         nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${nextPaddedEp}.html` : null
     };

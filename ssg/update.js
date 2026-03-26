@@ -6,9 +6,15 @@ import { updateChannel } from './updaters/updateChannel.js';
 import { updateTag } from './updaters/updateTag.js';
 import { updateYT } from './updaters/updateYT.js';
 
-const args = process.argv.slice(2);
-const command = args[0];
-const targetId = args[1];
+const rawArgs = process.argv.slice(2);
+
+// Extract flags safely so they don't break the command router
+const forceUpdate = rawArgs.includes('--force') || rawArgs.includes('-f');
+
+// Clean args to find the actual commands
+const cleanArgs = rawArgs.filter(a => !a.startsWith('-'));
+const command = cleanArgs[0];
+const targetId = cleanArgs[1];
 
 async function buildTheWorld() {
     console.log(`\n🌍 Initiating Full Network Rebuild...`);
