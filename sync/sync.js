@@ -1,90 +1,99 @@
 import { execSync } from 'child_process';
 import { syncPlaylist } from './syncPlaylist.js';
 import { syncChannel } from './syncChannel.js';
-import { updateSeriesSyncDateByPlaylist } from '../ssg/utils/db.js';
+import { supabase, updateSeriesSyncDateByPlaylist } from '../ssg/utils/db.js';
+
+async function processChannelSync(channelSlug, syncMode, skipUpdate, forceUpdate) {
+    // 1. Run the Sync 
+    const { affectedGames, errors: syncErrors } = await syncChannel(channelSlug, syncMode);
+
+    // 2. Trigger SSG Builds for affected games
+    if (!skipUpdate && affectedGames.length > 0) {
+        console.log(`\n🔨 Triggering SSG Builds for ${affectedGames.length} affected games...`);
+        const forceFlag = forceUpdate ? ' --force' : '';
+        
+        for (const slug of affectedGames) {
+            console.log(`   >> Building Series: ${slug}...`);
+            execSync(`node ssg/update.js series ${slug}${forceFlag}`, { stdio: 'inherit' });
+        }
+        
+        console.log(`   >> Rebuilding Network Tag Hub...`);
+        execSync(`node ssg/update.js tag${forceFlag}`, { stdio: 'inherit' });
+
+        console.log(`   >> Rebuilding Network Master Hub...`);
+        execSync(`node ssg/update.js yt${forceFlag}`, { stdio: 'inherit' });
+
+    } else if (skipUpdate) {
+        console.log(`\n⏩ Skipping SSG Builds (--no-update provided).`);
+    } else {
+        console.log(`\n⏩ No games were affected. Skipping SSG Build.`);
+    }
+
+    // 3. Print the error summary
+    if (syncErrors && syncErrors.length > 0) {
+        console.log(`\n⚠️  SYNC WARNINGS (${syncErrors.length}):`);
+        syncErrors.forEach(err => console.log(`  - ${err}`));
+    }
+}
 
 async function run() {
     const args = process.argv.slice(2);
     
-    // Extract flags
+    // Extract generic flags
     const skipUpdate = args.includes('--no-update') || args.includes('-n');
     const forceUpdate = args.includes('--force') || args.includes('-f');
-    const fullSync = args.includes('--all') || args.includes('-a'); // NEW FLAG
     
+    // Determine Sync Mode (Defaults to 'full' if no flags provided)
+    let syncMode = 'full';
+    if (args.includes('--smart') || args.includes('-s')) syncMode = 'smart';
+    if (args.includes('--recent') || args.includes('-r')) syncMode = 'recent';
+    
+    // Clean args to find targets
     const cleanArgs = args.filter(a => !a.startsWith('-'));
-    const command = cleanArgs[0];
-    const targetId = cleanArgs[1];
+    const command = cleanArgs[0]; 
+    const targetId = cleanArgs[1]; // Only used if command === 'playlist'
 
-    if (!command || !targetId) {
-        console.error("❌ Usage: node sync/sync.js [playlist|channel] [id] [--no-update] [--force] [--all]");
-        process.exit(1);
-    }
-
-    console.log(`\n🚀 Starting Orchestrator: [SYNC ${command.toUpperCase()}] -> Target: ${targetId}`);
-    if (fullSync) console.log(`⚠️  FLAG DETECTED: [--all] Full catalog sync enabled.`);
+    console.log(`\n🚀 Starting Sync Orchestrator...`);
     const startTime = Date.now();
 
     try {
-        switch (command) {
-            case 'playlist':
-                // 1. Run the YouTube -> Supabase Sync
-                await syncPlaylist(targetId);
+        // SCENARIO 1: Individual Playlist (Preserved for manual testing)
+        if (command === 'playlist' && targetId) {
+            console.log(`🎯 Target: Single Playlist (${targetId})`);
+            await syncPlaylist(targetId);
+            const gameSlug = await updateSeriesSyncDateByPlaylist(targetId);
+
+            if (!skipUpdate) {
+                console.log(`\n🔨 Triggering SSG Build...`);
+                const forceFlag = forceUpdate ? ' --force' : '';
+                execSync(`node ssg/update.js season ${targetId}${forceFlag}`, { stdio: 'inherit' });
+                if (gameSlug) execSync(`node ssg/update.js series ${gameSlug}${forceFlag}`, { stdio: 'inherit' });
+            }
+        } 
+        
+        // SCENARIO 2: Entire Network Sync (No arguments passed)
+        else if (!command) {
+            console.log(`🌍 Target: ENTIRE NETWORK [Mode: ${syncMode.toUpperCase()}]`);
+            
+            const { data: channels } = await supabase
+                .from('ltg_channels')
+                .select('slug')
+                .eq('generate_dir', true);
                 
-                // 2. Bubble the sync_date up to the parent Series
-                const gameSlug = await updateSeriesSyncDateByPlaylist(targetId);
-
-                // 3. Trigger the SSG Build (Unless explicitly skipped)
-                if (!skipUpdate) {
-                    console.log(`\n🔨 Triggering SSG Build...`);
-                    
-                    const forceFlag = forceUpdate ? ' --force' : '';
-                    
-                    // We execute the SSG script as a separate process to keep memory clean
-                    execSync(`node ssg/update.js season ${targetId}${forceFlag}`, { stdio: 'inherit' });
-                    
-                    // Trigger the game root page rebuild using the correct Game Slug
-                    if (gameSlug) {
-                        execSync(`node ssg/update.js series ${gameSlug}${forceFlag}`, { stdio: 'inherit' });
-                    }
-                } else {
-                    console.log(`\n⏩ Skipping SSG Build (--no-update provided).`);
+            if (channels) {
+                for (const ch of channels) {
+                    await processChannelSync(ch.slug, syncMode, skipUpdate, forceUpdate);
                 }
-                break;
-
-            case 'channel':
-                // 1. Run the Sync (Unpack the new return object)
-                const { affectedGames, errors: syncErrors } = await syncChannel(targetId, fullSync);
-
-                // 2. Trigger SSG Builds for affected games
-                if (!skipUpdate && affectedGames.length > 0) {
-                    console.log(`\n🔨 Triggering SSG Builds for ${affectedGames.length} affected games...`);
-                    const forceFlag = forceUpdate ? ' --force' : '';
-                    
-                    for (const slug of affectedGames) {
-                        console.log(`   >> Building ${slug}...`);
-                        execSync(`node ssg/update.js series ${slug}${forceFlag}`, { stdio: 'inherit' });
-                    }
-                    
-                    console.log(`   >> Rebuilding Channel Hub...`);
-                    execSync(`node ssg/update.js yt${forceFlag}`, { stdio: 'inherit' });
-
-                } else if (skipUpdate) {
-                    console.log(`\n⏩ Skipping SSG Builds (--no-update provided).`);
-                } else {
-                    console.log(`\n⏩ No games were affected. Skipping SSG Build.`);
-                }
-
-                // 3. PRINT THE ERROR SUMMARY
-                if (syncErrors && syncErrors.length > 0) {
-                    console.log(`\n⚠️  SYNC WARNINGS (${syncErrors.length}):`);
-                    syncErrors.forEach(err => console.log(`  - ${err}`));
-                }
-                break;
-
-            default:
-                console.error(`❌ Unknown command: ${command}`);
-                console.log("Available commands: playlist, channel");
-                break;
+            } else {
+                console.log("⚠️ No active network channels found to sync.");
+            }
+        } 
+        
+        // SCENARIO 3: Specific Channel Sync
+        else {
+            console.log(`📺 Target: Channel (${command}) [Mode: ${syncMode.toUpperCase()}]`);
+            // We assume the command is the channel slug
+            await processChannelSync(command, syncMode, skipUpdate, forceUpdate);
         }
 
         const duration = ((Date.now() - startTime) / 1000).toFixed(2);

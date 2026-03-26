@@ -9,8 +9,8 @@ function ensureLogDir() {
     return logDir;
 }
 
-export async function syncChannel(channelSlug, isFullSync = false) {
-    console.log(`\n🧠 Initiating ${isFullSync ? 'FULL' : 'Smart'} Sync for Channel: ${channelSlug}...`);
+export async function syncChannel(channelSlug, syncMode = 'full') {
+    console.log(`\n🧠 Initiating [${syncMode.toUpperCase()}] Sync for Channel: ${channelSlug}...`);
 
     // 1. Fetch all game playlists for this channel with their stats
     const { data: playlists, error } = await supabase
@@ -64,28 +64,34 @@ export async function syncChannel(channelSlug, isFullSync = false) {
         }
     };
 
-    if (isFullSync) {
-        console.log(`\n🚨 FULL SYNC FLAG DETECTED: Bypassing smart buckets. Syncing all ${pool.length} playlists.`);
-        // Sort by oldest sync first
-        pool.sort((a, b) => a.lastSync - b.lastSync).forEach(p => addToQueue(p, 'Full Sync (--all)'));
-    } else {
-        // --- BUCKET 1: 6 Most Recently Uploaded ---
+    if (syncMode === 'full') {
+        console.log(`\n🚨 FULL SYNC: Bypassing smart buckets. Syncing all ${pool.length} playlists.`);
+        pool.sort((a, b) => a.lastSync - b.lastSync).forEach(p => addToQueue(p, 'Full Sync'));
+        
+    } else if (syncMode === 'recent') {
+        console.log(`\n⏱️ RECENT SYNC: Only syncing the 6 most recently active playlists.`);
         const sortedByUpload = [...pool].sort((a, b) => b.lastUpload - a.lastUpload);
         sortedByUpload.slice(0, 6).forEach(p => addToQueue(p, 'Top 6 Most Recent'));
 
-        // --- BUCKET 2: 30 Days (Most Stale Sync) ---
+    } else if (syncMode === 'smart') {
+        console.log(`\n🧠 SMART SYNC: Allocating buckets...`);
+        // BUCKET 1: 6 Most Recently Uploaded
+        const sortedByUpload = [...pool].sort((a, b) => b.lastUpload - a.lastUpload);
+        sortedByUpload.slice(0, 6).forEach(p => addToQueue(p, 'Top 6 Most Recent'));
+
+        // BUCKET 2: 30 Days (Most Stale Sync)
         const stale30 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload <= 30).sort((a, b) => a.lastSync - b.lastSync);
         stale30.slice(0, 6).forEach(p => addToQueue(p, '<= 30 Days (Stale)'));
 
-        // --- BUCKET 3: 90 Days (Most Stale Sync) ---
+        // BUCKET 3: 90 Days (Most Stale Sync)
         const stale90 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload > 30 && p.daysSinceUpload <= 90).sort((a, b) => a.lastSync - b.lastSync);
         stale90.slice(0, 6).forEach(p => addToQueue(p, '<= 90 Days (Stale)'));
 
-        // --- BUCKET 4: 365 Days (Most Stale Sync) ---
+        // BUCKET 4: 365 Days (Most Stale Sync)
         const stale365 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload > 90 && p.daysSinceUpload <= 365).sort((a, b) => a.lastSync - b.lastSync);
         stale365.slice(0, 6).forEach(p => addToQueue(p, '<= 365 Days (Stale)'));
 
-        // --- BUCKET 5: Overall Oldest Syncs ---
+        // BUCKET 5: Overall Oldest Syncs
         const staleAll = [...pool].filter(p => !queuedIds.has(p.id)).sort((a, b) => a.lastSync - b.lastSync);
         staleAll.slice(0, 6).forEach(p => addToQueue(p, 'Oldest Overall'));
     }
@@ -94,7 +100,7 @@ export async function syncChannel(channelSlug, isFullSync = false) {
 
     const resultsLog = [];
     const affectedGames = new Set();
-    const syncErrors = []; // <-- NEW: Track errors for the summary
+    const syncErrors = [];
 
     // 2. Execute the Syncs
     for (const plan of queue) {
@@ -103,33 +109,22 @@ export async function syncChannel(channelSlug, isFullSync = false) {
         console.log(`=========================================`);
 
         try {
-            // Run the worker
             const syncResult = await syncPlaylist(plan.id);
-            
-            // Catch explicit error returns if your script uses them
             if (syncResult && syncResult.error) {
                 syncErrors.push(`[${plan.title}]: ${syncResult.error}`);
-                continue; // Skip the stats check
+                continue;
             }
-            
             if (plan.gameSlug) affectedGames.add(plan.gameSlug);
-
         } catch (err) {
-            // Catch hard throws from the worker
             syncErrors.push(`[${plan.title}]: ${err.message}`);
-            continue; // Skip the stats check for this broken playlist
+            continue;
         }
 
         // Fetch fresh stats to calculate deltas
-        const { data: freshStats } = await supabase
-            .from('ltg_playlist_stats')
-            .select('ep_count, total_views')
-            .eq('playlist_id', plan.id)
-            .single();
+        const { data: freshStats } = await supabase.from('ltg_playlist_stats').select('ep_count, total_views').eq('playlist_id', plan.id).single();
 
         const newViews = freshStats?.total_views || 0;
         const newEps = freshStats?.ep_count || 0;
-        
         const hoursSinceSync = plan.lastSync > 0 ? ((now - plan.lastSync) / (1000 * 60 * 60)).toFixed(2) : 'Never';
 
         resultsLog.push({
@@ -147,16 +142,11 @@ export async function syncChannel(channelSlug, isFullSync = false) {
     if (resultsLog.length > 0) {
         const logDir = ensureLogDir();
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        const logType = isFullSync ? 'full_sync' : 'smart_sync';
-        const logPath = path.join(logDir, `${logType}_${channelSlug}_${timestamp}.json`);
+        const logPath = path.join(logDir, `${syncMode}_sync_${channelSlug}_${timestamp}.json`);
         
-        fs.writeFileSync(logPath, JSON.stringify({ channel: channelSlug, type: logType, syncedAt: new Date().toISOString(), results: resultsLog, errors: syncErrors }, null, 2));
+        fs.writeFileSync(logPath, JSON.stringify({ channel: channelSlug, type: syncMode, syncedAt: new Date().toISOString(), results: resultsLog, errors: syncErrors }, null, 2));
         console.log(`\n📄 Sync Log written to: ${logPath}`);
     }
 
-    // Return both the games to update AND the error list
-    return {
-        affectedGames: Array.from(affectedGames),
-        errors: syncErrors
-    };
+    return { affectedGames: Array.from(affectedGames), errors: syncErrors };
 }
