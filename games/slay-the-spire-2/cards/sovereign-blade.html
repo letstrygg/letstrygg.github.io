@@ -1,26 +1,48 @@
 ---
 layout: new
-title: "Sovereign Blade"
+title: "Sovereign Blade - Slay the Spire 2 Card"
+description: "Details, synergies, and stats for the Sovereign Blade card in Slay the Spire 2."
+permalink: /games/slay-the-spire-2/cards/sovereign-blade.html
+custom_css: "/css/game/sts2-style.css"
 ---
 <div class="game-page-wrapper">
-  <h1>Sovereign Blade</h1>
-  <p>Deal {Damage:diff()} damage{SeekingEdgeAmount:cond:>0? to ALL enemies|}{Repeat:plural:| {} times}.</p>
-  <pre>{
-  "id": "SOVEREIGN_BLADE",
-  "name": "Sovereign Blade",
-  "description": "Deal {Damage:diff()} damage{SeekingEdgeAmount:cond:>0? to ALL enemies|}{Repeat:plural:| {} times}.",
-  "mechanics": {
-    "cost": "2",
-    "type": "Attack",
-    "rarity": "Token",
-    "target": "AnyEnemy"
-  },
-  "stats": {
-    "damage": 10,
-    "damageUpgraded": 10,
-    "block": 0,
-    "blockUpgraded": 0,
-    "magic": 0
-  }
-}</pre>
+
+  <h1 class="title">Sovereign Blade</h1>
+  <p class="subtitle" style="text-transform: capitalize;">Token Attack</p>
+
+  <div class="sts-card-display">
+    
+    <div class="sts-card token attack">
+      <div class="sts-card-inner">
+        <div class="sts-card-header">
+          <div class="sts-energy">2</div>
+          <div class="sts-card-title">Sovereign Blade</div>
+        </div>
+        <div class="sts-card-type-banner">Attack</div>
+        <div class="sts-card-text">Deal <span class="">X</span> damage{SeekingEdgeAmount:cond:>0? to ALL enemies|}{Repeat:plural:| {} times}.</div>
+        <div class="sts-card-footer">Token</div>
+      </div>
+    </div>
+
+    <div class="sts-card-arrow">
+        <span>Upgrade</span>
+        <span class="material-symbols-outlined">arrow_forward</span>
+    </div>
+
+    <div class="sts-card token attack">
+      <div class="sts-card-inner">
+        <div class="sts-card-header">
+          <div class="sts-energy ">2</div>
+          <div class="sts-card-title green">Sovereign Blade+</div>
+        </div>
+        <div class="sts-card-type-banner">Attack</div>
+        <div class="sts-card-text">Deal <span class="green">X</span> damage{SeekingEdgeAmount:cond:>0? to ALL enemies|}{Repeat:plural:| {} times}.</div>
+        <div class="sts-card-footer">Token</div>
+      </div>
+    </div>
+
+  </div>
+
+
+
 </div>
