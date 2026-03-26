@@ -1,0 +1,27 @@
+---
+layout: new
+title: "Finisher"
+---
+<div class="game-page-wrapper">
+  <h1>Finisher</h1>
+  <p>Deal {Damage:diff()} damage for each Attack already played this turn.{InCombat:
+(Hits {CalculatedHits:diff()} {CalculatedHits:plural:time|times})|}</p>
+  <pre>{
+  "id": "FINISHER",
+  "name": "Finisher",
+  "description": "Deal {Damage:diff()} damage for each Attack already played this turn.{InCombat:\n(Hits {CalculatedHits:diff()} {CalculatedHits:plural:time|times})|}",
+  "mechanics": {
+    "cost": "1",
+    "type": "Attack",
+    "rarity": "Uncommon",
+    "target": "AnyEnemy"
+  },
+  "stats": {
+    "damage": 6,
+    "damageUpgraded": 8,
+    "block": 0,
+    "blockUpgraded": 0,
+    "magic": 0
+  }
+}</pre>
+</div>

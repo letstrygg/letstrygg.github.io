@@ -1,0 +1,35 @@
+---
+layout: new
+title: "Mad Science"
+---
+<div class="game-page-wrapper">
+  <h1>Mad Science</h1>
+  <p>{CardType:choose(Attack|Skill|Power):Deal {Damage:diff()} damage{Violence: {ViolenceHits:diff()} times|}.|Gain {Block:diff()} [gold]Block[/gold].|}{HasRider:{Sapping:
+Apply {SappingWeak:diff()} [gold]Weak[/gold].
+Apply {SappingVulnerable:diff()} [gold]Vulnerable[/gold].|}{Choking:
+Whenever you play a card this turn, the enemy loses {ChokingDamage:diff()} HP.|}{Energized:
+Gain {EnergizedEnergy:energyIcons()}.|}{Wisdom:
+Draw {WisdomCards:diff()} cards.|}{Chaos:
+Add a random card into your [gold]Hand[/gold]. It costs 0 {energyPrefix:energyIcons(1)} this turn.|}{Expertise:Gain {ExpertiseStrength:diff()} [gold]Strength[/gold].
+Gain {ExpertiseDexterity:diff()} [gold]Dexterity[/gold].|}{Curious:Powers cost {CuriousReduction:diff()} {energyPrefix:energyIcons(1)} less.|}{Improvement:At the end of combat, [gold]Upgrade[/gold] a random card.|}|{CardType:choose(Attack|Skill|Power):
+???|
+???|???}}</p>
+  <pre>{
+  "id": "MAD_SCIENCE",
+  "name": "Mad Science",
+  "description": "{CardType:choose(Attack|Skill|Power):Deal {Damage:diff()} damage{Violence: {ViolenceHits:diff()} times|}.|Gain {Block:diff()} [gold]Block[/gold].|}{HasRider:{Sapping:\nApply {SappingWeak:diff()} [gold]Weak[/gold].\nApply {SappingVulnerable:diff()} [gold]Vulnerable[/gold].|}{Choking:\nWhenever you play a card this turn, the enemy loses {ChokingDamage:diff()} HP.|}{Energized:\nGain {EnergizedEnergy:energyIcons()}.|}{Wisdom:\nDraw {WisdomCards:diff()} cards.|}{Chaos:\nAdd a random card into your [gold]Hand[/gold]. It costs 0 {energyPrefix:energyIcons(1)} this turn.|}{Expertise:Gain {ExpertiseStrength:diff()} [gold]Strength[/gold].\nGain {ExpertiseDexterity:diff()} [gold]Dexterity[/gold].|}{Curious:Powers cost {CuriousReduction:diff()} {energyPrefix:energyIcons(1)} less.|}{Improvement:At the end of combat, [gold]Upgrade[/gold] a random card.|}|{CardType:choose(Attack|Skill|Power):\n???|\n???|???}}",
+  "mechanics": {
+    "cost": "?",
+    "type": "?",
+    "rarity": "?",
+    "target": "?"
+  },
+  "stats": {
+    "damage": 12,
+    "damageUpgraded": 12,
+    "block": 8,
+    "blockUpgraded": 8,
+    "magic": 0
+  }
+}</pre>
+</div>

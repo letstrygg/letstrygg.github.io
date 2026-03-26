@@ -1,0 +1,27 @@
+---
+layout: new
+title: "Knife Trap"
+---
+<div class="game-page-wrapper">
+  <h1>Knife Trap</h1>
+  <p>{IfUpgraded:show:[gold]Upgrade[/gold] and play|Play} every [gold]Shiv[/gold] in your [gold]Exhaust Pile[/gold] on the enemy.{InCombat:
+(Plays {CalculatedShivs:diff()} [gold]{CalculatedShivs:plural:Shiv|Shivs}[/gold])|}</p>
+  <pre>{
+  "id": "KNIFE_TRAP",
+  "name": "Knife Trap",
+  "description": "{IfUpgraded:show:[gold]Upgrade[/gold] and play|Play} every [gold]Shiv[/gold] in your [gold]Exhaust Pile[/gold] on the enemy.{InCombat:\n(Plays {CalculatedShivs:diff()} [gold]{CalculatedShivs:plural:Shiv|Shivs}[/gold])|}",
+  "mechanics": {
+    "cost": "2",
+    "type": "Skill",
+    "rarity": "Rare",
+    "target": "AnyEnemy"
+  },
+  "stats": {
+    "damage": 0,
+    "damageUpgraded": 0,
+    "block": 0,
+    "blockUpgraded": 0,
+    "magic": 0
+  }
+}</pre>
+</div>
