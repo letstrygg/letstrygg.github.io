@@ -1,0 +1,226 @@
+---
+layout: new
+title: Key – Megabonk Item Guide
+description: How the Key item’s +10% free chest chance works in Megabonk.
+permalink: /game/megabonk/items/key
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Megabonk Key Item Explained",
+  "description": "Quick explanation of how the Key item works in Megabonk, including how the +10% free chest chance formula works.",
+  "thumbnailUrl": [
+    "https://i.ytimg.com/vi/Tyyx7GRkbKQ/maxresdefault.jpg"
+  ],
+  "uploadDate": "2025-01-01T00:00:00Z",
+  "embedUrl": "https://www.youtube.com/embed/Tyyx7GRkbKQ",
+  "contentUrl": "https://www.youtube.com/watch?v=Tyyx7GRkbKQ",
+  "publisher": {
+    "@type": "Organization",
+    "name": "LetsTryGG"
+  }
+}
+</script>
+
+
+<b><a href="/" class="green">letstrygg.com</a></b>/game/<b><a href="/game/megabonk/" class="green">megabonk</a></b>/items/<b><a href="/game/megabonk/items/key" class="green">key</a></b>
+
+<h1 class="title">Key</h1>
+<p class="subtitle">+10% chance to open chests for free</p><br>
+
+<div class="section">
+	<img src="/game/megabonk/images/Key.png" alt="Key Description" class="item-image">
+</div>
+
+
+<h2 class="title">Video Explanation</h2>
+<div class="two-col">
+	<div class="section col video-col">
+		<div class="video-wrapper">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/Tyyx7GRkbKQ" 
+			title="Megabonk Key Item Explained" frameborder="0" 
+			allowfullscreen></iframe>
+		</div>
+	</div>
+
+	<div class="section col text-col">
+		<h3>How It Works</h3>
+		<div class="section">
+			<p>
+				Each Key increases your odds, but with <em>diminishing returns</em> — meaning each additional Key adds less benefit than the one before.
+			</p>
+			
+			<p>The formula is:</p>
+
+			<pre><code>% Chance Free = n / (n + 10)</code></pre>
+
+			<p>
+				Where <code>n</code> is number of Keys. <br> 
+				This means even with infinite Keys, the chance can never exceed 100%.
+			</p>
+
+			<ul>
+				<li>1 Key → 9.09%</li>
+				<li>5 Keys → 33.33%</li>
+				<li>10 Keys → 50%</li>
+				<li>20 Keys → 66.67%</li>
+				<li>30 Keys → 75%</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<h2 class="title">Chance Table</h2>
+<p class="subtitle">Odds of opening a chest for free based on # of Keys</p>
+<div class="section">
+
+  <div class="table-grid">
+    <table class="data-table">
+      <thead>
+        <tr><th>Keys</th><th>Chance</th></tr>
+      </thead>
+      <tbody id="table-1"></tbody>
+    </table>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Keys</th><th>Chance</th></tr>
+      </thead>
+      <tbody id="table-2"></tbody>
+    </table>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Keys</th><th>Chance</th></tr>
+      </thead>
+      <tbody id="table-3"></tbody>
+    </table>
+  </div>
+</div>
+<br><br>
+
+<b><a href="/" class="green">letstrygg.com</a></b>/game/<b><a href="/game/megabonk/" class="green">megabonk</a></b>/items/<b><a href="/game/megabonk/items/key" class="green">key</a></b>
+
+
+<script>
+  function formatChance(n) {
+    const chance = n / (n + 10);
+    return (chance * 100).toFixed(2) + '%';
+  }
+
+  function fillTable(id, start, end) {
+    const tbody = document.getElementById(id);
+    tbody.innerHTML = '';
+    for (let i = start; i <= end; i++) {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${i}</td><td>${formatChance(i)}</td>`;
+      tbody.appendChild(row);
+    }
+  }
+
+  fillTable('table-1', 1, 10);
+  fillTable('table-2', 11, 20);
+  fillTable('table-3', 21, 30);
+</script>
+
+<style>
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.video-col, .text-col {
+  width: 100%;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 800px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+  .video-col {
+    order: 1;
+  }
+  .text-col {
+    order: 2;
+  }
+}
+
+.item-image {
+  border-radius: 12px;
+  margin-bottom: 1em;
+}
+
+pre code {
+  background: var(--card-bg);
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.table-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-top: 1em;
+}
+
+.data-table {
+  background: var(--card-bg);
+  border-collapse: collapse;
+  text-align: right;
+  min-width: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+.data-table thead th {
+  background: rgba(55, 55, 255, 0.18);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+  padding: 0.6em 0.8em;
+}
+
+.data-table td {
+  padding: 0.4em 0.8em;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.data-table th:first-child,
+.data-table td:first-child {
+  text-align: left;
+}
+
+.data-table tbody tr:hover {
+  background: rgba(55, 55, 255, 0.18);
+  transition: background 0.2s ease;
+}
+
+@media (max-width: 800px) {
+  .table-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.video-wrapper {
+  position: relative;
+}
+.video-wrapper iframe {
+  width: 100%;
+  max-width: 720px;
+  height: 405px;
+  border-radius: 10px;
+  display: block;
+  margin: 1.5em auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+</style>
