@@ -2,6 +2,7 @@ import fs from 'fs';
 import { supabase } from '../utils/db.js';
 import { seasonHTML, episodeHTML } from '../utils/templates/index.js';
 import { writeStaticPage } from '../utils/fileSys.js';
+import { processAdminTags, getClientTagConfig } from '../utils/tagParser.js'; // <-- NEW IMPORT
 
 // --- NEW: Slugify Helper ---
 function slugify(text) {
@@ -32,12 +33,13 @@ export async function updateSeason(playlistId, options = {}) {
         return { success: false, skipped: false, episodesProcessed: 0, episodesList: [] };
     }
 
+    // --- ADDED 'tags' TO THE SELECT QUERY HERE ---
     const { data: episodes, error: epError } = await supabase
         .from('ltg_playlist_videos')
         .select(`
             sort_order,
             ltg_videos!inner (
-                id, title, published_at, duration_seconds, view_count, likes, comments
+                id, title, published_at, duration_seconds, view_count, likes, comments, tags
             )
         `)
         .eq('playlist_id', playlistId)
@@ -48,7 +50,7 @@ export async function updateSeason(playlistId, options = {}) {
         return { success: false, skipped: false, episodesProcessed: 0, episodesList: [] };
     }
 
-    // --- NEW: Tag Processing ---
+    // --- GAME TAGS ---
     const rawTags = playlistData.ltg_series.ltg_games?.tags || [];
     const tagsArr = rawTags.map(t => ({ name: t.trim(), slug: slugify(t) }));
     const tagsString = rawTags.join(', ');
@@ -98,7 +100,7 @@ export async function updateSeason(playlistId, options = {}) {
     
     // Decimal Season Logic
     const seasonNumStr = playlistData.season.toString();
-    const seasonNumSafe = seasonNumStr.replace('.', '_'); // e.g., "3_2"
+    const seasonNumSafe = seasonNumStr.replace('.', '_'); 
     const seasonParts = seasonNumStr.split('.');
     const paddedSeason = seasonParts[0].padStart(2, '0') + (seasonParts[1] ? '_' + seasonParts[1] : '');
     
@@ -111,6 +113,8 @@ export async function updateSeason(playlistId, options = {}) {
     const seasonIndexPath = `${seasonPath}/index.html`;
 
     const dbSyncDate = playlistData.sync_date ? new Date(playlistData.sync_date).getTime() : 0;
+    
+    // --- BYPASS CACHE IF FORCED OR TAGS NEED UPDATING ---
     if (!isForce && fs.existsSync(seasonIndexPath)) {
         const fileContent = fs.readFileSync(seasonIndexPath, 'utf8');
         const match = fileContent.match(/sync_date:\s*"([^"]+)"/);
@@ -136,6 +140,10 @@ export async function updateSeason(playlistId, options = {}) {
 
     const epNumbers = [];
     const fullEpisodesList = [];
+    
+    // --- LOAD UI CONFIG ONCE PER SEASON FOR EFFICIENCY ---
+    const clientTagConfig = getClientTagConfig(gameSlug);
+    const clientTagConfigStr = JSON.stringify(clientTagConfig);
 
     if (!options.indexesOnly) {
         console.log(`  Found ${episodes.length} episodes. Generating files...`);
@@ -154,7 +162,6 @@ export async function updateSeason(playlistId, options = {}) {
         const epManualPath = `${seasonPath}/_manual/${fileName}`;
         const epUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}/${fileName}`;
 
-        // Populate the list for the Season Index Page
         fullEpisodesList.push({
             epNum: ep.sort_order,
             videoId: v.id,
@@ -167,7 +174,6 @@ export async function updateSeason(playlistId, options = {}) {
             publishedAt: v.published_at
         });
 
-        // ONLY generate the actual Episode HTML files if NOT in indexesOnly mode
         if (!options.indexesOnly) {
             let prevUrl = null;
             if (i > 0) {
@@ -197,7 +203,9 @@ export async function updateSeason(playlistId, options = {}) {
                 writeStaticPage(epManualPath, manualContent);
             }
 
-            // --- INJECT TAGS INTO THE EPISODE PAYLOAD ---
+            // --- ADMIN TAG PARSING FOR THIS SPECIFIC EPISODE ---
+            const adminTagsData = processAdminTags(v.tags || []);
+
             const epData = {
                 id: v.id,
                 title: v.title,
@@ -212,15 +220,18 @@ export async function updateSeason(playlistId, options = {}) {
                 publishedAt: new Date(v.published_at).toLocaleDateString(),
                 rawPublishedAt: v.published_at,
                 durationFormatted,
-				durationSeconds: v.duration_seconds,
+                durationSeconds: v.duration_seconds,
                 isoDuration,
                 views: v.view_count || 0,
                 likes: v.likes || 0,
                 comments: v.comments || 0,
                 prevUrl,
                 nextUrl,
-                tags: tagsArr,               // Pass to UI
-                tagsString: tagsString,      // Pass to Schema
+                tags: tagsArr,               
+                tagsString: tagsString,      
+                adminTagsHtml: adminTagsData.html,            // <-- ADDED
+                adminTagsMeta: adminTagsData.metaString,      // <-- ADDED
+                clientTagConfigStr: clientTagConfigStr,       // <-- ADDED
                 manualContent
             };
 
@@ -237,7 +248,6 @@ export async function updateSeason(playlistId, options = {}) {
         writeStaticPage(seasonManualIndex, seasonManualContent);
     }
 
-    // --- INJECT TAGS INTO THE SEASON PAYLOAD ---
     const seasonData = {
         gameTitle,
         seriesTitle: playlistData.ltg_series.title,
@@ -246,8 +256,8 @@ export async function updateSeason(playlistId, options = {}) {
         gameSlug,
         shortPrefix,
         syncDate: playlistData.sync_date || new Date().toISOString(),
-        tags: tagsArr,               // Pass to UI
-        tagsString: tagsString,      // Pass to Meta Tags
+        tags: tagsArr,               
+        tagsString: tagsString,      
         manualContent: seasonManualContent,
         episodes: fullEpisodesList,
         stats,

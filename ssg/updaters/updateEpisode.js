@@ -25,7 +25,13 @@ export async function updateEpisode(videoId) {
 
     // --- ADMIN TAGS (New) ---
     // Grabs the text array from ltg_videos, runs it through our new config parser
+    console.log(`\n[DEBUG] Video ID: ${video.id}`);
+    console.log(`[DEBUG] Tags from DB:`, video.tags);
+
+    // Grabs the text array from ltg_videos, runs it through our new config parser
     const adminTagsData = processAdminTags(video.tags || []);
+    
+    console.log(`[DEBUG] HTML Generated:`, adminTagsData.html);
     const clientTagConfig = getClientTagConfig(gameSlug); // <-- Grab the UI rules
 
     // 2. Formatting Helpers
