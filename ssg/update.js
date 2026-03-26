@@ -1,3 +1,4 @@
+import { supabase } from './utils/db.js';
 import { updateEpisode } from './updaters/updateEpisode.js';
 import { updateSeason } from './updaters/updateSeason.js'; 
 import { updateSeries } from './updaters/updateSeries.js'; 
@@ -5,90 +6,92 @@ import { updateChannel } from './updaters/updateChannel.js';
 import { updateTag } from './updaters/updateTag.js';
 import { updateYT } from './updaters/updateYT.js';
 
-async function run() {
-    const args = process.argv.slice(2);
-    
-    // Extract commands and flags
-    const isForce = args.includes('--force') || args.includes('-f');
-    const indexesOnly = args.includes('--indexes-only') || args.includes('-i');
-    const cleanArgs = args.filter(a => !a.startsWith('-')); // Remove flags so we get the pure command/target
-    
-    const command = cleanArgs[0];
-    const targetId = cleanArgs[1];
+const args = process.argv.slice(2);
+const command = args[0];
+const targetId = args[1];
 
-    if (!command) {
-        console.error("❌ Please provide a command. Example: node update.js episode [id]");
-        process.exit(1);
+async function buildTheWorld() {
+    console.log(`\n🌍 Initiating Full Network Rebuild...`);
+    
+    // 1. Fetch all channels to rebuild their individual directories
+    const { data: channels } = await supabase.from('ltg_channels').select('slug');
+    if (channels) {
+        for (const ch of channels) {
+            await updateChannel(ch.slug);
+        }
     }
 
-    // Dynamic UI logging for flags
-    const forceLog = isForce ? '(FORCE REBUILD)' : '';
-    const indexLog = indexesOnly ? '(INDEXES ONLY)' : '';
-    console.log(`\n🚀 Starting Build Process: [${command.toUpperCase()}] -> Target: ${targetId || 'ALL'} ${forceLog} ${indexLog}`);
-    
-    const startTime = Date.now();
+    // 2. Rebuild all Tags and the Tag Hub
+    await updateTag();
 
+    // 3. Rebuild the Master Network Hub
+    await updateYT();
+    
+    console.log(`\n✨ Full Network Rebuild Complete!`);
+}
+
+async function cascadeChannelUpdate(slug) {
+    console.log(`\n🌊 Cascading updates for channel: ${slug}...`);
+    
+    // 1. Build the specific channel
+    await updateChannel(slug);
+    
+    // 2. Rebuild the Tags (since this channel's stats/videos might have changed tag data)
+    await updateTag();
+    
+    // 3. Rebuild the Master Hub (to reflect new channel totals)
+    await updateYT();
+    
+    console.log(`\n✨ Cascade Complete for ${slug}!`);
+}
+
+async function run() {
+    // SCENARIO 1: No arguments passed -> Build Everything
+    if (!command) {
+        await buildTheWorld();
+        return;
+    }
+
+    // SCENARIO 2: Channel Shortcut (e.g., `node ssg/update.js letstrygg`)
+    // If the command isn't a known keyword, assume it's a channel slug shortcut
+    const knownCommands = ['episode', 'season', 'series', 'channel', 'tag', 'yt'];
+    if (!knownCommands.includes(command)) {
+        await cascadeChannelUpdate(command);
+        return;
+    }
+
+    // SCENARIO 3: Explicit Commands
     try {
         switch (command) {
             case 'episode':
-                if (!targetId) throw new Error("Missing Video ID.");
-                const epResult = await updateEpisode(targetId);
-                console.log(`✅ Episode HTML generated at: ${epResult.filePath}`);
+                if (!targetId) throw new Error("Missing episode ID");
+                await updateEpisode(targetId);
                 break;
-
             case 'season':
-                if (!targetId) throw new Error("Missing Playlist ID.");
-                // Pass flags down as an options object
-                const seasonResult = await updateSeason(targetId, { force: isForce, indexesOnly });
-                
-                if (seasonResult.skipped) {
-                    console.log(`⏩ Season skipped (Already up-to-date).`);
-                } else {
-                    console.log(`✅ Season complete! Processed ${seasonResult.episodesProcessed || 0} episodes.`);
-                }
+                if (!targetId) throw new Error("Missing playlist ID");
+                await updateSeason(targetId);
                 break;
-            
             case 'series':
-                if (!targetId) throw new Error("Missing Series Slug.");
-                const seriesResult = await updateSeries(targetId, { force: isForce, indexesOnly });
-                
-                if (seriesResult.skipped) {
-                    console.log(`⏩ Series fully skipped (Already up-to-date).`);
-                } else {
-                    console.log(`✅ Series complete! Processed ${seriesResult.totalEpisodes || 0} episodes.`);
-                }
+                if (!targetId) throw new Error("Missing series slug");
+                await updateSeries(targetId);
                 break;
-            
             case 'channel':
-                if (!targetId) throw new Error("Missing Channel Slug.");
-                const channelResult = await updateChannel(targetId, { force: isForce, indexesOnly });
-                
-                if (channelResult.skipped) {
-                    console.log(`\n✨ Channel fully skipped in ${((Date.now() - startTime) / 1000).toFixed(2)}s (Already up-to-date).`);
-                } else {
-                    console.log(`\n✨ Channel complete in ${((Date.now() - startTime) / 1000).toFixed(2)}s! Processed ${channelResult.totalEpisodes || 0} episodes.`);
-                }
+                if (!targetId) throw new Error("Missing channel slug");
+                // Use the cascade function so it updates the hubs too!
+                await cascadeChannelUpdate(targetId);
                 break;
-				
-			case 'tag':
-				await updateTag();
-				break;
-				
-			case 'yt':
-				await updateYT();
-				break;
-
+            case 'tag':
+                await updateTag(targetId); // TargetId is optional here
+                break;
+            case 'yt':
+                await updateYT();
+                break;
             default:
                 console.error(`❌ Unknown command: ${command}`);
-                console.log("Available commands: episode, season, series, channel");
                 break;
         }
-
-        const duration = ((Date.now() - startTime) / 1000).toFixed(2);
-        console.log(`\n✨ Build completed successfully in ${duration}s!`);
-
     } catch (err) {
-        console.error(`\n❌ Build Failed:`, err.message);
+        console.error(`\n❌ SSG Build Failed:`, err.message);
         process.exit(1);
     }
 }
