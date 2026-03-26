@@ -20,6 +20,8 @@ thumbnail: "${safeThumbnail}"
 upload_date: "${data.rawPublishedAt}"
 duration_seconds: ${data.durationSeconds}
 tags: "${data.tagsString}"
+youtube_id: "${data.id}"
+game_slug: "${data.gameSlug}"
 ---
 
 <script type="application/ld+json">
@@ -54,6 +56,8 @@ tags: "${data.tagsString}"
   %}
 
   ${tagsHtml}
+  
+  {% include admin_panel.html %}
 
   <div class="manual-content">
       <h1 class="title" style="font-size: 1.8rem; margin-bottom: 5px;">{{ page.title }}</h1>
