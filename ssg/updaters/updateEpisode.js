@@ -1,7 +1,7 @@
 import { getFullEpisodeContext, getAdjacentEpisodes } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
 import { episodeHTML } from '../utils/templates/index.js'; 
-import { processAdminTags } from '../utils/tagParser.js';
+import { processAdminTags, getClientTagConfig } from '../utils/tagParser.js';
 
 function slugify(text) {
     return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
@@ -26,6 +26,7 @@ export async function updateEpisode(videoId) {
     // --- ADMIN TAGS (New) ---
     // Grabs the text array from ltg_videos, runs it through our new config parser
     const adminTagsData = processAdminTags(video.tags || []);
+    const clientTagConfig = getClientTagConfig(gameSlug); // <-- Grab the UI rules
 
     // 2. Formatting Helpers
     const formatDuration = (secs) => {
@@ -75,8 +76,9 @@ export async function updateEpisode(videoId) {
         fileName: fileName,
         tags: tagsArr,               
         tagsString: tagsString,      
-        adminTagsHtml: adminTagsData.html,            // <-- ADDED
-        adminTagsMeta: adminTagsData.metaString,      // <-- ADDED
+        adminTagsHtml: adminTagsData.html,            
+        adminTagsMeta: adminTagsData.metaString,
+        clientTagConfigStr: JSON.stringify(clientTagConfig), // <-- Passed to template
         prevUrl: prevSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${prevPaddedEp}.html` : null,
         nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${nextPaddedEp}.html` : null
     };

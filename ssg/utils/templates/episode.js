@@ -68,6 +68,7 @@ game_slug: "${data.gameSlug}"
 
   ${allTagsHtml}
 
+  <script>window.LTG_TAG_CONFIG = ${data.clientTagConfigStr};</script>
   {% include admin_panel.html %}
 
   <div class="manual-content">
