@@ -39,18 +39,4 @@ custom_css: ["/css/game.css", "/css/game/sts2-style.css"]
   </ul>
   <a href="/game/slay-the-spire-2/cards/" class="yellow">View All Cards →</a>
 
-<h2>Season 1 Episodes</h2>
-  <div class="ep-grid">
-    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/game/slay-the-spire-2/s1/episodes/'" | sort: "title" -%}
-    {%- for ep in ep_pages limit: 48 -%}
-      <a href="{{ ep.url | relative_url }}" class="blue">
-        {{ ep.title | replace: "Slay the Spire 2", "" | replace: "Slay The Spire 2", "" | strip }}
-      </a>
-    {%- endfor -%}
-  </div>
-  <a href="/game/slay-the-spire-2/s1/" class="yellow">View Full Season →</a>
-
-  {% include_relative _steam_info.html %}
-  {% include_relative _seasons_auto.html %}
-
 </div>
