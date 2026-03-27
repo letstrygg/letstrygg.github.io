@@ -1,47 +1,26 @@
-import { checkFileExists } from './fileSys.js';
+import fs from 'fs';
+import path from 'path';
 
-function toTitleCase(str) {
-    if (!str) return '';
-    return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-}
-
-// 1. Define the UI Rules (Serializable for the frontend)
-const sts2ClientConfig = {
-    priorityCategories: ['character'], // Pushes these to the top of the Quick Add list
-    colors: {
-        'character:silent': 'var(--green)',
-        'character:defect': 'var(--blue)',
-        'character:ironclad': 'var(--red)',
-        'character:regent': 'var(--orange, #e67e22)',
-        'character:necrobinder': 'var(--purple)',
-        'default': 'var(--yellow)' // Fallback for cards, relics, etc.
-    }
-};
-
-const GAME_CONFIGS = {
-    'slay-the-spire-2': {
-        clientConfig: sts2ClientConfig,
-        getPaths: (category, item) => {
-            const dir = category.endsWith('s') ? category : category + 's';
-            const relPath = `games/slay-the-spire-2/${dir}/${item}.html`;
-            return { url: `/${relPath}`, filePath: relPath };
-        },
-        getStyle: (category, item) => {
-            // Read directly from the config object so backend/frontend stay synced
-            const key = `${category}:${item}`;
-            const color = sts2ClientConfig.colors[key] || sts2ClientConfig.colors['default'] || 'var(--text-muted)';
-            return { color: color, border: color };
-        }
-    }
-};
-
-// --- NEW EXPORT FOR THE SSG BUILDER ---
+// The UI Config (No import needed since it lives right here)
 export function getClientTagConfig(gameSlug) {
-    return GAME_CONFIGS[gameSlug]?.clientConfig || { priorityCategories: [], colors: {} };
+    if (gameSlug === 'slay-the-spire-2') {
+        return {
+            priorityCategories: ["character"],
+            colors: {
+                "character:silent": "var(--green)",
+                "character:defect": "var(--blue)",
+                "character:ironclad": "var(--red)",
+                "character:regent": "var(--orange, #e67e22)",
+                "character:necrobinder": "var(--purple)",
+                "default": "var(--yellow)"
+            }
+        };
+    }
+    return {};
 }
 
 export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
-    const config = getClientTagConfig(gameSlug);
+    const config = getClientTagConfig(gameSlug) || {};
     const colors = config.colors || {};
 
     const groups = {
@@ -53,25 +32,61 @@ export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
     };
 
     const metaList = [];
+    const rootDir = process.cwd();
 
     (tagsArray || []).forEach(tag => {
         const parts = tag.split(':');
-        const cat = parts.length > 1 ? parts[1].toLowerCase() : 'other';
-        const item = parts.length > 2 ? parts.slice(2).join(':') : (parts[1] || parts[0]);
+        
+        // --- 1. HANDLE STANDARD / MANUAL TAGS (Not 3-parts) ---
+        if (parts.length < 3 || parts[0] !== gameSlug) {
+            const cleanTag = parts.join('-');
+            const displayName = cleanTag.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            metaList.push(displayName);
+            
+            // Standard tags ALWAYS link to the YouTube tag hub and are always bright
+            const tagHtml = `<a href="/yt/tags/${cleanTag}/" class="btn interactive text-sm" style="padding: 2px 12px; border-radius: 15px; border: 1px solid var(--border, #333); color: var(--text-muted, #aaa); background: rgba(0,0,0,0.2); margin-right: 6px; margin-bottom: 6px; display: inline-flex; align-items: center; white-space: nowrap; text-decoration: none;">
+                <strong>#${displayName}</strong>
+            </a>`;
+            groups.manual.push(tagHtml);
+            return; // Skip the rest of the loop
+        }
 
-        // Convert hyphens to spaces and Title Case it for the UI (e.g., iron-wave -> Iron Wave)
+        // --- 2. HANDLE STS DIRECTORY TAGS (game:cat:item) ---
+        const cat = parts[1].toLowerCase();
+        const item = parts[2];
+
         const displayName = item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         metaList.push(displayName);
 
         const colorKey = `${cat}:${item}`;
         const color = colors[colorKey] || colors['default'] || 'var(--text-muted, #aaa)';
 
-        // CHANGED: <a> to <span> to prevent dead links.
-        // CHANGED: border-radius to 15px and padding to 2px 12px to match game tags perfectly.
-        const tagHtml = `<span class="btn interactive text-sm" style="padding: 2px 12px; border-radius: 15px; border: 1px solid ${color}; color: ${color}; background: rgba(0,0,0,0.2); margin-right: 6px; margin-bottom: 6px; display: inline-flex; align-items: center; white-space: nowrap; cursor: default;">
-            <span style="opacity: 0.6; font-size: 0.85em; margin-right: 4px;">${cat}:</span><strong>${displayName}</strong>
-        </span>`;
+        // Map categories to their correct folders (e.g., 'card' -> 'cards')
+        const folderName = cat === 'relic' ? 'relics' : 
+                           cat === 'card' ? 'cards' : 
+                           cat === 'enchantment' ? 'enchantments' : 
+                           cat === 'character' ? 'characters' : `${cat}s`;
 
+        const targetUrl = `/games/${gameSlug}/${folderName}/${item}/`;
+        const localFilePath = path.join(rootDir, 'games', gameSlug, folderName, item, 'index.html');
+
+        // Check if the directory file actually exists
+        const pageExists = fs.existsSync(localFilePath);
+        let tagHtml = '';
+
+        if (pageExists) {
+            // Valid Page = Clickable Link
+            tagHtml = `<a href="${targetUrl}" class="btn interactive text-sm" style="padding: 2px 12px; border-radius: 15px; border: 1px solid ${color}; color: ${color}; background: rgba(0,0,0,0.2); margin-right: 6px; margin-bottom: 6px; display: inline-flex; align-items: center; white-space: nowrap; text-decoration: none;">
+                <span style="opacity: 0.6; font-size: 0.85em; margin-right: 4px;">${cat}:</span><strong>${displayName}</strong>
+            </a>`;
+        } else {
+            // Missing Page = Dimmed Span (Not Clickable)
+            tagHtml = `<span class="btn text-sm" style="padding: 2px 12px; border-radius: 15px; border: 1px solid ${color}; color: ${color}; background: transparent; opacity: 0.4; margin-right: 6px; margin-bottom: 6px; display: inline-flex; align-items: center; white-space: nowrap; cursor: default;">
+                <span style="opacity: 0.6; font-size: 0.85em; margin-right: 4px;">${cat}:</span><strong>${displayName}</strong>
+            </span>`;
+        }
+
+        // Push to the correct UI row bucket
         if (cat === 'character') groups.character.push(tagHtml);
         else if (cat === 'card') groups.card.push(tagHtml);
         else if (cat === 'enchantment') groups.enchantment.push(tagHtml);
