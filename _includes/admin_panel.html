@@ -167,18 +167,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     // ==========================================
     const mappedContainer = document.getElementById('mapped-runs-container');
     const statusText = document.getElementById('mapped-runs-status');
-    let episodeSequence = []; // Holds chronological video_ids for shifting
+    let episodeSequence = []; 
 
     async function initMappedRuns() {
         if (!mappedContainer) return;
 
-        // 1. Fetch runs for THIS episode
+        // 1. Fetch runs currently assigned to THIS episode
         const { data: runs } = await supabaseClient.from('ltg_sts2_runs')
             .select('*')
             .eq('video_id', recordId)
             .order('run_number', { ascending: true });
 
-        // 2. Fetch all episodes in this playlist so we know the shift order
+        // 2. Fetch the NEXT available unassigned run (video_id is null)
+        const { data: unmappedRuns } = await supabaseClient.from('ltg_sts2_runs')
+            .select('*')
+            .is('video_id', null)
+            .order('run_number', { ascending: true })
+            .limit(1);
+
+        // 3. Fetch the episode sequence for the cascade shifting
         const { data: pvInfo } = await supabaseClient.from('ltg_playlist_videos').select('playlist_id').eq('video_id', recordId).single();
         if (pvInfo) {
             const { data: allEps } = await supabaseClient.from('ltg_playlist_videos')
@@ -188,18 +195,19 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (allEps) episodeSequence = allEps.map(e => e.video_id);
         }
 
-        renderMappedRuns(runs || []);
+        renderMappedRuns(runs || [], unmappedRuns || []);
     }
 
-    function renderMappedRuns(runs) {
+    function renderMappedRuns(runs, unmappedRuns) {
         mappedContainer.innerHTML = '';
-        if (runs.length === 0) {
-            mappedContainer.innerHTML = `<span style="color: gray; font-style: italic; font-size: 0.9em;">No runs mapped to this episode.</span>`;
+        
+        if (runs.length === 0 && unmappedRuns.length === 0) {
+            mappedContainer.innerHTML = `<span style="color: gray; font-style: italic; font-size: 0.9em;">No mapped or queued runs found.</span>`;
             return;
         }
 
+        // --- Render Assigned Runs ---
         runs.forEach(run => {
-            // Format: Run 1 A4 D9m (Silent - Loss)
             const charRaw = run.character.replace('CHARACTER.', '');
             const charName = charRaw.charAt(0).toUpperCase() + charRaw.slice(1).toLowerCase();
             const durationMins = Math.floor(run.run_time / 60);
@@ -219,18 +227,59 @@ document.addEventListener("DOMContentLoaded", async () => {
             `;
             mappedContainer.appendChild(row);
         });
+
+        // --- Render the "Next Up" Unassigned Run ---
+        if (unmappedRuns.length > 0) {
+            const nextRun = unmappedRuns[0];
+            const charRaw = nextRun.character.replace('CHARACTER.', '');
+            const charName = charRaw.charAt(0).toUpperCase() + charRaw.slice(1).toLowerCase();
+            const durationMins = Math.floor(nextRun.run_time / 60);
+            const statusColor = nextRun.win ? 'var(--green, #2ecc71)' : 'var(--text-muted, #aaa)';
+            
+            const displayText = `Run ${nextRun.run_number} A${nextRun.ascension} D${durationMins}m (${charName} - <span style="color: ${statusColor}">${nextRun.win ? 'Win' : 'Loss'}</span>)`;
+
+            const row = document.createElement('div');
+            row.style.cssText = `display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.1); padding: 8px 12px; border-radius: 4px; border: 1px dashed var(--blue, #4a90e2); font-family: monospace; font-size: 14px; margin-top: 8px; opacity: 0.8;`;
+            
+            row.innerHTML = `
+                <span><strong style="color: var(--blue, #4a90e2);">Queue:</strong> ${displayText}</span>
+                <button class="btn btn-blue" style="padding: 2px 10px; font-size: 12px; margin: 0;" onclick="pullUnmappedRun('${nextRun.id}')" title="Assign to this Episode">➕ Pull Run</button>
+            `;
+            mappedContainer.appendChild(row);
+        }
     }
 
-    // Must be attached to window so inline onclick handlers can see it
+    // Assigns the next run in the queue to the current episode
+    window.pullUnmappedRun = async function(runId) {
+        statusText.style.display = 'block';
+        statusText.innerText = "Pulling run...";
+        
+        const { error } = await supabaseClient.from('ltg_sts2_runs')
+            .update({ video_id: recordId })
+            .eq('id', runId);
+
+        if (error) {
+            alert("Failed to assign run: " + error.message);
+            statusText.style.display = 'none';
+        } else {
+            statusText.style.color = 'var(--green, #2ecc71)';
+            statusText.innerText = "Assigned! Reloading...";
+            setTimeout(() => location.reload(), 500);
+        }
+    };
+
+    // Cascades assigned runs forward or backward
     window.shiftRunCascade = async function(startRunNumber, offset) {
         if (episodeSequence.length === 0) return alert("Error: Could not determine episode sequence for shifting.");
         
         statusText.style.display = 'block';
+        statusText.innerText = "Saving Cascade...";
         
-        // Find ALL runs >= the clicked run to cascade the shift
+        // Find ALL currently assigned runs >= the clicked run to cascade the shift
         const { data: runsToShift } = await supabaseClient.from('ltg_sts2_runs')
             .select('id, run_number, video_id')
-            .gte('run_number', startRunNumber);
+            .gte('run_number', startRunNumber)
+            .not('video_id', 'is', null);
 
         const updates = [];
         runsToShift.forEach(run => {
@@ -244,11 +293,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         });
 
-        // Fire all updates simultaneously
         await Promise.all(updates);
         
+        statusText.style.color = 'var(--green, #2ecc71)';
         statusText.innerText = "Cascade Complete! Reloading...";
-        setTimeout(() => location.reload(), 1000); // Reload page to reflect new data bounds
+        setTimeout(() => location.reload(), 500);
     };
 
     initMappedRuns();
