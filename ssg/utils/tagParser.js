@@ -18,6 +18,15 @@ export function getClientTagConfig(gameSlug) {
     return {};
 }
 
+// List of base starting relics to ignore on the front-end
+const IGNORE_RELICTS = new Set([
+    'burning-blood',
+    'ring-of-the-snake',
+    'cracked-core',
+    'divine-right',
+    'bound-phylactery'
+]);
+
 export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
     const config = getClientTagConfig(gameSlug) || {};
     const colors = config.colors || {};
@@ -36,7 +45,7 @@ export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
     (tagsArray || []).forEach(tag => {
         const parts = tag.split(':');
         
-        // --- 1. HANDLE STANDARD / MANUAL TAGS (Not 3-parts) ---
+        // --- 1. HANDLE STANDARD / MANUAL TAGS ---
         if (parts.length < 3 || parts[0] !== gameSlug) {
             const cleanTag = parts.join('-');
             const displayName = cleanTag.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -49,9 +58,19 @@ export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
             return; 
         }
 
-        // --- 2. HANDLE STS DIRECTORY TAGS (game:cat:item) ---
+        // --- 2. HANDLE STS DIRECTORY TAGS ---
         const cat = parts[1].toLowerCase();
-        const item = parts[2]; // This is already hyphenated from the auto_tags generator (e.g., pommel-strike)
+        const item = parts[2]; 
+
+        // --- NEW: DISPLAY FILTERING ---
+        // 1. Hide anything starting with "strike-" or "defend-"
+        if (item.startsWith('strike-') || item.startsWith('defend-')) {
+            return; 
+        }
+        // 2. Hide specific base starting relics
+        if (cat === 'relic' && IGNORE_RELICTS.has(item)) {
+            return;
+        }
 
         const displayName = item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         metaList.push(displayName);
@@ -64,7 +83,6 @@ export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
                            cat === 'enchantment' ? 'enchantments' : 
                            cat === 'character' ? 'characters' : `${cat}s`;
 
-        // THE FIX: Point directly to the .html file
         const targetUrl = `/games/${gameSlug}/${folderName}/${item}.html`;
         const localFilePath = path.join(rootDir, 'games', gameSlug, folderName, `${item}.html`);
 
@@ -72,12 +90,10 @@ export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
         let tagHtml = '';
 
         if (pageExists) {
-            // Valid Page = Clickable Link
             tagHtml = `<a href="${targetUrl}" class="btn interactive text-sm" style="padding: 2px 12px; border-radius: 15px; border: 1px solid ${color}; color: ${color}; background: rgba(0,0,0,0.2); margin-right: 6px; margin-bottom: 6px; display: inline-flex; align-items: center; white-space: nowrap; text-decoration: none;">
                 <span style="opacity: 0.6; font-size: 0.85em; margin-right: 4px;">${cat}:</span><strong>${displayName}</strong>
             </a>`;
         } else {
-            // Missing Page = Dimmed Span (Not Clickable)
             tagHtml = `<span class="btn text-sm" style="padding: 2px 12px; border-radius: 15px; border: 1px solid ${color}; color: ${color}; background: transparent; opacity: 0.4; margin-right: 6px; margin-bottom: 6px; display: inline-flex; align-items: center; white-space: nowrap; cursor: default;">
                 <span style="opacity: 0.6; font-size: 0.85em; margin-right: 4px;">${cat}:</span><strong>${displayName}</strong>
             </span>`;
