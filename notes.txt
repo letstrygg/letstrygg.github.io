@@ -35,6 +35,7 @@ node ssg/update.js channel letstrygg -f -i # builds just the index files, withou
 node sync/sync.js channel ltg-plus -a # sync whole channel
 
 
+C:\GitHub\s2>node build-sts2.js # builds cards / relics / characters (run after update)
 
 
 
