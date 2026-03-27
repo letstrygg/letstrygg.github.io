@@ -66,9 +66,11 @@ export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
         const colorKey = `${cat}:${item}`;
         const color = colors[colorKey] || colors['default'] || 'var(--text-muted, #aaa)';
 
-        const tagHtml = `<a href="/yt/tags/${tag}/" class="btn interactive text-sm" style="padding: 2px 10px; border-radius: 4px; border: 1px solid ${color}; color: ${color}; background: rgba(0,0,0,0.2); margin-right: 6px; margin-bottom: 6px; display: inline-flex; align-items: center; text-decoration: none; white-space: nowrap;">
+        // CHANGED: <a> to <span> to prevent dead links.
+        // CHANGED: border-radius to 15px and padding to 2px 12px to match game tags perfectly.
+        const tagHtml = `<span class="btn interactive text-sm" style="padding: 2px 12px; border-radius: 15px; border: 1px solid ${color}; color: ${color}; background: rgba(0,0,0,0.2); margin-right: 6px; margin-bottom: 6px; display: inline-flex; align-items: center; white-space: nowrap; cursor: default;">
             <span style="opacity: 0.6; font-size: 0.85em; margin-right: 4px;">${cat}:</span><strong>${displayName}</strong>
-        </a>`;
+        </span>`;
 
         if (cat === 'character') groups.character.push(tagHtml);
         else if (cat === 'card') groups.card.push(tagHtml);
