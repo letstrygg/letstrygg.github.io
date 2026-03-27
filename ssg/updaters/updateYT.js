@@ -1,7 +1,13 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { supabase } from '../utils/db.js';
 import { hubHTML } from '../utils/templates/hub.js';
+
+// Define absolute pathing so this script can be run from ANY directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const PROJECT_ROOT = path.resolve(__dirname, '../../'); 
 
 function slugify(text) {
     return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
@@ -57,7 +63,6 @@ export async function updateYT() {
             ch.games.add(gameSlug);
             networkTotals.games.add(gameSlug);
             
-            // Tally tags (only count each game once per tag)
             const tags = p.ltg_series?.ltg_games?.tags || [];
             tags.forEach(tag => {
                 const tSlug = slugify(tag);
@@ -77,13 +82,11 @@ export async function updateYT() {
         networkTotals.duration += stats.total_duration;
     });
 
-    // Format for template
     const channelsArray = Array.from(channelsMap.values()).map(c => ({
         ...c,
         games: c.games.size
     }));
 
-    // Sort Tags by usage (most popular first)
     const tagsArray = Array.from(tagsMap.values())
         .map(t => ({ name: t.name, slug: t.slug, count: t.games.size }))
         .sort((a, b) => b.count - a.count);
@@ -99,7 +102,8 @@ export async function updateYT() {
 
     const html = hubHTML(networkData);
     
-    const dirPath = path.join(process.cwd(), 'yt');
+    // Safely anchor to the project root instead of process.cwd()
+    const dirPath = path.join(PROJECT_ROOT, 'yt');
     if (!fs.existsSync(dirPath)) fs.mkdirSync(dirPath, { recursive: true });
     
     fs.writeFileSync(path.join(dirPath, 'index.html'), html);
