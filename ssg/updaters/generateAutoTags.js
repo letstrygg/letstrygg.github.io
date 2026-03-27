@@ -13,7 +13,7 @@ export async function generateAutoTags() {
     // 1. Fetch runs that are actually mapped to a video
     const { data: runs, error } = await supabase
         .from('ltg_sts2_runs')
-        .select('video_id, character, deck_list, relic_list')
+        .select('video_id, character, deck_list, relic_list, event_list')
         .not('video_id', 'is', null);
 
     if (error || !runs) {
@@ -37,6 +37,13 @@ export async function generateAutoTags() {
         if (run.relic_list) {
             run.relic_list.forEach(relic => {
                 tagsSet.add(formatTag('relic', 'RELIC', relic));
+            });
+        }
+        
+        // Add ALL Events
+        if (run.event_list) {
+            run.event_list.forEach(event => {
+                tagsSet.add(formatTag('event', 'EVENT', event));
             });
         }
 

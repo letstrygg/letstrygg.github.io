@@ -9,13 +9,14 @@ export function episodeHTML(data) {
         : '';
 
     // 2. Fetch the Tag Groups from the parser
-    const g = data.adminTagGroups || { character: [], manual: [], card: [], enchantment: [], relic: [] };
+    const g = data.adminTagGroups || { character: [], manual: [], card: [], enchantment: [], relic: [], event: [] };
 
     // 3. Assemble the Rows
     const row1 = ytTagsHtml + (g.character || []).join('') + (g.manual || []).join('');
     const row2 = (g.card || []).join('');
     const row3 = (g.enchantment || []).join('');
     const row4 = (g.relic || []).join('');
+    const row5 = (g.event || []).join(''); // <-- Added Events Row
 
     let allTagsHtml = '<div class="tags-container" style="margin-bottom: 25px;">';
     
@@ -40,10 +41,16 @@ export function episodeHTML(data) {
             <div style="display: flex; flex-wrap: wrap;">${row4}</div>
         </div>`;
     }
+    if (row5) {
+        allTagsHtml += `<div class="tag-row row-events" style="margin-bottom: 12px; border-top: 1px solid var(--border, #333); padding-top: 10px;">
+            <div style="font-size: 0.75em; color: gray; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Events</div>
+            <div style="display: flex; flex-wrap: wrap;">${row5}</div>
+        </div>`;
+    }
     
     allTagsHtml += '</div>';
 
-    if (!row1 && !row2 && !row3 && !row4) allTagsHtml = '';
+    if (!row1 && !row2 && !row3 && !row4 && !row5) allTagsHtml = '';
 
     // Combine Meta Strings for Schema
     let combinedTagsString = data.tagsString || '';

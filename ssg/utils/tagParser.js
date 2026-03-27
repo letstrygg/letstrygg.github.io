@@ -36,6 +36,7 @@ export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
         card: [],
         enchantment: [],
         relic: [],
+        event: [], // <-- Added event group
         manual: []
     };
 
@@ -71,6 +72,10 @@ export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
         if (cat === 'relic' && IGNORE_RELICTS.has(item)) {
             return;
         }
+        // 3. Hide NEOW event
+        if (cat === 'event' && item === 'neow') {
+            return;
+        }
 
         const displayName = item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         metaList.push(displayName);
@@ -81,7 +86,8 @@ export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
         const folderName = cat === 'relic' ? 'relics' : 
                            cat === 'card' ? 'cards' : 
                            cat === 'enchantment' ? 'enchantments' : 
-                           cat === 'character' ? 'characters' : `${cat}s`;
+                           cat === 'character' ? 'characters' : 
+                           cat === 'event' ? 'events' : `${cat}s`; // Catch events
 
         const targetUrl = `/games/${gameSlug}/${folderName}/${item}.html`;
         const localFilePath = path.join(rootDir, 'games', gameSlug, folderName, `${item}.html`);
@@ -103,6 +109,7 @@ export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
         else if (cat === 'card') groups.card.push(tagHtml);
         else if (cat === 'enchantment') groups.enchantment.push(tagHtml);
         else if (cat === 'relic') groups.relic.push(tagHtml);
+        else if (cat === 'event') groups.event.push(tagHtml); // <-- Push events
         else groups.manual.push(tagHtml);
     });
 
