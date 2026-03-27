@@ -2,9 +2,17 @@ import { execSync } from 'child_process';
 import { syncPlaylist, linkOrphanedRuns } from './syncPlaylist.js';
 import { syncChannel } from './syncChannel.js';
 import { supabase, updateSeriesSyncDateByPlaylist } from '../ssg/utils/db.js';
+import { syncSts2Runs } from '../ssg/updaters/syncSts2Runs.js';
+import { generateAutoTags } from '../ssg/updaters/generateAutoTags.js';
 
 async function processChannelSync(channelSlug, syncMode, skipUpdate, forceUpdate) {
     const { affectedGames, errors: syncErrors } = await syncChannel(channelSlug, syncMode);
+
+    // --- NEW: Generate tags BEFORE building the HTML ---
+    if (affectedGames.includes('slay-the-spire-2')) {
+        await generateAutoTags();
+    }
+    // ---------------------------------------------------
 
     if (!skipUpdate && affectedGames.length > 0) {
         console.log(`\n🔨 Triggering SSG Builds for ${affectedGames.length} affected games...`);
@@ -51,17 +59,24 @@ async function run() {
     const startTime = Date.now();
 
     try {
+        // --- NEW: Pre-Sync Local Runs ---
+        await syncSts2Runs();
+        // --------------------------------
+
         if (command === 'playlist' && targetId) {
             console.log(`🎯 Target: Single Playlist (${targetId})`);
             const syncResult = await syncPlaylist(targetId);
             const gameSlug = await updateSeriesSyncDateByPlaylist(targetId);
 
-            // --- NEW: Safe Orphan Linking ---
-            if (gameSlug === 'slay-the-spire-2' && syncResult?.newVideoIds?.length > 0) {
-                const latestNewVideoId = syncResult.newVideoIds[syncResult.newVideoIds.length - 1];
-                await linkOrphanedRuns(latestNewVideoId);
+            if (gameSlug === 'slay-the-spire-2') {
+                if (syncResult?.newVideoIds?.length > 0) {
+                    const latestNewVideoId = syncResult.newVideoIds[syncResult.newVideoIds.length - 1];
+                    await linkOrphanedRuns(latestNewVideoId);
+                }
+                
+                // --- NEW: Generate tags BEFORE building the HTML ---
+                await generateAutoTags();
             }
-            // --------------------------------
 
             if (!skipUpdate) {
                 console.log(`\n🔨 Triggering SSG Build...`);
