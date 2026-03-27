@@ -9,7 +9,7 @@ export function getClientTagConfig(gameSlug) {
                 "character:silent": "var(--green)",
                 "character:defect": "var(--blue)",
                 "character:ironclad": "var(--red)",
-                "character:regent": "var(--orange, #e67e22)",
+                "character:regent": "var(--orange)",
                 "character:necrobinder": "var(--purple)",
                 "default": "var(--yellow)"
             }
