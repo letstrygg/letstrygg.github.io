@@ -2,7 +2,7 @@ import fs from 'fs';
 import { supabase } from '../utils/db.js';
 import { seasonHTML, episodeHTML } from '../utils/templates/index.js';
 import { writeStaticPage } from '../utils/fileSys.js';
-import { processAdminTags, getClientTagConfig } from '../utils/tagParser.js'; // <-- NEW IMPORT
+import { processAdminTags, getClientTagConfig } from '../utils/tagParser.js';
 
 // --- NEW: Slugify Helper ---
 function slugify(text) {
@@ -33,13 +33,13 @@ export async function updateSeason(playlistId, options = {}) {
         return { success: false, skipped: false, episodesProcessed: 0, episodesList: [] };
     }
 
-    // --- ADDED 'tags' TO THE SELECT QUERY HERE ---
+    // --- ADDED 'tags' and 'auto_tags' TO THE SELECT QUERY HERE ---
     const { data: episodes, error: epError } = await supabase
         .from('ltg_playlist_videos')
         .select(`
             sort_order,
             ltg_videos!inner (
-                id, title, published_at, duration_seconds, view_count, likes, comments, tags
+                id, title, published_at, duration_seconds, view_count, likes, comments, tags, auto_tags
             )
         `)
         .eq('playlist_id', playlistId)
@@ -204,7 +204,8 @@ export async function updateSeason(playlistId, options = {}) {
             }
 
             // --- ADMIN TAG PARSING FOR THIS SPECIFIC EPISODE ---
-            const adminTagsData = processAdminTags(v.tags || []);
+            const mergedTags = [...(v.tags || []), ...(v.auto_tags || [])];
+            const adminTagsData = processAdminTags(mergedTags);
 
             const epData = {
                 id: v.id,
@@ -229,9 +230,9 @@ export async function updateSeason(playlistId, options = {}) {
                 nextUrl,
                 tags: tagsArr,               
                 tagsString: tagsString,      
-                adminTagsHtml: adminTagsData.html,            // <-- ADDED
-                adminTagsMeta: adminTagsData.metaString,      // <-- ADDED
-                clientTagConfigStr: clientTagConfigStr,       // <-- ADDED
+                adminTagGroups: adminTagsData.groups,         // <-- CHANGED
+                adminTagsMeta: adminTagsData.metaString,      
+                clientTagConfigStr: clientTagConfigStr,       
                 manualContent
             };
 

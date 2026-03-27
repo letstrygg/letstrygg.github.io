@@ -24,14 +24,12 @@ export async function updateEpisode(videoId) {
     const tagsString = rawTags.join(', ');
 
     // --- ADMIN TAGS (New) ---
-    // Grabs the text array from ltg_videos, runs it through our new config parser
     console.log(`\n[DEBUG] Video ID: ${video.id}`);
-    console.log(`[DEBUG] Tags from DB:`, video.tags);
 
-    // Grabs the text array from ltg_videos, runs it through our new config parser
-    const adminTagsData = processAdminTags(video.tags || []);
+    // Merge manual tags and auto tags
+    const mergedTags = [...(video.tags || []), ...(video.auto_tags || [])];
+    const adminTagsData = processAdminTags(mergedTags);
     
-    console.log(`[DEBUG] HTML Generated:`, adminTagsData.html);
     const clientTagConfig = getClientTagConfig(gameSlug); // <-- Grab the UI rules
 
     // 2. Formatting Helpers
@@ -82,9 +80,9 @@ export async function updateEpisode(videoId) {
         fileName: fileName,
         tags: tagsArr,               
         tagsString: tagsString,      
-        adminTagsHtml: adminTagsData.html,            
+        adminTagGroups: adminTagsData.groups,         // <-- CHANGED
         adminTagsMeta: adminTagsData.metaString,
-        clientTagConfigStr: JSON.stringify(clientTagConfig), // <-- Passed to template
+        clientTagConfigStr: JSON.stringify(clientTagConfig),
         prevUrl: prevSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${prevPaddedEp}.html` : null,
         nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${nextPaddedEp}.html` : null
     };

@@ -40,48 +40,45 @@ export function getClientTagConfig(gameSlug) {
     return GAME_CONFIGS[gameSlug]?.clientConfig || { priorityCategories: [], colors: {} };
 }
 
-export function processAdminTags(tagsArray) {
-    if (!tagsArray || !Array.isArray(tagsArray) || tagsArray.length === 0) {
-        return { html: '', metaString: '' };
-    }
+export function processAdminTags(tagsArray, gameSlug = 'slay-the-spire-2') {
+    const config = getClientTagConfig(gameSlug);
+    const colors = config.colors || {};
 
-    let metaTags = [];
-    let htmlButtons = tagsArray.map(tagString => {
-        const parts = tagString.split(':');
-        if (parts.length < 2) return ''; 
-        
-        const game = parts[0];
-        const category = parts[1];
-        const item = parts[2] || category; 
-        
-        const displayName = toTitleCase(item);
-        metaTags.push(displayName);
-        
-        let cssColor = 'var(--text-muted)';
-        let cssBorder = 'var(--border)';
-        let linkUrl = '#';
-        let filePath = null;
+    const groups = {
+        character: [],
+        card: [],
+        enchantment: [],
+        relic: [],
+        manual: []
+    };
 
-        const config = GAME_CONFIGS[game];
-        if (config) {
-            const paths = config.getPaths(category, item);
-            linkUrl = paths.url;
-            filePath = paths.filePath;
-            
-            const style = config.getStyle(category, item);
-            cssColor = style.color;
-            cssBorder = style.border;
-        }
+    const metaList = [];
 
-        const exists = filePath ? checkFileExists(filePath) : false;
+    (tagsArray || []).forEach(tag => {
+        const parts = tag.split(':');
+        const cat = parts.length > 1 ? parts[1].toLowerCase() : 'other';
+        const item = parts.length > 2 ? parts.slice(2).join(':') : (parts[1] || parts[0]);
 
-        if (exists) {
-            return `<a href="${linkUrl}" class="btn interactive text-sm" style="padding: 4px 12px; border-radius: 15px; color: ${cssColor}; border: 1px solid ${cssBorder}; background: rgba(0,0,0,0.2);">#${displayName}</a>`;
-        } else {
-            return `<span class="btn text-sm" style="padding: 4px 12px; border-radius: 15px; color: ${cssColor}; border: 1px dashed ${cssBorder}; background: transparent; opacity: 0.6; cursor: not-allowed;" title="Wiki page not created yet">#${displayName}</span>`;
-        }
+        // Convert hyphens to spaces and Title Case it for the UI (e.g., iron-wave -> Iron Wave)
+        const displayName = item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        metaList.push(displayName);
 
-    }).join('\n');
+        const colorKey = `${cat}:${item}`;
+        const color = colors[colorKey] || colors['default'] || 'var(--text-muted, #aaa)';
 
-    return { html: htmlButtons, metaString: metaTags.join(', ') };
+        const tagHtml = `<a href="/yt/tags/${tag}/" class="btn interactive text-sm" style="padding: 2px 10px; border-radius: 4px; border: 1px solid ${color}; color: ${color}; background: rgba(0,0,0,0.2); margin-right: 6px; margin-bottom: 6px; display: inline-flex; align-items: center; text-decoration: none; white-space: nowrap;">
+            <span style="opacity: 0.6; font-size: 0.85em; margin-right: 4px;">${cat}:</span><strong>${displayName}</strong>
+        </a>`;
+
+        if (cat === 'character') groups.character.push(tagHtml);
+        else if (cat === 'card') groups.card.push(tagHtml);
+        else if (cat === 'enchantment') groups.enchantment.push(tagHtml);
+        else if (cat === 'relic') groups.relic.push(tagHtml);
+        else groups.manual.push(tagHtml);
+    });
+
+    return {
+        metaString: metaList.join(', '),
+        groups: groups
+    };
 }
