@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { supabase } from '../ssg/utils/db.js';
-import { syncPlaylist } from './syncPlaylist.js';
+import { syncPlaylist, linkOrphanedRuns } from './syncPlaylist.js';
 
 function ensureLogDir() {
     const logDir = path.resolve('sync_logs');
@@ -12,7 +12,6 @@ function ensureLogDir() {
 export async function syncChannel(channelSlug, syncMode = 'full') {
     console.log(`\n🧠 Initiating [${syncMode.toUpperCase()}] Sync for Channel: ${channelSlug}...`);
 
-    // 1. Fetch all game playlists for this channel with their stats
     const { data: playlists, error } = await supabase
         .from('ltg_playlists')
         .select(`
@@ -36,7 +35,6 @@ export async function syncChannel(channelSlug, syncMode = 'full') {
     const now = Date.now();
     const dayMs = 24 * 60 * 60 * 1000;
 
-    // Map the raw DB data into an easily sortable array
     const pool = playlists.map(p => {
         const stats = p.ltg_playlist_stats?.[0] || { ep_count: 0, total_views: 0, latest_published_at: 0 };
         const lastUpload = stats.latest_published_at ? new Date(stats.latest_published_at).getTime() : 0;
@@ -75,23 +73,18 @@ export async function syncChannel(channelSlug, syncMode = 'full') {
 
     } else if (syncMode === 'smart') {
         console.log(`\n🧠 SMART SYNC: Allocating buckets...`);
-        // BUCKET 1: 6 Most Recently Uploaded
         const sortedByUpload = [...pool].sort((a, b) => b.lastUpload - a.lastUpload);
         sortedByUpload.slice(0, 6).forEach(p => addToQueue(p, 'Top 6 Most Recent'));
 
-        // BUCKET 2: 30 Days (Most Stale Sync)
         const stale30 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload <= 30).sort((a, b) => a.lastSync - b.lastSync);
         stale30.slice(0, 6).forEach(p => addToQueue(p, '<= 30 Days (Stale)'));
 
-        // BUCKET 3: 90 Days (Most Stale Sync)
         const stale90 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload > 30 && p.daysSinceUpload <= 90).sort((a, b) => a.lastSync - b.lastSync);
         stale90.slice(0, 6).forEach(p => addToQueue(p, '<= 90 Days (Stale)'));
 
-        // BUCKET 4: 365 Days (Most Stale Sync)
         const stale365 = [...pool].filter(p => !queuedIds.has(p.id) && p.daysSinceUpload > 90 && p.daysSinceUpload <= 365).sort((a, b) => a.lastSync - b.lastSync);
         stale365.slice(0, 6).forEach(p => addToQueue(p, '<= 365 Days (Stale)'));
 
-        // BUCKET 5: Overall Oldest Syncs
         const staleAll = [...pool].filter(p => !queuedIds.has(p.id)).sort((a, b) => a.lastSync - b.lastSync);
         staleAll.slice(0, 6).forEach(p => addToQueue(p, 'Oldest Overall'));
     }
@@ -102,7 +95,6 @@ export async function syncChannel(channelSlug, syncMode = 'full') {
     const affectedGames = new Set();
     const syncErrors = [];
 
-    // 2. Execute the Syncs
     for (const plan of queue) {
         console.log(`\n=========================================`);
         console.log(`[${plan.reason}] ${plan.title}`);
@@ -110,17 +102,26 @@ export async function syncChannel(channelSlug, syncMode = 'full') {
 
         try {
             const syncResult = await syncPlaylist(plan.id);
+            
             if (syncResult && syncResult.error) {
                 syncErrors.push(`[${plan.title}]: ${syncResult.error}`);
                 continue;
             }
+
+            // --- NEW: Safe Orphan Linking ---
+            if (plan.gameSlug === 'slay-the-spire-2' && syncResult?.newVideoIds?.length > 0) {
+                // If multiple dropped at once, safely grab the very last one added to the playlist
+                const latestNewVideoId = syncResult.newVideoIds[syncResult.newVideoIds.length - 1];
+                await linkOrphanedRuns(latestNewVideoId);
+            }
+            // --------------------------------
+
             if (plan.gameSlug) affectedGames.add(plan.gameSlug);
         } catch (err) {
             syncErrors.push(`[${plan.title}]: ${err.message}`);
             continue;
         }
 
-        // Fetch fresh stats to calculate deltas
         const { data: freshStats } = await supabase.from('ltg_playlist_stats').select('ep_count, total_views').eq('playlist_id', plan.id).single();
 
         const newViews = freshStats?.total_views || 0;
@@ -138,7 +139,6 @@ export async function syncChannel(channelSlug, syncMode = 'full') {
         });
     }
 
-    // 3. Write the JSON Log
     if (resultsLog.length > 0) {
         const logDir = ensureLogDir();
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-');

@@ -1,13 +1,11 @@
 import { execSync } from 'child_process';
-import { syncPlaylist } from './syncPlaylist.js';
+import { syncPlaylist, linkOrphanedRuns } from './syncPlaylist.js';
 import { syncChannel } from './syncChannel.js';
 import { supabase, updateSeriesSyncDateByPlaylist } from '../ssg/utils/db.js';
 
 async function processChannelSync(channelSlug, syncMode, skipUpdate, forceUpdate) {
-    // 1. Run the Sync 
     const { affectedGames, errors: syncErrors } = await syncChannel(channelSlug, syncMode);
 
-    // 2. Trigger SSG Builds for affected games
     if (!skipUpdate && affectedGames.length > 0) {
         console.log(`\n🔨 Triggering SSG Builds for ${affectedGames.length} affected games...`);
         const forceFlag = forceUpdate ? ' --force' : '';
@@ -29,7 +27,6 @@ async function processChannelSync(channelSlug, syncMode, skipUpdate, forceUpdate
         console.log(`\n⏩ No games were affected. Skipping SSG Build.`);
     }
 
-    // 3. Print the error summary
     if (syncErrors && syncErrors.length > 0) {
         console.log(`\n⚠️  SYNC WARNINGS (${syncErrors.length}):`);
         syncErrors.forEach(err => console.log(`  - ${err}`));
@@ -39,29 +36,32 @@ async function processChannelSync(channelSlug, syncMode, skipUpdate, forceUpdate
 async function run() {
     const args = process.argv.slice(2);
     
-    // Extract generic flags
     const skipUpdate = args.includes('--no-update') || args.includes('-n');
     const forceUpdate = args.includes('--force') || args.includes('-f');
     
-    // Determine Sync Mode (Defaults to 'full' if no flags provided)
     let syncMode = 'full';
     if (args.includes('--smart') || args.includes('-s')) syncMode = 'smart';
     if (args.includes('--recent') || args.includes('-r')) syncMode = 'recent';
     
-    // Clean args to find targets
     const cleanArgs = args.filter(a => !a.startsWith('-'));
     const command = cleanArgs[0]; 
-    const targetId = cleanArgs[1]; // Only used if command === 'playlist'
+    const targetId = cleanArgs[1]; 
 
     console.log(`\n🚀 Starting Sync Orchestrator...`);
     const startTime = Date.now();
 
     try {
-        // SCENARIO 1: Individual Playlist (Preserved for manual testing)
         if (command === 'playlist' && targetId) {
             console.log(`🎯 Target: Single Playlist (${targetId})`);
-            await syncPlaylist(targetId);
+            const syncResult = await syncPlaylist(targetId);
             const gameSlug = await updateSeriesSyncDateByPlaylist(targetId);
+
+            // --- NEW: Safe Orphan Linking ---
+            if (gameSlug === 'slay-the-spire-2' && syncResult?.newVideoIds?.length > 0) {
+                const latestNewVideoId = syncResult.newVideoIds[syncResult.newVideoIds.length - 1];
+                await linkOrphanedRuns(latestNewVideoId);
+            }
+            // --------------------------------
 
             if (!skipUpdate) {
                 console.log(`\n🔨 Triggering SSG Build...`);
@@ -71,7 +71,6 @@ async function run() {
             }
         } 
         
-        // SCENARIO 2: Entire Network Sync (No arguments passed)
         else if (!command) {
             console.log(`🌍 Target: ENTIRE NETWORK [Mode: ${syncMode.toUpperCase()}]`);
             
@@ -89,10 +88,8 @@ async function run() {
             }
         } 
         
-        // SCENARIO 3: Specific Channel Sync
         else {
             console.log(`📺 Target: Channel (${command}) [Mode: ${syncMode.toUpperCase()}]`);
-            // We assume the command is the channel slug
             await processChannelSync(command, syncMode, skipUpdate, forceUpdate);
         }
 

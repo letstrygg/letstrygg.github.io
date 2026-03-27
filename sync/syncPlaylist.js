@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { supabase } from '../ssg/utils/db.js';
 
-// Get API Key from the already-loaded environment (handled by db.js)
 const API_KEY = process.env.YOUTUBE_API_KEY;
 
 if (!API_KEY) {
@@ -9,7 +8,6 @@ if (!API_KEY) {
     process.exit(1);
 }
 
-// --- Duration Parser ---
 function parseDuration(durationString) {
     if (!durationString) return 0;
     const matches = durationString.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
@@ -19,7 +17,6 @@ function parseDuration(durationString) {
     return hours * 3600 + minutes * 60 + seconds;
 }
 
-// --- Fetch all video IDs in a playlist ---
 async function fetchAllPlaylistItems(playlistId, nextPageToken = null, allItems = []) {
     try {
         const res = await axios.get('https://www.googleapis.com/youtube/v3/playlistItems', {
@@ -46,7 +43,6 @@ async function fetchAllPlaylistItems(playlistId, nextPageToken = null, allItems 
     }
 }
 
-// --- Fetch detailed stats for batches of videos ---
 async function fetchVideoDetails(videoIds) {
     const processedVideos = [];
     const batchSize = 50;
@@ -76,26 +72,31 @@ async function fetchVideoDetails(videoIds) {
     return processedVideos;
 }
 
-// --- Main Sync Function ---
 export async function syncPlaylist(playlistId) {
     console.log(`\n🔄 Starting Sync for Playlist: ${playlistId}`);
     
-    // 1. Fetch from YouTube
     console.log(`   >> Scanning playlist for items...`);
     const playlistItems = await fetchAllPlaylistItems(playlistId);
     
     if (playlistItems.length === 0) {
         console.log(`⚠️ Playlist is empty or not found.`);
-        return;
+        return { error: 'Empty playlist' };
     }
 
-    // Preserve the exact order the videos appear in the YouTube Playlist
     const orderedVideoIds = playlistItems.map(item => item.contentDetails.videoId);
     
-    // 2. Fetch rich metadata for those videos
+    // --- NEW: Detect genuinely new videos BEFORE upserting ---
+    const { data: existingVideos } = await supabase
+        .from('ltg_videos')
+        .select('id')
+        .in('id', orderedVideoIds);
+        
+    const existingIds = new Set((existingVideos || []).map(v => v.id));
+    const newVideoIds = orderedVideoIds.filter(id => !existingIds.has(id));
+    // ---------------------------------------------------------
+
     const rawVideos = await fetchVideoDetails(orderedVideoIds);
 
-    // 3. Format payload for `ltg_videos`
     const videosPayload = rawVideos.map(v => ({
         id: v.id,
         title: v.snippet.title,
@@ -106,15 +107,13 @@ export async function syncPlaylist(playlistId) {
         comments: parseInt(v.statistics.commentCount || '0', 10)
     }));
 
-    // 4. Format payload for `ltg_playlist_videos` (The Junction Table)
     const junctionPayload = orderedVideoIds.map((vid, index) => ({
         playlist_id: playlistId,
         video_id: vid,
-        sort_order: index + 1 // Ep 1, Ep 2, Ep 3, etc. based on playlist order
-    })).filter(j => rawVideos.some(rv => rv.id === j.video_id)); // Safety check: only link videos that actually exist/weren't deleted
+        sort_order: index + 1 
+    })).filter(j => rawVideos.some(rv => rv.id === j.video_id)); 
 
     try {
-        // 5. Upsert Videos into Database
         console.log(`   >> Upserting ${videosPayload.length} videos into database...`);
         const { error: videoError } = await supabase
             .from('ltg_videos')
@@ -122,7 +121,6 @@ export async function syncPlaylist(playlistId) {
         
         if (videoError) throw videoError;
 
-        // 6. Upsert Junction Links into Database
         console.log(`   >> Updating playlist sort orders...`);
         const { error: junctionError } = await supabase
             .from('ltg_playlist_videos')
@@ -130,7 +128,6 @@ export async function syncPlaylist(playlistId) {
 
         if (junctionError) throw junctionError;
 
-        // 7. Update the Playlist sync_date
         const { error: syncError } = await supabase
             .from('ltg_playlists')
             .update({ sync_date: new Date().toISOString() })
@@ -139,9 +136,36 @@ export async function syncPlaylist(playlistId) {
         if (syncError) throw syncError;
 
         console.log(`✅ Sync Complete! Playlist ${playlistId} is up to date.`);
+        
+        // Return the array of newly added IDs
+        return { error: null, newVideoIds };
 
     } catch (dbError) {
         console.error(`❌ Database Sync Error:`, dbError.message);
-		throw new Error(dbError.message);
+        throw new Error(dbError.message);
+    }
+}
+
+// --- NEW: Safe Orphan Linker ---
+export async function linkOrphanedRuns(newVideoId) {
+    const { data: orphans, error: fetchErr } = await supabase
+        .from('ltg_sts2_runs')
+        .select('id')
+        .is('video_id', null);
+
+    if (fetchErr || !orphans || orphans.length === 0) return;
+
+    console.log(`\n🔗 Found ${orphans.length} orphaned STS2 runs. Linking to newly added video...`);
+    const orphanIds = orphans.map(o => o.id);
+    
+    const { error: updateErr } = await supabase
+        .from('ltg_sts2_runs')
+        .update({ video_id: newVideoId })
+        .in('id', orphanIds);
+
+    if (updateErr) {
+        console.log(`  ❌ Failed to link runs: ${updateErr.message}`);
+    } else {
+        console.log(`  ✅ Successfully linked ${orphans.length} runs to the new episode!`);
     }
 }
