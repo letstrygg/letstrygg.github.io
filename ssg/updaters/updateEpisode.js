@@ -1,207 +1,113 @@
-export function episodeHTML(data) {
-    const safeThumbnail = data.thumbnail || `https://i.ytimg.com/vi/${data.id}/maxresdefault.jpg`;
-    const escapedTitle = data.title.replace(/"/g, '\\"');
-    const epNumPadded = String(data.episodeNum).padStart(3, '0');
+import { getFullEpisodeContext, getAdjacentEpisodes } from '../utils/db.js';
+import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
+import { episodeHTML } from '../utils/templates/index.js'; 
+import { processAdminTags, getClientTagConfig } from '../utils/tagParser.js';
 
-    // 1. Format YouTube Game Tags
-    const ytTagsHtml = data.tags && data.tags.length > 0 
-        ? data.tags.map(t => `<a href="/yt/tags/${t.slug}/" class="btn interactive text-sm" style="padding: 2px 12px; border-radius: 15px; border: 1px solid var(--border); background: rgba(0,0,0,0.2); color: var(--text-muted); margin-right: 6px; margin-bottom: 6px; display: inline-block; text-decoration: none; white-space: nowrap;">#${t.name}</a>`).join('')
-        : '';
-
-    // 2. Fetch the Tag Groups from the parser
-    const g = data.adminTagGroups || { character: [], manual: [], card: [], enchantment: [], relic: [] };
-
-    // 3. Assemble the Rows
-    const row1 = ytTagsHtml + (g.character || []).join('') + (g.manual || []).join('');
-    const row2 = (g.card || []).join('');
-    const row3 = (g.enchantment || []).join('');
-    const row4 = (g.relic || []).join('');
-
-    let allTagsHtml = '<div class="tags-container" style="margin-bottom: 25px;">';
-    
-    if (row1) {
-        allTagsHtml += `<div class="tag-row row-top" style="margin-bottom: 12px; display: flex; flex-wrap: wrap; align-items: center;">${row1}</div>`;
-    }
-    if (row2) {
-        allTagsHtml += `<div class="tag-row row-cards" style="margin-bottom: 12px; border-top: 1px solid var(--border, #333); padding-top: 10px;">
-            <div style="font-size: 0.75em; color: gray; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Cards</div>
-            <div style="display: flex; flex-wrap: wrap;">${row2}</div>
-        </div>`;
-    }
-    if (row3) {
-        allTagsHtml += `<div class="tag-row row-enchants" style="margin-bottom: 12px; border-top: 1px solid var(--border, #333); padding-top: 10px;">
-            <div style="font-size: 0.75em; color: gray; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Enchantments</div>
-            <div style="display: flex; flex-wrap: wrap;">${row3}</div>
-        </div>`;
-    }
-    if (row4) {
-        allTagsHtml += `<div class="tag-row row-relics" style="margin-bottom: 12px; border-top: 1px solid var(--border, #333); padding-top: 10px;">
-            <div style="font-size: 0.75em; color: gray; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Relics</div>
-            <div style="display: flex; flex-wrap: wrap;">${row4}</div>
-        </div>`;
-    }
-    
-    allTagsHtml += '</div>';
-
-    if (!row1 && !row2 && !row3 && !row4) allTagsHtml = '';
-
-    // Combine Meta Strings for Schema
-    let combinedTagsString = data.tagsString || '';
-    if (data.adminTagsMeta) {
-        combinedTagsString = combinedTagsString ? `${combinedTagsString}, ${data.adminTagsMeta}` : data.adminTagsMeta;
-    }
-
-    const safeConfigStr = data.clientTagConfigStr || '{}';
-
-    // --- 4. Run Summary Graph (MOVED ABOVE RETURN) ---
-    const runs = data.runs || [];
-    let runsHtml = '';
-    let runsScript = '';
-
-    if (runs.length > 0) {
-        runsHtml = `
-        <div class="run-summary-container" style="margin-top: 30px; margin-bottom: 30px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; border: 1px solid var(--border, #333);">
-            <h3 style="margin-top: 0; color: var(--text-muted, #aaa); font-size: 1.1em; border-bottom: 1px solid var(--border, #333); padding-bottom: 10px; margin-bottom: 15px;">Run Summary: HP per Floor</h3>
-            <div style="height: 300px; width: 100%;">
-                <canvas id="hpChart"></canvas>
-            </div>
-        </div>
-        `;
-
-        // Format data for Chart.js
-        const chartDataStr = JSON.stringify(runs.map(r => {
-            const charRaw = (r.character || '').replace('CHARACTER.', '');
-            const charName = charRaw ? charRaw.charAt(0).toUpperCase() + charRaw.slice(1).toLowerCase() : 'Unknown';
-            return {
-                label: `Run ${r.run_number} (${charName})`,
-                win: r.win,
-                floorData: (r.floor_history || []).map(f => ({ floor: f.floor, hp: f.hp }))
-            };
-        }));
-
-        runsScript = `
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const ctx = document.getElementById('hpChart');
-    if (!ctx) return;
-
-    const rawRuns = ${chartDataStr};
-    if (rawRuns.length === 0) return;
-
-    // Find the max floor across all runs to set the X-axis
-    let maxFloor = 0;
-    rawRuns.forEach(r => {
-        if (r.floorData.length > 0) {
-            const lastFloor = r.floorData[r.floorData.length - 1].floor;
-            if (lastFloor > maxFloor) maxFloor = lastFloor;
-        }
-    });
-
-    const labels = Array.from({length: maxFloor}, (_, i) => i + 1);
-    const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f1c40f', '#9b59b6']; // Red, Blue, Green, Yellow, Purple
-
-    const datasets = rawRuns.map((run, index) => {
-        const hpMap = {};
-        run.floorData.forEach(d => { hpMap[d.floor] = d.hp; });
-        
-        // Align HP data with the 1-to-maxFloor labels array
-        const dataArr = labels.map(floor => hpMap[floor] !== undefined ? hpMap[floor] : null);
-        const color = colors[index % colors.length];
-
-        return {
-            label: run.label + (run.win ? ' [WIN]' : ' [LOSS]'),
-            data: dataArr,
-            borderColor: color,
-            backgroundColor: color + '33', // 20% opacity for the fill
-            borderWidth: 2,
-            pointRadius: 2,
-            pointBackgroundColor: color,
-            fill: true,
-            tension: 0.3,
-            spanGaps: true
-        };
-    });
-
-    new Chart(ctx, {
-        type: 'line',
-        data: { labels: labels, datasets: datasets },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: { mode: 'index', intersect: false },
-            scales: {
-                x: { title: { display: true, text: 'Floor', color: '#aaa' }, ticks: { color: '#aaa' }, grid: { color: '#333' } },
-                y: { title: { display: true, text: 'HP', color: '#aaa' }, ticks: { color: '#aaa' }, grid: { color: '#333' }, beginAtZero: true }
-            },
-            plugins: { legend: { labels: { color: '#eee' } } }
-        }
-    });
-});
-</script>
-        `;
-    }
-
-    // --- 5. Assemble and Return the Final HTML ---
-    return `---
-layout: watch
-title: "${epNumPadded} ${data.seriesTitle}"
-description: "${data.seriesTitle} Let's Play Season ${data.seasonNum} Episode ${data.episodeNum}"
-permalink: /yt/${data.channelSlug}/${data.gameSlug}/season-${data.seasonNum}/${data.fileName}
-custom_css: "/css/game/${data.shortPrefix}-style.css"
-thumbnail: "${safeThumbnail}"
-upload_date: "${data.rawPublishedAt}"
-duration_seconds: ${data.durationSeconds}
-tags: "${combinedTagsString}"
-youtube_id: "${data.id}"
-game_slug: "${data.gameSlug}"
----
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "${escapedTitle}",
-  "description": "Episode ${data.episodeNum} of the ${data.seriesTitle} Let's Play series.",
-  "thumbnailUrl": "${safeThumbnail}",
-  "uploadDate": "${data.rawPublishedAt}",
-  "duration": "${data.isoDuration}",
-  "embedUrl": "https://www.youtube.com/embed/${data.id}",
-  "keywords": "${combinedTagsString}",
-  "interactionStatistic": {
-    "@type": "InteractionCounter",
-    "interactionType": { "@type": "WatchAction" },
-    "userInteractionCount": ${data.views}
-  }
+function slugify(text) {
+    return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
 }
-</script>
 
-<div class="game-page-wrapper">
-  {% include watch_player.html 
-      video_id="${data.id}"
-      published="${data.publishedAt}"
-      duration="${data.durationFormatted}"
-      views="${data.views.toLocaleString()}"
-      likes="${data.likes.toLocaleString()}"
-      comments="${data.comments.toLocaleString()}"
-      prev_url="${data.prevUrl || ''}"
-      next_url="${data.nextUrl || ''}"
-  %}
+export async function updateEpisode(videoId) {
+    // 1. Fetch DB Context
+    const video = await getFullEpisodeContext(videoId);
+    // ... (existing junction/playlist logic) ...
 
-  ${allTagsHtml}
-  
-  ${runsHtml}
+    // --- NEW: Fetch Runs for this Video ---
+    const { data: runsData } = await supabase
+        .from('ltg_sts2_runs')
+        .select('run_number, character, win, ascension, floor_history')
+        .eq('video_id', videoId)
+        .order('run_number', { ascending: true });
 
-  <script>window.LTG_TAG_CONFIG = ${safeConfigStr};</script>
-  {% include admin_panel.html %}
+    const junction = video.ltg_playlist_videos[0];
+    const playlist = junction.ltg_playlists;
+    const series = playlist.ltg_series;
+    const gameSlug = series.ltg_games?.slug || series.slug;
+    const channelSlug = playlist.channel_slug;
 
-  <div class="manual-content">
-      <h1 class="title" style="font-size: 1.8rem; margin-bottom: 5px;">{{ page.title }}</h1>
-      <p class="subtitle" style="margin-bottom: 20px;">Season ${data.seasonNum}, Episode ${data.episodeNum}</p>
-      
-      ${data.manualContent}
-  </div>
-</div>
-${runsScript}
-`;
+    const { prevSortOrder, nextSortOrder } = await getAdjacentEpisodes(playlist.id, junction.sort_order);
+
+    // --- GAME TAGS (Original) ---
+    const rawTags = series.ltg_games?.tags || [];
+    const tagsArr = rawTags.map(t => ({ name: t.trim(), slug: slugify(t) }));
+    const tagsString = rawTags.join(', ');
+
+    // --- ADMIN TAGS (New) ---
+    console.log(`\n[DEBUG] Video ID: ${video.id}`);
+
+    // Merge manual tags and auto tags
+    const mergedTags = [...(video.tags || []), ...(video.auto_tags || [])];
+    const adminTagsData = processAdminTags(mergedTags);
+    
+    const clientTagConfig = getClientTagConfig(gameSlug); // <-- Grab the UI rules
+
+    // 2. Formatting Helpers
+    const formatDuration = (secs) => {
+        const h = Math.floor(secs / 3600);
+        const m = Math.floor((secs % 3600) / 60);
+        const s = Math.floor(secs % 60);
+        return h > 0 ? `${h}h ${m}m ${s}s` : `${m}m ${s}s`;
+    };
+
+    const isoDuration = (secs) => {
+        const h = Math.floor(secs / 3600);
+        const m = Math.floor((secs % 3600) / 60);
+        const s = Math.floor(secs % 60);
+        return `PT${h > 0 ? h + 'H' : ''}${m > 0 ? m + 'M' : ''}${s}S`;
+    };
+
+    // --- PREFIX, PADDING, AND PATH LOGIC ---
+    const dbAbbr = series.ltg_games?.custom_abbr;
+    const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
+    
+    const paddedSeason = String(Math.floor(playlist.season)).padStart(2, '0');
+    const paddedEp = String(junction.sort_order).padStart(2, '0');
+    const fileName = `${shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
+    const basePath = `yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}`;
+
+    const prevPaddedEp = prevSortOrder ? String(prevSortOrder).padStart(2, '0') : null;
+    const nextPaddedEp = nextSortOrder ? String(nextSortOrder).padStart(2, '0') : null;
+
+    // 3. Assemble the Data Payload
+    const templateData = {
+        id: video.id,
+        title: video.title,
+        views: video.view_count,
+        likes: video.likes,
+        comments: video.comments,
+        durationFormatted: formatDuration(video.duration_seconds),
+        durationSeconds: video.duration_seconds,
+        isoDuration: isoDuration(video.duration_seconds),
+        publishedAt: new Date(video.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+        rawPublishedAt: video.published_at,
+        episodeNum: junction.sort_order,
+        seasonNum: playlist.season,
+        seriesTitle: series.title,
+        gameSlug: gameSlug,
+        channelSlug: channelSlug,
+        shortPrefix: shortPrefix,
+        fileName: fileName,
+        tags: tagsArr,               
+        tagsString: tagsString,      
+        adminTagGroups: adminTagsData.groups,
+        adminTagsMeta: adminTagsData.metaString,
+        clientTagConfigStr: JSON.stringify(clientTagConfig),
+        runs: runsData || [],
+        prevUrl: prevSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${prevPaddedEp}.html` : null,
+        nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${nextPaddedEp}.html` : null
+    };
+
+    // 4. Write the Files
+    const mainFilePath = `${basePath}/${fileName}`;
+    const manualFilePath = `${basePath}/_manual/${fileName}`;
+    
+    const pageHTML = episodeHTML(templateData);
+    writeStaticPage(mainFilePath, pageHTML);
+
+    if (!checkFileExists(manualFilePath)) {
+        writeStaticPage(manualFilePath, "\n");
+        console.log(`    [CREATED MANUAL FRAGMENT] ${manualFilePath}`);
+    }
+
+    return { success: true, filePath: mainFilePath, playlistId: playlist.id, seriesSlug: series.slug };
 }
