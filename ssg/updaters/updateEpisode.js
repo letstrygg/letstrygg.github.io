@@ -10,6 +10,15 @@ function slugify(text) {
 export async function updateEpisode(videoId) {
     // 1. Fetch DB Context
     const video = await getFullEpisodeContext(videoId);
+    // ... (existing junction/playlist logic) ...
+
+    // --- NEW: Fetch Runs for this Video ---
+    const { data: runsData } = await supabase
+        .from('ltg_sts2_runs')
+        .select('run_number, character, win, ascension, floor_history')
+        .eq('video_id', videoId)
+        .order('run_number', { ascending: true });
+
     const junction = video.ltg_playlist_videos[0];
     const playlist = junction.ltg_playlists;
     const series = playlist.ltg_series;
@@ -80,9 +89,10 @@ export async function updateEpisode(videoId) {
         fileName: fileName,
         tags: tagsArr,               
         tagsString: tagsString,      
-        adminTagGroups: adminTagsData.groups,         // <-- CHANGED
+        adminTagGroups: adminTagsData.groups,
         adminTagsMeta: adminTagsData.metaString,
         clientTagConfigStr: JSON.stringify(clientTagConfig),
+        runs: runsData || [],
         prevUrl: prevSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${prevPaddedEp}.html` : null,
         nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${nextPaddedEp}.html` : null
     };

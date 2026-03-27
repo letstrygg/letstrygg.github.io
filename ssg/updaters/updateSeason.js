@@ -50,6 +50,22 @@ export async function updateSeason(playlistId, options = {}) {
         return { success: false, skipped: false, episodesProcessed: 0, episodesList: [] };
     }
 
+    // --- NEW: Batch Fetch All Runs for this Season ---
+    const videoIds = episodes.map(ep => ep.ltg_videos.id);
+    const { data: allRuns } = await supabase
+        .from('ltg_sts2_runs')
+        .select('video_id, run_number, character, win, ascension, floor_history')
+        .in('video_id', videoIds)
+        .order('run_number', { ascending: true });
+
+    const runsByVideo = {};
+    if (allRuns) {
+        allRuns.forEach(r => {
+            if (!runsByVideo[r.video_id]) runsByVideo[r.video_id] = [];
+            runsByVideo[r.video_id].push(r);
+        });
+    }
+
     // --- GAME TAGS ---
     const rawTags = playlistData.ltg_series.ltg_games?.tags || [];
     const tagsArr = rawTags.map(t => ({ name: t.trim(), slug: slugify(t) }));
@@ -230,9 +246,10 @@ export async function updateSeason(playlistId, options = {}) {
                 nextUrl,
                 tags: tagsArr,               
                 tagsString: tagsString,      
-                adminTagGroups: adminTagsData.groups,         // <-- CHANGED
+                adminTagGroups: adminTagsData.groups,         
                 adminTagsMeta: adminTagsData.metaString,      
                 clientTagConfigStr: clientTagConfigStr,       
+                runs: runsByVideo[v.id] || [],                // <-- DATA INJECTED HERE
                 manualContent
             };
 
