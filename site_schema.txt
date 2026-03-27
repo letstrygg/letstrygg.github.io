@@ -17,32 +17,6 @@
     └── avatars
         ├── bobbooobpb
             └── sm.webp
-        ├── cohh
-            └── sm.webp
-        ├── cohhcarnage
-            └── sm.webp
-        ├── dead3y3
-            └── sm.webp
-        ├── destiny
-            └── sm.webp
-        ├── jorbs
-            └── sm.webp
-        ├── letstrygg
-            └── sm.webp
-        ├── ltg-plus
-            └── sm.webp
-        ├── moneymoneyloot
-            └── sm.webp
-        ├── moonmoon
-            └── sm.webp
-        ├── redbeardy_mcgee
-            └── sm.webp
-        ├── reharded
-            └── sm.webp
-        ├── rockstarrzz64
-            └── sm.webp
-        └── unreleasedsong
-            └── sm.webp
 ├── css
     ├── game
         └── sts2-style.css
@@ -83,12 +57,6 @@
         └── index.html
     ├── package.json
     └── server.js
-├── projects
-    └── car
-        ├── hood-strut-replacement-old.html
-        ├── hood-strut-replacement-old2.html
-        ├── hood-strut-replacement-video.html
-        └── hood-strut-replacement.html
 ├── ssg
     ├── updaters
         ├── generateAutoTags.js
@@ -128,20 +96,6 @@
     ├── sync.js
     ├── syncChannel.js
     └── syncPlaylist.js
-├── temu
-    ├── images
-        └── shelf-72
-            ├── 1-temu-shelf-packaging.jpg
-            ├── 2-temu-shelf-packaging.jpg
-            ├── 3-temu-shelf-unpack.jpg
-            ├── 4-temu-shelf-minor-bend.jpg
-            ├── 5-temu-shelf-layout.jpg
-            ├── 6-temu-shelf-tools.jpg
-            ├── 7-temu-shelf-assembly.jpg
-            ├── 8-temu-shelf-plastic-connector.jpg
-            └── 9-temu-shelf-assembled.jpg
-    ├── index.html
-    └── shelf-72.html
 ├── watch
     └── index.html
 ├── yt
