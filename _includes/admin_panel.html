@@ -33,6 +33,21 @@
         
         <button id="add-tag-btn" class="btn btn-blue" style="height: 32px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 14px; font-size: 14px; margin: 0;">Add</button>
       </div>
+	  
+	  
+	  {% if page.game_slug == 'slay-the-spire-2' %}
+      <div style="margin-top: 20px; border-top: 1px solid var(--border, #333); padding-top: 15px;">
+          <strong style="color: var(--text-muted, #aaa); font-size: 0.9em; display: flex; align-items: center; justify-content: space-between;">
+              <span>Mapped Runs for this Episode:</span>
+              <span id="mapped-runs-status" style="font-size: 0.8em; color: var(--green, #2ecc71); display: none;">Saving Cascade...</span>
+          </strong>
+          <div id="mapped-runs-container" style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+              <span style="color: gray; font-style: italic; font-size: 0.9em;">Loading runs...</span>
+          </div>
+      </div>
+      {% endif %}
+	  
+	  
     </div>
 
   </div>
@@ -145,6 +160,99 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderDatalist();
       renderTags();
     }
+	
+	
+	// ==========================================
+    // RUN CASCADE LOGIC (STS2 ONLY)
+    // ==========================================
+    const mappedContainer = document.getElementById('mapped-runs-container');
+    const statusText = document.getElementById('mapped-runs-status');
+    let episodeSequence = []; // Holds chronological video_ids for shifting
+
+    async function initMappedRuns() {
+        if (!mappedContainer) return;
+
+        // 1. Fetch runs for THIS episode
+        const { data: runs } = await supabaseClient.from('ltg_sts2_runs')
+            .select('*')
+            .eq('video_id', recordId)
+            .order('run_number', { ascending: true });
+
+        // 2. Fetch all episodes in this playlist so we know the shift order
+        const { data: pvInfo } = await supabaseClient.from('ltg_playlist_videos').select('playlist_id').eq('video_id', recordId).single();
+        if (pvInfo) {
+            const { data: allEps } = await supabaseClient.from('ltg_playlist_videos')
+                .select('video_id, sort_order')
+                .eq('playlist_id', pvInfo.playlist_id)
+                .order('sort_order', { ascending: true });
+            if (allEps) episodeSequence = allEps.map(e => e.video_id);
+        }
+
+        renderMappedRuns(runs || []);
+    }
+
+    function renderMappedRuns(runs) {
+        mappedContainer.innerHTML = '';
+        if (runs.length === 0) {
+            mappedContainer.innerHTML = `<span style="color: gray; font-style: italic; font-size: 0.9em;">No runs mapped to this episode.</span>`;
+            return;
+        }
+
+        runs.forEach(run => {
+            // Format: Run 1 A4 D9m (Silent - Loss)
+            const charRaw = run.character.replace('CHARACTER.', '');
+            const charName = charRaw.charAt(0).toUpperCase() + charRaw.slice(1).toLowerCase();
+            const durationMins = Math.floor(run.run_time / 60);
+            const statusColor = run.win ? 'var(--green, #2ecc71)' : 'var(--red, #e74c3c)';
+            
+            const displayText = `Run ${run.run_number} A${run.ascension} D${durationMins}m (${charName} - <span style="color: ${statusColor}">${run.win ? 'Win' : 'Loss'}</span>)`;
+
+            const row = document.createElement('div');
+            row.style.cssText = `display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); padding: 8px 12px; border-radius: 4px; border: 1px solid var(--border, #333); font-family: monospace; font-size: 14px;`;
+            
+            row.innerHTML = `
+                <span>${displayText}</span>
+                <div style="display: flex; gap: 4px;">
+                    <button class="btn btn-gray" style="padding: 2px 6px; font-size: 12px;" onclick="shiftRunCascade(${run.run_number}, -1)" title="Move to Previous Episode">👈</button>
+                    <button class="btn btn-gray" style="padding: 2px 6px; font-size: 12px;" onclick="shiftRunCascade(${run.run_number}, 1)" title="Move to Next Episode">👉</button>
+                </div>
+            `;
+            mappedContainer.appendChild(row);
+        });
+    }
+
+    // Must be attached to window so inline onclick handlers can see it
+    window.shiftRunCascade = async function(startRunNumber, offset) {
+        if (episodeSequence.length === 0) return alert("Error: Could not determine episode sequence for shifting.");
+        
+        statusText.style.display = 'block';
+        
+        // Find ALL runs >= the clicked run to cascade the shift
+        const { data: runsToShift } = await supabaseClient.from('ltg_sts2_runs')
+            .select('id, run_number, video_id')
+            .gte('run_number', startRunNumber);
+
+        const updates = [];
+        runsToShift.forEach(run => {
+            const currentIndex = episodeSequence.indexOf(run.video_id);
+            if (currentIndex !== -1) {
+                const newIndex = currentIndex + offset;
+                // Only shift if the target episode actually exists
+                if (newIndex >= 0 && newIndex < episodeSequence.length) {
+                    updates.push( supabaseClient.from('ltg_sts2_runs').update({ video_id: episodeSequence[newIndex] }).eq('id', run.id) );
+                }
+            }
+        });
+
+        // Fire all updates simultaneously
+        await Promise.all(updates);
+        
+        statusText.innerText = "Cascade Complete! Reloading...";
+        setTimeout(() => location.reload(), 1000); // Reload page to reflect new data bounds
+    };
+
+    initMappedRuns();
+	
 
     function renderDatalist() {
       datalist.innerHTML = '';
