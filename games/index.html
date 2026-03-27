@@ -1,20 +1,24 @@
 ---
 layout: new
-title: "Games Hub"
+title: "Games"
 permalink: /games/
 ---
 <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
   <div style="margin-bottom: 30px; border-bottom: 1px solid var(--border, #333); padding-bottom: 15px;">
-    <h1 style="color: var(--title, #fff); margin: 0; font-size: 2rem;">Games Database</h1>
+    <h1 style="color: var(--title, #fff); margin: 0; font-size: 2rem;">Games</h1>
   </div>
   <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
     
-    {% assign game_indexes = site.pages | where_exp: "item", "item.url contains '/games/' and item.url contains '/index.html' and item.url != '/games/index.html'" %}
+    {% assign game_pages = site.pages | where_exp: "item", "item.url contains '/games/' and item.url != '/games/'" %}
     
-    {% for game in game_indexes %}
-    <a href="{{ game.url }}" class="btn btn-gray interactive" style="display: flex; align-items: center; justify-content: center; height: 100px; text-align: center; padding: 20px; font-size: 1.2rem; font-weight: bold; border-radius: 8px; text-decoration: none;">
-        {{ game.title }} 
-    </a>
+    {% for game in game_pages %}
+        {% assign url_parts = game.url | split: '/' %}
+        
+        {% if url_parts.size == 3 %}
+        <a href="{{ game.url }}" class="btn btn-gray interactive" style="display: flex; align-items: center; justify-content: center; height: 100px; text-align: center; padding: 20px; font-size: 1.2rem; font-weight: bold; border-radius: 8px; text-decoration: none;">
+            {{ game.title }}
+        </a>
+        {% endif %}
     {% endfor %}
 
   </div>
