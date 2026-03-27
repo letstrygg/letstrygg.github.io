@@ -28,7 +28,8 @@ const globalToggle = document.getElementById('globalChatToggle');
 const channelToggle = document.getElementById('channelChatToggle');
 const topicToggle = document.getElementById('topicChatToggle'); 
 
-let isChatOpen = true; // Default open for all devices on fresh load
+let savedChatState = localStorage.getItem('chatOpen');
+let isChatOpen = savedChatState !== null ? savedChatState === 'true' : true;
 
 // --- PREVENT RESIZE LAYOUT SHIFT ANIMATION ---
 let resizeTimer;

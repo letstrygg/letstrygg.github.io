@@ -33,10 +33,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Set initial icons and tooltips
     updateToggleUI(isMobile);
 
+    // --- FIX 1: Read sidebar state from localStorage ---
+    let savedSidebarState = localStorage.getItem('sidebarOpen');
+    let initialSidebarState = savedSidebarState !== null ? savedSidebarState === 'true' : !isMobile;
+
     window.ltgSidebar = {
-        isOpen: !isMobile,
+        isOpen: initialSidebarState,
         toggle: function(forceState) {
             this.isOpen = typeof forceState === 'boolean' ? forceState : !this.isOpen;
+            
+            // --- FIX 2: Save sidebar state ---
+            localStorage.setItem('sidebarOpen', this.isOpen);
             
             if (this.isOpen) {
                 document.body.classList.add('sidebar-open-squish');
@@ -76,19 +83,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         if (!wasMobile && isNowMobile) {
             updateToggleUI(true);
-            window.ltgSidebar.toggle(false);
-            if (typeof isChatOpen !== 'undefined') {
-                isChatOpen = true;
-                if (typeof updateChatVisibility === 'function') updateChatVisibility();
-            }
+            window.ltgSidebar.toggle(false); // Auto-close sidebar so it doesn't cover mobile screens
+            // (Removed the code that forcefully opened chat here)
         } 
         else if (wasMobile && !isNowMobile) {
             updateToggleUI(false);
-            window.ltgSidebar.toggle(true);
-            if (typeof isChatOpen !== 'undefined') {
-                isChatOpen = true;
-                if (typeof updateChatVisibility === 'function') updateChatVisibility();
-            }
+            
+            // Restore whatever the user's preferred desktop state was
+            let savedDesktopSidebar = localStorage.getItem('sidebarOpen');
+            window.ltgSidebar.toggle(savedDesktopSidebar !== null ? savedDesktopSidebar === 'true' : true);
+            // (Removed the code that forcefully opened chat here)
         }
         lastWidth = currentWidth;
     });
