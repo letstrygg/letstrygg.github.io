@@ -78,7 +78,10 @@ export async function syncSts2Runs() {
             let currentFloor = 1;
             let floorHistory = [];
             if (rawData.map_point_history && rawData.map_point_history.length > 0) {
-                floorHistory = rawData.map_point_history[0].map(pt => {
+                // THE FIX: Use .flat() to combine all the acts into one continuous timeline
+                const allFloors = rawData.map_point_history.flat();
+                
+                floorHistory = allFloors.map(pt => {
                     const stats = pt.player_stats?.[0] || {};
                     return { floor: currentFloor++, type: pt.map_point_type, hp: stats.current_hp || 0, max_hp: stats.max_hp || 0, gold: stats.current_gold || 0 };
                 });

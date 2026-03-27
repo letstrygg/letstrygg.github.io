@@ -91,6 +91,8 @@
         └── hood-strut-replacement.html
 ├── ssg
     ├── updaters
+        ├── generateAutoTags.js
+        ├── syncSts2Runs.js
         ├── updateChannel.js
         ├── updateEpisode.js
         ├── updateSeason.js
@@ -111,6 +113,7 @@
         ├── db.js
         ├── fileSys.js
         ├── statsCalc.js
+        ├── tagParser.js
         ├── templates.js
         └── uiComponents.js
     ├── todo.txt
@@ -173,6 +176,7 @@
 ├── README.md
 ├── robots.txt
 ├── shows.txt
+├── site_schema.txt
 ├── sitemap.html
 ├── sitemap.txt
 ├── sitemap.xml
