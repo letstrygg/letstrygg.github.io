@@ -52,18 +52,27 @@ export async function updateSeason(playlistId, options = {}) {
 
     // --- NEW: Batch Fetch All Runs for this Season ---
     const videoIds = episodes.map(ep => ep.ltg_videos.id);
-    const { data: allRuns } = await supabase
-        .from('ltg_sts2_runs')
-        .select('video_id, run_number, character, win, ascension, floor_history')
-        .in('video_id', videoIds)
-        .order('run_number', { ascending: true });
+    console.log(`\n  📊 Fetching runs for ${videoIds.length} videos...`);
+    
+    let runsByVideo = {};
+    if (videoIds.length > 0) {
+        const { data: allRuns, error: runsError } = await supabase
+            .from('ltg_sts2_runs')
+            .select('video_id, run_number, character, win, ascension, floor_history')
+            .in('video_id', videoIds)
+            .order('run_number', { ascending: true });
 
-    const runsByVideo = {};
-    if (allRuns) {
-        allRuns.forEach(r => {
-            if (!runsByVideo[r.video_id]) runsByVideo[r.video_id] = [];
-            runsByVideo[r.video_id].push(r);
-        });
+        if (runsError) {
+            console.error(`  ❌ Failed to fetch runs: ${runsError.message}`);
+        } else if (allRuns && allRuns.length > 0) {
+            console.log(`  ✅ Found ${allRuns.length} total runs mapped to this season.`);
+            allRuns.forEach(r => {
+                if (!runsByVideo[r.video_id]) runsByVideo[r.video_id] = [];
+                runsByVideo[r.video_id].push(r);
+            });
+        } else {
+            console.log(`  ⚠️ Found 0 runs mapped to these videos in Supabase.`);
+        }
     }
 
     // --- GAME TAGS ---

@@ -53,6 +53,94 @@ export function episodeHTML(data) {
 
     const safeConfigStr = data.clientTagConfigStr || '{}';
 
+    // --- 4. Run Summary Graph (Chart.js) ---
+    const runs = data.runs || [];
+    let runsHtml = '';
+    let runsScript = '';
+
+    if (runs.length > 0) {
+        runsHtml = `
+        <div class="run-summary-container" style="margin-top: 30px; margin-bottom: 30px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; border: 1px solid var(--border, #333);">
+            <h3 style="margin-top: 0; color: var(--text-muted, #aaa); font-size: 1.1em; border-bottom: 1px solid var(--border, #333); padding-bottom: 10px; margin-bottom: 15px;">Run Summary: HP per Floor</h3>
+            <div style="height: 300px; width: 100%;">
+                <canvas id="hpChart_${data.episodeNum}"></canvas>
+            </div>
+        </div>
+        `;
+
+        // Format data for Chart.js
+        const chartDataStr = JSON.stringify(runs.map(r => {
+            const charRaw = (r.character || '').replace('CHARACTER.', '');
+            const charName = charRaw ? charRaw.charAt(0).toUpperCase() + charRaw.slice(1).toLowerCase() : 'Unknown';
+            return {
+                label: `Run ${r.run_number} (${charName})`,
+                win: r.win,
+                floorData: (r.floor_history || []).map(f => ({ floor: f.floor, hp: f.hp }))
+            };
+        }));
+
+        runsScript = `
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const ctx = document.getElementById('hpChart_${data.episodeNum}');
+    if (!ctx) return;
+
+    const rawRuns = ${chartDataStr};
+    if (rawRuns.length === 0) return;
+
+    let maxFloor = 0;
+    rawRuns.forEach(r => {
+        if (r.floorData.length > 0) {
+            const lastFloor = r.floorData[r.floorData.length - 1].floor;
+            if (lastFloor > maxFloor) maxFloor = lastFloor;
+        }
+    });
+
+    const labels = Array.from({length: maxFloor}, (_, i) => i + 1);
+    const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f1c40f', '#9b59b6'];
+
+    const datasets = rawRuns.map((run, index) => {
+        const hpMap = {};
+        run.floorData.forEach(d => { hpMap[d.floor] = d.hp; });
+        
+        const dataArr = labels.map(floor => hpMap[floor] !== undefined ? hpMap[floor] : null);
+        const color = colors[index % colors.length];
+
+        return {
+            label: run.label + (run.win ? ' [WIN]' : ' [LOSS]'),
+            data: dataArr,
+            borderColor: color,
+            backgroundColor: color + '33',
+            borderWidth: 2,
+            pointRadius: 2,
+            pointBackgroundColor: color,
+            fill: true,
+            tension: 0.3,
+            spanGaps: true
+        };
+    });
+
+    new Chart(ctx, {
+        type: 'line',
+        data: { labels: labels, datasets: datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            scales: {
+                x: { title: { display: true, text: 'Floor', color: '#aaa' }, ticks: { color: '#aaa' }, grid: { color: '#333' } },
+                y: { title: { display: true, text: 'HP', color: '#aaa' }, ticks: { color: '#aaa' }, grid: { color: '#333' }, beginAtZero: true }
+            },
+            plugins: { legend: { labels: { color: '#eee' } } }
+        }
+    });
+});
+</script>
+        `;
+    }
+
+    // --- 5. Assemble and Return the Final HTML ---
     return `---
 layout: watch
 title: "${epNumPadded} ${data.seriesTitle}"
@@ -99,6 +187,8 @@ game_slug: "${data.gameSlug}"
   %}
 
   ${allTagsHtml}
+  
+  ${runsHtml}
 
   <script>window.LTG_TAG_CONFIG = ${safeConfigStr};</script>
   {% include admin_panel.html %}
@@ -109,98 +199,7 @@ game_slug: "${data.gameSlug}"
       
       ${data.manualContent}
   </div>
-</div>`;
-
-// ... existing tag building logic ...
-    if (!row1 && !row2 && !row3 && !row4) allTagsHtml = '';
-
-    // --- NEW: Run Summary Graph ---
-    const runs = data.runs || [];
-    let runsHtml = '';
-    let runsScript = '';
-
-    if (runs.length > 0) {
-        runsHtml = `
-        <div class="run-summary-container" style="margin-top: 30px; margin-bottom: 30px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; border: 1px solid var(--border, #333);">
-            <h3 style="margin-top: 0; color: var(--text-muted, #aaa); font-size: 1.1em; border-bottom: 1px solid var(--border, #333); padding-bottom: 10px; margin-bottom: 15px;">Run Summary: HP per Floor</h3>
-            <div style="height: 300px; width: 100%;">
-                <canvas id="hpChart"></canvas>
-            </div>
-        </div>
-        `;
-
-        // Format data for Chart.js
-        const chartDataStr = JSON.stringify(runs.map(r => {
-            const charRaw = r.character.replace('CHARACTER.', '');
-            const charName = charRaw.charAt(0).toUpperCase() + charRaw.slice(1).toLowerCase();
-            return {
-                label: `Run ${r.run_number} (${charName})`,
-                win: r.win,
-                floorData: (r.floor_history || []).map(f => ({ floor: f.floor, hp: f.hp }))
-            };
-        }));
-
-        runsScript = `
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const ctx = document.getElementById('hpChart');
-    if (!ctx) return;
-
-    const rawRuns = ${chartDataStr};
-    if (rawRuns.length === 0) return;
-
-    // Find the max floor across all runs to set the X-axis
-    let maxFloor = 0;
-    rawRuns.forEach(r => {
-        if (r.floorData.length > 0) {
-            const lastFloor = r.floorData[r.floorData.length - 1].floor;
-            if (lastFloor > maxFloor) maxFloor = lastFloor;
-        }
-    });
-
-    const labels = Array.from({length: maxFloor}, (_, i) => i + 1);
-    const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f1c40f', '#9b59b6']; // Red, Blue, Green, Yellow, Purple
-
-    const datasets = rawRuns.map((run, index) => {
-        const hpMap = {};
-        run.floorData.forEach(d => { hpMap[d.floor] = d.hp; });
-        
-        // Align HP data with the 1-to-maxFloor labels array
-        const dataArr = labels.map(floor => hpMap[floor] !== undefined ? hpMap[floor] : null);
-        const color = colors[index % colors.length];
-
-        return {
-            label: run.label + (run.win ? ' [WIN]' : ' [LOSS]'),
-            data: dataArr,
-            borderColor: color,
-            backgroundColor: color + '33', // 20% opacity for the fill
-            borderWidth: 2,
-            pointRadius: 2,
-            pointBackgroundColor: color,
-            fill: true,
-            tension: 0.3,
-            spanGaps: true
-        };
-    });
-
-    new Chart(ctx, {
-        type: 'line',
-        data: { labels: labels, datasets: datasets },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: { mode: 'index', intersect: false },
-            scales: {
-                x: { title: { display: true, text: 'Floor', color: '#aaa' }, ticks: { color: '#aaa' }, grid: { color: '#333' } },
-                y: { title: { display: true, text: 'HP', color: '#aaa' }, ticks: { color: '#aaa' }, grid: { color: '#333' }, beginAtZero: true }
-            },
-            plugins: { legend: { labels: { color: '#eee' } } }
-        }
-    });
-});
-</script>
-        `;
-    }
-
+</div>
+${runsScript}
+`;
 }
