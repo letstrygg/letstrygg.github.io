@@ -1,4 +1,4 @@
-import { getFullEpisodeContext, getAdjacentEpisodes } from '../utils/db.js';
+import { getFullEpisodeContext, getAdjacentEpisodes, supabase } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
 import { episodeHTML } from '../utils/templates/index.js'; 
 import { processAdminTags, getClientTagConfig } from '../utils/tagParser.js';
@@ -10,15 +10,6 @@ function slugify(text) {
 export async function updateEpisode(videoId) {
     // 1. Fetch DB Context
     const video = await getFullEpisodeContext(videoId);
-    // ... (existing junction/playlist logic) ...
-
-    // --- NEW: Fetch Runs for this Video ---
-    const { data: runsData } = await supabase
-        .from('ltg_sts2_runs')
-        .select('run_number, character, win, ascension, floor_history')
-        .eq('video_id', videoId)
-        .order('run_number', { ascending: true });
-
     const junction = video.ltg_playlist_videos[0];
     const playlist = junction.ltg_playlists;
     const series = playlist.ltg_series;
@@ -33,13 +24,16 @@ export async function updateEpisode(videoId) {
     const tagsString = rawTags.join(', ');
 
     // --- ADMIN TAGS (New) ---
-    console.log(`\n[DEBUG] Video ID: ${video.id}`);
-
-    // Merge manual tags and auto tags
     const mergedTags = [...(video.tags || []), ...(video.auto_tags || [])];
     const adminTagsData = processAdminTags(mergedTags);
-    
-    const clientTagConfig = getClientTagConfig(gameSlug); // <-- Grab the UI rules
+    const clientTagConfig = getClientTagConfig(gameSlug);
+
+    // --- NEW: Fetch Runs for this Video (For the Chart) ---
+    const { data: runsData } = await supabase
+        .from('ltg_sts2_runs')
+        .select('run_number, character, win, ascension, floor_history')
+        .eq('video_id', videoId)
+        .order('run_number', { ascending: true });
 
     // 2. Formatting Helpers
     const formatDuration = (secs) => {
@@ -89,10 +83,10 @@ export async function updateEpisode(videoId) {
         fileName: fileName,
         tags: tagsArr,               
         tagsString: tagsString,      
-        adminTagGroups: adminTagsData.groups,
+        adminTagGroups: adminTagsData.groups,         
         adminTagsMeta: adminTagsData.metaString,
         clientTagConfigStr: JSON.stringify(clientTagConfig),
-        runs: runsData || [],
+        runs: runsData || [], // <-- PASSED DOWN TO TEMPLATE
         prevUrl: prevSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${prevPaddedEp}.html` : null,
         nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${nextPaddedEp}.html` : null
     };
