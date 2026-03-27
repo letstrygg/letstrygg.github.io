@@ -121,12 +121,25 @@ export async function syncPlaylist(playlistId) {
         
         if (videoError) throw videoError;
 
+        // 6. Upsert Junction Links into Database
         console.log(`   >> Updating playlist sort orders...`);
         const { error: junctionError } = await supabase
             .from('ltg_playlist_videos')
             .upsert(junctionPayload, { onConflict: 'playlist_id, video_id' });
 
         if (junctionError) throw junctionError;
+
+        // --- NEW: 6.5 Prune Removed Videos ---
+        console.log(`   >> Pruning removed videos from playlist...`);
+        const validVideoIds = `(${orderedVideoIds.join(',')})`;
+        const { error: cleanupError } = await supabase
+            .from('ltg_playlist_videos')
+            .delete()
+            .eq('playlist_id', playlistId)
+            .not('video_id', 'in', validVideoIds);
+            
+        if (cleanupError) throw cleanupError;
+        // -------------------------------------
 
         const { error: syncError } = await supabase
             .from('ltg_playlists')
