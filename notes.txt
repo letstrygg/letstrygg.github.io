@@ -39,7 +39,8 @@ C:\GitHub\s2>node build-sts2.js # builds cards / relics / characters (run after 
 
 
 
-
+node sync/add.js <PLAYLIST_ID> <SERIES_SLUG> <SEASON>
+node sync/add.js PLkwYKQUqZEUXaY-C4eF136KdxqN8CVQEY backpack-battles 6
 
 
 

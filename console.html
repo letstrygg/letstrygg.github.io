@@ -1,5 +1,61 @@
 ---
 layout: new
-title: Console
+title: "Console"
+permalink: /console.html
 ---
 
+<input type="text" id="queue-url" class="input" placeholder="Paste YouTube URL and press Enter...">
+<p id="queue-status" class="hidden"></p>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlInput = document.getElementById('queue-url');
+        const statusMsg = document.getElementById('queue-status');
+
+        function showStatus(text, colorClass) {
+            statusMsg.textContent = text;
+            statusMsg.className = colorClass; // This replaces 'hidden' with your global colors like 'red' or 'green'
+        }
+
+        urlInput.addEventListener('keypress', async (e) => {
+            if (e.key === 'Enter') {
+                const url = urlInput.value.trim();
+                if (!url) return;
+
+                if (!window.supabaseClient) {
+                    showStatus('Database not ready.', 'red');
+                    return;
+                }
+
+                if (!url.includes('youtube.com/') && !url.includes('youtu.be/')) {
+                    showStatus('Invalid YouTube URL.', 'red');
+                    return;
+                }
+
+                showStatus('Adding to queue...', 'text-muted');
+                urlInput.disabled = true;
+
+                const { error } = await window.supabaseClient
+                    .from('ltg_queue')
+                    .insert([{ url: url }]);
+
+                urlInput.disabled = false;
+
+                if (error) {
+                    console.error(error);
+                    if (error.message.includes('row-level security') || error.code === '42501') {
+                        showStatus('Access Denied: Log in to add to queue.', 'red');
+                    } else {
+                        showStatus(`Error: ${error.message}`, 'red');
+                    }
+                } else {
+                    showStatus('Added to queue.', 'green');
+                    urlInput.value = '';
+                    setTimeout(() => {
+                        statusMsg.className = 'hidden';
+                    }, 3000);
+                }
+            }
+        });
+    });
+</script>
