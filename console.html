@@ -4,19 +4,52 @@ title: "Console"
 permalink: /console.html
 ---
 
-<input type="text" id="queue-url" class="input" placeholder="Paste YouTube URL and press Enter...">
-<p id="queue-status" class="hidden"></p>
+<div id="auth-warning" class="text-muted">Checking authentication...</div>
+
+<div id="admin-panel" class="hidden">
+    <input type="text" id="queue-url" class="input" placeholder="Paste YouTube URL and press Enter...">
+    <p id="queue-status" class="hidden"></p>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        const adminPanel = document.getElementById('admin-panel');
+        const authWarning = document.getElementById('auth-warning');
         const urlInput = document.getElementById('queue-url');
         const statusMsg = document.getElementById('queue-status');
 
         function showStatus(text, colorClass) {
             statusMsg.textContent = text;
-            statusMsg.className = colorClass; // This replaces 'hidden' with your global colors like 'red' or 'green'
+            statusMsg.className = colorClass; 
         }
 
+        // 1. Check Auth State
+        function handleAuth(session) {
+            if (session && session.user.email === 'letstrygg@gmail.com') {
+                adminPanel.classList.remove('hidden');
+                authWarning.classList.add('hidden');
+            } else {
+                adminPanel.classList.add('hidden');
+                authWarning.classList.remove('hidden');
+                authWarning.textContent = "You must be logged in as an administrator to view this page.";
+            }
+        }
+
+        // 2. Wait for global Supabase client, then bind listeners
+        const waitForDb = setInterval(async () => {
+            if (window.supabaseClient) {
+                clearInterval(waitForDb);
+                
+                const { data: { session } } = await window.supabaseClient.auth.getSession();
+                handleAuth(session);
+
+                window.supabaseClient.auth.onAuthStateChange((event, session) => {
+                    handleAuth(session);
+                });
+            }
+        }, 100);
+
+        // 3. Queue Submission
         urlInput.addEventListener('keypress', async (e) => {
             if (e.key === 'Enter') {
                 const url = urlInput.value.trim();
@@ -43,11 +76,7 @@ permalink: /console.html
 
                 if (error) {
                     console.error(error);
-                    if (error.message.includes('row-level security') || error.code === '42501') {
-                        showStatus('Access Denied: Log in to add to queue.', 'red');
-                    } else {
-                        showStatus(`Error: ${error.message}`, 'red');
-                    }
+                    showStatus(`Error: ${error.message}`, 'red');
                 } else {
                     showStatus('Added to queue.', 'green');
                     urlInput.value = '';
