@@ -304,8 +304,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const targetVideoId = episodeSequence[newIndex];
                     updatePromises.push( 
                         supabaseClient.from('ltg_sts2_runs')
-                            .update({ video_id: targetVideoId }, { count: 'exact' })
-                            .eq('id', run.id)
+                            .update({ video_id: String(targetVideoId) }, { count: 'exact' })
+                            .eq('id', String(run.id))
                             .then(res => ({ run, res, targetVideoId }))
                     );
                     plannedShifts.push(`Run ${run.run_number} [ID: ${run.id}]: ${run.video_id} -> ${targetVideoId}`);
