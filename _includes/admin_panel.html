@@ -291,7 +291,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         const updates = [];
         let shiftDetails = [];
 
-        runsToShift.forEach(run => {
+        // If moving backwards, only update the specific run clicked.
+        // If moving forwards, cascade the shift to all subsequent runs.
+        const targetRuns = offset < 0 ? runsToShift.filter(r => r.run_number === startRunNumber) : runsToShift;
+
+        targetRuns.forEach(run => {
             const currentIndex = episodeSequence.indexOf(run.video_id);
             if (currentIndex !== -1) {
                 const newIndex = currentIndex + offset;
