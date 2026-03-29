@@ -261,10 +261,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (error) {
             alert("Failed to assign run: " + error.message);
             statusText.style.display = 'none';
-        } else {
+        } else { // If successful, keep the message and don't reload
             statusText.style.color = 'var(--green, #2ecc71)';
             statusText.innerText = "Assigned! Reloading...";
-            setTimeout(() => location.reload(), 500);
+            // setTimeout(() => location.reload(), 500); // Commented out for debugging
         }
     };
 
@@ -289,16 +289,26 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         const updates = [];
+        let shiftDetails = [];
+
         runsToShift.forEach(run => {
             const currentIndex = episodeSequence.indexOf(run.video_id);
             if (currentIndex !== -1) {
                 const newIndex = currentIndex + offset;
                 // Only shift if the target episode actually exists
                 if (newIndex >= 0 && newIndex < episodeSequence.length) {
-                    updates.push( supabaseClient.from('ltg_sts2_runs').update({ video_id: episodeSequence[newIndex] }).eq('id', run.id) );
+                    const targetVideoId = episodeSequence[newIndex];
+                    updates.push( supabaseClient.from('ltg_sts2_runs').update({ video_id: targetVideoId }).eq('id', run.id) );
+                    shiftDetails.push(`Run ${run.run_number}: ${run.video_id} -> ${targetVideoId}`);
+                } else {
+                    console.warn(`Run ${run.run_number} shift ignored: Target index ${newIndex} out of bounds.`);
                 }
+            } else {
+                console.warn(`Run ${run.run_number} shift ignored: Current video_id "${run.video_id}" not found in episode sequence.`);
             }
         });
+
+        console.log("Planned Cascade Updates:", shiftDetails);
 
         if (updates.length === 0) {
             statusText.style.color = 'var(--orange, #e67e22)';
@@ -319,7 +329,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         statusText.style.color = 'var(--green, #2ecc71)';
         statusText.innerText = "Cascade Complete! Reloading...";
-        setTimeout(() => location.reload(), 500);
+        // setTimeout(() => location.reload(), 500); // Commented out for debugging
     };
 
     initMappedRuns();
