@@ -139,12 +139,14 @@ function formatRunStatsRow(key, statsMap, overallWinRate) {
     if (wr > overallWinRate) wrColor = 'var(--green)';
     else if (wr < overallWinRate) wrColor = 'var(--red)';
 
+    const ariaLabel = `${stats.runs} Runs, ${stats.wins} Wins, ${losses} Losses, ${wrFormatted}% Winrate`;
+
     return `
-    <div style="font-size: 0.75rem; font-weight: normal; margin-top: 4px; color: var(--text-muted); display: flex; justify-content: center; gap: 6px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px;">
-        <span>r: <strong>${stats.runs}</strong></span>
-        <span>w: <strong style="color: var(--green);">${stats.wins}</strong></span>
-        <span>l: <strong style="color: var(--red);">${losses}</strong></span>
-        <span>wr: <strong style="color: ${wrColor};">${wrFormatted}%</strong></span>
+    <div aria-label="${ariaLabel}" style="font-size: 0.75rem; font-weight: normal; margin-top: 4px; color: var(--text-muted); display: flex; justify-content: center; gap: 6px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px;">
+        <span aria-hidden="true">r: <strong>${stats.runs}</strong></span>
+        <span aria-hidden="true">w: <strong style="color: var(--green);">${stats.wins}</strong></span>
+        <span aria-hidden="true">l: <strong style="color: var(--red);">${losses}</strong></span>
+        <span aria-hidden="true">wr: <strong style="color: ${wrColor};">${wrFormatted}%</strong></span>
     </div>`;
 }
 
@@ -281,7 +283,8 @@ function generateFeaturedHTML(featuredVideos) {
 // --- SHARED INDEX TEMPLATE ---
 const generateIndex = (title, items, slug, statsMap, overallWinRate, totalRuns, totalWins, gridClass = 'grid-sm') => `---
 layout: new
-title: "${title} - Slay the Spire 2"
+title: "${title} Winrates & Stats - Slay the Spire 2"
+description: "View global winrates, run statistics, and win/loss records for all Slay the Spire 2 ${title.toLowerCase()}."
 permalink: /games/slay-the-spire-2/${slug}/
 custom_css: "/css/game/sts2-style.css"
 ---
@@ -404,7 +407,8 @@ ${generateFeaturedHTML(featuredVideos)}
 const CharacterTemplates = {
     index: (title, items, slug, statsMap, overallWinRate, totalRuns, totalWins, gridClass = 'grid-sm') => `---
 layout: new
-title: "${title} - Slay the Spire 2"
+title: "${title} Winrates & Stats - Slay the Spire 2"
+description: "View global winrates, run statistics, and win/loss records for all Slay the Spire 2 ${title.toLowerCase()}."
 permalink: /games/slay-the-spire-2/${slug}/
 custom_css: "/css/game/sts2-style.css"
 ---
