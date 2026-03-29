@@ -143,10 +143,10 @@ function formatRunStatsRow(key, statsMap, overallWinRate) {
 
     return `
     <div aria-label="${ariaLabel}" style="font-size: 0.75rem; font-weight: normal; margin-top: 4px; color: var(--text-muted); display: flex; justify-content: center; gap: 6px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px;">
-        <span aria-hidden="true">r: <strong>${stats.runs}</strong></span>
-        <span aria-hidden="true">w: <strong style="color: var(--green);">${stats.wins}</strong></span>
-        <span aria-hidden="true">l: <strong style="color: var(--red);">${losses}</strong></span>
-        <span aria-hidden="true">wr: <strong style="color: ${wrColor};">${wrFormatted}%</strong></span>
+        <span aria-hidden="true">r: <data value="${stats.runs}"><strong>${stats.runs}</strong></data></span>
+        <span aria-hidden="true">w: <data value="${stats.wins}"><strong style="color: var(--green);">${stats.wins}</strong></data></span>
+        <span aria-hidden="true">l: <data value="${losses}"><strong style="color: var(--red);">${losses}</strong></data></span>
+        <span aria-hidden="true">wr: <data value="${wrFormatted}"><strong style="color: ${wrColor};">${wrFormatted}%</strong></data></span>
     </div>`;
 }
 
@@ -193,7 +193,7 @@ function generateItemStatsPanel(name, stats, overallWinRate) {
     return `
   <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
     <h2 style="margin-top: 0; font-size: 1.4rem;">${name} <span style="font-weight: normal; color: var(--gray); font-size: 0.9em;">Winrate & Run Stats</span></h2>
-    <p style="margin-bottom: 0;">Based on my tracked gameplay, <strong>${name}</strong> currently has a <strong style="color: ${wrColor};">${winrate}% winrate</strong> across <strong>${stats.runs} total runs</strong> (<strong style="color: #8dff8d;">${stats.wins} Wins</strong> / <strong style="color: var(--red);">${losses} Losses</strong>).</p>
+    <p style="margin-bottom: 0;">Based on my tracked gameplay, <strong>${name}</strong> currently has a <data value="${winrate}"><strong style="color: ${wrColor};">${winrate}% winrate</strong></data> across <data value="${stats.runs}"><strong>${stats.runs} total runs</strong></data> (<data value="${stats.wins}"><strong style="color: #8dff8d;">${stats.wins} Wins</strong></data> / <data value="${losses}"><strong style="color: var(--red);">${losses} Losses</strong></data>).</p>
   </div>`;
 }
 
@@ -316,7 +316,10 @@ custom_css: "/css/game/sts2-style.css"
   <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
     <div style="color: var(--gray); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px;">Winrate stats across all of my Slay the Spire runs for all ${title.toLowerCase()}</div>
     <div style="font-size: 1.5rem; font-weight: bold;">
-        ${totalRuns} Total Runs &nbsp;&nbsp; <span style="color: var(--green);">${totalWins} Wins</span> / <span style="color: var(--red);">${totalRuns - totalWins} Losses</span>, <span style="color: var(--gray);">${overallWinRate.toFixed(1)}% Winrate</span>
+        <data value="${totalRuns}">${totalRuns} Total Runs</data> &nbsp;&nbsp; 
+        <data value="${totalWins}"><span style="color: var(--green);">${totalWins} Wins</span></data> / 
+        <data value="${totalRuns - totalWins}"><span style="color: var(--red);">${totalRuns - totalWins} Losses</span></data>, 
+        <data value="${overallWinRate.toFixed(1)}"><span style="color: var(--gray);">${overallWinRate.toFixed(1)}% Winrate</span></data>
     </div>
   </div>
 
@@ -448,7 +451,10 @@ custom_css: "/css/game/sts2-style.css"
   <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
     <div style="color: var(--gray); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px;">Winrate stats across all of my Slay the Spire runs for all ${title.toLowerCase()}</div>
     <div style="font-size: 1.5rem; font-weight: bold;">
-        ${totalRuns} Total Runs &nbsp;&nbsp; <span style="color: var(--green);">${totalWins} Wins</span> / <span style="color: var(--red);">${totalRuns - totalWins} Losses</span>, <span style="color: var(--gray);">${overallWinRate.toFixed(1)}% Winrate</span>
+        <data value="${totalRuns}">${totalRuns} Total Runs</data> &nbsp;&nbsp; 
+        <data value="${totalWins}"><span style="color: var(--green);">${totalWins} Wins</span></data> / 
+        <data value="${totalRuns - totalWins}"><span style="color: var(--red);">${totalRuns - totalWins} Losses</span></data>, 
+        <data value="${overallWinRate.toFixed(1)}"><span style="color: var(--gray);">${overallWinRate.toFixed(1)}% Winrate</span></data>
     </div>
   </div>
 
