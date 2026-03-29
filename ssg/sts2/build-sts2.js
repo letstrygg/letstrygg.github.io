@@ -177,6 +177,20 @@ function getBorderStyle(i, statsMap, overallWinRate) {
     return `border-color: ${color};`;
 }
 
+/**
+ * Helper to generate a stats summary panel for individual detail pages
+ */
+function generateItemStatsPanel(name, stats) {
+    if (!stats || stats.runs === 0) return '';
+    const losses = stats.runs - stats.wins;
+    const winrate = ((stats.wins / stats.runs) * 100).toFixed(1);
+    return `
+  <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+    <h2 style="margin-top: 0; font-size: 1.4rem;">${name} Winrate & Run Stats</h2>
+    <p style="margin-bottom: 0;">Based on my tracked gameplay, the <strong>${name}</strong> currently has a <strong>${winrate}% winrate</strong> across <strong>${stats.runs} total runs</strong> (${stats.wins} Wins / ${losses} Losses).</p>
+  </div>`;
+}
+
 function getCountText(i) {
     return i.videoCount > 0 
         ? ` <span style="opacity: 0.6; font-size: 0.85em; color: var(--text);">(${i.videoCount})</span>` 
@@ -312,7 +326,7 @@ custom_css: "/css/game/sts2-style.css"
 // --- TEMPLATES ---
 const CardTemplates = {
     index: generateIndex,
-    detail: (item, manualContent = "", featuredVideos = []) => {
+    detail: (item, manualContent = "", featuredVideos = [], stats = null) => {
         const rarity = item.rarity || 'Common';
         const type = item.type || 'Skill';
         const colorMap = { ironclad: { name: "Ironclad", css: "red" }, silent: { name: "Silent", css: "green" }, defect: { name: "Defect", css: "blue" }, necrobinder: { name: "Necrobinder", css: "purple" }, regent: { name: "Regent", css: "orange" }, colorless: { name: "Colorless", css: "gray" }, curse: { name: "Curse", css: "gray" } };
@@ -346,13 +360,17 @@ const CardTemplates = {
 
         return `---
 layout: new
-title: "${item.name} - Slay the Spire 2 Card"
+title: "${item.name} Stats & Winrates - Slay the Spire 2"
+description: "Detailed winrates and run statistics for the ${item.name} in Slay the Spire 2, based on tracked gameplay."
 permalink: /games/slay-the-spire-2/cards/${slugify(item.name)}.html
 custom_css: "/css/game/sts2-style.css"
 ---
 <div class="game-page-wrapper">
   <h1 class="title">${item.name}</h1>
   <p class="subtitle" style="text-transform: capitalize;">${charSubtitle}${rarity} ${type}</p>
+
+  ${generateItemStatsPanel(item.name, stats)}
+
   <div class="sts-card-display">
     <div class="sts-card ${rarity.toLowerCase()} ${type.toLowerCase()}">
       <div class="sts-card-inner">
@@ -386,15 +404,19 @@ ${generateFeaturedHTML(featuredVideos)}
 
 const RelicTemplates = {
     index: generateIndex,
-    detail: (item, manualContent = "", featuredVideos = []) => `---
+    detail: (item, manualContent = "", featuredVideos = [], stats = null) => `---
 layout: new
-title: "${item.name} - Slay the Spire 2 Relic"
+title: "${item.name} Stats & Winrates - Slay the Spire 2"
+description: "Detailed winrates and run statistics for the ${item.name} in Slay the Spire 2, based on tracked gameplay."
 permalink: /games/slay-the-spire-2/relics/${slugify(item.name)}.html
 custom_css: "/css/game/sts2-style.css"
 ---
 <div class="game-page-wrapper">
   <h1 class="title" style="color: var(--yellow);">${item.name}</h1>
   <p class="subtitle" style="text-transform: capitalize;">${item.rarity || 'Common'} Relic &bull; ${item.pool || 'Shared'} Pool</p>
+
+  ${generateItemStatsPanel(item.name, stats)}
+
   <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #555; max-width: 600px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
     <p style="font-size: 1.25em; line-height: 1.5; margin: 0;">${formatSimpleText(item.description)}</p>
     ${item.flavor ? `<p style="color: #888; font-style: italic; margin-top: 15px; font-size: 0.9em;">${formatSimpleText(item.flavor)}</p>` : ''}
@@ -435,17 +457,21 @@ custom_css: "/css/game/sts2-style.css"
   </div>
 </div>`,
 
-    detail: (item, manualContent = "", featuredVideos = []) => {
+    detail: (item, manualContent = "", featuredVideos = [], stats = null) => {
         const charColor = item.color || 'gray';
         return `---
 layout: new
-title: "${item.name} - Slay the Spire 2 Character"
+title: "${item.name} Stats & Winrates - Slay the Spire 2"
+description: "Detailed winrates and run statistics for the ${item.name} in Slay the Spire 2, based on tracked gameplay."
 permalink: /games/slay-the-spire-2/characters/${slugify(item.name)}.html
 custom_css: "/css/game/sts2-style.css"
 ---
 <div class="game-page-wrapper">
   <h1 class="title" style="color: var(--${charColor});">${item.name}</h1>
   <p class="subtitle">Character</p>
+
+  ${generateItemStatsPanel(item.name, stats)}
+
   <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid var(--${charColor}); max-width: 600px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
     <p style="font-size: 1.25em; line-height: 1.5; margin: 0; white-space: pre-wrap;">${formatSimpleText(item.description)}</p>
     <ul style="color: #ccc; margin-top: 20px; line-height: 1.8; font-size: 1.1em;">
@@ -462,15 +488,19 @@ ${generateFeaturedHTML(featuredVideos)}
 
 const EnchantmentTemplates = {
     index: generateIndex,
-    detail: (item, manualContent = "", featuredVideos = []) => `---
+    detail: (item, manualContent = "", featuredVideos = [], stats = null) => `---
 layout: new
-title: "${item.name} - Slay the Spire 2 Enchantment"
+title: "${item.name} Stats & Winrates - Slay the Spire 2"
+description: "Detailed winrates and run statistics for the ${item.name} in Slay the Spire 2, based on tracked gameplay."
 permalink: /games/slay-the-spire-2/enchantments/${slugify(item.name)}.html
 custom_css: "/css/game/sts2-style.css"
 ---
 <div class="game-page-wrapper">
   <h1 class="title" style="color: var(--purple);">${item.name}</h1>
   <p class="subtitle">Enchantment</p>
+
+  ${generateItemStatsPanel(item.name, stats)}
+
   <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid var(--purple); max-width: 600px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
     <p style="font-size: 1.25em; line-height: 1.5; margin: 0;">${formatSimpleText(item.description)}</p>
     ${item.extra_card_text ? `<p style="color: #888; font-style: italic; margin-top: 15px; font-size: 0.9em;">Adds Text: "${formatSimpleText(item.extra_card_text)}"</p>` : ''}
@@ -482,7 +512,7 @@ ${generateFeaturedHTML(featuredVideos)}
 
 const EventTemplates = {
     index: generateIndex,
-    detail: (item, manualContent = "", featuredVideos = []) => {
+    detail: (item, manualContent = "", featuredVideos = [], stats = null) => {
         // Build the choices list if the event has options
         let optionsHtml = '';
         if (item.options && item.options.length > 0) {
@@ -502,13 +532,17 @@ const EventTemplates = {
 
         return `---
 layout: new
-title: "${item.name} - Slay the Spire 2 Event"
+title: "${item.name} Stats & Winrates - Slay the Spire 2"
+description: "Detailed winrates and run statistics for the ${item.name} in Slay the Spire 2, based on tracked gameplay."
 permalink: /games/slay-the-spire-2/events/${slugify(item.name)}.html
 custom_css: "/css/game/sts2-style.css"
 ---
 <div class="game-page-wrapper">
   <h1 class="title" style="color: var(--blue);">${item.name}</h1>
   <p class="subtitle">${item.type || 'Event'} &bull; ${item.act || 'Unknown Act'}</p>
+
+  ${generateItemStatsPanel(item.name, stats)}
+
   <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid var(--blue); max-width: 600px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
     <p style="font-size: 1.15em; line-height: 1.6; margin: 0; white-space: pre-wrap;">${formatSimpleText(item.description)}</p>
     ${optionsHtml}
@@ -585,7 +619,7 @@ function buildCategory(categoryName, itemsArray, templates, tagVideoMap, statsMa
             rawData: item 
         });
 
-        const detailHTML = templates.detail(item, manualContent, featuredVideos);
+        const detailHTML = templates.detail(item, manualContent, featuredVideos, statsMap[lookupKey]);
         fs.writeFileSync(filePath, detailHTML);
     });
 
