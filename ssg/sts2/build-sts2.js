@@ -4,6 +4,34 @@ import { PATHS, ensureDir, slugify } from './paths.js';
 import { supabase } from '../utils/db.js';
 import { buildStatsPage } from './build-stats.js';
 
+// --- BUILD DATE CONSTANTS ---
+const BUILD_DATE = new Date();
+const FORMATTED_BUILD_DATE = BUILD_DATE.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+const ISO_BUILD_DATE = BUILD_DATE.toISOString();
+
+/**
+ * Helper to generate JSON-LD for individual item pages
+ */
+function generateItemJsonLd(name, category, stats) {
+    const wr = stats ? ((stats.wins / stats.runs) * 100).toFixed(1) : "0.0";
+    const runs = stats ? stats.runs : 0;
+    return `
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemPage",
+  "name": "${name} - Slay the Spire 2",
+  "description": "Gameplay statistics for ${name}. Winrate: ${wr}%. Total Runs: ${runs}.",
+  "dateModified": "${ISO_BUILD_DATE}",
+  "mainEntity": {
+    "@type": "Thing",
+    "name": "${name}",
+    "alternateName": "Slay the Spire 2 ${category}"
+  }
+}
+</script>`;
+}
+
 // --- TAG TO VIDEO MAPPER ---
 async function fetchTagVideoMap(gameSlug = 'slay-the-spire-2') {
     const tagMap = {};
@@ -193,7 +221,7 @@ function generateItemStatsPanel(name, stats, overallWinRate) {
     return `
   <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
     <h2 style="margin-top: 0; font-size: 1.4rem;">${name} <span style="font-weight: normal; color: var(--gray); font-size: 0.9em;">Winrate & Run Stats</span></h2>
-    <p style="margin-bottom: 0;">Based on my tracked gameplay, <strong>${name}</strong> currently has a <data value="${winrate}"><strong style="color: ${wrColor};">${winrate}% winrate</strong></data> across <data value="${stats.runs}"><strong>${stats.runs} total runs</strong></data> (<data value="${stats.wins}"><strong style="color: #8dff8d;">${stats.wins} Wins</strong></data> / <data value="${losses}"><strong style="color: var(--red);">${losses} Losses</strong></data>).</p>
+    <p style="margin-bottom: 0;">Based on my tracked gameplay, <strong>${name}</strong> currently has a <data value="${winrate}"><strong style="color: ${wrColor};">${winrate}% winrate</strong></data> across <data value="${stats.runs}"><strong>${stats.runs} total runs</strong></data> (<data value="${stats.wins}"><strong style="color: #8dff8d;">${stats.wins} Wins</strong></data> / <data value="${losses}"><strong style="color: var(--red);">${losses} Losses</strong></data>) as of <time datetime="${ISO_BUILD_DATE}">${FORMATTED_BUILD_DATE}</time>.</p>
   </div>`;
 }
 
@@ -313,6 +341,10 @@ custom_css: "/css/game/sts2-style.css"
     <h1 class="title">Slay the Spire 2 ${title} Winrates & Stats</h1>
   </div>
 
+  <p style="font-size: 0.8rem; color: var(--gray); margin-top: -15px; margin-bottom: 20px; text-transform: uppercase;">
+    Data last updated: <time datetime="${ISO_BUILD_DATE}">${FORMATTED_BUILD_DATE}</time>
+  </p>
+
   <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
     <div style="color: var(--gray); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px;">Winrate stats across all of my Slay the Spire runs for all ${title.toLowerCase()}</div>
     <div style="font-size: 1.5rem; font-weight: bold;">
@@ -330,7 +362,17 @@ custom_css: "/css/game/sts2-style.css"
         return '<a href="' + i.url + '" class="btn btn-gray" style="display: flex; flex-direction: column; text-align: center; padding: 10px; ' + bgStyle + borderStyle + '"><span>' + i.title + getCountText(i) + '</span>' + formatRunStatsRow(i.statsKey, statsMap, overallWinRate) + '</a>';
     }).join('\n')}
   </div>
-</div>`;
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Slay the Spire 2 ${title} Winrates & Stats",
+  "description": "View global winrates, run statistics, and win/loss records for all Slay the Spire 2 ${title.toLowerCase()}.",
+  "dateModified": "${ISO_BUILD_DATE}"
+}
+</script>`;
 
 // --- TEMPLATES ---
 const CardTemplates = {
@@ -407,7 +449,8 @@ custom_css: "/css/game/sts2-style.css"
   </div>
 ${manualContent ? `\n${manualContent}` : ''}
 ${generateFeaturedHTML(featuredVideos)}
-</div>`;
+</div>
+${generateItemJsonLd(item.name, "Card", stats)}`;
     }
 };
 
@@ -432,7 +475,8 @@ custom_css: "/css/game/sts2-style.css"
   </div>
 ${manualContent ? `\n${manualContent}` : ''}
 ${generateFeaturedHTML(featuredVideos)}
-</div>`
+</div>
+${generateItemJsonLd(item.name, "Relic", stats)}`
 };
 
 const CharacterTemplates = {
@@ -447,6 +491,10 @@ custom_css: "/css/game/sts2-style.css"
   <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
     <h1 class="title">Slay the Spire 2 ${title} Winrates & Stats</h1>
   </div>
+
+  <p style="font-size: 0.8rem; color: var(--gray); margin-top: -15px; margin-bottom: 20px; text-transform: uppercase;">
+    Data last updated: <time datetime="${ISO_BUILD_DATE}">${FORMATTED_BUILD_DATE}</time>
+  </p>
 
   <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
     <div style="color: var(--gray); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px;">Winrate stats across all of my Slay the Spire runs for all ${title.toLowerCase()}</div>
@@ -467,7 +515,17 @@ custom_css: "/css/game/sts2-style.css"
         return '<a href="' + i.url + '" class="btn btn-gray" style="display: flex; flex-direction: column; text-align: center; padding: 10px; ' + bgStyle + borderStyle + charColor + '"><span>' + i.title + getCountText(i) + '</span>' + formatRunStatsRow(i.statsKey, statsMap, overallWinRate) + '</a>';
     }).join('\n')}
   </div>
-</div>`,
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Slay the Spire 2 ${title} Winrates & Stats",
+  "description": "View global winrates, run statistics, and win/loss records for all Slay the Spire 2 ${title.toLowerCase()}.",
+  "dateModified": "${ISO_BUILD_DATE}"
+}
+</script>`,
 
     detail: (item, manualContent = "", featuredVideos = [], stats = null, overallWinRate = 0) => {
         const charColor = item.color || 'gray';
@@ -494,7 +552,8 @@ custom_css: "/css/game/sts2-style.css"
   </div>
 ${manualContent ? `\n${manualContent}` : ''}
 ${generateFeaturedHTML(featuredVideos)}
-</div>`;
+</div>
+${generateItemJsonLd(item.name, "Character", stats)}`;
     }
 };
 
@@ -519,7 +578,8 @@ custom_css: "/css/game/sts2-style.css"
   </div>
 ${manualContent ? `\n${manualContent}` : ''}
 ${generateFeaturedHTML(featuredVideos)}
-</div>`
+</div>
+${generateItemJsonLd(item.name, "Enchantment", stats)}`
 };
 
 const EventTemplates = {
@@ -561,7 +621,8 @@ custom_css: "/css/game/sts2-style.css"
   </div>
 ${manualContent ? `\n${manualContent}` : ''}
 ${generateFeaturedHTML(featuredVideos)}
-</div>`;
+</div>
+${generateItemJsonLd(item.name, "Event", stats)}`;
     }
 };
 
