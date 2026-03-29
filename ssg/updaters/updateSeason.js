@@ -3,11 +3,8 @@ import { supabase } from '../utils/db.js';
 import { seasonHTML, episodeHTML } from '../utils/templates/index.js';
 import { writeStaticPage } from '../utils/fileSys.js';
 import { processAdminTags, getClientTagConfig } from '../utils/tagParser.js';
-
-// --- NEW: Slugify Helper ---
-function slugify(text) {
-    return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
-}
+import { slugify, formatDuration, isoDuration } from '../utils/format.js';
+import { buildEpisodePage } from './updateEpisode.js';
 
 export async function updateSeason(playlistId, options = {}) {
     const isForce = options.force || false;
@@ -212,13 +209,6 @@ export async function updateSeason(playlistId, options = {}) {
                 nextUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}/${shortPrefix}-s${paddedSeason}e${nextEpNum}.html`;
             }
 
-            const h = Math.floor(v.duration_seconds / 3600);
-            const m = Math.floor((v.duration_seconds % 3600) / 60);
-            const s = v.duration_seconds % 60;
-            const durationFormatted = h > 0 ? `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}` : `${m}:${String(s).padStart(2, '0')}`;
-            
-            const isoDuration = `PT${h > 0 ? h + 'H' : ''}${m > 0 ? m + 'M' : ''}${s}S`;
-
             let thumbnail = `https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`;
 
             let manualContent = "\n";
@@ -245,9 +235,9 @@ export async function updateSeason(playlistId, options = {}) {
                 thumbnail,
                 publishedAt: new Date(v.published_at).toLocaleDateString(),
                 rawPublishedAt: v.published_at,
-                durationFormatted,
+                durationFormatted: formatDuration(v.duration_seconds),
                 durationSeconds: v.duration_seconds,
-                isoDuration,
+                isoDuration: isoDuration(v.duration_seconds),
                 views: v.view_count || 0,
                 likes: v.likes || 0,
                 comments: v.comments || 0,
@@ -262,8 +252,7 @@ export async function updateSeason(playlistId, options = {}) {
                 manualContent
             };
 
-            const epHTML = episodeHTML(epData);
-            writeStaticPage(epPath, epHTML);
+            buildEpisodePage(epData, seasonPath);
         }
     }
 

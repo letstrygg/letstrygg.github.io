@@ -1,14 +1,11 @@
-
-import { getFullEpisodeContext, getAdjacentEpisodes } from '../utils/db.js';
+import fs from 'fs';
+import { supabase, getFullEpisodeContext, getAdjacentEpisodes } from '../utils/db.js';
 import { writeStaticPage, checkFileExists } from '../utils/fileSys.js';
 import { episodeHTML } from '../utils/templates/index.js'; 
 import { processAdminTags, getClientTagConfig } from '../utils/tagParser.js';
+import { slugify, formatDuration, isoDuration } from '../utils/format.js';
 
-function slugify(text) {
-    return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
-}
-
-export async function updateEpisode(videoId) {
+export async function updateEpisode(videoId, options = {}) {
     // 1. Fetch DB Context
     const video = await getFullEpisodeContext(videoId);
     // ... (existing junction/playlist logic) ...
@@ -41,21 +38,6 @@ export async function updateEpisode(videoId) {
     const adminTagsData = processAdminTags(mergedTags);
     
     const clientTagConfig = getClientTagConfig(gameSlug); // <-- Grab the UI rules
-
-    // 2. Formatting Helpers
-    const formatDuration = (secs) => {
-        const h = Math.floor(secs / 3600);
-        const m = Math.floor((secs % 3600) / 60);
-        const s = Math.floor(secs % 60);
-        return h > 0 ? `${h}h ${m}m ${s}s` : `${m}m ${s}s`;
-    };
-
-    const isoDuration = (secs) => {
-        const h = Math.floor(secs / 3600);
-        const m = Math.floor((secs % 3600) / 60);
-        const s = Math.floor(secs % 60);
-        return `PT${h > 0 ? h + 'H' : ''}${m > 0 ? m + 'M' : ''}${s}S`;
-    };
 
     // --- PREFIX, PADDING, AND PATH LOGIC ---
     const dbAbbr = series.ltg_games?.custom_abbr;
@@ -98,17 +80,22 @@ export async function updateEpisode(videoId) {
         nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${nextPaddedEp}.html` : null
     };
 
-    // 4. Write the Files
-    const mainFilePath = `${basePath}/${fileName}`;
-    const manualFilePath = `${basePath}/_manual/${fileName}`;
-    
-    const pageHTML = episodeHTML(templateData);
+    return buildEpisodePage(templateData, basePath);
+}
+
+/**
+ * Shared rendering logic used by both updateEpisode and updateSeason
+ */
+export function buildEpisodePage(data, basePath) {
+    const mainFilePath = `${basePath}/${data.fileName}`;
+    const manualFilePath = `${basePath}/_manual/${data.fileName}`;
+
+    const pageHTML = episodeHTML(data);
     writeStaticPage(mainFilePath, pageHTML);
 
     if (!checkFileExists(manualFilePath)) {
         writeStaticPage(manualFilePath, "\n");
-        console.log(`    [CREATED MANUAL FRAGMENT] ${manualFilePath}`);
     }
 
-    return { success: true, filePath: mainFilePath, playlistId: playlist.id, seriesSlug: series.slug };
+    return { success: true, filePath: mainFilePath };
 }

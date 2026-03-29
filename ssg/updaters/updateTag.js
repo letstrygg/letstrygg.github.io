@@ -14,7 +14,7 @@ function slugify(text) {
         .replace(/-+$/, '');
 }
 
-export async function updateTag(targetTagSlug = null) {
+export async function updateTag(targetTagSlug = null, options = {}) {
     console.log(`\n🏷️  Generating Tag Directories...`);
 
     const { data: rawPlaylists, error } = await supabase

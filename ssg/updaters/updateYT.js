@@ -13,7 +13,7 @@ function slugify(text) {
     return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
 }
 
-export async function updateYT() {
+export async function updateYT(options = {}) {
     console.log(`\n🏗️  Aggregating Network Statistics for Master Hub...`);
 
     const { data: rawPlaylists, error } = await supabase

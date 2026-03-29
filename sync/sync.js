@@ -6,28 +6,28 @@ import { syncSts2Runs } from '../ssg/updaters/syncSts2Runs.js';
 import { generateAutoTags } from '../ssg/updaters/generateAutoTags.js';
 
 async function processChannelSync(channelSlug, syncMode, skipUpdate, forceUpdate) {
+    const options = { force: forceUpdate };
     const { affectedGames, errors: syncErrors } = await syncChannel(channelSlug, syncMode);
 
-    // --- NEW: Generate tags BEFORE building the HTML ---
+    // Centralized Game Hooks: Regenerate tags if STS2 data changed
     if (affectedGames.includes('slay-the-spire-2')) {
+        console.log(`\n🧩 Slay the Spire 2 detected. Updating auto-tags...`);
         await generateAutoTags();
     }
-    // ---------------------------------------------------
 
     if (!skipUpdate && affectedGames.length > 0) {
         console.log(`\n🔨 Triggering SSG Builds for ${affectedGames.length} affected games...`);
-        const forceFlag = forceUpdate ? ' --force' : '';
         
         for (const slug of affectedGames) {
             console.log(`   >> Building Series: ${slug}...`);
-            execSync(`node ssg/update.js series ${slug}${forceFlag}`, { stdio: 'inherit' });
+            await execBuild('series', slug, options);
         }
         
         console.log(`   >> Rebuilding Network Tag Hub...`);
-        execSync(`node ssg/update.js tag${forceFlag}`, { stdio: 'inherit' });
+        await execBuild('tag', null, options);
 
         console.log(`   >> Rebuilding Network Master Hub...`);
-        execSync(`node ssg/update.js yt${forceFlag}`, { stdio: 'inherit' });
+        await execBuild('yt', null, options);
 
     } else if (skipUpdate) {
         console.log(`\n⏩ Skipping SSG Builds (--no-update provided).`);
@@ -41,6 +41,13 @@ async function processChannelSync(channelSlug, syncMode, skipUpdate, forceUpdate
     }
 }
 
+async function execBuild(type, target, options) {
+    const forceFlag = options.force ? ' --force' : '';
+    const targetArg = target ? ` ${target}` : '';
+    const cmd = `node ssg/update.js ${type}${targetArg}${forceFlag}`;
+    execSync(cmd, { stdio: 'inherit' });
+}
+
 async function run() {
     const args = process.argv.slice(2);
     
@@ -50,6 +57,7 @@ async function run() {
     let syncMode = 'full';
     if (args.includes('--smart') || args.includes('-s')) syncMode = 'smart';
     if (args.includes('--recent') || args.includes('-r')) syncMode = 'recent';
+    const options = { force: forceUpdate };
     
     const cleanArgs = args.filter(a => !a.startsWith('-'));
     const command = cleanArgs[0]; 
@@ -59,9 +67,7 @@ async function run() {
     const startTime = Date.now();
 
     try {
-        // --- NEW: Pre-Sync Local Runs ---
         await syncSts2Runs();
-        // --------------------------------
 
         if (command === 'playlist' && targetId) {
             console.log(`🎯 Target: Single Playlist (${targetId})`);
@@ -74,15 +80,13 @@ async function run() {
                     await linkOrphanedRuns(latestNewVideoId);
                 }
                 
-                // --- NEW: Generate tags BEFORE building the HTML ---
                 await generateAutoTags();
             }
 
             if (!skipUpdate) {
                 console.log(`\n🔨 Triggering SSG Build...`);
-                const forceFlag = forceUpdate ? ' --force' : '';
-                execSync(`node ssg/update.js season ${targetId}${forceFlag}`, { stdio: 'inherit' });
-                if (gameSlug) execSync(`node ssg/update.js series ${gameSlug}${forceFlag}`, { stdio: 'inherit' });
+                await execBuild('season', targetId, options);
+                if (gameSlug) await execBuild('series', gameSlug, options);
             }
         } 
         
