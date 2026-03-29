@@ -77,7 +77,7 @@ async function fetchRunStatsMap() {
 
     if (error) {
         console.error("❌ Error fetching runs for stats:", error.message);
-        return { statsMap, overallWinRate: 0 };
+        return { statsMap, overallWinRate: 0, totalRuns: 0, totalWins: 0 };
     }
 
     const totalRuns = runs.length;
@@ -121,7 +121,7 @@ async function fetchRunStatsMap() {
         }
     });
 
-    return { statsMap, overallWinRate };
+    return { statsMap, overallWinRate, totalRuns, totalWins };
 }
 
 /**
@@ -279,7 +279,7 @@ function generateFeaturedHTML(featuredVideos) {
 }
 
 // --- SHARED INDEX TEMPLATE ---
-const generateIndex = (title, items, slug, statsMap, overallWinRate, gridClass = 'grid-sm') => `---
+const generateIndex = (title, items, slug, statsMap, overallWinRate, totalRuns, totalWins, gridClass = 'grid-sm') => `---
 layout: new
 title: "${title} - Slay the Spire 2"
 permalink: /games/slay-the-spire-2/${slug}/
@@ -289,6 +289,14 @@ custom_css: "/css/game/sts2-style.css"
   <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
     <h1 class="title">All ${title}</h1>
   </div>
+
+  <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
+    <div style="color: var(--gray); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px;">Winrate stats across all of my Slay the Spire runs for all ${title.toLowerCase()}</div>
+    <div style="font-size: 1.5rem; font-weight: bold;">
+        ${totalRuns} Total Runs &nbsp;&nbsp; <span style="color: var(--green);">${totalWins} Wins</span> / <span style="color: var(--red);">${totalRuns - totalWins} Losses</span>, <span style="color: ${overallWinRate >= 50 ? 'var(--green)' : 'var(--red)'};">${overallWinRate.toFixed(1)}% Winrate</span>
+    </div>
+  </div>
+
   <div class="grid ${gridClass}">
     ${items.map(i => {
         const bgStyle = getWinRateStyle(i.statsKey, statsMap);
@@ -394,7 +402,7 @@ ${generateFeaturedHTML(featuredVideos)}
 };
 
 const CharacterTemplates = {
-    index: (title, items, slug, statsMap, overallWinRate, gridClass = 'grid-sm') => `---
+    index: (title, items, slug, statsMap, overallWinRate, totalRuns, totalWins, gridClass = 'grid-sm') => `---
 layout: new
 title: "${title} - Slay the Spire 2"
 permalink: /games/slay-the-spire-2/${slug}/
@@ -404,6 +412,14 @@ custom_css: "/css/game/sts2-style.css"
   <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
     <h1 class="title">All ${title}</h1>
   </div>
+
+  <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
+    <div style="color: var(--gray); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px;">Winrate stats across all of my Slay the Spire runs for all ${title.toLowerCase()}</div>
+    <div style="font-size: 1.5rem; font-weight: bold;">
+        ${totalRuns} Total Runs &nbsp;&nbsp; <span style="color: var(--green);">${totalWins} Wins</span> / <span style="color: var(--red);">${totalRuns - totalWins} Losses</span>, <span style="color: ${overallWinRate >= 50 ? 'var(--green)' : 'var(--red)'};">${overallWinRate.toFixed(1)}% Winrate</span>
+    </div>
+  </div>
+
   <div class="grid ${gridClass}">
     ${items.map(i => {
         const bgStyle = getWinRateStyle(i.statsKey, statsMap);
@@ -524,7 +540,7 @@ custom_css: "/css/game/sts2-style.css"
 }
 
 // --- THE GENERALIZED BUILDER ---
-function buildCategory(categoryName, itemsArray, templates, tagVideoMap, statsMap, overallWinRate, categoryPrefix, gridClass = 'grid-sm') {
+function buildCategory(categoryName, itemsArray, templates, tagVideoMap, statsMap, overallWinRate, totalRuns, totalWins, categoryPrefix, gridClass = 'grid-sm') {
     if (!itemsArray || !Array.isArray(itemsArray)) return;
     
     const categorySlug = slugify(categoryName);
@@ -573,7 +589,7 @@ function buildCategory(categoryName, itemsArray, templates, tagVideoMap, statsMa
     
     const indexFilePath = path.join(outputDir, 'index.html');
     // Pass the gridClass into the template!
-    const indexHTML = templates.index(categoryName, indexItems, categorySlug, statsMap, overallWinRate, gridClass);
+    const indexHTML = templates.index(categoryName, indexItems, categorySlug, statsMap, overallWinRate, totalRuns, totalWins, gridClass);
     fs.writeFileSync(indexFilePath, indexHTML);
 
     console.log(`  ✅ Wrote ${indexItems.length} detail pages + 1 index page to /${categorySlug}/`);
@@ -592,13 +608,13 @@ async function run() {
     ensureDir(PATHS.STS2_ROOT);
 
     const tagVideoMap = await fetchTagVideoMap('slay-the-spire-2');
-    const { statsMap, overallWinRate } = await fetchRunStatsMap();
+    const { statsMap, overallWinRate, totalRuns, totalWins } = await fetchRunStatsMap();
     const codexDir = PATHS.CODEX_DATA;
     const categoriesBuilt = [];
 
     const allCards = loadJsonSafe(codexDir, 'cards.json');
     if (allCards) {
-        buildCategory("Cards", allCards, CardTemplates, tagVideoMap, statsMap, overallWinRate, "card");
+        buildCategory("Cards", allCards, CardTemplates, tagVideoMap, statsMap, overallWinRate, totalRuns, totalWins, "card");
         categoriesBuilt.push("Cards");
     }
 
@@ -609,7 +625,7 @@ async function run() {
                 r.flavor = null;
             }
         });
-        buildCategory("Relics", allRelics, RelicTemplates, tagVideoMap, statsMap, overallWinRate, "relic");
+        buildCategory("Relics", allRelics, RelicTemplates, tagVideoMap, statsMap, overallWinRate, totalRuns, totalWins, "relic");
         categoriesBuilt.push("Relics");
     }
 
@@ -618,20 +634,20 @@ async function run() {
         allCharacters.forEach(c => {
             if (c.name) c.name = c.name.replace(/^The\s+/i, '');
         });
-        buildCategory("Characters", allCharacters, CharacterTemplates, tagVideoMap, statsMap, overallWinRate, "character");
+        buildCategory("Characters", allCharacters, CharacterTemplates, tagVideoMap, statsMap, overallWinRate, totalRuns, totalWins, "character");
         categoriesBuilt.push("Characters");
     }
 
     const allEnchantments = loadJsonSafe(codexDir, 'enhancements.json') || loadJsonSafe(codexDir, 'enchantments.json');
     if (allEnchantments) {
-        buildCategory("Enchantments", allEnchantments, EnchantmentTemplates, tagVideoMap, statsMap, overallWinRate, "enchantment");
+        buildCategory("Enchantments", allEnchantments, EnchantmentTemplates, tagVideoMap, statsMap, overallWinRate, totalRuns, totalWins, "enchantment");
         categoriesBuilt.push("Enchantments");
     }
 
     // --- NEW: Process Events ---
     const allEvents = loadJsonSafe(codexDir, 'events.json');
     if (allEvents) {
-        buildCategory("Events", allEvents, EventTemplates, tagVideoMap, statsMap, overallWinRate, "event", "grid-md");
+        buildCategory("Events", allEvents, EventTemplates, tagVideoMap, statsMap, overallWinRate, totalRuns, totalWins, "event", "grid-md");
         categoriesBuilt.push("Events");
     }
 
