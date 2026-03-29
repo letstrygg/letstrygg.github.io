@@ -69,7 +69,7 @@ async function run() {
 
     // SCENARIO 2: Channel Shortcut (e.g., `node ssg/update.js letstrygg`)
     // If the command isn't a known keyword, assume it's a channel slug shortcut
-    const knownCommands = ['episode', 'season', 'series', 'channel', 'tag', 'yt'];
+    const knownCommands = ['episode', 'season', 'series', 'channel', 'tag', 'yt', 'game'];
     if (!knownCommands.includes(command)) {
         await cascadeChannelUpdate(command);
         return;
@@ -87,7 +87,8 @@ async function run() {
                 await updateSeason(targetId);
                 break;
             case 'series':
-                if (!targetId) throw new Error("Missing series slug");
+            case 'game':
+                if (!targetId) throw new Error("Missing series/game slug");
                 await updateSeries(targetId);
                 break;
             case 'channel':
