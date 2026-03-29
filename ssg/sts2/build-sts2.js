@@ -148,6 +148,16 @@ function formatRunStatsRow(key, statsMap, overallWinRate) {
     </div>`;
 }
 
+/**
+ * Generates a linear-gradient background style based on winrate
+ */
+function getWinRateStyle(key, statsMap) {
+    const stats = statsMap[key];
+    if (!stats || stats.runs === 0) return '';
+    const wr = (stats.wins / stats.runs) * 100;
+    return `background: linear-gradient(90deg, rgba(127, 255, 0, 0.15) ${wr}%, rgba(255, 101, 101, 0.15) ${wr}%);`;
+}
+
 function getCountText(i) {
     return i.videoCount > 0 
         ? ` <span style="opacity: 0.6; font-size: 0.85em; color: var(--text);">(${i.videoCount})</span>` 
@@ -265,8 +275,9 @@ custom_css: "/css/game/sts2-style.css"
   <div class="grid ${gridClass}">
     ${items.map(i => {
         const hasVideo = i.videoCount > 0;
-        const style = (i.hasManualData || hasVideo) ? 'border-color: var(--green); box-shadow: 0 0 5px rgba(127, 255, 0, 0.3);' : '';
-        return '<a href="' + i.url + '" class="btn btn-gray" style="display: flex; flex-direction: column; text-align: center; padding: 10px; ' + style + '"><span>' + i.title + getCountText(i) + '</span>' + formatRunStatsRow(i.statsKey, statsMap, overallWinRate) + '</a>';
+        const bgStyle = getWinRateStyle(i.statsKey, statsMap);
+        const borderStyle = (i.hasManualData || hasVideo) ? 'border-color: var(--green); box-shadow: 0 0 5px rgba(127, 255, 0, 0.3);' : '';
+        return '<a href="' + i.url + '" class="btn btn-gray" style="display: flex; flex-direction: column; text-align: center; padding: 10px; ' + bgStyle + borderStyle + '"><span>' + i.title + getCountText(i) + '</span>' + formatRunStatsRow(i.statsKey, statsMap, overallWinRate) + '</a>';
     }).join('\n')}
   </div>
 </div>`;
@@ -391,11 +402,12 @@ custom_css: "/css/game/sts2-style.css"
             else if (c === 'orange' || c === 'regent') { cssColor = 'orange'; rgbShadow = '230, 126, 34'; }
         }
         
-        const style = (i.hasManualData || hasVideo) 
+        const bgStyle = getWinRateStyle(i.statsKey, statsMap);
+        const borderStyle = (i.hasManualData || hasVideo) 
             ? 'border-color: var(--' + cssColor + '); color: var(--' + cssColor + '); box-shadow: 0 0 5px rgba(' + rgbShadow + ', 0.3);' 
             : '';
             
-        return '<a href="' + i.url + '" class="btn btn-gray" style="display: flex; flex-direction: column; text-align: center; padding: 10px; ' + style + '"><span>' + i.title + getCountText(i) + '</span>' + formatRunStatsRow(i.statsKey, statsMap, overallWinRate) + '</a>';
+        return '<a href="' + i.url + '" class="btn btn-gray" style="display: flex; flex-direction: column; text-align: center; padding: 10px; ' + bgStyle + borderStyle + '"><span>' + i.title + getCountText(i) + '</span>' + formatRunStatsRow(i.statsKey, statsMap, overallWinRate) + '</a>';
     }).join('\n')}
   </div>
 </div>`,
