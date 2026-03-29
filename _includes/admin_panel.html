@@ -276,10 +276,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         statusText.innerText = "Saving Cascade...";
         
         // Find ALL currently assigned runs >= the clicked run to cascade the shift
-        const { data: runsToShift } = await supabaseClient.from('ltg_sts2_runs')
+        const { data: runsToShift, error: fetchError } = await supabaseClient.from('ltg_sts2_runs')
             .select('id, run_number, video_id')
             .gte('run_number', startRunNumber)
             .not('video_id', 'is', null);
+
+        if (fetchError) {
+            console.error("Cascade Fetch Error:", fetchError);
+            statusText.style.color = 'var(--red, #e74c3c)';
+            statusText.innerText = "Error fetching runs: " + fetchError.message;
+            return;
+        }
 
         const updates = [];
         runsToShift.forEach(run => {
@@ -293,7 +300,22 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         });
 
-        await Promise.all(updates);
+        if (updates.length === 0) {
+            statusText.style.color = 'var(--orange, #e67e22)';
+            statusText.innerText = "No runs to shift (boundary reached).";
+            setTimeout(() => statusText.style.display = 'none', 3000);
+            return;
+        }
+
+        const results = await Promise.all(updates);
+        const errors = results.filter(r => r.error);
+
+        if (errors.length > 0) {
+            console.error("Cascade Update Errors:", errors);
+            statusText.style.color = 'var(--red, #e74c3c)';
+            statusText.innerText = "Error: " + errors[0].error.message;
+            return;
+        }
         
         statusText.style.color = 'var(--green, #2ecc71)';
         statusText.innerText = "Cascade Complete! Reloading...";
