@@ -254,9 +254,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         statusText.style.display = 'block';
         statusText.innerText = "Pulling run...";
 
-        const { error } = await supabaseClient.from('ltg_sts2_runs')
-            .update({ video_id: recordId })
-            .eq('id', runId);
+        // Update the run and clear the auto-tags for this video
+        const [runRes, tagRes] = await Promise.all([
+            supabaseClient.from('ltg_sts2_runs').update({ video_id: recordId }).eq('id', runId),
+            supabaseClient.from('ltg_videos').update({ auto_tags: [] }).eq('id', recordId)
+        ]);
+
+        const error = runRes.error || tagRes.error;
 
         if (error) {
             console.error("DEBUG: pullUnmappedRun Response Error:", error);
@@ -291,6 +295,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         let updatePromises = [];
         let plannedShifts = [];
+        const affectedVideoIds = new Set();
 
         // If moving backwards, only update the specific run clicked.
         // If moving forwards, cascade the shift to all subsequent runs.
@@ -303,6 +308,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // Only shift if the target episode actually exists
                 if (newIndex >= 0 && newIndex < episodeSequence.length) {
                     const targetVideoId = episodeSequence[newIndex];
+
+                    affectedVideoIds.add(run.video_id);
+                    affectedVideoIds.add(targetVideoId);
 
                     updatePromises.push( 
                         supabaseClient.from('ltg_sts2_runs')
@@ -320,6 +328,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
         console.log("Planned Cascade Updates:", plannedShifts);
+
+        // Add tag cleanup for all affected videos to the batch
+        if (affectedVideoIds.size > 0) {
+            updatePromises.push(
+                supabaseClient.from('ltg_videos')
+                    .update({ auto_tags: [] })
+                    .in('id', Array.from(affectedVideoIds))
+                    .then(res => ({ run: { run_number: 'Tags' }, res, targetVideoId: 'Clear' }))
+            );
+        }
 
         if (updatePromises.length === 0) {
             statusText.style.color = 'var(--orange, #e67e22)';
