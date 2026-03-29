@@ -171,7 +171,7 @@ function getBorderStyle(i, statsMap, overallWinRate) {
     if (!stats || stats.runs === 0) return 'border-color: var(--gray);';
 
     const wr = (stats.wins / stats.runs) * 100;
-    const color = wr >= overallWinRate ? 'var(--green)' : 'var(--red)';
+    const color = wr >= overallWinRate ? '#8dff8d' : 'var(--red)';
     return `border-color: ${color};`;
 }
 
@@ -293,7 +293,7 @@ custom_css: "/css/game/sts2-style.css"
   <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
     <div style="color: var(--gray); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px;">Winrate stats across all of my Slay the Spire runs for all ${title.toLowerCase()}</div>
     <div style="font-size: 1.5rem; font-weight: bold;">
-        ${totalRuns} Total Runs &nbsp;&nbsp; <span style="color: var(--green);">${totalWins} Wins</span> / <span style="color: var(--red);">${totalRuns - totalWins} Losses</span>, <span style="color: ${overallWinRate >= 50 ? 'var(--green)' : 'var(--red)'};">${overallWinRate.toFixed(1)}% Winrate</span>
+        ${totalRuns} Total Runs &nbsp;&nbsp; <span style="color: var(--green);">${totalWins} Wins</span> / <span style="color: var(--red);">${totalRuns - totalWins} Losses</span>, <span style="color: var(--gray);">${overallWinRate.toFixed(1)}% Winrate</span>
     </div>
   </div>
 
@@ -416,7 +416,7 @@ custom_css: "/css/game/sts2-style.css"
   <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
     <div style="color: var(--gray); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px;">Winrate stats across all of my Slay the Spire runs for all ${title.toLowerCase()}</div>
     <div style="font-size: 1.5rem; font-weight: bold;">
-        ${totalRuns} Total Runs &nbsp;&nbsp; <span style="color: var(--green);">${totalWins} Wins</span> / <span style="color: var(--red);">${totalRuns - totalWins} Losses</span>, <span style="color: ${overallWinRate >= 50 ? 'var(--green)' : 'var(--red)'};">${overallWinRate.toFixed(1)}% Winrate</span>
+        ${totalRuns} Total Runs &nbsp;&nbsp; <span style="color: var(--green);">${totalWins} Wins</span> / <span style="color: var(--red);">${totalRuns - totalWins} Losses</span>, <span style="color: var(--gray);">${overallWinRate.toFixed(1)}% Winrate</span>
     </div>
   </div>
 
