@@ -290,7 +290,7 @@ custom_css: "/css/game/sts2-style.css"
 ---
 <div class="game-page-wrapper">
   <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
-    <h1 class="title">All ${title}</h1>
+    <h1 class="title">Slay the Spire 2 ${title} Winrates & Stats</h1>
   </div>
 
   <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
@@ -414,7 +414,7 @@ custom_css: "/css/game/sts2-style.css"
 ---
 <div class="game-page-wrapper">
   <div class="divider-bottom" style="margin-bottom: 20px; padding-bottom: 15px;">
-    <h1 class="title">All ${title}</h1>
+    <h1 class="title">Slay the Spire 2 ${title} Winrates & Stats</h1>
   </div>
 
   <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
