@@ -288,8 +288,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        const updates = [];
-        let shiftDetails = [];
+        let updatePromises = [];
+        let plannedShifts = [];
 
         // If moving backwards, only update the specific run clicked.
         // If moving forwards, cascade the shift to all subsequent runs.
@@ -302,8 +302,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // Only shift if the target episode actually exists
                 if (newIndex >= 0 && newIndex < episodeSequence.length) {
                     const targetVideoId = episodeSequence[newIndex];
-                    updates.push( supabaseClient.from('ltg_sts2_runs').update({ video_id: targetVideoId }).eq('id', run.id) );
-                    shiftDetails.push(`Run ${run.run_number}: ${run.video_id} -> ${targetVideoId}`);
+                    updatePromises.push( 
+                        supabaseClient.from('ltg_sts2_runs')
+                            .update({ video_id: targetVideoId }, { count: 'exact' })
+                            .eq('id', run.id)
+                            .then(res => ({ run, res, targetVideoId }))
+                    );
+                    plannedShifts.push(`Run ${run.run_number} [ID: ${run.id}]: ${run.video_id} -> ${targetVideoId}`);
                 } else {
                     console.warn(`Run ${run.run_number} shift ignored: Target index ${newIndex} out of bounds.`);
                 }
@@ -312,22 +317,33 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         });
 
-        console.log("Planned Cascade Updates:", shiftDetails);
+        console.log("Planned Cascade Updates:", plannedShifts);
 
-        if (updates.length === 0) {
+        if (updatePromises.length === 0) {
             statusText.style.color = 'var(--orange, #e67e22)';
             statusText.innerText = "No runs to shift (boundary reached).";
             setTimeout(() => statusText.style.display = 'none', 3000);
             return;
         }
 
-        const results = await Promise.all(updates);
-        const errors = results.filter(r => r.error);
+        const results = await Promise.all(updatePromises);
 
-        if (errors.length > 0) {
-            console.error("Cascade Update Errors:", errors);
+        let failureCount = 0;
+        results.forEach(({ run, res, targetVideoId }) => {
+            if (res.error) {
+                console.error(`Update failed for Run ${run.run_number}:`, res.error);
+                failureCount++;
+            } else if (res.count === 0) {
+                console.warn(`Update executed but matched 0 rows for Run ${run.run_number} (ID: ${run.id}). Check RLS policies.`);
+                failureCount++;
+            } else {
+                console.log(`Successfully shifted Run ${run.run_number} to ${targetVideoId} (Rows affected: ${res.count})`);
+            }
+        });
+
+        if (failureCount > 0) {
             statusText.style.color = 'var(--red, #e74c3c)';
-            statusText.innerText = "Error: " + errors[0].error.message;
+            statusText.innerText = `Error: ${failureCount} updates failed. Check console.`;
             return;
         }
         
