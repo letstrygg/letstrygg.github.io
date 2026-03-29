@@ -57,5 +57,10 @@ export async function updateChannel(hubSlug, options = {}) {
         return { success: true, skipped: true, totalEpisodes, errors: channelErrors };
     }
 
+    console.log(`  🏗️ Rebuilding Channel Root Index for ${context.hubSlug}...`);
+    const html = channelHTML(context);
+    writeStaticPage(indexPath, html);
+    console.log(`  ✅ Channel Index generated at: ${indexPath}`);
+
     return { success: true, skipped: false, totalEpisodes, errors: channelErrors };
 }

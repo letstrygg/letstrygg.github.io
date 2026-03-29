@@ -28,7 +28,7 @@ async function buildTheWorld() {
     if (channels) {
         for (const ch of channels) {
             try {
-                await updateChannel(ch.slug);
+                await updateChannel(ch.slug, { force: forceUpdate });
             } catch (err) {
                 // Bulletproof the loop: If one channel fails, log it and keep going
                 console.error(`  ⚠️ Warning: Skipped building channel '${ch.slug}' (${err.message})`);
@@ -49,7 +49,7 @@ async function cascadeChannelUpdate(slug) {
     console.log(`\n🌊 Cascading updates for channel: ${slug}...`);
     
     // 1. Build the specific channel
-    await updateChannel(slug);
+    await updateChannel(slug, { force: forceUpdate });
     
     // 2. Rebuild the Tags (since this channel's stats/videos might have changed tag data)
     await updateTag();
@@ -69,7 +69,7 @@ async function run() {
 
     // SCENARIO 2: Channel Shortcut (e.g., `node ssg/update.js letstrygg`)
     // If the command isn't a known keyword, assume it's a channel slug shortcut
-    const knownCommands = ['episode', 'season', 'series', 'channel', 'tag', 'yt', 'game'];
+    const knownCommands = ['episode', 'season', 'series', 'channel', 'tag', 'yt'];
     if (!knownCommands.includes(command)) {
         await cascadeChannelUpdate(command);
         return;
@@ -84,12 +84,11 @@ async function run() {
                 break;
             case 'season':
                 if (!targetId) throw new Error("Missing playlist ID");
-                await updateSeason(targetId);
+                await updateSeason(targetId, { force: forceUpdate });
                 break;
             case 'series':
-            case 'game':
-                if (!targetId) throw new Error("Missing series/game slug");
-                await updateSeries(targetId);
+                if (!targetId) throw new Error("Missing series slug");
+                await updateSeries(targetId, { force: forceUpdate });
                 break;
             case 'channel':
                 if (!targetId) throw new Error("Missing channel slug");
