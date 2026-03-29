@@ -155,7 +155,24 @@ function getWinRateStyle(key, statsMap) {
     const stats = statsMap[key];
     if (!stats || stats.runs === 0) return '';
     const wr = (stats.wins / stats.runs) * 100;
-    return `background: linear-gradient(90deg, rgba(127, 255, 0, 0.15) ${wr}%, rgba(255, 101, 101, 0.15) ${wr}%);`;
+    return `background: linear-gradient(90deg, rgb(98 255 117 / 20%) ${wr}%, rgb(255 75 75 / 32%) ${wr}%);`;
+}
+
+/**
+ * Generates border color based on winrate vs average
+ * Grey if no episodes
+ */
+function getBorderStyle(i, statsMap, overallWinRate) {
+    if (i.videoCount <= 0) {
+        return 'border-color: var(--gray);';
+    }
+
+    const stats = statsMap[i.statsKey];
+    if (!stats || stats.runs === 0) return 'border-color: var(--gray);';
+
+    const wr = (stats.wins / stats.runs) * 100;
+    const color = wr >= overallWinRate ? 'var(--green)' : 'var(--red)';
+    return `border-color: ${color};`;
 }
 
 function getCountText(i) {
@@ -274,9 +291,8 @@ custom_css: "/css/game/sts2-style.css"
   </div>
   <div class="grid ${gridClass}">
     ${items.map(i => {
-        const hasVideo = i.videoCount > 0;
         const bgStyle = getWinRateStyle(i.statsKey, statsMap);
-        const borderStyle = (i.hasManualData || hasVideo) ? 'border-color: var(--green); box-shadow: 0 0 5px rgba(127, 255, 0, 0.3);' : '';
+        const borderStyle = getBorderStyle(i, statsMap, overallWinRate);
         return '<a href="' + i.url + '" class="btn btn-gray" style="display: flex; flex-direction: column; text-align: center; padding: 10px; ' + bgStyle + borderStyle + '"><span>' + i.title + getCountText(i) + '</span>' + formatRunStatsRow(i.statsKey, statsMap, overallWinRate) + '</a>';
     }).join('\n')}
   </div>
@@ -390,24 +406,11 @@ custom_css: "/css/game/sts2-style.css"
   </div>
   <div class="grid ${gridClass}">
     ${items.map(i => {
-        const hasVideo = i.videoCount > 0;
-        let cssColor = 'green';
-        let rgbShadow = '127, 255, 0'; 
-        
-        if (i.rawData && i.rawData.color) {
-            const c = i.rawData.color.toLowerCase();
-            if (c === 'red' || c === 'ironclad') { cssColor = 'red'; rgbShadow = '255, 101, 101'; }
-            else if (c === 'blue' || c === 'defect') { cssColor = 'blue'; rgbShadow = '135, 206, 235'; }
-            else if (c === 'purple' || c === 'necrobinder') { cssColor = 'purple'; rgbShadow = '193, 140, 255'; }
-            else if (c === 'orange' || c === 'regent') { cssColor = 'orange'; rgbShadow = '230, 126, 34'; }
-        }
-        
         const bgStyle = getWinRateStyle(i.statsKey, statsMap);
-        const borderStyle = (i.hasManualData || hasVideo) 
-            ? 'border-color: var(--' + cssColor + '); color: var(--' + cssColor + '); box-shadow: 0 0 5px rgba(' + rgbShadow + ', 0.3);' 
-            : '';
+        const borderStyle = getBorderStyle(i, statsMap, overallWinRate);
+        const charColor = (i.rawData && i.rawData.color) ? `color: var(--${i.rawData.color.toLowerCase()});` : '';
             
-        return '<a href="' + i.url + '" class="btn btn-gray" style="display: flex; flex-direction: column; text-align: center; padding: 10px; ' + bgStyle + borderStyle + '"><span>' + i.title + getCountText(i) + '</span>' + formatRunStatsRow(i.statsKey, statsMap, overallWinRate) + '</a>';
+        return '<a href="' + i.url + '" class="btn btn-gray" style="display: flex; flex-direction: column; text-align: center; padding: 10px; ' + bgStyle + borderStyle + charColor + '"><span>' + i.title + getCountText(i) + '</span>' + formatRunStatsRow(i.statsKey, statsMap, overallWinRate) + '</a>';
     }).join('\n')}
   </div>
 </div>`,
