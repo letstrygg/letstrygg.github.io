@@ -180,14 +180,20 @@ function getBorderStyle(i, statsMap, overallWinRate) {
 /**
  * Helper to generate a stats summary panel for individual detail pages
  */
-function generateItemStatsPanel(name, stats) {
+function generateItemStatsPanel(name, stats, overallWinRate) {
     if (!stats || stats.runs === 0) return '';
     const losses = stats.runs - stats.wins;
-    const winrate = ((stats.wins / stats.runs) * 100).toFixed(1);
+    const wr = (stats.wins / stats.runs) * 100;
+    const winrate = wr.toFixed(1);
+
+    let wrColor = 'var(--gray)';
+    if (wr > overallWinRate) wrColor = '#8dff8d';
+    else if (wr < overallWinRate) wrColor = 'var(--red)';
+
     return `
   <div style="background: #1a1a1a; border: 1px solid var(--border); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-    <h2 style="margin-top: 0; font-size: 1.4rem;">${name} Winrate & Run Stats</h2>
-    <p style="margin-bottom: 0;">Based on my tracked gameplay, the <strong>${name}</strong> currently has a <strong>${winrate}% winrate</strong> across <strong>${stats.runs} total runs</strong> (${stats.wins} Wins / ${losses} Losses).</p>
+    <h2 style="margin-top: 0; font-size: 1.4rem;">${name} <span style="font-weight: normal; color: var(--gray); font-size: 0.9em;">Winrate & Run Stats</span></h2>
+    <p style="margin-bottom: 0;">Based on my tracked gameplay, <strong>${name}</strong> currently has a <strong style="color: ${wrColor};">${winrate}% winrate</strong> across <strong>${stats.runs} total runs</strong> (<strong style="color: #8dff8d;">${stats.wins} Wins</strong> / <strong style="color: var(--red);">${losses} Losses</strong>).</p>
   </div>`;
 }
 
@@ -326,7 +332,7 @@ custom_css: "/css/game/sts2-style.css"
 // --- TEMPLATES ---
 const CardTemplates = {
     index: generateIndex,
-    detail: (item, manualContent = "", featuredVideos = [], stats = null) => {
+    detail: (item, manualContent = "", featuredVideos = [], stats = null, overallWinRate = 0) => {
         const rarity = item.rarity || 'Common';
         const type = item.type || 'Skill';
         const colorMap = { ironclad: { name: "Ironclad", css: "red" }, silent: { name: "Silent", css: "green" }, defect: { name: "Defect", css: "blue" }, necrobinder: { name: "Necrobinder", css: "purple" }, regent: { name: "Regent", css: "orange" }, colorless: { name: "Colorless", css: "gray" }, curse: { name: "Curse", css: "gray" } };
@@ -369,7 +375,7 @@ custom_css: "/css/game/sts2-style.css"
   <h1 class="title">${item.name}</h1>
   <p class="subtitle" style="text-transform: capitalize;">${charSubtitle}${rarity} ${type}</p>
 
-  ${generateItemStatsPanel(item.name, stats)}
+  ${generateItemStatsPanel(item.name, stats, overallWinRate)}
 
   <div class="sts-card-display">
     <div class="sts-card ${rarity.toLowerCase()} ${type.toLowerCase()}">
@@ -404,7 +410,7 @@ ${generateFeaturedHTML(featuredVideos)}
 
 const RelicTemplates = {
     index: generateIndex,
-    detail: (item, manualContent = "", featuredVideos = [], stats = null) => `---
+    detail: (item, manualContent = "", featuredVideos = [], stats = null, overallWinRate = 0) => `---
 layout: new
 title: "${item.name} Stats & Winrates - Slay the Spire 2"
 description: "Detailed winrates and run statistics for the ${item.name} in Slay the Spire 2, based on tracked gameplay."
@@ -415,7 +421,7 @@ custom_css: "/css/game/sts2-style.css"
   <h1 class="title" style="color: var(--yellow);">${item.name}</h1>
   <p class="subtitle" style="text-transform: capitalize;">${item.rarity || 'Common'} Relic &bull; ${item.pool || 'Shared'} Pool</p>
 
-  ${generateItemStatsPanel(item.name, stats)}
+  ${generateItemStatsPanel(item.name, stats, overallWinRate)}
 
   <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #555; max-width: 600px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
     <p style="font-size: 1.25em; line-height: 1.5; margin: 0;">${formatSimpleText(item.description)}</p>
@@ -457,7 +463,7 @@ custom_css: "/css/game/sts2-style.css"
   </div>
 </div>`,
 
-    detail: (item, manualContent = "", featuredVideos = [], stats = null) => {
+    detail: (item, manualContent = "", featuredVideos = [], stats = null, overallWinRate = 0) => {
         const charColor = item.color || 'gray';
         return `---
 layout: new
@@ -470,7 +476,7 @@ custom_css: "/css/game/sts2-style.css"
   <h1 class="title" style="color: var(--${charColor});">${item.name}</h1>
   <p class="subtitle">Character</p>
 
-  ${generateItemStatsPanel(item.name, stats)}
+  ${generateItemStatsPanel(item.name, stats, overallWinRate)}
 
   <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid var(--${charColor}); max-width: 600px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
     <p style="font-size: 1.25em; line-height: 1.5; margin: 0; white-space: pre-wrap;">${formatSimpleText(item.description)}</p>
@@ -488,7 +494,7 @@ ${generateFeaturedHTML(featuredVideos)}
 
 const EnchantmentTemplates = {
     index: generateIndex,
-    detail: (item, manualContent = "", featuredVideos = [], stats = null) => `---
+    detail: (item, manualContent = "", featuredVideos = [], stats = null, overallWinRate = 0) => `---
 layout: new
 title: "${item.name} Stats & Winrates - Slay the Spire 2"
 description: "Detailed winrates and run statistics for the ${item.name} in Slay the Spire 2, based on tracked gameplay."
@@ -499,7 +505,7 @@ custom_css: "/css/game/sts2-style.css"
   <h1 class="title" style="color: var(--purple);">${item.name}</h1>
   <p class="subtitle">Enchantment</p>
 
-  ${generateItemStatsPanel(item.name, stats)}
+  ${generateItemStatsPanel(item.name, stats, overallWinRate)}
 
   <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid var(--purple); max-width: 600px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
     <p style="font-size: 1.25em; line-height: 1.5; margin: 0;">${formatSimpleText(item.description)}</p>
@@ -512,7 +518,7 @@ ${generateFeaturedHTML(featuredVideos)}
 
 const EventTemplates = {
     index: generateIndex,
-    detail: (item, manualContent = "", featuredVideos = [], stats = null) => {
+    detail: (item, manualContent = "", featuredVideos = [], stats = null, overallWinRate = 0) => {
         // Build the choices list if the event has options
         let optionsHtml = '';
         if (item.options && item.options.length > 0) {
@@ -541,7 +547,7 @@ custom_css: "/css/game/sts2-style.css"
   <h1 class="title" style="color: var(--blue);">${item.name}</h1>
   <p class="subtitle">${item.type || 'Event'} &bull; ${item.act || 'Unknown Act'}</p>
 
-  ${generateItemStatsPanel(item.name, stats)}
+  ${generateItemStatsPanel(item.name, stats, overallWinRate)}
 
   <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid var(--blue); max-width: 600px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
     <p style="font-size: 1.15em; line-height: 1.6; margin: 0; white-space: pre-wrap;">${formatSimpleText(item.description)}</p>
@@ -619,7 +625,7 @@ function buildCategory(categoryName, itemsArray, templates, tagVideoMap, statsMa
             rawData: item 
         });
 
-        const detailHTML = templates.detail(item, manualContent, featuredVideos, statsMap[lookupKey]);
+        const detailHTML = templates.detail(item, manualContent, featuredVideos, statsMap[lookupKey], overallWinRate);
         fs.writeFileSync(filePath, detailHTML);
     });
 
