@@ -11,7 +11,7 @@ description: "${data.seriesTitle} Let's Play Season ${data.seasonNum} Episode ${
 permalink: /yt/${data.channelSlug}/${data.gameSlug}/season-${Math.floor(data.seasonNum)}/${data.fileName}
 custom_css: "/css/game/${data.shortPrefix}-style.css"
 thumbnail: "${safeThumbnail}"
-sync_date: "${data.rawPublishedAt}"
+sync_date: "${data.syncDate || data.rawPublishedAt}"
 ---
 
 <script type="application/ld+json">
@@ -73,14 +73,11 @@ sync_date: "${data.syncDate}"
   <div class="game-section">
     {% include_relative _manual/index.html %}
 
-    {%- assign ep_pages = site.pages | where_exp: "item", "item.url contains '/yt/${data.channelSlug}/${data.gameSlug}/season-${Math.floor(data.seasonNum)}/'" | where_exp: "item", "item.name != 'index.html'" | sort: "title" -%}
-    
     <div id="epGrid" class="ep-grid">
-    {%- for ep in ep_pages -%}
-      <a href="{{ ep.url | relative_url }}">
-        {{ ep.title | remove: "${data.seriesTitle}" | strip }}
-      </a>
-    {%- endfor -%}
+    ${data.episodes.map(ep => `
+      <a href="${ep.url}">
+        ${String(ep.epNum).padStart(3, '0')}
+      </a>`).join('\n')}
     </div>
   </div>
 </div>
@@ -112,7 +109,7 @@ sync_date: "${data.syncDate}"
 ---
 
 <div class="game-page-wrapper">
-  {% include_relative _manual/index.html %}
+  ${data.manualContent || '{% include_relative _manual/index.html %}'}
 
   <div class="season-grid">\n`;
 
@@ -175,10 +172,11 @@ layout: new
 title: "${data.hubSlug} - Games Directory"
 permalink: /yt/${data.hubSlug}/
 custom_css: "/css/game.css"
+sync_date: "${new Date().toISOString()}"
 ---
 
 <div class="game-page-wrapper">
-  {% include_relative _manual/index.html %}
+  ${data.manualContent || '{% include_relative _manual/index.html %}'}
 
   <div style="margin-bottom: 20px;">
     <h1 class="title">${data.hubSlug}</h1>

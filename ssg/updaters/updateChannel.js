@@ -52,13 +52,23 @@ export async function updateChannel(hubSlug, options = {}) {
     const basePath = `yt/${context.hubSlug}`;
     const indexPath = `${basePath}/index.html`;
 
+    // --- LOAD MANUAL FRAGMENT ---
+    const manualPath = `${basePath}/_manual/index.html`;
+    let manualContent = "\n";
+    if (fs.existsSync(manualPath)) {
+        manualContent = fs.readFileSync(manualPath, 'utf8');
+    } else {
+        if (!fs.existsSync(`${basePath}/_manual`)) fs.mkdirSync(`${basePath}/_manual`, { recursive: true });
+        fs.writeFileSync(manualPath, manualContent);
+    }
+
     if (!anyUpdates && !isForce && fs.existsSync(indexPath)) {
         console.log(`\n⏩ Channel Root skipped (All child series are up-to-date).`);
         return { success: true, skipped: true, totalEpisodes, errors: channelErrors };
     }
 
     console.log(`  🏗️ Rebuilding Channel Root Index for ${context.hubSlug}...`);
-    const html = channelHTML(context);
+    const html = channelHTML({ ...context, manualContent });
     writeStaticPage(indexPath, html);
     console.log(`  ✅ Channel Index generated at: ${indexPath}`);
 

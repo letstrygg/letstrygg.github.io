@@ -91,6 +91,10 @@ async function run() {
             case 'series':
                 if (!targetId) throw new Error("Missing series slug");
                 await updateSeries(targetId, options);
+                // If we force a series update, we should refresh the channel index too
+                if (options.force) {
+                    await updateChannel(options.channelSlug || 'letstrygg', { ...options, indexesOnly: true });
+                }
                 break;
             case 'channel':
                 if (!targetId) throw new Error("Missing channel slug");
