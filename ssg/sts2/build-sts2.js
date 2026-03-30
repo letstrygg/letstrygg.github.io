@@ -125,27 +125,31 @@ async function fetchRunStatsMap() {
     };
 
     runs.forEach(run => {
-        // 1. Character
-        addStat('character', run.character, run.win);
+        // 1. Character (Unique by nature)
+        if (run.character) {
+            addStat('character', run.character, run.win);
+        }
 
-        // 2. Relics
+        // 2. Relics (Deduplicated)
         if (run.relic_list) {
-            run.relic_list.forEach(r => addStat('relic', r, run.win));
+            [...new Set(run.relic_list)].forEach(r => addStat('relic', r, run.win));
         }
 
-        // 3. Events
+        // 3. Events (Deduplicated)
         if (run.event_list) {
-            run.event_list.forEach(e => addStat('event', e, run.win));
+            [...new Set(run.event_list)].forEach(e => addStat('event', e, run.win));
         }
 
-        // 4. Cards & Enchantments
+        // 4. Cards & Enchantments (Deduplicated)
         if (run.deck_list) {
+            const uniqueCards = new Set();
+            const uniqueEnchantments = new Set();
             run.deck_list.forEach(card => {
-                addStat('card', card.id, run.win);
-                if (card.enchantment) {
-                    addStat('enchantment', card.enchantment, run.win);
-                }
+                uniqueCards.add(card.id);
+                if (card.enchantment) uniqueEnchantments.add(card.enchantment);
             });
+            uniqueCards.forEach(id => addStat('card', id, run.win));
+            uniqueEnchantments.forEach(e => addStat('enchantment', e, run.win));
         }
     });
 
