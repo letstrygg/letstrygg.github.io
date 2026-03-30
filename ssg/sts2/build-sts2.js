@@ -189,7 +189,7 @@ function getWinRateStyle(key, statsMap) {
     const stats = statsMap[key];
     if (!stats || stats.runs === 0) return '';
     const wr = (stats.wins / stats.runs) * 100;
-    return `background: linear-gradient(90deg, rgb(98 255 117 / 20%) ${wr}%, rgb(255 75 75 / 32%) ${wr}%);`;
+    return `background: linear-gradient(90deg, rgb(0 255 137 / 37%) ${wr}%, rgb(255 75 75 / 32%) ${wr}%);`;
 }
 
 /**
