@@ -43,10 +43,20 @@ export async function updateEpisode(videoId, options = {}) {
     const dbAbbr = series.ltg_games?.custom_abbr;
     const shortPrefix = dbAbbr ? dbAbbr.toLowerCase() : gameSlug.split('-').map(w => isNaN(parseInt(w)) ? w[0] : w).join('').toLowerCase();
     
-    const paddedSeason = String(Math.floor(playlist.season)).padStart(2, '0');
+    const seasonNumStr = playlist.season.toString();
+    const seasonNumSafe = seasonNumStr.replace('.', '_');
+    const seasonParts = seasonNumStr.split('.');
+    const paddedSeason = seasonParts[0].padStart(2, '0') + (seasonParts[1] ? '_' + seasonParts[1] : '');
+
     const paddedEp = String(junction.sort_order).padStart(2, '0');
     const fileName = `${shortPrefix}-s${paddedSeason}e${paddedEp}.html`;
-    const basePath = `yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}`;
+    const basePath = `yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}`;
+    const epUrl = `/${basePath}/${fileName}`;
+
+    // Sync the generated URL to the database if it's missing or changed
+    if (video.url !== epUrl) {
+        await supabase.from('ltg_videos').update({ url: epUrl }).eq('id', video.id);
+    }
 
     const prevPaddedEp = prevSortOrder ? String(prevSortOrder).padStart(2, '0') : null;
     const nextPaddedEp = nextSortOrder ? String(nextSortOrder).padStart(2, '0') : null;
@@ -76,8 +86,8 @@ export async function updateEpisode(videoId, options = {}) {
         adminTagsMeta: adminTagsData.metaString,
         clientTagConfigStr: JSON.stringify(clientTagConfig),
         runs: runsData || [],
-        prevUrl: prevSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${prevPaddedEp}.html` : null,
-        nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${Math.floor(playlist.season)}/${shortPrefix}-s${paddedSeason}e${nextPaddedEp}.html` : null
+        prevUrl: prevSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}/${shortPrefix}-s${paddedSeason}e${prevPaddedEp}.html` : null,
+        nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}/${shortPrefix}-s${paddedSeason}e${nextPaddedEp}.html` : null
     };
 
     return buildEpisodePage(templateData, basePath);

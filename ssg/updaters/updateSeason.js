@@ -36,7 +36,7 @@ export async function updateSeason(playlistId, options = {}) {
         .select(`
             sort_order,
             ltg_videos!inner (
-                id, title, published_at, duration_seconds, view_count, likes, comments, tags, auto_tags
+                id, title, published_at, duration_seconds, view_count, likes, comments, tags, auto_tags, url
             )
         `)
         .eq('playlist_id', playlistId)
@@ -183,6 +183,11 @@ export async function updateSeason(playlistId, options = {}) {
         const epPath = `${seasonPath}/${fileName}`;
         const epManualPath = `${seasonPath}/_manual/${fileName}`;
         const epUrl = `/yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}/${fileName}`;
+
+        // Sync the generated URL to the database if it's missing or changed
+        if (v.url !== epUrl) {
+            await supabase.from('ltg_videos').update({ url: epUrl }).eq('id', v.id);
+        }
 
         fullEpisodesList.push({
             epNum: ep.sort_order,
