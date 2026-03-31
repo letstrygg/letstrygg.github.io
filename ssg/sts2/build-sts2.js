@@ -45,7 +45,7 @@ async function fetchTagVideoMap(gameSlug = 'slay-the-spire-2') {
                 season, channel_slug,
                 ltg_series!inner ( game_slug, ltg_games ( custom_abbr, title ) ) 
             ),
-            ltg_videos!inner ( id, title, auto_tags, published_at )
+            ltg_videos!inner ( id, title, auto_tags, published_at, url )
         `)
         .eq('ltg_playlists.ltg_series.game_slug', gameSlug);
 
@@ -71,6 +71,11 @@ async function fetchTagVideoMap(gameSlug = 'slay-the-spire-2') {
         
         const fileName = `${shortPrefix}-s${paddedSeason}e${paddedEpUrl}.html`;
         const url = `/yt/${pl.channel_slug}/${gameSlug}/season-${seasonNumSafe}/${fileName}`;
+
+        // Sync the generated URL to the database if it's missing or changed
+        if (v.url !== url) {
+            await supabase.from('ltg_videos').update({ url }).eq('id', v.id);
+        }
 
         const gameTitle = gameData?.title || 'Slay the Spire 2';
         const displayTitle = `${formattedEpNum} ${gameTitle}`;
