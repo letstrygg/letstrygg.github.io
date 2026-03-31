@@ -206,6 +206,11 @@ game_slug: "${data.gameSlug}"
       
       ${data.manualContent}
   </div>
+
+  ${data.spireStatsUrl ? `
+  <div class="spire-stats-footer" style="margin-top: 40px; text-align: center; border-top: 1px solid var(--border); padding-top: 20px; opacity: 0.8; font-size: 0.9em;">
+      <p>Run Stats from <a href="${data.spireStatsUrl}" target="_blank" style="color: var(--blue); text-decoration: underline;">${data.spireStatsUrl}</a></p>
+  </div>` : ''}
 </div>
 ${runsScript}
 `;

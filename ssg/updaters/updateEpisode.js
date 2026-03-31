@@ -86,6 +86,7 @@ export async function updateEpisode(videoId, options = {}) {
         adminTagsMeta: adminTagsData.metaString,
         clientTagConfigStr: JSON.stringify(clientTagConfig),
         runs: runsData || [],
+        spireStatsUrl: gameSlug === 'slay-the-spire-2' ? 'https://spire2stats.com/' : null,
         prevUrl: prevSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}/${shortPrefix}-s${paddedSeason}e${prevPaddedEp}.html` : null,
         nextUrl: nextSortOrder ? `/yt/${channelSlug}/${gameSlug}/season-${seasonNumSafe}/${shortPrefix}-s${paddedSeason}e${nextPaddedEp}.html` : null
     };

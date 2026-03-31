@@ -254,6 +254,7 @@ export async function updateSeason(playlistId, options = {}) {
                 adminTagsMeta: adminTagsData.metaString,      
                 clientTagConfigStr: clientTagConfigStr,       
                 runs: runsByVideo[v.id] || [],                // <-- DATA INJECTED HERE
+                spireStatsUrl: gameSlug === 'slay-the-spire-2' ? 'https://spire2stats.com/' : null,
                 manualContent
             };
 
