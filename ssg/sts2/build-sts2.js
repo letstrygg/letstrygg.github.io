@@ -119,9 +119,10 @@ async function fetchRunStatsMap() {
 
     const addStat = (category, rawValue, win, isTypePrefixed = true) => {
         if (!rawValue) return;
-        // Convert "CARD.STRIKE_R" -> "strike-r"
-        const typePrefix = isTypePrefixed ? rawValue.split('.')[0] + '.' : '';
-        const itemSlug = rawValue.replace(typePrefix, '').toLowerCase().replace(/_/g, '-');
+        // Handle both "CARD.STRIKE_R" and "STRIKE_R"
+        const parts = rawValue.split('.');
+        const rawId = parts.length > 1 ? parts[1] : parts[0];
+        const itemSlug = rawId.toLowerCase().replace(/_/g, '-');
         const key = `${category}:${itemSlug}`;
         
         if (!statsMap[key]) statsMap[key] = { runs: 0, wins: 0 };
