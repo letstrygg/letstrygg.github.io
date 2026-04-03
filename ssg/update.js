@@ -100,11 +100,11 @@ async function run() {
                 }
 
                 // When targeting a specific series, we force the rebuild to ignore sync_date logic
-                const seriesOptions = { ...options, force: true };
+                const seriesOptions = { ...options, force: true, noCascade: true };
                 await updateSeries(targetId, seriesOptions);
                 
                 // Always refresh the parent channel hub to ensure stats/index are current
-                await updateChannel(seriesOptions.channelSlug || 'letstrygg', { ...seriesOptions, indexesOnly: true });
+                await updateChannel(seriesOptions.channelSlug || 'letstrygg', { ...seriesOptions, indexesOnly: true, noCascade: true });
                 break;
             }
             case 'channel':

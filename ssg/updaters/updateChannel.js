@@ -22,31 +22,35 @@ export async function updateChannel(hubSlug, options = {}) {
     let anyUpdates = false;
     const channelErrors = [];
 
-    console.log(`Found ${gamesList.length} unique games across ${context.channels.length} channel(s). Beginning concurrent cascade...`);
+    if (!options.noCascade) {
+        console.log(`Found ${gamesList.length} unique games across ${context.channels.length} channel(s). Beginning concurrent cascade...`);
 
-    const batchSize = 15; 
-    for (let i = 0; i < gamesList.length; i += batchSize) {
-        const batch = gamesList.slice(i, i + batchSize);
-        const batchPromises = batch.map(async (game) => {
-            try {
-                return await updateSeries(game.slug, options, channelFamily, context.hubSlug);
-            } catch (err) {
-                const errMsg = `[Game: ${game.slug}] Critical Series Failure: ${err.message}`;
-                console.error(`❌ ${errMsg}`);
-                return { error: errMsg };
-            }
-        });
+        const batchSize = 15; 
+        for (let i = 0; i < gamesList.length; i += batchSize) {
+            const batch = gamesList.slice(i, i + batchSize);
+            const batchPromises = batch.map(async (game) => {
+                try {
+                    return await updateSeries(game.slug, options, channelFamily, context.hubSlug);
+                } catch (err) {
+                    const errMsg = `[Game: ${game.slug}] Critical Series Failure: ${err.message}`;
+                    console.error(`❌ ${errMsg}`);
+                    return { error: errMsg };
+                }
+            });
 
-        const batchResults = await Promise.all(batchPromises);
-        batchResults.forEach(result => {
-            if (result.error) {
-                channelErrors.push(result.error);
-            } else {
-                totalEpisodes += result.totalEpisodes || 0;
-                if (result.errors && result.errors.length > 0) channelErrors.push(...result.errors);
-                if (!result.skipped) anyUpdates = true;
-            }
-        });
+            const batchResults = await Promise.all(batchPromises);
+            batchResults.forEach(result => {
+                if (result.error) {
+                    channelErrors.push(result.error);
+                } else {
+                    totalEpisodes += result.totalEpisodes || 0;
+                    if (result.errors && result.errors.length > 0) channelErrors.push(...result.errors);
+                    if (!result.skipped) anyUpdates = true;
+                }
+            });
+        }
+    } else {
+        console.log(`  ⏩ Skipping series cascade (--no-cascade active). Rebuilding index only...`);
     }
 
     const basePath = `yt/${context.hubSlug}`;
