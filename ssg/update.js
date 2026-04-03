@@ -5,6 +5,7 @@ import { updateSeries } from './updaters/updateSeries.js';
 import { updateChannel } from './updaters/updateChannel.js';
 import { updateTag } from './updaters/updateTag.js';
 import { updateYT } from './updaters/updateYT.js';
+import { run as buildSts2Pages } from './sts2/build-sts2.js';
 import { generateAutoTags } from './updaters/generateAutoTags.js';
 
 const rawArgs = process.argv.slice(2);
@@ -97,6 +98,7 @@ async function run() {
                     console.log(`\n🃏 Slay the Spire 2 detected: Refreshing auto-tags and global tag stats...`);
                     await generateAutoTags();
                     await updateTag(null, options);
+                    await buildSts2Pages(); // Regenerate all STS2 specific pages
                 }
 
                 // When targeting a specific series, we force the rebuild to ignore sync_date logic

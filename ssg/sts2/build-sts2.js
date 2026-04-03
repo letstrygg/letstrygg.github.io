@@ -725,7 +725,7 @@ function loadJsonSafe(dir, filename) {
 }
 
 // --- ORCHESTRATION ---
-async function run() {
+export async function run() {
     ensureDir(PATHS.STS2_ROOT);
 
     const tagVideoMap = await fetchTagVideoMap('slay-the-spire-2');
@@ -781,4 +781,6 @@ async function run() {
     console.log(`\n✨ Build Complete! Check C:\\GitHub\\letstrygg\\games\\`);
 }
 
-run();
+if (process.argv[1] && process.argv[1].endsWith('build-sts2.js')) {
+    run();
+}

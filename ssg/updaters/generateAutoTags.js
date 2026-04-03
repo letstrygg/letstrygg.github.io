@@ -1,4 +1,6 @@
 import { supabase } from '../utils/db.js';
+import { updateTag } from './updateTag.js';
+import { run as buildSts2Pages } from '../sts2/build-sts2.js';
 
 // Helper to convert "CARD.IRON_WAVE" -> "slay-the-spire-2:card:iron-wave"
 function formatTag(prefix, rawType, rawValue) {
@@ -81,5 +83,9 @@ export async function generateAutoTags() {
 
 // Run if called directly
 if (process.argv[1].endsWith('generateAutoTags.js')) {
-    generateAutoTags();
+    (async () => {
+        await generateAutoTags();
+        await updateTag();
+        await buildSts2Pages();
+    })();
 }
