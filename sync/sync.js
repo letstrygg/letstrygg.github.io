@@ -90,6 +90,48 @@ async function run() {
             }
         } 
         
+        else if (command === 'series' && targetId) {
+            console.log(`📚 Target: Series (${targetId})`);
+
+            const { data: playlists, error } = await supabase
+                .from('ltg_playlists')
+                .select(`
+                    id,
+                    ltg_series!inner ( game_slug )
+                `)
+                .eq('ltg_series.game_slug', targetId);
+
+            if (error || !playlists || playlists.length === 0) {
+                throw new Error(`No playlists found for series: ${targetId}`);
+            }
+
+            console.log(`   >> Found ${playlists.length} playlists to sync.`);
+
+            for (const p of playlists) {
+                console.log(`\n   >> Syncing Playlist: ${p.id}...`);
+                const syncResult = await syncPlaylist(p.id);
+                await updateSeriesSyncDateByPlaylist(p.id);
+
+                // Safe Orphan Linking for STS2
+                if (targetId === 'slay-the-spire-2' && syncResult?.newVideoIds?.length > 0) {
+                    const latestNewVideoId = syncResult.newVideoIds[syncResult.newVideoIds.length - 1];
+                    await linkOrphanedRuns(latestNewVideoId);
+                }
+            }
+
+            if (targetId === 'slay-the-spire-2') {
+                console.log(`\n🧩 Slay the Spire 2 detected. Updating auto-tags...`);
+                await generateAutoTags();
+            }
+
+            if (!skipUpdate) {
+                console.log(`\n🔨 Triggering SSG Build for Series: ${targetId}...`);
+                await execBuild('series', targetId, options);
+                await execBuild('tag', null, options);
+                await execBuild('yt', null, options);
+            }
+        }
+
         else if (!command) {
             console.log(`🌍 Target: ENTIRE NETWORK [Mode: ${syncMode.toUpperCase()}]`);
             
