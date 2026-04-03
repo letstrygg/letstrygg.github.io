@@ -5,6 +5,7 @@ import { updateSeries } from './updaters/updateSeries.js';
 import { updateChannel } from './updaters/updateChannel.js';
 import { updateTag } from './updaters/updateTag.js';
 import { updateYT } from './updaters/updateYT.js';
+import { generateAutoTags } from './updaters/generateAutoTags.js';
 
 const rawArgs = process.argv.slice(2);
 
@@ -88,14 +89,24 @@ async function run() {
                 if (!targetId) throw new Error("Missing playlist ID");
                 await updateSeason(targetId, options);
                 break;
-            case 'series':
+            case 'series': {
                 if (!targetId) throw new Error("Missing series slug");
-                await updateSeries(targetId, options);
-                // If we force a series update, we should refresh the channel index too
-                if (options.force) {
-                    await updateChannel(options.channelSlug || 'letstrygg', { ...options, indexesOnly: true });
+
+                // If updating Slay the Spire 2, we need to regenerate auto-tags from the latest run mappings
+                if (targetId === 'slay-the-spire-2') {
+                    console.log(`\n🃏 Slay the Spire 2 detected: Refreshing auto-tags and global tag stats...`);
+                    await generateAutoTags();
+                    await updateTag(null, options);
                 }
+
+                // When targeting a specific series, we force the rebuild to ignore sync_date logic
+                const seriesOptions = { ...options, force: true };
+                await updateSeries(targetId, seriesOptions);
+                
+                // Always refresh the parent channel hub to ensure stats/index are current
+                await updateChannel(seriesOptions.channelSlug || 'letstrygg', { ...seriesOptions, indexesOnly: true });
                 break;
+            }
             case 'channel':
                 if (!targetId) throw new Error("Missing channel slug");
                 // Use the cascade function so it updates the hubs too!
