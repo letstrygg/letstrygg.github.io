@@ -37,7 +37,8 @@ node sync/sync.js channel ltg-plus -a # sync whole channel
 
 C:\GitHub\s2>node build-sts2.js # builds cards / relics / characters (run after update)
 
-
+node ssg/updaters/generateAutoTags.js
+node ssg/update.js series slay-the-spire-2
 
 C:\GitHub\letstrygg\node sync/add.js <PLAYLIST_ID> <SERIES_SLUG> <SEASON>
 node sync/add.js PLkwYKQUqZEUXaY-C4eF136KdxqN8CVQEY backpack-battles 6
