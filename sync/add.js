@@ -31,22 +31,7 @@ async function addPlaylist(playlistId, gameSlugInput, season = 1.0) {
         process.exit(1);
     }
 
-    // 2. Map Game Slug directly to Series Slug
-    const { data: gameMatch } = await supabase
-        .from('ltg_series')
-        .select('slug')
-        .eq('game_slug', gameSlugInput)
-        .limit(1);
-
-    if (!gameMatch || gameMatch.length === 0) {
-        console.error(`\n❌ Aborting: No series found attached to game slug '${gameSlugInput}'.`);
-        console.error(`👉 Please create the game and series in the Supabase dashboard first!`);
-        process.exit(1);
-    }
-
-    const finalSeriesSlug = gameMatch[0].slug;
-
-    // 3. Fetch Playlist Info from YouTube
+    // 2. Fetch Playlist Info from YouTube first to get the Title
     console.log(`🔍 Fetching playlist metadata from YouTube...`);
     try {
         const res = await axios.get('https://www.googleapis.com/youtube/v3/playlists', {
@@ -61,8 +46,27 @@ async function addPlaylist(playlistId, gameSlugInput, season = 1.0) {
         const snippet = res.data.items[0].snippet;
         const title = snippet.title;
         const ytChannelId = snippet.channelId;
+        const cleanGameTitle = title.split(' - ')[0]; // Basic attempt to extract game name from "Game - Part 1"
 
-        // 4. Map the YouTube Channel ID to your database channel slug
+        // 3. Ensure the Game exists
+        console.log(`🎮 Ensuring game entry for '${gameSlugInput}'...`);
+        const { error: gameErr } = await supabase.from('ltg_games').upsert({
+            slug: gameSlugInput,
+            title: cleanGameTitle
+        }, { onConflict: 'slug' });
+        if (gameErr) throw new Error(`Game Upsert Failed: ${gameErr.message}`);
+
+        // 4. Ensure the Series exists (Mapping Game Slug to Series Slug 1:1 for new setups)
+        const finalSeriesSlug = gameSlugInput;
+        console.log(`📚 Ensuring series entry for '${finalSeriesSlug}'...`);
+        const { error: seriesErr } = await supabase.from('ltg_series').upsert({
+            slug: finalSeriesSlug,
+            game_slug: gameSlugInput,
+            title: cleanGameTitle
+        }, { onConflict: 'slug' });
+        if (seriesErr) throw new Error(`Series Upsert Failed: ${seriesErr.message}`);
+
+        // 5. Map the YouTube Channel ID to your database channel slug
         const { data: channel } = await supabase
             .from('ltg_channels')
             .select('slug')
@@ -71,7 +75,7 @@ async function addPlaylist(playlistId, gameSlugInput, season = 1.0) {
 
         const channelSlug = channel ? channel.slug : 'letstrygg';
 
-        // 5. Insert the new Playlist into the Database
+        // 6. Insert the new Playlist into the Database
         console.log(`💾 Saving '${title}' (Season ${season}) to database...`);
         const { error: insertErr } = await supabase.from('ltg_playlists').insert({
             id: playlistId,
@@ -87,7 +91,7 @@ async function addPlaylist(playlistId, gameSlugInput, season = 1.0) {
 
         console.log(`✅ Playlist registered successfully under series '${finalSeriesSlug}'!`);
         
-        // 6. Trigger the downloader to backfill all the videos
+        // 7. Trigger the downloader to backfill all the videos
         console.log(`📥 Triggering initial video sync...`);
         await syncPlaylist(playlistId);
 
