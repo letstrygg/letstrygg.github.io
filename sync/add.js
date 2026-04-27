@@ -50,9 +50,17 @@ async function addPlaylist(playlistId, gameSlugInput, season = 1.0) {
 
         // 3. Ensure the Game exists
         console.log(`🎮 Ensuring game entry for '${gameSlugInput}'...`);
+        
+        // Fetch existing game first to avoid overwriting a "clean" title with a YouTube-extracted one
+        const { data: existingGame } = await supabase
+            .from('ltg_games')
+            .select('title')
+            .eq('slug', gameSlugInput)
+            .single();
+
         const { error: gameErr } = await supabase.from('ltg_games').upsert({
             slug: gameSlugInput,
-            title: cleanGameTitle
+            title: existingGame?.title || cleanGameTitle
         }, { onConflict: 'slug' });
         if (gameErr) throw new Error(`Game Upsert Failed: ${gameErr.message}`);
 
