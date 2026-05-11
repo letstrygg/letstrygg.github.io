@@ -172,7 +172,7 @@ async function buildHtml() {
         tableRows += `
             <tr>
                 <td>${item.brand}</td>
-                <td><a href="${row.url}" target="_blank">${item.name} - ${variant.name}</a></td>
+                <td><a href="${row.url}" target="_blank" style="color: #bb86fc; text-decoration: none;">${item.name} - ${variant.name}</a></td>
                 <td>${row.store}</td>
                 <td>${attrs.size_lbs || '-'}</td>
                 <td>${servings || '-'}</td>
@@ -185,25 +185,27 @@ async function buildHtml() {
         `;
     });
 
-    const htmlContent = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protein Price Comparison</title>
-    <style>
-        body { font-family: sans-serif; background-color: #121212; color: #e0e0e0; padding: 2rem; }
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-        th, td { border: 1px solid #333; padding: 0.75rem; text-align: left; }
-        th { background-color: #1e1e1e; }
-        a { color: #bb86fc; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
-</head>
-<body>
-    <h1>Protein Powder Price Tracker</h1>
-    <table>
+    // We replace the HTML wrapper with Jekyll Front Matter
+    const htmlContent = `---
+layout: new
+title: "Protein Price Comparison"
+permalink: /fitness/protein-price-comparison.html
+---
+
+<style>
+    .tracker-table { width: 100%; border-collapse: collapse; margin-top: 1rem; color: #e0e0e0; }
+    .tracker-table th, .tracker-table td { border: 1px solid #333; padding: 0.75rem; text-align: left; }
+    .tracker-table th { background-color: #1e1e1e; font-weight: bold; }
+    .tracker-table tr:hover { background-color: #1a1a1a; }
+</style>
+
+<div class="divider-bottom" style="margin-bottom: 30px; padding-bottom: 15px;">
+    <h1 class="title">Protein Powder Price Tracker</h1>
+    <p class="subtitle" style="margin: 0;">Live Market Analysis</p>
+</div>
+
+<div class="table-responsive" style="overflow-x: auto;">
+    <table class="tracker-table">
         <thead>
             <tr>
                 <th>Brand</th>
@@ -222,8 +224,8 @@ async function buildHtml() {
             ${tableRows}
         </tbody>
     </table>
-</body>
-</html>`;
+</div>
+`;
 
     const dir = path.dirname(HTML_OUTPUT_PATH);
     if (!fs.existsSync(dir)){
