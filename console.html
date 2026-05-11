@@ -7,20 +7,42 @@ permalink: /console.html
 <div id="auth-warning" class="text-muted">Checking authentication...</div>
 
 <div id="admin-panel" class="hidden">
-    <input type="text" id="queue-url" class="input" placeholder="Paste YouTube URL and press Enter...">
-    <p id="queue-status" class="hidden"></p>
+    <!-- YouTube Queue Section -->
+    <div style="margin-bottom: 2rem;">
+        <h3>YouTube Queue</h3>
+        <input type="text" id="queue-url" class="input" placeholder="Paste YouTube URL and press Enter...">
+        <p id="queue-status" class="hidden"></p>
+    </div>
+
+    <!-- Item Tracker Section -->
+    <div>
+        <h3>Item Price Tracker</h3>
+        <input type="text" id="item-queue-url" class="input" placeholder="Paste Amazon Product URL for Tracking...">
+        <p id="item-queue-status" class="hidden"></p>
+    </div>
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const adminPanel = document.getElementById('admin-panel');
         const authWarning = document.getElementById('auth-warning');
-        const urlInput = document.getElementById('queue-url');
-        const statusMsg = document.getElementById('queue-status');
+        
+        // YouTube Elements
+        const ytInput = document.getElementById('queue-url');
+        const ytStatusMsg = document.getElementById('queue-status');
 
-        function showStatus(text, colorClass) {
-            statusMsg.textContent = text;
-            statusMsg.className = colorClass; 
+        // Item Tracker Elements
+        const itemInput = document.getElementById('item-queue-url');
+        const itemStatusMsg = document.getElementById('item-queue-status');
+
+        function showYtStatus(text, colorClass) {
+            ytStatusMsg.textContent = text;
+            ytStatusMsg.className = colorClass; 
+        }
+
+        function showItemStatus(text, colorClass) {
+            itemStatusMsg.textContent = text;
+            itemStatusMsg.className = colorClass;
         }
 
         // 1. Check Auth State
@@ -49,39 +71,100 @@ permalink: /console.html
             }
         }, 100);
 
-        // 3. Queue Submission
-        urlInput.addEventListener('keypress', async (e) => {
+        // 3. YouTube Queue Submission
+        ytInput.addEventListener('keypress', async (e) => {
             if (e.key === 'Enter') {
-                const url = urlInput.value.trim();
+                const url = ytInput.value.trim();
                 if (!url) return;
 
                 if (!window.supabaseClient) {
-                    showStatus('Database not ready.', 'red');
+                    showYtStatus('Database not ready.', 'red');
                     return;
                 }
 
                 if (!url.includes('youtube.com/') && !url.includes('youtu.be/')) {
-                    showStatus('Invalid YouTube URL.', 'red');
+                    showYtStatus('Invalid YouTube URL.', 'red');
                     return;
                 }
 
-                showStatus('Adding to queue...', 'text-muted');
-                urlInput.disabled = true;
+                showYtStatus('Adding to queue...', 'text-muted');
+                ytInput.disabled = true;
 
                 const { error } = await window.supabaseClient
                     .from('ltg_queue')
                     .insert([{ url: url }]);
 
-                urlInput.disabled = false;
+                ytInput.disabled = false;
 
                 if (error) {
                     console.error(error);
-                    showStatus(`Error: ${error.message}`, 'red');
+                    showYtStatus(`Error: ${error.message}`, 'red');
                 } else {
-                    showStatus('Added to queue.', 'green');
-                    urlInput.value = '';
+                    showYtStatus('Added to queue.', 'green');
+                    ytInput.value = '';
                     setTimeout(() => {
-                        statusMsg.className = 'hidden';
+                        ytStatusMsg.className = 'hidden';
+                    }, 3000);
+                }
+            }
+        });
+
+        // 4. Item Tracker Queue Submission
+        itemInput.addEventListener('keypress', async (e) => {
+            if (e.key === 'Enter') {
+                const rawUrl = itemInput.value.trim();
+                if (!rawUrl) return;
+
+                if (!window.supabaseClient) {
+                    showItemStatus('Database not ready.', 'red');
+                    return;
+                }
+
+                // Extract Amazon ASIN to prevent duplicates
+                const asinMatch = rawUrl.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/i);
+                if (!asinMatch) {
+                    showItemStatus('Not a valid Amazon product URL.', 'red');
+                    return;
+                }
+                const asin = asinMatch[1];
+
+                showItemStatus('Checking for duplicates...', 'text-muted');
+                itemInput.disabled = true;
+
+                // Check if this ASIN already exists in the listings
+                const { data: existing, error: fetchError } = await window.supabaseClient
+                    .from('ltg_item_listing')
+                    .select('id')
+                    .ilike('url', `%${asin}%`)
+                    .limit(1);
+
+                if (fetchError) {
+                    showItemStatus(`Error: ${fetchError.message}`, 'red');
+                    itemInput.disabled = false;
+                    return;
+                }
+
+                if (existing && existing.length > 0) {
+                    showItemStatus('Item is already being tracked.', 'orange');
+                    itemInput.disabled = false;
+                    return;
+                }
+
+                // Add to Queue
+                const { error: insertError } = await window.supabaseClient
+                    .from('ltg_item_queue')
+                    .insert([{ url: rawUrl }]);
+
+                itemInput.disabled = false;
+
+                if (insertError) {
+                    console.error(insertError);
+                    showItemStatus(`Error: ${insertError.message}`, 'red');
+                } else {
+                    showItemStatus('Added to processing queue.', 'green');
+                    itemInput.value = '';
+                    setTimeout(() => {
+                        itemStatusMsg.className = 'hidden';
                     }, 3000);
                 }
             }
