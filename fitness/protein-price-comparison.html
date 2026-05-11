@@ -9,7 +9,16 @@ permalink: /fitness/protein-price-comparison.html
     .tracker-table th, .tracker-table td { border: 1px solid #333; padding: 0.75rem; text-align: left; }
     .tracker-table th { background-color: #1e1e1e; font-weight: bold; }
     .tracker-table tr:hover { background-color: #1a1a1a; }
+    .controls-wrapper { margin-bottom: 15px; padding: 10px; background-color: #1e1e1e; border-radius: 4px; display: inline-block; }
+    .affiliate-footer { margin-top: 30px; font-size: 0.85em; color: #888; border-top: 1px solid #333; padding-top: 15px; }
 </style>
+
+<div class="controls-wrapper">
+    <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+        <input type="checkbox" id="toggleQuality" checked>
+        Factor in Quality % for $/Gram Protein
+    </label>
+</div>
 
 <div class="table-responsive" style="overflow-x: auto;">
     <table class="tracker-table">
@@ -23,13 +32,13 @@ permalink: /fitness/protein-price-comparison.html
                 <th>Protein (g)</th>
                 <th>Quality %</th>
                 <th>Current Price</th>
-                <th>$/Usable Gram</th>
+                <th>$/Gram Protein</th>
                 <th>Last Updated</th>
             </tr>
         </thead>
         <tbody>
             
-            <tr>
+            <tr data-price="89.99" data-protein="0" data-servings="0" data-quality="1">
                 <td>Unknown Brand</td>
                 <td><a href="https://www.amazon.com/dp/B000QSTBNS?tag=letstrygg.com-20&linkCode=ll2&language=en_US" target="_blank" style="color: #bb86fc; text-decoration: none;">Unknown Product - Standard</a></td>
                 <td>amazon</td>
@@ -38,10 +47,46 @@ permalink: /fitness/protein-price-comparison.html
                 <td>-</td>
                 <td>100%</td>
                 <td>$89.99</td>
-                <td>N/A</td>
+                <td class="calc-price-per-gram">N/A</td>
                 <td>5/11/2026</td>
             </tr>
         
         </tbody>
     </table>
 </div>
+
+<div class="affiliate-footer">
+    As an Amazon Associate I earn from qualifying purchases.
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.getElementById('toggleQuality');
+        const rows = document.querySelectorAll('.tracker-table tbody tr');
+
+        function calculatePrices() {
+            const useQuality = toggle.checked;
+
+            rows.forEach(row => {
+                const price = parseFloat(row.getAttribute('data-price'));
+                const protein = parseFloat(row.getAttribute('data-protein'));
+                const servings = parseFloat(row.getAttribute('data-servings'));
+                const quality = parseFloat(row.getAttribute('data-quality'));
+                const targetCell = row.querySelector('.calc-price-per-gram');
+
+                if (price > 0 && protein > 0 && servings > 0) {
+                    const effectiveQuality = useQuality ? quality : 1.0;
+                    const totalProtein = protein * servings * effectiveQuality;
+                    const pricePerGram = price / totalProtein;
+                    targetCell.textContent = '$' + pricePerGram.toFixed(4);
+                } else {
+                    targetCell.textContent = 'N/A';
+                }
+            });
+        }
+
+        // Listen for checkbox changes and run once on load
+        toggle.addEventListener('change', calculatePrices);
+        calculatePrices();
+    });
+</script>

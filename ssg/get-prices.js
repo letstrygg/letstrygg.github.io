@@ -155,22 +155,18 @@ async function buildHtml() {
         const sortedLogs = row.ltg_price_log.sort((a, b) => new Date(b.recorded_at) - new Date(a.recorded_at));
         const latestLog = sortedLogs[0];
         
-        const price = latestLog ? latestLog.price : 0;
-        const priceDisplay = latestLog ? `$${price.toFixed(2)}` : 'N/A';
+        const priceNum = latestLog ? latestLog.price : 0;
+        const priceDisplay = latestLog ? `$${priceNum.toFixed(2)}` : 'N/A';
         const dateDisplay = latestLog ? new Date(latestLog.recorded_at).toLocaleDateString() : 'N/A';
 
         const proteinPerServing = attrs.protein_g || 0;
         const servings = attrs.servings || 0;
         const qualityPct = attrs.quality_pct || 1;
-        
-        let pricePerUsableGram = 'N/A';
-        if (price > 0 && proteinPerServing > 0 && servings > 0) {
-            const totalUsableProtein = proteinPerServing * servings * qualityPct;
-            pricePerUsableGram = `$${(price / totalUsableProtein).toFixed(4)}`;
-        }
 
+        // Note: The $/Gram calculation is removed from here. 
+        // We inject the raw data into the <tr> tag so the client-side JS can do the math.
         tableRows += `
-            <tr>
+            <tr data-price="${priceNum}" data-protein="${proteinPerServing}" data-servings="${servings}" data-quality="${qualityPct}">
                 <td>${item.brand}</td>
                 <td><a href="${row.url}" target="_blank" style="color: #bb86fc; text-decoration: none;">${item.name} - ${variant.name}</a></td>
                 <td>${row.store}</td>
@@ -179,7 +175,7 @@ async function buildHtml() {
                 <td>${proteinPerServing || '-'}</td>
                 <td>${(qualityPct * 100).toFixed(0)}%</td>
                 <td>${priceDisplay}</td>
-                <td>${pricePerUsableGram}</td>
+                <td class="calc-price-per-gram">N/A</td>
                 <td>${dateDisplay}</td>
             </tr>
         `;
@@ -196,7 +192,16 @@ permalink: /fitness/protein-price-comparison.html
     .tracker-table th, .tracker-table td { border: 1px solid #333; padding: 0.75rem; text-align: left; }
     .tracker-table th { background-color: #1e1e1e; font-weight: bold; }
     .tracker-table tr:hover { background-color: #1a1a1a; }
+    .controls-wrapper { margin-bottom: 15px; padding: 10px; background-color: #1e1e1e; border-radius: 4px; display: inline-block; }
+    .affiliate-footer { margin-top: 30px; font-size: 0.85em; color: #888; border-top: 1px solid #333; padding-top: 15px; }
 </style>
+
+<div class="controls-wrapper">
+    <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+        <input type="checkbox" id="toggleQuality" checked>
+        Factor in Quality % for $/Gram Protein
+    </label>
+</div>
 
 <div class="table-responsive" style="overflow-x: auto;">
     <table class="tracker-table">
@@ -210,7 +215,7 @@ permalink: /fitness/protein-price-comparison.html
                 <th>Protein (g)</th>
                 <th>Quality %</th>
                 <th>Current Price</th>
-                <th>$/Usable Gram</th>
+                <th>$/Gram Protein</th>
                 <th>Last Updated</th>
             </tr>
         </thead>
@@ -219,6 +224,42 @@ permalink: /fitness/protein-price-comparison.html
         </tbody>
     </table>
 </div>
+
+<div class="affiliate-footer">
+    As an Amazon Associate I earn from qualifying purchases.
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.getElementById('toggleQuality');
+        const rows = document.querySelectorAll('.tracker-table tbody tr');
+
+        function calculatePrices() {
+            const useQuality = toggle.checked;
+
+            rows.forEach(row => {
+                const price = parseFloat(row.getAttribute('data-price'));
+                const protein = parseFloat(row.getAttribute('data-protein'));
+                const servings = parseFloat(row.getAttribute('data-servings'));
+                const quality = parseFloat(row.getAttribute('data-quality'));
+                const targetCell = row.querySelector('.calc-price-per-gram');
+
+                if (price > 0 && protein > 0 && servings > 0) {
+                    const effectiveQuality = useQuality ? quality : 1.0;
+                    const totalProtein = protein * servings * effectiveQuality;
+                    const pricePerGram = price / totalProtein;
+                    targetCell.textContent = '$' + pricePerGram.toFixed(4);
+                } else {
+                    targetCell.textContent = 'N/A';
+                }
+            });
+        }
+
+        // Listen for checkbox changes and run once on load
+        toggle.addEventListener('change', calculatePrices);
+        calculatePrices();
+    });
+</script>
 `;
 
     const dir = path.dirname(HTML_OUTPUT_PATH);

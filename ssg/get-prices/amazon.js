@@ -39,7 +39,14 @@ async function getFullDetails(url) {
         const price = priceText ? parseFloat(priceText.replace(/[^0-9.]/g, '')) : 0.00;
 
         const name = $('#productTitle').text().trim() || 'Unknown Product';
-        const brand = $('#bylineInfo').text().replace(/Visit the | Store/g, '').trim() || 'Unknown Brand';
+        
+        // Amazon uses various layouts for the brand line. Try multiple fallback selectors.
+        let brand = $('#bylineInfo').text().trim();
+        if (!brand) brand = $('.po-brand .a-span9 span').text().trim();
+        if (!brand) brand = $('#sellerProfileTriggerId').text().trim();
+
+        // Clean up common Amazon prefix/suffix junk
+        brand = brand.replace(/Visit the | Store/gi, '').replace(/Brand:\s*/gi, '').trim() || 'Unknown Brand';
         
         const variantName = $('.selection').text().trim() || 'Standard';
 
