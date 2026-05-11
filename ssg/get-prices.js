@@ -8,11 +8,9 @@ const __dirname = path.dirname(__filename);
 const HTML_OUTPUT_PATH = path.join(__dirname, '..', 'fitness', 'protein-price-comparison.html');
 
 async function main() {
-    console.log("Starting price tracker...");
     await processQueue();
     await updatePrices();
     await buildHtml();
-    console.log("Done.");
 }
 
 async function processQueue() {
@@ -21,45 +19,54 @@ async function processQueue() {
         .select('*')
         .eq('processed', false);
 
-    if (error) { console.error("Fatal DB Error fetching queue:", error); process.exit(1); }
+    if (error) { console.error("[Queue] Fatal DB Error:", error); process.exit(1); }
 
     for (const entry of queueItems) {
-        console.log(`Processing queue item: ${entry.url}`);
+        console.log(`[Queue] Processing NEW item from URL: ${entry.url}`);
         const asin = entry.url.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/i)?.[1];
-        if (!asin) continue;
+        if (!asin) {
+            console.error(`[Queue] Failed to extract ASIN from ${entry.url}`);
+            continue;
+        }
 
         const cleanUrl = `https://www.amazon.com/dp/${asin}?tag=letstrygg.com-20&linkCode=ll2&language=en_US`;
         let scraper;
         try { scraper = await import('./get-prices/amazon.js'); } 
-        catch (e) { console.error("Failed to load scraper.", e); continue; }
+        catch (e) { console.error("[Queue] Failed to load scraper.", e); continue; }
         
         const details = await scraper.getFullDetails(cleanUrl);
-        if (!details) { console.error(`Failed to get details for ${cleanUrl}`); continue; }
+        if (!details) { 
+            console.error(`[Queue] Scraper returned null/failed for ${cleanUrl}`); 
+            continue; 
+        }
 
         const { data: item, error: itemErr } = await supabase.from('ltg_item').insert({
             name: details.name,
             brand: details.brand,
             category: entry.category
         }).select().single();
-        if (itemErr) { console.error("Item insert error:", itemErr); process.exit(1); }
+        if (itemErr) { console.error("[Queue] Item insert error:", itemErr); process.exit(1); }
 
         const { data: variant, error: varErr } = await supabase.from('ltg_item_variant').insert({
             item_id: item.id,
             name: details.variantName,
             attributes: { size_lbs: 0, servings: 0, calories: 0, protein_g: 0, quality_pct: 1.0 }
         }).select().single();
-        if (varErr) { console.error("Variant insert error:", varErr); process.exit(1); }
+        if (varErr) { console.error("[Queue] Variant insert error:", varErr); process.exit(1); }
 
         const { data: listing, error: listErr } = await supabase.from('ltg_item_listing').insert({
             variant_id: variant.id,
             store: 'amazon',
             url: cleanUrl
         }).select().single();
-        if (listErr) { console.error("Listing insert error:", listErr); process.exit(1); }
+        if (listErr) { console.error("[Queue] Listing insert error:", listErr); process.exit(1); }
 
         if (details.price > 0) {
-            const { error: priceErr } = await supabase.from('ltg_price_log').insert({ listing_id: listing.id, price: details.price });
-            if (priceErr) { console.error("Price log error:", priceErr); process.exit(1); }
+            const { error: priceErr } = await supabase.from('ltg_item_prices').insert({ listing_id: listing.id, price: details.price });
+            if (priceErr) { console.error("[Queue] Price log error:", priceErr); process.exit(1); }
+            console.log(`[Queue] Initial price $${details.price} logged successfully.`);
+        } else {
+            console.log(`[Queue] Warning: Price returned 0 or null. No initial price log created.`);
         }
 
         await supabase.from('ltg_item_queue').update({ processed: true }).eq('id', entry.id);
@@ -71,54 +78,92 @@ async function updatePrices() {
         .from('ltg_item_listing')
         .select(`
             id, store, url,
-            ltg_item_variant ( id, name, ltg_item ( id, name, brand ) )
+            ltg_item_variant ( id, name, ltg_item ( id, name, brand ) ),
+            ltg_item_prices ( price, recorded_at )
         `)
         .eq('is_active', true);
 
-    if (error) { console.error("Fatal DB Error fetching listings:", error); process.exit(1); }
+    if (error) { console.error("[Updater] Fatal DB Error fetching listings:", error); process.exit(1); }
+
+    const todayString = new Date().toDateString();
 
     for (const listing of listings) {
         let scraper;
         try { scraper = await import(`./get-prices/${listing.store}.js`); } 
-        catch (e) { console.error(`Scraper missing for ${listing.store}`); continue; }
+        catch (e) { console.error(`[Updater] Scraper missing for ${listing.store}`); continue; }
 
         const item = listing.ltg_item_variant.ltg_item;
         const variant = listing.ltg_item_variant;
 
-        // If any core data is null, do a deep scrape to try and backfill it
-        if (!item.name || !item.brand || !variant.name) {
-            console.log(`Missing metadata for listing ${listing.id}, attempting deep scrape...`);
+        const sortedLogs = listing.ltg_item_prices ? listing.ltg_item_prices.sort((a, b) => new Date(b.recorded_at) - new Date(a.recorded_at)) : [];
+        const latestLog = sortedLogs[0];
+
+        // Figure out exactly what is missing
+        const missingFields = [];
+        if (!item.name) missingFields.push('item.name');
+        if (!item.brand) missingFields.push('item.brand');
+        if (!variant.name) missingFields.push('variant.name');
+
+        if (missingFields.length > 0) {
+            // Get the best available name for the console log
+            const displayName = item.name || item.brand || listing.url.split('dp/')[1]?.split('?')[0] || 'Unknown Item';
+            console.log(`[Updater] ${displayName} missing [ ${missingFields.join(', ')} ]`);
+            
             const details = await scraper.getFullDetails(listing.url);
             
             if (details) {
-                // Backfill item table
-                if (details.name || details.brand) {
-                    await supabase.from('ltg_item')
-                        .update({ name: details.name || item.name, brand: details.brand || item.brand })
-                        .eq('id', item.id);
+                // Construct tight updates ONLY for null fields that we successfully scraped
+                const itemUpdates = {};
+                if (!item.name && details.name) itemUpdates.name = details.name;
+                if (!item.brand && details.brand) itemUpdates.brand = details.brand;
+
+                if (Object.keys(itemUpdates).length > 0) {
+                    await supabase.from('ltg_item').update(itemUpdates).eq('id', item.id);
+                    console.log(`[Updater] Backfilled Item ->`, itemUpdates);
                 }
-                // Backfill variant table
-                if (details.variantName) {
-                    await supabase.from('ltg_item_variant')
-                        .update({ name: details.variantName || variant.name })
-                        .eq('id', variant.id);
+
+                if (!variant.name && details.variantName) {
+                    await supabase.from('ltg_item_variant').update({ name: details.variantName }).eq('id', variant.id);
+                    console.log(`[Updater] Backfilled Variant -> { name: "${details.variantName}" }`);
                 }
-                // Log price
+
+                // Log what is STILL missing so you can identify scraper flaws
+                const stillMissing = [];
+                if (!item.name && !details.name) stillMissing.push('item.name');
+                if (!item.brand && !details.brand) stillMissing.push('item.brand');
+                if (!variant.name && !details.variantName) stillMissing.push('variant.name');
+
+                if (stillMissing.length > 0) {
+                    console.log(`[Updater] Still unable to locate: [ ${stillMissing.join(', ')} ]`);
+                }
+                
+                // Handle Price logging
                 if (details.price > 0) {
-                    await supabase.from('ltg_price_log').insert([{ listing_id: listing.id, price: details.price }]);
-                    console.log(`Updated listing ${listing.id} (Backfilled Data) to $${details.price}`);
+                    const logDateString = latestLog ? new Date(latestLog.recorded_at).toDateString() : '';
+                    if (latestLog && latestLog.price === details.price && todayString === logDateString) {
+                        console.log(`[Updater] Price ($${details.price}) unchanged today. Skipping log.`);
+                    } else {
+                        await supabase.from('ltg_item_prices').insert([{ listing_id: listing.id, price: details.price }]);
+                        console.log(`[Updater] Logged new price: $${details.price}`);
+                    }
                 }
             }
         } else {
-            // Data is fully populated, just do a lightweight price scrape
+            // Standard lightweight price check
             const currentPrice = await scraper.getPrice(listing.url);
             if (currentPrice !== null) {
-                const { error: insertError } = await supabase
-                    .from('ltg_price_log')
-                    .insert([{ listing_id: listing.id, price: currentPrice }]);
+                const logDateString = latestLog ? new Date(latestLog.recorded_at).toDateString() : '';
+                
+                if (latestLog && latestLog.price === currentPrice && todayString === logDateString) {
+                    console.log(`[Updater] ${item.brand} ${item.name} - Price ($${currentPrice}) unchanged today. Skipping log.`);
+                } else {
+                    const { error: insertError } = await supabase
+                        .from('ltg_item_prices')
+                        .insert([{ listing_id: listing.id, price: currentPrice }]);
 
-                if (insertError) { console.error(`Price insert error for ${listing.id}:`, insertError); process.exit(1); }
-                console.log(`Updated listing ${listing.id} to $${currentPrice}`);
+                    if (insertError) { console.error(`[Updater] Price insert error:`, insertError); process.exit(1); }
+                    console.log(`[Updater] ${item.brand} ${item.name} - Logged new price: $${currentPrice}`);
+                }
             }
         }
     }
@@ -130,12 +175,12 @@ async function buildHtml() {
         .select(`
             store, url,
             ltg_item_variant ( name, attributes, ltg_item ( name, brand, category ) ),
-            ltg_price_log ( price, recorded_at )
+            ltg_item_prices ( price, recorded_at )
         `)
         .eq('is_active', true)
         .eq('ltg_item_variant.ltg_item.category', 'protein_powder');
 
-    if (error) { console.error("Fatal DB Error fetching data for HTML:", error); process.exit(1); }
+    if (error) { console.error("[HTML] Fatal DB Error fetching data:", error); process.exit(1); }
 
     let tableRows = '';
 
@@ -144,7 +189,7 @@ async function buildHtml() {
         const variant = row.ltg_item_variant;
         const attrs = variant.attributes || {};
         
-        const sortedLogs = row.ltg_price_log.sort((a, b) => new Date(b.recorded_at) - new Date(a.recorded_at));
+        const sortedLogs = row.ltg_item_prices.sort((a, b) => new Date(b.recorded_at) - new Date(a.recorded_at));
         const latestLog = sortedLogs[0];
         
         const priceNum = latestLog ? latestLog.price : 0;
@@ -155,7 +200,7 @@ async function buildHtml() {
         const servings = attrs.servings || 0;
         const qualityPct = attrs.quality_pct || 1;
 
-        const displayName = `${item.name || 'Pending Data'} - ${variant.name || 'Standard'}`;
+        const displayName = item.name ? `${item.name}${variant.name ? ` - ${variant.name}` : ''}` : 'Pending Data';
 
         tableRows += `
             <tr data-price="${priceNum}" data-protein="${proteinPerServing}" data-servings="${servings}" data-quality="${qualityPct}">
@@ -256,7 +301,7 @@ permalink: /fitness/protein-price-comparison.html
     const dir = path.dirname(HTML_OUTPUT_PATH);
     if (!fs.existsSync(dir)){ fs.mkdirSync(dir, { recursive: true }); }
     fs.writeFileSync(HTML_OUTPUT_PATH, htmlContent, 'utf8');
-    console.log(`Successfully built HTML at ${HTML_OUTPUT_PATH}`);
+    console.log(`[HTML] Successfully built at ${HTML_OUTPUT_PATH}`);
 }
 
 main();
