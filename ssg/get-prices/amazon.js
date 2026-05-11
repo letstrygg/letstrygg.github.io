@@ -1,4 +1,4 @@
-const cheerio = require('cheerio');
+import * as cheerio from 'cheerio';
 
 async function fetchHtml(url) {
     const response = await fetch(url, {
@@ -41,7 +41,6 @@ async function getFullDetails(url) {
         const name = $('#productTitle').text().trim() || 'Unknown Product';
         const brand = $('#bylineInfo').text().replace(/Visit the | Store/g, '').trim() || 'Unknown Brand';
         
-        // Amazon variant text is often hidden in JS, defaulting to a generic label for manual review later
         const variantName = $('.selection').text().trim() || 'Standard';
 
         return { name, brand, variantName, price };
@@ -51,4 +50,4 @@ async function getFullDetails(url) {
     }
 }
 
-module.exports = { getPrice, getFullDetails };
+export { getPrice, getFullDetails };

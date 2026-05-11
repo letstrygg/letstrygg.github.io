@@ -1,9 +1,12 @@
-require('dotenv').config();
-const { createClient } = require('@supabase/supabase-js');
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { supabase } from './utils/db.js';
 
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+// Recreate __dirname for ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const HTML_OUTPUT_PATH = path.join(__dirname, '..', 'fitness', 'protein-price-comparison.html');
 
 async function main() {
@@ -31,7 +34,15 @@ async function processQueue() {
         if (!asin) continue;
 
         const cleanUrl = `https://www.amazon.com/dp/${asin}?tag=letstrygg.com-20&linkCode=ll2&language=en_US`;
-        const scraper = require('./get-prices/amazon.js');
+        
+        let scraper;
+        try {
+            scraper = await import('./get-prices/amazon.js');
+        } catch (e) {
+            console.error("Failed to load amazon scraper module.", e);
+            continue;
+        }
+        
         const details = await scraper.getFullDetails(cleanUrl);
 
         if (!details) {
@@ -47,7 +58,7 @@ async function processQueue() {
         }).select().single();
         if (itemErr) { console.error("Item insert error:", itemErr); process.exit(1); }
 
-        // 2. Insert Variant (with default macro placeholders)
+        // 2. Insert Variant
         const { data: variant, error: varErr } = await supabase.from('ltg_item_variant').insert({
             item_id: item.id,
             name: details.variantName,
@@ -91,7 +102,7 @@ async function updatePrices() {
     for (const listing of listings) {
         let scraper;
         try {
-            scraper = require(`./get-prices/${listing.store}.js`);
+            scraper = await import(`./get-prices/${listing.store}.js`);
         } catch (e) {
             console.error(`Scraper for '${listing.store}' missing. Skipping ${listing.url}`);
             continue;
@@ -114,7 +125,6 @@ async function updatePrices() {
 }
 
 async function buildHtml() {
-    // Fetch listings with all relational data
     const { data, error } = await supabase
         .from('ltg_item_listing')
         .select(`
@@ -142,7 +152,6 @@ async function buildHtml() {
         const variant = row.ltg_item_variant;
         const attrs = variant.attributes || {};
         
-        // Sort price logs to get the latest
         const sortedLogs = row.ltg_price_log.sort((a, b) => new Date(b.recorded_at) - new Date(a.recorded_at));
         const latestLog = sortedLogs[0];
         
@@ -150,7 +159,6 @@ async function buildHtml() {
         const priceDisplay = latestLog ? `$${price.toFixed(2)}` : 'N/A';
         const dateDisplay = latestLog ? new Date(latestLog.recorded_at).toLocaleDateString() : 'N/A';
 
-        // Calculate custom metrics based on JSONB attributes
         const proteinPerServing = attrs.protein_g || 0;
         const servings = attrs.servings || 0;
         const qualityPct = attrs.quality_pct || 1;
