@@ -185,7 +185,6 @@ async function buildHtml() {
         `;
     });
 
-    // We replace the HTML wrapper with Jekyll Front Matter
     const htmlContent = `---
 layout: new
 title: "Protein Price Comparison"
@@ -198,11 +197,6 @@ permalink: /fitness/protein-price-comparison.html
     .tracker-table th { background-color: #1e1e1e; font-weight: bold; }
     .tracker-table tr:hover { background-color: #1a1a1a; }
 </style>
-
-<div class="divider-bottom" style="margin-bottom: 30px; padding-bottom: 15px;">
-    <h1 class="title">Protein Powder Price Tracker</h1>
-    <p class="subtitle" style="margin: 0;">Live Market Analysis</p>
-</div>
 
 <div class="table-responsive" style="overflow-x: auto;">
     <table class="tracker-table">
