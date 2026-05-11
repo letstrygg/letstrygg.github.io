@@ -236,6 +236,7 @@ permalink: /fitness/protein-price-comparison.html
     .tracker-table tr:hover { background-color: #1a1a1a; }
     .tracker-table input.sm { width: 100%; padding: 4px; background: #111; color: #fff; border: 1px solid #444; font-size: 0.9em; border-radius: 4px; }
     .affiliate-footer { margin-top: 30px; font-size: 0.85em; color: #888; }
+    .hidden { display: none !important; }
 </style>
 
 <div class="admin-only hidden" style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg2);">
