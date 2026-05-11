@@ -3,10 +3,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { supabase } from './utils/db.js';
 
-// Recreate __dirname for ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 const HTML_OUTPUT_PATH = path.join(__dirname, '..', 'fitness', 'protein-price-comparison.html');
 
 async function main() {
@@ -23,10 +21,7 @@ async function processQueue() {
         .select('*')
         .eq('processed', false);
 
-    if (error) {
-        console.error("Fatal DB Error fetching queue:", error);
-        process.exit(1);
-    }
+    if (error) { console.error("Fatal DB Error fetching queue:", error); process.exit(1); }
 
     for (const entry of queueItems) {
         console.log(`Processing queue item: ${entry.url}`);
@@ -34,23 +29,13 @@ async function processQueue() {
         if (!asin) continue;
 
         const cleanUrl = `https://www.amazon.com/dp/${asin}?tag=letstrygg.com-20&linkCode=ll2&language=en_US`;
-        
         let scraper;
-        try {
-            scraper = await import('./get-prices/amazon.js');
-        } catch (e) {
-            console.error("Failed to load amazon scraper module.", e);
-            continue;
-        }
+        try { scraper = await import('./get-prices/amazon.js'); } 
+        catch (e) { console.error("Failed to load scraper.", e); continue; }
         
         const details = await scraper.getFullDetails(cleanUrl);
+        if (!details) { console.error(`Failed to get details for ${cleanUrl}`); continue; }
 
-        if (!details) {
-            console.error(`Failed to get details for ${cleanUrl}`);
-            continue;
-        }
-
-        // 1. Insert Item
         const { data: item, error: itemErr } = await supabase.from('ltg_item').insert({
             name: details.name,
             brand: details.brand,
@@ -58,7 +43,6 @@ async function processQueue() {
         }).select().single();
         if (itemErr) { console.error("Item insert error:", itemErr); process.exit(1); }
 
-        // 2. Insert Variant
         const { data: variant, error: varErr } = await supabase.from('ltg_item_variant').insert({
             item_id: item.id,
             name: details.variantName,
@@ -66,7 +50,6 @@ async function processQueue() {
         }).select().single();
         if (varErr) { console.error("Variant insert error:", varErr); process.exit(1); }
 
-        // 3. Insert Listing
         const { data: listing, error: listErr } = await supabase.from('ltg_item_listing').insert({
             variant_id: variant.id,
             store: 'amazon',
@@ -74,16 +57,11 @@ async function processQueue() {
         }).select().single();
         if (listErr) { console.error("Listing insert error:", listErr); process.exit(1); }
 
-        // 4. Log initial price
         if (details.price > 0) {
-            const { error: priceErr } = await supabase.from('ltg_price_log').insert({
-                listing_id: listing.id,
-                price: details.price
-            });
+            const { error: priceErr } = await supabase.from('ltg_price_log').insert({ listing_id: listing.id, price: details.price });
             if (priceErr) { console.error("Price log error:", priceErr); process.exit(1); }
         }
 
-        // 5. Mark Processed
         await supabase.from('ltg_item_queue').update({ processed: true }).eq('id', entry.id);
     }
 }
@@ -91,35 +69,57 @@ async function processQueue() {
 async function updatePrices() {
     const { data: listings, error } = await supabase
         .from('ltg_item_listing')
-        .select('*')
+        .select(`
+            id, store, url,
+            ltg_item_variant ( id, name, ltg_item ( id, name, brand ) )
+        `)
         .eq('is_active', true);
 
-    if (error) {
-        console.error("Fatal DB Error fetching listings:", error);
-        process.exit(1);
-    }
+    if (error) { console.error("Fatal DB Error fetching listings:", error); process.exit(1); }
 
     for (const listing of listings) {
         let scraper;
-        try {
-            scraper = await import(`./get-prices/${listing.store}.js`);
-        } catch (e) {
-            console.error(`Scraper for '${listing.store}' missing. Skipping ${listing.url}`);
-            continue;
-        }
+        try { scraper = await import(`./get-prices/${listing.store}.js`); } 
+        catch (e) { console.error(`Scraper missing for ${listing.store}`); continue; }
 
-        const currentPrice = await scraper.getPrice(listing.url);
+        const item = listing.ltg_item_variant.ltg_item;
+        const variant = listing.ltg_item_variant;
 
-        if (currentPrice !== null) {
-            const { error: insertError } = await supabase
-                .from('ltg_price_log')
-                .insert([{ listing_id: listing.id, price: currentPrice }]);
-
-            if (insertError) {
-                console.error(`Fatal error inserting price for listing ${listing.id}:`, insertError);
-                process.exit(1);
+        // If any core data is null, do a deep scrape to try and backfill it
+        if (!item.name || !item.brand || !variant.name) {
+            console.log(`Missing metadata for listing ${listing.id}, attempting deep scrape...`);
+            const details = await scraper.getFullDetails(listing.url);
+            
+            if (details) {
+                // Backfill item table
+                if (details.name || details.brand) {
+                    await supabase.from('ltg_item')
+                        .update({ name: details.name || item.name, brand: details.brand || item.brand })
+                        .eq('id', item.id);
+                }
+                // Backfill variant table
+                if (details.variantName) {
+                    await supabase.from('ltg_item_variant')
+                        .update({ name: details.variantName || variant.name })
+                        .eq('id', variant.id);
+                }
+                // Log price
+                if (details.price > 0) {
+                    await supabase.from('ltg_price_log').insert([{ listing_id: listing.id, price: details.price }]);
+                    console.log(`Updated listing ${listing.id} (Backfilled Data) to $${details.price}`);
+                }
             }
-            console.log(`Updated listing ${listing.id} to $${currentPrice}`);
+        } else {
+            // Data is fully populated, just do a lightweight price scrape
+            const currentPrice = await scraper.getPrice(listing.url);
+            if (currentPrice !== null) {
+                const { error: insertError } = await supabase
+                    .from('ltg_price_log')
+                    .insert([{ listing_id: listing.id, price: currentPrice }]);
+
+                if (insertError) { console.error(`Price insert error for ${listing.id}:`, insertError); process.exit(1); }
+                console.log(`Updated listing ${listing.id} to $${currentPrice}`);
+            }
         }
     }
 }
@@ -128,22 +128,14 @@ async function buildHtml() {
     const { data, error } = await supabase
         .from('ltg_item_listing')
         .select(`
-            store,
-            url,
-            ltg_item_variant (
-                name,
-                attributes,
-                ltg_item ( name, brand, category )
-            ),
+            store, url,
+            ltg_item_variant ( name, attributes, ltg_item ( name, brand, category ) ),
             ltg_price_log ( price, recorded_at )
         `)
         .eq('is_active', true)
         .eq('ltg_item_variant.ltg_item.category', 'protein_powder');
 
-    if (error) {
-        console.error("Fatal DB Error fetching data for HTML:", error);
-        process.exit(1);
-    }
+    if (error) { console.error("Fatal DB Error fetching data for HTML:", error); process.exit(1); }
 
     let tableRows = '';
 
@@ -163,12 +155,12 @@ async function buildHtml() {
         const servings = attrs.servings || 0;
         const qualityPct = attrs.quality_pct || 1;
 
-        // Note: The $/Gram calculation is removed from here. 
-        // We inject the raw data into the <tr> tag so the client-side JS can do the math.
+        const displayName = `${item.name || 'Pending Data'} - ${variant.name || 'Standard'}`;
+
         tableRows += `
             <tr data-price="${priceNum}" data-protein="${proteinPerServing}" data-servings="${servings}" data-quality="${qualityPct}">
-                <td>${item.brand}</td>
-                <td><a href="${row.url}" target="_blank" style="color: #bb86fc; text-decoration: none;">${item.name} - ${variant.name}</a></td>
+                <td>${item.brand || '-'}</td>
+                <td><a href="${row.url}" target="_blank" style="color: #bb86fc; text-decoration: none;">${displayName}</a></td>
                 <td>${row.store}</td>
                 <td>${attrs.size_lbs || '-'}</td>
                 <td>${servings || '-'}</td>
@@ -255,7 +247,6 @@ permalink: /fitness/protein-price-comparison.html
             });
         }
 
-        // Listen for checkbox changes and run once on load
         toggle.addEventListener('change', calculatePrices);
         calculatePrices();
     });
@@ -263,10 +254,7 @@ permalink: /fitness/protein-price-comparison.html
 `;
 
     const dir = path.dirname(HTML_OUTPUT_PATH);
-    if (!fs.existsSync(dir)){
-        fs.mkdirSync(dir, { recursive: true });
-    }
-
+    if (!fs.existsSync(dir)){ fs.mkdirSync(dir, { recursive: true }); }
     fs.writeFileSync(HTML_OUTPUT_PATH, htmlContent, 'utf8');
     console.log(`Successfully built HTML at ${HTML_OUTPUT_PATH}`);
 }
