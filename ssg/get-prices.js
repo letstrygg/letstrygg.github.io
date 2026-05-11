@@ -235,16 +235,8 @@ permalink: /fitness/protein-price-comparison.html
     .tracker-table th { background-color: #1e1e1e; font-weight: bold; }
     .tracker-table tr:hover { background-color: #1a1a1a; }
     .tracker-table input.sm { width: 100%; padding: 4px; background: #111; color: #fff; border: 1px solid #444; font-size: 0.9em; border-radius: 4px; }
-    .controls-wrapper { margin-bottom: 15px; padding: 10px; background-color: #1e1e1e; border-radius: 4px; display: inline-block; }
-    .affiliate-footer { margin-top: 30px; font-size: 0.85em; color: #888; border-top: 1px solid #333; padding-top: 15px; }
+    .affiliate-footer { margin-top: 30px; font-size: 0.85em; color: #888; }
 </style>
-
-<div class="controls-wrapper">
-    <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
-        <input type="checkbox" id="toggleQuality" checked>
-        Factor in Quality % for $/Gram Protein
-    </label>
-</div>
 
 <div class="table-responsive" style="overflow-x: auto;">
     <table class="tracker-table">
@@ -257,7 +249,7 @@ permalink: /fitness/protein-price-comparison.html
                 <th>Size (lbs)</th>
                 <th>Servings</th>
                 <th>Protein (g)</th>
-                <th>Quality %</th>
+                <th style="white-space: nowrap;">Quality % <span data-tooltip="Factor in Quality % for $/Gram Protein" style="display: inline-block; vertical-align: middle;"><input type="checkbox" id="toggleQuality" checked style="margin-left: 5px; cursor: pointer;"></span></th>
                 <th>Current Price</th>
                 <th>$/Gram Protein</th>
                 <th>Last Updated</th>
@@ -271,7 +263,7 @@ permalink: /fitness/protein-price-comparison.html
 </div>
 
 <div class="affiliate-footer">
-    As an Amazon Associate I earn from qualifying purchases.
+    As an <a href="https://www.amazon.com/?&linkCode=ll2&tag=letstrygg.com-20&linkId=675320e66b238f584ccfe3c7d717cd28&language=en_US&ref_=as_li_ss_tl" target="_blank" style="color: inherit; text-decoration: underline;">Amazon</a> Associate I earn from qualifying purchases.
 </div>
 
 <script>
