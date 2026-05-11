@@ -173,8 +173,8 @@ async function buildHtml() {
     const { data, error } = await supabase
         .from('ltg_item_listing')
         .select(`
-            store, url,
-            ltg_item_variant ( name, attributes, ltg_item ( name, brand, category ) ),
+            id, store, url,
+            ltg_item_variant ( id, name, attributes, ltg_item ( id, name, brand, category ) ),
             ltg_item_prices ( price, recorded_at )
         `)
         .eq('is_active', true)
@@ -199,21 +199,26 @@ async function buildHtml() {
         const proteinPerServing = attrs.protein_g || 0;
         const servings = attrs.servings || 0;
         const qualityPct = attrs.quality_pct || 1;
-
-        const displayName = item.name ? `${item.name}${variant.name ? ` - ${variant.name}` : ''}` : 'Pending Data';
+        const attrsJson = JSON.stringify(attrs).replace(/'/g, "&apos;");
 
         tableRows += `
-            <tr data-price="${priceNum}" data-protein="${proteinPerServing}" data-servings="${servings}" data-quality="${qualityPct}">
-                <td>${item.brand || '-'}</td>
-                <td><a href="${row.url}" target="_blank" style="color: #bb86fc; text-decoration: none;">${displayName}</a></td>
+            <tr data-item-id="${item.id}" data-variant-id="${variant.id}" 
+                data-attrs='${attrsJson}'
+                data-price="${priceNum}" data-protein="${proteinPerServing}" 
+                data-servings="${servings}" data-quality="${qualityPct}"
+                data-item-name="${item.name || ''}" data-variant-name="${variant.name || ''}">
+                <td class="cell-brand">${item.brand || '-'}</td>
+                <td class="cell-product"><a href="${row.url}" target="_blank" style="color: #bb86fc; text-decoration: none;">${item.name || 'Pending Data'}</a></td>
+                <td class="cell-variant">${variant.name || '-'}</td>
                 <td>${row.store}</td>
-                <td>${attrs.size_lbs || '-'}</td>
-                <td>${servings || '-'}</td>
-                <td>${proteinPerServing || '-'}</td>
-                <td>${(qualityPct * 100).toFixed(0)}%</td>
+                <td class="cell-size">${attrs.size_lbs || '-'}</td>
+                <td class="cell-servings">${servings || '-'}</td>
+                <td class="cell-protein">${proteinPerServing || '-'}</td>
+                <td class="cell-quality">${(qualityPct * 100).toFixed(0)}%</td>
                 <td>${priceDisplay}</td>
                 <td class="calc-price-per-gram">N/A</td>
                 <td>${dateDisplay}</td>
+                <td class="admin-only hidden"><button class="btn-edit btn btn-blue">Edit</button></td>
             </tr>
         `;
     });
@@ -229,6 +234,7 @@ permalink: /fitness/protein-price-comparison.html
     .tracker-table th, .tracker-table td { border: 1px solid #333; padding: 0.75rem; text-align: left; }
     .tracker-table th { background-color: #1e1e1e; font-weight: bold; }
     .tracker-table tr:hover { background-color: #1a1a1a; }
+    .tracker-table input.sm { width: 100%; padding: 4px; background: #111; color: #fff; border: 1px solid #444; font-size: 0.9em; border-radius: 4px; }
     .controls-wrapper { margin-bottom: 15px; padding: 10px; background-color: #1e1e1e; border-radius: 4px; display: inline-block; }
     .affiliate-footer { margin-top: 30px; font-size: 0.85em; color: #888; border-top: 1px solid #333; padding-top: 15px; }
 </style>
@@ -246,6 +252,7 @@ permalink: /fitness/protein-price-comparison.html
             <tr>
                 <th>Brand</th>
                 <th>Product</th>
+                <th>Variant</th>
                 <th>Store</th>
                 <th>Size (lbs)</th>
                 <th>Servings</th>
@@ -254,6 +261,7 @@ permalink: /fitness/protein-price-comparison.html
                 <th>Current Price</th>
                 <th>$/Gram Protein</th>
                 <th>Last Updated</th>
+                <th class="admin-only hidden">Admin</th>
             </tr>
         </thead>
         <tbody>
@@ -294,6 +302,82 @@ permalink: /fitness/protein-price-comparison.html
 
         toggle.addEventListener('change', calculatePrices);
         calculatePrices();
+
+        // --- ADMIN EDIT LOGIC ---
+        const checkAuth = async () => {
+            if (!window.supabaseClient) return;
+            const { data: { session } } = await window.supabaseClient.auth.getSession();
+            if (session?.user?.email === 'letstrygg@gmail.com') {
+                document.querySelectorAll('.admin-only').forEach(el => el.classList.remove('hidden'));
+            }
+        };
+        
+        const authInterval = setInterval(() => {
+            if (window.supabaseClient) {
+                clearInterval(authInterval);
+                checkAuth();
+                window.supabaseClient.auth.onAuthStateChange(() => checkAuth());
+            }
+        }, 500);
+
+        document.addEventListener('click', async (e) => {
+            const btn = e.target.closest('.btn-edit');
+            if (!btn) return;
+
+            const row = btn.closest('tr');
+            const isEditing = btn.textContent === 'Save';
+
+            if (!isEditing) {
+                btn.textContent = 'Save';
+                btn.classList.replace('btn-blue', 'btn-green');
+                
+                // Brand
+                const brandCell = row.querySelector('.cell-brand');
+                brandCell.innerHTML = \`<input type="text" class="input sm" value="\${row.dataset.itemName ? brandCell.textContent.trim() : ''}">\`;
+                
+                // Product (Item Name)
+                const productCell = row.querySelector('.cell-product');
+                productCell.innerHTML = \`<input type="text" class="input sm" value="\${row.dataset.itemName}">\`;
+                
+                // Variant
+                const variantCell = row.querySelector('.cell-variant');
+                variantCell.innerHTML = \`<input type="text" class="input sm" value="\${row.dataset.variantName}">\`;
+
+                row.querySelector('.cell-size').innerHTML = \`<input type="number" step="0.01" class="input sm" value="\${row.querySelector('.cell-size').textContent.trim() === '-' ? '' : row.querySelector('.cell-size').textContent.trim()}">\`;
+                row.querySelector('.cell-servings').innerHTML = \`<input type="number" class="input sm" value="\${row.dataset.servings}">\`;
+                row.querySelector('.cell-protein').innerHTML = \`<input type="number" class="input sm" value="\${row.dataset.protein}">\`;
+                row.querySelector('.cell-quality').innerHTML = \`<input type="number" step="0.01" class="input sm" value="\${row.dataset.quality}">\`;
+            } else {
+                btn.disabled = true;
+                btn.textContent = '...';
+
+                const inputs = row.querySelectorAll('input');
+                const brand = inputs[0].value;
+                const itemName = inputs[1].value;
+                const variantName = inputs[2].value;
+                const size = parseFloat(inputs[3].value) || 0;
+                const servings = parseFloat(inputs[4].value) || 0;
+                const protein = parseFloat(inputs[5].value) || 0;
+                const quality = parseFloat(inputs[6].value) || 0;
+
+                const itemId = row.dataset.itemId;
+                const variantId = row.dataset.variantId;
+                const oldAttrs = JSON.parse(row.dataset.attrs || '{}');
+                const attributes = { ...oldAttrs, size_lbs: size, servings, protein_g: protein, quality_pct: quality };
+
+                const { error: err1 } = await window.supabaseClient.from('ltg_item').update({ brand, name: itemName }).eq('id', itemId);
+                const { error: err2 } = await window.supabaseClient.from('ltg_item_variant').update({ name: variantName, attributes }).eq('id', variantId);
+
+                if (err1 || err2) {
+                    alert('Error: ' + (err1?.message || err2?.message));
+                    btn.disabled = false;
+                    btn.textContent = 'Save';
+                } else {
+                    alert('Saved! Run build script to update the static HTML.');
+                    location.reload();
+                }
+            }
+        });
     });
 </script>
 `;
