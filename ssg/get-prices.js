@@ -202,7 +202,7 @@ async function buildHtml() {
         const attrsJson = JSON.stringify(attrs).replace(/'/g, "&apos;");
 
         tableRows += `
-            <tr data-item-id="${item.id}" data-variant-id="${variant.id}" 
+            <tr data-item-id="${item.id}" data-variant-id="${variant.id}" data-url="${row.url}"
                 data-attrs='${attrsJson}'
                 data-price="${priceNum}" data-protein="${proteinPerServing}" 
                 data-servings="${servings}" data-quality="${qualityPct}"
@@ -238,6 +238,15 @@ permalink: /fitness/protein-price-comparison.html
     .affiliate-footer { margin-top: 30px; font-size: 0.85em; color: #888; }
 </style>
 
+<div class="admin-only hidden" style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg2);">
+    <h3 style="margin-top: 0;">Add New Product</h3>
+    <div style="display: flex; gap: 10px;">
+        <input type="text" id="admin-add-url" class="input" style="flex: 1; padding: 10px;" placeholder="Paste Amazon Product URL for Tracking...">
+        <button id="admin-add-btn" class="btn btn-blue">Add to Queue</button>
+    </div>
+    <p id="admin-add-status" class="hidden" style="margin-top: 10px; font-size: 0.9em;"></p>
+</div>
+
 <div class="table-responsive" style="overflow-x: auto;">
     <table class="tracker-table">
         <thead>
@@ -271,6 +280,52 @@ permalink: /fitness/protein-price-comparison.html
         const toggle = document.getElementById('toggleQuality');
         const rows = document.querySelectorAll('.tracker-table tbody tr');
 
+        // --- ADD PRODUCT LOGIC ---
+        const addInput = document.getElementById('admin-add-url');
+        const addBtn = document.getElementById('admin-add-btn');
+        const addStatus = document.getElementById('admin-add-status');
+
+        function showStatus(text, colorClass) {
+            addStatus.textContent = text;
+            addStatus.className = colorClass;
+            addStatus.classList.remove('hidden');
+        }
+
+        async function handleAddUrl() {
+            const rawUrl = addInput.value.trim();
+            if (!rawUrl) return;
+            if (!window.supabaseClient) return showStatus('Database not ready.', 'red');
+
+            const asinMatch = rawUrl.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/i);
+            if (!asinMatch) return showStatus('Not a valid Amazon product URL.', 'red');
+            const asin = asinMatch[1];
+
+            showStatus('Checking for duplicates...', 'text-muted');
+            addInput.disabled = true;
+            addBtn.disabled = true;
+
+            const { data: existing, error: fetchError } = await window.supabaseClient
+                .from('ltg_item_listing')
+                .select('id')
+                .ilike('url', \`%\${asin}%\`)
+                .limit(1);
+
+            if (fetchError) {
+                showStatus('Error: ' + fetchError.message, 'red');
+            } else if (existing && existing.length > 0) {
+                showStatus('Item is already being tracked.', 'orange');
+            } else {
+                const { error: insertError } = await window.supabaseClient.from('ltg_item_queue').insert([{ url: rawUrl, category: 'protein_powder' }]);
+                if (insertError) showStatus('Error: ' + insertError.message, 'red');
+                else { showStatus('Added to processing queue!', 'green'); addInput.value = ''; }
+            }
+            addInput.disabled = false;
+            addBtn.disabled = false;
+        }
+
+        addBtn.addEventListener('click', handleAddUrl);
+        addInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleAddUrl(); });
+
         function calculatePrices() {
             const useQuality = toggle.checked;
 
@@ -299,8 +354,11 @@ permalink: /fitness/protein-price-comparison.html
         const checkAuth = async () => {
             if (!window.supabaseClient) return;
             const { data: { session } } = await window.supabaseClient.auth.getSession();
-            if (session?.user?.email === 'letstrygg@gmail.com') {
+            const isAdmin = session?.user?.email === 'letstrygg@gmail.com';
+            if (isAdmin) {
                 document.querySelectorAll('.admin-only').forEach(el => el.classList.remove('hidden'));
+            } else {
+                document.querySelectorAll('.admin-only').forEach(el => el.classList.add('hidden'));
             }
         };
         
@@ -325,7 +383,7 @@ permalink: /fitness/protein-price-comparison.html
                 
                 // Brand
                 const brandCell = row.querySelector('.cell-brand');
-                brandCell.innerHTML = \`<input type="text" class="input sm" value="\${row.dataset.itemName ? brandCell.textContent.trim() : ''}">\`;
+                brandCell.innerHTML = \`<input type="text" class="input sm" value="\${brandCell.textContent.trim() === '-' ? '' : brandCell.textContent.trim()}">\`;
                 
                 // Product (Item Name)
                 const productCell = row.querySelector('.cell-product');
@@ -365,8 +423,28 @@ permalink: /fitness/protein-price-comparison.html
                     btn.disabled = false;
                     btn.textContent = 'Save';
                 } else {
-                    alert('Saved! Run build script to update the static HTML.');
-                    location.reload();
+                    // Update DOM and exit edit mode
+                    row.querySelector('.cell-brand').textContent = brand || '-';
+                    row.querySelector('.cell-product').innerHTML = \`<a href="\${row.dataset.url}" target="_blank" style="color: #bb86fc; text-decoration: none;">\${itemName || 'Pending Data'}</a>\`;
+                    row.querySelector('.cell-variant').textContent = variantName || '-';
+                    row.querySelector('.cell-size').textContent = size || '-';
+                    row.querySelector('.cell-servings').textContent = servings || '-';
+                    row.querySelector('.cell-protein').textContent = protein || '-';
+                    row.querySelector('.cell-quality').textContent = (quality * 100).toFixed(0) + '%';
+                    
+                    // Update datasets for subsequent edits
+                    row.dataset.itemName = itemName;
+                    row.dataset.variantName = variantName;
+                    row.dataset.servings = servings;
+                    row.dataset.protein = protein;
+                    row.dataset.quality = quality;
+                    row.dataset.attrs = JSON.stringify(attributes);
+
+                    btn.textContent = 'Edit';
+                    btn.classList.replace('btn-green', 'btn-blue');
+                    btn.disabled = false;
+                    
+                    calculatePrices();
                 }
             }
         });
