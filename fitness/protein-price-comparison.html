@@ -9,17 +9,13 @@ permalink: /fitness/protein-price-comparison.html
     .tracker-table th, .tracker-table td { border: 1px solid #333; padding: 0.75rem; text-align: left; }
     .tracker-table th { background-color: #1e1e1e; font-weight: bold; }
     .tracker-table tr:hover { background-color: #1a1a1a; }
-    .tracker-table input.sm { width: 100%; padding: 4px; background: #111; color: #fff; border: 1px solid #444; font-size: 0.9em; border-radius: 4px; }
+    .tracker-table input.sm { width: 100%; padding: 4px; background: #111; color: #fff; border: 1px solid #333; font-size: 0.9em; border-radius: 4px; }
     .affiliate-footer { margin-top: 30px; font-size: 0.85em; color: #888; }
 </style>
 
-<div class="admin-only hidden" style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg2);">
-    <h3 style="margin-top: 0;">Add New Product</h3>
-    <div style="display: flex; gap: 10px;">
-        <input type="text" id="admin-add-url" class="input" style="flex: 1; padding: 10px;" placeholder="Paste Amazon Product URL for Tracking...">
-        <button id="admin-add-btn" class="btn btn-blue">Add to Queue</button>
-    </div>
-    <p id="admin-add-status" class="hidden" style="margin-top: 10px; font-size: 0.9em;"></p>
+<div id="ctrl" class="hidden" style="margin-bottom: 15px;">
+    <button id="btn">Edit</button>
+    <input id="input" class="hidden" placeholder="Paste Amazon URL and press Enter...">
 </div>
 
 <div class="table-responsive" style="overflow-x: auto;">
@@ -37,7 +33,6 @@ permalink: /fitness/protein-price-comparison.html
                 <th>Current Price</th>
                 <th>$/Gram Protein</th>
                 <th>Last Updated</th>
-                <th class="admin-only hidden">Admin</th>
             </tr>
         </thead>
         <tbody>
@@ -58,7 +53,6 @@ permalink: /fitness/protein-price-comparison.html
                 <td>$89.99</td>
                 <td class="calc-price-per-gram">N/A</td>
                 <td>5/11/2026</td>
-                <td class="admin-only hidden"><button class="btn-edit btn btn-blue">Edit</button></td>
             </tr>
         
         </tbody>
@@ -72,175 +66,110 @@ permalink: /fitness/protein-price-comparison.html
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const toggle = document.getElementById('toggleQuality');
+        const btn = document.getElementById('btn');
+        const input = document.getElementById('input');
         const rows = document.querySelectorAll('.tracker-table tbody tr');
 
-        // --- ADD PRODUCT LOGIC ---
-        const addInput = document.getElementById('admin-add-url');
-        const addBtn = document.getElementById('admin-add-btn');
-        const addStatus = document.getElementById('admin-add-status');
-
-        function showStatus(text, colorClass) {
-            addStatus.textContent = text;
-            addStatus.className = colorClass;
-            addStatus.classList.remove('hidden');
-        }
-
-        async function handleAddUrl() {
-            const rawUrl = addInput.value.trim();
-            if (!rawUrl) return;
-            if (!window.supabaseClient) return showStatus('Database not ready.', 'red');
-
-            const asinMatch = rawUrl.match(//(?:dp|gp/product)/([A-Z0-9]{10})/i);
-            if (!asinMatch) return showStatus('Not a valid Amazon product URL.', 'red');
-            const asin = asinMatch[1];
-
-            showStatus('Checking for duplicates...', 'text-muted');
-            addInput.disabled = true;
-            addBtn.disabled = true;
-
-            const { data: existing, error: fetchError } = await window.supabaseClient
-                .from('ltg_item_listing')
-                .select('id')
-                .ilike('url', `%${asin}%`)
-                .limit(1);
-
-            if (fetchError) {
-                showStatus('Error: ' + fetchError.message, 'red');
-            } else if (existing && existing.length > 0) {
-                showStatus('Item is already being tracked.', 'orange');
+        input.addEventListener('keypress', async (e) => {
+            if (e.key !== 'Enter') return;
+            const url = input.value.trim();
+            const match = url.match(/\/dp\/([A-Z0-9]{10})/i);
+            const asin = match ? match[1] : null;
+            if (!asin) return alert('Invalid Amazon URL');
+            
+            input.disabled = true;
+            const { data: existing } = await window.supabaseClient.from('ltg_item_listing').select('id').ilike('url', '%' + asin + '%').limit(1);
+            if (existing && existing.length > 0) {
+                alert('Already tracked');
             } else {
-                const { error: insertError } = await window.supabaseClient.from('ltg_item_queue').insert([{ url: rawUrl, category: 'protein_powder' }]);
-                if (insertError) showStatus('Error: ' + insertError.message, 'red');
-                else { showStatus('Added to processing queue!', 'green'); addInput.value = ''; }
+                const { error } = await window.supabaseClient.from('ltg_item_queue').insert([{ url: url, category: 'protein_powder' }]);
+                if (error) alert(error.message);
+                else { alert('Added to queue!'); input.value = ''; }
             }
-            addInput.disabled = false;
-            addBtn.disabled = false;
-        }
-
-        addBtn.addEventListener('click', handleAddUrl);
-        addInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleAddUrl(); });
+            input.disabled = false;
+        });
 
         function calculatePrices() {
-            const useQuality = toggle.checked;
-
             rows.forEach(row => {
                 const price = parseFloat(row.getAttribute('data-price'));
-                const protein = parseFloat(row.getAttribute('data-protein'));
-                const servings = parseFloat(row.getAttribute('data-servings'));
-                const quality = parseFloat(row.getAttribute('data-quality'));
-                const targetCell = row.querySelector('.calc-price-per-gram');
-
-                if (price > 0 && protein > 0 && servings > 0) {
-                    const effectiveQuality = useQuality ? quality : 1.0;
-                    const totalProtein = protein * servings * effectiveQuality;
-                    const pricePerGram = price / totalProtein;
-                    targetCell.textContent = '$' + pricePerGram.toFixed(4);
+                let p, s, q;
+                if (btn.textContent === 'Save') {
+                    const ins = row.querySelectorAll('input');
+                    s = parseFloat(ins[4].value) || 0;
+                    p = parseFloat(ins[5].value) || 0;
+                    q = parseFloat(ins[6].value) || 0;
                 } else {
-                    targetCell.textContent = 'N/A';
+                    p = parseFloat(row.getAttribute('data-protein'));
+                    s = parseFloat(row.getAttribute('data-servings'));
+                    q = parseFloat(row.getAttribute('data-quality'));
                 }
+                const cell = row.querySelector('.calc-price-per-gram');
+                cell.textContent = (price > 0 && p > 0 && s > 0) ? '$' + (price / (p * s * (toggle.checked ? q : 1))).toFixed(4) : 'N/A';
             });
         }
 
-        toggle.addEventListener('change', calculatePrices);
-        calculatePrices();
-
-        // --- ADMIN EDIT LOGIC ---
-        const checkAuth = async () => {
+        const authInt = setInterval(async () => {
             if (!window.supabaseClient) return;
+            clearInterval(authInt);
             const { data: { session } } = await window.supabaseClient.auth.getSession();
-            const isAdmin = session?.user?.email === 'letstrygg@gmail.com';
-            if (isAdmin) {
-                document.querySelectorAll('.admin-only').forEach(el => el.classList.remove('hidden'));
-            } else {
-                document.querySelectorAll('.admin-only').forEach(el => el.classList.add('hidden'));
-            }
-        };
-        
-        const authInterval = setInterval(() => {
-            if (window.supabaseClient) {
-                clearInterval(authInterval);
-                checkAuth();
-                window.supabaseClient.auth.onAuthStateChange(() => checkAuth());
-            }
+            if (session?.user?.email === 'letstrygg@gmail.com') document.getElementById('ctrl').classList.remove('hidden');
         }, 500);
 
-        document.addEventListener('click', async (e) => {
-            const btn = e.target.closest('.btn-edit');
-            if (!btn) return;
-
-            const row = btn.closest('tr');
-            const isEditing = btn.textContent === 'Save';
-
-            if (!isEditing) {
+        btn.addEventListener('click', async () => {
+            if (btn.textContent === 'Edit') {
                 btn.textContent = 'Save';
-                btn.classList.replace('btn-blue', 'btn-green');
-                
-                // Brand
-                const brandCell = row.querySelector('.cell-brand');
-                brandCell.innerHTML = `<input type="text" class="input sm" value="${brandCell.textContent.trim() === '-' ? '' : brandCell.textContent.trim()}">`;
-                
-                // Product (Item Name)
-                const productCell = row.querySelector('.cell-product');
-                productCell.innerHTML = `<input type="text" class="input sm" value="${row.dataset.itemName}">`;
-                
-                // Variant
-                const variantCell = row.querySelector('.cell-variant');
-                variantCell.innerHTML = `<input type="text" class="input sm" value="${row.dataset.variantName}">`;
-
-                row.querySelector('.cell-size').innerHTML = `<input type="number" step="0.01" class="input sm" value="${row.querySelector('.cell-size').textContent.trim() === '-' ? '' : row.querySelector('.cell-size').textContent.trim()}">`;
-                row.querySelector('.cell-servings').innerHTML = `<input type="number" class="input sm" value="${row.dataset.servings}">`;
-                row.querySelector('.cell-protein').innerHTML = `<input type="number" class="input sm" value="${row.dataset.protein}">`;
-                row.querySelector('.cell-quality').innerHTML = `<input type="number" step="0.01" class="input sm" value="${row.dataset.quality}">`;
+                input.classList.remove('hidden');
+                rows.forEach(row => {
+                    const cells = ['.cell-brand', '.cell-product', '.cell-variant', '.cell-size', '.cell-servings', '.cell-protein', '.cell-quality'];
+                    const vals = [
+                        row.querySelector('.cell-brand').textContent === '-' ? '' : row.querySelector('.cell-brand').textContent,
+                        row.dataset.itemName, row.dataset.variantName,
+                        row.querySelector('.cell-size').textContent === '-' ? '' : row.querySelector('.cell-size').textContent,
+                        row.dataset.servings, row.dataset.protein, row.dataset.quality
+                    ];
+                    cells.forEach((c, i) => {
+                        const cell = row.querySelector(c);
+                        const el = document.createElement('input');
+                        el.className = 'sm';
+                        el.value = vals[i];
+                        if (i > 2) el.type = 'number';
+                        if (i === 3 || i === 6) el.step = '0.01';
+                        el.oninput = calculatePrices;
+                        cell.innerHTML = '';
+                        cell.appendChild(el);
+                    });
+                });
             } else {
                 btn.disabled = true;
-                btn.textContent = '...';
-
-                const inputs = row.querySelectorAll('input');
-                const brand = inputs[0].value;
-                const itemName = inputs[1].value;
-                const variantName = inputs[2].value;
-                const size = parseFloat(inputs[3].value) || 0;
-                const servings = parseFloat(inputs[4].value) || 0;
-                const protein = parseFloat(inputs[5].value) || 0;
-                const quality = parseFloat(inputs[6].value) || 0;
-
-                const itemId = row.dataset.itemId;
-                const variantId = row.dataset.variantId;
-                const oldAttrs = JSON.parse(row.dataset.attrs || '{}');
-                const attributes = { ...oldAttrs, size_lbs: size, servings, protein_g: protein, quality_pct: quality };
-
-                const { error: err1 } = await window.supabaseClient.from('ltg_item').update({ brand, name: itemName }).eq('id', itemId);
-                const { error: err2 } = await window.supabaseClient.from('ltg_item_variant').update({ name: variantName, attributes }).eq('id', variantId);
-
-                if (err1 || err2) {
-                    alert('Error: ' + (err1?.message || err2?.message));
-                    btn.disabled = false;
-                    btn.textContent = 'Save';
-                } else {
-                    // Update DOM and exit edit mode
-                    row.querySelector('.cell-brand').textContent = brand || '-';
-                    row.querySelector('.cell-product').innerHTML = `<a href="${row.dataset.url}" target="_blank" style="color: #bb86fc; text-decoration: none;">${itemName || 'Pending Data'}</a>`;
-                    row.querySelector('.cell-variant').textContent = variantName || '-';
-                    row.querySelector('.cell-size').textContent = size || '-';
-                    row.querySelector('.cell-servings').textContent = servings || '-';
-                    row.querySelector('.cell-protein').textContent = protein || '-';
-                    row.querySelector('.cell-quality').textContent = (quality * 100).toFixed(0) + '%';
+                btn.textContent = 'Saving...';
+                for (const row of rows) {
+                    const ins = row.querySelectorAll('input');
+                    const b = ins[0].value, n = ins[1].value, v = ins[2].value, s = parseFloat(ins[3].value) || 0;
+                    const sv = parseFloat(ins[4].value) || 0, p = parseFloat(ins[5].value) || 0, q = parseFloat(ins[6].value) || 0;
+                    const attrs = { ...JSON.parse(row.dataset.attrs || '{}'), size_lbs: s, servings: sv, protein_g: p, quality_pct: q };
                     
-                    // Update datasets for subsequent edits
-                    row.dataset.itemName = itemName;
-                    row.dataset.variantName = variantName;
-                    row.dataset.servings = servings;
-                    row.dataset.protein = protein;
-                    row.dataset.quality = quality;
-                    row.dataset.attrs = JSON.stringify(attributes);
-
-                    btn.textContent = 'Edit';
-                    btn.classList.replace('btn-green', 'btn-blue');
-                    btn.disabled = false;
+                    await window.supabaseClient.from('ltg_item').update({ brand: b, name: n }).eq('id', row.dataset.itemId);
+                    await window.supabaseClient.from('ltg_item_variant').update({ name: v, attributes: attrs }).eq('id', row.dataset.variantId);
                     
-                    calculatePrices();
+                    row.querySelector('.cell-brand').textContent = b || '-';
+                    row.querySelector('.cell-product').innerHTML = '<a href="' + row.dataset.url + '" target="_blank" style="color:#bb86fc;text-decoration:none;">' + (n || 'Pending') + '</a>';
+                    row.querySelector('.cell-variant').textContent = v || '-';
+                    row.querySelector('.cell-size').textContent = s || '-';
+                    row.querySelector('.cell-servings').textContent = sv || '-';
+                    row.querySelector('.cell-protein').textContent = p || '-';
+                    row.querySelector('.cell-quality').textContent = (q * 100).toFixed(0) + '%';
+                    
+                    row.dataset.itemName = n; row.dataset.variantName = v; row.dataset.servings = sv; row.dataset.protein = p; row.dataset.quality = q;
+                    row.dataset.attrs = JSON.stringify(attrs);
                 }
+                btn.textContent = 'Edit';
+                btn.disabled = false;
+                input.classList.add('hidden');
+                calculatePrices();
             }
         });
+
+        toggle.addEventListener('change', calculatePrices);
+        calculatePrices();
     });
 </script>
