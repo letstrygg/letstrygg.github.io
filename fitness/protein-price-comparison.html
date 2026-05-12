@@ -114,6 +114,7 @@ permalink: /fitness/protein-price-comparison.html
             if (!window.supabaseClient) return;
             clearInterval(authInt);
             const { data: { session } } = await window.supabaseClient.auth.getSession();
+            console.log("[Auth] Current user:", session?.user?.email || "Guest");
             if (session?.user?.email === 'letstrygg@gmail.com') document.getElementById('ctrl').classList.remove('hidden');
         }, 500);
 
@@ -145,15 +146,28 @@ permalink: /fitness/protein-price-comparison.html
             } else {
                 btn.disabled = true;
                 btn.textContent = 'Saving...';
+                console.log("[Save] Starting batch update for " + rows.length + " rows.");
+
                 for (const row of rows) {
+                    const iId = row.dataset.itemId;
+                    const vId = row.dataset.variantId;
+                    console.log("[Save] Processing Row - Item ID: " + iId + ", Variant ID: " + vId);
+
                     const ins = row.querySelectorAll('input');
                     const b = ins[0].value, n = ins[1].value, v = ins[2].value, s = parseFloat(ins[3].value) || 0;
                     const sv = parseFloat(ins[4].value) || 0, cal = parseFloat(ins[5].value) || 0;
                     const p = parseFloat(ins[6].value) || 0, q = parseFloat(ins[7].value) || 0;
                     const attrs = { ...JSON.parse(row.dataset.attrs || '{}'), size_lbs: s, servings: sv, calories: cal, protein_g: p, quality_pct: q };
                     
-                    await window.supabaseClient.from('ltg_item').update({ brand: b, name: n }).eq('id', row.dataset.itemId);
-                    await window.supabaseClient.from('ltg_item_variant').update({ name: v, attributes: attrs }).eq('id', row.dataset.variantId);
+                    console.log("[Save] -> Updating ltg_item (id: " + iId + ") with brand: " + b + ", name: " + n);
+                    const { error: err1 } = await window.supabaseClient.from('ltg_item').update({ brand: b, name: n }).eq('id', iId);
+                    if (err1) console.error("[Save] ltg_item Error:", err1);
+
+                    console.log("[Save] -> Updating ltg_item_variant (id: " + vId + ") with name: " + v + ", attributes: ", attrs);
+                    const { error: err2 } = await window.supabaseClient.from('ltg_item_variant').update({ name: v, attributes: attrs }).eq('id', vId);
+                    if (err2) console.error("[Save] ltg_item_variant Error:", err2);
+
+                    if (!err1 && !err2) console.log("[Save] Success for row " + iId);
                     
                     row.querySelector('.cell-brand').textContent = b || '-';
                     row.querySelector('.cell-product').innerHTML = '<a href="' + row.dataset.url + '" target="_blank" style="color:#bb86fc;text-decoration:none;">' + (n || 'Pending') + '</a>';
@@ -167,6 +181,7 @@ permalink: /fitness/protein-price-comparison.html
                     row.dataset.itemName = n; row.dataset.variantName = v; row.dataset.servings = sv; row.dataset.calories = cal; row.dataset.protein = p; row.dataset.quality = q;
                     row.dataset.attrs = JSON.stringify(attrs);
                 }
+                console.log("[Save] Batch update finished.");
                 btn.textContent = 'Edit';
                 btn.disabled = false;
                 input.classList.add('hidden');
