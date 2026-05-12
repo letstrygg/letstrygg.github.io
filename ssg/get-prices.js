@@ -304,16 +304,21 @@ permalink: /fitness/protein-price-comparison.html
                 let p, s, q;
                 if (btn.textContent === 'Save') {
                     const ins = row.querySelectorAll('input');
-                    s = parseFloat(ins[4].value) || 0;
-                    p = parseFloat(ins[6].value) || 0;
-                    q = (parseFloat(ins[7].value) || 0) / 100;
+                    s = parseFloat(ins[4].value) || 0; // Servings
+                    p = parseFloat(ins[6].value) || 0; // Protein
+                    q = (parseFloat(ins[7].value) || 0) / 100; // Quality %
                 } else {
-                    p = parseFloat(row.getAttribute('data-protein'));
-                    s = parseFloat(row.getAttribute('data-servings'));
-                    q = parseFloat(row.getAttribute('data-quality'));
+                    p = parseFloat(row.dataset.protein) || 0;
+                    s = parseFloat(row.dataset.servings) || 0;
+                    q = parseFloat(row.dataset.quality) || 1;
                 }
                 const cell = row.querySelector('.calc-price-per-gram');
-                cell.textContent = (price > 0 && p > 0 && s > 0) ? '$' + (price / (p * s * (toggle.checked ? q : 1))).toFixed(4) : 'N/A';
+                if (price > 0 && p > 0 && s > 0) {
+                    const effQ = (toggle && toggle.checked) ? q : 1;
+                    cell.textContent = '$' + (price / (p * s * effQ)).toFixed(4);
+                } else {
+                    cell.textContent = 'N/A';
+                }
             });
         }
 
@@ -360,8 +365,8 @@ permalink: /fitness/protein-price-comparison.html
                     console.log("[Save] Processing Row - Item ID: " + iId + ", Variant ID: " + vId);
 
                     const ins = row.querySelectorAll('input');
+                    const b = ins[0].value, n = ins[1].value, v = ins[2].value, s = parseFloat(ins[3].value) || 0;
                     const sv = parseFloat(ins[4].value) || 0, cal = parseFloat(ins[5].value) || 0;
-                    const p = parseFloat(ins[6].value) || 0, q = parseFloat(ins[7].value) || 0;
                     const p = parseFloat(ins[6].value) || 0, q = (parseFloat(ins[7].value) || 0) / 100;
                     const attrs = { ...JSON.parse(row.dataset.attrs || '{}'), size_lbs: s, servings: sv, calories: cal, protein_g: p, quality_pct: q };
                     
