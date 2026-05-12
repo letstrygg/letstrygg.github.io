@@ -367,14 +367,16 @@ permalink: /fitness/protein-price-comparison.html
                     const attrs = { ...JSON.parse(row.dataset.attrs || '{}'), size_lbs: s, servings: sv, calories: cal, protein_g: p, quality_pct: q };
                     
                     console.log("[Save] -> Updating ltg_item (id: " + iId + ") with brand: " + b + ", name: " + n);
-                    const { error: err1 } = await window.supabaseClient.from('ltg_item').update({ brand: b, name: n }).eq('id', iId);
+                    const { data: res1, error: err1 } = await window.supabaseClient.from('ltg_item').update({ brand: b, name: n }).eq('id', iId).select();
                     if (err1) console.error("[Save] ltg_item Error:", err1);
+                    if (res1 && res1.length === 0) console.error("[Save] FAILED: ltg_item update affected 0 rows. Check Supabase RLS policies for table 'ltg_item'.");
 
                     console.log("[Save] -> Updating ltg_item_variant (id: " + vId + ") with name: " + v + ", attributes: ", attrs);
-                    const { error: err2 } = await window.supabaseClient.from('ltg_item_variant').update({ name: v, attributes: attrs }).eq('id', vId);
+                    const { data: res2, error: err2 } = await window.supabaseClient.from('ltg_item_variant').update({ name: v, attributes: attrs }).eq('id', vId).select();
                     if (err2) console.error("[Save] ltg_item_variant Error:", err2);
+                    if (res2 && res2.length === 0) console.error("[Save] FAILED: ltg_item_variant update affected 0 rows. Check Supabase RLS policies for table 'ltg_item_variant'.");
 
-                    if (!err1 && !err2) console.log("[Save] Success for row " + iId);
+                    if (!err1 && !err2 && res1?.length > 0 && res2?.length > 0) console.log("[Save] Successfully updated row " + iId);
                     
                     row.querySelector('.cell-brand').textContent = b || '-';
                     row.querySelector('.cell-product').innerHTML = '<a href="' + row.dataset.url + '" target="_blank" style="color:#bb86fc;text-decoration:none;">' + (n || 'Pending') + '</a>';
