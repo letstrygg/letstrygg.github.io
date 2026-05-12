@@ -1,57 +1,74 @@
-import * as cheerio from 'cheerio';
+import 'dotenv/config';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-async function fetchHtml(url) {
-    const response = await fetch(url, {
-        headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-            'Accept-Language': 'en-US,en;q=0.5'
-        }
-    });
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const sdkPath = path.resolve(__dirname, '../../creatorsapi-nodejs-sdk/dist/index.js');
 
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return await response.text();
-}
+import sdk from '../../creatorsapi-nodejs-sdk/dist/index.js';
+const { ApiClient, DefaultApi, GetItemsRequestContent } = sdk;
 
-async function getPrice(url) {
-    try {
-        const html = await fetchHtml(url);
-        const $ = cheerio.load(html);
+const apiClient = new ApiClient();
+apiClient.credentialId = process.env.AMAZON_CREDENTIAL_ID.trim();
+apiClient.credentialSecret = process.env.AMAZON_CREDENTIAL_SECRET.trim();
+apiClient.version = process.env.AMZN_VERSION.trim();
 
-        const priceText = $('.a-price .a-offscreen').first().text() || $('#priceblock_ourprice').text();
-        if (!priceText) return null;
-
-        return parseFloat(priceText.replace(/[^0-9.]/g, ''));
-    } catch (error) {
-        console.error(`Error scraping price for ${url}:`, error.message);
-        return null;
-    }
-}
+const api = new DefaultApi(apiClient);
 
 async function getFullDetails(url) {
     try {
-        const html = await fetchHtml(url);
-        const $ = cheerio.load(html);
+        const asinMatch = url.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/i);
+        if (!asinMatch) return null;
+        const asin = asinMatch[1];
 
-        const priceText = $('.a-price .a-offscreen').first().text() || $('#priceblock_ourprice').text();
-        const price = priceText ? parseFloat(priceText.replace(/[^0-9.]/g, '')) : 0.00;
+		const getItemsRequest = new GetItemsRequestContent();
+        // Removed the fallback. It will now strictly use your .env variable.
+        getItemsRequest.partnerTag = process.env.AMAZON_PARTNER_TAG.trim();
+        getItemsRequest.itemIds = [asin];
+        getItemsRequest.marketplace = "www.amazon.com"; 
+        getItemsRequest.resources = [
+            'itemInfo.title',
+            'itemInfo.byLineInfo',
+            'offersV2.listings.price'
+        ];
 
-        const name = $('#productTitle').text().trim() || null;
-        
-        let brand = $('#bylineInfo').text().trim();
-        if (!brand) brand = $('.po-brand .a-span9 span').text().trim();
-        if (!brand) brand = $('#sellerProfileTriggerId').text().trim();
-        brand = brand.replace(/Visit the | Store/gi, '').replace(/Brand:\s*/gi, '').trim() || null;
-        
-        const variantName = $('.selection').text().trim() || null;
+        // Add this line to verify exactly what is being sent
+        console.log(`Sending API Request for ASIN: ${asin} using Tag: ${getItemsRequest.partnerTag}`);
 
-        return { name, brand, variantName, price };
+        const response = await api.getItems("www.amazon.com", getItemsRequest);
+        const item = response?.itemsResult?.items?.[0];
+
+        if (!item) {
+            console.log(`[Amazon SDK] No item data found for ASIN: ${asin}`);
+            return null;
+        }
+
+        const name = item.itemInfo?.title?.displayValue || null;
+        const brand = item.itemInfo?.byLineInfo?.brand?.displayValue || null;
+        const price = item.offersV2?.listings?.[0]?.price?.amount || 0.00;
+
+        return { name, brand, variantName: null, price };
+
     } catch (error) {
-        console.error(`Error scraping details for ${url}:`, error.message);
-        return null;
+        console.error(`\n[Amazon SDK] FATAL ERROR for ${url}:`);
+        
+        // The SDK error structure varies, so we attempt to log the most descriptive parts
+        if (error.response && error.response.text) {
+            console.error("Response Body:", error.response.text);
+        } else if (error.body) {
+            console.error("Error Body:", error.body);
+        } else {
+            console.error("Raw Error Object:", error);
+        }
+        
+        console.error("\nTerminating process to prevent cascading failures.");
+        process.exit(1);
     }
+}
+
+async function getPrice(url) {
+    const details = await getFullDetails(url);
+    return details ? details.price : null;
 }
 
 export { getPrice, getFullDetails };
