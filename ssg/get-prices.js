@@ -198,14 +198,15 @@ async function buildHtml() {
 
         const proteinPerServing = attrs.protein_g || 0;
         const servings = attrs.servings || 0;
+        const calories = attrs.calories || 0;
         const qualityPct = attrs.quality_pct || 1;
         const attrsJson = JSON.stringify(attrs).replace(/'/g, "&apos;");
 
         tableRows += `
             <tr data-item-id="${item.id}" data-variant-id="${variant.id}" data-url="${row.url}"
                 data-attrs='${attrsJson}'
-                data-price="${priceNum}" data-protein="${proteinPerServing}" 
-                data-servings="${servings}" data-quality="${qualityPct}"
+                data-price="${priceNum}" data-protein="${proteinPerServing}"
+                data-servings="${servings}" data-calories="${calories}" data-quality="${qualityPct}"
                 data-item-name="${item.name || ''}" data-variant-name="${variant.name || ''}">
                 <td class="cell-brand">${item.brand || '-'}</td>
                 <td class="cell-product"><a href="${row.url}" target="_blank" style="color: #bb86fc; text-decoration: none;">${item.name || 'Pending Data'}</a></td>
@@ -213,6 +214,7 @@ async function buildHtml() {
                 <td>${row.store}</td>
                 <td class="cell-size">${attrs.size_lbs || '-'}</td>
                 <td class="cell-servings">${servings || '-'}</td>
+                <td class="cell-calories">${calories || '-'}</td>
                 <td class="cell-protein">${proteinPerServing || '-'}</td>
                 <td class="cell-quality">${(qualityPct * 100).toFixed(0)}%</td>
                 <td>${priceDisplay}</td>
@@ -252,6 +254,7 @@ permalink: /fitness/protein-price-comparison.html
                 <th>Store</th>
                 <th>Size (lbs)</th>
                 <th>Servings</th>
+                <th>Calories</th>
                 <th>Protein (g)</th>
                 <th style="white-space: nowrap;">Quality % <span data-tooltip="Factor in Quality % for $/Gram Protein" style="display: inline-block; vertical-align: middle;"><input type="checkbox" id="toggleQuality" checked style="margin-left: 5px; cursor: pointer;"></span></th>
                 <th>Current Price</th>
@@ -301,9 +304,9 @@ permalink: /fitness/protein-price-comparison.html
                 let p, s, q;
                 if (btn.textContent === 'Save') {
                     const ins = row.querySelectorAll('input');
-                    s = parseFloat(ins[4].value) || 0;
-                    p = parseFloat(ins[5].value) || 0;
-                    q = parseFloat(ins[6].value) || 0;
+                    s = parseFloat(ins[4].value) || 0; // Servings index
+                    p = parseFloat(ins[6].value) || 0; // Protein index
+                    q = parseFloat(ins[7].value) || 0; // Quality index
                 } else {
                     p = parseFloat(row.getAttribute('data-protein'));
                     s = parseFloat(row.getAttribute('data-servings'));
@@ -326,12 +329,13 @@ permalink: /fitness/protein-price-comparison.html
                 btn.textContent = 'Save';
                 input.classList.remove('hidden');
                 rows.forEach(row => {
-                    const cells = ['.cell-brand', '.cell-product', '.cell-variant', '.cell-size', '.cell-servings', '.cell-protein', '.cell-quality'];
+                    const cells = ['.cell-brand', '.cell-product', '.cell-variant', '.cell-size', '.cell-servings', '.cell-calories', '.cell-protein', '.cell-quality'];
                     const vals = [
                         row.querySelector('.cell-brand').textContent === '-' ? '' : row.querySelector('.cell-brand').textContent,
                         row.dataset.itemName, row.dataset.variantName,
                         row.querySelector('.cell-size').textContent === '-' ? '' : row.querySelector('.cell-size').textContent,
-                        row.dataset.servings, row.dataset.protein, row.dataset.quality
+                        row.dataset.servings, row.dataset.calories,
+                        row.dataset.protein, row.dataset.quality
                     ];
                     cells.forEach((c, i) => {
                         const cell = row.querySelector(c);
@@ -351,8 +355,9 @@ permalink: /fitness/protein-price-comparison.html
                 for (const row of rows) {
                     const ins = row.querySelectorAll('input');
                     const b = ins[0].value, n = ins[1].value, v = ins[2].value, s = parseFloat(ins[3].value) || 0;
-                    const sv = parseFloat(ins[4].value) || 0, p = parseFloat(ins[5].value) || 0, q = parseFloat(ins[6].value) || 0;
-                    const attrs = { ...JSON.parse(row.dataset.attrs || '{}'), size_lbs: s, servings: sv, protein_g: p, quality_pct: q };
+                    const sv = parseFloat(ins[4].value) || 0, cal = parseFloat(ins[5].value) || 0;
+                    const p = parseFloat(ins[6].value) || 0, q = parseFloat(ins[7].value) || 0;
+                    const attrs = { ...JSON.parse(row.dataset.attrs || '{}'), size_lbs: s, servings: sv, calories: cal, protein_g: p, quality_pct: q };
                     
                     await window.supabaseClient.from('ltg_item').update({ brand: b, name: n }).eq('id', row.dataset.itemId);
                     await window.supabaseClient.from('ltg_item_variant').update({ name: v, attributes: attrs }).eq('id', row.dataset.variantId);
@@ -362,10 +367,11 @@ permalink: /fitness/protein-price-comparison.html
                     row.querySelector('.cell-variant').textContent = v || '-';
                     row.querySelector('.cell-size').textContent = s || '-';
                     row.querySelector('.cell-servings').textContent = sv || '-';
+                    row.querySelector('.cell-calories').textContent = cal || '-';
                     row.querySelector('.cell-protein').textContent = p || '-';
                     row.querySelector('.cell-quality').textContent = (q * 100).toFixed(0) + '%';
                     
-                    row.dataset.itemName = n; row.dataset.variantName = v; row.dataset.servings = sv; row.dataset.protein = p; row.dataset.quality = q;
+                    row.dataset.itemName = n; row.dataset.variantName = v; row.dataset.servings = sv; row.dataset.calories = cal; row.dataset.protein = p; row.dataset.quality = q;
                     row.dataset.attrs = JSON.stringify(attrs);
                 }
                 btn.textContent = 'Edit';
