@@ -66,13 +66,54 @@ export async function updateChannel(hubSlug, options = {}) {
         fs.writeFileSync(manualPath, manualContent);
     }
 
+    // --- DYNAMIC AGGREGATION FOR DASHBOARD ---
+    // This sums up all content within the hub to ensure the Dashboard shows accurate totals
+    const dashboardTotals = {
+        total_games: 0,
+        total_videos: 0,
+        total_views: 0,
+        total_likes: 0,
+        total_comments: 0,
+        total_duration: 0,
+        first_pub: null,
+        last_pub: null
+    };
+
+    const uniqueGameSlugs = new Set();
+    context.channels.forEach(ch => {
+        ch.games.forEach(game => {
+            if (!uniqueGameSlugs.has(game.slug)) {
+                uniqueGameSlugs.add(game.slug);
+                dashboardTotals.total_games++;
+            }
+            
+            game.ltg_series_playlists?.forEach(sp => {
+                const s = sp.ltg_playlists?.ltg_playlist_stats?.[0];
+                if (s) {
+                    dashboardTotals.total_videos += parseInt(s.ep_count || 0);
+                    dashboardTotals.total_views += parseInt(s.total_views || 0);
+                    dashboardTotals.total_likes += parseInt(s.total_likes || 0);
+                    dashboardTotals.total_comments += parseInt(s.total_comments || 0);
+                    dashboardTotals.total_duration += parseInt(s.total_duration || 0);
+
+                    if (s.first_published_at && (!dashboardTotals.first_pub || new Date(s.first_published_at) < new Date(dashboardTotals.first_pub))) {
+                        dashboardTotals.first_pub = s.first_published_at;
+                    }
+                    if (s.latest_published_at && (!dashboardTotals.last_pub || new Date(s.latest_published_at) > new Date(dashboardTotals.last_pub))) {
+                        dashboardTotals.last_pub = s.latest_published_at;
+                    }
+                }
+            });
+        });
+    });
+
     if (!anyUpdates && !isForce && fs.existsSync(indexPath)) {
         console.log(`\n⏩ Channel Root skipped (All child series are up-to-date).`);
         return { success: true, skipped: true, totalEpisodes, errors: channelErrors };
     }
 
     console.log(`  🏗️ Rebuilding Channel Root Index for ${context.hubSlug}...`);
-    const html = channelHTML({ ...context, manualContent });
+    const html = channelHTML({ ...context, dashboardTotals, manualContent });
     writeStaticPage(indexPath, html);
     console.log(`  ✅ Channel Index generated at: ${indexPath}`);
 
