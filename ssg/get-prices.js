@@ -304,9 +304,9 @@ permalink: /fitness/protein-price-comparison.html
                 let p, s, q;
                 if (btn.textContent === 'Save') {
                     const ins = row.querySelectorAll('input');
-                    s = parseFloat(ins[4].value) || 0; // Servings index
-                    p = parseFloat(ins[6].value) || 0; // Protein index
-                    q = parseFloat(ins[7].value) || 0; // Quality index
+                    s = parseFloat(ins[4].value) || 0;
+                    p = parseFloat(ins[6].value) || 0;
+                    q = (parseFloat(ins[7].value) || 0) / 100;
                 } else {
                     p = parseFloat(row.getAttribute('data-protein'));
                     s = parseFloat(row.getAttribute('data-servings'));
@@ -335,8 +335,7 @@ permalink: /fitness/protein-price-comparison.html
                         row.querySelector('.cell-brand').textContent === '-' ? '' : row.querySelector('.cell-brand').textContent,
                         row.dataset.itemName, row.dataset.variantName,
                         row.querySelector('.cell-size').textContent === '-' ? '' : row.querySelector('.cell-size').textContent,
-                        row.dataset.servings, row.dataset.calories,
-                        row.dataset.protein, row.dataset.quality
+                        row.dataset.servings, row.dataset.calories, row.dataset.protein, parseFloat(row.dataset.quality) * 100
                     ];
                     cells.forEach((c, i) => {
                         const cell = row.querySelector(c);
@@ -361,9 +360,9 @@ permalink: /fitness/protein-price-comparison.html
                     console.log("[Save] Processing Row - Item ID: " + iId + ", Variant ID: " + vId);
 
                     const ins = row.querySelectorAll('input');
-                    const b = ins[0].value, n = ins[1].value, v = ins[2].value, s = parseFloat(ins[3].value) || 0;
                     const sv = parseFloat(ins[4].value) || 0, cal = parseFloat(ins[5].value) || 0;
                     const p = parseFloat(ins[6].value) || 0, q = parseFloat(ins[7].value) || 0;
+                    const p = parseFloat(ins[6].value) || 0, q = (parseFloat(ins[7].value) || 0) / 100;
                     const attrs = { ...JSON.parse(row.dataset.attrs || '{}'), size_lbs: s, servings: sv, calories: cal, protein_g: p, quality_pct: q };
                     
                     console.log("[Save] -> Updating ltg_item (id: " + iId + ") with brand: " + b + ", name: " + n);
