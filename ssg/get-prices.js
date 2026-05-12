@@ -50,7 +50,7 @@ async function processQueue() {
         const { data: variant, error: varErr } = await supabase.from('ltg_item_variant').insert({
             item_id: item.id,
             name: details.variantName,
-            attributes: { size_lbs: 0, servings: 0, calories: 0, protein_g: 0, quality_pct: 1.0 }
+            attributes: { size_lbs: 0, servings: 0, calories: 0, protein_g: 0, quality_pct: 100 }
         }).select().single();
         if (varErr) { console.error("[Queue] Variant insert error:", varErr); process.exit(1); }
 
@@ -199,7 +199,7 @@ async function buildHtml() {
         const proteinPerServing = attrs.protein_g || 0;
         const servings = attrs.servings || 0;
         const calories = attrs.calories || 0;
-        const qualityPct = attrs.quality_pct || 1;
+        const qualityPct = attrs.quality_pct ?? 100;
         const attrsJson = JSON.stringify(attrs).replace(/'/g, "&apos;");
 
         tableRows += `
@@ -216,7 +216,7 @@ async function buildHtml() {
                 <td class="cell-servings">${servings || '-'}</td>
                 <td class="cell-calories">${calories || '-'}</td>
                 <td class="cell-protein">${proteinPerServing || '-'}</td>
-                <td class="cell-quality">${(qualityPct * 100).toFixed(0)}%</td>
+                <td class="cell-quality">${qualityPct.toFixed(0)}%</td>
                 <td>${priceDisplay}</td>
                 <td class="calc-price-per-gram">N/A</td>
                 <td>${dateDisplay}</td>
@@ -306,15 +306,15 @@ permalink: /fitness/protein-price-comparison.html
                     const ins = row.querySelectorAll('input');
                     s = parseFloat(ins[4].value) || 0; // Servings
                     p = parseFloat(ins[6].value) || 0; // Protein
-                    q = (parseFloat(ins[7].value) || 0) / 100; // Quality %
+                    q = parseFloat(ins[7].value) || 0; // Quality % (0-100)
                 } else {
                     p = parseFloat(row.dataset.protein) || 0;
                     s = parseFloat(row.dataset.servings) || 0;
-                    q = parseFloat(row.dataset.quality) || 1;
+                    q = parseFloat(row.dataset.quality) || 100;
                 }
                 const cell = row.querySelector('.calc-price-per-gram');
                 if (price > 0 && p > 0 && s > 0) {
-                    const effQ = (toggle && toggle.checked) ? q : 1;
+                    const effQ = (toggle && toggle.checked) ? q / 100 : 1;
                     cell.textContent = '$' + (price / (p * s * effQ)).toFixed(4);
                 } else {
                     cell.textContent = 'N/A';
@@ -340,7 +340,7 @@ permalink: /fitness/protein-price-comparison.html
                         row.querySelector('.cell-brand').textContent === '-' ? '' : row.querySelector('.cell-brand').textContent,
                         row.dataset.itemName, row.dataset.variantName,
                         row.querySelector('.cell-size').textContent === '-' ? '' : row.querySelector('.cell-size').textContent,
-                        row.dataset.servings, row.dataset.calories, row.dataset.protein, parseFloat(row.dataset.quality) * 100
+                        row.dataset.servings, row.dataset.calories, row.dataset.protein, parseFloat(row.dataset.quality)
                     ];
                     cells.forEach((c, i) => {
                         const cell = row.querySelector(c);
@@ -367,7 +367,7 @@ permalink: /fitness/protein-price-comparison.html
                     const ins = row.querySelectorAll('input');
                     const b = ins[0].value, n = ins[1].value, v = ins[2].value, s = parseFloat(ins[3].value) || 0;
                     const sv = parseFloat(ins[4].value) || 0, cal = parseFloat(ins[5].value) || 0;
-                    const p = parseFloat(ins[6].value) || 0, q = (parseFloat(ins[7].value) || 0) / 100;
+                    const p = parseFloat(ins[6].value) || 0, q = parseFloat(ins[7].value) || 0;
                     const attrs = { ...JSON.parse(row.dataset.attrs || '{}'), size_lbs: s, servings: sv, calories: cal, protein_g: p, quality_pct: q };
                     
                     console.log("[Save] -> Updating ltg_item (id: " + iId + ") with brand: " + b + ", name: " + n);
@@ -389,7 +389,7 @@ permalink: /fitness/protein-price-comparison.html
                     row.querySelector('.cell-servings').textContent = sv || '-';
                     row.querySelector('.cell-calories').textContent = cal || '-';
                     row.querySelector('.cell-protein').textContent = p || '-';
-                    row.querySelector('.cell-quality').textContent = (q * 100).toFixed(0) + '%';
+                    row.querySelector('.cell-quality').textContent = q.toFixed(0) + '%';
                     
                     row.dataset.itemName = n; row.dataset.variantName = v; row.dataset.servings = sv; row.dataset.calories = cal; row.dataset.protein = p; row.dataset.quality = q;
                     row.dataset.attrs = JSON.stringify(attrs);

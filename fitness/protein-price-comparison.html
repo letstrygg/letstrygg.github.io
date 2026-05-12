@@ -40,7 +40,7 @@ permalink: /fitness/protein-price-comparison.html
             
             <tr data-item-id="6603f632-6d15-4078-bf03-d96c6f02c474" data-variant-id="3d668517-af45-40aa-8ccd-d4e1f7508499" data-url="https://www.amazon.com/dp/B000QSTBNS?tag=letstrygg.com-20&linkCode=ll2&language=en_US"
                 data-attrs='{"calories":120,"servings":71,"size_lbs":5,"protein_g":24,"quality_pct":100}'
-                data-price="89.99" data-protein="24"
+                data-price="68.99" data-protein="24"
                 data-servings="71" data-calories="120" data-quality="100"
                 data-item-name="Gold Standard 100% Whey" data-variant-name="Extreme Milk Chocolate">
                 <td class="cell-brand">Optimum Nutrition</td>
@@ -51,8 +51,8 @@ permalink: /fitness/protein-price-comparison.html
                 <td class="cell-servings">71</td>
                 <td class="cell-calories">120</td>
                 <td class="cell-protein">24</td>
-                <td class="cell-quality">10000%</td>
-                <td>$89.99</td>
+                <td class="cell-quality">100%</td>
+                <td>$68.99</td>
                 <td class="calc-price-per-gram">N/A</td>
                 <td>5/11/2026</td>
             </tr>
@@ -99,15 +99,15 @@ permalink: /fitness/protein-price-comparison.html
                     const ins = row.querySelectorAll('input');
                     s = parseFloat(ins[4].value) || 0; // Servings
                     p = parseFloat(ins[6].value) || 0; // Protein
-                    q = (parseFloat(ins[7].value) || 0) / 100; // Quality %
+                    q = parseFloat(ins[7].value) || 0; // Quality % (0-100)
                 } else {
                     p = parseFloat(row.dataset.protein) || 0;
                     s = parseFloat(row.dataset.servings) || 0;
-                    q = parseFloat(row.dataset.quality) || 1;
+                    q = parseFloat(row.dataset.quality) || 100;
                 }
                 const cell = row.querySelector('.calc-price-per-gram');
                 if (price > 0 && p > 0 && s > 0) {
-                    const effQ = (toggle && toggle.checked) ? q : 1;
+                    const effQ = (toggle && toggle.checked) ? q / 100 : 1;
                     cell.textContent = '$' + (price / (p * s * effQ)).toFixed(4);
                 } else {
                     cell.textContent = 'N/A';
@@ -133,7 +133,7 @@ permalink: /fitness/protein-price-comparison.html
                         row.querySelector('.cell-brand').textContent === '-' ? '' : row.querySelector('.cell-brand').textContent,
                         row.dataset.itemName, row.dataset.variantName,
                         row.querySelector('.cell-size').textContent === '-' ? '' : row.querySelector('.cell-size').textContent,
-                        row.dataset.servings, row.dataset.calories, row.dataset.protein, parseFloat(row.dataset.quality) * 100
+                        row.dataset.servings, row.dataset.calories, row.dataset.protein, parseFloat(row.dataset.quality)
                     ];
                     cells.forEach((c, i) => {
                         const cell = row.querySelector(c);
@@ -160,7 +160,7 @@ permalink: /fitness/protein-price-comparison.html
                     const ins = row.querySelectorAll('input');
                     const b = ins[0].value, n = ins[1].value, v = ins[2].value, s = parseFloat(ins[3].value) || 0;
                     const sv = parseFloat(ins[4].value) || 0, cal = parseFloat(ins[5].value) || 0;
-                    const p = parseFloat(ins[6].value) || 0, q = (parseFloat(ins[7].value) || 0) / 100;
+                    const p = parseFloat(ins[6].value) || 0, q = parseFloat(ins[7].value) || 0;
                     const attrs = { ...JSON.parse(row.dataset.attrs || '{}'), size_lbs: s, servings: sv, calories: cal, protein_g: p, quality_pct: q };
                     
                     console.log("[Save] -> Updating ltg_item (id: " + iId + ") with brand: " + b + ", name: " + n);
@@ -182,7 +182,7 @@ permalink: /fitness/protein-price-comparison.html
                     row.querySelector('.cell-servings').textContent = sv || '-';
                     row.querySelector('.cell-calories').textContent = cal || '-';
                     row.querySelector('.cell-protein').textContent = p || '-';
-                    row.querySelector('.cell-quality').textContent = (q * 100).toFixed(0) + '%';
+                    row.querySelector('.cell-quality').textContent = q.toFixed(0) + '%';
                     
                     row.dataset.itemName = n; row.dataset.variantName = v; row.dataset.servings = sv; row.dataset.calories = cal; row.dataset.protein = p; row.dataset.quality = q;
                     row.dataset.attrs = JSON.stringify(attrs);
