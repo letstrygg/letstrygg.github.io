@@ -12,9 +12,34 @@ export async function updateChannel(hubSlug, options = {}) {
     const context = await getChannelContext(hubSlug);
     
     const allUniqueGames = new Map();
+    let aggVideos = 0, aggViews = 0, aggLikes = 0, aggComments = 0, aggDuration = 0;
+    let firstDate = null, lastDate = null;
+
     context.channels.forEach(ch => {
+        // Aggregate numerical stats
+        aggVideos += (ch.total_videos || 0);
+        aggViews += (ch.total_views || 0);
+        aggLikes += (ch.total_likes || 0);
+        aggComments += (ch.total_comments || 0);
+        aggDuration += (ch.total_duration_s || 0);
+
+        // Aggregate date boundaries for Age and Inactivity calculations
+        if (ch.first_video_at && (!firstDate || new Date(ch.first_video_at) < new Date(firstDate))) firstDate = ch.first_video_at;
+        if (ch.last_video_at && (!lastDate || new Date(ch.last_video_at) > new Date(lastDate))) lastDate = ch.last_video_at;
+
         ch.games.forEach(g => allUniqueGames.set(g.slug, g));
     });
+
+    // Overwrite context totals with aggregated sums from all child channels
+    context.total_videos = aggVideos;
+    context.total_views = aggViews;
+    context.total_likes = aggLikes;
+    context.total_comments = aggComments;
+    context.total_duration_s = aggDuration;
+    context.total_games = allUniqueGames.size;
+    context.first_video_at = firstDate;
+    context.last_video_at = lastDate;
+
     const gamesList = Array.from(allUniqueGames.values());
     const channelFamily = context.channels.map(c => c.channelSlug);
 
