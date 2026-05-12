@@ -284,16 +284,16 @@ permalink: /fitness/protein-price-comparison.html
             const url = input.value.trim();
             const match = url.match(/\\/dp\\/([A-Z0-9]{10})/i);
             const asin = match ? match[1] : null;
-            if (!asin) return alert('Invalid Amazon URL');
+            if (!asin) return;
             
             input.disabled = true;
             const { data: existing } = await window.supabaseClient.from('ltg_item_listing').select('id').ilike('url', '%' + asin + '%').limit(1);
             if (existing && existing.length > 0) {
-                alert('Already tracked');
+                console.log("[Queue] ASIN " + asin + " is already tracked.");
             } else {
                 const { error } = await window.supabaseClient.from('ltg_item_queue').insert([{ url: url, category: 'protein_powder' }]);
-                if (error) alert(error.message);
-                else { alert('Added to queue!'); input.value = ''; }
+                if (error) console.error("[Queue] Database error:", error.message);
+                else input.value = '';
             }
             input.disabled = false;
         });

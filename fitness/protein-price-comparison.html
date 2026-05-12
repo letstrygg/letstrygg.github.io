@@ -40,7 +40,7 @@ permalink: /fitness/protein-price-comparison.html
             
             <tr data-item-id="6603f632-6d15-4078-bf03-d96c6f02c474" data-variant-id="3d668517-af45-40aa-8ccd-d4e1f7508499" data-url="https://www.amazon.com/dp/B000QSTBNS?tag=letstrygg.com-20&linkCode=ll2&language=en_US"
                 data-attrs='{"calories":120,"servings":71,"size_lbs":5,"protein_g":24,"quality_pct":100}'
-                data-price="68.99" data-protein="24"
+                data-price="89.99" data-protein="24"
                 data-servings="71" data-calories="120" data-quality="100"
                 data-item-name="Gold Standard 100% Whey" data-variant-name="Extreme Milk Chocolate">
                 <td class="cell-brand">Optimum Nutrition</td>
@@ -52,7 +52,45 @@ permalink: /fitness/protein-price-comparison.html
                 <td class="cell-calories">120</td>
                 <td class="cell-protein">24</td>
                 <td class="cell-quality">100%</td>
-                <td>$68.99</td>
+                <td>$89.99</td>
+                <td class="calc-price-per-gram">N/A</td>
+                <td>5/11/2026</td>
+            </tr>
+        
+            <tr data-item-id="23429e43-0a36-4c12-b66b-4f6dd780069d" data-variant-id="ac092e2e-23ba-4539-b9c6-0dfe3d53ec52" data-url="https://www.amazon.com/dp/B0B5L8KLWT?tag=letstrygg.com-20&linkCode=ll2&language=en_US"
+                data-attrs='{"calories":0,"servings":0,"size_lbs":0,"protein_g":0,"quality_pct":100}'
+                data-price="22.99" data-protein="0"
+                data-servings="0" data-calories="0" data-quality="100"
+                data-item-name="Muscle Milk Genuine Protein Powder, Chocolate, 1.93 Pounds, 13 Servings, 32g Protein, 2g Sugar, Calcium, Vitamins A, C & D, NSF Certified for Sport, Energizing Snack, Packaging May Vary" data-variant-name="">
+                <td class="cell-brand">Muscle Milk</td>
+                <td class="cell-product"><a href="https://www.amazon.com/dp/B0B5L8KLWT?tag=letstrygg.com-20&linkCode=ll2&language=en_US" target="_blank" style="color: #bb86fc; text-decoration: none;">Muscle Milk Genuine Protein Powder, Chocolate, 1.93 Pounds, 13 Servings, 32g Protein, 2g Sugar, Calcium, Vitamins A, C & D, NSF Certified for Sport, Energizing Snack, Packaging May Vary</a></td>
+                <td class="cell-variant">-</td>
+                <td>amazon</td>
+                <td class="cell-size">-</td>
+                <td class="cell-servings">-</td>
+                <td class="cell-calories">-</td>
+                <td class="cell-protein">-</td>
+                <td class="cell-quality">100%</td>
+                <td>$22.99</td>
+                <td class="calc-price-per-gram">N/A</td>
+                <td>5/11/2026</td>
+            </tr>
+        
+            <tr data-item-id="8959cd57-a31e-4336-b401-b83a46171bee" data-variant-id="624c0256-220c-45b0-81c4-fc315f138d11" data-url="https://www.amazon.com/dp/B002DUD6QU?tag=letstrygg.com-20&linkCode=ll2&language=en_US"
+                data-attrs='{"calories":0,"servings":0,"size_lbs":0,"protein_g":0,"quality_pct":100}'
+                data-price="58.81" data-protein="0"
+                data-servings="0" data-calories="0" data-quality="100"
+                data-item-name="Muscle Milk Genuine Protein Powder, Chocolate, 4.94 Pound, 32 Servings, 32g Protein, 2g Sugar, Calcium, Vitamins A, C & D, NSF Certified for Sport, Energizing Snack, Packaging May Vary" data-variant-name="">
+                <td class="cell-brand">Muscle Milk</td>
+                <td class="cell-product"><a href="https://www.amazon.com/dp/B002DUD6QU?tag=letstrygg.com-20&linkCode=ll2&language=en_US" target="_blank" style="color: #bb86fc; text-decoration: none;">Muscle Milk Genuine Protein Powder, Chocolate, 4.94 Pound, 32 Servings, 32g Protein, 2g Sugar, Calcium, Vitamins A, C & D, NSF Certified for Sport, Energizing Snack, Packaging May Vary</a></td>
+                <td class="cell-variant">-</td>
+                <td>amazon</td>
+                <td class="cell-size">-</td>
+                <td class="cell-servings">-</td>
+                <td class="cell-calories">-</td>
+                <td class="cell-protein">-</td>
+                <td class="cell-quality">100%</td>
+                <td>$58.81</td>
                 <td class="calc-price-per-gram">N/A</td>
                 <td>5/11/2026</td>
             </tr>
@@ -77,16 +115,16 @@ permalink: /fitness/protein-price-comparison.html
             const url = input.value.trim();
             const match = url.match(/\/dp\/([A-Z0-9]{10})/i);
             const asin = match ? match[1] : null;
-            if (!asin) return alert('Invalid Amazon URL');
+            if (!asin) return;
             
             input.disabled = true;
             const { data: existing } = await window.supabaseClient.from('ltg_item_listing').select('id').ilike('url', '%' + asin + '%').limit(1);
             if (existing && existing.length > 0) {
-                alert('Already tracked');
+                console.log("[Queue] ASIN " + asin + " is already tracked.");
             } else {
                 const { error } = await window.supabaseClient.from('ltg_item_queue').insert([{ url: url, category: 'protein_powder' }]);
-                if (error) alert(error.message);
-                else { alert('Added to queue!'); input.value = ''; }
+                if (error) console.error("[Queue] Database error:", error.message);
+                else input.value = '';
             }
             input.disabled = false;
         });
