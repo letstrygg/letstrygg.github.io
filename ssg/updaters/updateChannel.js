@@ -18,55 +18,59 @@ export async function updateChannel(hubSlug, options = {}) {
 
     context.channels.forEach(ch => {
         // Aggregate numerical stats
-        aggVideos += (ch.total_videos || 0);
-        aggViews += (ch.total_views || 0);
-        aggLikes += (ch.total_likes || 0);
-        aggComments += (ch.total_comments || 0);
-        aggDuration += (ch.total_duration_s || 0);
+        aggVideos += (ch.totalVideos || ch.total_videos || 0);
+        aggViews += (ch.totalViews || ch.total_views || 0);
+        aggLikes += (ch.totalLikes || ch.total_likes || 0);
+        aggComments += (ch.totalComments || ch.total_comments || 0);
+        aggDuration += (ch.totalDuration || ch.total_duration || ch.total_duration_s || 0);
 
         // Aggregate date boundaries for Age and Inactivity calculations
-        if (ch.first_video_at && (!firstDate || new Date(ch.first_video_at) < new Date(firstDate))) firstDate = ch.first_video_at;
-        if (ch.last_video_at && (!lastDate || new Date(ch.last_video_at) > new Date(lastDate))) lastDate = ch.last_video_at;
+        const chFirst = ch.firstVideoAt || ch.first_video_at;
+        const chLast = ch.lastVideoAt || ch.last_video_at;
+        if (chFirst && (!firstDate || new Date(chFirst) < new Date(firstDate))) firstDate = chFirst;
+        if (chLast && (!lastDate || new Date(chLast) > new Date(lastDate))) lastDate = chLast;
 
         ch.games.forEach(g => allUniqueGames.set(g.slug, g));
     });
 
-    // Overwrite context totals with aggregated sums from all child channels
-    context.total_videos = aggVideos;
-    context.total_views = aggViews;
-    context.total_likes = aggLikes;
-    context.total_comments = aggComments;
-    context.total_duration_s = aggDuration;
-    context.total_games = allUniqueGames.size;
-    context.first_video_at = firstDate;
-    context.last_video_at = lastDate;
+    // Set values in context, preferring existing non-zero values from the DB if they exist.
+    // We map both formats to the camelCase keys expected by the channelHTML/hubHTML templates.
+    context.totalVideos = context.totalVideos || context.total_videos || aggVideos;
+    context.totalViews = context.totalViews || context.total_views || aggViews;
+    context.totalLikes = context.totalLikes || context.total_likes || aggLikes;
+    context.totalComments = context.totalComments || context.total_comments || aggComments;
+    context.totalDuration = context.totalDuration || context.total_duration || context.total_duration_s || aggDuration;
+    context.totalGames = context.totalGames || context.total_games || allUniqueGames.size;
+    
+    context.firstVideoAt = context.firstVideoAt || context.first_video_at || firstDate;
+    context.lastVideoAt = context.lastVideoAt || context.last_video_at || lastDate;
 
     // Recalculate Hub Averages for "PER GAME" and "PER VID" sections
-    const gameCount = Math.max(1, context.total_games);
-    const vidCount = Math.max(1, context.total_videos);
+    const gameCount = Math.max(1, context.totalGames);
+    const vidCount = Math.max(1, context.totalVideos);
 
     context.averages = {
-        videos: Math.round(context.total_videos / gameCount),
-        views: Math.round(context.total_views / gameCount),
-        likes: Math.round(context.total_likes / gameCount),
-        comments: Math.round(context.total_comments / gameCount),
-        duration: Math.round(context.total_duration_s / gameCount),
+        videos: Math.round(context.totalVideos / gameCount),
+        views: Math.round(context.totalViews / gameCount),
+        likes: Math.round(context.totalLikes / gameCount),
+        comments: Math.round(context.totalComments / gameCount),
+        duration: Math.round(context.totalDuration / gameCount),
         
-        viewsPerVid: Math.round(context.total_views / vidCount),
-        likesPerVid: Math.round(context.total_likes / vidCount),
-        commentsPerVid: Math.round(context.total_comments / vidCount),
-        durPerVid: Math.round(context.total_duration_s / vidCount)
+        viewsPerVid: Math.round(context.totalViews / vidCount),
+        likesPerVid: Math.round(context.totalLikes / vidCount),
+        commentsPerVid: Math.round(context.totalComments / vidCount),
+        durPerVid: Math.round(context.totalDuration / vidCount)
     };
 
     // Recalculate derived analytics for the combined hub header
-    const firstTs = firstDate ? new Date(firstDate).getTime() : null;
+    const firstTs = context.firstVideoAt ? new Date(context.firstVideoAt).getTime() : null;
     const ageDays = StatsCalc.daysBetween(firstTs);
     context.adv = {
         age: ageDays,
-        inactive: StatsCalc.daysBetween(lastDate ? new Date(lastDate).getTime() : null),
-        vel: StatsCalc.velocity(aggViews, ageDays),
-        heat: StatsCalc.popularity(aggViews, aggLikes, aggComments, StatsCalc.hoursBetween(firstTs)),
-        gem: StatsCalc.hiddenGemScore(aggViews, aggLikes, aggComments)
+        inactive: StatsCalc.daysBetween(context.lastVideoAt ? new Date(context.lastVideoAt).getTime() : null),
+        vel: StatsCalc.velocity(context.totalViews, ageDays),
+        heat: StatsCalc.popularity(context.totalViews, context.totalLikes, context.totalComments, StatsCalc.hoursBetween(firstTs)),
+        gem: StatsCalc.hiddenGemScore(context.totalViews, context.totalLikes, context.totalComments)
     };
 
     const gamesList = Array.from(allUniqueGames.values());
