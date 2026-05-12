@@ -3,6 +3,7 @@ import { getChannelContext } from '../utils/db.js';
 import { writeStaticPage } from '../utils/fileSys.js';
 import { channelHTML, hubHTML } from '../utils/templates/index.js'; 
 import { updateSeries } from './updateSeries.js';
+import { StatsCalc } from '../utils/statsCalc.js';
 
 export async function updateChannel(hubSlug, options = {}) {
     const isForce = options.force || false;
@@ -39,6 +40,34 @@ export async function updateChannel(hubSlug, options = {}) {
     context.total_games = allUniqueGames.size;
     context.first_video_at = firstDate;
     context.last_video_at = lastDate;
+
+    // Recalculate Hub Averages for "PER GAME" and "PER VID" sections
+    const gameCount = Math.max(1, context.total_games);
+    const vidCount = Math.max(1, context.total_videos);
+
+    context.averages = {
+        videos: Math.round(context.total_videos / gameCount),
+        views: Math.round(context.total_views / gameCount),
+        likes: Math.round(context.total_likes / gameCount),
+        comments: Math.round(context.total_comments / gameCount),
+        duration: Math.round(context.total_duration_s / gameCount),
+        
+        viewsPerVid: Math.round(context.total_views / vidCount),
+        likesPerVid: Math.round(context.total_likes / vidCount),
+        commentsPerVid: Math.round(context.total_comments / vidCount),
+        durPerVid: Math.round(context.total_duration_s / vidCount)
+    };
+
+    // Recalculate derived analytics for the combined hub header
+    const firstTs = firstDate ? new Date(firstDate).getTime() : null;
+    const ageDays = StatsCalc.daysBetween(firstTs);
+    context.adv = {
+        age: ageDays,
+        inactive: StatsCalc.daysBetween(lastDate ? new Date(lastDate).getTime() : null),
+        vel: StatsCalc.velocity(aggViews, ageDays),
+        heat: StatsCalc.popularity(aggViews, aggLikes, aggComments, StatsCalc.hoursBetween(firstTs)),
+        gem: StatsCalc.hiddenGemScore(aggViews, aggLikes, aggComments)
+    };
 
     const gamesList = Array.from(allUniqueGames.values());
     const channelFamily = context.channels.map(c => c.channelSlug);
@@ -91,7 +120,8 @@ export async function updateChannel(hubSlug, options = {}) {
         fs.writeFileSync(manualPath, manualContent);
     }
 
-    if (!anyUpdates && !isForce && fs.existsSync(indexPath)) {
+    // Only skip if there were no updates AND we aren't forcing AND we aren't in "index only" mode
+    if (!anyUpdates && !isForce && !options.noCascade && fs.existsSync(indexPath)) {
         console.log(`\n⏩ Channel Root skipped (All child series are up-to-date).`);
         return { success: true, skipped: true, totalEpisodes, errors: channelErrors };
     }
