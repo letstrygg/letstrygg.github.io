@@ -42,9 +42,15 @@ node ssg/update.js series slay-the-spire-2
 
 C:\GitHub\letstrygg\node sync/add.js <PLAYLIST_ID> <SERIES_SLUG> <SEASON>
 node sync/add.js PLkwYKQUqZEUXaY-C4eF136KdxqN8CVQEY backpack-battles 6
+node sync/add.js PLHsGJSiJWyN0 bills-must-be-paid 1
+node sync/add.js PLJL-d-S1wCWs milky-way-idle 1
+node sync/add.js PLa6QeYXnHRv8 cavernous-ii 2
 
+https://www.youtube.com/playlist?list=PLa6QeYXnHRv8
 
-
+need to run generateAutoTags
+need to run updateTags
+need to run update series slay-the-spire-2
 
 
 
