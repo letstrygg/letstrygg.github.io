@@ -45,6 +45,10 @@ node sync/add.js PLkwYKQUqZEUXaY-C4eF136KdxqN8CVQEY backpack-battles 6
 node sync/add.js PLHsGJSiJWyN0 bills-must-be-paid 1
 node sync/add.js PLJL-d-S1wCWs milky-way-idle 1
 node sync/add.js PLa6QeYXnHRv8 cavernous-ii 2
+node sync/add.js PLXfdLOBquoYM loopler 1
+node sync/add.js PLLVr_o1YChrE shardbreakers 1
+node sync/add.js PLEaWpm90oiIc darkest-dungeon 2
+node sync/add.js PLRPmlFUy7YDk moonlighter-2 1
 
 https://www.youtube.com/playlist?list=PLa6QeYXnHRv8
 
